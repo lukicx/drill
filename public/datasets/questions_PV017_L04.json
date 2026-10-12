@@ -9,39 +9,12 @@
     ]
   },
   {
-    "name": "Co podle přednášky zákon vyžaduje místo předepsání konkrétního firewallu?",
-    "answers": [
-      { "body": "Aby organizace věděla, proč má která opatření, kdo za ně odpovídá – a uměla to doložit.", "right": true, "comment": "Slide 4" },
-      { "body": "Aby organizace koupila certifikovaný produkt od NÚKIB.", "right": false },
-      { "body": "Aby organizace měla co nejvíce opatření.", "right": false },
-      { "body": "Nic, zákon se řízení netýká.", "right": false, "comment": "Nový ZoKB vtahuje řízení přímo do zákona (slide 10)." }
-    ]
-  },
-  {
     "name": "Na které ze tří úrovní (řízení, správa, provoz) se stanovuje směr, odpovědnost, dohled a apetit k riziku?",
     "answers": [
       { "body": "Governance – řízení (vrcholné vedení, výbor pro řízení KB)", "right": true, "comment": "Slide 5" },
       { "body": "Management – správa (manažer KB/CISO, architekt KB)", "right": false, "comment": "Správa = plánování, zavádění, měření, zlepšování (slide 5)." },
       { "body": "Operations – provoz (IT provoz, SOC, garanti aktiv, uživatelé)", "right": false, "comment": "Provoz = každodenní výkon opatření, monitoring, reakce (slide 5)." },
       { "body": "Na úrovni externího auditora", "right": false }
-    ]
-  },
-  {
-    "name": "Kterou novou funkci přidal NIST CSF 2.0 (2024)?",
-    "answers": [
-      { "body": "GOVERN", "right": true, "comment": "Slide 5, 17" },
-      { "body": "RECOVER", "right": false, "comment": "Recover byla už ve verzi 1.1 (Identify, Protect, Detect, Respond, Recover) – přednáška 5, slide 26–28; jako nová je na slide 5 označena jen GOVERN." },
-      { "body": "DETECT", "right": false },
-      { "body": "COMPLY", "right": false }
-    ]
-  },
-  {
-    "name": "„Technologie bez procesu je nespravovaná. Proces bez lidí je jen papír. Lidé bez nástrojů nestíhají.“ Které tři složky má řízení KB držet v rovnováze?",
-    "answers": [
-      { "body": "Lidé, procesy, technologie", "right": true, "comment": "Slide 6" },
-      { "body": "Důvěrnost, integrita, dostupnost", "right": false },
-      { "body": "Regulace, audit, sankce", "right": false },
-      { "body": "Plan, Do, Check", "right": false }
     ]
   },
   {
@@ -60,24 +33,6 @@
       { "body": "Právní povinnosti", "right": false, "comment": "Sem patří ZoKB, NIS2, DORA, CRA, GDPR čl. 32 (slide 8)." },
       { "body": "Smluvní povinnosti", "right": false, "comment": "Sem patří požadavky zákazníků, podmínky pojištění, SLA (slide 8)." },
       { "body": "Trestněprávní povinnosti", "right": false }
-    ]
-  },
-  {
-    "name": "Které vyhlášky k zákonu č. 264/2025 Sb. přednáška uvádí a pro jaký režim?",
-    "answers": [
-      { "body": "Vyhl. 409/2025 Sb. – vyšší režim; vyhl. 410/2025 Sb. – nižší režim", "right": true, "comment": "Slide 10" },
-      { "body": "Vyhl. 410/2025 Sb. – vyšší režim; vyhl. 409/2025 Sb. – nižší režim", "right": false },
-      { "body": "Vyhl. 181/2014 Sb. – vyšší režim; vyhl. 264/2025 Sb. – nižší režim", "right": false },
-      { "body": "Obě vyhlášky platí jen pro státní správu", "right": false }
-    ]
-  },
-  {
-    "name": "Co v nižším režimu (vyhl. 410/2025 Sb.) musí udělat vedení organizace v oblasti rolí?",
-    "answers": [
-      { "body": "Určit osobu pověřenou kybernetickou bezpečností a svěřit jí potřebné pravomoci.", "right": true, "comment": "Slide 10, 34" },
-      { "body": "Zřídit výbor pro řízení KB a jmenovat auditora KB.", "right": false, "comment": "To jsou role vyššího režimu (vyhl. 409/2025, slide 34)." },
-      { "body": "Nic, nižší režim role nevyžaduje.", "right": false },
-      { "body": "Najmout externí SOC.", "right": false }
     ]
   },
   {
@@ -117,30 +72,12 @@
     ]
   },
   {
-    "name": "Na kterých fázích PDCA se podle přednášky nejčastěji šetří, a vzniká tak papírová bezpečnost?",
-    "answers": [
-      { "body": "CHECK a ACT", "right": true, "comment": "Slide 15" },
-      { "body": "PLAN a DO", "right": false },
-      { "body": "Pouze PLAN", "right": false },
-      { "body": "Pouze DO", "right": false }
-    ]
-  },
-  {
     "name": "Na co se vztahuje řízení KB, dokud není určen jeho rozsah (scope)?",
     "answers": [
       { "body": "Na celou organizaci", "right": true, "comment": "Slide 16" },
       { "body": "Pouze na IT oddělení", "right": false },
       { "body": "Na nic – bez rozsahu nevzniká povinnost", "right": false },
       { "body": "Pouze na primární aktiva", "right": false }
-    ]
-  },
-  {
-    "name": "Který rámec je podle přednášky zaměřen na bezpečnost průmyslových řídicích systémů (OT, výroba, energetika)?",
-    "answers": [
-      { "body": "IEC 62443", "right": true, "comment": "Slide 17" },
-      { "body": "ISO 22301", "right": false, "comment": "ISO 22301 = řízení kontinuity činností, BCM (slide 17)." },
-      { "body": "COBIT 2019", "right": false, "comment": "COBIT = governance a řízení podnikového IT (slide 17)." },
-      { "body": "CIS Controls v8", "right": false, "comment": "CIS = prioritizovaná technická opatření, praktický start (slide 17)." }
     ]
   },
   {
@@ -181,30 +118,12 @@
     ]
   },
   {
-    "name": "S jakou další povinností hlášení se může souběžně potkat hlášení kybernetického incidentu, pokud jde o osobní údaje?",
-    "answers": [
-      { "body": "GDPR čl. 33 – ohlášení ÚOOÚ do 72 h", "right": true, "comment": "Slide 23" },
-      { "body": "GDPR čl. 33 – ohlášení NÚKIB do 24 h", "right": false },
-      { "body": "Žádnou, GDPR se na incidenty nevztahuje", "right": false },
-      { "body": "Ohlášení Policii ČR do 1 měsíce", "right": false }
-    ]
-  },
-  {
     "name": "Co platí o hierarchii bezpečnostní dokumentace?",
     "answers": [
       { "body": "Bezpečnostní politika říká PROČ a CO, schvaluje ji vrcholné vedení a je stabilní.", "right": true, "comment": "Slide 26" },
       { "body": "Čím níže v hierarchii, tím detailnější, častěji měněné a schvalované na nižší úrovni.", "right": true, "comment": "Slide 26" },
       { "body": "Postupy a procedury určují JAK, KDO a KDY.", "right": true, "comment": "Slide 26" },
       { "body": "Pracovní instrukce schvaluje vždy vrcholné vedení.", "right": false }
-    ]
-  },
-  {
-    "name": "Co platí podle § 305 zákoníku práce o vnitřním předpisu?",
-    "answers": [
-      { "body": "Je závazný pro zaměstnavatele i všechny zaměstnance.", "right": true, "comment": "Slide 28" },
-      { "body": "Musí být písemně a bez zpětné účinnosti a nesmí být v rozporu s právními předpisy.", "right": true, "comment": "Slide 28" },
-      { "body": "Zaměstnanci musí být seznámeni do 15 dnů a předpis se uchovává 10 let.", "right": true, "comment": "Slide 28" },
-      { "body": "Může mít zpětnou účinnost, pokud to schválí vedení.", "right": false }
     ]
   },
   {
@@ -217,40 +136,12 @@
     ]
   },
   {
-    "name": "Které z následujících jsou podle přednášky spouštěče mimořádného přezkumu vnitřního předpisu?",
-    "answers": [
-      { "body": "Nová nebo změněná regulace", "right": true, "comment": "Slide 31" },
-      { "body": "Závažný incident", "right": true, "comment": "Slide 31" },
-      { "body": "Výsledek auditu či kontroly", "right": true, "comment": "Slide 31" },
-      { "body": "Změna hrozeb (varování NÚKIB)", "right": true, "comment": "Slide 31" },
-      { "body": "Změna loga organizace", "right": false }
-    ]
-  },
-  {
-    "name": "Proč je podle přednášky nevymáhaný předpis horší než žádný?",
-    "answers": [
-      { "body": "Dává signál, že pravidla neplatí, a oslabuje pozici organizace při sporu i kontrole.", "right": true, "comment": "Slide 30" },
-      { "body": "Protože jeho tisk stojí peníze.", "right": false },
-      { "body": "Protože NÚKIB za něj automaticky uděluje pokutu.", "right": false },
-      { "body": "Není horší, je to stejné.", "right": false }
-    ]
-  },
-  {
     "name": "Do které linie modelu tří linií patří pověřenec pro ochranu osobních údajů (DPO)?",
     "answers": [
       { "body": "2. linie – expertíza a dohled", "right": true, "comment": "Slide 33" },
       { "body": "1. linie – výkon", "right": false, "comment": "Vlastníci procesů, IT provoz, SOC, garanti aktiv (slide 33)." },
       { "body": "3. linie – nezávislá kontrola", "right": false, "comment": "Interní audit, auditor KB (slide 33)." },
       { "body": "Externí ověřování", "right": false, "comment": "NÚKIB, externí auditor, certifikační orgán (slide 33)." }
-    ]
-  },
-  {
-    "name": "Co platí o bezpečnostních rolích podle vyhl. 409/2025 Sb.?",
-    "answers": [
-      { "body": "Výbor pro řízení KB zahrnuje člena vedení a manažera KB a zasedá min. 1× ročně.", "right": true, "comment": "Slide 34" },
-      { "body": "Auditor KB nezávisle ověřuje soulad a účinnost a nesmí auditovat sám sebe.", "right": true, "comment": "Slide 34" },
-      { "body": "Garant aktiva odpovídá za konkrétní aktivum – jeho rozvoj, užívání a bezpečnost.", "right": true, "comment": "Slide 34" },
-      { "body": "Architekt KB schvaluje bezpečnostní politiku.", "right": false, "comment": "Politiku schvaluje vrcholné vedení; architekt navrhuje architekturu a technická opatření (slide 34)." }
     ]
   },
   {
@@ -269,24 +160,6 @@
       { "body": "R = provádí, C = konzultován, I = informován.", "right": true, "comment": "Slide 37" },
       { "body": "U akceptace zbytkového rizika má v příkladu A/R vedení.", "right": true, "comment": "Slide 37" },
       { "body": "Jedna činnost může mít libovolný počet rolí A.", "right": false }
-    ]
-  },
-  {
-    "name": "Co charakterizuje dobrou bezpečnostní kulturu podle přednášky?",
-    "answers": [
-      { "body": "Lidé hlásí chyby a podezřelé události bez strachu z trestu.", "right": true, "comment": "Slide 38" },
-      { "body": "Pozdě nahlášený incident je dražší než přiznaná chyba.", "right": true, "comment": "Slide 38" },
-      { "body": "Každá nahlášená chyba vede k disciplinárnímu řízení.", "right": false },
-      { "body": "Školí se jen bezpečnostní tým.", "right": false, "comment": "Školí se vedení, všichni zaměstnanci, bezpečnostní role i administrátoři a vývojáři (slide 38)." }
-    ]
-  },
-  {
-    "name": "V modelové situaci regionální nemocnice (vyšší režim) má zavádění řízení 8 kroků. Ve kterém kroku přicházejí technická opatření?",
-    "answers": [
-      { "body": "V kroku 6 – kroky 1–5 jsou řídicí (registrace, role, rozsah, analýza rizik, politika a předpisy).", "right": true, "comment": "Slide 40" },
-      { "body": "V kroku 1 – technika je vždy první.", "right": false },
-      { "body": "V kroku 3 – hned po určení rolí.", "right": false },
-      { "body": "Až v kroku 8 při auditu.", "right": false }
     ]
   },
   {
@@ -314,18 +187,5 @@
       "Spouštěče mimořádného přezkumu"
     ],
     "source": "Přednáška 4, slide 25–31"
-  },
-  {
-    "name": "Popište role v řízení kybernetické bezpečnosti: tři úrovně řízení, model tří linií, bezpečnostní role podle vyhl. 409/2025 Sb. a postavení CISO.",
-    "answer": "<B>Tři úrovně</B>: governance – řízení (vrcholné vedení, výbor pro řízení KB: směr, odpovědnost, dohled, apetit k riziku); management – správa (manažer KB/CISO, architekt KB: plánování, zavádění, měření, zlepšování); operations – provoz (IT provoz, SOC, garanti aktiv, uživatelé: každodenní výkon opatření, monitoring, reakce). <B>Model tří linií</B> (IIA 2020) pod řídicím orgánem: 1. linie výkon (vlastníci procesů, IT provoz, SOC, garanti aktiv); 2. linie expertíza a dohled (manažer KB/CISO, řízení rizik, compliance, DPO); 3. linie nezávislá kontrola (interní audit, auditor KB); vně externí ověřování (NÚKIB, externí auditor, certifikační orgán). <B>Role dle vyhl. 409/2025</B>: vrcholné vedení (schvaluje politiku, zajišťuje zdroje, rozhoduje o rizicích, určuje role), výbor pro řízení KB (koordinace a dohled, člen vedení + manažer KB, min. 1× ročně), manažer KB (řídí a rozvíjí systém řízení, hlavní kontaktní osoba), architekt KB (bezpečnostní architektura a technická opatření), garant aktiva (konkrétní aktivum), auditor KB (nezávislé ověření, neaudituje sám sebe). V nižším režimu vedení určí osobu pověřenou KB. <B>CISO</B>: pod IT vzniká konflikt zájmů (dohlíží na vlastního nadřízeného); lepší je pod vedením – mandát a přímý přístup k vedení, zdroje, oddělení od správy systémů, zastupitelnost, odbornost. Kyberbezpečnost se týká i HR, práva, nákupu, DPO a každého zaměstnance. Odpovědnosti lze přehledně rozdělit maticí RACI (jen jedno A).",
-    "keyPoints": [
-      "Governance / management / operations a kdo je na které úrovni",
-      "Tři linie: výkon, expertíza a dohled, nezávislá kontrola; externí ověřování",
-      "Role vyhl. 409/2025: vedení, výbor, manažer KB, architekt, garant aktiva, auditor",
-      "Nižší režim: osoba pověřená KB",
-      "CISO pod IT = konflikt zájmů; pod vedením = nezávislost",
-      "RACI – vždy jen jedno A"
-    ],
-    "source": "Přednáška 4, slide 5, 33–37"
   }
 ]

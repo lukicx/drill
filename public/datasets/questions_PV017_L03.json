@@ -1,47 +1,11 @@
 [
   {
-    "name": "Co podle definice ITU (uvedené v přednášce) může zahrnovat integrita jako bezpečnostní cíl kyberbezpečnosti?",
-    "answers": [
-      { "body": "Autenticitu a nepopiratelnost", "right": true, "comment": "Slide 8 – „Integrity, which may include authenticity and non-repudiation“." },
-      { "body": "Dostupnost a důvěrnost", "right": false },
-      { "body": "Spolehlivost a odolnost", "right": false },
-      { "body": "Šifrování a zálohování", "right": false }
-    ]
-  },
-  {
     "name": "Co platí o vztahu pojmů CySec, InfoSec a ICT-Security podle přednášky?",
     "answers": [
       { "body": "ICT-Security (ISO 13335) je ochrana přímo technologií tvořících infrastrukturu; lze ji chápat jako podkategorii InfoSec.", "right": true, "comment": "Slide 10" },
       { "body": "CySec může být podkategorií, synonymem či nadřazeným pojmem InfoSecu.", "right": true, "comment": "Slide 10" },
       { "body": "InfoSec (ISO 27002) je zachování důvěrnosti, integrity a dostupnosti informací.", "right": true, "comment": "Slide 9–10" },
       { "body": "CySec a InfoSec jsou přesně vymezené, navzájem se nepřekrývající pojmy.", "right": false }
-    ]
-  },
-  {
-    "name": "Které vlastnosti navrhují Whitman a Mattord (2009) přidat k triádě CIA?",
-    "answers": [
-      { "body": "Accuracy, authenticity, utility and possession", "right": true, "comment": "Slide 10" },
-      { "body": "Accountability, non-repudiation, reliability", "right": false },
-      { "body": "Privacy, safety, resilience", "right": false },
-      { "body": "Identify, protect, detect, respond", "right": false }
-    ]
-  },
-  {
-    "name": "Jaké druhy hrozeb uvádí přednáška?",
-    "answers": [
-      { "body": "Vyšší moc", "right": true, "comment": "Slide 13" },
-      { "body": "Nedbalostní", "right": true, "comment": "Slide 13" },
-      { "body": "Úmyslné", "right": true, "comment": "Slide 13" },
-      { "body": "Pouze úmyslné útoky hackerů", "right": false }
-    ]
-  },
-  {
-    "name": "Kdo má podle přednášky v ČR gesci za kybernetickou obranu?",
-    "answers": [
-      { "body": "Vojenské zpravodajství (VZ)", "right": true, "comment": "Slide 17" },
-      { "body": "NÚKIB a CERT/CSIRT týmy", "right": false, "comment": "Ti mají gesci za kybernetickou bezpečnost (slide 17)." },
-      { "body": "Orgány činné v trestním řízení, státní zastupitelství a soudy", "right": false, "comment": "Ti mají gesci za kyberkriminalitu (slide 17)." },
-      { "body": "Úřad pro ochranu osobních údajů", "right": false }
     ]
   },
   {
@@ -60,16 +24,6 @@
       { "body": "Neúmyslné bezpečnostní incidenty (nehody, technické poruchy, lidské chyby)", "right": false, "comment": "Primární oblast zájmu CSIRTů (slide 18)." },
       { "body": "Trestné činy páchané prostřednictvím ICT (Typ 2), např. šíření závadného obsahu", "right": false, "comment": "Primární oblast zájmu OČTŘ (slide 18)." },
       { "body": "Trestné činy související s ICT (Typ 3), kde hrají roli elektronické důkazy", "right": false, "comment": "Primární oblast zájmu OČTŘ (slide 18)." }
-    ]
-  },
-  {
-    "name": "Čím vším lze podle Lessiga regulovat chování?",
-    "answers": [
-      { "body": "Právem", "right": true, "comment": "Slide 24" },
-      { "body": "Sociálními normami", "right": true, "comment": "Slide 24" },
-      { "body": "Trhem", "right": true, "comment": "Slide 24" },
-      { "body": "Architekturou (kódem)", "right": true, "comment": "Slide 24" },
-      { "body": "Výhradně trestním právem", "right": false }
     ]
   },
   {
@@ -172,15 +126,6 @@
     ]
   },
   {
-    "name": "Co platí o první veřejné atribuci kybernetického útoku v ČR (2025)?",
-    "answers": [
-      { "body": "Šlo o kampaň APT31 (ČLR) proti neutajované síti MZV, probíhající od roku 2022.", "right": true, "comment": "Slide 6, 36" },
-      { "body": "Atribuce je zároveň akt technický, zpravodajský i politický.", "right": true, "comment": "Slide 6" },
-      { "body": "Atribuci provedla výhradně Policie ČR.", "right": false, "comment": "Provedly ji společně NÚKIB, BIS, Vojenské zpravodajství a ÚZSI (slide 6)." },
-      { "body": "Šlo o ransomware na nemocnici v Benešově.", "right": false }
-    ]
-  },
-  {
     "name": "Které tvrzení o vývoji právní úpravy kyberbezpečnosti v EU je podle přednášky správné?",
     "answers": [
       { "body": "ENISA byla založena v roce 2004.", "right": true, "comment": "Slide 37" },
@@ -217,16 +162,6 @@
     ]
   },
   {
-    "name": "Které nástroje patří do regulatorního mixu?",
-    "answers": [
-      { "body": "Command and control – povinnost, kontrola, sankce", "right": true, "comment": "Slide 33" },
-      { "body": "Ko-regulace a samoregulace – normy a certifikace", "right": true, "comment": "Slide 33" },
-      { "body": "Ekonomické nástroje – pojištění a veřejné zakázky", "right": true, "comment": "Slide 33" },
-      { "body": "Podpůrné nástroje – hlášení, varování, CSIRT", "right": true, "comment": "Slide 33" },
-      { "body": "Chytrá regulace volí vždy jen jeden nástroj.", "right": false, "comment": "Chytrá regulace nevolí jeden nástroj, nýbrž jejich pořadí (slide 33)." }
-    ]
-  },
-  {
     "name": "Vysvětlete, proč na zajištění kyberbezpečnosti nestačí trh a proč je potřeba regulace. Zmiňte i Lessigovy způsoby regulace chování.",
     "answer": "Podle Lessiga lze chování regulovat čtyřmi způsoby: <B>právem</B> (hrozba sankce, působí zpětně – „incident hlaste do 24 hodin, jinak pokuta“), <B>sociálními normami</B> (responsible disclosure, profesní etika, reputace), <B>trhem</B> (kybernetické pojištění, cena certifikace, náklady incidentu) a <B>architekturou/kódem</B> (vynucené MFA, šifrování ve výchozím stavu, sandbox). Samotný trh ale selhává: <B>negativní externality</B> – nezabezpečené zařízení škodí třetím osobám (botnet, DDoS) a náklady nese někdo jiný než ten, kdo ušetřil; <B>informační asymetrie</B> – kupující bezpečnost neumí ověřit; <B>bezpečnost jako kvaziveřejný statek</B> – motivace k černému pasažérství, nikdo neplatí za cizí přínos; <B>nesoulad motivací</B> – o zabezpečení rozhoduje ten, kdo nenese následky selhání. Regulace má tedy i ekonomické, nejen bezpečnostní odůvodnění. Navíc je kyberbezpečnost nedistributivní právo – nelze ji rozdělit mezi jednotlivce, musí být sdílena, a proto ji zajišťuje stát.",
     "keyPoints": [
@@ -250,17 +185,5 @@
       "Compliance: minimum a doložitelnost, ale splněný audit ≠ odolnost"
     ],
     "source": "Přednáška 3, slide 30–35"
-  },
-  {
-    "name": "Popište vývoj právní úpravy kybernetické bezpečnosti v EU a v ČR až po nový zákon o kybernetické bezpečnosti.",
-    "answer": "<B>EU</B>: 2004 založena ENISA (spolupráce orgánů, pomoc při incidentech, vzdělávání). 2008 směrnice o určování evropských kritických infrastruktur, později vyčlenění KII. 2013 strategie kybernetické bezpečnosti EU a návrh směrnice NIS; legislativní proces trval téměř tři roky. 2015 strategie jednotného digitálního trhu. 2016 <B>směrnice NIS</B> se třemi pilíři: budování kapacit (národní CERT a autorita), mezinárodní spolupráce (Skupina pro spolupráci, síť CSIRT), posílení kyberbezpečnosti v klíčových sektorech (základní a digitální služby). Mezi 2015 a 2017 se ukázaly nedostatky (chybějící compliance nástroje, slabý mandát ENISA, nedostatečná implementace NIS), proto 2019 Cybersecurity Act a 2022 NIS 2, DORA, DMA, DSA a Cyber Resilience Act. <B>ČR</B>: dříve se kyberbezpečnost řešila individuálně; koordinátorem bylo Ministerstvo informatiky (do 2007) a Ministerstvo vnitra (2007–2011). 19. 10. 2011 se národní autoritou stal NBÚ (úkol vybudovat NCKB a ZoKB). Zákon č. 181/2014 Sb. o kybernetické bezpečnosti; 1. 8. 2017 vznikl NÚKIB. Nový zákon č. 264/2025 Sb. o kybernetické bezpečnosti je účinný od 1. 11. 2025 s prováděcími vyhláškami. Právo EU má na českou regulaci stále větší vliv.",
-    "keyPoints": [
-      "ENISA 2004; evropské KI 2008",
-      "Směrnice NIS 2016 – tři pilíře",
-      "Cybersecurity Act 2019; NIS 2, DORA, CRA (2022)",
-      "ČR: MI → MV → NBÚ (2011) → NÚKIB (2017)",
-      "ZoKB 181/2014 → nový zákon 264/2025 Sb., účinný od 1. 11. 2025"
-    ],
-    "source": "Přednáška 3, slide 37–47"
   }
 ]

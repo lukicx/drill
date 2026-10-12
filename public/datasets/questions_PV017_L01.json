@@ -9,15 +9,6 @@
     ]
   },
   {
-    "name": "Jak přednáška definuje informační bezpečnost (Information Security)?",
-    "answers": [
-      { "body": "Ochrana proti úmyslným škodám a nežádoucím akcím na informačních aktivech.", "right": true, "comment": "Slide 5" },
-      { "body": "Ochrana proti nahodilým poruchám hardwaru.", "right": false },
-      { "body": "Soubor technických prostředků, jako jsou firewally a antiviry.", "right": false },
-      { "body": "Zajištění, že systém za definovaných podmínek nezpůsobí škodu.", "right": false, "comment": "To je popis bezpečí (safety), slide 4." }
-    ]
-  },
-  {
     "name": "Které vlastnosti tvoří základní triádu informační bezpečnosti (CIA)?",
     "answers": [
       { "body": "Důvěrnost (Confidentiality)", "right": true, "comment": "Slide 20" },
@@ -34,43 +25,6 @@
       { "body": "Nepopiratelnost (Non-repudiation)", "right": false, "comment": "Nepopiratelnost = schopnost prokázat výskyt události/činnosti (slide 20)." },
       { "body": "Autenticita (Authenticity)", "right": false, "comment": "Autenticita = pravost, původnost (slide 20)." },
       { "body": "Spolehlivost (Reliability)", "right": false, "comment": "Spolehlivost = bezporuchovost, činnost ve shodě se specifikací (slide 20)." }
-    ]
-  },
-  {
-    "name": "Co platí o důvěrnosti (confidentiality) podle přednášky?",
-    "answers": [
-      { "body": "Týká se nejen uchovávání informací, ale také jejich přenosu.", "right": true, "comment": "Slide 21" },
-      { "body": "Úzce souvisí s omezováním přístupu k osobním údajům fyzických osob.", "right": true, "comment": "Slide 21" },
-      { "body": "Znamená, že informace je modifikovatelná pouze oprávněnými subjekty.", "right": false, "comment": "To je integrita (slide 20)." },
-      { "body": "Týká se pouze dat uložených na discích.", "right": false, "comment": "Vztahuje se i na přenos (slide 21)." }
-    ]
-  },
-  {
-    "name": "Co patří podle přednášky k integritě (celistvosti)?",
-    "answers": [
-      { "body": "Integrita původu – data skutečně pochází od subjektu, který je validně poskytuje, nikoli od podvodníka.", "right": true, "comment": "Slide 22" },
-      { "body": "Integrita dat – data nesmí být nevhodně, náhodně ani záměrně změněna.", "right": true, "comment": "Slide 22" },
-      { "body": "Nepatřičná modifikace může být úmyslná i neúmyslná.", "right": true, "comment": "Slide 22" },
-      { "body": "Integrita se týká pouze úmyslných útoků, náhodné chyby do ní nespadají.", "right": false, "comment": "Nepatřičná modifikace může být i neúmyslná (slide 22)." },
-      { "body": "Informace je přístupná pouze oprávněným subjektům.", "right": false, "comment": "To je důvěrnost (slide 20)." }
-    ]
-  },
-  {
-    "name": "Čím může být podle přednášky ovlivněna dostupnost informačních zdrojů?",
-    "answers": [
-      { "body": "Ryze technickými problémy (např. nefunkční část počítače nebo komunikační infrastruktury)", "right": true, "comment": "Slide 23" },
-      { "body": "Přírodními jevy (např. větrem nebo vodou)", "right": true, "comment": "Slide 23" },
-      { "body": "Lidskými faktory (havárie nebo záměrné útoky)", "right": true, "comment": "Slide 23" },
-      { "body": "Pouze záměrnými útoky typu DoS", "right": false, "comment": "Dostupnost ovlivňují i technické problémy a přírodní jevy (slide 23)." }
-    ]
-  },
-  {
-    "name": "Jak je v přednášce definováno opatření (control)?",
-    "answers": [
-      { "body": "Prostředek, který modifikuje riziko", "right": true, "comment": "Slide 25" },
-      { "body": "Slabina využitelná ke způsobení škod/ztrát organizaci útokem", "right": false, "comment": "To je zranitelnost (slide 25)." },
-      { "body": "Pokus o způsobení škody na aktivech", "right": false, "comment": "To je útok (slide 25)." },
-      { "body": "Událost, která může ohrozit bezpečnost informací", "right": false, "comment": "To je bezpečnostní incident (slide 25)." }
     ]
   },
   {
@@ -92,25 +46,6 @@
     ]
   },
   {
-    "name": "Které tvrzení o CVE (Common Vulnerabilities and Exposures) je pravdivé?",
-    "answers": [
-      { "body": "CVE provozuje nezisková organizace MITRE.", "right": true, "comment": "Slide 41" },
-      { "body": "ID má formát CVE-YYYY-NNNNN, kde YYYY je rok přidělení ID nebo rok zveřejnění zranitelnosti.", "right": true, "comment": "Slide 41" },
-      { "body": "Záznam CVE obsahuje informace o riziku, dopadu a opravě.", "right": false, "comment": "Na rozdíl od databází zranitelností je CVE neobsahuje (slide 41)." },
-      { "body": "CVE je placená služba pro velké organizace.", "right": false, "comment": "CVE je bezplatný slovník (slide 41)." }
-    ]
-  },
-  {
-    "name": "Která aktiva patří mezi nehmotná (intangible)?",
-    "answers": [
-      { "body": "Software", "right": true, "comment": "Slide 37" },
-      { "body": "Pověst, obchodní známka", "right": true, "comment": "Slide 37" },
-      { "body": "Patenty a autorská práva", "right": true, "comment": "Slide 37" },
-      { "body": "Budovy a pozemky", "right": false, "comment": "Hmotná aktiva (slide 37)." },
-      { "body": "Peníze", "right": false, "comment": "Hmotná aktiva (slide 37)." }
-    ]
-  },
-  {
     "name": "Jaké jsou podle přednášky tři hlavní kategorie aktiv v oblasti IT?",
     "answers": [
       { "body": "Data; systémy obsahující data a komunikační infrastruktura; lidské zdroje", "right": true, "comment": "Slide 37" },
@@ -129,24 +64,6 @@
     ]
   },
   {
-    "name": "Pasivní analýza komunikačního provozu (kdo s kým kdy co komunikuje) je příkladem hrozby typu:",
-    "answers": [
-      { "body": "Odhalení (Disclosure)", "right": true, "comment": "Slide 45" },
-      { "body": "Podvod, klamání (Deception)", "right": false },
-      { "body": "Narušení, ničení (Disruption)", "right": false },
-      { "body": "Diseminace zlomyslného software (Planting)", "right": false }
-    ]
-  },
-  {
-    "name": "Nespokojený zaměstnanec se přihlásí k serveru a v dostupných sdílených složkách smaže nezálohovaná data. O jakou hrozbu jde?",
-    "answers": [
-      { "body": "Vnitřní hrozba", "right": true, "comment": "Slide 46 – zdroj hrozby je uvnitř organizace." },
-      { "body": "Vnější hrozba", "right": false },
-      { "body": "Přírodní katastrofa", "right": false },
-      { "body": "Hrozba typu Disclosure", "right": false }
-    ]
-  },
-  {
     "name": "„Nelze zjistit, kdo poslal příkaz k mazání záloh.“ Do které kategorie STRIDE tento příklad patří?",
     "answers": [
       { "body": "Repudiation", "right": true, "comment": "Slide 48" },
@@ -156,39 +73,12 @@
     ]
   },
   {
-    "name": "Co znamenají písmena v modelu STRIDE?",
-    "answers": [
-      { "body": "Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege", "right": true, "comment": "Slide 47" },
-      { "body": "Spoofing, Theft, Ransomware, Intrusion, DDoS, Exploit", "right": false },
-      { "body": "Security, Trust, Risk, Integrity, Defense, Encryption", "right": false },
-      { "body": "Spoofing, Tampering, Recovery, Identification, Detection, Encryption", "right": false }
-    ]
-  },
-  {
     "name": "Čím je podle přednášky dána velikost rizika?",
     "answers": [
       { "body": "Pravděpodobností provedení útoku a výší škody vzniklé útokem", "right": true, "comment": "Slide 53" },
       { "body": "Pouze počtem zranitelností v systému", "right": false },
       { "body": "Cenou nasazených opatření", "right": false },
       { "body": "Pouze hodnotou aktiva", "right": false }
-    ]
-  },
-  {
-    "name": "Čím je determinována pravděpodobnost uplatnění hrozby?",
-    "answers": [
-      { "body": "Snadností/obtížností využití zranitelností aktiva", "right": true, "comment": "Slide 53" },
-      { "body": "Množstvím a schopnostmi (dovednostmi) potenciálních útočníků", "right": true, "comment": "Slide 53" },
-      { "body": "Výší škody, kterou útok způsobí", "right": false, "comment": "Škoda určuje dopad, ne pravděpodobnost (slide 53)." },
-      { "body": "Počtem zaměstnanců organizace", "right": false }
-    ]
-  },
-  {
-    "name": "Do které třídy podle klasifikace útočníků firmy IBM patří útočník s dobrým laboratorním vybavením a základními znalostmi systému (např. univerzitní laboratoř)?",
-    "answers": [
-      { "body": "Třída 1,5 – dobře vybavení lidé z venku", "right": true, "comment": "Slide 55" },
-      { "body": "Třída 0 – script kiddies", "right": false },
-      { "body": "Třída 2 – zasvěcení insideři", "right": false },
-      { "body": "Třída 3 – dobře finančně podporované organizace", "right": false }
     ]
   },
   {
@@ -202,15 +92,6 @@
     ]
   },
   {
-    "name": "Co platí podle přednášky o opatřeních?",
-    "answers": [
-      { "body": "Opatření typicky rizika snižují, neodstraňují je; plné odstranění rizika bývá neefektivní.", "right": true, "comment": "Slide 57" },
-      { "body": "Opatření se mají implementovat pouze pro řešení specifických, identifikovaných rizik.", "right": true, "comment": "Slide 57" },
-      { "body": "Typické opatření je kombinací technologie a procesů.", "right": true, "comment": "Slide 57 (příklad antiviru)" },
-      { "body": "Opatření je vždy čistě technické řešení.", "right": false, "comment": "Výrazná je i role politiky a vzdělávání (slide 57)." }
-    ]
-  },
-  {
     "name": "Jaká je podmínka efektivnosti opatření?",
     "answers": [
       { "body": "Cena opatření ≤ výše škody", "right": true, "comment": "Slide 59" },
@@ -220,39 +101,12 @@
     ]
   },
   {
-    "name": "Kolik opatření obsahuje ISO/IEC 27002:2022 a do kolika témat jsou rozdělena?",
-    "answers": [
-      { "body": "93 opatření ve 4 tématech", "right": true, "comment": "Slide 60 – organizační 37, lidské zdroje 8, fyzická 14, technologická 34; 5 atributů." },
-      { "body": "93 opatření v 5 tématech", "right": false, "comment": "5 je počet atributů, ne témat (slide 60)." },
-      { "body": "37 opatření ve 4 tématech", "right": false },
-      { "body": "34 opatření ve 14 tématech", "right": false }
-    ]
-  },
-  {
     "name": "Jak se podle atributu „typ opatření“ v ISO/IEC 27002 nazývá opatření, které působí po výskytu incidentu?",
     "answers": [
       { "body": "Nápravné", "right": true, "comment": "Slide 61" },
       { "body": "Preventivní", "right": false, "comment": "Preventivní má incidentu zabránit (slide 61)." },
       { "body": "Detekční", "right": false, "comment": "Detekční působí při výskytu incidentu (slide 61)." },
       { "body": "Kompenzační", "right": false }
-    ]
-  },
-  {
-    "name": "Které hodnoty má atribut „koncept kybernetické bezpečnosti“ v ISO/IEC 27002?",
-    "answers": [
-      { "body": "Identifikace, Ochrana, Detekce, Odezva, Obnova", "right": true, "comment": "Slide 62" },
-      { "body": "Preventivní, Detekční, Nápravné", "right": false, "comment": "To je atribut typ opatření (slide 61)." },
-      { "body": "Správa a řízení, Ochrana, Obrana, Odolnost", "right": false, "comment": "To jsou domény bezpečnosti (slide 63)." },
-      { "body": "Důvěrnost, Integrita, Dostupnost", "right": false, "comment": "To je atribut vlastnosti informační bezpečnosti (slide 61)." }
-    ]
-  },
-  {
-    "name": "Jaký mechanismus podle přednášky implementuje opatření řešící problém nepopiratelnosti?",
-    "answers": [
-      { "body": "Digitální podpis", "right": true, "comment": "Slide 66" },
-      { "body": "Šifrování", "right": false, "comment": "Šifrování je mechanismus pro důvěrnost (slide 66)." },
-      { "body": "Identifikační karty", "right": false, "comment": "Mechanismus pro řízení přístupu (slide 66)." },
-      { "body": "Smluvní závazek (NDA)", "right": false, "comment": "Mechanismus pro důvěrnost (slide 66)." }
     ]
   },
   {
@@ -274,15 +128,6 @@
     ]
   },
   {
-    "name": "Který princip vyžaduje, aby byly kontrolovány všechny přístupy k objektům, a tím omezuje ukládání informací do mezipaměti?",
-    "answers": [
-      { "body": "Princip úplného zprostředkování (Complete Mediation)", "right": true, "comment": "Slide 75" },
-      { "body": "Princip nejmenšího společného mechanismu (Least Common Mechanism)", "right": false, "comment": "Ten říká, že mechanismy pro přístup k prostředkům by neměly být sdíleny (slide 75)." },
-      { "body": "Princip oddělení oprávnění (Separation of Privileges)", "right": false },
-      { "body": "Princip bezpečného výchozího stavu (Fail-safe Defaults)", "right": false }
-    ]
-  },
-  {
     "name": "Proč je koncept „Security through Obscurity“ chybný a který princip porušuje?",
     "answers": [
       { "body": "Spoléhá na utajení vnitřních mechanismů; porušuje princip otevřeného designu (Open Design).", "right": true, "comment": "Slide 74" },
@@ -292,30 +137,12 @@
     ]
   },
   {
-    "name": "Middleware server potřebuje přístup k Internetu, číst databázové tabulky a zapisovat logy. Jaká práva mu má podle principu nejmenších práv dát?",
-    "answers": [
-      { "body": "Jen práva pro tyto tři činnosti, nikoli práva administrátora/superuživatele.", "right": true, "comment": "Slide 71" },
-      { "body": "Práva administrátora, aby nepadal na chybějících oprávněních.", "right": false },
-      { "body": "Žádná práva; přístup povolí až administrátor při každém požadavku ručně.", "right": false },
-      { "body": "Stejná práva jako všechny ostatní servery v síti.", "right": false }
-    ]
-  },
-  {
     "name": "Podle klasifikace aktiv dle zákona o kybernetické bezpečnosti: narušení dostupnosti aktiva by nemělo překročit dobu pracovního dne. Jaký je stupeň dostupnosti?",
     "answers": [
       { "body": "Střední", "right": true, "comment": "Slide 84" },
       { "body": "Nízká", "right": false, "comment": "Nízká – výpadek tolerován delší dobu (cca do 1 týdne), slide 84." },
       { "body": "Vysoká", "right": false, "comment": "Vysoká – nemělo by překročit několik málo hodin (slide 84)." },
       { "body": "Kritická", "right": false, "comment": "Kritická – nepřípustné, i výpadek v řádu minut (slide 84)." }
-    ]
-  },
-  {
-    "name": "Pro ochranu důvěrnosti je požadována evidence osob, které k aktivům přistoupily, a metody ochrany zabraňující kompromitaci ze strany administrátorů. Jaký je stupeň důvěrnosti podle ZoKB?",
-    "answers": [
-      { "body": "Kritická", "right": true, "comment": "Slide 82" },
-      { "body": "Vysoká", "right": false, "comment": "Vysoká – řízení a zaznamenávání přístupu, kryptografická ochrana přenosů (slide 82)." },
-      { "body": "Střední", "right": false, "comment": "Střední – prostředky pro řízení přístupu (slide 82)." },
-      { "body": "Nízká", "right": false }
     ]
   },
   {
@@ -363,18 +190,5 @@
       "Complete Mediation – kontrola každého přístupu; Least Common Mechanism – nesdílet mechanismy"
     ],
     "source": "Přednáška 1, slide 71–75"
-  },
-  {
-    "name": "Proč je zajištění informační bezpečnosti proces, a ne jednorázová záležitost? Jakou roli v tom hraje ISMS?",
-    "answer": "Perfektní bezpečnost není dosažitelná – rozlomení zabezpečení je otázkou času a energie a systém je tak bezpečný jako jeho nejslabší článek. Navíc se vyvíjejí technologie, vznikají nové a dokonalejší útoky a mění se regulační prostředí (legislativa). Útočníkovi stačí jediná nedokonalost a může čekat, až mu technologický vývoj dá nový nástroj; opatření časem přestávají plnit svůj cíl. Proto je nutné udržovat aktuální bezpečnostní politiku a plánovat procesy jejího periodického vypracování a prosazování: evidence aktiv, zjištění rizik, volba opatření, vypracování politiky a vyhodnocování její účinnosti v provozu. Bezpečnost se navíc nezajistí jedním opatřením – je nutná kombinace opatření (organizační, personální, fyzická, legislativní, školení), viz příklad notebooku na zadním sedadle auta. Tento problém řeší manažerský systém – <B>ISMS</B> (Systém řízení informační bezpečnosti): systematický přístup k vybudování, implementaci, provozu, monitorování, přezkoumávání, udržování a zlepšování bezpečnosti, postavený na cyklu PDCA (ustanovení, zavádění a provoz, monitorování a přezkoumání, udržování a zlepšování).",
-    "keyPoints": [
-      "Perfektní bezpečnost není dosažitelná; nejslabší článek",
-      "Mění se technologie, útoky i legislativa",
-      "Útočníkovi stačí jediná nedokonalost (generický problém)",
-      "Nutná kombinace více opatření, nejen IT (příklad notebooku)",
-      "Periodicky: evidence aktiv, rizika, opatření, politika, vyhodnocení účinnosti",
-      "ISMS = systematické řízení přes PDCA cyklus"
-    ],
-    "source": "Přednáška 1, slide 10–12, 31–33"
   }
 ]

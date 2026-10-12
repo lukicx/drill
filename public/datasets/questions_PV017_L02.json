@@ -19,15 +19,6 @@
     ]
   },
   {
-    "name": "Proč používat standard ISO 27001?",
-    "answers": [
-      { "body": "Specifikuje ISMS netechnickou a nejurisdikční formou, nevázanou na konkrétní technologie.", "right": true, "comment": "Slide 8" },
-      { "body": "Produkt vybudovaný podle ISO 27001 lze externě certifikovat.", "right": true, "comment": "Slide 8" },
-      { "body": "Úzce navazuje na ISO 9001 (standard kvality podnikatelských procesů).", "right": true, "comment": "Slide 8" },
-      { "body": "Předepisuje konkrétní produkty (firewall, antivirus), které je nutné nasadit.", "right": false }
-    ]
-  },
-  {
     "name": "Do které ze 7 kapitol požadavků ISO 27001 patří monitoring, audit a přezkoumání vedením?",
     "answers": [
       { "body": "Hodnocení výkonnosti", "right": true, "comment": "Slide 11" },
@@ -37,30 +28,12 @@
     ]
   },
   {
-    "name": "Do které kapitoly ISO 27001 patří závazek vedení organizace, stanovení politiky a určení rolí a odpovědností?",
-    "answers": [
-      { "body": "Vůdčí role", "right": true, "comment": "Slide 11" },
-      { "body": "Kontext organizace", "right": false },
-      { "body": "Podpora", "right": false, "comment": "Podpora = zdroje, kompetence, povědomí, dokumentované informace (slide 11)." },
-      { "body": "Plánování", "right": false }
-    ]
-  },
-  {
     "name": "Co platí o oblasti působnosti (scope) ISMS?",
     "answers": [
       { "body": "Oblastí nemusí nutně být celá organizace.", "right": true, "comment": "Slide 12" },
       { "body": "V oblasti se musí nacházet úplná chráněná informace vč. všech souvisejících technických i netechnických procesů.", "right": true, "comment": "Slide 12" },
       { "body": "Hranice oblasti jsou fyzicky nebo logicky definovatelné.", "right": true, "comment": "Slide 12" },
       { "body": "Informace mohou do oblasti vstupovat a opouštět ji libovolně.", "right": false, "comment": "Vstupují a odcházejí pomocí určených nástrojů – kontrolovaně (slide 12)." }
-    ]
-  },
-  {
-    "name": "Které z následujících jsou podle přednášky příklady externího kontextu organizace?",
-    "answers": [
-      { "body": "Právní důsledky – např. předávání dat mezi US a EU", "right": true, "comment": "Slide 13" },
-      { "body": "Geolokace – záplavové území, časté hurikány, pravidelné demonstrace", "right": true, "comment": "Slide 13" },
-      { "body": "Centralizace některých služeb v organizaci (např. EDUROAM na MUNI)", "right": false, "comment": "To je interní kontext (slide 13)." },
-      { "body": "Mimobrněnské lokality univerzity (Telč)", "right": false, "comment": "Interní kontext (slide 13)." }
     ]
   },
   {
@@ -100,33 +73,6 @@
     ]
   },
   {
-    "name": "Které dokumenty ISMS lze podle přednášky vypracovat až po ohodnocení a zvládnutí rizik?",
-    "answers": [
-      { "body": "Politika řízení přístupu", "right": true, "comment": "Slide 18" },
-      { "body": "Bezpečné provozní procedury správy IT", "right": true, "comment": "Slide 18" },
-      { "body": "Oblast působnosti ISMS", "right": false, "comment": "Vypracovává se hned na počátku zavádění ISMS (slide 16)." },
-      { "body": "Legislativní, regulační a smluvní požadavky", "right": false, "comment": "Dělat co nejdříve – ovlivňují ostatní dokumenty (slide 19)." }
-    ]
-  },
-  {
-    "name": "Jak mají být podle přednášky definovány role a odpovědnosti v oblasti informační bezpečnosti?",
-    "answers": [
-      { "body": "Co nejpřesněji – ne „mělo by se provést“, ale „CISO každé pondělí v XX:YY udělá XYZ“.", "right": true, "comment": "Slide 17" },
-      { "body": "Role a odpovědnosti třetích stran se definují ve smlouvách.", "right": true, "comment": "Slide 17" },
-      { "body": "Obecně a stručně, aby je nebylo nutné měnit.", "right": false },
-      { "body": "Pouze v pracovní smlouvě CISO.", "right": false, "comment": "Nejlepší je popsat je přes všechny politiky a procedury (slide 17)." }
-    ]
-  },
-  {
-    "name": "Co by podle přednášky měla obsahovat definice každého opatření kvůli měření a monitorování?",
-    "answers": [
-      { "body": "KPI (key performance indicators), které je potřeba měřit a monitorovat", "right": true, "comment": "Slide 20" },
-      { "body": "Jméno dodavatele technologie", "right": false },
-      { "body": "Seznam všech zranitelností systému", "right": false },
-      { "body": "Výsledky externího auditu", "right": false }
-    ]
-  },
-  {
     "name": "V registru rizik MediCloud se riziko počítá jako R = P × D. Rozhodovací hranice: 1–3 akceptovat, 4–7 posoudit, 8–16 řešit. Co se udělá s rizikem P = 3, D = 2?",
     "answers": [
       { "body": "R = 6 → posoudit", "right": true, "comment": "Slide 28 (riziko R6 – ekonomický IS)" },
@@ -145,48 +91,12 @@
     ]
   },
   {
-    "name": "Na co musí být podle MediCloud case study mapováno každé opatření?",
-    "answers": [
-      { "body": "Na riziko, implementaci, metriku a důkaz", "right": true, "comment": "Slide 29" },
-      { "body": "Pouze na cenu a dodavatele", "right": false },
-      { "body": "Pouze na příslušnou kapitolu ISO 27001", "right": false },
-      { "body": "Na jméno administrátora, který ho nastavil", "right": false }
-    ]
-  },
-  {
-    "name": "Jakou klíčovou pointu o rozsahu ISMS přináší case study MediCloud?",
-    "answers": [
-      { "body": "Cloud a datacentrum jsou mimo organizaci, ale uvnitř řízených závislostí ISMS.", "right": true, "comment": "Slide 26" },
-      { "body": "Cloud a datacentrum jsou mimo organizaci, a proto ISMS nemusí řešit.", "right": false },
-      { "body": "Do scope ISMS patří jen servery nemocnice.", "right": false, "comment": "Aktivem je schopnost bezpečně poskytovat péči, nejen server (slide 27)." },
-      { "body": "Za bezpečnost cloudu odpovídá výhradně pacient.", "right": false }
-    ]
-  },
-  {
     "name": "Která je první fáze projektu implementace ISMS (podle ISO/IEC 27003)?",
     "answers": [
       { "body": "Získání souhlasu vedení organizace pro zahájení implementace ISMS", "right": true, "comment": "Slide 36–37" },
       { "body": "Ohodnocení rizik a vypracování plánu zvládnutí rizik", "right": false, "comment": "4. fáze (slide 38)." },
       { "body": "Návrh ISMS", "right": false, "comment": "5. fáze (slide 39)." },
       { "body": "Analýza požadavků organizace na informační bezpečnost", "right": false, "comment": "3. fáze (slide 38)." }
-    ]
-  },
-  {
-    "name": "Ve které fázi projektu implementace ISMS se vybírají cíle opatření a opatření a vzniká Prohlášení o aplikovatelnosti?",
-    "answers": [
-      { "body": "Ohodnocení rizik a vypracování plánu zvládnutí rizik", "right": true, "comment": "Slide 38 (fáze 4)" },
-      { "body": "Definování oblasti působnosti ISMS a politiky ISMS", "right": false },
-      { "body": "Získání souhlasu vedení", "right": false },
-      { "body": "Návrh ISMS", "right": false }
-    ]
-  },
-  {
-    "name": "V jakých třech dimenzích znamená úspěch projektu splnění cíle (trojimperativ projektu)?",
-    "answers": [
-      { "body": "Věcně (co, jak, v jaké kvalitě), časově (kdy), nákladově (za kolik)", "right": true, "comment": "Slide 41 – odpovídá náležitostem smlouvy o dílo." },
-      { "body": "Důvěrnost, integrita, dostupnost", "right": false },
-      { "body": "Plan, Do, Check", "right": false },
-      { "body": "Lidé, procesy, technologie", "right": false }
     ]
   },
   {
@@ -217,30 +127,12 @@
     ]
   },
   {
-    "name": "Které další metody řízení přednáška uvádí jako použitelné pro projekt ISMS vedle PDCA?",
-    "answers": [
-      { "body": "COBIT", "right": true, "comment": "Slide 42" },
-      { "body": "ITIL", "right": true, "comment": "Slide 42" },
-      { "body": "STRIDE", "right": false, "comment": "STRIDE je framework pro modelování hrozeb (přednáška 1)." },
-      { "body": "CVE", "right": false }
-    ]
-  },
-  {
     "name": "Co platí o řídícím výboru informační bezpečnosti?",
     "answers": [
       { "body": "Ustanovuje ho nejvyšší management organizace.", "right": true, "comment": "Slide 52" },
       { "body": "Zasedá 2× až 4× ročně a vydávají se řádné zápisy z jednání.", "right": true, "comment": "Slide 52" },
       { "body": "I ve velké organizaci s více CISO má být řídící výbor unikátní (jen jeden).", "right": true, "comment": "Slide 52" },
       { "body": "Jeho závěry nikdo dál neprojednává.", "right": false, "comment": "Závěry projednává výkonný management (slide 52)." }
-    ]
-  },
-  {
-    "name": "Jak často musí podle přednášky probíhat posuzování ISMS managementem a kdo odpovídá za získání vstupů a sdělení výstupů?",
-    "answers": [
-      { "body": "Alespoň 1× ročně; odpovídá manažer informační bezpečnosti (CISO).", "right": true, "comment": "Slide 54" },
-      { "body": "Alespoň 1× za 3 roky; odpovídá CEO.", "right": false },
-      { "body": "Jen při certifikaci; odpovídá externí auditor.", "right": false },
-      { "body": "Každý měsíc; odpovídá správce sítě.", "right": false }
     ]
   },
   {
@@ -253,15 +145,6 @@
     ]
   },
   {
-    "name": "Kdo většinou ustanovuje CISO?",
-    "answers": [
-      { "body": "Řídicí výbor informační bezpečnosti – vedení jmenuje výbor a požádá ho o výběr CISO.", "right": true, "comment": "Slide 55" },
-      { "body": "Oddělení interního auditu", "right": false },
-      { "body": "Šéf projektu ISMS", "right": false },
-      { "body": "Certifikační orgán", "right": false }
-    ]
-  },
-  {
     "name": "Kam podle přednášky NESMÍ být role CISO v organizaci zařazena?",
     "answers": [
       { "body": "Do oddělení interního auditu – jde o konflikt zájmů", "right": true, "comment": "Slide 55" },
@@ -271,39 +154,12 @@
     ]
   },
   {
-    "name": "Co platí o požadovaných znalostech CISO?",
-    "answers": [
-      { "body": "Znalost pouhé generické informační bezpečnosti nestačí, musí znát byznys procesy organizace a jejich rizika.", "right": true, "comment": "Slide 55" },
-      { "body": "Stačí mu hluboké technické znalosti sítí a kryptografie.", "right": false },
-      { "body": "Musí být zároveň interním auditorem.", "right": false, "comment": "To by byl konflikt zájmů (slide 55)." },
-      { "body": "Nemusí znát legislativu, tu řeší výhradně právník.", "right": false, "comment": "Vyhovění legislativním požadavkům patří do jeho náplně (slide 56)." }
-    ]
-  },
-  {
-    "name": "Ve kterých kategoriích manažerů jsou podle přednášky CIO a CISO?",
-    "answers": [
-      { "body": "Střední výkonný management (Board of Directors − 1)", "right": true, "comment": "Slide 49" },
-      { "body": "Nejvyšší výkonný management spolu s CEO a CFO", "right": false },
-      { "body": "Dozorčí rada", "right": false },
-      { "body": "Lokální správci", "right": false }
-    ]
-  },
-  {
     "name": "Co platí o odpovědnosti třetích stran (dodavatelů) za informační bezpečnost?",
     "answers": [
       { "body": "Mají odpovědnosti stanoveny ve smlouvě.", "right": true, "comment": "Slide 60" },
       { "body": "Mají znát relevantní bezpečnostní procedury organizace – někdo jim je tedy musí předat.", "right": true, "comment": "Slide 60" },
       { "body": "Automaticky je zavazují všechny vnitřní předpisy organizace.", "right": false },
       { "body": "Za bezpečnost neodpovídají vůbec.", "right": false }
-    ]
-  },
-  {
-    "name": "Na čem je podle zásad řízení informační bezpečnosti založena investiční strategie a zavedení informační bezpečnosti?",
-    "answers": [
-      { "body": "Investiční strategie je dána podnikatelskými cíli organizace.", "right": true, "comment": "Slide 50" },
-      { "body": "Zavedení vychází z výstupů procesů řízení rizik (ochota organizace riskovat).", "right": true, "comment": "Slide 50" },
-      { "body": "Na nákupu nejdražších dostupných technologií.", "right": false },
-      { "body": "Výhradně na požadavcích IT oddělení.", "right": false }
     ]
   },
   {
@@ -318,18 +174,6 @@
       "Protokoly: školení, KPI, interní audity, opravné akce, logy"
     ],
     "source": "Přednáška 2, slide 16–21"
-  },
-  {
-    "name": "Popište PDCA cyklus ISMS. Co se děje v jednotlivých fázích?",
-    "answer": "PDCA (Plan-Do-Check-Act, Demingův cyklus) je metoda postupného zlepšování opakovaným prováděním čtyř činností; ISO 27001 ji původně předepisoval pro projekt ISMS. <B>PLAN (zřízení ISMS)</B>: definice oblasti ISMS a politiky informační bezpečnosti, systematického přístupu k ohodnocování rizik, provedení ohodnocení rizik (identifikovat důležitá aktiva a rizika), identifikace možností zvládání rizik, výběr cílů a opatření, vypracování Prohlášení o aplikovatelnosti. <B>DO (implementace)</B>: plán zvládání rizik a jeho dokumentace, detailní bezpečnostní politika, procesy a procedury, implementace opatření, procedury pro promptní detekci a reakci na incidenty, školení a program bezpečnostního uvědomění, zajištění zdrojů. <B>CHECK (sledování a posuzování)</B>: monitorování, testování, audit, shromažďování důkazů, měření výkonu procesů proti politice a cílům, zprávy pro posouzení managementem, měření účinnosti opatření. <B>ACT (údržba a vylepšení)</B>: opravy a změny na základě posouzení managementem, identifikace, dokumentace a implementace vylepšení. Cyklus se opakuje.",
-    "keyPoints": [
-      "PDCA = Demingův cyklus, opakované zlepšování",
-      "PLAN: scope, politika, ohodnocení rizik, výběr opatření, SoA",
-      "DO: plán zvládání rizik, implementace opatření, detekce incidentů, školení",
-      "CHECK: monitoring, audit, měření účinnosti, zprávy pro management",
-      "ACT: opravy podle posouzení managementem, vylepšení ISMS"
-    ],
-    "source": "Přednáška 2, slide 42–47"
   },
   {
     "name": "Popište roli CISO: kdo ho ustanovuje, kam ho organizačně zařadit, jaké znalosti potřebuje a co patří do jeho pracovní náplně. Jak se liší od CEO a šéfa projektu ISMS?",
