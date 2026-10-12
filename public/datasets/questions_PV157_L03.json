@@ -1,85 +1,5 @@
 [
   {
-    "name": "Z čeho se podle přednášky skládá třífaktorová autentizace?",
-    "answers": [
-      {
-        "body": "Token – autentizační kalkulačka a čipová karta.",
-        "right": true,
-        "comment": "Slide 2"
-      },
-      {
-        "body": "PIN / heslo.",
-        "right": true,
-        "comment": "Slide 2"
-      },
-      {
-        "body": "Biometrika (např. načtená a zpracovaná přímo tokenem).",
-        "right": true,
-        "comment": "Slide 2"
-      },
-      {
-        "body": "Tři různá hesla zadaná po sobě.",
-        "right": false,
-        "comment": "Tři hesla jsou stále jediný faktor – „něco, co známe“ (slide 2)."
-      }
-    ]
-  },
-  {
-    "name": "Které historické příklady tokenů přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Amulet.",
-        "right": true,
-        "comment": "Slide 4"
-      },
-      {
-        "body": "Pečeť.",
-        "right": true,
-        "comment": "Slide 4"
-      },
-      {
-        "body": "Bankovka se specifickým číslem nebo specificky roztržená bankovka.",
-        "right": true,
-        "comment": "Slide 4"
-      },
-      {
-        "body": "Klíč.",
-        "right": true,
-        "comment": "Slide 4"
-      },
-      {
-        "body": "Heslo.",
-        "right": false,
-        "comment": "Heslo je „něco, co známe“, ne token (slide 2)."
-      }
-    ]
-  },
-  {
-    "name": "Které otázky je potřeba u tokenů mj. řešit?",
-    "answers": [
-      {
-        "body": "Obtížnost vytvoření a kopírování.",
-        "right": true,
-        "comment": "Slide 5"
-      },
-      {
-        "body": "Průběh kontroly.",
-        "right": true,
-        "comment": "Slide 5"
-      },
-      {
-        "body": "Práci s tokeny v „neočekávaných případech“, např. co se má stát, je-li karta vyjmuta ze čtečky.",
-        "right": true,
-        "comment": "Slide 5"
-      },
-      {
-        "body": "Volbu soli a pepře pro každý token.",
-        "right": false,
-        "comment": "Sůl a pepř patří k ukládání hesel, ne k tokenům."
-      }
-    ]
-  },
-  {
     "name": "V čem spočívá dilema tokenů?",
     "answers": [
       {
@@ -100,126 +20,6 @@
       {
         "body": "Token musí být zároveň tajný i veřejný.",
         "right": false
-      }
-    ]
-  },
-  {
-    "name": "Kdy přestává platit úvaha o vysoké ceně padělání jednoho kusu tokenu?",
-    "answers": [
-      {
-        "body": "V případech, kdy se vyplatí produkce mnohakusové série padělků.",
-        "right": true,
-        "comment": "Slide 6"
-      },
-      {
-        "body": "Když je token chráněn PINem.",
-        "right": false
-      },
-      {
-        "body": "Když se token vyrábí v malé sérii.",
-        "right": false
-      },
-      {
-        "body": "Nikdy, platí vždy.",
-        "right": false,
-        "comment": "Slide 6 uvádí výjimku."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o ceně výroby tokenu?",
-    "answers": [
-      {
-        "body": "V přepočtu na kus klesá při výrobě větších sérií.",
-        "right": true,
-        "comment": "Slide 7"
-      },
-      {
-        "body": "Pokles ceny výroby snižuje i bariéru pro ty, kdo zvažují padělání – důležité pro uživatele prvních sérií.",
-        "right": true,
-        "comment": "Slide 7"
-      },
-      {
-        "body": "V přepočtu na kus roste při výrobě větších sérií.",
-        "right": false,
-        "comment": "Slide 7 říká opak."
-      },
-      {
-        "body": "Na bariéru pro padělatele nemá žádný vliv.",
-        "right": false,
-        "comment": "Slide 7 říká opak."
-      }
-    ]
-  },
-  {
-    "name": "Co je u ceny padělání tokenu důležité navíc oproti ceně výroby?",
-    "answers": [
-      {
-        "body": "Zda útočník získá stejně výrobou jednoho nebo více padělků – motivace útočníka.",
-        "right": true,
-        "comment": "Slide 8"
-      },
-      {
-        "body": "Jak dlouho (a případně kolik) musí mít k dispozici původní token(y).",
-        "right": true,
-        "comment": "Slide 8"
-      },
-      {
-        "body": "Zda existuje legislativní postih padělání jako takového.",
-        "right": true,
-        "comment": "Slide 8"
-      },
-      {
-        "body": "Kolik znaků má PIN uživatele.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Jak jsou podle přednášky upraveny barevné kopírky, aby se omezilo padělání?",
-    "answers": [
-      {
-        "body": "Nekopírují přesně určité barvy.",
-        "right": true,
-        "comment": "Slide 9"
-      },
-      {
-        "body": "Vnášejí do obrazu svůj identifikátor.",
-        "right": true,
-        "comment": "Slide 9"
-      },
-      {
-        "body": "Odmítnou kopírovat jakýkoli dokument s hologramem.",
-        "right": false
-      },
-      {
-        "body": "Každou kopii šifrují klíčem výrobce.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Které tokeny jsou podle přednášky v IT/IS nejčastější?",
-    "answers": [
-      {
-        "body": "Karty s magnetickým proužkem.",
-        "right": true,
-        "comment": "Slide 10"
-      },
-      {
-        "body": "Čipové karty (kontaktní / bezkontaktní).",
-        "right": true,
-        "comment": "Slide 10"
-      },
-      {
-        "body": "Autentizační kalkulátory.",
-        "right": true,
-        "comment": "Slide 10"
-      },
-      {
-        "body": "Pečeti a amulety.",
-        "right": false,
-        "comment": "To jsou historické příklady (slide 4)."
       }
     ]
   },
@@ -254,31 +54,6 @@
     ]
   },
   {
-    "name": "Co přednáška říká o charakteristikách individuálních magnetických proužků?",
-    "answers": [
-      {
-        "body": "Lze je vytvářet u každé karty zvlášť.",
-        "right": true,
-        "comment": "Slide 11"
-      },
-      {
-        "body": "Dochází u nich k mírné změně v čase.",
-        "right": true,
-        "comment": "Slide 11"
-      },
-      {
-        "body": "Různá čtecí/kontrolní zařízení mají různou citlivost.",
-        "right": true,
-        "comment": "Slide 11"
-      },
-      {
-        "body": "Jsou u všech karet stejné.",
-        "right": false,
-        "comment": "Jsou individuální pro každou kartu (slide 11)."
-      }
-    ]
-  },
-  {
     "name": "Jak přednáška dělí čipové karty podle toho, co umí?",
     "answers": [
       {
@@ -304,36 +79,6 @@
     ]
   },
   {
-    "name": "Které kategorie čipových karet podle způsobu komunikace přednáška rozlišuje?",
-    "answers": [
-      {
-        "body": "Kontaktní.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Bezkontaktní.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Hybridní.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Duální/kombinované.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Polymorfní.",
-        "right": false,
-        "comment": "Taková kategorie na slidu 12 není."
-      }
-    ]
-  },
-  {
     "name": "Čím se liší hybridní a duální (kombinovaná) čipová karta?",
     "answers": [
       {
@@ -354,85 +99,6 @@
         "body": "Žádný rozdíl, jde o synonyma.",
         "right": false,
         "comment": "Slide 12 je uvádí jako dvě různé kategorie."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o bezkontaktních čipových kartách?",
-    "answers": [
-      {
-        "body": "Operace mohou být prováděny bez vědomí uživatele.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Jsou vhodné pro fyzickou kontrolu přístupu apod.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Omezený zdroj energie vede k procesorům s nízkou spotřebou, nižšímu výkonu a omezené funkčnosti.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Elektronické pasy jsou výkonné bezkontaktní karty.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Bezkontaktní Java karty neexistují.",
-        "right": false,
-        "comment": "Existují (slide 12)."
-      }
-    ]
-  },
-  {
-    "name": "Které podoby čipové karty přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Obvyklá karta – bankomatová apod.",
-        "right": true,
-        "comment": "Slide 13"
-      },
-      {
-        "body": "SIM karta (telefony GSM).",
-        "right": true,
-        "comment": "Slide 13"
-      },
-      {
-        "body": "USB token.",
-        "right": true,
-        "comment": "Slide 13"
-      },
-      {
-        "body": "Karta s magnetickým proužkem.",
-        "right": false,
-        "comment": "Ta je samostatným druhem karty, ne podobou čipové karty (slide 10–11)."
-      }
-    ]
-  },
-  {
-    "name": "Které typy paměti má procesorová čipová karta a k čemu slouží ROM?",
-    "answers": [
-      {
-        "body": "RAM, ROM a EEPROM; v ROM je operační systém apod.",
-        "right": true,
-        "comment": "Slide 14"
-      },
-      {
-        "body": "Pouze RAM; operační systém se nahrává ze čtečky.",
-        "right": false
-      },
-      {
-        "body": "Pouze magnetický proužek o kapacitě 250 B.",
-        "right": false,
-        "comment": "To je karta s magnetickým proužkem (slide 11)."
-      },
-      {
-        "body": "RAM, ROM a EEPROM; v ROM jsou uloženy PINy uživatele.",
-        "right": false,
-        "comment": "Slide 14 uvádí u ROM operační systém; PINy jsou v souborech EF (slide 18)."
       }
     ]
   },
@@ -462,90 +128,6 @@
     ]
   },
   {
-    "name": "Jak lze na čipové kartě vybrat další soubor nebo adresář pro práci?",
-    "answers": [
-      {
-        "body": "2bajtovým identifikátorem EF/DF/MF.",
-        "right": true,
-        "comment": "Slide 16"
-      },
-      {
-        "body": "Zřetězením jmen DF/EF.",
-        "right": true,
-        "comment": "Slide 16"
-      },
-      {
-        "body": "Zadáním sériového čísla karty.",
-        "right": false
-      },
-      {
-        "body": "Pouze po zadání PUK.",
-        "right": false,
-        "comment": "PUK slouží k odblokování PINu (slide 18)."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o přístupu k datům na čipové kartě?",
-    "answers": [
-      {
-        "body": "Po personalizaci karty je přístup k datům možný pouze přes logickou strukturu souborů a adresářů.",
-        "right": true,
-        "comment": "Slide 16"
-      },
-      {
-        "body": "Řízení přístupu k datům je tvořeno především řízením přístupu k souborům.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "Přístupová práva k souboru určuje hlavička souboru.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "Základním principem řízení přístupu je zadávání PINů a jejich management.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "Přístupová práva určuje čtečka, karta sama žádná práva neeviduje.",
-        "right": false,
-        "comment": "Práva určuje hlavička souboru na kartě (slide 17)."
-      }
-    ]
-  },
-  {
-    "name": "Co znamenají podmínky přístupu k souboru na čipové kartě?",
-    "answers": [
-      {
-        "body": "ALW – přístup vždy povolen.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "CHV1 – nutné zadat PIN uživatele 1.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "NEV – přístup nepovolen.",
-        "right": true,
-        "comment": "Slide 17"
-      },
-      {
-        "body": "NEV – přístup vždy povolen.",
-        "right": false,
-        "comment": "NEV = přístup nepovolen (slide 17)."
-      },
-      {
-        "body": "ALW – nutné zadat PIN uživatele 2.",
-        "right": false,
-        "comment": "To je CHV2 (slide 17)."
-      }
-    ]
-  },
-  {
     "name": "Co platí o PIN managementu na čipové kartě?",
     "answers": [
       {
@@ -567,105 +149,6 @@
         "body": "Počet neúspěšných odblokování není nijak omezen.",
         "right": false,
         "comment": "I počet neúspěšných odblokování je omezen (slide 18)."
-      }
-    ]
-  },
-  {
-    "name": "Jak se u SIM karet nazývá odblokovací PIN?",
-    "answers": [
-      {
-        "body": "PUK",
-        "right": true,
-        "comment": "Slide 18"
-      },
-      {
-        "body": "CHV1",
-        "right": false,
-        "comment": "CHV1 je podmínka zadání PINu uživatele 1 (slide 17)."
-      },
-      {
-        "body": "ALW",
-        "right": false,
-        "comment": "ALW = přístup vždy povolen (slide 17)."
-      },
-      {
-        "body": "MF",
-        "right": false,
-        "comment": "MF je master file (slide 16)."
-      }
-    ]
-  },
-  {
-    "name": "Který PIN byl podle analýzy 3,4 milionu PINů nejpopulárnější a s jakou frekvencí?",
-    "answers": [
-      {
-        "body": "1234 – asi 10,7 %",
-        "right": true,
-        "comment": "Slide 19"
-      },
-      {
-        "body": "1111 – asi 10,7 %",
-        "right": false,
-        "comment": "1111 je druhý s 6,016 % (slide 19)."
-      },
-      {
-        "body": "0000 – asi 6 %",
-        "right": false,
-        "comment": "0000 je třetí s 1,881 % (slide 19)."
-      },
-      {
-        "body": "1234 – asi 1,9 %",
-        "right": false,
-        "comment": "1234 má 10,713 % (slide 19)."
-      }
-    ]
-  },
-  {
-    "name": "Co přednáška uvádí o odečtení PINu kamerou citlivou na tepelné záření?",
-    "answers": [
-      {
-        "body": "PIN lze odečíst z klávesnice po zadání na základě teploty kláves.",
-        "right": true,
-        "comment": "Slide 20"
-      },
-      {
-        "body": "Lze zjistit i pořadí stištění kláves.",
-        "right": true,
-        "comment": "Slide 20"
-      },
-      {
-        "body": "V praxi závisí na okolní teplotě.",
-        "right": true,
-        "comment": "Slide 20"
-      },
-      {
-        "body": "Pořadí stištění kláves zjistit nelze.",
-        "right": false,
-        "comment": "Slide 20 říká opak."
-      }
-    ]
-  },
-  {
-    "name": "Kolik PINů se podařilo odpozorovat v pokusu na FI MU?",
-    "answers": [
-      {
-        "body": "Přes 35 % u PINpadu s krytem, 80 % u PINpadu bez krytu.",
-        "right": true,
-        "comment": "Slide 20"
-      },
-      {
-        "body": "80 % u PINpadu s krytem, 35 % bez krytu.",
-        "right": false,
-        "comment": "Je to obráceně (slide 20)."
-      },
-      {
-        "body": "Žádný u PINpadu s krytem, 35 % bez krytu.",
-        "right": false,
-        "comment": "I s krytem přes 35 % (slide 20)."
-      },
-      {
-        "body": "Méně než 5 % v obou případech.",
-        "right": false
       }
     ]
   },
@@ -700,31 +183,6 @@
     ]
   },
   {
-    "name": "Jaký vliv má využití CRT na dobu podpisu RSA 2048 bitů u karty Infineon SLE88CX642S?",
-    "answers": [
-      {
-        "body": "Výrazně ji zkracuje – 0,17 s s CRT proti 6,9 s bez CRT.",
-        "right": true,
-        "comment": "Slide 23"
-      },
-      {
-        "body": "Výrazně ji prodlužuje – 6,9 s s CRT proti 0,17 s bez CRT.",
-        "right": false,
-        "comment": "Je to obráceně (slide 23)."
-      },
-      {
-        "body": "Nemá žádný vliv.",
-        "right": false,
-        "comment": "Slide 23 ukazuje výrazný rozdíl."
-      },
-      {
-        "body": "S CRT nelze 2048bitový podpis na kartě vůbec vytvořit.",
-        "right": false,
-        "comment": "Lze, za 0,17 s (slide 23)."
-      }
-    ]
-  },
-  {
     "name": "Jak přednáška definuje fyzickou bezpečnost?",
     "answers": [
       {
@@ -750,31 +208,6 @@
     ]
   },
   {
-    "name": "Co je odolnost vůči narušení (tamper resistance)?",
-    "answers": [
-      {
-        "body": "Vlastnost části systému, která je chráněna proti neautorizované modifikaci způsobem zajišťujícím podstatně vyšší úroveň ochrany než ostatní části systému.",
-        "right": true,
-        "comment": "Slide 24"
-      },
-      {
-        "body": "Systém, u kterého neautorizovaná modifikace zanechává zjistitelné stopy.",
-        "right": false,
-        "comment": "To je tamper evidence (slide 24)."
-      },
-      {
-        "body": "Automatické zjištění pokusu o narušení fyzické bezpečnosti.",
-        "right": false,
-        "comment": "To je tamper detection (slide 24)."
-      },
-      {
-        "body": "Omezení počtu neúspěšných pokusů o zadání PINu.",
-        "right": false,
-        "comment": "To je PIN management (slide 18)."
-      }
-    ]
-  },
-  {
     "name": "Jak klasifikace firmy IBM popisuje útočníky třídy 1?",
     "answers": [
       {
@@ -796,31 +229,6 @@
         "body": "„Script kiddies“.",
         "right": false,
         "comment": "Ti se uvádějí jako třída 0 (slide 25)."
-      }
-    ]
-  },
-  {
-    "name": "Které tvrzení o třídách útočníků odpovídá přednášce?",
-    "answers": [
-      {
-        "body": "Třída 2 – zasvěcení insideři se značným specializovaným technickým vzděláním i zkušenostmi.",
-        "right": true,
-        "comment": "Slide 25"
-      },
-      {
-        "body": "Třída 3 – dobře finančně podporované organizace provádějící detailní analýzy systému.",
-        "right": true,
-        "comment": "Slide 25"
-      },
-      {
-        "body": "Jako třída 1.5 se někdy uvádějí útočníci s dobrým laboratorním vybavením a základními znalostmi – univerzitní laboratoře.",
-        "right": true,
-        "comment": "Slide 25"
-      },
-      {
-        "body": "Třída 3 – „script kiddies“.",
-        "right": false,
-        "comment": "„Script kiddies“ jsou třída 0 (slide 25)."
       }
     ]
   },
@@ -855,61 +263,6 @@
     ]
   },
   {
-    "name": "Které útoky na čipové karty patří mezi invazivní fyzické útoky?",
-    "answers": [
-      {
-        "body": "Preparace čipu.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Rekonstrukce a analýza návrhu čipu.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Testování čipu s využitím mikrosond.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Čtení paměti čipu.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Výkonová analýza.",
-        "right": false,
-        "comment": "To je logický útok (slide 26, 29)."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o fyzických útocích na čipové karty?",
-    "answers": [
-      {
-        "body": "Jde o reverzní inženýrství – dochází k nevratné změně karty, případně čipu; narušení je viditelné.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Vyžadují nákladné vybavení, specializované přístroje a znalosti.",
-        "right": true,
-        "comment": "Slide 27"
-      },
-      {
-        "body": "Nevyžadují speciální a nákladné vybavení.",
-        "right": false,
-        "comment": "To platí pro logické útoky (slide 29)."
-      },
-      {
-        "body": "Nikdy nezanechávají viditelné stopy.",
-        "right": false,
-        "comment": "Narušení je viditelné (slide 27)."
-      }
-    ]
-  },
-  {
     "name": "Co charakterizuje semi-invazivní útoky?",
     "answers": [
       {
@@ -935,31 +288,6 @@
     ]
   },
   {
-    "name": "Co platí o logických útocích na čipové karty?",
-    "answers": [
-      {
-        "body": "Vyžadují detailní znalosti o struktuře karty (často zjištěné předchozím fyzickým útokem).",
-        "right": true,
-        "comment": "Slide 29"
-      },
-      {
-        "body": "Nevyžadují speciální a nákladné vybavení.",
-        "right": true,
-        "comment": "Slide 29"
-      },
-      {
-        "body": "Vždy vedou k nevratné změně čipu.",
-        "right": false,
-        "comment": "To platí pro fyzické útoky (slide 27)."
-      },
-      {
-        "body": "Nevyžadují žádné znalosti o kartě.",
-        "right": false,
-        "comment": "Vyžadují detailní znalosti (slide 29)."
-      }
-    ]
-  },
-  {
     "name": "Na čem je založena časová analýza čipové karty?",
     "answers": [
       {
@@ -981,127 +309,6 @@
         "body": "Na čtení paměti čipu mikrosondami.",
         "right": false,
         "comment": "To je invazivní fyzický útok (slide 27)."
-      }
-    ]
-  },
-  {
-    "name": "V čem spočívá obrana proti časové analýze a jakou má nevýhodu?",
-    "answers": [
-      {
-        "body": "V minimalizaci závislosti délky výpočtu na vstupu.",
-        "right": true,
-        "comment": "Slide 30"
-      },
-      {
-        "body": "Často se tím připravujeme o možnost optimalizace kódu (CRT u RSA).",
-        "right": true,
-        "comment": "Slide 30"
-      },
-      {
-        "body": "V maximalizaci závislosti délky výpočtu na vstupu.",
-        "right": false,
-        "comment": "Slide 30 říká opak."
-      },
-      {
-        "body": "Obrana nemá žádné vedlejší dopady na jiné typy útoků.",
-        "right": false,
-        "comment": "Některé snahy o obranu přinášejí možnost jiných typů útoků (slide 30)."
-      }
-    ]
-  },
-  {
-    "name": "Jaký příklad časové analýzy přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Karta zapisuje do paměti po 64 bajtech; je výrazný rozdíl mezi zápisem 64 a 65 bajtů (trvá déle).",
-        "right": true,
-        "comment": "Slide 31"
-      },
-      {
-        "body": "Karta zapisuje po 250 bajtech; rozdíl je mezi 3 stopami proužku.",
-        "right": false,
-        "comment": "250 B je kapacita magnetického proužku (slide 11)."
-      },
-      {
-        "body": "Zápis 0 a zápis 1 trvají stejně dlouho, liší se jen teplotou kláves.",
-        "right": false
-      },
-      {
-        "body": "Karta zapisuje po 8 znacích hesla.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Co se sleduje při výkonové analýze čipové karty?",
-    "answers": [
-      {
-        "body": "Spotřeba proudu kartou při provádění jednotlivých typů operací.",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Teplota kláves PINpadu.",
-        "right": false,
-        "comment": "To je odečtení PINu tepelnou kamerou (slide 20)."
-      },
-      {
-        "body": "Doba výpočtu v závislosti na vstupu.",
-        "right": false,
-        "comment": "To je časová analýza (slide 30)."
-      },
-      {
-        "body": "Charakteristiky magnetického proužku.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Proč výkonová analýza funguje?",
-    "answers": [
-      {
-        "body": "Různé operace mikrokódu používají různé množství tranzistorů, a podle provedených operací se mění spotřeba celé karty.",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Výrazně se liší spotřeba proudu při sčítání a násobení a při zápisu 0 či 1 do paměti.",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Spotřeba karty je při všech operacích stejná.",
-        "right": false,
-        "comment": "Slide 32 říká opak."
-      },
-      {
-        "body": "Karta sama hlásí čtečce, kterou operaci právě provádí.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Které typy výkonových analýz přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Jednoduchá výkonová analýza (SPA).",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Diferenciální výkonová analýza (DPA).",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Odvozená výkonová analýza (IPA – inferential power analysis).",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Semi-invazivní výkonová analýza.",
-        "right": false,
-        "comment": "Semi-invazivní jsou fyzické útoky, ne typ výkonové analýzy (slide 27, 32)."
       }
     ]
   },
@@ -1154,35 +361,6 @@
     ]
   },
   {
-    "name": "Které ovlivnitelné prvky okolí přednáška uvádí u indukce chyb?",
-    "answers": [
-      {
-        "body": "Napájecí napětí.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Hodinový signál, reset signál.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Elektrické pole.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Teplota.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Délka PINu.",
-        "right": false
-      }
-    ]
-  },
-  {
     "name": "Útok na čipové karty přes aplikační rozhraní (API) je založen na:",
     "answers": [
       {
@@ -1203,31 +381,6 @@
       {
         "body": "odpozorování PINu při zadávání.",
         "right": false
-      }
-    ]
-  },
-  {
-    "name": "Proč jsou podle přednášky chyby v API čipových karet pravděpodobné?",
-    "answers": [
-      {
-        "body": "Žádný kód/návrh není bezchybný.",
-        "right": true,
-        "comment": "Slide 35"
-      },
-      {
-        "body": "Rozhraní často bývá složité a rozsáhlé.",
-        "right": true,
-        "comment": "Slide 35"
-      },
-      {
-        "body": "Výrobci se snaží maximálně optimalizovat.",
-        "right": true,
-        "comment": "Slide 35"
-      },
-      {
-        "body": "API neumožňuje volat rutiny karty jednotným způsobem.",
-        "right": false,
-        "comment": "Právě to API umožňuje (slide 35)."
       }
     ]
   },
@@ -1253,56 +406,6 @@
         "body": "Odpověď je funkcí pouze výzvy, žádné tajemství není potřeba.",
         "right": false,
         "comment": "Odpověď je funkcí klíče a výzvy (slide 36)."
-      }
-    ]
-  },
-  {
-    "name": "Proč přednáška označuje příklad autorizace bankovní transakce autentizačním kalkulátorem z ČR za odstrašující?",
-    "answers": [
-      {
-        "body": "Je nutný přepis řady údajů do kalkulátoru (PIN, částka, předčíslí, číslo účtu, kód banky).",
-        "right": true,
-        "comment": "Slide 38"
-      },
-      {
-        "body": "Kalkulátor negeneruje žádný autentizační kód.",
-        "right": false,
-        "comment": "Generuje desetimístné autentizační číslo (slide 38)."
-      },
-      {
-        "body": "Kalkulátor nevyžaduje PIN.",
-        "right": false,
-        "comment": "PIN se zadává jako první krok (slide 38)."
-      },
-      {
-        "body": "Kalkulátor snímá flicker kód z obrazovky.",
-        "right": false,
-        "comment": "To je naopak příklad uživatelsky přívětivého kalkulátoru (slide 39)."
-      }
-    ]
-  },
-  {
-    "name": "Čím může být autentizační kalkulátor uživatelsky přívětivý?",
-    "answers": [
-      {
-        "body": "Autentizací biometrikou.",
-        "right": true,
-        "comment": "Slide 39"
-      },
-      {
-        "body": "Snímačem flicker kódu z obrazovky.",
-        "right": true,
-        "comment": "Slide 39"
-      },
-      {
-        "body": "Nutností ručně přepsat číslo účtu a kód banky.",
-        "right": false,
-        "comment": "To je „odstrašující případ“ (slide 38)."
-      },
-      {
-        "body": "Odstraněním tajné informace z kalkulátoru.",
-        "right": false,
-        "comment": "Odpověď je funkcí tajné informace (slide 36)."
       }
     ]
   },
@@ -1337,77 +440,6 @@
     ]
   },
   {
-    "name": "Jak se u tokenů založených na hodinách řeší rozdíl hodin na serveru?",
-    "answers": [
-      {
-        "body": "Záznamem v čítači na serveru; po každém úspěšném přihlášení se aktualizuje, nejčastěji jako offset.",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "Token se po každém přihlášení musí vyměnit za nový.",
-        "right": false
-      },
-      {
-        "body": "Server hodiny tokenu ignoruje a přijme jakoukoli hodnotu.",
-        "right": false,
-        "comment": "Hodnota platí jen v určitém časovém rámci (slide 40)."
-      },
-      {
-        "body": "Uživatel ručně nastaví hodiny tokenu přes klávesnici čtečky.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Na čem bývá založena autentizace bezkontaktní karty?",
-    "answers": [
-      {
-        "body": "Někdy na ověření sériového čísla karty, které karta na požádání sdělí.",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Někdy na kryptografických mechanismech.",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Vždy na biometrice držitele.",
-        "right": false
-      },
-      {
-        "body": "Vždy na PINu zadaném na kartě.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Co platí o bezpečnosti autentizace bezkontaktní kartou?",
-    "answers": [
-      {
-        "body": "Bezpečnost staví na obtížnosti výroby karty (zařízení) se stejnou funkčností.",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Zařízení útočníka nemusí být nutně stejně velké jako původní karta.",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Sériové číslo karta nikdy nesdělí.",
-        "right": false,
-        "comment": "Sdělí je na požádání (slide 41)."
-      },
-      {
-        "body": "Zařízení útočníka musí mít přesně rozměry původní karty.",
-        "right": false,
-        "comment": "Slide 41 říká opak."
-      }
-    ]
-  },
-  {
     "name": "Co platí o FIDO tokenu?",
     "answers": [
       {
@@ -1434,56 +466,6 @@
         "body": "Je založen výhradně na symetrické kryptografii a sdíleném hesle.",
         "right": false,
         "comment": "Používá asymetrickou kryptografii (slide 42)."
-      }
-    ]
-  },
-  {
-    "name": "Které další vlastnosti FIDO přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Ověření atestu zařízení; zařízením může být i chytrý telefon (Android 9+).",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Podpora všech významných WWW prohlížečů, zaštítěno W3C – WebAuthn.",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Dedikované klíče pro novou aplikaci.",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Nepodporuje žádný významný WWW prohlížeč.",
-        "right": false,
-        "comment": "Slide 42 říká opak."
-      }
-    ]
-  },
-  {
-    "name": "Jaké jsou obecné výhody tokenů?",
-    "answers": [
-      {
-        "body": "Rychle se zjistí jejich ztráta.",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "Nejsou jednoduše kopírovatelné.",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "Samy o sobě mohou být schopny zpracovávat nebo přenášet další informace.",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "Ke kontrole není nikdy potřeba žádné zvláštní zařízení.",
-        "right": false,
-        "comment": "Často je potřeba speciální čtečka, zařízení nebo vycvičená osoba (slide 44)."
       }
     ]
   },
@@ -1531,20 +513,6 @@
       "Útoky přes API: chyby návrhu rozhraní"
     ],
     "source": "Přednáška 3, slide 26–35"
-  },
-  {
-    "name": "Vysvětlete pojmy fyzická bezpečnost, odolnost vůči narušení, zjistitelnost narušení, detekce narušení a odpověď na narušení a popište klasifikaci útočníků podle IBM.",
-    "answer": "<B>Fyzická bezpečnost</B> – překážka/y umístěná/é kolem počítačového systému za účelem ztížení neautorizovaného fyzického přístupu k němu. <B>Odolnost vůči narušení (tamper resistance)</B> – vlastnost části systému, která je chráněna proti neautorizované modifikaci způsobem zajišťujícím podstatně vyšší úroveň ochrany než ostatní části systému. <B>Zjistitelnost narušení (tamper evidence)</B> – systém, u kterého jakákoliv neautorizovaná modifikace zanechává zjistitelné stopy. <B>Detekce narušení (tamper detection)</B> – automatické zjištění pokusu o narušení fyzické bezpečnosti. <B>Odpověď na narušení (tamper response)</B> – automatická akce provedená chráněnou částí při zjištění pokusu o narušení. <B>Klasifikace útočníků (IBM)</B> je podle znalostí, schopností, finančních možností a přístupu ke speciálnímu vybavení. Třída 1 – chytří nezasvěcení útočníci: často velmi inteligentní, nedostatečné znalosti systému, jen středně sofistikované vybavení; pod ní se jako třída 0 uvádějí „script kiddies“, někdy jako třída 1.5 útočníci s dobrým laboratorním vybavením a základními znalostmi (univerzitní laboratoře). Třída 2 – zasvěcení insideři se značným specializovaným technickým vzděláním i zkušenostmi. Třída 3 – dobře finančně podporované organizace schopné vytvořit týmy specialistů a provádět detailní analýzy systému.",
-    "keyPoints": [
-      "Fyzická bezpečnost = překážka ztěžující neautorizovaný fyzický přístup",
-      "Tamper resistance = podstatně vyšší ochrana části systému proti modifikaci",
-      "Tamper evidence = modifikace zanechává zjistitelné stopy",
-      "Tamper detection = automatické zjištění pokusu o narušení",
-      "Tamper response = automatická akce při zjištění pokusu",
-      "Třída 1 chytří nezasvěcení, třída 2 zasvěcení insideři, třída 3 financované organizace",
-      "Třída 0 script kiddies, třída 1.5 univerzitní laboratoře"
-    ],
-    "source": "Přednáška 3, slide 24–25"
   },
   {
     "name": "Shrňte obecné výhody a nevýhody tokenů a vysvětlete dilema ceny výroby a ceny padělání tokenu.",

@@ -25,31 +25,6 @@
     ]
   },
   {
-    "name": "Co je podle přednášky identifikace?",
-    "answers": [
-      {
-        "body": "Rozpoznání určité entity (systémem) v dané množině entit.",
-        "right": true,
-        "comment": "Slide 8"
-      },
-      {
-        "body": "Ověření tvrzení o identitě, které subjekt sám předložil.",
-        "right": false,
-        "comment": "To je autentizace/verifikace (slide 8–9)."
-      },
-      {
-        "body": "Udělení určitých práv a určení povolených aktivit.",
-        "right": false,
-        "comment": "To je autorizace (slide 8)."
-      },
-      {
-        "body": "Potvrzení platnosti veřejného klíče.",
-        "right": false,
-        "comment": "To je úloha certifikační autority (slide 41)."
-      }
-    ]
-  },
-  {
     "name": "Co je podle přednášky autorizace?",
     "answers": [
       {
@@ -130,30 +105,6 @@
     ]
   },
   {
-    "name": "Čipová karta je v dělení metod autentizace příkladem:",
-    "answers": [
-      {
-        "body": "něčeho, co máme.",
-        "right": true,
-        "comment": "Slide 9 a 14"
-      },
-      {
-        "body": "něčeho, co známe.",
-        "right": false,
-        "comment": "Tam patří PIN a heslo (slide 9)."
-      },
-      {
-        "body": "něčeho, co jsme.",
-        "right": false,
-        "comment": "Tam patří biometriky (slide 9)."
-      },
-      {
-        "body": "něčeho, kde jsme.",
-        "right": false
-      }
-    ]
-  },
-  {
     "name": "Uživatel vložil svou kartu a zadal správný PIN. Co tím podle přednášky udělal?",
     "answers": [
       {
@@ -175,184 +126,6 @@
         "body": "Prokázal se „něčím, co je“ (biometrikou).",
         "right": false,
         "comment": "PIN je „něco, co známe“, karta „něco, co máme“ (slide 9)."
-      }
-    ]
-  },
-  {
-    "name": "Co je podle přednášky token?",
-    "answers": [
-      {
-        "body": "„Něco, co uživatel má“ (a ostatní ne).",
-        "right": true,
-        "comment": "Slide 14"
-      },
-      {
-        "body": "„Něco, co uživatel zná“ (a ostatní ne).",
-        "right": false,
-        "comment": "To jsou tajné informace – hesla, PINy (slide 13)."
-      },
-      {
-        "body": "„Něco, co uživatel je“ (a ostatní ne).",
-        "right": false,
-        "comment": "To jsou biometriky (slide 15)."
-      },
-      {
-        "body": "Otisk dat vytvořený hašovací funkcí.",
-        "right": false,
-        "comment": "To je haš (slide 22)."
-      }
-    ]
-  },
-  {
-    "name": "Na jaké dvě skupiny dělí úvodní přednáška měřitelné biologické charakteristiky člověka?",
-    "answers": [
-      {
-        "body": "Fyzické – parametry částí těla.",
-        "right": true,
-        "comment": "Slide 15"
-      },
-      {
-        "body": "Chování (behaviorální) – parametry činnosti.",
-        "right": true,
-        "comment": "Slide 15"
-      },
-      {
-        "body": "Symetrické a asymetrické.",
-        "right": false,
-        "comment": "To je dělení kryptografie podle klíčů (slide 21)."
-      },
-      {
-        "body": "Volitelné a povinné.",
-        "right": false,
-        "comment": "To je dělení řízení přístupu – DAC a MAC (slide 19)."
-      }
-    ]
-  },
-  {
-    "name": "Proč je autentizace mezi počítači podle přednášky netriviální problém?",
-    "answers": [
-      {
-        "body": "Nelze použít biometriky a obvykle ani tokeny.",
-        "right": true,
-        "comment": "Slide 18"
-      },
-      {
-        "body": "Počítače nemohou použít protokol výzva-odpověď.",
-        "right": false,
-        "comment": "Právě výzva-odpověď se pro ně používá (slide 18)."
-      },
-      {
-        "body": "Počítače nemají žádné síťové adresy, podle kterých by je šlo rozlišit.",
-        "right": false,
-        "comment": "Autentizace podle síťových adres (MAC, IP) je na slidu uvedena (slide 18)."
-      },
-      {
-        "body": "Protokoly ssh a TLS autentizaci počítačů nepodporují.",
-        "right": false,
-        "comment": "Jsou uvedeny jako příklady (slide 18)."
-      }
-    ]
-  },
-  {
-    "name": "Které přístupy k autentizaci mezi počítači přednáška zmiňuje?",
-    "answers": [
-      {
-        "body": "Autentizace podle síťových adres (MAC, IP adresy).",
-        "right": true,
-        "comment": "Slide 18"
-      },
-      {
-        "body": "Protokol výzva-odpověď – ověření znalosti tajné informace pomocí kryptografie.",
-        "right": true,
-        "comment": "Slide 18"
-      },
-      {
-        "body": "Biometrická verifikace počítače.",
-        "right": false,
-        "comment": "Biometriky mezi počítači použít nelze (slide 18)."
-      },
-      {
-        "body": "Zodpovězení bezpečnostních otázek počítačem.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Co na slidu o řízení přístupu znamená zkratka DAC?",
-    "answers": [
-      {
-        "body": "Volitelné řízení přístupu – Discretionary Access Control.",
-        "right": true,
-        "comment": "Slide 19"
-      },
-      {
-        "body": "Povinné řízení přístupu – Mandatory Access Control.",
-        "right": false,
-        "comment": "To je MAC (slide 19)."
-      },
-      {
-        "body": "Víceúrovňové systémy – Multilevel Systems.",
-        "right": false,
-        "comment": "To je MLS (slide 19)."
-      },
-      {
-        "body": "Řízení přístupu podle rolí – Role-Based Access Control.",
-        "right": false,
-        "comment": "To je RBAC (slide 19)."
-      }
-    ]
-  },
-  {
-    "name": "Co na slidu o řízení přístupu znamená zkratka MAC?",
-    "answers": [
-      {
-        "body": "Povinné řízení přístupu – Mandatory Access Control.",
-        "right": true,
-        "comment": "Slide 19"
-      },
-      {
-        "body": "Volitelné řízení přístupu – Discretionary Access Control.",
-        "right": false,
-        "comment": "To je DAC (slide 19)."
-      },
-      {
-        "body": "Víceúrovňové systémy – Multilevel Systems.",
-        "right": false,
-        "comment": "To je MLS (slide 19)."
-      },
-      {
-        "body": "Řízení přístupu podle rolí.",
-        "right": false,
-        "comment": "To je RBAC (slide 19)."
-      }
-    ]
-  },
-  {
-    "name": "Které tři dimenze kryptografie přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Druh a parametry klíčů.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Způsob zpracování dat.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Druhy použitých operací.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Počet komunikujících stran.",
-        "right": false
-      },
-      {
-        "body": "Míra tolerance (prahová hodnota).",
-        "right": false,
-        "comment": "To je pojem z biometrik (slide 15)."
       }
     ]
   },
@@ -387,80 +160,6 @@
     ]
   },
   {
-    "name": "Které způsoby zpracování dat v kryptografii přednáška rozlišuje?",
-    "answers": [
-      {
-        "body": "Po blocích.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "V souvislém proudu.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Substitucí.",
-        "right": false,
-        "comment": "Substituce je druh použité operace (slide 21)."
-      },
-      {
-        "body": "Permutací.",
-        "right": false,
-        "comment": "Permutace je druh použité operace (slide 21)."
-      }
-    ]
-  },
-  {
-    "name": "Co je podle přednášky haš (hašování)?",
-    "answers": [
-      {
-        "body": "„Otisk dat“ – malý a „jedinečný“ reprezentant jakkoliv velkých dat.",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "Zašifrovaná podoba dat, kterou lze soukromým klíčem dešifrovat zpět.",
-        "right": false,
-        "comment": "Hašovací funkce je jednosměrná a bez klíče (slide 21–22)."
-      },
-      {
-        "body": "Rozsáhlý náhodný řetězec bitů sdílený Alicí a Bobem.",
-        "right": false,
-        "comment": "To je klíč symetrické kryptografie (slide 23)."
-      },
-      {
-        "body": "Podpis certifikační autority na veřejném klíči.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Které vlastnosti hašovacích funkcí přednáška jmenuje?",
-    "answers": [
-      {
-        "body": "Rychlost výpočtu.",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "Jednosměrnost.",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "Bezkoliznost (slabá a silná).",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "Možnost obnovit z haše původní data pomocí klíče.",
-        "right": false,
-        "comment": "Odporuje jednosměrnosti (slide 22)."
-      }
-    ]
-  },
-  {
     "name": "Čím se podle přednášky liší slabá a silná bezkoliznost hašovací funkce?",
     "answers": [
       {
@@ -480,54 +179,6 @@
       },
       {
         "body": "Slabá znamená rychlý výpočet, silná pomalý.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "U kterých hašovacích funkcí přednáška uvádí problémy?",
-    "answers": [
-      {
-        "body": "MD5",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "SHA-0",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "SHA-1",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "SHA-2",
-        "right": false,
-        "comment": "Delší varianty z rodiny SHA-2 jsou doporučeny (slide 22)."
-      }
-    ]
-  },
-  {
-    "name": "Jakou délku výstupu mají podle přednášky funkce MD5 a SHA-1?",
-    "answers": [
-      {
-        "body": "MD5 128 bitů, SHA-1 160 bitů.",
-        "right": true,
-        "comment": "Slide 22"
-      },
-      {
-        "body": "MD5 160 bitů, SHA-1 128 bitů.",
-        "right": false,
-        "comment": "Je to obráceně (slide 22)."
-      },
-      {
-        "body": "Obě 56 bitů.",
-        "right": false
-      },
-      {
-        "body": "Obě 168 bitů.",
         "right": false
       }
     ]
@@ -558,31 +209,6 @@
     ]
   },
   {
-    "name": "K čemu slouží v asymetrické kryptografii veřejný klíč?",
-    "answers": [
-      {
-        "body": "K šifrování.",
-        "right": true,
-        "comment": "Slide 23 a 37"
-      },
-      {
-        "body": "K ověření podpisu.",
-        "right": true,
-        "comment": "Slide 23 a 37"
-      },
-      {
-        "body": "K dešifrování.",
-        "right": false,
-        "comment": "To dělá soukromý klíč (slide 37)."
-      },
-      {
-        "body": "K tvorbě podpisu.",
-        "right": false,
-        "comment": "To dělá soukromý klíč (slide 37)."
-      }
-    ]
-  },
-  {
     "name": "Alice chce Bobovi poslat zprávu zašifrovanou asymetrickou kryptografií. Které klíče se použijí?",
     "answers": [
       {
@@ -603,31 +229,6 @@
         "body": "Alice i Bob použijí stejný sdílený klíč.",
         "right": false,
         "comment": "To je symetrická kryptografie (slide 23)."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o párech klíčů pro šifrování a pro podpis?",
-    "answers": [
-      {
-        "body": "Nemusí jít o stejný pár klíčů pro oba druhy operací.",
-        "right": true,
-        "comment": "Slide 37"
-      },
-      {
-        "body": "Vždy musí jít o tentýž pár klíčů.",
-        "right": false,
-        "comment": "Slide 37 říká opak."
-      },
-      {
-        "body": "Pro podpis se používá jen symetrický klíč.",
-        "right": false,
-        "comment": "Podpis využívá asymetrickou kryptografii (slide 33, 37)."
-      },
-      {
-        "body": "Šifruje se soukromým klíčem a podepisuje veřejným.",
-        "right": false,
-        "comment": "Je to obráceně (slide 37)."
       }
     ]
   },
@@ -681,55 +282,6 @@
     ]
   },
   {
-    "name": "Jak se v hybridním přístupu vytváří podpis?",
-    "answers": [
-      {
-        "body": "Vytvoří se haš dat a až ten se podepíše soukromým klíčem.",
-        "right": true,
-        "comment": "Slide 26"
-      },
-      {
-        "body": "Celá data se zašifrují veřejným klíčem adresáta.",
-        "right": false,
-        "comment": "To je šifrování, ne podpis (slide 26)."
-      },
-      {
-        "body": "Vytvoří se haš dat a podepíše se veřejným klíčem podepisujícího.",
-        "right": false,
-        "comment": "Podpis se tvoří soukromým klíčem (slide 26, 37)."
-      },
-      {
-        "body": "Data se zašifrují náhodným symetrickým klíčem.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Jak dlouho podle tabulky v přednášce trvá prohledání prostoru 56bitových klíčů při 10<SUP>6</SUP> dešifrování/µs?",
-    "answers": [
-      {
-        "body": "10 hodin",
-        "right": true,
-        "comment": "Slide 30"
-      },
-      {
-        "body": "2,15 ms",
-        "right": false,
-        "comment": "To platí pro 32bitový klíč (slide 30)."
-      },
-      {
-        "body": "5,4 × 10<SUP>18</SUP> let",
-        "right": false,
-        "comment": "To platí pro 128bitový klíč (slide 30)."
-      },
-      {
-        "body": "5,9 × 10<SUP>30</SUP> let",
-        "right": false,
-        "comment": "To platí pro 168bitový klíč (slide 30)."
-      }
-    ]
-  },
-  {
     "name": "Co říká Kerckhoffsův princip, jak jej podává přednáška?",
     "answers": [
       {
@@ -751,31 +303,6 @@
         "body": "Bezpečnost má záviset na utajení algoritmu i klíče.",
         "right": false,
         "comment": "Algoritmus je všem znám (slide 31)."
-      }
-    ]
-  },
-  {
-    "name": "Která tvrzení o proprietárních algoritmech odpovídají přednášce?",
-    "answers": [
-      {
-        "body": "Přicházejí v úvahu v extrémních situacích, kdy lze alespoň částečně věřit v možnost utajení algoritmu.",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Ani u nich by neměla být zanedbána bezpečnost klíče (robustnost vůči útoku hrubou silou).",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Často využívají principy (znalosti o) veřejně známých šifer.",
-        "right": true,
-        "comment": "Slide 32"
-      },
-      {
-        "body": "Díky utajení algoritmu lze bezpečnost klíče zanedbat.",
-        "right": false,
-        "comment": "Slide 32 říká opak."
       }
     ]
   },
@@ -810,79 +337,6 @@
     ]
   },
   {
-    "name": "Co zahrnuje autentizace podepsaných dat, kterou musí podpis zajistit?",
-    "answers": [
-      {
-        "body": "Integritu.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Prokázání původu dat.",
-        "right": true,
-        "comment": "Slide 34"
-      },
-      {
-        "body": "Důvěrnost.",
-        "right": false,
-        "comment": "Podpis důvěrnost nezajišťuje (slide 36)."
-      },
-      {
-        "body": "Dostupnost dat.",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Která tvrzení o digitálním podpisu platí?",
-    "answers": [
-      {
-        "body": "Nezajišťuje důvěrnost.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Nejznámější algoritmy jsou RSA a DSA.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Existují algoritmy s obnovou zprávy a bez obnovy zprávy.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Vytváří se veřejným klíčem podepisujícího.",
-        "right": false,
-        "comment": "Podpis se tvoří soukromým klíčem (slide 37)."
-      }
-    ]
-  },
-  {
-    "name": "Co znamená, že je podpisový algoritmus „s obnovou zprávy“?",
-    "answers": [
-      {
-        "body": "Podpis „obsahuje“ podepisovaná data.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Podpis „neobsahuje“ podepisovaná data.",
-        "right": false,
-        "comment": "To je algoritmus bez obnovy zprávy (slide 36)."
-      },
-      {
-        "body": "Podpis lze kdykoli odvolat a zprávu obnovit ze zálohy.",
-        "right": false
-      },
-      {
-        "body": "Podpis zajišťuje důvěrnost zprávy.",
-        "right": false,
-        "comment": "Digitální podpis důvěrnost nezajišťuje (slide 36)."
-      }
-    ]
-  },
-  {
     "name": "Proč se podle přednášky nepodepisují přímo data, ale jejich haš?",
     "answers": [
       {
@@ -904,31 +358,6 @@
         "body": "Haš nahrazuje soukromý klíč, který pak není potřeba.",
         "right": false,
         "comment": "Haš se podepisuje soukromým klíčem (slide 26)."
-      }
-    ]
-  },
-  {
-    "name": "Jaké fáze postupu při digitálním podpisu přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Vytvoření a registrace klíčů (certifikát).",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Vlastní podepsání (dokument → haš → podpis).",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Ověření podpisu.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Zveřejnění soukromého klíče podepisujícího.",
-        "right": false,
-        "comment": "Taková fáze na slidu 36 není; klíč jako tajná informace musí být chráněn (slide 31)."
       }
     ]
   },
@@ -955,91 +384,6 @@
     ]
   },
   {
-    "name": "Proč je podle přednášky spojení veřejného klíče s označením entity kritické?",
-    "answers": [
-      {
-        "body": "Protože řeší otázku „S kým komunikuji?“.",
-        "right": true,
-        "comment": "Slide 38"
-      },
-      {
-        "body": "Protože jinak by nebylo možné klíč použít k výpočtu haše.",
-        "right": false,
-        "comment": "Hašovací funkce jsou bez klíčů (slide 21)."
-      },
-      {
-        "body": "Protože veřejný klíč musí zůstat utajen.",
-        "right": false,
-        "comment": "Veřejný klíč tajný není; chrání se klíč soukromý."
-      },
-      {
-        "body": "Protože tím podpis získá důvěrnost.",
-        "right": false,
-        "comment": "Podpis důvěrnost nezajišťuje (slide 36)."
-      }
-    ]
-  },
-  {
-    "name": "Které položky obsahuje struktura TBSCertificate certifikátu X.509v3 uvedená v přednášce?",
-    "answers": [
-      {
-        "body": "serialNumber",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "issuer",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "validity (notBefore, notAfter)",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "subjectPublicKeyInfo",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "subjectPrivateKeyInfo",
-        "right": false,
-        "comment": "Certifikát obsahuje veřejný klíč subjektu, ne soukromý (slide 39–40)."
-      }
-    ]
-  },
-  {
-    "name": "Které položky TBSCertificate jsou ve výpisu X.509v3 označeny jako OPTIONAL?",
-    "answers": [
-      {
-        "body": "issuerUniqueID",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "subjectUniqueID",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "extensions",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "subject",
-        "right": false,
-        "comment": "Slide 40 – není označeno jako OPTIONAL."
-      },
-      {
-        "body": "validity",
-        "right": false,
-        "comment": "Slide 40 – není označeno jako OPTIONAL."
-      }
-    ]
-  },
-  {
     "name": "Co dělá podle přednášky certifikační autorita?",
     "answers": [
       {
@@ -1057,35 +401,6 @@
       },
       {
         "body": "Uděluje uživatelům přístupová práva k souborům (autorizace).",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Na které otázky se podle přednášky hledá odpověď při potvrzování platnosti veřejného klíče certifikační autoritou?",
-    "answers": [
-      {
-        "body": "Patří klíč někomu? Komu?",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Má daný člověk odpovídající soukromý klíč?",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Je platnost klíče omezena?",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Je poskytnuto ručení? Do jaké výše?",
-        "right": true,
-        "comment": "Slide 41"
-      },
-      {
-        "body": "Jaké je uživatelovo heslo do operačního systému?",
         "right": false
       }
     ]
@@ -1116,110 +431,6 @@
     ]
   },
   {
-    "name": "Které výrazy jsou podle terminologické prosby přednášejícího správné?",
-    "answers": [
-      {
-        "body": "šifrujeme (zašifrujeme)",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "dešifrujeme",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "autentizujeme a identifikujeme",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "rozšifrováváme",
-        "right": false,
-        "comment": "Slide 43: nerozšifrováváme – dešifrujeme."
-      },
-      {
-        "body": "autentifikujeme",
-        "right": false,
-        "comment": "Slide 43: neautentikujeme ani neautentifikujeme."
-      }
-    ]
-  },
-  {
-    "name": "Jak podle terminologické prosby správně označit operaci, které se nesprávně říká „šifrování soukromým klíčem“?",
-    "answers": [
-      {
-        "body": "Podepisujeme.",
-        "right": true,
-        "comment": "Slide 43"
-      },
-      {
-        "body": "Šifrujeme soukromým klíčem.",
-        "right": false,
-        "comment": "Slide 43: nešifrujeme soukromým klíčem – podepisujeme."
-      },
-      {
-        "body": "Enkryptujeme.",
-        "right": false,
-        "comment": "Slide 43: nekryptujeme ani neenkryptujeme."
-      },
-      {
-        "body": "Identizujeme.",
-        "right": false,
-        "comment": "Slide 43: neidentizujeme."
-      }
-    ]
-  },
-  {
-    "name": "Které označení přednáška uvádí jako slabý mechanismus autentizace dat/zpráv?",
-    "answers": [
-      {
-        "body": "CRC",
-        "right": true,
-        "comment": "Slide 16"
-      },
-      {
-        "body": "Digitální podpis",
-        "right": false,
-        "comment": "Slide 16 jej uvádí jako hlavní téma, ne jako slabý mechanismus."
-      },
-      {
-        "body": "Autentizační kódy (MAC)",
-        "right": false,
-        "comment": "Slide 16 – nejsou označeny jako slabé."
-      },
-      {
-        "body": "Certifikát veřejného klíče",
-        "right": false
-      }
-    ]
-  },
-  {
-    "name": "Kdo podle přednášky ve skutečnosti provádí digitální podpis?",
-    "answers": [
-      {
-        "body": "Podpis děláme vždy přes přístroj.",
-        "right": true,
-        "comment": "Slide 38"
-      },
-      {
-        "body": "Vždy člověk sám, bez jakéhokoli zařízení.",
-        "right": false,
-        "comment": "Slide 38 říká opak."
-      },
-      {
-        "body": "Vždy certifikační autorita místo uživatele.",
-        "right": false,
-        "comment": "CA potvrzuje platnost veřejného klíče (slide 41)."
-      },
-      {
-        "body": "Příjemce zprávy svým veřejným klíčem.",
-        "right": false,
-        "comment": "Podpis se tvoří soukromým klíčem podepisujícího (slide 37)."
-      }
-    ]
-  },
-  {
     "name": "Vysvětlete pojmy autentizace, identifikace a autorizace a rozdíl mezi verifikací a identifikací uživatele. Uveďte metody (faktory) autentizace uživatele s příklady.",
     "answer": "<B>Autentizace</B> je proces ověření (a tím i ustavení) identity s požadovanou mírou záruky – verifikace identity, resp. tvrzení o identitě. <B>Identifikace</B> je rozpoznání určité entity (systémem) v dané množině entit. <B>Autorizace</B> je udělení určitých práv a určení povolených aktivit; obvykle následuje řízení přístupu. Při <B>autentizaci (verifikaci)</B> subjekt předkládá tvrzení o své identitě a jde o srovnání 1:1. Při <B>identifikaci (vyhledání)</B> subjekt identitu nepředkládá; systém prochází všechny (relevantní) záznamy v databázi, aby našel shodu a identitu rozpoznal sám – 1:n. Metody autentizace: něco, co známe (PIN, heslo); něco, co máme (klíč, čipová karta); něco, co jsme (biometriky); někde, kde jsme. Příklad: uživatel, který vložil kartu a zadal správný PIN, se autentizoval vůči kartě a potenciálně autorizoval transakci/platbu.",
     "keyPoints": [
@@ -1246,18 +457,5 @@
       "Certifikát spojuje veřejný klíč s entitou; CA potvrzuje platnost klíče"
     ],
     "source": "Přednáška 1, slide 34–41"
-  },
-  {
-    "name": "Vysvětlete Kerckhoffsův princip, postoj přednášky k proprietárním algoritmům a důvod, proč se v praxi používají hybridní kryptosystémy.",
-    "answer": "<B>Kerckhoffsův princip:</B> algoritmus (postup) je všem znám a všemi kontrolován jako správný; klíč (tajná informace) musí být chráněn před nepovolanými osobami. <B>Proprietární algoritmy</B> přicházejí v úvahu jen v extrémních situacích, kdy lze alespoň částečně věřit v možnost utajení algoritmu – přednášející to označuje za velmi diskutabilní závislost. Ani tak nesmí být zanedbána bezpečnost klíče (robustnost vůči útoku hrubou silou); často se využívají principy veřejně známých šifer. Základní dilema je otevřená/veřejná verifikace versus přístupnost znalostí o (ne)kvalitě. <B>Hybridní kryptosystémy:</B> asymetrické algoritmy jsou pomalejší (pro srovnatelnou úroveň bezpečnosti) a symetrické jsou obtížněji využitelné v situacích vyžadujících autentizaci, proto se kombinují. Šifrování: náhodně vygenerovaný klíč pro symetrickou šifru, jím se zašifrují data a klíč se zašifruje veřejným klíčem adresáta. Podpis: vytvoří se haš dat a až ten se podepíše soukromým klíčem.",
-    "keyPoints": [
-      "Algoritmus je veřejně znám a kontrolován, tajný je jen klíč",
-      "Proprietární algoritmy jen v extrémních situacích, diskutabilní",
-      "Bezpečnost klíče se nesmí zanedbat ani u utajeného algoritmu",
-      "Asymetrické algoritmy jsou pomalejší, symetrické hůře použitelné pro autentizaci",
-      "Hybridní šifrování: symetrický klíč na data, veřejný klíč adresáta na klíč",
-      "Hybridní podpis: haš dat podepsaný soukromým klíčem"
-    ],
-    "source": "Přednáška 1, slide 26 a 31–32"
   }
 ]
