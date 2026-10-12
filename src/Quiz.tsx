@@ -16,6 +16,12 @@ function prepare(questions: Question[]): Question[] {
   return shuffle(questions).map((q) => ({ ...q, answers: shuffle(q.answers) }))
 }
 
+const MARKS: Record<string, string> = {
+  correct: '✓ correct',
+  wrong: '✗ wrong',
+  missed: '← missed',
+}
+
 interface Props {
   title: string
   questions: Question[]
@@ -56,6 +62,7 @@ export default function Quiz({ title, questions, onExit }: Props) {
   }
 
   function check() {
+    if (selected.size === 0) return
     if (isCorrect) setCorrect((c) => c + 1)
     else setWrong((w) => [...w, question])
     setChecked(true)
@@ -129,6 +136,8 @@ export default function Quiz({ title, questions, onExit }: Props) {
                   onChange={() => toggle(i)}
                 />
                 <span dangerouslySetInnerHTML={{ __html: a.body }} />
+                {/* Text marker so the result doesn't rely on colour alone. */}
+                {state && <span className="mark">{MARKS[state]}</span>}
               </label>
               {checked && a.comment && (
                 <p className="comment" dangerouslySetInnerHTML={{ __html: a.comment }} />
@@ -139,19 +148,14 @@ export default function Quiz({ title, questions, onExit }: Props) {
       </ul>
 
       <div className="actions">
-        {!checked ? (
-          <button type="button" onClick={check} disabled={selected.size === 0}>
-            Check
-          </button>
-        ) : (
-          <>
-            <span className={isCorrect ? 'verdict ok' : 'verdict bad'}>
-              {isCorrect ? 'Correct' : 'Wrong'}
-            </span>
-            <button type="button" onClick={next}>
-              {index + 1 < round.length ? 'Next' : 'See results'}
-            </button>
-          </>
+        {/* One button that stays in place, so keyboard focus isn't lost between Check and Next. */}
+        <button type="button" onClick={checked ? next : check}>
+          {!checked ? 'Check' : index + 1 < round.length ? 'Next' : 'See results'}
+        </button>
+        {checked && (
+          <span className={isCorrect ? 'verdict ok' : 'verdict bad'}>
+            {isCorrect ? 'Correct' : 'Wrong'}
+          </span>
         )}
       </div>
     </main>

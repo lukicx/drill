@@ -6,7 +6,10 @@ const base = import.meta.env.BASE_URL
 async function fetchJson(path: string): Promise<unknown> {
   const res = await fetch(base + path)
   if (!res.ok) throw new Error(`Could not load ${path} (HTTP ${res.status})`)
-  return res.json()
+  // The dev server answers a missing file with index.html, so name the file in the error.
+  return res.json().catch(() => {
+    throw new Error(`${path} is missing or is not valid JSON`)
+  })
 }
 
 export async function loadDatasets(): Promise<DatasetInfo[]> {
@@ -28,8 +31,8 @@ export async function loadQuestions(path: string): Promise<Question[]> {
     const label = `Question ${i + 1}`
     if (typeof q?.name !== 'string' || q.name.trim() === '') {
       problems.push(`${label}: missing text`)
-    } else if (!Array.isArray(q.answers) || q.answers.length < 2) {
-      problems.push(`${label}: needs at least 2 answers`)
+    } else if (!Array.isArray(q.answers) || q.answers.length === 0) {
+      problems.push(`${label}: has no answers`)
     } else if (q.answers.some((a: unknown) => typeof (a as { body?: unknown })?.body !== 'string')) {
       problems.push(`${label}: an answer is missing its text`)
     } else if (!q.answers.some((a: { right?: unknown }) => a.right === true)) {
@@ -38,7 +41,8 @@ export async function loadQuestions(path: string): Promise<Question[]> {
   })
 
   if (problems.length > 0) {
-    throw new Error(`${path} has problems:\n${problems.slice(0, 10).join('\n')}`)
+    const more = problems.length > 10 ? `\n…and ${problems.length - 10} more` : ''
+    throw new Error(`${path} has problems:\n${problems.slice(0, 10).join('\n')}${more}`)
   }
   return data as Question[]
 }

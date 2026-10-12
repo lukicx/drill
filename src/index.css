@@ -3,6 +3,9 @@
   --bg: #ffffff;
   --border: #e5e7eb;
   --accent: #2563eb;
+  --ok: #15803d;
+  --bad: #dc2626;
+  --muted: #4b5563;
 
   font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
@@ -16,6 +19,9 @@
     --bg: #16171d;
     --border: #2e303a;
     --accent: #60a5fa;
+    --ok: #4ade80;
+    --bad: #f87171;
+    --muted: #9ca3af;
   }
 }
 
@@ -29,11 +35,6 @@ body {
   padding: 16px;
 }
 
-:root {
-  --ok: #16a34a;
-  --bad: #dc2626;
-  --muted: #6b7280;
-}
 
 h1 {
   font-size: 1.75rem;
@@ -133,7 +134,25 @@ button.link {
 }
 
 .answers li.missed {
-  border: 2px dashed var(--ok);
+  border-color: var(--ok);
+  border-style: dashed;
+}
+
+.mark {
+  margin-left: auto;
+  padding-left: 8px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.correct .mark,
+.missed .mark {
+  color: var(--ok);
+}
+
+.wrong .mark {
+  color: var(--bad);
 }
 
 .comment {
@@ -170,4 +189,13 @@ button.link {
 pre {
   white-space: pre-wrap;
   font-size: 0.9rem;
+  font-weight: normal;
+}
+
+/* Keep line breaks from the JSON (e.g. ASCII tables) and break long tokens
+   so nothing scrolls sideways on a phone. */
+.question,
+.answers label > span:first-of-type {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
