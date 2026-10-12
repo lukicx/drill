@@ -4,9 +4,9 @@ import { checkSelection, clearSession, createSession, getPersistenceFailed, next
 import type { StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
-interface Props { initial: StudySession; sources: StudySource[]; onExit: () => void }
+interface Props { initial: StudySession; sources: StudySource[]; onExit: () => void; onSessionChange: (session: StudySession) => void }
 
-export default function Quiz({ initial, sources, onExit }: Props) {
+export default function Quiz({ initial, sources, onExit, onSessionChange }: Props) {
   const [session, setSession] = useState(initial)
   const persistenceFailed = useSyncExternalStore(subscribePersistence, getPersistenceFailed)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -18,9 +18,10 @@ export default function Quiz({ initial, sources, onExit }: Props) {
   const feedback = checkSelection(question, session.selected)
 
   useEffect(() => {
+    onSessionChange(session)
     if (session.finished) { saveResult(session); clearSession() }
     else saveSession(session)
-  }, [session])
+  }, [session, onSessionChange])
   useEffect(() => { heading.current?.focus() }, [session.id, session.index, session.finished])
 
   function toggle(i: number) {

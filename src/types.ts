@@ -21,4 +21,8 @@ export interface DatasetInfo {
   id: string
   dataset: string // path relative to public/, e.g. "datasets/questions_PV157.json"
   course?: string // groups sets on the main page; defaults to the part of name before " - "
+  questionCount?: number
+  multipleChoiceCount?: number
+  essayCount?: number
+  group?: 'current' | 'archive'
 }

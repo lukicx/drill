@@ -1,18 +1,146 @@
 [
-  { "name": "PA015 - L1 Agentic loop, history, limits", "id": "PA015_L01", "dataset": "datasets/questions_PA015_L01.json" },
-  { "name": "PA015 - L2 Tokens, attention, SFT and RLHF", "id": "PA015_L02", "dataset": "datasets/questions_PA015_L02.json" },
-  { "name": "PA015 - L3 API, tools, MCP, harness", "id": "PA015_L03", "dataset": "datasets/questions_PA015_L03.json" },
-  { "name": "PA015 - L4 Testing and benchmarking AI", "id": "PA015_L04", "dataset": "datasets/questions_PA015_L04.json" },
-  { "name": "PV017 - L1 Úvod do bezpečnosti, základní pojmy", "id": "PV017_L01", "dataset": "datasets/questions_PV017_L01.json" },
-  { "name": "PV017 - L2 ISMS, projekt, role a odpovědnosti", "id": "PV017_L02", "dataset": "datasets/questions_PV017_L02.json" },
-  { "name": "PV017 - L3 Přístup k regulaci kyberbezpečnosti", "id": "PV017_L03", "dataset": "datasets/questions_PV017_L03.json" },
-  { "name": "PV017 - L4 Role řízení kyberbezpečnosti", "id": "PV017_L04", "dataset": "datasets/questions_PV017_L04.json" },
-  { "name": "PV017 - L5 SecOps in real life", "id": "PV017_L05", "dataset": "datasets/questions_PV017_L05.json" },
-  { "name": "PV157 - L1 Úvod, pojmy, kryptografie a digitální podpis", "id": "PV157_L01", "dataset": "datasets/questions_PV157_L01.json" },
-  { "name": "PV157 - L2 Autentizace tajnými informacemi", "id": "PV157_L02", "dataset": "datasets/questions_PV157_L02.json" },
-  { "name": "PV157 - L3 Autentizace tokeny", "id": "PV157_L03", "dataset": "datasets/questions_PV157_L03.json" },
-  { "name": "PV157 - L4 Biometrická autentizace", "id": "PV157_L04", "dataset": "datasets/questions_PV157_L04.json" },
-  { "name": "PV157 - All", "id": "PV157_all", "dataset": "datasets/questions_PV157.json" },
-  { "name": "PV157 - Midterm", "id": "PV157_midterm", "dataset": "datasets/questions_PV157_midterm.json" },
-  { "name": "PV157 - Midterm 2011", "id": "PV157_midterm_2011", "dataset": "datasets/questions_PV157_midterm_2011.json" }
+  {
+    "name": "PA015 - L1 Agentic loop, history, limits",
+    "id": "PA015_L01",
+    "dataset": "datasets/questions_PA015_L01.json",
+    "questionCount": 12,
+    "multipleChoiceCount": 0,
+    "essayCount": 12,
+    "group": "current"
+  },
+  {
+    "name": "PA015 - L2 Tokens, attention, SFT and RLHF",
+    "id": "PA015_L02",
+    "dataset": "datasets/questions_PA015_L02.json",
+    "questionCount": 11,
+    "multipleChoiceCount": 0,
+    "essayCount": 11,
+    "group": "current"
+  },
+  {
+    "name": "PA015 - L3 API, tools, MCP, harness",
+    "id": "PA015_L03",
+    "dataset": "datasets/questions_PA015_L03.json",
+    "questionCount": 12,
+    "multipleChoiceCount": 0,
+    "essayCount": 12,
+    "group": "current"
+  },
+  {
+    "name": "PA015 - L4 Testing and benchmarking AI",
+    "id": "PA015_L04",
+    "dataset": "datasets/questions_PA015_L04.json",
+    "questionCount": 13,
+    "multipleChoiceCount": 0,
+    "essayCount": 13,
+    "group": "current"
+  },
+  {
+    "name": "PV017 - L1 Úvod do bezpečnosti, základní pojmy",
+    "id": "PV017_L01",
+    "dataset": "datasets/questions_PV017_L01.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV017 - L2 ISMS, projekt, role a odpovědnosti",
+    "id": "PV017_L02",
+    "dataset": "datasets/questions_PV017_L02.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV017 - L3 Přístup k regulaci kyberbezpečnosti",
+    "id": "PV017_L03",
+    "dataset": "datasets/questions_PV017_L03.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV017 - L4 Role řízení kyberbezpečnosti",
+    "id": "PV017_L04",
+    "dataset": "datasets/questions_PV017_L04.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV017 - L5 SecOps in real life",
+    "id": "PV017_L05",
+    "dataset": "datasets/questions_PV017_L05.json",
+    "questionCount": 17,
+    "multipleChoiceCount": 15,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - L1 Úvod, pojmy, kryptografie a digitální podpis",
+    "id": "PV157_L01",
+    "dataset": "datasets/questions_PV157_L01.json",
+    "questionCount": 19,
+    "multipleChoiceCount": 17,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - L2 Autentizace tajnými informacemi",
+    "id": "PV157_L02",
+    "dataset": "datasets/questions_PV157_L02.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - L3 Autentizace tokeny",
+    "id": "PV157_L03",
+    "dataset": "datasets/questions_PV157_L03.json",
+    "questionCount": 21,
+    "multipleChoiceCount": 19,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - L4 Biometrická autentizace",
+    "id": "PV157_L04",
+    "dataset": "datasets/questions_PV157_L04.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - All",
+    "id": "PV157_all",
+    "dataset": "datasets/questions_PV157.json",
+    "questionCount": 217,
+    "multipleChoiceCount": 217,
+    "essayCount": 0,
+    "group": "archive"
+  },
+  {
+    "name": "PV157 - Midterm",
+    "id": "PV157_midterm",
+    "dataset": "datasets/questions_PV157_midterm.json",
+    "questionCount": 81,
+    "multipleChoiceCount": 81,
+    "essayCount": 0,
+    "group": "archive"
+  },
+  {
+    "name": "PV157 - Midterm 2011",
+    "id": "PV157_midterm_2011",
+    "dataset": "datasets/questions_PV157_midterm_2011.json",
+    "questionCount": 124,
+    "multipleChoiceCount": 124,
+    "essayCount": 0,
+    "group": "archive"
+  }
 ]

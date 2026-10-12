@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/update-dataset-info.mjs --check && tsc -b && vite build",
+    "metadata": "node scripts/update-dataset-info.mjs",
+    "test": "node --experimental-strip-types --test scripts/*.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
