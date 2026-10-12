@@ -8,6 +8,10 @@
   { "name": "PV017 - L3 Přístup k regulaci kyberbezpečnosti", "id": "PV017_L03", "dataset": "datasets/questions_PV017_L03.json" },
   { "name": "PV017 - L4 Role řízení kyberbezpečnosti", "id": "PV017_L04", "dataset": "datasets/questions_PV017_L04.json" },
   { "name": "PV017 - L5 SecOps in real life", "id": "PV017_L05", "dataset": "datasets/questions_PV017_L05.json" },
+  { "name": "PV157 - L1 Úvod, pojmy, kryptografie a digitální podpis", "id": "PV157_L01", "dataset": "datasets/questions_PV157_L01.json" },
+  { "name": "PV157 - L2 Autentizace tajnými informacemi", "id": "PV157_L02", "dataset": "datasets/questions_PV157_L02.json" },
+  { "name": "PV157 - L3 Autentizace tokeny", "id": "PV157_L03", "dataset": "datasets/questions_PV157_L03.json" },
+  { "name": "PV157 - L4 Biometrická autentizace", "id": "PV157_L04", "dataset": "datasets/questions_PV157_L04.json" },
   { "name": "PV157 - All", "id": "PV157_all", "dataset": "datasets/questions_PV157.json" },
   { "name": "PV157 - Midterm", "id": "PV157_midterm", "dataset": "datasets/questions_PV157_midterm.json" },
   { "name": "PV157 - Midterm 2011", "id": "PV157_midterm_2011", "dataset": "datasets/questions_PV157_midterm_2011.json" }

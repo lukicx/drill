@@ -1,0 +1,1517 @@
+[
+  {
+    "name": "Jak přednáška definuje biometriky?",
+    "answers": [
+      {
+        "body": "Automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních vlastností člověka.",
+        "right": true,
+        "comment": "Slide 2"
+      },
+      {
+        "body": "Tajné informace, které zná pouze oprávněný uživatel.",
+        "right": false,
+        "comment": "To je „něco, co známe“; biometriky navíc nejsou tajné (slide 2, 62)."
+      },
+      {
+        "body": "Předměty, které má pouze oprávněný uživatel.",
+        "right": false,
+        "comment": "To je „něco, co máme“ (slide 2)."
+      },
+      {
+        "body": "Ruční porovnávání fotografií vycvičenou obsluhou.",
+        "right": false,
+        "comment": "Definice mluví o automatizovaných metodách (slide 2)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o režimu verifikace u biometrik?",
+    "answers": [
+      {
+        "body": "Jde o srovnání 1:1.",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Identita je známa – ověřuje se tato identita.",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Je nutné projít celou databázi registrovaných osob.",
+        "right": false,
+        "comment": "To platí pro identifikaci (slide 3)."
+      },
+      {
+        "body": "Jde o srovnání 1:n.",
+        "right": false,
+        "comment": "To je identifikace (slide 3)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o režimu identifikace u biometrik?",
+    "answers": [
+      {
+        "body": "Jde o srovnání 1:n.",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Identita není známa – je nutné projít celou databázi registrovaných osob.",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Je to náročnější proces než verifikace.",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Používá se dělení databáze (clustering).",
+        "right": true,
+        "comment": "Slide 3"
+      },
+      {
+        "body": "Identita je předem známa a pouze se ověřuje.",
+        "right": false,
+        "comment": "To je verifikace (slide 3)."
+      }
+    ]
+  },
+  {
+    "name": "Z jakých dvou kroků se skládá proces použití biometrik?",
+    "answers": [
+      {
+        "body": "Registrace – prvotní nasnímání (a zpracování, vč. kontroly kvality) biometrických dat.",
+        "right": true,
+        "comment": "Slide 4"
+      },
+      {
+        "body": "Verifikace/identifikace – následné snímání biometrických dat a jejich srovnání s registračním vzorkem.",
+        "right": true,
+        "comment": "Slide 4"
+      },
+      {
+        "body": "Solení – přidání náhodné informace k biometrickým datům.",
+        "right": false,
+        "comment": "Solení patří k ukládání hesel."
+      },
+      {
+        "body": "Personalizace – nahrání PINu do souboru EF.",
+        "right": false,
+        "comment": "To se týká čipových karet."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o první fázi biometrické autentizace – registraci?",
+    "answers": [
+      {
+        "body": "Kvalita prvotně získaných biometrických dat je velmi důležitá.",
+        "right": true,
+        "comment": "Slide 5"
+      },
+      {
+        "body": "Vytváří se registrační vzorek – získání důležitých charakteristik.",
+        "right": true,
+        "comment": "Slide 5"
+      },
+      {
+        "body": "Registrační vzorek lze uložit na kartě, ve snímači, na pracovní stanici nebo na serveru.",
+        "right": true,
+        "comment": "Slide 5"
+      },
+      {
+        "body": "Na kvalitě registračních dat nezáleží.",
+        "right": false,
+        "comment": "Slide 5 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o druhé fázi – vlastní identifikaci/autentizaci?",
+    "answers": [
+      {
+        "body": "Získání biometrických dat je plně automatické, bez obsluhy.",
+        "right": true,
+        "comment": "Slide 6"
+      },
+      {
+        "body": "Pro vytvoření charakteristik je k dispozici pouze jeden vzorek.",
+        "right": true,
+        "comment": "Slide 6"
+      },
+      {
+        "body": "Srovnáním se zjišťuje míra shody registračního vzorku s aktuálními daty.",
+        "right": true,
+        "comment": "Slide 6"
+      },
+      {
+        "body": "Výsledkem je finální rozhodnutí ano/ne.",
+        "right": true,
+        "comment": "Slide 6"
+      },
+      {
+        "body": "Vyžaduje se 100% shoda s registračním vzorkem.",
+        "right": false,
+        "comment": "Biometrická data nejsou nikdy 100% shodná (slide 7)."
+      }
+    ]
+  },
+  {
+    "name": "V čem je zcela zásadní rozdíl biometrik oproti autentizaci tajnou informací nebo tokenem?",
+    "answers": [
+      {
+        "body": "Ve variabilitě – biometrická data nejsou nikdy 100% shodná a je nutné povolit určitou variabilitu mezi registračním vzorkem a později získanými daty.",
+        "right": true,
+        "comment": "Slide 7"
+      },
+      {
+        "body": "Biometrická data jsou tajná, hesla nikoliv.",
+        "right": false,
+        "comment": "Biometriky nejsou tajné (slide 62, 67)."
+      },
+      {
+        "body": "Biometriku lze po kompromitaci snadno nahradit novou.",
+        "right": false
+      },
+      {
+        "body": "Biometrická data jsou při každém snímání přesně shodná.",
+        "right": false,
+        "comment": "Slide 7 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Co podle přednášky znamená 100% shoda biometrických dat s registračním vzorkem?",
+    "answers": [
+      {
+        "body": "Chybu, resp. mizerné rozlišení snímku nebo zpracování.",
+        "right": true,
+        "comment": "Slide 8"
+      },
+      {
+        "body": "Podvod – útok: útočník získal registrační data.",
+        "right": true,
+        "comment": "Slide 8"
+      },
+      {
+        "body": "Ideální a očekávaný výsledek každé autentizace.",
+        "right": false,
+        "comment": "Biometrická data nejsou nikdy 100% shodná (slide 7–8)."
+      },
+      {
+        "body": "Že systém má nulové FRR.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Které dvě základní chyby biometrických systémů přednáška uvádí?",
+    "answers": [
+      {
+        "body": "Nesprávné přijetí (false acceptance).",
+        "right": true,
+        "comment": "Slide 9"
+      },
+      {
+        "body": "Nesprávné odmítnutí (false rejection).",
+        "right": true,
+        "comment": "Slide 9"
+      },
+      {
+        "body": "Nesprávné solení (false salting).",
+        "right": false
+      },
+      {
+        "body": "Nesprávná personalizace (false personalization).",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Co znamená Failure To Enrol (FTE)?",
+    "answers": [
+      {
+        "body": "Případy, kdy se nepodařilo ze „snímku“ biometrickou charakteristiku získat již při (pokusu o) registraci.",
+        "right": true,
+        "comment": "Slide 11"
+      },
+      {
+        "body": "Případy, kdy se nepodařilo charakteristiku zpracovat při autentizaci/identifikaci.",
+        "right": false,
+        "comment": "To je Failure To Acquire – FTA (slide 11)."
+      },
+      {
+        "body": "Nesprávné přijetí neoprávněné osoby.",
+        "right": false,
+        "comment": "To je false acceptance (slide 9)."
+      },
+      {
+        "body": "Nesprávné odmítnutí oprávněné osoby.",
+        "right": false,
+        "comment": "To je false rejection (slide 9)."
+      }
+    ]
+  },
+  {
+    "name": "Co znamená Failure To Acquire (FTA)?",
+    "answers": [
+      {
+        "body": "Případy, kdy se nepodařilo ze „snímku“ biometrickou charakteristiku vůbec zpracovat při autentizaci/identifikaci.",
+        "right": true,
+        "comment": "Slide 11"
+      },
+      {
+        "body": "Případy, kdy se charakteristiku nepodařilo získat už při registraci.",
+        "right": false,
+        "comment": "To je Failure To Enrol – FTE (slide 11)."
+      },
+      {
+        "body": "Podíl nesprávně přijatých osob.",
+        "right": false
+      },
+      {
+        "body": "Podíl uživatelů, kteří zapomněli heslo.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Které rovnosti mezi mírami chyb přednáška uvádí?",
+    "answers": [
+      {
+        "body": "False Match Rate (FMR) = FAR.",
+        "right": true,
+        "comment": "Slide 11"
+      },
+      {
+        "body": "False Non-Match Rate (FNMR) = FRR.",
+        "right": true,
+        "comment": "Slide 11"
+      },
+      {
+        "body": "False Match Rate (FMR) = FRR.",
+        "right": false,
+        "comment": "FMR = FAR (slide 11)."
+      },
+      {
+        "body": "False Non-Match Rate (FNMR) = FAR.",
+        "right": false,
+        "comment": "FNMR = FRR (slide 11)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o mírách FPIR a FNIR?",
+    "answers": [
+      {
+        "body": "False Positive Identification Rate (FPIR) = chyba I. druhu = FAR.",
+        "right": true,
+        "comment": "Slide 14"
+      },
+      {
+        "body": "False Negative Identification Rate (FNIR) = chyba II. druhu = poměr neidentifikovaných (FRR + FTA + jiné).",
+        "right": true,
+        "comment": "Slide 14"
+      },
+      {
+        "body": "FPIR = chyba II. druhu = FRR.",
+        "right": false,
+        "comment": "FPIR je chyba I. druhu = FAR (slide 14)."
+      },
+      {
+        "body": "FNIR = chyba I. druhu = FAR.",
+        "right": false,
+        "comment": "FNIR je chyba II. druhu (slide 14)."
+      }
+    ]
+  },
+  {
+    "name": "Která biometrika měla v testu UK Passport Service (2005) nejvyšší úspěšnost verifikace u běžných uživatelů?",
+    "answers": [
+      {
+        "body": "Oční duhovka – 96 %.",
+        "right": true,
+        "comment": "Slide 19"
+      },
+      {
+        "body": "Rozpoznání obličeje – 69 %.",
+        "right": false,
+        "comment": "Obličej měl nejnižší úspěšnost verifikace (slide 19)."
+      },
+      {
+        "body": "Otisk prstu – 81 %.",
+        "right": false,
+        "comment": "Duhovka měla 96 % (slide 19)."
+      },
+      {
+        "body": "Všechny tři měly 100 %.",
+        "right": false,
+        "comment": "100 % se u obličeje a otisku týká registrace, ne verifikace (slide 19)."
+      }
+    ]
+  },
+  {
+    "name": "Jakou úspěšnost verifikace mělo v testu UK Passport Service (2005) rozpoznání obličeje?",
+    "answers": [
+      {
+        "body": "69 % pro běžné uživatele, 48 % pro postižené.",
+        "right": true,
+        "comment": "Slide 19"
+      },
+      {
+        "body": "96 % pro běžné uživatele, 91 % pro postižené.",
+        "right": false,
+        "comment": "To je oční duhovka (slide 19)."
+      },
+      {
+        "body": "81 % pro běžné uživatele, 80 % pro postižené.",
+        "right": false,
+        "comment": "To je otisk prstu (slide 19)."
+      },
+      {
+        "body": "48 % pro běžné uživatele, 69 % pro postižené.",
+        "right": false,
+        "comment": "Je to obráceně (slide 19)."
+      }
+    ]
+  },
+  {
+    "name": "Na kterých faktorech závisí chybovost biometrických systémů?",
+    "answers": [
+      {
+        "body": "Typ snímače, používání různých typů snímačů.",
+        "right": true,
+        "comment": "Slide 20"
+      },
+      {
+        "body": "Prostředí (vnitřní/venkovní prostory, zdroje světla…).",
+        "right": true,
+        "comment": "Slide 20"
+      },
+      {
+        "body": "Nastavení (počet pokusů, omezení kvality vzorků…).",
+        "right": true,
+        "comment": "Slide 20"
+      },
+      {
+        "body": "Uživatelé – trénovaní/nováčci, profese, motivace.",
+        "right": true,
+        "comment": "Slide 20"
+      },
+      {
+        "body": "Na ničem z toho; FAR a FRR jsou pevné vlastnosti technologie.",
+        "right": false,
+        "comment": "Slide 20 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Co přednáška říká o udávaných hodnotách FAR a FRR?",
+    "answers": [
+      {
+        "body": "Samotné FAR, FRR bez znalosti detailů testování nám mnoho nepomůže (a nemusí být srovnatelné).",
+        "right": true,
+        "comment": "Slide 20"
+      },
+      {
+        "body": "Jsou vždy přímo srovnatelné mezi různými systémy.",
+        "right": false,
+        "comment": "Slide 20 říká opak."
+      },
+      {
+        "body": "Nezávisejí na typu snímače ani na uživatelích.",
+        "right": false,
+        "comment": "Slide 20 říká opak."
+      },
+      {
+        "body": "Udávají se jen u forenzních systémů.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Jak přednáška dělí biometrické technologie podle toho, na čem jsou založeny?",
+    "answers": [
+      {
+        "body": "Na fyziologických charakteristikách (otisk prstu, geometrie ruky) – též statické.",
+        "right": true,
+        "comment": "Slide 21"
+      },
+      {
+        "body": "Na behaviorálních charakteristikách (podpis, hlas) – je vyžadována akce uživatele – též dynamické.",
+        "right": true,
+        "comment": "Slide 21"
+      },
+      {
+        "body": "Fyziologické se nazývají dynamické, behaviorální statické.",
+        "right": false,
+        "comment": "Je to obráceně (slide 21)."
+      },
+      {
+        "body": "Na symetrických a asymetrických charakteristikách.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Čím se liší genotypické a fenotypické charakteristiky?",
+    "answers": [
+      {
+        "body": "Genotypické jsou geneticky založené (např. DNA), fenotypické jsou ovlivněné prostředím a vývojem (např. otisk prstu).",
+        "right": true,
+        "comment": "Slide 21"
+      },
+      {
+        "body": "Genotypické jsou ovlivněné prostředím (např. otisk prstu), fenotypické geneticky založené (např. DNA).",
+        "right": false,
+        "comment": "Je to obráceně (slide 21)."
+      },
+      {
+        "body": "Genotypické vyžadují akci uživatele, fenotypické ne.",
+        "right": false,
+        "comment": "Akci uživatele vyžadují behaviorální charakteristiky (slide 21)."
+      },
+      {
+        "body": "Jde o synonyma.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Které typy snímačů otisků prstů přednáška uvádí?",
+    "answers": [
+      {
+        "body": "Optické.",
+        "right": true,
+        "comment": "Slide 22"
+      },
+      {
+        "body": "Silikonové (kapacitní).",
+        "right": true,
+        "comment": "Slide 22"
+      },
+      {
+        "body": "Ultrazvukové.",
+        "right": true,
+        "comment": "Slide 22"
+      },
+      {
+        "body": "Tepelné a tlakové.",
+        "right": true,
+        "comment": "Slide 22"
+      },
+      {
+        "body": "Infračervené snímače cév na sítnici.",
+        "right": false,
+        "comment": "Infračervený zdroj světla se používá u oční sítnice (slide 42)."
+      }
+    ]
+  },
+  {
+    "name": "Jakou rychlost a přesnost přednáška uvádí u otisků prstů?",
+    "answers": [
+      {
+        "body": "Jedno srovnání 1 ms až 1 s.",
+        "right": true,
+        "comment": "Slide 33"
+      },
+      {
+        "body": "FAR okolo 0,1 % při FRR asi 2–20 %.",
+        "right": true,
+        "comment": "Slide 33"
+      },
+      {
+        "body": "FAR i FRR až několik desítek procent.",
+        "right": false,
+        "comment": "To je dynamika podpisu (slide 37)."
+      },
+      {
+        "body": "FAR (téměř) nulové při FRR kolem 3 %.",
+        "right": false,
+        "comment": "To je oční duhovka (slide 41)."
+      }
+    ]
+  },
+  {
+    "name": "Které způsoby zpracování otisků prstů přednáška uvádí?",
+    "answers": [
+      {
+        "body": "„Markanty otisků“.",
+        "right": true,
+        "comment": "Slide 33"
+      },
+      {
+        "body": "Spektrální srovnání.",
+        "right": true,
+        "comment": "Slide 33"
+      },
+      {
+        "body": "Iriscode.",
+        "right": false,
+        "comment": "To je zpracování oční duhovky (slide 41)."
+      },
+      {
+        "body": "Měření času mezi stisky kláves.",
+        "right": false,
+        "comment": "To je dynamika psaní na klávesnici (slide 40)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o geometrii ruky?",
+    "answers": [
+      {
+        "body": "Snímá se tvar ruky, který ovšem není jedinečný.",
+        "right": true,
+        "comment": "Slide 34–35"
+      },
+      {
+        "body": "Je nevhodná pro identifikaci a jen omezeně vhodná pro verifikaci.",
+        "right": true,
+        "comment": "Slide 35"
+      },
+      {
+        "body": "FAR i FRR jsou kolem 3–5 %.",
+        "right": true,
+        "comment": "Slide 35"
+      },
+      {
+        "body": "Verifikace proběhne asi během 1 s.",
+        "right": true,
+        "comment": "Slide 35"
+      },
+      {
+        "body": "Je velmi přesná a vhodná i pro identifikaci v obrovských skupinách lidí.",
+        "right": false,
+        "comment": "To platí pro duhovku (slide 41, 47)."
+      }
+    ]
+  },
+  {
+    "name": "Kde byla podle přednášky geometrie ruky použita?",
+    "answers": [
+      {
+        "body": "Při kontrole vstupu do olympijské vesnice na Olympijských hrách v Atlantě v roce 1996.",
+        "right": true,
+        "comment": "Slide 35"
+      },
+      {
+        "body": "V testu UK Passport Service v roce 2005.",
+        "right": false,
+        "comment": "Tam se testoval obličej, duhovka a otisk prstu (slide 19)."
+      },
+      {
+        "body": "V semináři PV080 při výrobě podvrhů otisků.",
+        "right": false,
+        "comment": "Tam šlo o otisky prstů (slide 61)."
+      },
+      {
+        "body": "V systému debetních karet EuroCheque.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Co platí o dynamice podpisu?",
+    "answers": [
+      {
+        "body": "Důležitý je nejen výsledný podpis, ale i způsob (dynamika) jeho psaní.",
+        "right": true,
+        "comment": "Slide 36"
+      },
+      {
+        "body": "Šablona má kolem 20 kB a vytváří se ze 3 až 10 podpisů.",
+        "right": true,
+        "comment": "Slide 37"
+      },
+      {
+        "body": "Přesnost je malá, nedostatečná pro většinu rozumných aplikací; FAR i FRR až několik desítek procent.",
+        "right": true,
+        "comment": "Slide 37"
+      },
+      {
+        "body": "Popularita je velká díky historickému významu podpisu pro autentizaci a autorizaci.",
+        "right": true,
+        "comment": "Slide 37"
+      },
+      {
+        "body": "Patří k nejpřesnějším biometrikám, FAR je téměř nulové.",
+        "right": false,
+        "comment": "Přesnost je malá (slide 37)."
+      }
+    ]
+  },
+  {
+    "name": "Čím lze podle přednášky snímat hlas pro verifikaci mluvčího?",
+    "answers": [
+      {
+        "body": "Kvalitním mikrofonem.",
+        "right": true,
+        "comment": "Slide 38"
+      },
+      {
+        "body": "Běžným audio mikrofonem.",
+        "right": true,
+        "comment": "Slide 38"
+      },
+      {
+        "body": "Telefonem (jeho mikrofon i úpravy dat pro přenos).",
+        "right": true,
+        "comment": "Slide 38"
+      },
+      {
+        "body": "Černobílou kamerou ze vzdálenosti desítek centimetrů.",
+        "right": false,
+        "comment": "Tak se snímá oční duhovka (slide 41)."
+      }
+    ]
+  },
+  {
+    "name": "Jaká je přesnost verifikace hlasu (mluvčího)?",
+    "answers": [
+      {
+        "body": "Za ideálních podmínek FAR i FRR pod 2 %.",
+        "right": true,
+        "comment": "Slide 39"
+      },
+      {
+        "body": "Reálné výsledky jsou velmi ovlivněny šumem linky a šumem z okolí.",
+        "right": true,
+        "comment": "Slide 39"
+      },
+      {
+        "body": "Šum linky ani okolí na výsledky nemá vliv.",
+        "right": false,
+        "comment": "Slide 39 říká opak."
+      },
+      {
+        "body": "FAR i FRR jsou i za ideálních podmínek několik desítek procent.",
+        "right": false,
+        "comment": "Za ideálních podmínek pod 2 % (slide 39)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o dynamice psaní na klávesnici?",
+    "answers": [
+      {
+        "body": "Měří se čas stlačení klávesy a čas mezi stisky kláves.",
+        "right": true,
+        "comment": "Slide 40"
+      },
+      {
+        "body": "Nevyžaduje speciální HW.",
+        "right": true,
+        "comment": "Slide 40"
+      },
+      {
+        "body": "Umožňuje kontinuální autentizaci uživatele.",
+        "right": true,
+        "comment": "Slide 40"
+      },
+      {
+        "body": "Algoritmy pracují na principu srovnávání vzorů nebo neuronových sítí.",
+        "right": true,
+        "comment": "Slide 40"
+      },
+      {
+        "body": "Vyžaduje speciální klávesnici s tepelnými snímači.",
+        "right": false,
+        "comment": "Nevyžaduje speciální HW (slide 40)."
+      }
+    ]
+  },
+  {
+    "name": "Jaký problém přednáška zmiňuje u neuronových sítí při dynamice psaní na klávesnici?",
+    "answers": [
+      {
+        "body": "Problém přidání dalšího uživatele.",
+        "right": true,
+        "comment": "Slide 40"
+      },
+      {
+        "body": "Nutnost speciálního hardwaru.",
+        "right": false,
+        "comment": "Metoda nevyžaduje speciální HW (slide 40)."
+      },
+      {
+        "body": "Nemožnost kontinuální autentizace.",
+        "right": false,
+        "comment": "Kontinuální autentizace je možná (slide 40)."
+      },
+      {
+        "body": "Nutnost infračerveného zdroje světla.",
+        "right": false,
+        "comment": "To se týká snímání sítnice (slide 42)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o biometrice oční duhovky?",
+    "answers": [
+      {
+        "body": "Srovnává se jedinečný vzor oční duhovky.",
+        "right": true,
+        "comment": "Slide 41"
+      },
+      {
+        "body": "Iriscode má 256 bajtů popisujících vzor duhovky.",
+        "right": true,
+        "comment": "Slide 41"
+      },
+      {
+        "body": "Je velmi přesná, vhodná i pro identifikaci; FAR (téměř) nulové při FRR kolem 3 %.",
+        "right": true,
+        "comment": "Slide 41"
+      },
+      {
+        "body": "Rychlost je v milionech srovnání za sekundu.",
+        "right": true,
+        "comment": "Slide 41"
+      },
+      {
+        "body": "Výsledný záznam má 96 bajtů a snímá se vzor cév.",
+        "right": false,
+        "comment": "To je oční sítnice (slide 42)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o biometrice oční sítnice?",
+    "answers": [
+      {
+        "body": "Srovnává se vzor cév na oční sítnici.",
+        "right": true,
+        "comment": "Slide 42"
+      },
+      {
+        "body": "Pro snímání se používá infračervený zdroj světla.",
+        "right": true,
+        "comment": "Slide 42"
+      },
+      {
+        "body": "Velikost výsledného záznamu je 96 bajtů.",
+        "right": true,
+        "comment": "Slide 42"
+      },
+      {
+        "body": "Je velmi přesná – velmi nízké FAR, avšak relativně vysoké FRR.",
+        "right": true,
+        "comment": "Slide 42"
+      },
+      {
+        "body": "Snímání je uživatelsky příjemné.",
+        "right": false,
+        "comment": "Snímání není uživatelsky příjemné (slide 42)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o rozpoznání obličeje?",
+    "answers": [
+      {
+        "body": "Skládá se z detekce obličeje a srovnání obličeje.",
+        "right": true,
+        "comment": "Slide 43"
+      },
+      {
+        "body": "Je velice výpočetně náročné, verifikace trvá až několik vteřin.",
+        "right": true,
+        "comment": "Slide 43"
+      },
+      {
+        "body": "FRR i FAR jsou několik procent; přesnost se v posledních 5 letech výrazně zlepšila.",
+        "right": true,
+        "comment": "Slide 43"
+      },
+      {
+        "body": "Problémem je změna obličeje v čase, účes, brýle, náušnice, osvětlení a pozadí.",
+        "right": true,
+        "comment": "Slide 43"
+      },
+      {
+        "body": "Obličej člověka se v čase nemění, proto registraci stačí provést jednou provždy.",
+        "right": false,
+        "comment": "Obličej se mění v čase (slide 43)."
+      }
+    ]
+  },
+  {
+    "name": "Které z uvedených biometrik řadí přehled v přednášce mezi charakteristiky chování?",
+    "answers": [
+      {
+        "body": "Dynamika podpisu.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Dynamika chůze.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Dynamika psaní na klávesnici.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Pohyby tváře.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Duhovka.",
+        "right": false,
+        "comment": "Duhovka je fyziologická charakteristika (slide 45)."
+      }
+    ]
+  },
+  {
+    "name": "Které z uvedených biometrik řadí přehled v přednášce mezi fyziologické charakteristiky?",
+    "answers": [
+      {
+        "body": "Otisk dlaně.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Žíly ruky (geometrie).",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Lůžka nehtů.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Tvar ucha.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Dynamika chůze.",
+        "right": false,
+        "comment": "To je charakteristika chování (slide 45)."
+      }
+    ]
+  },
+  {
+    "name": "Čím jsou podle přednášky v podstatě ve všech případech biometrické charakteristiky ovlivněny?",
+    "answers": [
+      {
+        "body": "Fyziologií člověka a jeho chováním, resp. stavem.",
+        "right": true,
+        "comment": "Slide 45"
+      },
+      {
+        "body": "Pouze fyziologií člověka.",
+        "right": false,
+        "comment": "Také chováním, resp. stavem (slide 45)."
+      },
+      {
+        "body": "Pouze chováním člověka.",
+        "right": false,
+        "comment": "Také fyziologií (slide 45)."
+      },
+      {
+        "body": "Pouze typem použitého snímače.",
+        "right": false
+      }
+    ]
+  },
+  {
+    "name": "Které technologie považuje přednášející (osobní pohled) aktuálně za nejslibnější?",
+    "answers": [
+      {
+        "body": "Otisk prstu.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "Duhovka.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "Ověření mluvčího.",
+        "right": false,
+        "comment": "Dříve ano, ale už (zatím?) neplatí kvůli deepfakes (slide 47)."
+      },
+      {
+        "body": "Geometrie ruky.",
+        "right": false,
+        "comment": "Je málo přesná, tvar ruky není jedinečný (slide 35)."
+      }
+    ]
+  },
+  {
+    "name": "Jaké výhody a nevýhody uvádí přednáška u otisku prstu jako slibné technologie?",
+    "answers": [
+      {
+        "body": "+ hodně produktů a aktivit v oblasti výzkumu a vývoje.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "+ cena a velikost obecně přijatelné již dnes.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "− možnost podvodů.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "− patentový monopol nové technologie.",
+        "right": false,
+        "comment": "To je nevýhoda uváděná u duhovky (slide 47)."
+      }
+    ]
+  },
+  {
+    "name": "Proč podle přednášky ověření mluvčího už (zatím?) nepatří mezi nejslibnější technologie?",
+    "answers": [
+      {
+        "body": "Kvůli deepfakes.",
+        "right": true,
+        "comment": "Slide 47"
+      },
+      {
+        "body": "Kvůli patentovému monopolu.",
+        "right": false,
+        "comment": "To je uvedeno u duhovky (slide 47)."
+      },
+      {
+        "body": "Protože neumožňuje kontinuální verifikaci.",
+        "right": false,
+        "comment": "Kontinuální verifikace je u něj uvedena jako výhoda (slide 47)."
+      },
+      {
+        "body": "Protože neumožňuje ověření výzva-odpověď.",
+        "right": false,
+        "comment": "Možnost ověření výzva-odpověď je uvedena jako výhoda (slide 47)."
+      }
+    ]
+  },
+  {
+    "name": "Co přednáška uvádí o tzv. Rapid DNA technologii?",
+    "answers": [
+      {
+        "body": "Je používána v USA v řadě států.",
+        "right": true,
+        "comment": "Slide 48"
+      },
+      {
+        "body": "Nevyžaduje prakticky žádné odborné znalosti pro manipulaci.",
+        "right": true,
+        "comment": "Slide 48"
+      },
+      {
+        "body": "Vyhledání v databázi trvá 90–100 minut.",
+        "right": true,
+        "comment": "Slide 48"
+      },
+      {
+        "body": "Cena je vysoká a je potřeba ověření spolehlivosti.",
+        "right": true,
+        "comment": "Slide 48"
+      },
+      {
+        "body": "Výsledek je k dispozici do jedné sekundy.",
+        "right": false,
+        "comment": "90–100 minut (slide 48)."
+      }
+    ]
+  },
+  {
+    "name": "Co říká výrobce o čtečce otisků prstů v příkladu běžného komerčního zařízení?",
+    "answers": [
+      {
+        "body": "Není to bezpečnostní prvek a je určena pouze pro pohodlí.",
+        "right": true,
+        "comment": "Slide 49"
+      },
+      {
+        "body": "Neměla by se používat pro přístup do firemních sítí nebo k ochraně citlivých dat.",
+        "right": true,
+        "comment": "Slide 49"
+      },
+      {
+        "body": "Citlivá data je lepší chránit jinou metodou, např. silným heslem.",
+        "right": true,
+        "comment": "Slide 49"
+      },
+      {
+        "body": "Je vhodná k ochraně finančních informací místo hesla.",
+        "right": false,
+        "comment": "Slide 49 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Které vlastnosti má komerční/IT biometrický systém ve srovnání s forenzním?",
+    "answers": [
+      {
+        "body": "Nízká přesnost.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Plně automatizované, počítačové periferie.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Ukládají se pouze zpracované charakteristiky.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Nedostatečně kvalitní registrační vzorky lze získat znovu.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Jsou nutné manuální intervence profesionálů.",
+        "right": false,
+        "comment": "To platí pro forenzní systémy (slide 50)."
+      }
+    ]
+  },
+  {
+    "name": "Které vlastnosti má forenzní biometrický systém ve srovnání s komerčním/IT?",
+    "answers": [
+      {
+        "body": "Vyšší přesnost.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Registraci není možné opakovat.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Uchovávají se zpracované charakteristiky i původní biometrické vzorky.",
+        "right": true,
+        "comment": "Slide 50"
+      },
+      {
+        "body": "Získání výsledků může trvat i dny.",
+        "right": true,
+        "comment": "Slide 51"
+      },
+      {
+        "body": "Miniaturizace a nízká cena jsou klíčové.",
+        "right": false,
+        "comment": "To platí pro komerční systémy; u forenzních je velikost nedůležitá a cena vysoká (slide 51)."
+      }
+    ]
+  },
+  {
+    "name": "Jak se komerční/IT a forenzní systémy liší v nárocích na obsluhu a ceně?",
+    "answers": [
+      {
+        "body": "Komerční: výsledek v sekundách, stačí nízká až střední znalost systému.",
+        "right": true,
+        "comment": "Slide 51"
+      },
+      {
+        "body": "Forenzní: pro používání je nutná odborná znalost systému a principu, na němž je založen.",
+        "right": true,
+        "comment": "Slide 51"
+      },
+      {
+        "body": "Komerční: cena hraje důležitou roli a je relativně nízká.",
+        "right": true,
+        "comment": "Slide 51"
+      },
+      {
+        "body": "Forenzní: cena je nejdůležitějším faktorem a musí být nízká.",
+        "right": false,
+        "comment": "Cena je vysoká a není nejdůležitějším faktorem (slide 51)."
+      }
+    ]
+  },
+  {
+    "name": "Které výhody biometrik přednáška uvádí?",
+    "answers": [
+      {
+        "body": "Nemůžeme je ztratit, zapomenout nebo lehce předat jiné osobě.",
+        "right": true,
+        "comment": "Slide 53"
+      },
+      {
+        "body": "Rychlé a (relativně) přesné výsledky.",
+        "right": true,
+        "comment": "Slide 53"
+      },
+      {
+        "body": "Nižší cena údržby než u tokenů (a často i hesel).",
+        "right": true,
+        "comment": "Slide 53"
+      },
+      {
+        "body": "Jsou tajné.",
+        "right": false,
+        "comment": "Biometriky nejsou tajné (slide 62)."
+      }
+    ]
+  },
+  {
+    "name": "Co znamená požadavek důvěryhodného vstupního zařízení (živost)?",
+    "answers": [
+      {
+        "body": "Ověřit, zda vzorek pochází od živé osoby.",
+        "right": true,
+        "comment": "Slide 54"
+      },
+      {
+        "body": "Ověřit, zda vzorek skutečně pochází od osoby, která jej podává (někdy označováno živost+).",
+        "right": true,
+        "comment": "Slide 54"
+      },
+      {
+        "body": "Ověřit, zda má uživatel platný certifikát veřejného klíče.",
+        "right": false
+      },
+      {
+        "body": "Ověřit, že senzor má co nejmenší rozměry.",
+        "right": false,
+        "comment": "Testování živosti naopak senzor zvětšuje (slide 55)."
+      }
+    ]
+  },
+  {
+    "name": "Jaké důsledky má vysoké FAR a vysoké FRR?",
+    "answers": [
+      {
+        "body": "Vysoké FAR – použitelné jen pro aplikace s nízkou úrovní bezpečnosti.",
+        "right": true,
+        "comment": "Slide 54"
+      },
+      {
+        "body": "Vysoké FRR – nespokojení uživatelé.",
+        "right": true,
+        "comment": "Slide 54"
+      },
+      {
+        "body": "Vysoké FAR – nespokojení uživatelé, bezpečnost je ale vysoká.",
+        "right": false,
+        "comment": "Vysoké FAR znamená nízkou úroveň bezpečnosti (slide 54)."
+      },
+      {
+        "body": "Vysoké FRR – nízká úroveň bezpečnosti, uživatelé jsou ale spokojeni.",
+        "right": false,
+        "comment": "Vysoké FRR znamená nespokojené uživatele (slide 54)."
+      }
+    ]
+  },
+  {
+    "name": "Jaké dopady má obvykle testování živosti?",
+    "answers": [
+      {
+        "body": "Zvětšení senzoru/zařízení.",
+        "right": true,
+        "comment": "Slide 55"
+      },
+      {
+        "body": "Vyšší náklady na vývoj a výrobu.",
+        "right": true,
+        "comment": "Slide 55"
+      },
+      {
+        "body": "Zvýšený počet nesprávných odmítnutí.",
+        "right": true,
+        "comment": "Slide 55"
+      },
+      {
+        "body": "100% ochranu proti podvrhům.",
+        "right": false,
+        "comment": "Žádná metoda neposkytuje 100% ochranu (slide 55)."
+      }
+    ]
+  },
+  {
+    "name": "Co přednáška říká o znalosti principu testu živosti?",
+    "answers": [
+      {
+        "body": "Znalost principu testu výrazně snižuje cenu útoku.",
+        "right": true,
+        "comment": "Slide 55"
+      },
+      {
+        "body": "Znalost principu testu útočníkovi nijak nepomůže.",
+        "right": false,
+        "comment": "Slide 55 říká opak."
+      },
+      {
+        "body": "Žádné řešení testu živosti obelstít nelze.",
+        "right": false,
+        "comment": "Každé řešení lze obelstít, záleží „jen“ na ceně útoku (slide 55)."
+      },
+      {
+        "body": "Metody testování živosti nejsou nikdy patentované.",
+        "right": false,
+        "comment": "Řada metod je patentovaných (slide 55)."
+      }
+    ]
+  },
+  {
+    "name": "Která omezení při použití biometrických charakteristik přednáška uvádí?",
+    "answers": [
+      {
+        "body": "Jedna charakteristika může být použita ve více systémech.",
+        "right": true,
+        "comment": "Slide 56"
+      },
+      {
+        "body": "Zveřejnění charakteristiky nesmí ohrozit bezpečnost.",
+        "right": true,
+        "comment": "Slide 56"
+      },
+      {
+        "body": "Bezpečnost má stát na utajení biometrické charakteristiky.",
+        "right": false,
+        "comment": "Biometriky nejsou tajné; zveřejnění nesmí ohrozit bezpečnost (slide 56, 62)."
+      },
+      {
+        "body": "Každou charakteristiku lze použít jen v jediném systému.",
+        "right": false,
+        "comment": "Slide 56 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Které hlavní poznatky o biometrikách přednáška shrnuje?",
+    "answers": [
+      {
+        "body": "Biometriky mohou být velmi citlivé informace.",
+        "right": true,
+        "comment": "Slide 62"
+      },
+      {
+        "body": "Biometriky nejsou tajné.",
+        "right": true,
+        "comment": "Slide 62"
+      },
+      {
+        "body": "Kopírování nemusí být triviální, ale není obtížné.",
+        "right": true,
+        "comment": "Slide 62"
+      },
+      {
+        "body": "Nová ochranná opatření mají za následek nové druhy útoků.",
+        "right": true,
+        "comment": "Slide 62"
+      },
+      {
+        "body": "Biometriky lze snadno zapomenout.",
+        "right": false,
+        "comment": "Spolehlivost: nemohou být zapomenuty (slide 62)."
+      }
+    ]
+  },
+  {
+    "name": "Co platí o digitálním podpisu „v realitě“?",
+    "answers": [
+      {
+        "body": "Veřejný klíč je kritický pro ověření podpisu; používají se certifikáty veřejných klíčů (PKI).",
+        "right": true,
+        "comment": "Slide 65"
+      },
+      {
+        "body": "Privátní klíč musí být udržován tajný, jinak mohou další osoby vytvářet „cizí“ podpis.",
+        "right": true,
+        "comment": "Slide 65"
+      },
+      {
+        "body": "Ve skutečnosti nepodepisuje člověk, ale počítač.",
+        "right": true,
+        "comment": "Slide 65"
+      },
+      {
+        "body": "Podpis se ověřuje privátním klíčem podepisujícího.",
+        "right": false,
+        "comment": "Ověřuje se veřejným klíčem (slide 64–65)."
+      }
+    ]
+  },
+  {
+    "name": "Jak je soukromý klíč obvykle chráněn a jaké riziko zůstává?",
+    "answers": [
+      {
+        "body": "Je uložen v počítači, čipové kartě apod. a obvykle zašifrován/blokován – pro přístup je nutné zadat PIN/heslo a/nebo vložit čipovou kartu.",
+        "right": true,
+        "comment": "Slide 66"
+      },
+      {
+        "body": "Při vytváření podpisu (a jiném použití) může ke klíči získat přístup trojský kůň nebo administrátor.",
+        "right": true,
+        "comment": "Slide 66"
+      },
+      {
+        "body": "Po zadání PINu je klíč zcela mimo dosah trojského koně.",
+        "right": false,
+        "comment": "Slide 66 říká opak."
+      },
+      {
+        "body": "Soukromý klíč je zveřejněn v certifikátu.",
+        "right": false,
+        "comment": "V certifikátu je veřejný klíč (slide 65)."
+      }
+    ]
+  },
+  {
+    "name": "Proč je generování kvalitních kryptografických klíčů z biometrik podle přednášky víceméně nesmyslné?",
+    "answers": [
+      {
+        "body": "Biometriky nejsou tajné.",
+        "right": true,
+        "comment": "Slide 67"
+      },
+      {
+        "body": "Prostor všech možných klíčů je omezený.",
+        "right": true,
+        "comment": "Slide 67"
+      },
+      {
+        "body": "Není jasné, co bude tajné, a když to „přidáme“, kam to uložíme.",
+        "right": true,
+        "comment": "Slide 67"
+      },
+      {
+        "body": "Problém při prozrazení klíče, nevratné změně vzorku nebo změně snímací technologie.",
+        "right": true,
+        "comment": "Slide 67"
+      },
+      {
+        "body": "Biometrická data jsou při každém snímání přesně shodná, takže je klíč příliš předvídatelný.",
+        "right": false,
+        "comment": "Biometrická data nejsou nikdy 100% shodná (slide 7)."
+      }
+    ]
+  },
+  {
+    "name": "Jaká je podle přednášky úloha biometrik?",
+    "answers": [
+      {
+        "body": "Mohou výhodně chránit přístup k tajnému klíči (nejlépe ještě s tajnou informací).",
+        "right": true,
+        "comment": "Slide 68"
+      },
+      {
+        "body": "Autentizují uživatele, nikoliv počítače nebo data a zprávy.",
+        "right": true,
+        "comment": "Slide 68"
+      },
+      {
+        "body": "Autentizují data a zprávy místo digitálního podpisu.",
+        "right": false,
+        "comment": "Biometriky autentizují uživatele (slide 68)."
+      },
+      {
+        "body": "Slouží jako kvalitní zdroj kryptografických klíčů.",
+        "right": false,
+        "comment": "To je víceméně nesmyslné (slide 67)."
+      }
+    ]
+  },
+  {
+    "name": "Co přednáška říká o tzv. biometrickém podpisu?",
+    "answers": [
+      {
+        "body": "Existuje více variant – je potřeba rozlišovat a ptát se po detailech.",
+        "right": true,
+        "comment": "Slide 69"
+      },
+      {
+        "body": "Na vlastním tabletu v důvěryhodné aplikaci se ruční podpis (příp. část charakteristiky dynamiky) digitálně podepíše uživatelovým privátním klíčem společně s dokumentem.",
+        "right": true,
+        "comment": "Slide 69"
+      },
+      {
+        "body": "Na cizím tabletu uživatel neví, co se děje s jeho biometrickými daty ani s jakým klíčem se vytvořil digitální podpis.",
+        "right": true,
+        "comment": "Slide 69"
+      },
+      {
+        "body": "Podpis na cizím tabletu je bezproblémový, protože uživatel má vše pod kontrolou.",
+        "right": false,
+        "comment": "Slide 69 říká opak – min. jeden problém je na světě."
+      }
+    ]
+  },
+  {
+    "name": "Které závěry přednášky o biometrikách platí?",
+    "answers": [
+      {
+        "body": "Mnohé biometrické technologie jsou použitelné v praxi, nikdy ale nejsou 100% bezchybné.",
+        "right": true,
+        "comment": "Slide 70"
+      },
+      {
+        "body": "Použití biometrických technologií nemusí automaticky znamenat zvýšení bezpečnosti systému.",
+        "right": true,
+        "comment": "Slide 70"
+      },
+      {
+        "body": "Výhodné je použití biometrik jako doplňkové metody.",
+        "right": true,
+        "comment": "Slide 70"
+      },
+      {
+        "body": "Použití biometrik vždy automaticky zvyšuje bezpečnost systému.",
+        "right": false,
+        "comment": "Slide 70 říká opak."
+      }
+    ]
+  },
+  {
+    "name": "Popište chyby biometrických systémů (nesprávné přijetí a odmítnutí, FTE, FTA a související míry) a faktory, na nichž chybovost závisí. Proč nelze biometrická data porovnávat na přesnou shodu?",
+    "answer": "Biometrická data nejsou nikdy 100% shodná, a proto je nutné povolit určitou <B>variabilitu</B> mezi registračním vzorkem a později získanými daty – to je zásadní rozdíl oproti tajné informaci nebo tokenu. 100% shoda naopak znamená chybu (mizerné rozlišení snímku nebo zpracování) nebo podvod – útočník získal registrační data. Základní chyby jsou <B>nesprávné přijetí (false acceptance)</B> a <B>nesprávné odmítnutí (false rejection)</B>. <B>Failure To Enrol (FTE)</B> – ze „snímku“ se nepodařilo biometrickou charakteristiku získat již při registraci. <B>Failure To Acquire (FTA)</B> – charakteristiku se nepodařilo zpracovat při autentizaci/identifikaci (též Failure to capture, FTC). False Match Rate (FMR) = FAR, False Non-Match Rate (FNMR) = FRR. Pro identifikaci: False Positive Identification Rate (FPIR) = chyba I. druhu = FAR; False Negative Identification Rate (FNIR) = chyba II. druhu = poměr neidentifikovaných (FRR + FTA + jiné). <B>Chybovost závisí</B> na typu snímače (a používání různých typů snímačů), prostředí (vnitřní/venkovní prostory, zdroje světla), nastavení (počet pokusů, omezení kvality vzorků) a uživatelích (trénovaní/nováčci, profese, motivace). Samotné FAR a FRR bez znalosti detailů testování mnoho nepomohou a nemusí být srovnatelné. Důsledky: vysoké FAR – jen aplikace s nízkou úrovní bezpečnosti; vysoké FRR – nespokojení uživatelé.",
+    "keyPoints": [
+      "Variabilita: biometrická data nejsou nikdy 100% shodná",
+      "100% shoda = chyba nebo podvod (útočník má registrační data)",
+      "Nesprávné přijetí (FAR = FMR) a nesprávné odmítnutí (FRR = FNMR)",
+      "FTE – selhání při registraci; FTA – selhání při autentizaci/identifikaci",
+      "FPIR = chyba I. druhu = FAR; FNIR = chyba II. druhu = FRR + FTA + jiné",
+      "Faktory: snímač, prostředí, nastavení, uživatelé",
+      "FAR/FRR bez detailů testování nejsou srovnatelné"
+    ],
+    "source": "Přednáška 4, slide 7–14, 20 a 54"
+  },
+  {
+    "name": "Porovnejte komerční/IT a forenzní biometrické systémy.",
+    "answer": "<B>Komerční/IT systémy:</B> nízká přesnost; plně automatizované, počítačové periferie; nedostatečně kvalitní registrační vzorky lze získat znovu; ukládají se pouze zpracované charakteristiky; výsledek autentizace v sekundách; pro používání stačí nízká až střední znalost systému; miniaturizace; cena hraje důležitou roli a je relativně nízká. <B>Forenzní systémy:</B> vyšší přesnost; nutné manuální intervence profesionálů; registraci není možné opakovat; uchovávají se zpracované charakteristiky i původní biometrické vzorky; získání výsledků může trvat i dny; pro používání je nutná odborná znalost systému a principu, na němž je založen; velikost zařízení je nedůležitá; cena je vysoká, není však nejdůležitějším faktorem.",
+    "keyPoints": [
+      "Přesnost: komerční nízká, forenzní vyšší",
+      "Automatizace vs. manuální intervence profesionálů",
+      "Registraci lze opakovat vs. nelze opakovat",
+      "Jen zpracované charakteristiky vs. i původní vzorky",
+      "Výsledek v sekundách vs. až dny",
+      "Nízká až střední znalost vs. odborná znalost",
+      "Miniaturizace a nízká cena vs. velikost nedůležitá a vysoká cena"
+    ],
+    "source": "Přednáška 4, slide 50–51"
+  },
+  {
+    "name": "Vysvětlete vztah biometrik, kryptografie a digitálního podpisu: proč nejsou biometriky vhodné pro generování klíčů, jakou úlohu hrát mohou a jaké jsou praktické problémy a závěry přednášky.",
+    "answer": "<B>Digitální podpis v realitě:</B> veřejný klíč je kritický pro ověření podpisu (certifikáty, PKI); privátní klíč musí být tajný, jinak mohou další osoby vytvářet „cizí“ podpis. Ve skutečnosti nepodepisuje člověk, ale počítač. Soukromý klíč je uložen v počítači nebo čipové kartě a obvykle zašifrován/blokován (PIN/heslo, čipová karta), ale při vytváření podpisu k němu může získat přístup trojský kůň nebo administrátor. <B>Biometriky nejsou tajné</B>, proto je generování kvalitních kryptografických klíčů z biometrik víceméně nesmyslné: návrh je atraktivní (klíč jen v okamžiku potřeby), ale prostor všech možných klíčů je omezený, není jasné, co bude tajné a kam to uložit, a je problém při prozrazení klíče, nevratné změně vzorku nebo změně snímací technologie. <B>Úloha biometrik:</B> mohou výhodně chránit přístup k tajnému klíči (nejlépe ještě s tajnou informací); autentizují uživatele, nikoliv počítače nebo data a zprávy. <B>Praktické problémy:</B> důvěryhodné vstupní zařízení (živost), vysoké FAR/FRR, uživatelé s poškozenými či chybějícími orgány, správa charakteristik, použití jedné charakteristiky ve více systémech (zveřejnění nesmí ohrozit bezpečnost), ochrana soukromí a legislativa. <B>Závěry:</B> mnohé biometrické technologie jsou použitelné v praxi, ale nikdy nejsou 100% bezchybné; jejich použití nemusí automaticky zvýšit bezpečnost; výhodné je použít je jako doplňkovou metodu.",
+    "keyPoints": [
+      "Podepisuje počítač, ne člověk; privátní klíč musí zůstat tajný",
+      "Ke klíči může při použití získat přístup trojský kůň nebo administrátor",
+      "Biometriky nejsou tajné → nevhodné pro generování klíčů",
+      "Omezený prostor klíčů, problém s prozrazením a nevratnou změnou vzorku",
+      "Biometriky chrání přístup k tajnému klíči a autentizují uživatele, ne data",
+      "Problémy: živost, FAR/FRR, použití ve více systémech, soukromí",
+      "Závěr: nikdy 100% bezchybné, vhodné jako doplňková metoda"
+    ],
+    "source": "Přednáška 4, slide 54–56, 62 a 65–70"
+  }
+]
