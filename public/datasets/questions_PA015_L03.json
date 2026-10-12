@@ -1,0 +1,144 @@
+[
+  {
+    "name": "What does the model do in an AI coding agent, and what does the harness do? Explain the division of work between the model, the API and the harness.",
+    "answer": "The API gives you (almost only) the model: one HTTPS request with the context in and tokens out. The model only reads tokens and writes tokens; it <B>never touches your machine</B>. Everything else is the <B>harness</B> – someone’s program on your machine (ChatGPT, Claude Code, pi, your own script): it keeps the conversation, runs the tools (files, shell, tests), shows results and asks before acting. In the agentic loop the harness collects the context (rules, tools, conversation so far), the model decides what to do and asks for a tool with arguments, the harness runs the tool and appends its output, the model asks for a check (another tool) and finally answers without asking for a tool. Even a “tool call” is only text the model wrote; the harness decides whether and how to carry it out.",
+    "keyPoints": [
+      "API = model as a service: context in, tokens out",
+      "Model only writes text/tokens; never touches the machine",
+      "Harness keeps the conversation, runs tools, shows results, asks permission",
+      "Loop rows: context/run/observe = harness; plan/choose/verify request/done = model"
+    ],
+    "source": "Lecture 3, slides 3, 9, 34"
+  },
+  {
+    "name": "Does the harness matter for benchmark results? Use the SWE-agent experiment to answer, and explain what this means for reading benchmark numbers.",
+    "answer": "Yes. In the SWE-agent paper (NeurIPS 2024) the same model (GPT-4 Turbo) on the same 300 issues of SWE-bench Lite solved 2.7 % without a loop (retrieve files, answer once), 11.0 % with a loop and only a shell, and 18.0 % with a loop and SWE-agent’s specialised tools – about ×4 from adding the loop and another ×1.6 from better tools. Only the program around the model changed. So a benchmark number always belongs to <B>model + harness</B>, and you have to ask how it was measured. That is why SWE-bench keeps a bash-only leaderboard where every model runs in the same minimal harness. (A year later, with stronger models, the shell-only mini-SWE-agent caught up – models got good at the shell.)",
+    "keyPoints": [
+      "Same model, same tasks: 2.7 % (no loop) → 11 % (loop, shell) → 18 % (loop, SWE-agent tools)",
+      "×4 from the loop, ×1.6 from better tools",
+      "A score is model + harness",
+      "Bash-only leaderboard for fair model comparison"
+    ],
+    "source": "Lecture 3, slides 5, 24"
+  },
+  {
+    "name": "The model API is stateless. Explain what that means for a conversation, how input is structured into items with roles, and how structured output with a JSON schema works.",
+    "answer": "<B>Stateless</B>: each call sees only what you send (or explicitly point to). A conversation is the history, resent on every turn. The input is a <B>list of items</B> – for now messages – each with a role: <TT>developer</TT> (our rules), <TT>user</TT> (the request), <TT>assistant</TT> (what the model answered before, which we send back). The list grows by two messages per turn. A message’s content is itself a list: text, images, files – everything becomes tokens. Tool calls and tool results are items too. For <B>structured output</B> you pass a JSON schema and get a JSON <I>string</I> back – parsing it is our job. With <TT>strict: True</TT> decoding is constrained: tokens that would break the schema are never sampled, so the output matches; otherwise (and on many local servers) it is best effort and must be checked. Tool arguments are exactly this mechanism.",
+    "keyPoints": [
+      "Stateless: conversation = full history resent each call",
+      "Input = list of items with roles developer / user / assistant",
+      "Content can mix text, images, files",
+      "Structured output: schema in, JSON string out; parse it yourself",
+      "strict = constrained decoding guarantees the schema; otherwise check it"
+    ],
+    "source": "Lecture 3, slides 6–8"
+  },
+  {
+    "name": "Explain how a tool call works, step by step. Who does what, and what role does the tool description play?",
+    "answer": "(1) <B>Context:</B> the model sees the tool as text in its context – a name, a description of what it does and when to use it, and a JSON schema of the arguments. (2) <B>Act – choose:</B> instead of an answer the model writes a <TT>function_call</TT> with the tool’s name and the arguments as a JSON string, then stops; nothing has happened yet. (3) <B>Act – run:</B> the harness reads the name, runs its own function with those arguments and turns the result into a string. (4) <B>Observe:</B> the harness appends the string as a <TT>function_call_output</TT> under the call’s <TT>call_id</TT>, and the next request sends it with everything before. Whether the model answers or asks for a tool is decided by the model; our code only reads which one came. A tool is “a description the model reads and a function the harness runs”. Every description is a prompt – the tool’s says when to use it, the parameter’s says how – so most bad tools are bad descriptions.",
+    "keyPoints": [
+      "Tool = name + description + argument schema, placed in the context",
+      "Model writes function_call (name, JSON arguments) and stops",
+      "Harness executes the function, converts the result to a string",
+      "Result appended as function_call_output with call_id; resent next call",
+      "Descriptions are prompts; bad tools are usually bad descriptions"
+    ],
+    "source": "Lecture 3, slides 10–12"
+  },
+  {
+    "name": "Describe the minimal agent loop in code (“the loop in seventeen lines”). What does it not do, and what does a real harness add? What are the two facts that apply to every row?",
+    "answer": "The loop: start with <TT>ctx = [task]</TT>; repeatedly call the model with the tool schemas and <TT>ctx</TT>; append the model’s output to <TT>ctx</TT>; collect the <TT>function_call</TT> items – if there are none, stop; otherwise run each by name from a table of our functions and append each result as <TT>function_call_output</TT>. “This is the whole agent. Everything else is harness engineering.” What it lacks, and what harnesses add: context grows every turn → context management (summarise, drop, cache); any tool with any argument → permissions, sandbox, “may I run this?”; tools live inside the script → tools from elsewhere by a standard (MCP); runs until the model stops → step limits, timeouts, cost caps, asking a human; one model, one prompt → system prompt, sub-agents, model per step; only a print → the trace, recorded and reviewable. Two facts under every row: each step resends everything before it, so a run’s cost grows roughly with the <B>square</B> of its length (caching makes it cheaper, not free); and the same request gives a different answer (sampling).",
+    "keyPoints": [
+      "Loop: call model → append output → no calls? stop → run calls → append outputs",
+      "Missing: context management, permissions/sandbox, MCP, limits, prompts/sub-agents, trace",
+      "Cost grows roughly quadratically with run length; caching helps",
+      "Same request, different answer (sampling)",
+      "Libraries give the mechanics; the policy stays yours"
+    ],
+    "source": "Lecture 3, slides 13–14"
+  },
+  {
+    "name": "What problem does the Model Context Protocol (MCP) solve, and how does it work? Describe the roles of client and server and the main methods.",
+    "answer": "Without a standard, every harness (Claude Code, Cursor, Codex, pi, your script) writes its own integration for every service (GitHub, Postgres, Jira, a browser): N services × M harnesses. The same problem existed for editors and languages and was solved by the Language Server Protocol. <B>MCP</B> (Anthropic, Nov 2024) does the same for tools: one server per service, one client per harness, and it was adopted by everyone within a year. The <B>server</B> is the only custom part – whoever knows GitHub’s API writes it once. The <B>client</B> is generic: a library with <TT>list_tools()</TT> and <TT>call_tool(name, args)</TT>, one instance per connection, knowing nothing about GitHub. Messages are JSON-RPC over stdio (a local process) or HTTP (a URL). <TT>tools/list</TT> returns name, description and <TT>inputSchema</TT> for each tool; <TT>tools/call</TT> runs one and returns text (or an image, or JSON). Servers can also offer resources and prompts, rarely used. In the loop only two things change: the schemas come from <TT>list_tools()</TT> and calls go to <TT>call_tool()</TT>. The model notices nothing.",
+    "keyPoints": [
+      "Problem: N services × M harnesses integrations",
+      "Analogy: LSP for editors × languages",
+      "Server = service-specific; client = generic, per connection",
+      "JSON-RPC over stdio or HTTP; tools/list and tools/call",
+      "Harness copies schemas into tools=[...]; the model notices nothing"
+    ],
+    "source": "Lecture 3, slides 15–20"
+  },
+  {
+    "name": "What does MCP cost, and which problems does it not solve? Discuss context cost, tool choice and security.",
+    "answer": "<B>Tools are context:</B> every tool’s name, description and schema sits in the context of every call – e.g. 5 servers × 20 tools × 200 tokens = 20k tokens on every turn before any work is done. The model must also choose among them; past a few dozen tools it picks wrong more often. Harnesses therefore enable servers per project, load tool schemas lazily (a “search tools” tool), and keep the tool list identical across turns so the prompt cache covers it. <B>Security is not solved:</B> a server is somebody’s code running with your credentials (e.g. an npm package started with your GitHub token); if malicious or compromised it can do anything the token can. Descriptions and results are text the model reads, so they can carry instructions – prompt injection, now with a wider door. And MCP says how to list and call tools, not which calls are allowed: a server exposes everything its token can do and the client forwards whatever the model asks. Approval, allowlists and sandboxing are the harness’s job; OAuth says who is calling, not what this agent should do.",
+    "keyPoints": [
+      "Every tool schema costs tokens on every turn (e.g. ~20k)",
+      "Too many tools → worse tool choice",
+      "Mitigations: per-project servers, lazy loading, stable list for caching",
+      "Server runs with your credentials; can be malicious",
+      "Prompt injection via descriptions/results; permissions are the harness’s job, not MCP’s"
+    ],
+    "source": "Lecture 3, slides 21–23"
+  },
+  {
+    "name": "Describe mini-SWE-agent. How does it differ from the minimal loop, why does it use only one tool, and what does its success show?",
+    "answer": "mini-SWE-agent (by the SWE-bench/SWE-agent team, 2025) is about 100 lines with <B>one tool: bash</B>. Compared with the minimal loop it adds only a budget (cost and step limits), a “done” signal (the model must print <TT>COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT</TT>), and a saved trajectory (JSON after every step). A reply without a tool call is an error, not the end. Bash can do everything – read (<TT>cat</TT>, <TT>grep</TT>), edit (<TT>sed -i</TT>, heredocs), test (<TT>pytest</TT>), history (<TT>git</TT>) – and it is a tool the model already knows from millions of shell sessions. Each command runs in a fresh subshell (cd and export do not persist; the model learns this only from the prompt). The method lives in the prompt (YAML templates), not in Python. Its result: Gemini 3 Pro in mini reached 74 % on SWE-bench Verified (Nov 2025) vs 76.2 % in Google’s own setup – models got good at the shell, and “the loop does the work”. Caveat: Verified is 500 issues from 12 Python repos, OpenAI stopped reporting it in Feb 2026 (flawed tests, contamination) – fine for comparing harnesses on the same tasks, not a measure of your code base.",
+    "keyPoints": [
+      "~100 lines, one bash tool",
+      "Adds only: budget, explicit done line, saved trajectory",
+      "Bash is universal and familiar to models; fresh subshell per command",
+      "Behaviour configured in prompt templates (YAML), not code",
+      "74 % vs 76.2 %: a minimal harness nearly matches; caveats of Verified"
+    ],
+    "source": "Lecture 3, slides 24–26, 36"
+  },
+  {
+    "name": "What actually happens between the harness’s request and the model when the model “calls a tool”? Where did the model learn to write tool calls?",
+    "answer": "The provider’s server <B>renders</B> the JSON request (messages, tools) into one text using the model’s chat template – in the gpt-oss example the tool becomes a TypeScript-like declaration (<TT>type bash = (_: { command: string }) =&gt; any</TT>) inside a developer message, and special tokens such as <TT>&lt;|start|&gt;</TT> mark the messages. The model then continues that text: a short prose message, then a message addressed <TT>to=functions.bash</TT> whose text is the JSON arguments, ending with the stop token <TT>&lt;|call|&gt;</TT>. Generation stops; nothing has run. The server <B>parses</B> this back into JSON (<TT>tool_calls</TT> with name and arguments, <TT>finish_reason: \"tool_calls\"</TT>); the arguments are a string nobody has checked yet, and the call id is the server’s. The harness then parses and validates, runs the command and returns a tool message paired by id. The model learned the format in <B>post-training</B>: SFT examples written exactly as the model sees them (so it learns to stop after <TT>&lt;|call|&gt;</TT>), and RL with verifiable rewards rewarding calls that lead to passing tests. The format lives twice – in the weights and in the server’s template – and they must match, or the model cannot call tools however good the prompt.",
+    "keyPoints": [
+      "Server renders JSON into the model’s chat template (tools as declarations, special tokens)",
+      "Model writes a message to=functions.bash with JSON args and stops at <|call|>",
+      "Server parses text back to tool_calls; arguments unchecked",
+      "Harness validates, runs, replies with a tool message by id",
+      "Format learned via SFT + RL; template and weights must match"
+    ],
+    "source": "Lecture 3, slides 28, 30–35"
+  },
+  {
+    "name": "Explain prompt caching and why the cost of an agent run grows roughly with the square of its length.",
+    "answer": "The API is stateless, so every call resends the whole conversation: call 2 is call 1 plus two messages (the model’s answer returned verbatim and our tool result). The server has no session and has forgotten call 1. Because each step resends everything before it, the total number of tokens processed over a run grows roughly with the <B>square of its length</B>. <B>Prompt caching</B> helps: the start of call 2 is identical to call 1, so the provider can keep the computed vectors of that prefix (the KV cache from lecture 2, kept between calls) and skip recomputing them. This makes the resent part cheaper, not free. It only works for an identical prefix – change the start of the context and you pay for all of it again; that is also why harnesses keep the tool list identical across turns.",
+    "keyPoints": [
+      "Each call = all previous messages + new ones; no server session",
+      "Cumulative cost ≈ quadratic in run length",
+      "Prompt caching reuses the KV cache of an identical prefix",
+      "Cheaper, not free; changing the beginning invalidates it",
+      "Keep stable prefixes (e.g. same tools, same order)"
+    ],
+    "source": "Lecture 3, slides 14, 21, 33"
+  },
+  {
+    "name": "Describe the design philosophy of the pi coding agent. What does it leave out on purpose, and what are the five ways to customise it, from weakest to strongest?",
+    "answer": "pi is a minimal, extensible open-source terminal coding agent (TypeScript) that works with almost any model and has four default tools: read, write, edit, bash. It keeps the core minimal and leaves out MCP (until v0.99), sub-agents, permission popups, plan mode, built-in to-dos and background bash. Instead: a CLI tool wrapped as a skill, more pi instances in tmux, running pi in a container, a PLAN.md the model writes and you approve by editing, a TODO.md it ticks off. State goes into files in the repo and isolation into the environment; it runs every command without asking, so you decide where it runs. Customisation, in growing strength: (1) <TT>AGENTS.md</TT> – repo rules always in context; (2) <TT>SYSTEM.md</TT> – replaces the whole system prompt; (3) prompt templates – a prompt you call as <TT>/name</TT>; (4) skills – instructions + files, read when needed; (5) <B>extensions</B> – code on hooks of the loop, real tools, own UI. The first four only insert text, which the model may or may not follow; only an extension executes, can intercept the loop (block a command, add a tool) and guarantees behaviour – at the price of running with your permissions. MCP came back as a bundled extension.",
+    "keyPoints": [
+      "Minimal core, 4 tools; any model",
+      "Left out: MCP (until v0.99), sub-agents, permissions, plan mode, to-dos, background bash",
+      "State in files, isolation in environment; runs commands without asking",
+      "AGENTS.md → SYSTEM.md → templates → skills → extensions",
+      "Text the model reads vs code the harness runs; only extensions guarantee"
+    ],
+    "source": "Lecture 3, slides 37–39, 48"
+  },
+  {
+    "name": "Explain the hooks of pi’s agent loop (prepare_next_turn, transform_context, before_tool_call, after_tool_call, finish_turn) and give an example use of each. What is the difference between the record and the view?",
+    "answer": "pi’s loop is the minimal loop with places to intervene; each hook does nothing unless something is plugged in. <B>prepare_next_turn</B> runs between turns and can replace the record itself – pi uses it for <B>compaction</B>: when the context gets within ~16k tokens of the window, older turns are folded into a summary (goal, progress, decisions) while the last ~20k tokens are kept word for word; it may also switch models (cheap to explore, strong to fix). <B>transform_context</B> computes the <B>view</B> sent to the model on each call from the <B>record</B> (<TT>ctx</TT>, every message, mirrored to the session file) without changing the record – pi drops diff details and timestamps; extensions can redact secrets or hide stale outputs. <B>before_tool_call</B> can block a call with a reason (e.g. a permission gate asking Yes/No for dangerous commands like <TT>rm -rf</TT> or <TT>sudo</TT>); the model then reads “Blocked by user” as an error result and adapts. <B>after_tool_call</B> can change the result before it is appended (trim long output to head and tail, add reminders, log). <B>finish_turn</B> decides whether to continue (budgets, step limits). Steering messages typed meanwhile join the context before the next call. Failures are data: blocked or failed tools become results the model reads.",
+    "keyPoints": [
+      "prepare_next_turn: compaction / model switching – changes the record",
+      "transform_context: per-call view, record untouched (redaction, hiding stale output)",
+      "before_tool_call: permission gate; block + reason becomes an error result",
+      "after_tool_call: trim/annotate/log the result",
+      "finish_turn: budgets and step limits; steering messages between turns"
+    ],
+    "source": "Lecture 3, slides 41, 43–48"
+  }
+]

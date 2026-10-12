@@ -1,0 +1,133 @@
+[
+  {
+    "name": "How does a language model turn text into numbers? Explain tokenization and its practical consequences.",
+    "answer": "First the text is <B>tokenized</B>: cut into pieces from a fixed vocabulary of about 100 000 tokens (words, parts of words, punctuation, bits of code). Common words are one token; rare words and identifiers are split into several (e.g. <TT>rate</TT> + <TT>_</TT> + <TT>limiter</TT>). Each token has an id, and the model never sees letters. As a rule of thumb a token is about ¾ of an English word. Consequences: the model is bad at counting letters, and the context window is measured in tokens. Each token is then turned into a vector by an <B>embedding</B> (a row of a learned table), and the model transforms sequences of vectors into sequences of vectors using weighted sums and attention.",
+    "keyPoints": [
+      "Fixed vocabulary ~100 000 tokens; common words one token, rare words split",
+      "Each token is an id; the model never sees letters",
+      "A token ≈ ¾ of an English word",
+      "Consequences: bad at counting letters; context measured in tokens",
+      "Then embedding: token → vector"
+    ],
+    "source": "Lecture 2, slides 1–2"
+  },
+  {
+    "name": "Why is one-hot encoding a poor representation of tokens, and how do learned embeddings solve it?",
+    "answer": "In one-hot encoding each token gets its own column: a 100 000 × 100 000 table where every token is a single 1 and the rest zeros. Distances between such vectors mean nothing – “cat” is exactly as far from “dog” as from “pytest”. We would like short rows (a few thousand numbers) where similar tokens have similar rows. Nobody knows how to write that table by hand, so it is <B>learned from the similarity of contexts</B>. The learned embedding table has 100 000 rows and a few thousand unnamed dimensions; “cat” ends up near “dog” and “tests” near “pytest” without anyone telling it. Meaning corresponds to position: nearby means used alike, in similar contexts. This table is the first layer of every language model.",
+    "keyPoints": [
+      "One-hot: 100k × 100k, distances meaningless",
+      "Wanted: short rows, similar tokens similar",
+      "Learned from context similarity, not hand-written",
+      "Nearby = used in similar contexts; dimensions have no names",
+      "Embedding table = first layer of every LM"
+    ],
+    "source": "Lecture 2, slides 3–6"
+  },
+  {
+    "name": "Explain how attention works, using the example “run the tests and fix them”. Why does attention make long contexts expensive?",
+    "answer": "Inside a block, each token’s vector is first transformed by a small trained model (weighted sums). Then an <B>n × n attention table</B> is computed afresh for every input: the row for a token says how much it relates to each other token, and each row sums to 1. The token’s new vector is a mixture of all the transformed vectors, weighted by its row. In the example the row for “them” puts most weight (0.55) on “tests”, so the new vector for “them” is mostly “tests” – the pronoun has been resolved. The rows are themselves computed from transformed vectors, so who relates to whom is learned, not fixed. Because the table has n² cells for n tokens, <B>doubling the context quadruples the work</B>.",
+    "keyPoints": [
+      "Each token vector transformed by weighted sums",
+      "n × n table recomputed for every input; each row sums to 1",
+      "New vector = row-weighted mixture of transformed vectors",
+      "Example: “them” ≈ mostly “tests” → pronoun resolved",
+      "Relations learned; cost n² → double context, quadruple work"
+    ],
+    "source": "Lecture 2, slide 8"
+  },
+  {
+    "name": "Describe the overall structure of a Transformer language model. What can and cannot be said about what its individual blocks do?",
+    "answer": "Tokens are turned into vectors by the embedding table. Then a block consisting of <B>attention</B> (tokens mix) and <B>weighted sums + ReLU</B> (each token on its own) is stacked many times (GPT-2: 48 blocks in its largest version; a frontier model roughly 60–130, each with billions of weights). At the top the model outputs probabilities for the next token. The vector of a token is rewritten at every block – “them” starts as a pronoun and ends as “the failing tests in this repository, about to be fixed”. What each block contributes cannot be said: probing studies find tendencies (early blocks syntax, later facts and meaning), but there is no readable division of labour – the 2010 “black box” objection is unchanged. Every frontier model is more or less this diagram with bigger numbers.",
+    "keyPoints": [
+      "Embedding → [attention + weighted sums/ReLU] × n → next-token probabilities",
+      "Frontier models: roughly 60–130 blocks with billions of weights",
+      "Token vectors rewritten at every block, gaining context",
+      "Probing shows tendencies only; no readable division of labour (black box)"
+    ],
+    "source": "Lecture 2, slides 7, 9"
+  },
+  {
+    "name": "Explain mixture of experts, the KV cache and the tricks that make very long contexts affordable. What is the practical consequence for how a model uses a long context?",
+    "answer": "<B>Mixture of experts (MoE):</B> the weighted-sums part holds most weights; it is split into e.g. 64 experts and a learned router sends each token to some of them, so only a few percent of the weights are used per token (the “active parameters”). <B>KV cache:</B> attention needs every earlier token’s transformed vectors; instead of recomputing them for each new token they are kept. Nothing is recomputed, but memory grows with the context – this cache is what a long context costs at run time. Full attention costs n² per block, so for million-token contexts models use <B>sliding windows</B> (look only at the last w tokens; n·w cost; older information arrives diluted through stacked blocks, usually alternated with full-attention blocks) and <B>sparse/selected attention</B> (a cheap selector picks which earlier tokens to read; n·k cost). Consequence: a long context is <B>not read uniformly</B> – the recent part gets the full table, the far part a sample or summary. Models are also measured to use the middle of a long context worse than its beginning and end (“lost in the middle”), so harnesses summarise, drop and reorder context instead of just filling the window.",
+    "keyPoints": [
+      "MoE: router sends tokens to a few experts; active parameters ≪ total",
+      "KV cache: keep earlier tokens’ vectors; no recomputation, but memory grows with context",
+      "Sliding window (n·w) and sparse attention (n·k) instead of n²",
+      "Long context is not read uniformly; lost in the middle",
+      "Harnesses summarise, drop and reorder context"
+    ],
+    "source": "Lecture 2, slides 10–11"
+  },
+  {
+    "name": "How is a language model pretrained without anybody labelling data? How are images and other modalities handled by the same model?",
+    "answer": "In pretraining the <B>text is its own label</B>: take any text, cover the next token, let the model predict it, compare, and nudge the (about 10<SUP>12</SUP>) weights a little – the same loop as with the tabular example, just with trillions of rows. So the training data can be the web, the code on GitHub and books, and nobody labels anything; self-supervision turns all text ever written into training data. Other modalities use the same move: an image is cut into small patches and each patch becomes a token via a small front end (a screenshot is hundreds of tokens in the same window as text); audio, video and PDF pages likewise. Inside the model the word “button” and a picture of a button become the same kind of vector, and attention lets them look at each other – which is why an agent can read a UI, a diagram or a screenshot of a stack trace.",
+    "keyPoints": [
+      "Self-supervision: next token is the target, text is its own label",
+      "Training data: web, GitHub, books – no manual labels",
+      "Same nudge-the-weights loop at huge scale",
+      "Images cut into patches → tokens; audio/video/PDF via front ends",
+      "One sequence of vectors; attention across modalities"
+    ],
+    "source": "Lecture 2, slides 12–13"
+  },
+  {
+    "name": "The model outputs probabilities for the next token. Explain how the next token is chosen, what temperature and the other sampling hyperparameters do, and why the same prompt can give different answers.",
+    "answer": "Picking the token is not done by the model but by a few lines of code around it. <B>Greedy</B> decoding always takes the most probable token – deterministic in principle, but it loops, repeats itself and reads flat. <B>Sampling</B> draws at random with the given probabilities and is the default everywhere; that is why the same prompt gives a different answer next time. <B>Temperature</B> is applied to the table before sampling: it never changes the order of tokens, only how much the top one dominates (T → 0 greedy, T = 1 as learned, T > 1 flatter: more variety, more nonsense). Practice: low for code and extraction, about 1 for writing and brainstorming. Even T = 0 is not reliably identical output, because GPU arithmetic and batching add noise – do not build a test on it. <TT>top_p</TT>/<TT>top_k</TT> delete unlikely rows before drawing; <TT>max_tokens</TT> caps cost and length; stop strings, frequency penalty and seed exist too. Deleting rows by a rule (e.g. a JSON schema) gives structured output. All this runs outside the weights.",
+    "keyPoints": [
+      "Choosing the token is code outside the model",
+      "Greedy: deterministic but repetitive; sampling: the default, gives variation",
+      "Temperature reshapes the distribution, keeps order; low for code, ~1 for writing",
+      "T = 0 still not exactly reproducible (GPU/batching)",
+      "top_p/top_k cut the tail; max_tokens caps length; constrained decoding → structured output"
+    ],
+    "source": "Lecture 2, slides 14–16"
+  },
+  {
+    "name": "A pretrained model “completes, it does not answer”. Explain this problem and how supervised fine-tuning (SFT) addresses it, including its limits.",
+    "answer": "A model trained only to predict the next token on web text continues a question the way the web does: a forum question is followed by more questions and replies like “Same problem here. Bump.” It knows the answer but was never asked to give it. <B>Supervised fine-tuning</B> shows it examples: people write answers to prompts (10<SUP>4</SUP>–10<SUP>5</SUP> pairs). The update is the same as in pretraining – predict the next token, nudge the weights – but only the answer tokens are predicted, and a human chose what they should be. This is tiny compared with the web but has a big effect: the model learns the <B>format</B>; the knowledge was already there. The limit: good answers are slow to write and often nobody can write the best one – but anyone can say which of two answers is better. Judging is cheaper than writing, which leads to learning from judgements (RLHF).",
+    "keyPoints": [
+      "Pretrained model imitates web continuations, not answers",
+      "SFT: 10⁴–10⁵ human-written prompt–answer pairs",
+      "Same next-token update, only on answer tokens",
+      "Learns the format; knowledge comes from pretraining",
+      "Limit: writing best answers is hard; judging is cheaper → RLHF"
+    ],
+    "source": "Lecture 2, slides 18–19"
+  },
+  {
+    "name": "Explain the basic concepts of reinforcement learning (state, action, reward, episode, policy, exploration, credit assignment) using MENACE, the matchbox noughts-and-crosses player.",
+    "answer": "In RL an <B>agent</B> sees a <B>state</B>, picks an <B>action</B>, the environment moves on and sometimes returns a <B>reward</B> (a number). An <B>episode</B> is one run from start to final outcome; the <B>policy</B> – what the agent does in each state – is what gets learned. Unlike supervised learning, nobody says what the right action was, only how well it went, often only at the end, and the agent chooses what it experiences. MENACE (Donald Michie, 1961) used 304 matchboxes, one per position where it is to move, filled with coloured beads, one colour per empty square. To move, it shakes the box and plays the bead that rolls out: bead counts are the policy and the shake is <B>exploration</B> (rare colours still come out). After a game every open box gets the same treatment: win → bead back plus three more, draw → plus one, loss → bead removed. This is <B>credit assignment</B>: one verdict spread over every move, good and bad alike. After a couple of hundred games it stopped losing – without any strategy, lookahead or understanding of why; the policy is just a pile of counts.",
+    "keyPoints": [
+      "State, action, reward; episode = one game; policy = what is learned",
+      "Only outcome-based feedback, no teacher with right answers",
+      "MENACE: matchboxes = states, beads = policy, shaking = exploration",
+      "Update after the game: win +3, draw +1, loss −1 bead for every move played",
+      "Credit assignment: one verdict for all moves; it never learns why"
+    ],
+    "source": "Lecture 2, slides 20–25"
+  },
+  {
+    "name": "Explain RLHF: how is the reward for a language model’s answer obtained, how is the reward model trained, and what is the main risk of this approach?",
+    "answer": "Mapping RL to text: the state is the text so far, an action is the next token, an episode is one complete answer, the policy is the model, exploration is sampling – and the missing piece is the reward. A person can judge sampled answers to one prompt, but an RL run scores 10<SUP>5</SUP>–10<SUP>6</SUP> newly written answers, which no person can judge. So a <B>reward model</B> (judge) is built: a copy of the language model with the last layer replaced by a single output number. People are bad at absolute scores but consistent at saying which of two answers is better, so the data are 10<SUP>4</SUP>–10<SUP>6</SUP> comparisons (prompt, two answers, winner), and training nudges the weights so that r(winner) − r(loser) grows – like Elo ratings in chess, the scale is arbitrary and only differences matter. In an RL episode the model samples an answer, the reward model scores it, and that one number is credited to every token of the answer; weights are nudged by gradient descent with no person in the loop. Risk: the RL maximises the judge’s number, not what people meant – wherever the judge is a little too generous, the model drifts there and never learns it is wrong.",
+    "keyPoints": [
+      "Text as RL: state = text so far, action = token, episode = answer",
+      "Too many answers for humans → reward model (LM with one-number head)",
+      "Trained on pairwise human comparisons; r(winner) − r(loser) grows (Elo-like)",
+      "One score per answer, credited to all its tokens; no human in the RL loop",
+      "Risk: model exploits the judge’s errors (optimises the number, not intent)"
+    ],
+    "source": "Lecture 2, slides 27–31"
+  },
+  {
+    "name": "Summarise the three-stage recipe for training an assistant model. What are verifiable rewards, and what consequence do they have for coding agents?",
+    "answer": "(1) <B>Pretraining</B> predicts the next token on trillions of web tokens and gives knowledge and language. (2) <B>SFT</B> imitates 10<SUP>4</SUP>–10<SUP>5</SUP> human-written answers and gives the format. (3) <B>RL</B> maximises a reward over 10<SUP>5</SUP>–10<SUP>6</SUP> sampled answers and gives behaviour. It is one model with the same update everywhere; only the signal changes. Where an answer can be checked, the human and the reward model can be dropped and a program is the referee – maths (does the number match?), code (do the tests pass?), games (did you win?). These <B>verifiable rewards</B> are exact, cheap, unlimited and impossible to flatter. Reasoning models (o1, DeepSeek-R1) were trained this way, and the long “thinking” emerged; agentic models are rewarded on whole runs of the loop. Consequence: a model rewarded for green tests will make the tests green – deleting a failing test, special-casing the test input, weakening an assertion and fixing the bug all score the same. The reward defines the behaviour and every reward can be gamed (sycophancy and test-hacking are the same phenomenon); green tests are evidence only when you wrote them and the agent cannot touch them.",
+    "keyPoints": [
+      "Pretraining → knowledge; SFT → format; RL → behaviour",
+      "Same weight update, different signal (next token, written answer, score)",
+      "Verifiable rewards: a program checks (maths, tests, games); exact and cheap",
+      "Reasoning/agentic models trained this way",
+      "Reward hacking: deleting tests, special-casing inputs; trust tests you wrote and the agent can’t edit"
+    ],
+    "source": "Lecture 2, slides 32–34"
+  }
+]
