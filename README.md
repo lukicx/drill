@@ -1,75 +1,50 @@
-# React + TypeScript + Vite
+# Drill
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small multiple-choice quiz app for studying MUNI courses. It reuses the question
+format of [fi-muni-drill](https://github.com/fimudrill/fi-muni-drill), so its datasets
+work unchanged.
 
-Currently, two official plugins are available:
+Built with Vite + React + TypeScript. No backend: everything is static files.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run locally
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Add a course or lecture set
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Put the question file in `public/datasets/`, e.g. `questions_PA103_L01.json`.
+2. Add an entry to `public/datasets.json`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```json
+{ "name": "PA103 - Lecture 1", "id": "PA103_L01", "dataset": "datasets/questions_PA103_L01.json" }
 ```
+
+`id` must be unique. Keep `dataset` without a leading `/`, so it also works on GitHub Pages.
+
+## Question format
+
+```json
+[
+  {
+    "name": "Which of these are hash functions?",
+    "answers": [
+      { "body": "SHA-256", "right": true, "comment": "Slide 12" },
+      { "body": "MD5", "right": true },
+      { "body": "AES", "right": false, "comment": "AES is a block cipher (slide 14)" }
+    ]
+  }
+]
+```
+
+- One or more answers can be right. The answer counts only if exactly the right ones are ticked.
+- `comment` is optional and shown after checking. Use it for the slide reference or a short explanation.
+- `right` must be the boolean `true`/`false`, not the string `"true"`.
+- Text may contain HTML (`<TT>`, `<B>`, `<PRE>`, `<BR>`). A literal `<` followed by a letter
+  (e.g. `List<T>`) must be written as `&lt;`, or it disappears.
+- Use `<PRE>` for code or tables.
+
+A file with a broken question (no text, no answers, or no right answer) refuses to load and
+lists the problems, so mistakes in new files show up immediately.
