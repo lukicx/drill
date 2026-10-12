@@ -6,6 +6,34 @@ work unchanged.
 
 Built with Vite + React + TypeScript. No backend: everything is static files.
 
+## Study flow
+
+- Choose a course and lecture to see its question count, format and last attempt.
+- Start the full lecture or a quick session of up to 10 questions. Choose shuffled
+  order or the original lecture order (including answer choices).
+- On a course page, tick **Mix** on two or more current lectures to practice them together.
+- Progress is saved automatically in this browser: question and answer order,
+  selections, essay draft, model-answer visibility and recorded attempts.
+  **Pause** returns to lecture selection; **Continue session** restores the round.
+- There is one paused session per browser. Starting another replaces it.
+  Data stays on the current device and is not synced to other browsers.
+- Multiple-choice scoring requires exactly the correct selections. Essays are
+  self-assessed as **Knew it**, **Partly**, or **Need practice**.
+- Results show answered/total coverage, including early exits, and expandable
+  explanations for missed or partly recalled questions. Review these questions
+  or practice the remaining ones.
+- Course and lecture URLs use hash routes so direct links and browser navigation
+  work on GitHub Pages. Older practice sets are grouped separately.
+
+Saved sessions are checked against the current question files before resuming.
+If a dataset has changed, start a new round with its updated answers.
+
+## Checks
+
+Requires Node.js 22. Run `npm test`, `npm run lint`, and `npm run build`.
+Tests cover persistence, strict scoring, partial assessment, review rounds,
+quick/mixed practice, content revisions, corrupt storage and static-host routes.
+
 Live: https://lukicx.github.io/drill/
 
 ## Run locally
@@ -34,6 +62,12 @@ Every push to `main` is built and published to GitHub Pages by
 `id` must be unique. Keep `dataset` without a leading `/`, so it also works on GitHub Pages.
 The main page groups sets by course, taken from the part of `name` before ` - ` (or an explicit `"course"` field).
 
+3. Run `npm run metadata` after adding or changing questions. It refreshes
+   `questionCount`, `multipleChoiceCount`, and `essayCount` in the manifest.
+   Entries named like `COURSE_L01` default to `"group": "current"`; others default
+   to `"archive"`. Set `group` explicitly when needed. The build checks these
+   counts so lecture cards cannot silently show old information.
+
 ## Question format
 
 ```json
@@ -60,7 +94,8 @@ The main page groups sets by course, taken from the part of `name` before ` - ` 
 
 For courses with a written essay exam, a question has a model `answer` instead of `answers`.
 You write or think through your answer, reveal the model answer, and mark yourself
-("I knew it" / "I didn't"), which counts towards the score and "Repeat wrong".
+("Knew it" / "Partly" / "Need practice"). Fully recalled answers count towards
+the score; partly recalled and missed answers are included in the review round.
 
 ```json
 {

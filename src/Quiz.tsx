@@ -19,7 +19,7 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
 
   useEffect(() => {
     onSessionChange(session)
-    if (session.finished) { saveResult(session); clearSession() }
+    if (session.finished) { if (saveResult(session)) clearSession() }
     else saveSession(session)
   }, [session, onSessionChange])
   useEffect(() => { heading.current?.focus() }, [session.id, session.index, session.finished])
@@ -32,7 +32,7 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     setSession((s) => recordAttempt(s, checkSelection(question, s.selected).ok ? 'correct' : 'wrong'))
   }
   function markEssay(assessment: Assessment) {
-    setSession((s) => nextQuestion(recordAttempt(s, assessment)))
+    setSession((s) => s.revealed && !s.finished ? nextQuestion(recordAttempt(s, assessment)) : s)
   }
   const storageNotice = persistenceFailed && <p className="error" role="alert">Progress could not be saved in this browser. Keep this tab open to continue studying.</p>
 
@@ -64,7 +64,7 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
           <div className="review-content">
             {session.datasetIds.length > 1 && <p className="hint">{sourceTitles[attempt.item.datasetId]}</p>}
             {attempt.item.question.answers ? <ul className="review-answers">{attempt.item.question.answers.map((answer, i) => <li key={i}>
-              <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? '✓ Correct answer' : attempt.selected.includes(i) ? '✗ Your selection' : 'Not selected'}: </span>
+              <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? attempt.selected.includes(i) ? '✓ Your correct selection' : '✓ Correct answer you missed' : attempt.selected.includes(i) ? '✗ Your incorrect selection' : 'Not selected'}: </span>
               <span dangerouslySetInnerHTML={{ __html: answer.body }} />
               {answer.comment && <p className="hint" dangerouslySetInnerHTML={{ __html: answer.comment }} />}
             </li>)}</ul> : <>
@@ -114,11 +114,11 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       })}
     </ul>
     <div className="actions action-bar">
-      {isEssay ? checked ? <>
-        <button type="button" className="primary" onClick={() => markEssay('correct')}>✓ Knew it</button>
-        <button type="button" onClick={() => markEssay('partial')}>Partly</button>
-        <button type="button" onClick={() => markEssay('wrong')}>Need practice</button>
-      </> : <button type="button" className="primary" onClick={() => setSession((s) => ({ ...s, revealed: true }))}>Show model answer</button>
+      {isEssay ? <>
+        <button type="button" className="primary" onClick={checked ? () => markEssay('correct') : () => setSession((s) => ({ ...s, revealed: true }))}>{checked ? '✓ Knew it' : 'Show model answer'}</button>
+        {checked && <><button type="button" onClick={() => markEssay('partial')}>Partly</button>
+          <button type="button" onClick={() => markEssay('wrong')}>Need practice</button></>}
+      </>
         : <button type="button" className="primary" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
           {!checked ? 'Check answer' : session.index + 1 < session.round.length ? 'Next question' : 'See results'}
         </button>}

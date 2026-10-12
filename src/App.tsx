@@ -28,6 +28,8 @@ export default function App() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [ready, setReady] = useState(false)
+  const [shuffled, setShuffled] = useState(true)
+  const [selectedLectures, setSelectedLectures] = useState<string[]>([])
   const pageHeading = useRef<HTMLHeadingElement>(null)
   const hash = useSyncExternalStore(subscribeRoute, getRouteHash)
   const route = parseRoute(hash)
@@ -45,14 +47,16 @@ export default function App() {
   }, [])
   useEffect(() => { pageHeading.current?.focus() }, [hash])
 
-  async function start(ds: DatasetInfo) {
+  async function start(entries: DatasetInfo[], quick = false) {
     setError(null)
     setLoading(true)
     try {
-      const sources = [{ datasetId: ds.id, questions: await loadQuestions(ds.dataset) }]
-      const session = createSession(sources, ds.name)
+      const sources = await Promise.all(entries.map(async (ds) => ({ datasetId: ds.id, questions: await loadQuestions(ds.dataset) })))
+      const ds = entries[0]
+      const title = entries.length === 1 ? ds.name : `${courseOf(ds)} - Mixed practice (${entries.length} lectures)`
+      const session = createSession(sources, title, { shuffled, limit: quick ? 10 : undefined })
       setActive({ session, sources })
-      navigate(courseOf(ds), ds.id, true)
+      navigate(courseOf(ds), entries.length === 1 ? ds.id : null, true)
     } catch (e) { setError(e instanceof Error ? e.message : String(e)) }
     finally { setLoading(false) }
   }
@@ -85,7 +89,9 @@ export default function App() {
     navigate(course, route.datasetId)
   }
 
-  if (route.practice && active) return <Quiz initial={active.session} sources={active.sources} onExit={exit} onSessionChange={onSessionChange}
+  const activeDataset = active && datasets.find((ds) => ds.id === active.session.datasetIds[0])
+  if (route.practice && active && activeDataset && courseOf(activeDataset) === course
+    && (active.session.datasetIds.length > 1 ? route.datasetId === null : route.datasetId === activeDataset.id)) return <Quiz initial={active.session} sources={active.sources} onExit={exit} onSessionChange={onSessionChange}
     sourceTitles={Object.fromEntries(datasets.map((ds) => [ds.id, lectureTitle(ds)]))} />
 
   // Reading here keeps the paused banner current after browser Back unmounts the quiz.
@@ -97,20 +103,31 @@ export default function App() {
   </section>
 
   function lastResult(ds: DatasetInfo) {
-    const result = results.find((r) => r.datasetIds.length === 1 && r.datasetIds[0] === ds.id && r.mode === 'full')
+    if (paused?.datasetIds.length === 1 && paused.datasetIds[0] === ds.id) {
+      return `Paused ${paused.mode === 'quick' ? 'quick practice' : 'session'} · ${paused.attempts.length}/${paused.round.length} answered`
+    }
+    const result = results.find((r) => r.datasetIds.length === 1 && r.datasetIds[0] === ds.id && r.mode !== 'review')
     if (!result) return 'Not practiced yet'
     const percent = Math.round(result.correct / result.answered * 100)
-    return `Last full session: ${percent}% · ${result.answered}/${result.total} answered`
+    return `${result.mode === 'quick' ? 'Last quick practice' : 'Last lecture attempt'}: ${percent}% · ${result.answered}/${result.total} answered`
   }
 
-  function lectureList(items: DatasetInfo[]) {
-    return <ul className="datasets">{items.map((ds) => <li key={ds.id}>
+  function lectureList(items: DatasetInfo[], selectable = false) {
+    return <ul className="datasets">{items.map((ds) => <li key={ds.id} className={selectable ? 'lecture-row' : ''}>
       <a className="dataset-card" href={routeHash(courseOf(ds), ds.id)}>
         <div className="card-top"><strong>{lectureTitle(ds)}</strong><span aria-hidden="true">→</span></div>
         <span className="muted">{ds.questionCount ?? '—'} questions · {formatOf(ds)}</span>
         <span className="card-progress">{lastResult(ds)}</span>
       </a>
+      {selectable && <label className="mix-toggle"><input type="checkbox" aria-label={`Include ${lectureTitle(ds)} in mixed practice`}
+        checked={selectedLectures.includes(ds.id)} onChange={() => setSelectedLectures((ids) => ids.includes(ds.id) ? ids.filter((id) => id !== ds.id) : [...ids, ds.id])} /><span>Mix</span></label>}
     </li>)}</ul>
+  }
+
+  function orderControl(id: string) {
+    return <div className="order-control"><label htmlFor={id}>Question order</label><select id={id} value={shuffled ? 'shuffle' : 'lecture'} onChange={(event) => setShuffled(event.target.value === 'shuffle')}>
+      <option value="shuffle">Shuffled</option><option value="lecture">Lecture order</option>
+    </select></div>
   }
 
   if (!course) return <main>
@@ -128,6 +145,8 @@ export default function App() {
   </main>
 
   const items = datasets.filter((ds) => courseOf(ds) === course)
+  const currentLectures = items.filter((ds) => ds.group !== 'archive')
+  const selected = currentLectures.filter((ds) => selectedLectures.includes(ds.id))
   return <main>
     <nav className="breadcrumbs" aria-label="Breadcrumb"><a href="#/">All courses</a><span aria-hidden="true">/</span>
       {route.datasetId ? <><a href={routeHash(course)}>{course}</a><span aria-hidden="true">/</span><span>Lecture</span></> : <span>{course}</span>}
@@ -142,14 +161,26 @@ export default function App() {
       {current.group === 'archive' && <p className="notice">Older practice material. Its scope may differ from the current lectures.</p>}
       {resumeCard}
       <section className="practice-panel"><h2>Practice this lecture</h2>
-        <p className="muted">Questions and answer choices are shuffled. Check each answer as you go.</p>
+        <p className="muted">Check each answer as you go. Pause whenever you need a break.</p>
+        {orderControl('lecture-order')}
+        <p className="hint">{shuffled ? 'Questions and answer choices are shuffled.' : 'Questions and answer choices stay in their original order. Quick practice uses the first 10 questions.'}</p>
         {paused && <p className="hint">Starting a new session replaces your paused session.</p>}
-        <button type="button" className="primary" disabled={loading} onClick={() => start(current)}>{loading ? 'Loading questions…' : 'Start full lecture'}</button>
+        <div className="actions"><button type="button" className="primary" disabled={loading} onClick={() => start([current])}>{loading ? 'Loading questions…' : 'Start full lecture'}</button>
+          <button type="button" disabled={loading} onClick={() => start([current], true)}>Quick practice ({Math.min(current.questionCount ?? 10, 10)} questions)</button></div>
       </section>
     </> : <>
       <h1 ref={pageHeading} tabIndex={-1}>{course}</h1><p className="intro">{COURSE_DESCRIPTIONS[course] ?? 'Choose a lecture to practice.'}</p>
       {resumeCard}
-      {items.some((ds) => ds.group !== 'archive') && <><h2 className="section-title">Current lectures</h2>{lectureList(items.filter((ds) => ds.group !== 'archive'))}</>}
+      {currentLectures.length > 0 && <><h2 className="section-title">Current lectures</h2>
+        {currentLectures.length > 1 && <p className="hint">Open a lecture, or tick Mix on two or more lectures to practice them together.</p>}
+        {lectureList(currentLectures, currentLectures.length > 1)}</>}
+      {currentLectures.length > 1 && <section className="practice-panel"><h2>Mix selected lectures</h2>
+        <p className="muted">{selected.length} selected · {selected.reduce((sum, ds) => sum + (ds.questionCount ?? 0), 0)} questions</p>
+        {orderControl('mixed-order')}
+        {paused && <p className="hint">Starting a new session replaces your paused session.</p>}
+        <div className="actions"><button type="button" className="primary" disabled={loading || selected.length < 2} onClick={() => start(selected)}>{loading ? 'Loading questions…' : 'Practice selected lectures'}</button>
+          <button type="button" disabled={loading} onClick={() => setSelectedLectures(currentLectures.map((ds) => ds.id))}>Select all lectures</button></div>
+      </section>}
       {items.some((ds) => ds.group === 'archive') && <section className="archive"><h2 className="section-title">Older practice sets</h2>
         <p className="hint">Additional revision material from earlier question banks.</p>{lectureList(items.filter((ds) => ds.group === 'archive'))}</section>}
     </>}

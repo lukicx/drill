@@ -77,7 +77,7 @@ export function checkSelection(question: Question, selected: number[]) {
 }
 
 export function recordAttempt(session: StudySession, assessment: Assessment): StudySession {
-  if (session.attempts.length > session.index) return session
+  if (session.finished || session.attempts.length > session.index) return session
   return { ...session, revealed: true, attempts: [...session.attempts, {
     item: session.round[session.index], assessment, selected: [...session.selected], draft: session.draft,
   }] }
@@ -96,8 +96,11 @@ export function questionsToReview(session: StudySession): StudyQuestion[] {
 function isQuestion(value: unknown): value is Question {
   if (!value || typeof value !== 'object') return false
   const q = value as Question
-  return typeof q.name === 'string' && (Array.isArray(q.answers)
-    ? q.answers.length > 0 && q.answers.every((a) => typeof a.body === 'string' && typeof a.right === 'boolean') && q.answers.some((a) => a.right)
+  return typeof q.name === 'string'
+    && (q.keyPoints === undefined || (Array.isArray(q.keyPoints) && q.keyPoints.every((point) => typeof point === 'string')))
+    && (q.source === undefined || typeof q.source === 'string') && (Array.isArray(q.answers)
+    ? q.answers.length > 0 && q.answers.every((a) => a && typeof a.body === 'string' && typeof a.right === 'boolean'
+      && (a.comment === undefined || typeof a.comment === 'string')) && q.answers.some((a) => a.right)
     : typeof q.answer === 'string')
 }
 
@@ -115,7 +118,7 @@ function isSelection(value: unknown, question: Question): value is number[] {
 export function readSession(): StudySession | null {
   try {
     const s = JSON.parse(localStorage.getItem(SESSION_KEY) ?? 'null') as StudySession | null
-    if (!s || s.version !== 1 || s.finished || typeof s.id !== 'string'
+    if (!s || s.version !== 1 || s.finished !== false || typeof s.id !== 'string'
       || typeof s.title !== 'string' || typeof s.revision !== 'string'
       || !Array.isArray(s.datasetIds) || !s.datasetIds.length || !s.datasetIds.every((id) => typeof id === 'string')
       || !['full', 'quick', 'mixed', 'review'].includes(s.mode) || typeof s.shuffled !== 'boolean'
@@ -124,6 +127,7 @@ export function readSession(): StudySession | null {
       || typeof s.draft !== 'string' || typeof s.revealed !== 'boolean' || !Number.isFinite(s.savedAt)
       || !isSelection(s.selected, s.round[s.index].question)
       || !Array.isArray(s.attempts) || s.attempts.length < s.index || s.attempts.length > s.index + 1
+      || (s.attempts.length === s.index + 1 && !s.revealed)
       || !s.attempts.every((attempt, index) => isItem(attempt.item)
         && attempt.item.key === s.round[index].key && ['correct', 'partial', 'wrong'].includes(attempt.assessment)
         && typeof attempt.draft === 'string' && isSelection(attempt.selected, attempt.item.question))) return null

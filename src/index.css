@@ -112,6 +112,13 @@ summary { cursor: pointer; }
 .ok-text { color: var(--ok); }
 .bad-text { color: var(--bad); }
 .saved-draft { white-space: pre-wrap; }
+.order-control { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.order-control label { font-size: .9rem; }
+select { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.lecture-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.mix-toggle { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 4px; cursor: pointer; min-width: 44px; color: var(--muted); font-size: .8rem; }
+.mix-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+.answers input { accent-color: var(--accent); }
 @media (max-width: 480px) {
   #root { padding-top: 16px; }
   .resume-card > button { width: 100%; }

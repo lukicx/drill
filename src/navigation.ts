@@ -5,7 +5,7 @@ export function parseRoute(hash: string): StudyRoute {
     const parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent)
     if (parts[0] !== 'course' || !parts[1]) return { course: null, datasetId: null, practice: false }
     return { course: parts[1], datasetId: parts[2] === 'lecture' && parts[3] ? parts[3] : null,
-      practice: parts.includes('practice') }
+      practice: parts[2] === 'practice' || (parts[2] === 'lecture' && parts[4] === 'practice') }
   } catch { return { course: null, datasetId: null, practice: false } }
 }
 

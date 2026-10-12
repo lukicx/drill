@@ -57,6 +57,10 @@ test('corrupt storage is ignored and dataset changes invalidate the revision', (
   assert.equal(readSession(), null)
   saveSession({ ...session, selected: [999] })
   assert.equal(readSession(), null)
+  const malformed = createSession(sources, 'Course', { shuffled: false })
+  malformed.round[1] = { ...malformed.round[1], question: { ...essay, keyPoints: 42 } }
+  saveSession(malformed)
+  assert.equal(readSession(), null)
   assert.notEqual(revisionOf(sources), revisionOf([{ ...sources[0], questions: [essay] }]))
 })
 
@@ -76,4 +80,26 @@ test('blocked browser storage does not crash studying', () => {
   assert.deepEqual(readResults(), [])
   assert.equal(saveSession(createSession(sources, 'Course')), false)
   assert.equal(getPersistenceFailed(), true)
+})
+
+test('mixed sessions retain source attribution and resume with the same revision', () => {
+  const bank = [...sources, { datasetId: 'course_L02', questions: [essay] }]
+  const mixed = createSession(bank, 'Mixed', { shuffled: false })
+  assert.equal(mixed.mode, 'mixed')
+  assert.deepEqual(mixed.datasetIds, ['course_L01', 'course_L02'])
+  assert.deepEqual(mixed.round.map((item) => item.key), ['course_L01:0', 'course_L01:1', 'course_L02:0'])
+  saveSession(mixed)
+  assert.equal(readSession().revision, revisionOf(bank))
+})
+
+test('review rounds include partial answers, exclude correct answers and keep the source bank intact', () => {
+  let session = createSession(sources, 'Course', { shuffled: false })
+  session = nextQuestion(recordAttempt(session, 'correct'))
+  session = recordAttempt(session, 'partial')
+  const review = createSession(sources, 'Review', { review: questionsToReview(session), shuffled: false })
+  assert.equal(review.mode, 'review')
+  assert.equal(review.round.length, 1)
+  assert.equal(review.round[0].key, 'course_L01:1')
+  assert.equal(review.revision, revisionOf(sources))
+  assert.equal(sources[0].questions.length, 2)
 })
