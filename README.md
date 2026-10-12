@@ -32,6 +32,7 @@ Every push to `main` is built and published to GitHub Pages by
 ```
 
 `id` must be unique. Keep `dataset` without a leading `/`, so it also works on GitHub Pages.
+The main page groups sets by course, taken from the part of `name` before ` - ` (or an explicit `"course"` field).
 
 ## Question format
 
