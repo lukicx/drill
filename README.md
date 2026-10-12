@@ -55,5 +55,22 @@ Every push to `main` is built and published to GitHub Pages by
   (e.g. `List<T>`) must be written as `&lt;`, or it disappears.
 - Use `<PRE>` for code or tables.
 
+### Essay questions
+
+For courses with a written essay exam, a question has a model `answer` instead of `answers`.
+You write or think through your answer, reveal the model answer, and mark yourself
+("I knew it" / "I didn't"), which counts towards the score and "Repeat wrong".
+
+```json
+{
+  "name": "Explain the agent loop and why tests matter in it.",
+  "answer": "The model proposes the next step, a tool executes it, and the output ...",
+  "keyPoints": ["model proposes an action", "tools execute it", "output is fed back"],
+  "source": "Lecture 1, slides 5–9"
+}
+```
+
+`keyPoints` and `source` are optional. Multiple-choice and essay questions can be mixed in one file.
+
 A file with a broken question (no text, no answers, or no right answer) refuses to load and
 lists the problems, so mistakes in new files show up immediately.

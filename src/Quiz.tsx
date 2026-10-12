@@ -11,9 +11,9 @@ function shuffle<T>(items: T[]): T[] {
   return a
 }
 
-// Shuffle question order and the answers inside each question.
+// Shuffle question order and the answers inside each multiple-choice question.
 function prepare(questions: Question[]): Question[] {
-  return shuffle(questions).map((q) => ({ ...q, answers: shuffle(q.answers) }))
+  return shuffle(questions).map((q) => (q.answers ? { ...q, answers: shuffle(q.answers) } : q))
 }
 
 const MARKS: Record<string, string> = {
@@ -32,24 +32,33 @@ export default function Quiz({ title, questions, onExit }: Props) {
   const [round, setRound] = useState(() => prepare(questions))
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState<Set<number>>(new Set())
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(false) // MC: answer checked; essay: model answer shown
+  const [answered, setAnswered] = useState(0)
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState<Question[]>([])
   const [finished, setFinished] = useState(false)
 
   const question = round[index]
-  const answered = index + (checked ? 1 : 0)
+  const answers = question.answers ?? []
+  const isEssay = question.answers === undefined
   // Correct only if the selected set is exactly the set of right answers.
-  const isCorrect = question.answers.every((a, i) => a.right === selected.has(i))
+  const isCorrect = answers.every((a, i) => a.right === selected.has(i))
 
   function startRound(qs: Question[]) {
     setRound(prepare(qs))
     setIndex(0)
     setSelected(new Set())
     setChecked(false)
+    setAnswered(0)
     setCorrect(0)
     setWrong([])
     setFinished(false)
+  }
+
+  function record(ok: boolean) {
+    setAnswered((n) => n + 1)
+    if (ok) setCorrect((c) => c + 1)
+    else setWrong((w) => [...w, question])
   }
 
   function toggle(i: number) {
@@ -63,9 +72,14 @@ export default function Quiz({ title, questions, onExit }: Props) {
 
   function check() {
     if (selected.size === 0) return
-    if (isCorrect) setCorrect((c) => c + 1)
-    else setWrong((w) => [...w, question])
+    record(isCorrect)
     setChecked(true)
+  }
+
+  // Essay questions are self-marked after reading the model answer.
+  function markEssay(knewIt: boolean) {
+    record(knewIt)
+    next()
   }
 
   function next() {
@@ -116,10 +130,40 @@ export default function Quiz({ title, questions, onExit }: Props) {
 
       {/* Question text comes from our own JSON files and may contain HTML like <TT>. */}
       <h2 className="question" dangerouslySetInnerHTML={{ __html: question.name }} />
-      <p className="hint">One or more answers can be correct.</p>
+
+      {isEssay ? (
+        <>
+          <p className="hint">Essay question. Write or think through your answer, then compare.</p>
+          <textarea
+            key={index}
+            className="essay-input"
+            rows={6}
+            placeholder="Your answer (optional, not saved)"
+          />
+          {checked && (
+            <section className="model-answer">
+              <h3>Model answer</h3>
+              <div dangerouslySetInnerHTML={{ __html: question.answer ?? '' }} />
+              {question.keyPoints && question.keyPoints.length > 0 && (
+                <>
+                  <h3>Key points</h3>
+                  <ul>
+                    {question.keyPoints.map((p, i) => (
+                      <li key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                    ))}
+                  </ul>
+                </>
+              )}
+              {question.source && <p className="comment">{question.source}</p>}
+            </section>
+          )}
+        </>
+      ) : (
+        <p className="hint">One or more answers can be correct.</p>
+      )}
 
       <ul className="answers" key={index}>
-        {question.answers.map((a, i) => {
+        {answers.map((a, i) => {
           let state = ''
           if (checked) {
             if (a.right && selected.has(i)) state = 'correct'
@@ -148,11 +192,28 @@ export default function Quiz({ title, questions, onExit }: Props) {
       </ul>
 
       <div className="actions">
-        {/* One button that stays in place, so keyboard focus isn't lost between Check and Next. */}
-        <button type="button" onClick={checked ? next : check}>
-          {!checked ? 'Check' : index + 1 < round.length ? 'Next' : 'See results'}
-        </button>
-        {checked && (
+        {isEssay ? (
+          checked ? (
+            <>
+              <button type="button" onClick={() => markEssay(true)}>
+                ✓ I knew it
+              </button>
+              <button type="button" onClick={() => markEssay(false)}>
+                ✗ I didn't
+              </button>
+            </>
+          ) : (
+            <button type="button" onClick={() => setChecked(true)}>
+              Show model answer
+            </button>
+          )
+        ) : (
+          // One button that stays in place, so keyboard focus isn't lost between Check and Next.
+          <button type="button" onClick={checked ? next : check}>
+            {!checked ? 'Check' : index + 1 < round.length ? 'Next' : 'See results'}
+          </button>
+        )}
+        {checked && !isEssay && (
           <span className={isCorrect ? 'verdict ok' : 'verdict bad'}>
             {isCorrect ? 'Correct' : 'Wrong'}
           </span>

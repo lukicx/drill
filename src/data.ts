@@ -31,6 +31,13 @@ export async function loadQuestions(path: string): Promise<Question[]> {
     const label = `Question ${i + 1}`
     if (typeof q?.name !== 'string' || q.name.trim() === '') {
       problems.push(`${label}: missing text`)
+    } else if (q.answers === undefined) {
+      // Essay question: needs a model answer; key points are optional.
+      if (typeof q.answer !== 'string' || q.answer.trim() === '') {
+        problems.push(`${label}: needs "answers" (multiple choice) or "answer" (essay)`)
+      } else if (q.keyPoints !== undefined && (!Array.isArray(q.keyPoints) || q.keyPoints.some((p: unknown) => typeof p !== 'string'))) {
+        problems.push(`${label}: keyPoints must be a list of strings`)
+      }
     } else if (!Array.isArray(q.answers) || q.answers.length === 0) {
       problems.push(`${label}: has no answers`)
     } else if (q.answers.some((a: unknown) => typeof (a as { body?: unknown })?.body !== 'string')) {
