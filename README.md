@@ -73,5 +73,7 @@ You write or think through your answer, reveal the model answer, and mark yourse
 
 `keyPoints` and `source` are optional. Multiple-choice and essay questions can be mixed in one file.
 
+Check new files before adding them: `node scripts/validate-questions.mjs public/datasets/questions_X.json`
+
 A file with a broken question (no text, no answers, or no right answer) refuses to load and
 lists the problems, so mistakes in new files show up immediately.
