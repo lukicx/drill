@@ -1,0 +1,208 @@
+[
+  {
+    "name": "How is security typically handled in a small company?",
+    "answers": [
+      { "body": "Typically no security team at all – a one-man show, sometimes not even that.", "right": true, "comment": "Slide 2" },
+      { "body": "Security is a function of the IT team or IT admin and is mostly about backup and authentication services.", "right": true, "comment": "Slide 2" },
+      { "body": "A dedicated Security Operations Centre with its own budget.", "right": false, "comment": "Typical of big companies (slide 6)." },
+      { "body": "Security is perceived as the most important domain.", "right": false, "comment": "It is perceived as not much important (slide 2)." }
+    ]
+  },
+  {
+    "name": "When do companies, according to the lecture, mostly start taking security (more) seriously?",
+    "answers": [
+      { "body": "After a major security incident", "right": true, "comment": "Slide 3" },
+      { "body": "After an audit", "right": true, "comment": "Slide 3" },
+      { "body": "As soon as they are founded", "right": false, "comment": "Before an incident or audit: minimal budget, people and respect for security (slide 3)." },
+      { "body": "When they hire their first developer", "right": false }
+    ]
+  },
+  {
+    "name": "Which are listed as pros and cons of security in big companies / large enterprises?",
+    "answers": [
+      { "body": "+ dedicated teams with detailed experience in various security domains", "right": true, "comment": "Slide 6" },
+      { "body": "+ might have a dedicated budget", "right": true, "comment": "Slide 6" },
+      { "body": "− security costs a lot and slows the speed of innovation", "right": true, "comment": "Slide 6" },
+      { "body": "− nobody spells Security right", "right": false, "comment": "That joke is about the one-person setup of a small company (slide 2)." }
+    ]
+  },
+  {
+    "name": "How is security perceived in a medium-sized company according to the lecture?",
+    "answers": [
+      { "body": "As an unnecessary evil (maybe until a data breach)", "right": true, "comment": "Slide 5" },
+      { "body": "As the main driver of innovation", "right": false },
+      { "body": "As the responsibility of the CEO only", "right": false },
+      { "body": "As a fully outsourced service with no internal team", "right": false, "comment": "Medium-sized companies have a small all-purpose team (slide 5)." }
+    ]
+  },
+  {
+    "name": "Which activities belong to the Security Architecture team?",
+    "answers": [
+      { "body": "Defines overall security policies, standards and procedures", "right": true, "comment": "Slide 8" },
+      { "body": "Performs risk assessments and prevents bad designs", "right": true, "comment": "Slide 8" },
+      { "body": "Makes sure new technologies fit within existing ones", "right": true, "comment": "Slide 8" },
+      { "body": "Builds tools such as SIEM and FIM", "right": false, "comment": "That is Security Engineering (slide 9)." }
+    ]
+  },
+  {
+    "name": "What do the abbreviations SIEM and FIM stand for (Security Engineering tools)?",
+    "answers": [
+      { "body": "Security Information and Event Management; File Integrity Monitoring", "right": true, "comment": "Slide 9" },
+      { "body": "Secure Internet Exchange Module; Firewall Inspection Manager", "right": false },
+      { "body": "Security Incident Escalation Matrix; Fraud Identification Model", "right": false },
+      { "body": "System Integrity Enforcement Mechanism; Federated Identity Management", "right": false }
+    ]
+  },
+  {
+    "name": "Which of the following are key objectives of a Security Operations Centre (SOC)?",
+    "answers": [
+      { "body": "Ability to correlate system, application, network, server and security logs in a consistent way", "right": true, "comment": "Slide 11" },
+      { "body": "Coordinate the response to cyber threats and incidents", "right": true, "comment": "Slide 11" },
+      { "body": "Provide regular reporting to management and cyber incident responders", "right": true, "comment": "Slide 11" },
+      { "body": "Ensure the change control function is integrated into the SOC process", "right": true, "comment": "Slide 12" },
+      { "body": "Write the company's application source code", "right": false }
+    ]
+  },
+  {
+    "name": "In the secure change management lifecycle, which step directly follows the request for change?",
+    "answers": [
+      { "body": "Impact analysis", "right": true, "comment": "Slide 15: request for change → impact analysis → approve/deny → implement change → review/reporting" },
+      { "body": "Implement change", "right": false },
+      { "body": "Review/Reporting", "right": false },
+      { "body": "Approve/Deny", "right": false, "comment": "Approval comes after the impact analysis (slide 15)." }
+    ]
+  },
+  {
+    "name": "Which areas does a Security Design Review (operations view) cover?",
+    "answers": [
+      { "body": "Logical network diagrams, network access control and user access control", "right": true, "comment": "Slide 14" },
+      { "body": "Data sensitivity and data encryption; logging, monitoring and auditing", "right": true, "comment": "Slide 14" },
+      { "body": "Vulnerability management, secrets management, business continuity and disaster recovery", "right": true, "comment": "Slide 14" },
+      { "body": "Only the price of the change", "right": false }
+    ]
+  },
+  {
+    "name": "What does DevSecOps mean in the light of SecOps according to the lecture?",
+    "answers": [
+      { "body": "Software-defined data centers (AWS, Azure, Google Cloud, OCI)", "right": true, "comment": "Slide 18" },
+      { "body": "Security driven by code (Ansible, Terraform, …)", "right": true, "comment": "Slide 18" },
+      { "body": "Security is checked only once, after the release", "right": false, "comment": "The DevSecOps loop has security steps in every stage – plan, code, build, test, release, deploy, operate, monitor (slide 17)." },
+      { "body": "Developers are forbidden to touch infrastructure", "right": false }
+    ]
+  },
+  {
+    "name": "Which statements about CIS Controls v8 are correct?",
+    "answers": [
+      { "body": "Formerly known as SANS Top 20", "right": true, "comment": "Slide 20" },
+      { "body": "Consists of 18 controls and 153 safeguards", "right": true, "comment": "Slide 20" },
+      { "body": "Safeguards are grouped into implementation groups IG1/IG2/IG3", "right": true, "comment": "Slide 20" },
+      { "body": "Focuses on who manages the devices rather than on activities", "right": false, "comment": "It is the other way round – activities, not who manages the devices (slide 20)." }
+    ]
+  },
+  {
+    "name": "What are the three primary components of the NIST Cybersecurity Framework?",
+    "answers": [
+      { "body": "Core, Profiles, Implementation Tiers", "right": true, "comment": "Slide 24" },
+      { "body": "Identify, Protect, Detect", "right": false, "comment": "These are functions of the Framework Core (slide 26)." },
+      { "body": "Tactics, Techniques, Procedures", "right": false },
+      { "body": "Policy, Standard, Guideline", "right": false }
+    ]
+  },
+  {
+    "name": "Which five functions form the NIST CSF Framework Core shown in the lecture (version 1.1)?",
+    "answers": [
+      { "body": "Identify, Protect, Detect, Respond, Recover", "right": true, "comment": "Slide 26 (5 functions, 23 categories, 108 subcategories – slide 27)" },
+      { "body": "Plan, Do, Check, Act, Improve", "right": false },
+      { "body": "Spoofing, Tampering, Repudiation, Disclosure, DoS", "right": false },
+      { "body": "Prevent, Detect, Correct, Deter, Compensate", "right": false }
+    ]
+  },
+  {
+    "name": "What are the four NIST CSF Implementation Tiers, from lowest to highest?",
+    "answers": [
+      { "body": "Partial, Risk Informed, Repeatable, Adaptive", "right": true, "comment": "Slide 28" },
+      { "body": "Initial, Managed, Defined, Optimized", "right": false },
+      { "body": "Basic, Intermediate, Advanced, Expert", "right": false },
+      { "body": "IG1, IG2, IG3, IG4", "right": false, "comment": "Implementation groups belong to CIS Controls and there are only three (slide 20)." }
+    ]
+  },
+  {
+    "name": "What is MITRE ATT&CK?",
+    "answers": [
+      { "body": "Adversarial Tactics, Techniques & Common Knowledge – a categorisation of adversarial behaviours based on real-world observations", "right": true, "comment": "Slide 31" },
+      { "body": "It is used for both offensive and defensive activities, measurements and reporting, and has Enterprise, Mobile and PRE-ATT&CK variants.", "right": true, "comment": "Slide 31" },
+      { "body": "A dictionary of known vulnerabilities with CVE identifiers", "right": false, "comment": "That is CVE (lecture 1)." },
+      { "body": "A certification scheme for SOC analysts", "right": false }
+    ]
+  },
+  {
+    "name": "Which are listed as best practices for using AI for security?",
+    "answers": [
+      { "body": "Have a strategy and integrate with tools and data sources", "right": true, "comment": "Slide 34" },
+      { "body": "Maintain data privacy and data quality", "right": true, "comment": "Slide 34" },
+      { "body": "Be careful about AI-driven decision making and continuously test your framework", "right": true, "comment": "Slide 34" },
+      { "body": "Let AI make all incident decisions automatically without review", "right": false }
+    ]
+  },
+  {
+    "name": "What was the attack vector in the SolarWinds case?",
+    "answers": [
+      { "body": "Malicious code (SUNBURST) inserted into updates of the SolarWinds Orion network management product", "right": true, "comment": "Slide 36–37; lecture 3, slide 5 (supply-chain attack via malicious software updates)" },
+      { "body": "Phishing e-mails sent directly to government employees", "right": false },
+      { "body": "A DDoS attack on SolarWinds servers", "right": false },
+      { "body": "Unpatched Orion installations at careless customers", "right": false, "comment": "Orion customers were careful and kept SolarWinds patched & updated (slide 36)." }
+    ]
+  },
+  {
+    "name": "Which statements about the SUNBURST malware and the SolarWinds actor are correct?",
+    "answers": [
+      { "body": "About 18,000 companies installed SUNBURST, but it activated only at a handful of targets worth it; elsewhere it went to sleep.", "right": true, "comment": "Slide 37" },
+      { "body": "The actor was very sophisticated – cleaned up trace evidence and hid its servers and exploit.", "right": true, "comment": "Slide 39" },
+      { "body": "The motivation was financial – the attack ended with ransomware.", "right": false, "comment": "No financial interest, no ransomware, no data destruction (slide 39)." },
+      { "body": "The malware immediately encrypted data on all 18,000 networks.", "right": false }
+    ]
+  },
+  {
+    "name": "How did the attacker get into Uber's systems in the incident mentioned in the lecture?",
+    "answers": [
+      { "body": "Through social engineering – compromised an employee's Slack account and persuaded the employee to hand over a critical password.", "right": true, "comment": "Slide 4" },
+      { "body": "Through a zero-day vulnerability in Uber's mobile app", "right": false },
+      { "body": "Through a malicious software update from a supplier", "right": false },
+      { "body": "Through physical theft of a server", "right": false }
+    ]
+  },
+  {
+    "name": "What does the compliance function do according to the lecture?",
+    "answers": [
+      { "body": "Makes sure the company complies with regulations, legal requirements and internal policies and standards", "right": true, "comment": "Slide 40" },
+      { "body": "Helps the company pass external audits and conducts internal audits", "right": true, "comment": "Slide 40" },
+      { "body": "Identifies new compliance issues", "right": true, "comment": "Slide 40" },
+      { "body": "Replaces the need for a security team", "right": false }
+    ]
+  },
+  {
+    "name": "Compare how security is organised in small, medium-sized and large companies. What are the pros and cons of each, and when do companies usually start taking security seriously?",
+    "answer": "<B>Small company</B>: typically no security team – a one-man show (sometimes not even that); security is a function of the IT team or admin, perceived as not important, mostly about backup and authentication. Pro: at least one person who understands security. Con: knowledge and experience of just one person. <B>Medium-sized company</B>: a small all-purpose team dealing with operational, infrastructure and application layers, but nobody knows everything; security is seen as an unnecessary evil (maybe until a breach). Pro: a dedicated security team. Cons: budget, limited experience with various aspects of security. <B>Big company</B>: big dedicated team(s), not all focused on security (e.g. a privacy team), each focused on a different area – security architecture, engineering, SOC, application security, consulting, pentesting, CISO. Pros: dedicated teams, detailed experience, possibly a dedicated budget. Cons: security costs a lot, slower innovation. Companies usually start taking security seriously only after a major incident or an audit; before that there is minimal budget, minimal people and minimal respect for security (“why should we be a target”). The Uber example shows that security budgets often grow only after an incident.",
+    "keyPoints": [
+      "Small: no team, IT admin, backup and authentication; one person's knowledge",
+      "Medium: small all-purpose team, unnecessary evil, budget limits",
+      "Large: dedicated specialised teams and budget, but expensive and slower innovation",
+      "Typical subteams: architecture, engineering, SOC, AppSec, pentesting, consulting, CISO",
+      "Seriousness usually comes after an incident or audit"
+    ],
+    "source": "Lecture 5, slides 2–7"
+  },
+  {
+    "name": "Describe the SolarWinds attack: the vector, the targets, the actor's traits, and what it teaches about security operations.",
+    "answer": "SolarWinds is a software company making network management products; its popular product <B>Orion</B> was used by governments and major corporations and approved for sensitive areas. The attacker (UNC2452, publicly revealed by FireEye) accessed SolarWinds in 2019, injected test code and then the <B>SUNBURST</B> malware into Orion builds; the compromised update was shipped to customers in 2020. Customers who carefully kept Orion patched and updated installed it – about <B>18,000</B> companies, government agencies, think tanks, universities and NGOs. SUNBURST waited about 14 days, then went live only at a handful of high-value targets and stayed asleep everywhere else. The actor was very sophisticated: cleaned up trace evidence, had good security on its own servers, hid its servers and exploit. The motivation was murky – limited target selection, no financial interest, no DoS, no data destruction or ransomware, no personal information theft. Lesson: it was a supply-chain attack through malicious software updates – even careful customers who kept Orion patched were hit, because the trusted supplier's update itself was compromised.",
+    "keyPoints": [
+      "Vector: malicious SUNBURST code in SolarWinds Orion updates (supply chain)",
+      "~18,000 installations; activated only at a handful of valuable targets after ~14 days",
+      "Careful, patched customers were hit",
+      "Very sophisticated actor: cleaned traces, hid servers and exploit",
+      "Murky motivation: no financial interest, no ransomware, no data destruction",
+      "Lesson: a compromised supplier update hits even well-patched customers"
+    ],
+    "source": "Lecture 5, slides 35–39; lecture 3, slide 5"
+  }
+]
