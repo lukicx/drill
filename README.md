@@ -6,12 +6,21 @@ work unchanged.
 
 Built with Vite + React + TypeScript. No backend: everything is static files.
 
+Live: https://lukicx.github.io/drill/
+
 ## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
+
+Then open http://localhost:5173/drill/ (the `/drill/` path matches GitHub Pages).
+
+## Deploy
+
+Every push to `main` is built and published to GitHub Pages by
+`.github/workflows/deploy.yml`.
 
 ## Add a course or lecture set
 
