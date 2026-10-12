@@ -4,7 +4,8 @@ import type { DatasetInfo, Question } from './types'
 const base = import.meta.env.BASE_URL
 
 async function fetchJson(path: string): Promise<unknown> {
-  const res = await fetch(base + path)
+  // 'no-cache' revalidates with the server, so new or corrected sets show up right after a deploy.
+  const res = await fetch(base + path, { cache: 'no-cache' })
   if (!res.ok) throw new Error(`Could not load ${path} (HTTP ${res.status})`)
   // The dev server answers a missing file with index.html, so name the file in the error.
   return res.json().catch(() => {
