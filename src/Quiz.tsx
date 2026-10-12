@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { checkSelection, clearSession, createSession, getPersistenceFailed, nextQuestion,
   questionsToReview, recordAttempt, saveResult, saveSession, subscribePersistence } from './study'
-import type { StudySession, StudySource } from './study'
+import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
-interface Props { initial: StudySession; sources: StudySource[]; onExit: () => void; onSessionChange: (session: StudySession) => void }
+interface Props { initial: StudySession; sources: StudySource[]; onExit: () => void; onSessionChange: (session: StudySession) => void; sourceTitles: Record<string, string> }
 
-export default function Quiz({ initial, sources, onExit, onSessionChange }: Props) {
+export default function Quiz({ initial, sources, onExit, onSessionChange, sourceTitles }: Props) {
   const [session, setSession] = useState(initial)
   const persistenceFailed = useSyncExternalStore(subscribePersistence, getPersistenceFailed)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -31,8 +31,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange }: Prop
     if (!session.selected.length) return
     setSession((s) => recordAttempt(s, checkSelection(question, s.selected).ok ? 'correct' : 'wrong'))
   }
-  function markEssay(knewIt: boolean) {
-    setSession((s) => nextQuestion(recordAttempt(s, knewIt ? 'correct' : 'wrong')))
+  function markEssay(assessment: Assessment) {
+    setSession((s) => nextQuestion(recordAttempt(s, assessment)))
   }
   const storageNotice = persistenceFailed && <p className="error" role="alert">Progress could not be saved in this browser. Keep this tab open to continue studying.</p>
 
@@ -40,27 +40,55 @@ export default function Quiz({ initial, sources, onExit, onSessionChange }: Prop
     const answered = session.attempts.length
     const percent = answered ? Math.round(correct / answered * 100) : 0
     const wrong = questionsToReview(session)
+    const partial = session.attempts.filter((attempt) => attempt.assessment === 'partial').length
+    const remaining = session.round.length - answered
     return <main>
+      <p className="eyebrow">{remaining ? 'Session ended early' : 'Session complete'}</p>
       <h1 ref={heading} tabIndex={-1}>{session.title}</h1>
       {storageNotice}
-      <p className="score">{correct} / {answered} correct ({percent} %)</p>
-      <p>{answered} of {session.round.length} answered{answered < session.round.length ? ' · Session ended early' : ' · Session complete'}</p>
+      <p className="score">{answered ? `${percent}% fully correct` : 'No answers recorded yet'}</p>
+      <p className="muted">{answered} of {session.round.length} answered{remaining ? ` · ${remaining} remaining` : ''}</p>
+      <dl className="result-stats"><div><dt>Correct</dt><dd>{correct}</dd></div>
+        <div><dt>Partly recalled</dt><dd>{partial}</dd></div><div><dt>Need practice</dt><dd>{answered - correct - partial}</dd></div></dl>
+      {session.round.some((item) => !item.question.answers) && <p className="hint">Essay results are self-assessed. Partly recalled answers stay in your review round.</p>}
       <div className="actions">
-        {wrong.length > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: wrong, shuffled: session.shuffled }))}>Repeat wrong ({wrong.length})</button>}
+        {wrong.length > 0 && <button type="button" className="primary" onClick={() => setSession(createSession(sources, session.title, { review: wrong, shuffled: session.shuffled }))}>Review missed questions ({wrong.length})</button>}
+        {remaining > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: session.round.slice(answered), shuffled: session.shuffled }))}>Practice remaining ({remaining})</button>}
         <button type="button" onClick={() => setSession(createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined }))}>Start again</button>
         <button type="button" onClick={onExit}>Back to lectures</button>
       </div>
+      {wrong.length > 0 && <section className="results-review"><h2 className="section-title">What to review</h2>
+        <p className="hint">Open a question to compare your answer and explanation.</p>
+        {session.attempts.filter((attempt) => attempt.assessment !== 'correct').map((attempt) => <details className="review-item" key={attempt.item.key}>
+          <summary><span dangerouslySetInnerHTML={{ __html: attempt.item.question.name }} /><span className="badge">{attempt.assessment === 'partial' ? 'Partly recalled' : 'Need practice'}</span></summary>
+          <div className="review-content">
+            {session.datasetIds.length > 1 && <p className="hint">{sourceTitles[attempt.item.datasetId]}</p>}
+            {attempt.item.question.answers ? <ul className="review-answers">{attempt.item.question.answers.map((answer, i) => <li key={i}>
+              <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? '✓ Correct answer' : attempt.selected.includes(i) ? '✗ Your selection' : 'Not selected'}: </span>
+              <span dangerouslySetInnerHTML={{ __html: answer.body }} />
+              {answer.comment && <p className="hint" dangerouslySetInnerHTML={{ __html: answer.comment }} />}
+            </li>)}</ul> : <>
+              {attempt.draft && <><h3>Your answer</h3><p className="saved-draft">{attempt.draft}</p></>}
+              {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={{ __html: point }} />)}</ul></> : null}
+              <h3>Model answer</h3><div dangerouslySetInnerHTML={{ __html: attempt.item.question.answer ?? '' }} />
+              {attempt.item.question.source && <p className="hint">{attempt.item.question.source}</p>}
+            </>}
+          </div>
+        </details>)}
+      </section>}
     </main>
   }
   return <main>
     <header className="quiz-header">
-      <span>{session.title} · {session.index + 1} / {session.round.length} · {correct} correct</span>
+      <div><span>{session.title}</span><p className="session-progress">Question {session.index + 1} of {session.round.length} · {session.attempts.length} answered · {correct} correct</p></div>
       <div className="actions">
         <button type="button" className="link" onClick={() => { saveSession(session); onExit() }}>Pause</button>
-        <button type="button" className="link" onClick={() => setSession((s) => ({ ...s, finished: true }))}>End</button>
+        <button type="button" className="link" onClick={() => setSession((s) => ({ ...s, finished: true }))}>End session</button>
       </div>
     </header>
     {storageNotice}
+    <progress className="progress-bar" max={session.round.length} value={session.attempts.length} aria-label="Questions answered" />
+    {session.datasetIds.length > 1 && <p className="eyebrow">{sourceTitles[session.round[session.index].datasetId]}</p>}
     <h2 ref={heading} tabIndex={-1} className="question" dangerouslySetInnerHTML={{ __html: question.name }} />
     {isEssay ? <>
       <p className="hint">Essay question. Write or think through your answer, then compare.</p>
@@ -68,8 +96,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange }: Prop
       <textarea id="essay-answer" className="essay-input" rows={6} value={session.draft}
         onChange={(event) => setSession((s) => ({ ...s, draft: event.target.value }))} placeholder="Write your answer here…" />
       {checked && <section className="model-answer">
-        <h3>Model answer</h3><div dangerouslySetInnerHTML={{ __html: question.answer ?? '' }} />
         {question.keyPoints && question.keyPoints.length > 0 && <><h3>Key points</h3><ul>{question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={{ __html: point }} />)}</ul></>}
+        <details open><summary>Full model answer</summary><div className="model-answer-body" dangerouslySetInnerHTML={{ __html: question.answer ?? '' }} /></details>
         {question.source && <p className="comment">{question.source}</p>}
       </section>}
     </> : <p className="hint">One or more answers can be correct.</p>}
@@ -85,15 +113,21 @@ export default function Quiz({ initial, sources, onExit, onSessionChange }: Prop
         </li>
       })}
     </ul>
-    <div className="actions">
+    <div className="actions action-bar">
       {isEssay ? checked ? <>
-        <button type="button" onClick={() => markEssay(true)}>✓ I knew it</button>
-        <button type="button" onClick={() => markEssay(false)}>✗ I didn't</button>
-      </> : <button type="button" onClick={() => setSession((s) => ({ ...s, revealed: true }))}>Show model answer</button>
-        : <button type="button" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
+        <button type="button" className="primary" onClick={() => markEssay('correct')}>✓ Knew it</button>
+        <button type="button" onClick={() => markEssay('partial')}>Partly</button>
+        <button type="button" onClick={() => markEssay('wrong')}>Need practice</button>
+      </> : <button type="button" className="primary" onClick={() => setSession((s) => ({ ...s, revealed: true }))}>Show model answer</button>
+        : <button type="button" className="primary" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
           {!checked ? 'Check answer' : session.index + 1 < session.round.length ? 'Next question' : 'See results'}
         </button>}
-      {checked && !isEssay && <span role="status" className={feedback.ok ? 'verdict ok' : 'verdict bad'}>{feedback.ok ? 'Correct' : 'Wrong'}</span>}
+      {checked && !isEssay && <div role="status" className={feedback.ok ? 'verdict ok' : 'verdict bad'}>
+        {feedback.ok ? 'Correct — all right answers selected.' : <>
+          <span>{feedback.incorrect ? `You selected ${feedback.incorrect} incorrect ${feedback.incorrect === 1 ? 'answer' : 'answers'}. ` : ''}</span>
+          <span>{feedback.missed ? `You missed ${feedback.missed} correct ${feedback.missed === 1 ? 'answer' : 'answers'}.` : ''}</span>
+        </>}
+      </div>}
     </div>
   </main>
 }

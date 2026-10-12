@@ -85,7 +85,8 @@ export default function App() {
     navigate(course, route.datasetId)
   }
 
-  if (route.practice && active) return <Quiz initial={active.session} sources={active.sources} onExit={exit} onSessionChange={onSessionChange} />
+  if (route.practice && active) return <Quiz initial={active.session} sources={active.sources} onExit={exit} onSessionChange={onSessionChange}
+    sourceTitles={Object.fromEntries(datasets.map((ds) => [ds.id, lectureTitle(ds)]))} />
 
   // Reading here keeps the paused banner current after browser Back unmounts the quiz.
   const paused = readSession()
