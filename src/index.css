@@ -1,0 +1,173 @@
+:root {
+  --text: #1f2937;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e5e7eb;
+    --bg: #16171d;
+    --border: #2e303a;
+    --accent: #60a5fa;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+:root {
+  --ok: #16a34a;
+  --bad: #dc2626;
+  --muted: #6b7280;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 8px 0 24px;
+}
+
+button {
+  font: inherit;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.link {
+  border: none;
+  padding: 4px 8px;
+  color: var(--accent);
+}
+
+.datasets {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.datasets button {
+  width: 100%;
+  text-align: left;
+}
+
+.error {
+  color: var(--bad);
+  white-space: pre-line;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.question {
+  font-size: 1.2rem;
+  margin: 16px 0 4px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.answers {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.answers li {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.answers label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.answers input {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.answers li.correct {
+  border-color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+}
+
+.answers li.wrong {
+  border-color: var(--bad);
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+}
+
+.answers li.missed {
+  border: 2px dashed var(--ok);
+}
+
+.comment {
+  margin: 0;
+  padding: 0 12px 12px 36px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.verdict {
+  font-weight: 600;
+}
+
+.verdict.ok {
+  color: var(--ok);
+}
+
+.verdict.bad {
+  color: var(--bad);
+}
+
+.score {
+  font-size: 1.5rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+}
