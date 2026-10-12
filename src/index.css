@@ -230,3 +230,7 @@ pre {
   margin: 0;
   padding-left: 20px;
 }
+
+.model-answer .comment {
+  padding: 8px 0 0;
+}
