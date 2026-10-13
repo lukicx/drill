@@ -1,0 +1,322 @@
+[
+  {
+    "name": "What does a computer network provide, and why do real networks need more than simple delivery?",
+    "answer": "A network interconnects computers and devices to communicate and share hardware, software, files and information. Its fundamental requirements are delivery to the correct destination, accuracy and timeliness. Real networks have internal structure, limited throughput, losses, delay and jitter, possible reordering and corruption. Useful operation therefore requires efficient resource use, fairness among equal-priority flows, reliability, multiplexing/demultiplexing, flow control and fast convergence under decentralised management.",
+    "keyPoints": [
+      "Communication and resource sharing",
+      "Delivery, accuracy and timeliness",
+      "Finite throughput, losses, delay/jitter, reordering and corruption",
+      "Efficiency, fairness, reliability, flow control and convergence"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 10-12 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Compare the circuit-switched and connectionless packet-switched networks illustrated in the lecture. What state and QoS implications follow?",
+    "answer": "In the circuit-switched example a connection is established and the same circuit is used throughout communication; the network maintains circuit state. This makes providing QoS relatively straightforward. In the connectionless example the message is divided into packets which may follow different routes and are reassembled at the receiver. No per-connection circuit is maintained, and QoS is harder to provide with best-effort service. Slide 14 illustrates the fixed route versus packets using different routes.",
+    "keyPoints": [
+      "Established circuit with network state",
+      "Packets can take different routes and are reassembled",
+      "Connectionless example has no per-connection circuit",
+      "QoS is easier with a circuit than with best-effort packets"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 13-14 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Define a communication protocol using syntax, semantics and timing. Relate this to the human greeting and HTTP exchange examples.",
+    "answer": "A protocol defines the format and order of exchanged messages and the actions performed when sending or receiving them. Syntax describes message structure, semantics gives the meaning of fields, and timing determines when and how fast messages are sent. Both the greeting/time-request example and the TCP/HTTP example require participants to agree on an ordered exchange: a request has a recognised meaning and leads to a corresponding response or action.",
+    "keyPoints": [
+      "Format and order of messages plus sender/receiver actions",
+      "Syntax is structure; semantics is meaning",
+      "Timing controls when and how fast",
+      "Examples illustrate agreed request/response sequences"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 15-16 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Why are standards needed in networking? Distinguish de facto from de jure standards and identify examples of standardisation bodies.",
+    "answer": "Standards define common forms and methods of communication, supporting quality, security, compatibility, interoperability and portability. A de facto standard becomes established through widespread use without approval by an organised body, often starting with a manufacturer. A de jure standard is established by an officially recognised body. Examples listed are ISO, ITU-T, ANSI, IEEE, IETF with RFCs, and IEC.",
+    "keyPoints": [
+      "Quality, security, compatibility, interoperability and portability",
+      "De facto: adoption through widespread use",
+      "De jure: officially recognised body",
+      "Examples include ISO, IEEE and IETF/RFCs"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 17 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Explain layered communication, map the seven OSI layers to the four-layer TCP/IP diagram, and interpret the IP hourglass.",
+    "answer": "A layer implements particular functions, adds control information, uses the layer below and serves the layer above. Peer layers communicate logically; actual transmission traverses lower layers. From top to bottom OSI has application, presentation, session, transport, network, data link and physical layers. The diagram groups the top three into TCP/IP application, maps transport to transport and network to Internet, and groups data link and physical into network access. The hourglass shows many applications, transports and link/media technologies interoperating through the common IP layer at its narrow waist.",
+    "keyPoints": [
+      "Neighbouring-layer services and logical peer communication",
+      "OSI layer order and encapsulation/control information",
+      "Top three map to application; bottom two to network access",
+      "IP is the common waist between diverse upper and lower technologies"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 19-22 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Describe the physical layer, including bit representation, synchronisation and the distinction between guided and unguided media.",
+    "answer": "The physical layer serves the data link layer by transmitting the bits of frames through a medium. It turns bit streams into signals, controls the bit rate and synchronises sender and receiver. Signals represent changing physical characteristics over time. Digital data can be represented by analog signals using modulation or digital signals using transcoding. Guided media use a conduit such as twisted pair, coaxial cable or optical fibre; unguided media carry electromagnetic waves without a conductor, such as radio, microwave or infrared. Interface standards specify electrical, mechanical, functional and procedural properties.",
+    "keyPoints": [
+      "Bits of frames become signals; bit rate and synchronisation",
+      "Analog modulation versus digital transcoding",
+      "Guided: twisted pair, coaxial cable, optical fibre",
+      "Unguided: radio, microwave, infrared; standardised interfaces"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 24-29, 31 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Interpret the multiplexer/link/demultiplexer diagram and compare FDM, WDM and TDM.",
+    "answer": "Multiplexing divides a shared physical link into logical channels so concurrent communications use the available bandwidth efficiently. A multiplexer combines channels on the link and a demultiplexer separates them at the receiving side. Frequency-division multiplexing separates channels by frequency; wavelength-division multiplexing separates optical wavelengths; time-division multiplexing allocates different time intervals. The lecture groups FDM/WDM with analog signals and TDM with digital signals, and includes multiplexing among physical-layer services.",
+    "keyPoints": [
+      "Several logical channels share one physical medium",
+      "Multiplexer combines; demultiplexer separates",
+      "FDM by frequency; WDM by wavelength; TDM by time",
+      "Goal is efficient utilisation of bandwidth"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 27, 30-31 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "What does the data link layer add to physical bit transmission, and how does its scope differ from network-layer delivery?",
+    "answer": "The data link layer encapsulates network packets in frames and delivers them locally between devices sharing a link/segment, identified by MAC addresses. It provides framing and addressing, error control, receiver flow control and medium access control. Flow control prevents receiver congestion, for example with stop-and-wait or sliding windows; medium access control coordinates use of shared media. Network-layer delivery can extend across separate LANs, while the link layer deals with local delivery.",
+    "keyPoints": [
+      "Packets are encapsulated into frames",
+      "MAC-addressed local delivery within a segment",
+      "Error control and receiver flow control",
+      "Shared-medium access control"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 32-33, 41 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Compare ARQ and forward error correction. Why can latency and loss influence the choice?",
+    "answer": "Error control uses redundancy: the sender adds bits derived from the data and the receiver checks that relationship. With detection and ARQ, detected errors cause retransmission; parity and CRC are detection examples. FEC uses redundant information to attempt correction without requiring each error to be resolved by retransmission, as with Hamming codes. The lecture associates ARQ with relatively low-loss media and FEC with lossy media, especially where high latency makes repeated transmissions expensive. An unrepairable error can still require repetition.",
+    "keyPoints": [
+      "Redundancy enables detection and sometimes correction",
+      "ARQ detects errors and requests retransmission",
+      "FEC attempts correction using redundant information",
+      "High loss/latency can favour FEC; parity/CRC versus Hamming example"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 34 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "What problem does medium access control address? Compare the three protocol families listed in the lecture.",
+    "answer": "MAC coordinates several devices sharing a transmission medium to deal with collisions from concurrent transmissions. Random-access protocols let devices contend for access, with examples Aloha, CSMA/CD and CSMA/CA. Controlled-access protocols organise access using reservations, polling or tokens. Channelisation protocols divide the resource among users, for example by frequency with FDMA or time with TDMA.",
+    "keyPoints": [
+      "Concurrent use of a shared medium creates collisions",
+      "Random access: Aloha, CSMA/CD, CSMA/CA",
+      "Controlled access: reservations, polling, tokens",
+      "Channelisation: FDMA or TDMA"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 35 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Explain how bridges and switches connect LANs and learn where to forward frames. What scalability and loop problems arise?",
+    "answer": "Simple LANs use bus, ring, star, tree or mesh topologies and can be interconnected by bridges; a switch is approximately a multiport bridge. Bridges separate shared media so collisions do not cross them. Backward learning observes source MAC addresses to learn station locations, while forwarding uses the destination MAC address. Redundant connections can create loops, which require a spanning tree. Tables grow with the number of stations and convergence becomes problematic, limiting the suitability of this approach for large networks.",
+    "keyPoints": [
+      "Bridge separates collision media; switch is a multiport bridge",
+      "Learn locations from source MAC addresses",
+      "Forward using destination MAC addresses",
+      "Loops need spanning tree; table growth affects scalability"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 36-37, 40 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Describe the distributed spanning-tree procedure in the lecture: root election, root-port selection and disabling redundant ports.",
+    "answer": "Bridges periodically report their own address, the root address and their current path cost to the root. Initially each claims to be root; the lowest bridge address wins. Each other bridge selects the root port with the lowest root-path cost, using the slide’s identifier tie-breaks when costs are equal. The root’s ports are designated, and bridges select designated ports on the remaining links. Ports outside the selected tree are disabled so active paths do not form loops. The lecture prioritises the preferred root, then path cost and identifiers.",
+    "keyPoints": [
+      "Periodic root/path-cost reports; initially each claims root",
+      "Lowest bridge address selects root",
+      "Root ports follow lowest path cost with identifier tie-breaks",
+      "Designated/active tree ports remain; redundant ports disabled"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 38-39 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Explain the network layer’s host-to-host service, packetisation, fragmentation and supporting protocols.",
+    "answer": "The network layer takes transport segments and encapsulates them as packets, logically joining heterogeneous LANs into an internetwork. Interfaces have IP addresses and routers choose forwarding paths. Different link MTUs can require fragmentation in the IPv4 context of this recap. Address resolution associates network and link-layer addresses, while ICMP supplies control/error information; the diagram also shows IGMP, ARP and RARP as supporting IPv4 protocols. IP uses connectionless datagrams and provides best-effort delivery, rather than guaranteeing successful delivery.",
+    "keyPoints": [
+      "Segments become IP packets across heterogeneous LANs",
+      "IP addressing and router forwarding",
+      "Different MTUs motivate fragmentation in IPv4",
+      "Best-effort IP with ICMP and address-resolution support"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 41-45, 50-51 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Compare IPv4 unicast, broadcast and multicast with IPv6 unicast, multicast and anycast.",
+    "answer": "Unicast identifies a single interface. IPv4 broadcast delivers to all hosts on a LAN, while multicast addresses a group of receivers who want the data; the sender uses a unicast source address. IPv6 retains unicast and multicast but replaces broadcast with appropriate multicast groups, with multicast under ff00::/8. IPv6 anycast addresses a group but delivers a packet to one member, the closest according to routing, rather than every member. IPv4 addresses have 32 bits and IPv6 addresses 128 bits.",
+    "keyPoints": [
+      "Unicast is one interface; broadcast is all hosts on a LAN",
+      "Multicast delivers to group members",
+      "IPv6 uses multicast in place of broadcast and adds anycast",
+      "Anycast reaches one routing-nearest member; 32 versus 128 bits"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 45-49 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Apply the IPv6 abbreviation rules to FDEC:BA98:0074:3210:000F:BBFF:0000:FFFF and explain why two occurrences of :: would be ambiguous.",
+    "answer": "Removing leading zeros gives FDEC:BA98:74:3210:F:BBFF:0:FFFF. The zero group can be represented by ::, giving FDEC:BA98:74:3210:F:BBFF::FFFF. Only leading zeros within a group may be removed: 3210 cannot be shortened. Only one consecutive run of all-zero groups may be replaced by ::, because otherwise the number of omitted groups at each position could not be determined uniquely from the required eight groups.",
+    "keyPoints": [
+      "Hexadecimal groups represent 128 bits",
+      "Remove leading zeros, preserving nonleading zeros",
+      "A consecutive zero-group run may become ::",
+      "At most one :: keeps the expansion unambiguous"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 47-48 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Interpret the IPv4 header: distinguish header and total length, DS/TOS for QoS, fragmentation fields, TTL, protocol demultiplexing and the checksum.",
+    "answer": "Header length measures the header in four-byte words and varies with options; total length measures the whole datagram in bytes. The Differentiated Services/Type of Service (DS/TOS) field classifies datagrams for QoS, distinguishing important traffic such as control or real-time data from less-important datagrams. Identification, flags and fragment offset support fragmentation. TTL is decremented by routers and the datagram is discarded at zero to prevent indefinite circulation. The Protocol field identifies the next protocol, for example TCP, UDP or ICMP. Source and destination are 32-bit addresses. The checksum covers the header only, so changing TTL requires recomputation without checksumming the entire payload; transport protocols provide their own data checks. Options are optional control/testing information.",
+    "keyPoints": [
+      "Header length in four-byte words; total length includes data",
+      "DS/TOS classifies datagrams for QoS, including control and real-time traffic",
+      "Identification/flags/offset support fragmentation",
+      "TTL bounds traversal; Protocol selects the next protocol",
+      "Header-only checksum changes at routers; addresses and options"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 52-55 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "What information does ICMP provide, how is it encapsulated, and what additional roles are associated with ICMPv6?",
+    "answer": "Best-effort IP alone does not give the sender error or network-state information. ICMP adds messages such as Destination Unreachable, Time Exceeded and Echo Request/Reply. The encapsulation diagram places an ICMP message inside IP data, which is itself carried inside a link-layer frame. ICMPv6 provides analogous control messaging and incorporates IPv6 mechanisms corresponding to IPv4 ARP and group-management functionality; the lecture associates Neighbor Discovery with this IPv6 control machinery.",
+    "keyPoints": [
+      "ICMP reports delivery errors and basic network state",
+      "Unreachable, time exceeded and echo request/reply",
+      "ICMP inside IP inside a link frame",
+      "ICMPv6 also supports IPv6 discovery/group-related functions"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 56-57, 62 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Explain the simpler IPv6 base header and how Next Header chains extension headers. Which advanced capabilities does the lecture associate with IPv6?",
+    "answer": "IPv6 uses a fixed 40-byte base header containing version, traffic class, flow label, payload length, Next Header, hop limit and 128-bit source/destination addresses. Payload length excludes the base header. It has no base-header checksum; optional and fragmentation information are moved into extension headers. Next Header identifies either an extension or an upper-layer header. The example chains Hop-by-Hop Options, Fragment and TCP headers, while a simple packet directly identifies TCP. The lecture associates IPv6 with a larger address space, real-time flow treatment, security extensions, mobility and stateful/stateless autoconfiguration.",
+    "keyPoints": [
+      "Fixed 40-byte base with 128-bit addresses and hop limit",
+      "Payload length excludes base; no base checksum",
+      "Next Header chains extensions or selects transport",
+      "Examples plus flow treatment, security, mobility and autoconfiguration"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 58-61 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Model routing as a graph problem and explain why local knowledge, metrics and adaptability matter.",
+    "answer": "Represent routers as vertices, links as edges and link costs as weights; routing seeks paths with minimum cost under the chosen metric and constraints. Forwarding usually proceeds hop by hop, with each router selecting a next hop towards the destination. Global knowledge is difficult to obtain and can become stale, so local routing tables can disagree and produce loops or oscillation. Static tables are manually maintained and suit small stable networks; dynamic routing responds to changes through centralised, isolated or distributed algorithms. Desired properties include accuracy, simplicity, efficiency/scalability, limited control overhead/table size, robustness, stability, fairness and optimality.",
+    "keyPoints": [
+      "Routers/links/costs map to vertices/edges/weights",
+      "Metric defines optimality; forwarding is hop by hop",
+      "Stale/local information can cause loops and oscillation",
+      "Static versus dynamic routing; scalable stable algorithms"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 63-68 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Compare distance-vector and link-state routing, using RIP and OSPF as examples. Include convergence, robustness and metric differences.",
+    "answer": "Distance-vector routers exchange routing information with neighbours and use Bellman-Ford-style updates; RIP measures hop count, treats 16 as infinity and therefore supports paths of at most 15 hops. It sends periodic and triggered updates and suits smaller stable networks, but can suffer slow convergence, loops and count-to-infinity. Link-state routers disseminate their local link states throughout the routing domain, build a topology view and compute shortest paths with Dijkstra. OSPF uses configurable costs, with the lecture’s default derived inversely from bandwidth, and supports authentication, areas and equal-cost load balancing. Link-state operation needs wider dissemination and topology knowledge; each router computes routes independently, whereas bad distance-vector calculations can propagate through neighbours.",
+    "keyPoints": [
+      "DV exchanges route information with neighbours; LS floods local link states",
+      "Bellman-Ford versus Dijkstra/topology view",
+      "RIP hop count and infinity 16; OSPF configurable bandwidth-based cost",
+      "Convergence, control overhead and propagation of bad information differ"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 69-72 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Why divide the Internet into autonomous systems, and how do interior routing and BGP exterior routing differ?",
+    "answer": "An AS is an administrative domain under one organisation. The division reduces routing overhead and simplifies management. Interior routing operates within an AS under its administrators, primarily pursuing performance, with IGPs such as RIP and OSPF. Exterior routing connects ASs and emphasises policy and scalability. BGP uses path vectors describing routes, permits policies and redundant topologies, uses reliable TCP and supports CIDR aggregation. Interior and exterior routing must cooperate.",
+    "keyPoints": [
+      "Administrative domains reduce routing/management complexity",
+      "IGPs inside an AS prioritise performance",
+      "Exterior routing prioritises policy and scalability",
+      "BGP path vectors, TCP, redundancy and CIDR aggregation"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 73-75 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Explain IP multicast and compare the source-based and core-based tree approaches presented in the lecture.",
+    "answer": "IP multicast identifies a receiver group with a multicast address and allows a data copy on a shared delivery link rather than separate unicast copies for every receiver. It remains a best-effort network service, with scope bounded in the lecture’s IPv4 example by TTL. The source-based approach starts from the source, floods and prunes branches without receivers; the lecture lists DVMRP, MOSPF and PIM-DM and notes broadcast overhead. The core-based approach uses a meeting point contacted by receivers, reducing flooding and improving scalability, but depending on core availability; CBT and PIM-SM are examples. IPv4 multicast uses 224.0.0.0-239.255.255.255 and IPv6 ff00::/8.",
+    "keyPoints": [
+      "Multicast group addressing with best-effort delivery",
+      "Shared link copies avoid separate unicast distribution",
+      "Source-based flooding/pruning versus receiver joining a core",
+      "Overhead versus scalability/core dependence; protocol examples"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 76-77 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "How does the transport layer provide process-to-process communication? Explain ports and end-to-end service versus lower-layer delivery.",
+    "answer": "The transport layer takes application data, adds transport control information and provides a logical channel between applications. An IP address identifies the host/interface and a port identifies an application/service there; the lecture’s endpoint description is IP address plus port. Ports are 16-bit values. Transport headers are interpreted by endpoints while routers carry them as IP payload. Reliability and flow/error control, when provided, are end to end rather than merely local-link services. Connection-oriented service establishes a connection and uses numbering/acknowledgement; connectionless service sends without that connection and can lose or reorder data.",
+    "keyPoints": [
+      "Process-to-process channel above host-to-host IP",
+      "IP address and 16-bit port identify an endpoint/service",
+      "Endpoint processing of transport headers; routers carry payload",
+      "Optional end-to-end reliability; connection-oriented versus connectionless"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 78-82 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Describe UDP’s service, the fields in its header and suitable applications. What must an application do if it needs reliability?",
+    "answer": "UDP offers connectionless best-effort process-to-process communication with simple error detection. Its eight-byte header contains source port, destination port, total UDP length including header and data, and checksum over the UDP content. No connection setup or maintained connection state is required, giving low overhead. The lecture lists simple request/reply such as DNS, protocols with their own flow/error control such as TFTP, real-time transfers and multicast. If reliable delivery is required, the application must provide it rather than expecting UDP retransmission.",
+    "keyPoints": [
+      "Connectionless best-effort service with minimal overhead",
+      "Eight-byte header: ports, length, checksum",
+      "No connection setup/state",
+      "Application supplies reliability; DNS/TFTP/real-time/multicast examples"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 83-84 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Describe TCP’s communication model: byte stream, connection establishment, duplex operation and piggybacking.",
+    "answer": "TCP provides a reliable, ordered byte stream between endpoints, unlike UDP’s separate datagram blocks. A three-way handshake establishes the connection and exchanges necessary information before communication. Connection state is maintained at endpoints rather than by routers. Connections are full duplex, and control information can accompany data sent in the reverse direction, called piggybacking. The lecture describes point-to-point connections rather than multicast; reliability uses retransmission as summarised later.",
+    "keyPoints": [
+      "Reliable ordered byte stream",
+      "Three-way handshake and endpoint connection state",
+      "Full duplex with piggybacked control information",
+      "Point-to-point service and retransmission for reliability"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 85, 91 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Interpret a TCP header. If a data segment starts at sequence number 1000 and contains 200 bytes, what acknowledgement indicates all those bytes were received in order? Assume no SYN or FIN consumes a sequence number.",
+    "answer": "The sequence number identifies the first data byte in a segment; the acknowledgement number identifies the next expected byte. Bytes 1000 through 1199 therefore lead to acknowledgement 1200. Ports identify applications; header length is measured in four-byte words. The advertised window supports receiver flow control, the checksum checks header/data, and options extend the header. The six control bits shown are URG (urgent pointer valid), ACK (acknowledgement valid), PSH (push request), RST (reset), SYN (synchronise sequence numbers) and FIN (terminate). The urgent pointer relates to urgent data. The numerical result is an exercise derived from the slide’s byte-number definitions.",
+    "keyPoints": [
+      "Sequence is first data byte; ACK is next expected byte: 1200",
+      "Ports, four-byte header-length units and options",
+      "Window for flow control; checksum and urgent pointer",
+      "URG/ACK/PSH/RST/SYN/FIN roles in the shown header"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 86-88 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Use the flow/congestion-control diagram to distinguish their protected resources. If the receiver window is 8 KiB and the congestion window 5 KiB, which limit governs outstanding data?",
+    "answer": "Flow control protects the receiver from overload using its advertised window. Congestion control protects the network using a congestion window maintained by the sender. The amount allowed is limited by the lower of the two, so the example permits at most 5 KiB under these window limits, not their sum. Slide 90 draws feedback from the receiver for flow control and from the network for congestion control. The recap associates receiver flow control with explicit receiver information and congestion control with an estimate of available throughput using AIMD.",
+    "keyPoints": [
+      "Flow control protects receiver; congestion control protects network",
+      "Receiver window versus sender-maintained congestion window",
+      "Lower value governs: 5 KiB",
+      "Explicit receiver feedback versus network-capacity estimation/AIMD"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 89-91 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Distinguish a network application from an application protocol, and explain its place in the layered communication example.",
+    "answer": "The application layer provides user services such as web, email and name lookup. A network application contains an application protocol; HTTP or SMTP is a communication component rather than a complete application. The protocol specifies message types, syntax, semantics and rules for when/how messages are exchanged. In the diagram, user communication is prepared for transmission, lower layers carry it through the network and the receiving application presents it to the user. Examples pair DNS with name service, HTTP with the web, SMTP with email, FTP with file transfer and RTP/RTCP with multimedia.",
+    "keyPoints": [
+      "User-facing network application contains a communication protocol",
+      "Protocol defines message types, syntax, semantics and exchange rules",
+      "Application prepares/presents communication while lower layers carry it",
+      "DNS, HTTP, SMTP, FTP and RTP/RTCP examples"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 92-93, 96 (printed slide numbers = PDF pages)"
+  },
+  {
+    "name": "Interpret the client-server and peer-to-peer diagrams and distinguish pull from push. What other application-classification criteria are listed?",
+    "answer": "In the client-server diagram clients communicate with a server providing the service, whereas the peer-to-peer diagram shows communication among participating peers. In a pull model a client initiates data transfer; in a push model a server initiates it. Communication model and transfer initiator are separate classification criteria. The lecture additionally distinguishes thin versus fat clients within client-server systems and applications with low versus high demands on the network; it does not develop detailed thin/fat-client behaviour here.",
+    "keyPoints": [
+      "Clients access a server versus communication among peers",
+      "Pull initiated by client; push by server",
+      "Topology/roles and transfer initiator are separate criteria",
+      "Also thin/fat clients and low/high network demands"
+    ],
+    "source": "PA191 L1, lecture01.pdf, slides 94-95 (printed slide numbers = PDF pages)"
+  }
+]
