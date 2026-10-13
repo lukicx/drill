@@ -214,5 +214,41 @@
     "multipleChoiceCount": 18,
     "essayCount": 2,
     "group": "current"
+  },
+  {
+    "name": "PV021 - L1 Introduction, formal neuron, network activity",
+    "id": "PV021_L01",
+    "dataset": "datasets/questions_PV021_L01.json",
+    "questionCount": 13,
+    "multipleChoiceCount": 0,
+    "essayCount": 13,
+    "group": "current"
+  },
+  {
+    "name": "PV021 - L2 Expressive power, history, hardware and software",
+    "id": "PV021_L02",
+    "dataset": "datasets/questions_PV021_L02.json",
+    "questionCount": 15,
+    "multipleChoiceCount": 0,
+    "essayCount": 15,
+    "group": "current"
+  },
+  {
+    "name": "PV021 - L3 MLP training: gradient descent and backpropagation",
+    "id": "PV021_L03",
+    "dataset": "datasets/questions_PV021_L03.json",
+    "questionCount": 13,
+    "multipleChoiceCount": 0,
+    "essayCount": 13,
+    "group": "current"
+  },
+  {
+    "name": "PV021 - L4 MLP training: practical issues",
+    "id": "PV021_L04",
+    "dataset": "datasets/questions_PV021_L04.json",
+    "questionCount": 16,
+    "multipleChoiceCount": 0,
+    "essayCount": 16,
+    "group": "current"
   }
 ]
