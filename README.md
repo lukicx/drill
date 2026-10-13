@@ -28,6 +28,15 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 Saved sessions are checked against the current question files before resuming.
 If a dataset has changed, start a new round with its updated answers.
 
+## Offline use
+
+After one visit with a connection, the app and all question sets work offline, including
+on a phone (use the browser's **Add to Home Screen** / **Install** to get an app icon).
+`public/sw.js` saves the app and every set listed in `datasets.json`; when online it
+loads pages and question files from the network first, so corrections appear after a
+deploy. Each build stamps the worker so deployed changes refresh the saved copy.
+The worker is only registered in production builds, not in `npm run dev`.
+
 ## Checks
 
 Requires Node.js 22. Run `npm test`, `npm run lint`, and `npm run build`.
