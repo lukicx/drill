@@ -449,7 +449,7 @@
         "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The pattern diagram uses parent multiplicity 0..1, allowing a root; legal parent kinds are specified separately."
       },
       {
-        "body": "Both a fixed chain and the recursive model can represent the shown concrete organizational tree.",
+        "body": "Both a fixed chain and the recursive model can represent the lecture's concrete example of an organizational tree.",
         "right": true,
         "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The summary says the same object diagram is captured by both models, with the latter being more flexible."
       }

@@ -50,7 +50,7 @@
     "source": "01-OO-Fundamentals.pdf, Slide 11"
   },
   {
-    "name": "Which interpretation matches the stakeholder-quality diagram on the quality assurance slide?",
+    "name": "Which statement matches the lecture's view of software quality from different stakeholder perspectives?",
     "answers": [
       { "body": "Customer experience, internal code quality and long-term adjustability are complementary quality perspectives.", "right": true, "comment": "Slide 13: The diagram distinguishes the customer, developer and manager views, including visible behavior, internal engineering quality and long-term maintainability." },
       { "body": "Quality concerns only the features visible to the customer today.", "right": false, "comment": "Slide 13: The diagram also includes invisible code qualities and a long-term view; ISO/IEC 25010:2023 is introduced as a software quality standard." },

@@ -91,7 +91,7 @@
         "comment": "L4, slides 7-9: The slide explicitly implements the reverse query using a loop and company.contains(person)."
       },
       {
-        "body": "The shown reverse query takes constant time because the association is conceptually bidirectional.",
+        "body": "The reverse query takes constant time because the association is conceptually bidirectional.",
         "right": false,
         "comment": "L4, slides 7-9: A conceptual M:N association does not create a reverse index in this one-way implementation."
       },
@@ -645,7 +645,7 @@
     "source": "Public Transport supplement, slide/page 16-17"
   },
   {
-    "name": "The Public Transport Strategy diagram gives DailyWorkSchedule a DailyShiftPlanner. WorkDayPlanner prioritizes regularity and VacationPlanner reflects drivers' priorities. Which interpretation is correct?",
+    "name": "In the Public Transport Strategy design, DailyWorkSchedule holds a DailyShiftPlanner. WorkDayPlanner prioritizes regularity and VacationPlanner reflects drivers' priorities. Which interpretation is correct?",
     "answers": [
       {
         "body": "DailyWorkSchedule is the context; DailyShiftPlanner defines the planning operations that the concrete planners specialize.",
@@ -663,7 +663,7 @@
         "comment": "Public Transport supplement, slide/page 18: The inheritance shown is from the concrete planners to DailyShiftPlanner."
       },
       {
-        "body": "The diagram requires all planning policies to be branches inside one DailyWorkSchedule method.",
+        "body": "The design requires all planning policies to be branches inside one DailyWorkSchedule method.",
         "right": false,
         "comment": "Public Transport supplement, slide/page 18: The policies are separated into strategy objects."
       }
@@ -671,7 +671,7 @@
     "source": "Public Transport supplement, slide/page 18"
   },
   {
-    "name": "In the Public Transport State diagram, DailyWorkSchedule stores one CurrentDay and updateToday() sets it to WorkDay or VacationDay. Which statements correctly describe this design?",
+    "name": "In the Public Transport State design, DailyWorkSchedule stores one CurrentDay and updateToday() sets it to WorkDay or VacationDay. Which statements correctly describe this design?",
     "answers": [
       {
         "body": "CurrentDay defines the state interface, and WorkDay and VacationDay implement its shift operation.",
@@ -689,7 +689,7 @@
         "comment": "Public Transport supplement, slide/page 19: The varying state is represented by an associated object; the context remains DailyWorkSchedule."
       },
       {
-        "body": "The diagram shows different day-dependent behavior supplied through a common state contract.",
+        "body": "Different day-dependent behavior is supplied through a common state contract.",
         "right": true,
         "comment": "Public Transport supplement, slide/page 19: Both concrete states provide the operation expected through CurrentDay."
       }
@@ -697,7 +697,7 @@
     "source": "Public Transport supplement, slide/page 19"
   },
   {
-    "name": "How are responsibilities divided in the Public Transport Builder diagram?",
+    "name": "The Public Transport Builder example uses the classes TimetableConstructor, TimetableBuilder, TimetableGui, TimetableJSON, Timetable and TimetableRec. How are the responsibilities divided?",
     "answers": [
       {
         "body": "TimetableConstructor is the director and uses TimetableBuilder's operations to assemble timetable data.",

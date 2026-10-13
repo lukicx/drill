@@ -1,6 +1,6 @@
 [
   {
-    "name": "Ako je rozdelená zjednodušená webová aplikácia na diagrame? Vyber všetky správne tvrdenia.",
+    "name": "Ako je v prednáške rozdelená zjednodušená webová aplikácia do vrstiev? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Controller patrí do prezentačnej vrstvy; služby do vrstvy business logiky.",
@@ -18,7 +18,7 @@
         "comment": "L1, slide 11 (PDF page 11): Diagram odlišuje HTML vetvu s View od Web API vetvy s HTTP statusom a JSON/XML."
       },
       {
-        "body": "Business služby sú v diagrame súčasťou databázového servera.",
+        "body": "Business služby sú súčasťou databázového servera.",
         "right": false,
         "comment": "L1, slide 11 (PDF page 11): Služby sú samostatná aplikačná vrstva nad dátovou vrstvou."
       }
@@ -52,7 +52,7 @@
     "source": "L1, slide 12 (PDF page 12)"
   },
   {
-    "name": "Ktoré priradenia úrovní REST zodpovedajú modelu uvedenému na slide? Vyber všetky správne tvrdenia.",
+    "name": "Ktoré priradenia úrovní REST zodpovedajú modelu úrovní z prednášky? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Level 3 pridáva podľa tejto prednášky content negotiation a HATEOAS.",
@@ -156,7 +156,7 @@
     "source": "L1, slide 14 (PDF page 14)"
   },
   {
-    "name": "Form na diagrame pôvodne závisí od ClassicButton, UglyButton a CoolButton. Ktorá zmena ilustruje Dependency Inversion? Vyber všetky správne tvrdenia.",
+    "name": "V príklade z prednášky Form pôvodne závisí priamo od tried ClassicButton, UglyButton a CoolButton. Ktorá zmena ilustruje Dependency Inversion? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "IButton má závisieť od každého konkrétneho tlačidla, aby poznal všetky detaily.",
@@ -237,7 +237,7 @@
     "name": "Kto vytvára a viaže závislosti vo vysvetlení Dependency Injection? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Injector na diagrame prepája Form s konkrétnou implementáciou IButton.",
+        "body": "Injector prepája Form s konkrétnou implementáciou IButton.",
         "right": true,
         "comment": "L1, slide 20 (PDF page 20): Šípky Injectora smerujú k Form aj k implementáciám."
       },

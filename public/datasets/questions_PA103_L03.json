@@ -330,7 +330,7 @@
         "comment": "L3, Analysis Patterns, slides 66, 69: It consists of proposed actions."
       },
       {
-        "body": "The basic Plan diagram already includes every extension such as resource allocation and suspension.",
+        "body": "The basic Plan model already includes every extension such as resource allocation and suspension.",
         "right": false,
         "comment": "L3, Analysis Patterns, slides 66, 69: The lecture lists additional patterns and notes that extensions exist."
       }
@@ -424,7 +424,7 @@
         "comment": "L3, Analysis Patterns, slides 77, 79: The shown parent multiplicity is 0..1, with many child elements."
       },
       {
-        "body": "The diagram constrains a parent to be of the same subtype as its child.",
+        "body": "The pattern constrains a parent to be of the same subtype as its child.",
         "right": true,
         "comment": "L3, Analysis Patterns, slides 77, 79: This keeps dimension hierarchies separated by their kind."
       },

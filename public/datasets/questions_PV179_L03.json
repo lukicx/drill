@@ -18,7 +18,7 @@
         "comment": "L3, slides 3-4 (PDF pages 3-4): DbSety sú uvedené pri Repository v EF."
       },
       {
-        "body": "Business logika a databáza sú v diagrame jediný spoločný blok.",
+        "body": "Business logika a databáza tvoria jeden spoločný blok.",
         "right": false,
         "comment": "L3, slides 3-4 (PDF pages 3-4): Ide o samostatné vrstvy a databázu."
       }
@@ -26,7 +26,7 @@
     "source": "L3, slides 3-4 (PDF pages 3-4)"
   },
   {
-    "name": "Ako diagram DAL infraštruktúry oddeľuje abstrakcie od Entity Framework implementácie? Vyber všetky správne tvrdenia.",
+    "name": "Ako návrh DAL infraštruktúry z prednášky oddeľuje abstrakcie od Entity Framework implementácie? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Infrastructure.EntityFramework obsahuje konkrétne EntityFrameworkRepository, EntityFrameworkQuery a EntityFrameworkUnitOfWork.",
@@ -39,7 +39,7 @@
         "comment": "L3, slide 5 (PDF page 5): DbContext sa nachádza v konkrétnych EF implementáciách, nie v zobrazenom IRepository."
       },
       {
-        "body": "Diagram predpisuje nahradiť všetky rozhrania HTTP metódami.",
+        "body": "Návrh predpisuje nahradiť všetky rozhrania HTTP metódami.",
         "right": false,
         "comment": "L3, slide 5 (PDF page 5): Diagram používa objektové rozhrania a implementácie DAL."
       },
@@ -52,7 +52,7 @@
     "source": "L3, slide 5 (PDF page 5)"
   },
   {
-    "name": "Ako sú v diagrame reprezentované jednoduché a zložené podmienky dotazu? Vyber všetky správne tvrdenia.",
+    "name": "Ako sú v DAL infraštruktúre z prednášky reprezentované jednoduché a zložené podmienky dotazu (predikáty)? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "CompositePredicate obsahuje výlučne connection string.",
@@ -78,7 +78,7 @@
     "source": "L3, slide 5 (PDF page 5)"
   },
   {
-    "name": "Čo diagram QueryResult oddeľuje od samotných vrátených položiek? Vyber všetky správne tvrdenia.",
+    "name": "Čo obsahuje QueryResult v DAL infraštruktúre z prednášky popri samotných vrátených položkách? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "QueryResult je iba jedno číslo bez kolekcie entít.",
@@ -442,7 +442,7 @@
     "source": "L3, slide 16 (PDF page 16)"
   },
   {
-    "name": "Ktoré tvrdenia o aktualizácii a zmazaní súvisiacich entít zodpovedajú scenáru na slide? Vyber všetky správne tvrdenia.",
+    "name": "Entita A má navigačnú property List&lt;B&gt; (vzťah 1 : N). Ktoré tvrdenia o aktualizácii a zmazaní týchto súvisiacich entít zodpovedajú prednáške? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Pri zmazaní A treba v ukázanom postupe riešiť súvisiace B, napríklad zmenou FK alebo zmazaním.",

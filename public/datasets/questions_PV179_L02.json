@@ -26,7 +26,7 @@
     "source": "L2, slide 3 (PDF page 3)"
   },
   {
-    "name": "Ktoré poradie vrstiev zobrazuje diagram aplikácie? Vyber všetky správne tvrdenia.",
+    "name": "Aké je podľa prednášky poradie vrstiev aplikácie? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Business logika je medzi prezentačnou a dátovou vrstvou.",
@@ -39,7 +39,7 @@
         "comment": "L2, slide 4 (PDF page 4): Databáza je samostatný prvok pod dátovou vrstvou."
       },
       {
-        "body": "Dátová vrstva je v diagrame nad prezentačnou vrstvou.",
+        "body": "Dátová vrstva leží nad prezentačnou vrstvou.",
         "right": false,
         "comment": "L2, slide 4 (PDF page 4): Dátová vrstva je pod business logikou."
       },

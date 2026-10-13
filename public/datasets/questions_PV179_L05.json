@@ -1,6 +1,6 @@
 [
   {
-    "name": "Ktoré stavebné bloky patria podľa diagramu architektúry webovej aplikácie do vrstvy „business“ logiky? Vyber všetky správne tvrdenia.",
+    "name": "Ktoré stavebné bloky patria v architektúre webovej aplikácie z prednášky do vrstvy „business“ logiky? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "UI fasády a služby.",
@@ -10,7 +10,7 @@
       {
         "body": "Query objekty.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Query objekty sú v diagrame nakreslené vo vrstve business logiky, pod službami."
+        "comment": "L5, slide 2 (PDF page 2): Query objekty patria v diagrame do vrstvy business logiky, pod službami."
       },
       {
         "body": "Repozitáre a ORM.",
@@ -26,7 +26,7 @@
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
-    "name": "Ako podľa diagramu architektúry spolupracujú bloky business a dátovej vrstvy? Vyber všetky správne tvrdenia.",
+    "name": "Ako v architektúre webovej aplikácie z prednášky spolupracujú prezentačná, business a dátová vrstva? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Controllery prezentačnej vrstvy aj Web API volajú UI fasády, fasády volajú služby.",
@@ -52,15 +52,15 @@
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
-    "name": "Čo ukazuje diagram architektúry o Unit of Work a o komunikácii s databázou? Vyber všetky správne tvrdenia.",
+    "name": "Čo platí v architektúre webovej aplikácie z prednášky o Unit of Work a o komunikácii s databázou? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Unit of Work je nakreslený ako prerušovaný rámec, ktorý zasahuje cez vrstvu business logiky aj dátovú vrstvu.",
+        "body": "Unit of Work zastrešuje bloky vrstvy business logiky aj dátovej vrstvy, nie iba jednu z nich.",
         "right": true,
         "comment": "L5, slide 2 (PDF page 2): Prerušovaný rámec „Unit of Work“ obopína fasády, služby, Query objekty, repozitáre, Query aj ORM."
       },
       {
-        "body": "Z Unit of Work vedie do databázy Commit, z ORM do databázy SQL.",
+        "body": "Unit of Work potvrdzuje zmeny do databázy cez Commit; SQL posiela do databázy ORM.",
         "right": true,
         "comment": "L5, slide 2 (PDF page 2): Šípka ORM → Databáza je označená SQL, prerušovaná šípka z rámca Unit of Work je označená Commit."
       },
@@ -312,8 +312,8 @@
     "source": "L5, slide 12 (PDF page 12)"
   },
   {
-    "name": "Popíš podľa diagramu „Architektúra webovej aplikácie“ cestu požiadavky od používateľa až po databázu. Uveď vrstvy, ich stavebné bloky a to, čo sa medzi nimi odovzdáva.",
-    "answer": "Používateľ posiela požiadavku buď na Controller prezentačnej vrstvy, alebo na Controller Web API. V prezentačnej vrstve Controller napĺňa Model a vyberá View; Model predáva dáta View a View vracia používateľovi HTML. Controller Web API napĺňa Model a vracia HttpStatusCode + JSON / XML. Oba Controllery volajú vrstvu „business“ logiky cez UI fasády (F1…Fn). Fasády volajú služby (S1…Sm), pričom jedna fasáda typicky využíva viac služieb. Služby vykonávajú CRUD operácie cez repozitáre a dotazy cez Query objekty, ktoré zostavujú Query. Repozitáre a Query patria spolu s ORM do dátovej vrstvy; ORM komunikuje s databázou pomocou SQL. Unit of Work je nakreslený ako prerušovaný rámec, ktorý zahŕňa fasády, služby, Query objekty, repozitáre, Query a ORM; z tohto rámca vedie do databázy Commit.",
+    "name": "Popíš architektúru webovej aplikácie z prednášky: cestu požiadavky od používateľa cez prezentačnú vrstvu (alebo Web API), vrstvu business logiky a dátovú vrstvu až po databázu. Uveď stavebné bloky každej vrstvy, kto koho volá, čo sa vracia používateľovi a kde je Unit of Work.",
+    "answer": "Používateľ posiela požiadavku buď na Controller prezentačnej vrstvy, alebo na Controller Web API. V prezentačnej vrstve Controller napĺňa Model a vyberá View; Model predáva dáta View a View vracia používateľovi HTML. Controller Web API napĺňa Model a vracia HttpStatusCode + JSON / XML. Oba Controllery volajú vrstvu „business“ logiky cez UI fasády (F1…Fn). Fasády volajú služby (S1…Sm), pričom jedna fasáda typicky využíva viac služieb. Služby vykonávajú CRUD operácie cez repozitáre a dotazy cez Query objekty, ktoré zostavujú Query. Repozitáre a Query patria spolu s ORM do dátovej vrstvy; ORM komunikuje s databázou pomocou SQL. Unit of Work zastrešuje fasády, služby, Query objekty, repozitáre, Query a ORM (v diagrame je to rámec okolo nich) a vedie z neho do databázy Commit.",
     "keyPoints": [
       "Prezentačná vrstva: Controller napĺňa Model, vyberá View; View vracia HTML",
       "Web API: Controller vracia HttpStatusCode + JSON / XML",
