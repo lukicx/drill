@@ -1,0 +1,585 @@
+[
+  {
+    "name": "Which statements explain the Quantity pattern and when it is useful?",
+    "answers": [
+      {
+        "body": "A quantity combines a numeric amount with an explicit unit.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 51-52: The UML replaces raw numbers with Quantity objects containing amount and units."
+      },
+      {
+        "body": "External data sources or automated conversions are reasons to model units explicitly.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 51-52: The slide lists these as reasons for using Quantity and Units."
+      },
+      {
+        "body": "Putting the unit only in a variable name guarantees correct interpretation between components.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 51-52: A comment or variable name can lose its meaning at a component boundary."
+      },
+      {
+        "body": "Every numeric attribute must be replaced by the full Quantity model.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 51-52: The slide says to use the pattern only when there is a good reason."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 51-52"
+  },
+  {
+    "name": "Which roles do Conversion Ratio and Compound Units have in the observation-pattern collection?",
+    "answers": [
+      {
+        "body": "Conversion Ratio represents conversions between units.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 50, 52: The collection explicitly includes conversion ratios between units."
+      },
+      {
+        "body": "Compound Units represent units such as km/h.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 50, 52: The slide gives km/h as its example of a compound unit."
+      },
+      {
+        "body": "Conversion Ratio records who performed an observation.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 50, 52: It concerns units; observation context records who performed it."
+      },
+      {
+        "body": "Compound Units represent the proposed and implemented states of an action.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 50, 52: Those belong to Planning, not to units."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 50, 52"
+  },
+  {
+    "name": "In the Measurement pattern, which concepts belong to the knowledge and operational levels?",
+    "answers": [
+      {
+        "body": "PhenomenonType defines what can be measured at the knowledge level.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 54-55: Examples include height, weight and blood glucose level."
+      },
+      {
+        "body": "A Measurement records a concrete measured value at the operational level.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 54-55: Concrete measurements change on a day-to-day basis."
+      },
+      {
+        "body": "Each new measured value requires a new PhenomenonType class in the implementation.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 54-55: The knowledge level is configuration, separated from individual measurements."
+      },
+      {
+        "body": "The knowledge level normally changes more often than operational records.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 54-55: The slide says knowledge-level configuration changes much less frequently."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 54-55"
+  },
+  {
+    "name": "How does the Observation pattern extend the numeric Measurement model?",
+    "answers": [
+      {
+        "body": "Observation is a common abstraction with Measurement and CategoryObservation as specializations.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 55-56: The diagram generalizes both kinds of operational observation."
+      },
+      {
+        "body": "Phenomenon represents an allowed qualitative value of a PhenomenonType.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 55-56: For blood group, examples of Phenomenon are A+, A- and 0."
+      },
+      {
+        "body": "CategoryObservation records a qualitative result through a Phenomenon rather than a Quantity.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 55-56: This is the extension that permits categorical data."
+      },
+      {
+        "body": "Categorical observations can already be represented by the numeric Measurement pattern alone.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 55-56: The slide identifies categorical data as a limitation of that model."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 55-56"
+  },
+  {
+    "name": "What does Protocol add to an observation?",
+    "answers": [
+      {
+        "body": "It records the method by which the observation was made.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 58: The slide defines Protocol as the observation method."
+      },
+      {
+        "body": "It can distinguish temperature obtained in the mouth from temperature obtained in the armpit.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 58: Different measurement locations/methods are the motivating example."
+      },
+      {
+        "body": "It replaces the PhenomenonType specifying what is observed.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 58: The UML keeps Protocol and PhenomenonType as distinct concepts."
+      },
+      {
+        "body": "It is the numeric quantity or categorical value that was observed.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 58: Quantity and Phenomenon supply results; Protocol explains how they were obtained."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 58"
+  },
+  {
+    "name": "What follows from observations about type I diabetes when diabetes is its supertype?",
+    "answers": [
+      {
+        "body": "Presence of type I diabetes implies presence of diabetes.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 59: Presence of an observation-concept subtype implies presence of every supertype."
+      },
+      {
+        "body": "Absence of type I diabetes proves absence of diabetes.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 59: Absence of a subtype implies neither presence nor absence of the supertype."
+      },
+      {
+        "body": "Presence of diabetes proves presence of type I diabetes.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 59: The implication given by the slide goes from subtype to supertype."
+      },
+      {
+        "body": "Absence of type I diabetes proves presence of diabetes.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 59: The observation alone does not establish the supertype either way."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 59"
+  },
+  {
+    "name": "Why distinguish occurrence time from recording time?",
+    "answers": [
+      {
+        "body": "An event may occur well before someone records it.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 63-64: Dual Time Record stores different occurring and recording times/periods."
+      },
+      {
+        "body": "A symptom lasting a week can have an occurrence period and a later recording date.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 63-64: The delayed medical-record example motivates this distinction."
+      },
+      {
+        "body": "Dual Time Record describes two alternative physical units of the same number.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 63-64: It describes time meanings, not unit conversions."
+      },
+      {
+        "body": "The recording date alone always tells when the observed event happened.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 63-64: The example explicitly separates the two."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 63-64"
+  },
+  {
+    "name": "Which remaining Observation patterns address auditability, assurance and evidence?",
+    "answers": [
+      {
+        "body": "Reject Observation keeps observations from being deleted when a complete audit trail is required.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 63: This is the audit-trail rule stated on the slide."
+      },
+      {
+        "body": "Hypothesis, Projection and Active Observation express different levels of assurance.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 63: The slide lists them as subtypes of observations with differing assurance."
+      },
+      {
+        "body": "Associated Observation records a chain of evidence behind a diagnosis.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 63: The slide describes associated observations as evidence chains."
+      },
+      {
+        "body": "Process Observation represents transfers between accounts.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 63: Process Observation concerns behavior models for observations; transfers use Transaction."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 63"
+  },
+  {
+    "name": "Which mapping of an AI evaluation run to observation concepts matches the lecture?",
+    "answers": [
+      {
+        "body": "Response latency is a PhenomenonType; a result of 340 ms is Measurement plus Quantity.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 62: The slide separates the metric definition from one numeric result and its unit."
+      },
+      {
+        "body": "Refused/complied/partial are possible Phenomena; one run verdict is a CategoryObservation.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 62: Allowed labels are knowledge-level values; a concrete verdict is operational."
+      },
+      {
+        "body": "A judge method and its prompt version can describe the Protocol.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 62: The slide gives LLM-as-judge with judge and prompt versions as an example."
+      },
+      {
+        "body": "The subject must be a human patient, so the pattern cannot describe a model version.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 62: The slide explicitly maps the subject to a model version or model/task pair."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 62"
+  },
+  {
+    "name": "How do the patterns simplify the public-transport driver-data model without losing its intended meaning?",
+    "answers": [
+      {
+        "body": "Stable observation abstractions can carry only key context as explicit model relationships.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 53, 60-61, 64: The pattern application separates Observation, Measurement and CategoryObservation."
+      },
+      {
+        "body": "Details such as \"number of accidents per year\" can be kept in notes on phenomenon definitions.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 53, 60-61, 64: The slides balance a fixed static model with flexible free-text documentation."
+      },
+      {
+        "body": "Every word in a requirement must become an independent class.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 53, 60-61, 64: The lecture explicitly questions this ad-hoc approach to abstraction and detail."
+      },
+      {
+        "body": "A bare value such as accidents = 3 already contains its unit, subject, protocol and time meanings.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 53, 60-61, 64: The summary explains the context lost by raw values."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 53, 60-61, 64"
+  },
+  {
+    "name": "Which statements about Proposed Action and Implemented Action are correct?",
+    "answers": [
+      {
+        "body": "A Proposed Action can be scheduled, assigned parties and given a location before it starts.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 67: These are examples of possible context on an action."
+      },
+      {
+        "body": "An action becomes implemented once it has begun.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 67: Beginning an action is the distinction stated on the slide."
+      },
+      {
+        "body": "The connection between proposed and implemented actions is optional.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 67: Plans may never be carried out, and actions may occur without prior planning."
+      },
+      {
+        "body": "Every implemented action must originate from a recorded proposal.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 67: That would contradict the optional link and unplanned-action case."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 67"
+  },
+  {
+    "name": "How are completion and abandonment distinguished in the Planning patterns?",
+    "answers": [
+      {
+        "body": "Completion means that the action was carried out according to plan.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 68: This is the definition of completion given by the lecture."
+      },
+      {
+        "body": "Abandonment is final cessation and can happen before or after implementation begins.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 68: Abandoning a proposal means deciding not to begin it at all."
+      },
+      {
+        "body": "An action can be abandoned only after it has begun.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 68: The slide allows abandonment before the action starts."
+      },
+      {
+        "body": "Completed Action and Proposed Action are interchangeable concepts.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 68: Completion concerns the outcome of an action; a proposal does not imply execution."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 68"
+  },
+  {
+    "name": "What does the basic Plan pattern model, and what is its limitation?",
+    "answers": [
+      {
+        "body": "A Plan collects Proposed Actions linked in a sequence.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 66, 69: The basic pattern represents proposed actions and their dependencies/consequences."
+      },
+      {
+        "body": "The basic model makes coordinating actions across different plans difficult.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 66, 69: The slide says the basic situation allows actions to be proposed within only one plan."
+      },
+      {
+        "body": "A Plan consists only of actions that have already been completed.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 66, 69: It consists of proposed actions."
+      },
+      {
+        "body": "The basic Plan diagram already includes every extension such as resource allocation and suspension.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 66, 69: The lecture lists additional patterns and notes that extensions exist."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 66, 69"
+  },
+  {
+    "name": "In the illustrated public-transport planning model, where is the particular vehicle linked?",
+    "answers": [
+      {
+        "body": "To Vehicle on the way, the implemented schedule.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 70-71: The actual vehicle belongs to execution, not the planned timetable for a line."
+      },
+      {
+        "body": "Directly to every Schedule, because timetables are always for a specific vehicle.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 70-71: Slide 71 explicitly says the schedule is planned for a line, not a particular vehicle."
+      },
+      {
+        "body": "Only to Line, because the model never records actual execution.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 70-71: Vehicle on the way captures implementation and its vehicle."
+      },
+      {
+        "body": "Only to the Completed route subclass, so running trips cannot identify a vehicle.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 70-71: The association is on Vehicle on the way and is inherited by Completed route."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 70-71"
+  },
+  {
+    "name": "Which statements describe the Corporate Finance observation-pattern extensions?",
+    "answers": [
+      {
+        "body": "Enterprise Segment divides the enterprise by dimensions such as geography or product range.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 74: Dimensions define parts of an enterprise for analytical observations."
+      },
+      {
+        "body": "Measurement Protocol can describe formulas calculating measurements from other measurements.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 74: The slide models formulas as instances of model types."
+      },
+      {
+        "body": "Range represents a range between two quantities and operations on ranges.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 74: This is the role explicitly assigned to Range."
+      },
+      {
+        "body": "These patterns replace observations with only an organizational reporting hierarchy.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 74: They extend Observations and Measurements for financial/analytical purposes."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 74"
+  },
+  {
+    "name": "What is an Enterprise Segment in the coffee-company example?",
+    "answers": [
+      {
+        "body": "A part of the enterprise identified by combining classifications such as product, geography and customer sector.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 75-77: The example combines espresso sales, government customers and a region."
+      },
+      {
+        "body": "A DimensionElement is a node within a dimension hierarchy.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 75-77: The slide gives a geographical area as an example."
+      },
+      {
+        "body": "Each Enterprise Segment must correspond to exactly one legal subsidiary.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 75-77: Segments can identify analytical combinations rather than legal organizations."
+      },
+      {
+        "body": "An Enterprise Segment is a time-stamped operational measurement itself.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 75-77: It identifies what part of the business is observed; it is not the measured result."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 75-77"
+  },
+  {
+    "name": "Which features of the Enterprise Segment UML pattern support flexible classification?",
+    "answers": [
+      {
+        "body": "DimensionElement has a recursive parent relationship with an optional parent.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 77, 79: The shown parent multiplicity is 0..1, with many child elements."
+      },
+      {
+        "body": "The diagram constrains a parent to be of the same subtype as its child.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 77, 79: This keeps dimension hierarchies separated by their kind."
+      },
+      {
+        "body": "Transport dimensions can include GeographicLocation, VehicleTypes, Events and Lines.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 77, 79: These are the specializations in the transport application."
+      },
+      {
+        "body": "All possible geographical locations and vehicle types must be hard-coded as independent classes.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 77, 79: The pattern provides a stable hierarchy of dimension elements instead of the ad-hoc proliferation."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 77, 79"
+  },
+  {
+    "name": "Why apply Enterprise Segment during early domain analysis?",
+    "answers": [
+      {
+        "body": "It gives an approach to anticipated managerial questions about trends, delays and business categories.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 78-80: The summary explains that organizations will eventually request analytical functions."
+      },
+      {
+        "body": "It helps clarify which aspects of the transport operation are the enterprise segments to analyze.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 78-80: The transport motivation asks what the enterprise segments are for business analysis."
+      },
+      {
+        "body": "It guarantees that no new analytical requirements will ever appear.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 78-80: The slides describe an approach to conceptualization, not a guarantee of exhaustive future knowledge."
+      },
+      {
+        "body": "It is useful only after every analytical report has already been implemented.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 78-80: The slide explicitly motivates conceptualizing these needs early."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 78-80"
+  },
+  {
+    "name": "What does the Account pattern retain that a current-value counter loses?",
+    "answers": [
+      {
+        "body": "Entries record the individual changes contributing to the account balance.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 82-83: The UML constraint is balance = sum(entries.amount)."
+      },
+      {
+        "body": "Signed entry amounts distinguish additions from withdrawals.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 82-83: The sign indicates deposit or withdrawal."
+      },
+      {
+        "body": "The pattern can model money, inventory or token budgets.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 82-83: The lecture gives all these resource examples."
+      },
+      {
+        "body": "An Account balance is unrelated to its entries and must be guessed from the latest operation.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 82-83: The displayed balance is the sum of the entry amounts."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 82-83"
+  },
+  {
+    "name": "How does Transaction extend the Account pattern?",
+    "answers": [
+      {
+        "body": "It links the entries representing movement from one account to another.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 85-86: This preserves where the resource comes from and goes to."
+      },
+      {
+        "body": "In the illustrated two-entry transaction, the signed amounts sum to zero.",
+        "right": true,
+        "comment": "L3, Analysis Patterns, slides 85-86: The diagram has two entries and the constraint sum(entries.amount) = 0."
+      },
+      {
+        "body": "It permits resources to disappear without a corresponding destination entry.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 85-86: The modeling principle is conservation, making leaks easier to find."
+      },
+      {
+        "body": "It stores only the final balance and discards the history of transfers.",
+        "right": false,
+        "comment": "L3, Analysis Patterns, slides 85-86: Transaction connects entries and retains transfer context."
+      }
+    ],
+    "source": "L3, Analysis Patterns, slides 85-86"
+  },
+  {
+    "name": "When is the Identification Scheme pattern justified for transport stops?",
+    "answers": [
+      {
+        "body": "When multiple or not-yet-known identification schemes must be modeled explicitly.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 15: The supplement notes these reasons for the pattern."
+      },
+      {
+        "body": "A Stop can have Identifier objects whose values are interpreted by an IdentificationScheme.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 15: The shown UML distinguishes Stop, Identifier and IdentificationScheme."
+      },
+      {
+        "body": "It is always necessary even when a stop needs only a fixed name and number.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 15: The note says simple name/number attributes may suffice in that case."
+      },
+      {
+        "body": "The scheme means that a stop must become a different Stop object whenever its displayed name changes.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 15: The diagram attaches identifiers to the stop; it does not define each identifier as a new stop."
+      }
+    ],
+    "source": "Public Transport supplement, slide/page 15 (additional source; not part of the numbered L3 deck)"
+  },
+  {
+    "name": "Sketch a conceptual UML model that records both a numeric oil-level measurement and an observation that the oil level of a car is \"low\". Identify the knowledge and operational concepts.",
+    "answer": "Use Observation as the common operational concept, associated with the observed Car and one PhenomenonType. Specialize it into Measurement and CategoryObservation. A Measurement links to a Quantity (amount and unit). The oil-level PhenomenonType defines allowed Phenomena such as over-full, OK and low; the CategoryObservation for this car links to the low Phenomenon. Keep PhenomenonType and Phenomenon at the knowledge level and the concrete observations at the operational level. In the pattern diagram each observation has one subject and one phenomenon type, while each subject/type can have many observations.",
+    "keyPoints": [
+      "Observation is associated with the subject and a PhenomenonType",
+      "Measurement and CategoryObservation specialize Observation",
+      "Measurement has a Quantity with amount and unit",
+      "Oil level is the PhenomenonType; low is a Phenomenon",
+      "The concrete low result belongs to the operational level; allowed values belong to knowledge"
+    ],
+    "source": "L3, Analysis Patterns, slides 52, 54-57; Public Transport supplement, slide/page 9-10"
+  },
+  {
+    "name": "Sketch the public-transport planning model so that a timetable can be compared with real trips. Show where Line and Vehicle belong, and distinguish completed trips from abandoned actions.",
+    "answer": "Separate Proposed schedule from Vehicle on the way under Schedule. The proposed schedule identifies the Line being planned; the implemented Vehicle on the way identifies the actual Vehicle. The transport example connects execution to an existing proposed schedule; a proposal may have no execution. Completed route specializes Vehicle on the way. The generic planning pattern also distinguishes Abandoned Action, which is final cessation before or after implementation starts. Associate schedule context such as Time Reference and, where meaningful, Location. This retains plan-versus-reality information rather than merely replacing a status value on a single Trip record.",
+    "keyPoints": [
+      "Proposed schedule and Vehicle on the way are distinct specializations of Schedule",
+      "Line belongs to the proposed schedule; actual Vehicle belongs to the execution",
+      "A proposal can remain unimplemented; the transport example measures against an existing schedule",
+      "Completed route specializes Vehicle on the way",
+      "Abandoned Action is final cessation and need not have started",
+      "Retain time/location context appropriate to the domain"
+    ],
+    "source": "L3, Analysis Patterns, slides 67-72"
+  },
+  {
+    "name": "Sketch a model for vehicles moving between a depot and being in traffic. It must retain the change history, show the source and destination of each transfer, and conserve the number of vehicles.",
+    "answer": "Model Place as an Account with Depot and InTraffic as specializations. Each Place has zero or more OperatedVehicles Entries, and each Entry belongs to one Place. Give an entry a signed amount (Quantity) and date. A Transaction links the two entries for leaving a depot or returning from a line: a withdrawal from the source and an equal addition to the destination. Its entry amounts sum to zero. Derive each account balance from the sum of its signed entries, preserving the individual changes instead of storing only a current count.",
+    "keyPoints": [
+      "Place is an Account, specialized into Depot and InTraffic",
+      "An Entry belongs to one account; an account can have many entries",
+      "Entries retain signed amount and date",
+      "A Transaction links source withdrawal and destination addition",
+      "Transaction entry amounts sum to zero; account balance is the sum of its entries"
+    ],
+    "source": "L3, Analysis Patterns, slides 83-86; Public Transport supplement, slide/page 13-14"
+  }
+]

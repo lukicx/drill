@@ -142,5 +142,41 @@
     "multipleChoiceCount": 124,
     "essayCount": 0,
     "group": "archive"
+  },
+  {
+    "name": "PA103 - L1 OO fundamentals, quality and decomposition",
+    "id": "PA103_L01",
+    "dataset": "datasets/questions_PA103_L01.json",
+    "questionCount": 21,
+    "multipleChoiceCount": 20,
+    "essayCount": 1,
+    "group": "current"
+  },
+  {
+    "name": "PA103 - L2 Domain modeling and Accountability",
+    "id": "PA103_L02",
+    "dataset": "datasets/questions_PA103_L02.json",
+    "questionCount": 28,
+    "multipleChoiceCount": 25,
+    "essayCount": 3,
+    "group": "current"
+  },
+  {
+    "name": "PA103 - L3 Observations, planning and accounting",
+    "id": "PA103_L03",
+    "dataset": "datasets/questions_PA103_L03.json",
+    "questionCount": 24,
+    "multipleChoiceCount": 21,
+    "essayCount": 3,
+    "group": "current"
+  },
+  {
+    "name": "PA103 - L4 OO design, SOLID and diagram patterns",
+    "id": "PA103_L04",
+    "dataset": "datasets/questions_PA103_L04.json",
+    "questionCount": 31,
+    "multipleChoiceCount": 28,
+    "essayCount": 3,
+    "group": "current"
   }
 ]

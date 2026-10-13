@@ -1,0 +1,760 @@
+[
+  {
+    "name": "Which changes distinguish the class design and C++ class models from the earlier conceptual model in the Person example? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The class design model introduces implementation-oriented details such as visibility, accessor operations, and an explicit mother reference.",
+        "right": true,
+        "comment": "L4, slide 2: The class design model shows private fields, public getters/setters, and mother : Person."
+      },
+      {
+        "body": "The C++ class model specializes types and references, for example int, double, and Person*.",
+        "right": true,
+        "comment": "L4, slide 2: The final model replaces abstract types with C++ types and uses a pointer for mother."
+      },
+      {
+        "body": "The conceptual model already fixes C++ pointer types and all getter/setter signatures.",
+        "right": false,
+        "comment": "L4, slide 2: Those details appear later; the conceptual model describes domain information and the mother relationship."
+      },
+      {
+        "body": "Refinement toward implementation requires removing all behavior from the model.",
+        "right": false,
+        "comment": "L4, slide 2: The later models retain getAge() and add further operations."
+      }
+    ],
+    "source": "L4, slide 2"
+  },
+  {
+    "name": "Which similarities and differences between an ER diagram and an OO class diagram are emphasized in this lecture? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Both can show attributes and relationships with multiplicities.",
+        "right": true,
+        "comment": "L4, slides 4-6: These similarities explain why the models can look alike."
+      },
+      {
+        "body": "An ER model uses primary keys for identity, whereas an OO object has reference identity by default.",
+        "right": true,
+        "comment": "L4, slides 4-6: The lecture contrasts primary keys with the object address; slide 20 notes that identity can be changed."
+      },
+      {
+        "body": "The OO paradigm itself provides relational queries that automatically find all instances of a class in memory.",
+        "right": false,
+        "comment": "L4, slides 4-6: The lecture warns that relational algebra is absent from the OO paradigm; access paths must be designed."
+      },
+      {
+        "body": "Methods are part of OO class modeling but absent from the ER models compared here.",
+        "right": true,
+        "comment": "L4, slides 4-6: Behavior is a key distinction from the ER model."
+      }
+    ],
+    "source": "L4, slides 4-6"
+  },
+  {
+    "name": "A conceptual class diagram has a many-to-many Company-Person employment association. What follows for its OO implementation? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Several decompositions can realize it, with different efficiency and maintainability properties.",
+        "right": true,
+        "comment": "L4, slides 6 and 14: The examples show several implementations of the same conceptual association."
+      },
+      {
+        "body": "The implementation must use exactly the associative-entity solution used to resolve M:N relationships in the relational example.",
+        "right": false,
+        "comment": "L4, slides 6 and 14: OO allows direct references, managers, maps, helper objects, and combinations."
+      },
+      {
+        "body": "The best decomposition depends on the requirements and expected context.",
+        "right": true,
+        "comment": "L4, slides 6 and 14: The summary requires choosing a solution for a concrete context."
+      },
+      {
+        "body": "The solution with the most structures and classes is necessarily the best.",
+        "right": false,
+        "comment": "L4, slides 6 and 14: The lecture warns that both overly simple and overengineered designs can be unsuitable."
+      }
+    ],
+    "source": "L4, slides 6 and 14"
+  },
+  {
+    "name": "Company stores its employees in an array; Person has no link to its companies. JobsMngr stores all companies in a list. Which statements about this decomposition are correct?",
+    "answers": [
+      {
+        "body": "JobsMngr gives clients an access path to registered Company instances.",
+        "right": true,
+        "comment": "L4, slides 7-9: A publicly accessible manager mediates access; OO has no automatic scan for all Company instances."
+      },
+      {
+        "body": "getCompanies(person) can scan the companies and test whether each employee list contains the person.",
+        "right": true,
+        "comment": "L4, slides 7-9: The slide explicitly implements the reverse query using a loop and company.contains(person)."
+      },
+      {
+        "body": "The shown reverse query takes constant time because the association is conceptually bidirectional.",
+        "right": false,
+        "comment": "L4, slides 7-9: A conceptual M:N association does not create a reverse index in this one-way implementation."
+      },
+      {
+        "body": "The reverse query may be acceptable with few companies, despite scanning both company and employee lists.",
+        "right": true,
+        "comment": "L4, slides 7-9: The lecture accepts the less efficient decomposition for a small expected population; the nested search depends on both list sizes."
+      }
+    ],
+    "source": "L4, slides 7-9"
+  },
+  {
+    "name": "Company stores employees and Person stores companies, so the employment relationship is represented in both directions. What tradeoffs does the lecture identify?",
+    "answers": [
+      {
+        "body": "Responsibilities are distributed clearly across the participating classes.",
+        "right": true,
+        "comment": "L4, slide 10: Each side provides access to its related objects."
+      },
+      {
+        "body": "Updates must keep both sides consistent, adding synchronization and memory-management concerns.",
+        "right": true,
+        "comment": "L4, slide 10: The lecture identifies consistency checking and memory management as costs, especially without garbage collection."
+      },
+      {
+        "body": "Garbage collection automatically guarantees that both collections always agree about employment.",
+        "right": false,
+        "comment": "L4, slide 10: Reclaiming memory does not maintain the semantic consistency of two relationship collections."
+      },
+      {
+        "body": "A bidirectional association makes all consistency checks unnecessary.",
+        "right": false,
+        "comment": "L4, slide 10: Maintaining the two representations is the main drawback highlighted."
+      }
+    ],
+    "source": "L4, slide 10"
+  },
+  {
+    "name": "JobsMngr instead stores Company-to-Person and Person-to-Company maps. Which assessment matches the lecture?",
+    "answers": [
+      {
+        "body": "The maps support access in both directions and localize relationship consistency management in JobsMngr.",
+        "right": true,
+        "comment": "L4, slide 11: Efficiency and centralized consistency checking are the stated benefits."
+      },
+      {
+        "body": "The manager risks becoming a large God object with too much responsibility.",
+        "right": true,
+        "comment": "L4, slide 11: The slide names this as a disadvantage."
+      },
+      {
+        "body": "A salary for each employment naturally belongs to Person alone, even if that person works for several companies.",
+        "right": false,
+        "comment": "L4, slide 11: Salary belongs to a concrete company-person relationship; the slide asks where to store it in this map-only model."
+      },
+      {
+        "body": "The two maps remove the need to keep the relationship representations synchronized.",
+        "right": false,
+        "comment": "L4, slide 11: They localize consistency work rather than eliminate it."
+      }
+    ],
+    "source": "L4, slide 11"
+  },
+  {
+    "name": "Why introduce a Job object linking one Company and one Person, and what changes when JobsMngr indexes Job sets by company and person?",
+    "answers": [
+      {
+        "body": "Job can store salary for the particular company-person pair.",
+        "right": true,
+        "comment": "L4, slides 12-13: The helper object holds the two references and relationship-specific data."
+      },
+      {
+        "body": "A simple list of Job objects distributes responsibilities but still requires searching that list for relevant jobs.",
+        "right": true,
+        "comment": "L4, slides 12-13: The diagram delegates relationship data to Job; the slide calls list search suboptimal."
+      },
+      {
+        "body": "Maps from Company and Person to sets of Job objects improve access but add complexity and consistency work.",
+        "right": true,
+        "comment": "L4, slides 12-13: The combined solution gains efficient lookup while potentially reducing maintainability."
+      },
+      {
+        "body": "Indexing jobs is always preferable, regardless of workload or the number of jobs.",
+        "right": false,
+        "comment": "L4, slides 12-13: The lecture explicitly says the indexed solution is unnecessarily complicated in many situations."
+      }
+    ],
+    "source": "L4, slides 12-13"
+  },
+  {
+    "name": "A breeding application and a veterinary application both model cats. Which conclusions about abstraction match the lecture? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The same real-world cat can be classified and modeled differently depending on the application domain.",
+        "right": true,
+        "comment": "L4, slides 16-19: Breeding focuses on well-being or cuddliness, while veterinary work focuses on anatomy and disease."
+      },
+      {
+        "body": "Choosing an abstraction affects how responsibilities are distributed among classes.",
+        "right": true,
+        "comment": "L4, slides 16-19: The lecture makes the abstraction choice central to responsibility distribution."
+      },
+      {
+        "body": "One generic Cat class containing both domains is automatically more maintainable because it is reusable everywhere.",
+        "right": false,
+        "comment": "L4, slides 16-19: Combining unrelated views can introduce unused functionality and tight connections to neighboring classes."
+      },
+      {
+        "body": "A lion may fit different classifications, such as a cat or a moving object, when those serve different requirements.",
+        "right": true,
+        "comment": "L4, slides 16-19: The classification quiz demonstrates that several correct abstractions are possible."
+      },
+      {
+        "body": "The lecture contrasts tightly connected classes with components connected through loose contracts when discussing reuse.",
+        "right": true,
+        "comment": "L4, slides 16-19: Slide 19 argues that reusable components have looser contractual connections than classes tied to their neighbors."
+      }
+    ],
+    "source": "L4, slides 16-19"
+  },
+  {
+    "name": "Which statements about objects and classes match the OO fundamentals summarized in this lecture?",
+    "answers": [
+      {
+        "body": "Objects are runtime entities that store data behind public operations; classes provide a static design-time view.",
+        "right": true,
+        "comment": "L4, slide 20: The slide distinguishes runtime objects from their design-time class descriptions."
+      },
+      {
+        "body": "Concrete field values define object state, and current state can affect method behavior.",
+        "right": true,
+        "comment": "L4, slide 20: State is the data; methods define behavior that can depend on that data."
+      },
+      {
+        "body": "Two objects with equal field values must have the same identity.",
+        "right": false,
+        "comment": "L4, slide 20: Identity is based on the object address by default, rather than equality of all field values."
+      },
+      {
+        "body": "A class must be a runtime instance and cannot describe the structure of many objects.",
+        "right": false,
+        "comment": "L4, slide 20: A class is the static view shared by its objects."
+      }
+    ],
+    "source": "L4, slide 20"
+  },
+  {
+    "name": "Which aspects influence the abstraction represented by a single class?",
+    "answers": [
+      {
+        "body": "Its attributes and the states they allow.",
+        "right": true,
+        "comment": "L4, slide 21: isPurring and vaccination records illustrate different views of Cat."
+      },
+      {
+        "body": "Its methods and the behavior they expose.",
+        "right": true,
+        "comment": "L4, slide 21: Lying in a lap and retrieving vaccination history represent different responsibilities."
+      },
+      {
+        "body": "Its neighboring classes and associations, generalizations, or dependencies.",
+        "right": true,
+        "comment": "L4, slide 21: The surrounding decomposition spreads responsibility and forms part of the abstraction."
+      },
+      {
+        "body": "Only the class name; changing its behavior or relationships cannot affect its abstraction.",
+        "right": false,
+        "comment": "L4, slide 21: Attributes, methods, and surrounding context all influence what the class represents."
+      }
+    ],
+    "source": "L4, slide 21"
+  },
+  {
+    "name": "An animal in a game can transform from a dragon into a prince during its lifetime. Which design reasoning follows the lecture?",
+    "answers": [
+      {
+        "body": "Represent replaceable characteristics with associated objects, because links can change at runtime.",
+        "right": true,
+        "comment": "L4, slides 22-23: The example replaces body surface and front-limb instances to change characteristics."
+      },
+      {
+        "body": "Use Dragon and Prince as the only inheritance-based roles and change the existing object's class whenever it transforms.",
+        "right": false,
+        "comment": "L4, slides 22-23: In the lecture's ordinary OO model, an object cannot change its affiliated class during its lifetime."
+      },
+      {
+        "body": "Inheritance and association are alternative tools for abstraction and can be combined in real decompositions.",
+        "right": true,
+        "comment": "L4, slides 22-23: Both are useful; the choice depends especially on whether a role varies over time."
+      },
+      {
+        "body": "Association fixes all participating objects and links permanently at compile time.",
+        "right": false,
+        "comment": "L4, slides 22-23: Runtime flexibility of links is the stated advantage of association."
+      }
+    ],
+    "source": "L4, slides 22-23"
+  },
+  {
+    "name": "Which statements apply the single-responsibility principle to the employment examples?",
+    "answers": [
+      {
+        "body": "A class's services should be narrowly aligned with the part of functionality it encapsulates.",
+        "right": true,
+        "comment": "L4, slides 25-27: Single responsibility calls for focused classes and methods."
+      },
+      {
+        "body": "Keeping employment-pair data in Job separates that responsibility from Company and Person.",
+        "right": true,
+        "comment": "L4, slides 25-27: Slide 27 prefers the helper-object decomposition for single responsibility."
+      },
+      {
+        "body": "A single-responsibility class is required to have exactly one method.",
+        "right": false,
+        "comment": "L4, slides 25-27: The rule concerns aligned responsibility, not a fixed method count."
+      },
+      {
+        "body": "The decomposition best aligned with single responsibility must also be the most efficient.",
+        "right": false,
+        "comment": "L4, slides 25-27: The comparison notes a possible tradeoff between maintainability and performance."
+      }
+    ],
+    "source": "L4, slides 25-27"
+  },
+  {
+    "name": "ResourceAllocator has a switch over TIME_SLOT and SPACE_SLOT. Which refactoring best follows the open-closed principle when further resource kinds will be added?",
+    "answers": [
+      {
+        "body": "Use an allocator abstraction with concrete TimeSlotAllocator and SpaceSlotAllocator implementations; add another implementation for a new kind.",
+        "right": true,
+        "comment": "L4, slide 28: The slide contrasts a growing switch with specialized allocators that share allocate()."
+      },
+      {
+        "body": "Extend the switch and modify every client each time a new resource kind is introduced.",
+        "right": false,
+        "comment": "L4, slide 28: This repeatedly changes existing code rather than enabling extension with minimal modification."
+      },
+      {
+        "body": "Remove allocation behavior so the class can never be changed or extended.",
+        "right": false,
+        "comment": "L4, slide 28: Open-closed means open for extension, not prohibiting new functionality."
+      },
+      {
+        "body": "Treat any new method or class as forbidden because existing entities are closed for modification.",
+        "right": false,
+        "comment": "L4, slide 28: The lecture explicitly allows extension through new methods or classes."
+      }
+    ],
+    "source": "L4, slide 28"
+  },
+  {
+    "name": "ClassB inherits ClassA and overrides print() to print B; ClassA.print() prints A. With dynamic dispatch, ClassA object = new ClassB(); object.print(); is executed. Which statements are correct?",
+    "answers": [
+      {
+        "body": "The call prints B because the runtime object provides ClassB's implementation.",
+        "right": true,
+        "comment": "L4, slides 29-30: The diagram illustrates polymorphism using an overridden operation and a base-typed reference."
+      },
+      {
+        "body": "The declared variable type forces the call to print A, even with dynamic dispatch.",
+        "right": false,
+        "comment": "L4, slides 29-30: Dynamic dispatch selects the implementation associated with the actual object."
+      },
+      {
+        "body": "Polymorphism permits an operation with the same meaning to have different implementations, as with addition for integer and real types.",
+        "right": true,
+        "comment": "L4, slides 29-30: The lecture uses addition as another illustration of a shared operation with different behavior."
+      },
+      {
+        "body": "Overriding a method automatically proves that the subclass satisfies all Liskov substitution constraints.",
+        "right": false,
+        "comment": "L4, slides 29-30: Liskov additionally constrains signatures and behavior; dispatch alone does not establish substitutability."
+      }
+    ],
+    "source": "L4, slides 29-30"
+  },
+  {
+    "name": "What does the Liskov substitution principle require of a subtype?",
+    "answers": [
+      {
+        "body": "It can replace an instance of the supertype without changing the desirable properties on which the client relies.",
+        "right": true,
+        "comment": "L4, slide 30: This is the substitutability requirement stated on the slide."
+      },
+      {
+        "body": "It must preserve both relevant method-signature constraints and behavioral conditions.",
+        "right": true,
+        "comment": "L4, slide 30: The lecture groups Liskov's constraints into these two categories."
+      },
+      {
+        "body": "It must implement every method with exactly the same internal code as the supertype.",
+        "right": false,
+        "comment": "L4, slide 30: Different implementations are allowed when they preserve the expected contract."
+      },
+      {
+        "body": "Clients must be rewritten to recognize every subtype before substituting it.",
+        "right": false,
+        "comment": "L4, slide 30: Requiring subtype-specific adaptation defeats substitution under the existing supertype expectations."
+      }
+    ],
+    "source": "L4, slide 30"
+  },
+  {
+    "name": "Nest.setOwner accepts Animal. Bird is an Animal, and Animal is a Creature. Considering the lecture's substitutability rule rather than a particular language's overriding syntax, which parameter types may BirdNest.setOwner accept?",
+    "answers": [
+      {
+        "body": "Animal: keep accepting all arguments permitted by Nest.",
+        "right": true,
+        "comment": "L4, slide 31: An equal argument type preserves the base method's accepted inputs."
+      },
+      {
+        "body": "Creature: accept an equally or more general set of inputs.",
+        "right": true,
+        "comment": "L4, slide 31: Arguments may be contravariant; Creature is more general than Animal."
+      },
+      {
+        "body": "Bird only: reject non-bird Animal arguments that a Nest client was allowed to pass.",
+        "right": false,
+        "comment": "L4, slide 31: Narrowing the accepted inputs breaks substitution; Bird is explicitly marked not OK."
+      }
+    ],
+    "source": "L4, slide 31"
+  },
+  {
+    "name": "Nest.getOwner promises an Animal. Bird is an Animal, and Animal is a Creature. Which declared return types preserve the lecture's covariance rule for BirdNest.getOwner?",
+    "answers": [
+      {
+        "body": "Animal.",
+        "right": true,
+        "comment": "L4, slide 32: The same return type meets the existing promise."
+      },
+      {
+        "body": "Bird.",
+        "right": true,
+        "comment": "L4, slide 32: A more derived return type still satisfies a client expecting Animal."
+      },
+      {
+        "body": "Creature.",
+        "right": false,
+        "comment": "L4, slide 32: A broader return type may produce a Creature that is not an Animal, violating the promise."
+      }
+    ],
+    "source": "L4, slide 32"
+  },
+  {
+    "name": "A supertype operation may throw StorageError. Which exception behavior of the subtype follows the lecture's method-signature rule?",
+    "answers": [
+      {
+        "body": "It throws StorageError or an exception derived from StorageError.",
+        "right": true,
+        "comment": "L4, slide 33: The permitted exceptions remain within the exception types the supertype allows."
+      },
+      {
+        "body": "It introduces an unrelated exception type that the supertype operation did not permit.",
+        "right": false,
+        "comment": "L4, slide 33: New exceptions are disallowed unless they are subtypes of exceptions thrown by the supertype."
+      },
+      {
+        "body": "It throws no exception in a case where it can fulfill the original operation successfully.",
+        "right": true,
+        "comment": "L4, slide 33: The rule forbids widening the exception contract; it does not require throwing an exception on successful execution."
+      }
+    ],
+    "source": "L4, slide 33"
+  },
+  {
+    "name": "Duck.quack() always returns Quack. MechanicalDuck.quack() throws an error when its battery is absent, whereas FemaleDuck adds layEgg() without changing quack(). Which assessments match the lecture?",
+    "answers": [
+      {
+        "body": "MechanicalDuck introduces behavior in a state that the Duck client does not expect, so substituting it can break the client.",
+        "right": true,
+        "comment": "L4, slides 34-36: The lecture labels the battery-dependent version a violation and warns that existing clients would need adaptation."
+      },
+      {
+        "body": "FemaleDuck can add layEgg() while preserving the behavior a Duck client expects from quack().",
+        "right": true,
+        "comment": "L4, slides 34-36: The accepted example adds functionality without breaking the existing quacking behavior."
+      },
+      {
+        "body": "The history constraint prohibits a subclass from adding any new operation.",
+        "right": false,
+        "comment": "L4, slides 34-36: Subclasses may add members; the constraint forbids state changes inconsistent with the base type's permitted behavior."
+      },
+      {
+        "body": "Making the battery private is sufficient to make MechanicalDuck substitutable.",
+        "right": false,
+        "comment": "L4, slides 34-36: Visibility does not repair the altered observable behavior of quack()."
+      }
+    ],
+    "source": "L4, slides 34-36"
+  },
+  {
+    "name": "A base operation accepts every nonnegative amount, guarantees a valid receipt on success, and preserves a nonnegative balance invariant. Which subtype changes are consistent with the behavioral rules introduced in this lecture?",
+    "answers": [
+      {
+        "body": "It continues to accept every nonnegative amount rather than imposing a new minimum of 100.",
+        "right": true,
+        "comment": "L4, slide 37: A subtype cannot strengthen the precondition."
+      },
+      {
+        "body": "It guarantees a valid receipt and additionally records an audit entry.",
+        "right": true,
+        "comment": "L4, slide 37: Adding a guarantee is compatible with preserving, rather than weakening, the original postcondition."
+      },
+      {
+        "body": "It sometimes returns no valid receipt on success because its algorithm is faster.",
+        "right": false,
+        "comment": "L4, slide 37: That weakens the promised postcondition."
+      },
+      {
+        "body": "It allows the balance to become negative even though the base type's invariant forbids this.",
+        "right": false,
+        "comment": "L4, slide 37: The subtype must preserve the supertype's invariants."
+      }
+    ],
+    "source": "L4, slide 37"
+  },
+  {
+    "name": "Provider offers methods for Client1 and Client2, but each client needs a different subset. Which refactoring expresses the interface segregation principle?",
+    "answers": [
+      {
+        "body": "Expose InterfaceForClient1 and InterfaceForClient2, each containing the operations its client needs.",
+        "right": true,
+        "comment": "L4, slide 38: The diagram splits the large provider-facing interface into smaller client-specific interfaces."
+      },
+      {
+        "body": "Allow the same Provider to implement both smaller interfaces.",
+        "right": true,
+        "comment": "L4, slide 38: The lower diagram retains one provider implementing both views."
+      },
+      {
+        "body": "Require every client to depend on the full provider interface even when most methods are irrelevant.",
+        "right": false,
+        "comment": "L4, slide 38: Clients should know only the operations of interest to them."
+      },
+      {
+        "body": "Duplicate Provider and all its implementation code for each client because separate interfaces require separate implementations.",
+        "right": false,
+        "comment": "L4, slide 38: The example separates interfaces while retaining the shared provider."
+      }
+    ],
+    "source": "L4, slide 38"
+  },
+  {
+    "name": "DispatchService directly depends on SmsGatewayClient in an infrastructure package. Which changes establish the dependency inversion shown in the lecture?",
+    "answers": [
+      {
+        "body": "The dispatching module owns DriverNotifier, an abstraction named after its need; DispatchService uses that abstraction.",
+        "right": true,
+        "comment": "L4, slides 39-40: Ownership by the high-level client is the central design detail."
+      },
+      {
+        "body": "The infrastructure SmsNotifier implements DriverNotifier, creating a source dependency toward the high-level abstraction.",
+        "right": true,
+        "comment": "L4, slides 39-40: The low-level detail now depends on the interface owned by dispatching."
+      },
+      {
+        "body": "Place an interface in the infrastructure package and make DispatchService depend on that package; the source dependency is then inverted.",
+        "right": false,
+        "comment": "L4, slides 39-40: The slide warns that an interface owned by the lower package merely adds indirection without inverting the package dependency."
+      },
+      {
+        "body": "After inversion, runtime calls must flow from SmsNotifier into DispatchService instead of from dispatching to notification.",
+        "right": false,
+        "comment": "L4, slides 39-40: Runtime control still flows down; source-code dependency direction is what changes."
+      }
+    ],
+    "source": "L4, slides 39-40"
+  },
+  {
+    "name": "Which statements about dependency inversion and dependency injection match the practical dispatching example?",
+    "answers": [
+      {
+        "body": "DIP specifies the direction of design dependencies; DI is a technique for supplying an implementation.",
+        "right": true,
+        "comment": "L4, slide 41: The slide explicitly distinguishes the design principle from the injection technique."
+      },
+      {
+        "body": "Create the concrete notifier outside DispatchService, for example in a composition root, and pass it to the constructor.",
+        "right": true,
+        "comment": "L4, slide 41: The example injects DriverNotifier and wires SmsNotifier outside the client."
+      },
+      {
+        "body": "Depending on DriverNotifier enables testing with a fake notifier and replacing SMS without changing dispatching logic.",
+        "right": true,
+        "comment": "L4, slide 41: Testability, replaceable technology, and reuse are the stated gains."
+      },
+      {
+        "body": "Introduce an interface for every stable value object because DIP requires universal indirection.",
+        "right": false,
+        "comment": "L4, slide 41: The lecture recommends DIP at volatile boundaries and warns against interfaces for stable classes such as String."
+      },
+      {
+        "body": "Using a DI container alone guarantees that high-level modules no longer depend on low-level packages.",
+        "right": false,
+        "comment": "L4, slide 41: Injection supplies instances; the ownership and direction of source dependencies must still be designed."
+      }
+    ],
+    "source": "L4, slide 41"
+  },
+  {
+    "name": "How does the lecture relate design patterns to SOLID principles?",
+    "answers": [
+      {
+        "body": "Patterns often incorporate SOLID principles, but the designer must still apply relevant principles intentionally.",
+        "right": true,
+        "comment": "L4, slide 43 (PDF page 42): The summary emphasizes both built-in guidance and intentional design work."
+      },
+      {
+        "body": "A pattern may violate a principle for a desired behavior when its consequences are understood and documented.",
+        "right": true,
+        "comment": "L4, slide 43 (PDF page 42): The summary notes that such tradeoffs can be part of a pattern."
+      },
+      {
+        "body": "Using any named pattern guarantees compliance with every SOLID principle in every context.",
+        "right": false,
+        "comment": "L4, slide 43 (PDF page 42): Patterns can have documented tradeoffs and do not replace judgment."
+      },
+      {
+        "body": "SOLID is irrelevant once a class diagram contains a design pattern.",
+        "right": false,
+        "comment": "L4, slide 43 (PDF page 42): The analyst still has to apply many of the principles deliberately."
+      }
+    ],
+    "source": "L4, slide 43 (PDF page 42)"
+  },
+  {
+    "name": "In the Public Transport supplement, the city plan must handle nested lines, stops, line numbers, and construction signs through highlight(). Which statements describe the Composite solution?",
+    "answers": [
+      {
+        "body": "CityPlanElement supplies a common operation, and both Leaf and Composite specialize it.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 16-17: The pattern diagram defines highlight() on CityPlanElement and derives the two categories from it."
+      },
+      {
+        "body": "Composite holds child CityPlanElement objects, allowing nesting and uniform treatment of individual and composite elements.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 16-17: The child association targets the common element type, rather than a separate association for every concrete kind."
+      },
+      {
+        "body": "ConstructionSign and LineNumber are leaves, while CityPlan, Line, and Stop are composite elements in this example.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 16-17: These concrete classes are placed under Leaf and Composite respectively."
+      },
+      {
+        "body": "The original ad hoc model is easier to extend because it defines different associations for all concrete element kinds.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 16-17: Page 16 identifies weak extensibility and maintainability when adding another kind of element."
+      }
+    ],
+    "source": "Public Transport supplement, slide/page 16-17"
+  },
+  {
+    "name": "The Public Transport Strategy diagram gives DailyWorkSchedule a DailyShiftPlanner. WorkDayPlanner prioritizes regularity and VacationPlanner reflects drivers' priorities. Which interpretation is correct?",
+    "answers": [
+      {
+        "body": "DailyWorkSchedule is the context; DailyShiftPlanner defines the planning operations that the concrete planners specialize.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 18: The diagram explicitly marks context and strategy and shows the concrete planner generalizations."
+      },
+      {
+        "body": "Supplying a different planner selects a different planning policy without making DailyWorkSchedule a subclass of that planner.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 18: The schedule associates with the planner; it is not in the planner inheritance hierarchy."
+      },
+      {
+        "body": "WorkDayPlanner and VacationPlanner must both be superclasses of DailyWorkSchedule.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 18: The inheritance shown is from the concrete planners to DailyShiftPlanner."
+      },
+      {
+        "body": "The diagram requires all planning policies to be branches inside one DailyWorkSchedule method.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 18: The policies are separated into strategy objects."
+      }
+    ],
+    "source": "Public Transport supplement, slide/page 18"
+  },
+  {
+    "name": "In the Public Transport State diagram, DailyWorkSchedule stores one CurrentDay and updateToday() sets it to WorkDay or VacationDay. Which statements correctly describe this design?",
+    "answers": [
+      {
+        "body": "CurrentDay defines the state interface, and WorkDay and VacationDay implement its shift operation.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 19: The realization relationships point to CurrentDay, which provides getShift()."
+      },
+      {
+        "body": "The context can change its associated state object as the current day changes.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 19: updateToday() explicitly selects and installs a new state object."
+      },
+      {
+        "body": "DailyWorkSchedule must change its own class from WorkDay to VacationDay whenever the date changes.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 19: The varying state is represented by an associated object; the context remains DailyWorkSchedule."
+      },
+      {
+        "body": "The diagram shows different day-dependent behavior supplied through a common state contract.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 19: Both concrete states provide the operation expected through CurrentDay."
+      }
+    ],
+    "source": "Public Transport supplement, slide/page 19"
+  },
+  {
+    "name": "How are responsibilities divided in the Public Transport Builder diagram?",
+    "answers": [
+      {
+        "body": "TimetableConstructor is the director and uses TimetableBuilder's operations to assemble timetable data.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 20: The diagram labels the two roles and lists addLineNo(lineNo), addWorkdayRec(), and addWeekendRec() on the builder."
+      },
+      {
+        "body": "TimetableGui and TimetableJSON are alternative directors with different input workflows.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 20: They specialize TimetableConstructor and expose buildByClicking() and buildFromJson(jsonFile)."
+      },
+      {
+        "body": "The product Timetable owns records for workdays and weekends; records contain time and stopName.",
+        "right": true,
+        "comment": "Public Transport supplement, slide/page 20: The product and composition relationship separate timetable data from how it will be visually represented."
+      },
+      {
+        "body": "TimetableRec decides how users click in the GUI and how a JSON file is parsed.",
+        "right": false,
+        "comment": "Public Transport supplement, slide/page 20: Those workflows belong to the directors, not to the stored records."
+      }
+    ],
+    "source": "Public Transport supplement, slide/page 20"
+  },
+  {
+    "name": "Draw and explain a UML design for employment: a Person can work for several Companies, a Company can employ several Persons, and salary is specific to each employment. Queries in both directions are frequent. Show relevant multiplicities, references, query operations, and where consistency is maintained. Compare your design with a simple one-way employee-list solution.",
+    "answer": "One suitable design introduces Job with salary, one Company reference, and one Person reference. Each Job belongs to exactly one company and one person, while each company and person can participate in zero or more jobs. JobsMngr maintains Map&lt;Company, Set&lt;Job&gt;&gt; and Map&lt;Person, Set&lt;Job&gt;&gt;, offering getJobs(company) and getJobs(person), from which the related persons or companies can be obtained. Keep updates to both indexes together so they describe the same jobs. Job owns the pair-specific data; Company and Person keep their own entity data; the manager owns access and indexing. Compared with Company.employees alone, the indexes avoid scanning all companies and their employee lists for a reverse query, but introduce extra structures and consistency work. A simple list-based design can still be preferable for a small workload; the requirements must justify the indexes. Show general associations or navigable references without inventing lifetime ownership that the requirements do not establish.",
+    "keyPoints": [
+      "Job represents one company-person relationship and stores its salary",
+      "Each Job references exactly one Company and one Person; either entity can have zero or more Jobs",
+      "The manager provides query paths, optionally using maps to Job sets for the stated frequent queries",
+      "Updates preserve consistency of both indexes and distribute entity, relationship, and access responsibilities",
+      "Compare lookup efficiency with the simpler one-way design and acknowledge added complexity"
+    ],
+    "source": "L4, slides 7-14 and 26-27"
+  },
+  {
+    "name": "Draw a UML package/class design that replaces DispatchService's direct dependency on SmsGatewayClient with dependency inversion. Show interface ownership, source dependencies, runtime call direction, and construction. Explain how you would test dispatching and later switch to email.",
+    "answer": "Put DriverNotifier in the dispatching package, owned by the high-level client and exposing notify(driver, message). DispatchService depends on this interface and receives a notifier through its constructor. Put SmsNotifier in infrastructure and show it realizing DriverNotifier; its technology-specific work can use SmsGatewayClient. This makes infrastructure depend on the dispatching abstraction at source level, while runtime calls still go from DispatchService through the interface to the notifier implementation. A composition root constructs SmsNotifier and passes it to DispatchService; a DI container is an optional way to perform this wiring. For a unit test, supply a fake DriverNotifier and inspect the requested notifications without a live SMS service. To use email, supply an EmailNotifier implementing the same client contract. DIP concerns dependency direction and interface ownership; DI concerns supplying objects. Merely putting an interface in infrastructure would leave dispatching dependent on that lower-level package.",
+    "keyPoints": [
+      "DriverNotifier is owned by dispatching and expresses the client's need",
+      "DispatchService uses the interface; SmsNotifier realizes it from infrastructure",
+      "Source dependency points toward the high-level abstraction while runtime calls still reach the low-level implementation",
+      "An external composition root or DI container constructs and supplies the implementation",
+      "Fake and EmailNotifier implementations preserve dispatching code; DIP is distinct from DI"
+    ],
+    "source": "L4, slides 38-41"
+  },
+  {
+    "name": "Using the Public Transport supplement, sketch two UML designs: (a) a nested city plan whose elements support highlight(), and (b) a daily work schedule whose shift behavior changes between workdays and vacations. Identify pattern roles, relationships, and which runtime links can change. Explain why the context does not need to change its own class.",
+    "answer": "For (a), use Composite: CityPlanElement declares highlight(); Leaf and Composite inherit that contract; Composite associates with zero or more CityPlanElement children. ConstructionSign and LineNumber are leaves, while CityPlan, Line, and Stop are composites in the supplied example. The common contract lets the design handle a single element and a subtree uniformly; preserve any domain restrictions on allowed children separately. For (b), use State: DailyWorkSchedule is the context and holds one CurrentDay interface; WorkDay and VacationDay realize getShift(lineNo, numDriver). updateToday() replaces the associated state object according to the current day, while the schedule delegates day-specific behavior through the same interface. The context retains its class throughout its lifetime; the associated objects and links vary at runtime. The supplement supplies these pattern examples; they are additional material rather than individual slides in the L4 deck.",
+    "keyPoints": [
+      "Composite has a common CityPlanElement contract and a collection of children of that same type",
+      "Identify ConstructionSign/LineNumber as leaves and CityPlan/Line/Stop as composites in the supplied model",
+      "State separates the DailyWorkSchedule context from the CurrentDay interface and its WorkDay/VacationDay implementations",
+      "updateToday() replaces the associated state object; the context's own class stays the same"
+    ],
+    "source": "Public Transport supplement, slide/page 16-17 and 19; L4, slides 22-23 (runtime flexibility of association)"
+  }
+]
