@@ -1,0 +1,572 @@
+[
+  {
+    "name": "Čo rekapituluje prednáška o vrstvení aplikácie a EF? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Prezentačná vrstva využíva business logiku, pod ňou je dátová vrstva a databáza.",
+        "right": true,
+        "comment": "L3, slides 3-4 (PDF pages 3-4): Diagram vrstiev na slide 3 zachováva toto poradie."
+      },
+      {
+        "body": "DbContext je spojený s Identity Map a Unit of Work, DbSety s Repository.",
+        "right": true,
+        "comment": "L3, slides 3-4 (PDF pages 3-4): Tieto vzory sú uvedené na rekapitulačnom slide 4."
+      },
+      {
+        "body": "DbSety tvoria vrstvu vykresľovania HTML.",
+        "right": false,
+        "comment": "L3, slides 3-4 (PDF pages 3-4): DbSety sú uvedené pri Repository v EF."
+      },
+      {
+        "body": "Business logika a databáza sú v diagrame jediný spoločný blok.",
+        "right": false,
+        "comment": "L3, slides 3-4 (PDF pages 3-4): Ide o samostatné vrstvy a databázu."
+      }
+    ],
+    "source": "L3, slides 3-4 (PDF pages 3-4)"
+  },
+  {
+    "name": "Ako diagram DAL infraštruktúry oddeľuje abstrakcie od Entity Framework implementácie? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Infrastructure.EntityFramework obsahuje konkrétne EntityFrameworkRepository, EntityFrameworkQuery a EntityFrameworkUnitOfWork.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): Konkrétne implementácie sú v dolnej časti diagramu."
+      },
+      {
+        "body": "IRepository v hornej vrstve obsahuje property DbContext ako súčasť svojho verejného kontraktu.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): DbContext sa nachádza v konkrétnych EF implementáciách, nie v zobrazenom IRepository."
+      },
+      {
+        "body": "Diagram predpisuje nahradiť všetky rozhrania HTTP metódami.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): Diagram používa objektové rozhrania a implementácie DAL."
+      },
+      {
+        "body": "Infrastructure obsahuje napríklad IRepository, IQuery a IUnitOfWork.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): Tieto abstrakcie sú v hornej časti diagramu."
+      }
+    ],
+    "source": "L3, slide 5 (PDF page 5)"
+  },
+  {
+    "name": "Ako sú v diagrame reprezentované jednoduché a zložené podmienky dotazu? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "CompositePredicate obsahuje výlučne connection string.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): Jeho účelom je skladanie podmienok."
+      },
+      {
+        "body": "SimplePredicate určuje iba HTTP status kód odpovede.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): Určuje porovnanie hodnoty konkrétnej property."
+      },
+      {
+        "body": "SimplePredicate obsahuje cieľovú property, porovnávanú hodnotu a porovnávací operátor.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): Tieto tri položky sú uvedené v SimplePredicate."
+      },
+      {
+        "body": "CompositePredicate obsahuje zoznam predikátov a logický operátor AND alebo OR.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): CompositePredicate je spojený s LogicalOperator a zoznamom IPredicate."
+      }
+    ],
+    "source": "L3, slide 5 (PDF page 5)"
+  },
+  {
+    "name": "Čo diagram QueryResult oddeľuje od samotných vrátených položiek? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "QueryResult je iba jedno číslo bez kolekcie entít.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): Obsahuje Items : IList&lt;TEntity&gt; aj metadáta."
+      },
+      {
+        "body": "Celkový počet položiek a číslo požadovanej stránky.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): QueryResult obsahuje TotalItemsCount a RequestedPageNumber."
+      },
+      {
+        "body": "Veľkosť stránky a informáciu, či je stránkovanie zapnuté.",
+        "right": true,
+        "comment": "L3, slide 5 (PDF page 5): Obsahuje PageSize a PagingEnabled popri Items."
+      },
+      {
+        "body": "Len farbu HTML tlačidla pre ďalšiu stránku.",
+        "right": false,
+        "comment": "L3, slide 5 (PDF page 5): Diagram opisuje výsledok dátového dotazu, nie vzhľad UI."
+      }
+    ],
+    "source": "L3, slide 5 (PDF page 5)"
+  },
+  {
+    "name": "Prečo prednáška navrhuje vlastný Repository, keď EF poskytuje DbSet? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Vytvára úroveň abstrakcie nad ORM frameworkom.",
+        "right": true,
+        "comment": "L3, slides 6-7 (PDF pages 6-7): To je prvý dôvod uvedený na slide 7."
+      },
+      {
+        "body": "Sústreďuje modifikácie dát na jedno miesto a poskytuje CRUD.",
+        "right": true,
+        "comment": "L3, slides 6-7 (PDF pages 6-7): Slide uvádza CRUD a modifikáciu dát na jednom mieste."
+      },
+      {
+        "body": "Jeho jediným účelom je posielať HTML do prehliadača.",
+        "right": false,
+        "comment": "L3, slides 6-7 (PDF pages 6-7): Repository rieši prístup k dátam."
+      },
+      {
+        "body": "Vyžaduje, aby business vrstva používala každú konkrétnu ORM triedu priamo.",
+        "right": false,
+        "comment": "L3, slides 6-7 (PDF pages 6-7): Účelom je abstrakcia nad ORM, nie silnejšie previazenie s ním."
+      }
+    ],
+    "source": "L3, slides 6-7 (PDF pages 6-7)"
+  },
+  {
+    "name": "Aké schopnosti a dôvod nezávislosti má mať abstrakcia Query? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Nezávislosť od ORM, aby sa dala zmeniť implementácia DAL, napríklad pre výkon.",
+        "right": true,
+        "comment": "L3, slide 8 (PDF page 8): Slide uvádza výkon ako častý dôvod zmeny ORM."
+      },
+      {
+        "body": "Iba vytvorenie jednej novej entity bez dotazovania.",
+        "right": false,
+        "comment": "L3, slide 8 (PDF page 8): Query reprezentuje dotazovanie; vytvorenie patrí do CRUD."
+      },
+      {
+        "body": "Povinnosť používať rovnaké ORM počas celej životnosti systému.",
+        "right": false,
+        "comment": "L3, slide 8 (PDF page 8): Práve možnosť zmeny ORM je motiváciou abstrakcie."
+      },
+      {
+        "body": "Komplexné WHERE filtrovanie, radenie a stránkovanie.",
+        "right": true,
+        "comment": "L3, slide 8 (PDF page 8): Všetky tri schopnosti slide vyžaduje."
+      }
+    ],
+    "source": "L3, slide 8 (PDF page 8)"
+  },
+  {
+    "name": "Aký účel má vlastný Unit of Work podľa prednášky? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Každému poľu entity prideľuje HTML CSS triedu.",
+        "right": false,
+        "comment": "L3, slide 9 (PDF page 9): UoW koordinuje zmeny a transakcie."
+      },
+      {
+        "body": "Je to len iný názov pre radenie výsledkov dotazu.",
+        "right": false,
+        "comment": "L3, slide 9 (PDF page 9): Radenie je schopnosť Query; UoW sa týka sledovania a potvrdenia zmien."
+      },
+      {
+        "body": "Sleduje zmeny entít počas transakcie a na jej záver sa volá commit.",
+        "right": true,
+        "comment": "L3, slide 9 (PDF page 9): Oba kroky sú na slide uvedené."
+      },
+      {
+        "body": "Abstrahuje prístup cez konkrétne ORM a sprehľadňuje transakcie.",
+        "right": true,
+        "comment": "L3, slide 9 (PDF page 9): To sú dôvody vlastného UoW nad DbContextom."
+      }
+    ],
+    "source": "L3, slide 9 (PDF page 9)"
+  },
+  {
+    "name": "Aké rozdiely medzi SQL a LINQ to Entities zdôrazňuje prednáška? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "LINQ to Entities nikdy nepoužíva dotazy na databázu.",
+        "right": false,
+        "comment": "L3, slide 10 (PDF page 10): Je uvedené ako spôsob dotazovania persistentných dát."
+      },
+      {
+        "body": "Pri SQL uvádza závislosť od databázy a chýbajúcu kontrolu kompilátorom.",
+        "right": true,
+        "comment": "L3, slide 10 (PDF page 10): Tieto dva body sú nevýhody SQL na slide."
+      },
+      {
+        "body": "LINQ to Entities je podobné LINQ to Objects a poskytuje IntelliSense a kontrolu kompilátorom.",
+        "right": true,
+        "comment": "L3, slide 10 (PDF page 10): To sú uvedené výhody."
+      },
+      {
+        "body": "SQL text má v C# kompilátore automaticky rovnakú typovú kontrolu ako LINQ výraz.",
+        "right": false,
+        "comment": "L3, slide 10 (PDF page 10): Slide práve absenciu kontroly kompilátorom uvádza ako nevýhodu SQL."
+      }
+    ],
+    "source": "L3, slide 10 (PDF page 10)"
+  },
+  {
+    "name": "Ktoré priradenia stavov entít zodpovedajú prednáške? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Added: sledovaná nová entita určená na pridanie; Modified: sledovaná existujúca entita určená na zmenu.",
+        "right": true,
+        "comment": "L3, slide 11 (PDF page 11): Takto slide odlišuje pridanie a zmenu."
+      },
+      {
+        "body": "Unchanged: existujúca sledovaná nezmenená entita; Deleted: sledovaná entita určená na zmazanie.",
+        "right": true,
+        "comment": "L3, slide 11 (PDF page 11): Oba stavy predpokladajú sledovanie."
+      },
+      {
+        "body": "Detached: entita nie je sledovaná.",
+        "right": true,
+        "comment": "L3, slide 11 (PDF page 11): To je definícia Detached na slide."
+      },
+      {
+        "body": "Detached: entita je sledovaná a automaticky určená na zmazanie.",
+        "right": false,
+        "comment": "L3, slide 11 (PDF page 11): Na zmazanie je Deleted; Detached nie je sledovaná."
+      }
+    ],
+    "source": "L3, slide 11 (PDF page 11)"
+  },
+  {
+    "name": "Ako prednáška rozlišuje serverové a klientské vyhodnotenie dotazu? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Klientské filtrovanie pracuje s dátami v pamäti; typicky sa pracuje s IEnumerable.",
+        "right": true,
+        "comment": "L3, slide 12 (PDF page 12): To je druhý prípad na slide."
+      },
+      {
+        "body": "Klientské filtrovanie znamená, že dáta ešte neboli načítané a celý filter vykonáva DB.",
+        "right": false,
+        "comment": "L3, slide 12 (PDF page 12): To opisuje serverový prípad."
+      },
+      {
+        "body": "Podľa slide serverové aj klientské filtrovanie vždy prebieha na tom istom mieste.",
+        "right": false,
+        "comment": "L3, slide 12 (PDF page 12): Miesto vyhodnotenia je ich hlavný rozdiel."
+      },
+      {
+        "body": "Serverové filtrovanie prebieha v databáze; typicky sa pracuje s IQueryable.",
+        "right": true,
+        "comment": "L3, slide 12 (PDF page 12): Slide hovorí, že dáta ešte nie sú v pamäti klienta."
+      }
+    ],
+    "source": "L3, slide 12 (PDF page 12)"
+  },
+  {
+    "name": "Aký postup na logovanie SQL commandov uvádza prednáška pre testovacie účely? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Pre testovacie logovanie SQL commandov prednáška vyžaduje balík Microsoft.EntityFrameworkCore.Tools.",
+        "right": false,
+        "comment": "L3, slide 13 (PDF page 13): Pre SQL logovanie sa uvádza Microsoft.Extensions.Logging.Console, nie balík Tools z postupu migrácií v L2."
+      },
+      {
+        "body": "V ukázanom postupe sa SQL commandy logujú iba v Repository; konfigurácia logovania v DbContexte sa nepoužíva.",
+        "right": false,
+        "comment": "L3, slide 13 (PDF page 13): Slide výslovne nastavuje logovanie pre testovacie účely priamo v DbContexte."
+      },
+      {
+        "body": "Nastavenie logovania priamo v DbContexte.",
+        "right": true,
+        "comment": "L3, slide 13 (PDF page 13): Toto je uvedený postup pre testovanie."
+      },
+      {
+        "body": "Použitie balíka Microsoft.Extensions.Logging.Console.",
+        "right": true,
+        "comment": "L3, slide 13 (PDF page 13): Slide výslovne uvádza potrebný balík."
+      }
+    ],
+    "source": "L3, slide 13 (PDF page 13)"
+  },
+  {
+    "name": "Ktoré operácie prednáška uvádza pri čítaní a raw SQL? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Add je na slide príkaz na ručné vytvorenie migrácie.",
+        "right": false,
+        "comment": "L3, slide 14 (PDF page 14): Add patrí k Insert; migrácie vytvára add-migration v L2."
+      },
+      {
+        "body": "Na čítanie uvádza napríklad ToList, First, Last a Find.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): Tieto metódy sú uvedené pri Select."
+      },
+      {
+        "body": "FromSqlRaw je uvedené medzi možnosťami práce s dotazmi.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): Je uvedené samostatne na začiatku zoznamu."
+      },
+      {
+        "body": "RemoveRange je v zozname základná operácia čítania.",
+        "right": false,
+        "comment": "L3, slide 14 (PDF page 14): RemoveRange patrí medzi možnosti mazania."
+      }
+    ],
+    "source": "L3, slide 14 (PDF page 14)"
+  },
+  {
+    "name": "Ako sa podľa slide označia entity na pridanie alebo zmazanie? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Pridanie: Add, AddRange alebo stav Added.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): To sú uvedené možnosti Insert."
+      },
+      {
+        "body": "Zmazanie: Remove, RemoveRange alebo stav Deleted.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): To sú uvedené možnosti Delete."
+      },
+      {
+        "body": "Add, Update a Remove vrátane Range variantov sa dajú volať aj na DbContexte.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): Posledný bod slide to výslovne uvádza."
+      },
+      {
+        "body": "Zmazanie sa označuje výlučne stavom Unchanged.",
+        "right": false,
+        "comment": "L3, slide 14 (PDF page 14): Unchanged znamená nezmenenú entitu; na zmazanie je Deleted."
+      }
+    ],
+    "source": "L3, slide 14 (PDF page 14)"
+  },
+  {
+    "name": "Aké možnosti aktualizácie entity uvádza prednáška? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Použiť Update alebo UpdateRange, prípadne nastaviť stav Modified.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): Tieto možnosti sú uvedené v zozname."
+      },
+      {
+        "body": "Vždy vymazať celú databázu a vytvoriť ju znova.",
+        "right": false,
+        "comment": "L3, slide 14 (PDF page 14): Slide opisuje aktualizáciu existujúcich entít."
+      },
+      {
+        "body": "Nastaviť stav Deleted a očakávať, že sa iba upraví názov.",
+        "right": false,
+        "comment": "L3, slide 14 (PDF page 14): Deleted znamená zmazanie, nie aktualizáciu."
+      },
+      {
+        "body": "Zmeniť property sledovanej entity v tom istom DbContexte.",
+        "right": true,
+        "comment": "L3, slide 14 (PDF page 14): To je prvá uvedená možnosť Update."
+      }
+    ],
+    "source": "L3, slide 14 (PDF page 14)"
+  },
+  {
+    "name": "Prečo treba pri nesúvislom spojení vo webovej aplikácii riešiť stavy entít? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Každý nový DbContext si automaticky pamätá všetky predchádzajúce zmeny v prehliadači.",
+        "right": false,
+        "comment": "L3, slide 15 (PDF page 15): Nový kontext netuší, čo sa dialo s entitami mimo neho."
+      },
+      {
+        "body": "Zmena na klientovi vždy znamená, že prvý DbContext zostáva aktívny navždy.",
+        "right": false,
+        "comment": "L3, slide 15 (PDF page 15): Príklad opisuje zánik prvého a vznik nového kontextu."
+      },
+      {
+        "body": "DbContext použitý pri odoslaní dát zo servera sa môže ukončiť.",
+        "right": true,
+        "comment": "L3, slide 15 (PDF page 15): Slide opisuje ukončenie prvého kontextu."
+      },
+      {
+        "body": "Nový DbContext automaticky nepozná úpravy, ktoré klient vykonal na odpojenej entite.",
+        "right": true,
+        "comment": "L3, slide 15 (PDF page 15): Slide zdôrazňuje zodpovednosť oznámiť novému kontextu stavy entít."
+      }
+    ],
+    "source": "L3, slide 15 (PDF page 15)"
+  },
+  {
+    "name": "Pridávaš novú entitu B s navigáciou na existujúce A, ktoré tento DbContext nesleduje. Na aké riziko upozorňuje prednáška pri pridaní grafu? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Ak sa A označí Added, znamená to, že zostane nesledované.",
+        "right": false,
+        "comment": "L3, slide 16 (PDF page 16): Added je sledovaná entita určená na vloženie podľa slide 11."
+      },
+      {
+        "body": "Aj referencované A môže dostať stav Added spolu s B.",
+        "right": true,
+        "comment": "L3, slide 16 (PDF page 16): Slide upozorňuje na automatické označenie súvisiaceho objektu; otázka výslovne predpokladá nesledované A."
+      },
+      {
+        "body": "To nemusí zodpovedať zámeru, ak chceme pridať iba B.",
+        "right": true,
+        "comment": "L3, slide 16 (PDF page 16): Prednáška výslovne upozorňuje, že to nie je vždy želané."
+      },
+      {
+        "body": "Pridanie grafu sa vôbec netýka navigation properties.",
+        "right": false,
+        "comment": "L3, slide 16 (PDF page 16): Práve navigácia B na A tvorí príklad rizika."
+      }
+    ],
+    "source": "L3, slide 16 (PDF page 16)"
+  },
+  {
+    "name": "Ktoré priradenia načítavania súvisiacich entít zodpovedajú prednáške? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Eager Loading načíta súvisiace dáta spolu s hlavným dotazom, v príklade cez Include.",
+        "right": true,
+        "comment": "L3, slide 16 (PDF page 16): Slide opisuje vrátenie A spolu s B."
+      },
+      {
+        "body": "Explicit Loading načíta súvisiace dáta pre konkrétny objekt, napríklad cez Load.",
+        "right": true,
+        "comment": "L3, slide 16 (PDF page 16): Načítanie je výslovne vyžiadané pre dané A."
+      },
+      {
+        "body": "Lazy Loading načíta navigáciu pri prístupe k nej; ukážka používa virtual a EFCore.Proxies s UseLazyLoadingProxies.",
+        "right": true,
+        "comment": "L3, slide 16 (PDF page 16): Ide o proxy postup uvedený na slide, nie definíciu všetkých možných implementácií."
+      },
+      {
+        "body": "Include je podľa slide spôsob označenia entity za Deleted.",
+        "right": false,
+        "comment": "L3, slide 16 (PDF page 16): Include patrí k Eager Loading."
+      }
+    ],
+    "source": "L3, slide 16 (PDF page 16)"
+  },
+  {
+    "name": "Ktoré tvrdenia o aktualizácii a zmazaní súvisiacich entít zodpovedajú scenáru na slide? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Pri zmazaní A treba v ukázanom postupe riešiť súvisiace B, napríklad zmenou FK alebo zmazaním.",
+        "right": true,
+        "comment": "L3, slide 17 (PDF page 17): Slide opisuje načítanie B pre túto prácu; otázka sa týka ukázaného postupu."
+      },
+      {
+        "body": "Každá zmena ľubovoľnej property B musí vždy prepisovať aj property A.",
+        "right": false,
+        "comment": "L3, slide 17 (PDF page 17): Update bod výslovne hovorí opak."
+      },
+      {
+        "body": "Ukázaný postup pri zmazaní A nikdy nerieši cudzí kľúč B.",
+        "right": false,
+        "comment": "L3, slide 17 (PDF page 17): Práve zmena FK alebo zmazanie B je jeho účelom."
+      },
+      {
+        "body": "Pri zmene inej property B netreba stále načítať aj A, ak vzťah k A nemeníme.",
+        "right": true,
+        "comment": "L3, slide 17 (PDF page 17): To je uvedené pri Update."
+      }
+    ],
+    "source": "L3, slide 17 (PDF page 17)"
+  },
+  {
+    "name": "Ako prednáška charakterizuje Micro ORMs? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Ako kompletné náhrady každého ORM bez funkčných obmedzení.",
+        "right": false,
+        "comment": "L3, slides 18-19 (PDF pages 18-19): Slide explicitne uvádza obmedzenú funkcionalitu."
+      },
+      {
+        "body": "Ako nástroje určené výlučne na vykresľovanie View.",
+        "right": false,
+        "comment": "L3, slides 18-19 (PDF pages 18-19): Ide o objektovo-relačné nástroje na prácu s dátami."
+      },
+      {
+        "body": "Ako rýchlejšie a jednoduché na použitie, ale s obmedzenou funkcionalitou.",
+        "right": true,
+        "comment": "L3, slides 18-19 (PDF pages 18-19): Takto ich sumarizuje slide 18; ide o charakteristiku prednášky, nie univerzálny benchmark."
+      },
+      {
+        "body": "Medzi príkladmi uvádza Dapper, PetaPoco a Simple.Data.",
+        "right": true,
+        "comment": "L3, slides 18-19 (PDF pages 18-19): Všetky tri sú na slide 19."
+      }
+    ],
+    "source": "L3, slides 18-19 (PDF pages 18-19)"
+  },
+  {
+    "name": "Čo musí raw SQL ukážka urobiť manuálne po vytvorení spojenia? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Vykonať SELECT iba nastavením entity do stavu Added.",
+        "right": false,
+        "comment": "L3, slide 20 (PDF page 20): Ukážka používa ExecuteReader(); Added je stav pre vkladanie."
+      },
+      {
+        "body": "Otvoriť spojenie a vytvoriť SqlCommand so SELECT dotazom.",
+        "right": true,
+        "comment": "L3, slide 20 (PDF page 20): Ukážka volá con.Open() a vytvára SqlCommand."
+      },
+      {
+        "body": "Použiť SqlDataReader a mapovať stĺpce do properties objektu Pet.",
+        "right": true,
+        "comment": "L3, slide 20 (PDF page 20): Kód číta hodnoty cez GetInt32/GetString a vytvára Pet."
+      },
+      {
+        "body": "Získať automaticky naplnený Pet priamo z HTML View.",
+        "right": false,
+        "comment": "L3, slide 20 (PDF page 20): Ukážka explicitne mapuje výsledky readera."
+      }
+    ],
+    "source": "L3, slide 20 (PDF page 20)"
+  },
+  {
+    "name": "Ktoré rozdiely ukazujú tri príklady Micro ORMs? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Dapper a PetaPoco používajú Query&lt;Pet&gt; s SQL a objektom parametrov pre @type.",
+        "right": true,
+        "comment": "L3, slide 21 (PDF page 21): V oboch ukážkach je parameter type = \"dog\" a SQL WHERE Type=@type."
+      },
+      {
+        "body": "Simple.Data ukazuje dynamický prístup sDb.Pets.FindByType(\"dog\").",
+        "right": true,
+        "comment": "L3, slide 21 (PDF page 21): Tretia ukážka používa dynamic namiesto explicitného SQL textu na tomto mieste."
+      },
+      {
+        "body": "Všetky tri ukážky musia ručne čítať každý stĺpec cez SqlDataReader.",
+        "right": false,
+        "comment": "L3, slide 21 (PDF page 21): Manuálne mapovanie je v raw SQL príklade na slide 20, nie v týchto troch ukážkach."
+      },
+      {
+        "body": "Dapper ukážka vkladá názov typu priamo konkatenáciou do SQL textu.",
+        "right": false,
+        "comment": "L3, slide 21 (PDF page 21): SQL používa @type a oddelený objekt parametrov."
+      }
+    ],
+    "source": "L3, slide 21 (PDF page 21)"
+  },
+  {
+    "name": "Navrhni rozdelenie zodpovedností DAL pre operáciu, ktorá najprv vyhľadá stránku zákazníkov podľa filtra a potom upraví vybrané entity. Ako sa dopĺňajú Query, Repository a Unit of Work?",
+    "answer": "Query zapúzdruje filtrovanie, radenie a stránkovanie; diagram zobrazuje Where, SortBy, Page a ExecuteAsync aj QueryResult s položkami a metadátami stránky. Repository poskytuje CRUD a sústreďuje modifikácie dát. Unit of Work sleduje zmeny počas transakcie a na jej konci poskytuje commit. Rozhrania a základné triedy sú oddelené od konkrétnych EF implementácií, aby business logika nebola previazaná s jedným ORM.",
+    "keyPoints": [
+      "Query: filter, radenie a stránkovanie",
+      "QueryResult: položky a metadáta",
+      "Repository: CRUD a jedno miesto modifikácií",
+      "Unit of Work: sledovanie zmien a commit",
+      "Abstrakcie oddelené od konkrétneho ORM"
+    ],
+    "source": "L3, slides 5-9 (PDF pages 5-9)"
+  },
+  {
+    "name": "Klient upraví odpojenú entitu B, ktorá odkazuje na existujúce A, a pošle ju späť serveru. Opíš problémy, ktoré treba vyriešiť v novom DbContexte pri aktualizácii B alebo pri vložení nového B.",
+    "answer": "Nový DbContext nepozná históriu úprav z klienta, preto treba oznámiť zamýšľaný stav alebo použiť vhodnú operáciu. Aktualizáciu slide ilustruje zmenou sledovanej property, Update/UpdateRange alebo stavom Modified; novú entitu Add/AddRange alebo stavom Added. Pri pridávaní B s nesledovaným A treba dávať pozor na označenie celého grafu za Added a nechcené vloženie A. Ak sa na B mení iná property a vzťah k A ostáva, slide nevyžaduje stále načítavať aj A. Ak potrebujeme súvisiace dáta, zvolíme eager, explicit alebo proxy lazy loading podľa spôsobu prístupu.",
+    "keyPoints": [
+      "Nový kontext nemá históriu klientskych zmien",
+      "Modified/Update verzus Added/Add",
+      "Riziko nechceného vloženia nesledovaného A",
+      "Zmena inej property B nemusí vyžadovať načítanie A",
+      "Vedome zvolená stratégia načítania navigácie"
+    ],
+    "source": "L3, slides 11,14-17 (PDF pages 11,14-17)"
+  }
+]

@@ -1,0 +1,494 @@
+[
+  {
+    "name": "What does the lecture mean by avoiding a \"Meat proxy\"? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Check AI output instead of merely forwarding prompts and answers.",
+        "right": true,
+        "comment": "L4, slide 4 (PDF page 4): The slide pairs output checking with avoiding being a prompt forwarder."
+      },
+      {
+        "body": "Take responsibility for what you pass on to someone else.",
+        "right": true,
+        "comment": "L4, slide 4 (PDF page 4): This is the practical implication of checking rather than blindly forwarding output."
+      },
+      {
+        "body": "Treat every generated answer as verified because it came from AI.",
+        "right": false,
+        "comment": "L4, slide 4 (PDF page 4): The explicit instruction is to check output."
+      },
+      {
+        "body": "Forward the entire answer without reading it whenever AI responds quickly.",
+        "right": false,
+        "comment": "L4, slide 4 (PDF page 4): This describes the prompt-forwarder behavior criticized on the slide."
+      }
+    ],
+    "source": "L4, slide 4 (PDF page 4)"
+  },
+  {
+    "name": "Which writing habits does the lecture recommend when using AI? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Do not produce a longer text than you would have produced without AI.",
+        "right": true,
+        "comment": "L4, slide 5 (PDF page 5): This is the emphasized recommendation."
+      },
+      {
+        "body": "Use generated length as evidence that the text is valuable.",
+        "right": false,
+        "comment": "L4, slide 5 (PDF page 5): The slide warns about repetitive text and AI;DR."
+      },
+      {
+        "body": "Always paste the longest possible AI response into the final document.",
+        "right": false,
+        "comment": "L4, slide 5 (PDF page 5): That contradicts the explicit length recommendation."
+      },
+      {
+        "body": "Ask for brief output, bullet points or key ideas, then request more when needed.",
+        "right": true,
+        "comment": "L4, slide 5 (PDF page 5): These are examples of the slide’s top prompts."
+      }
+    ],
+    "source": "L4, slide 5 (PDF page 5)"
+  },
+  {
+    "name": "How should the \"average developer\" framing on the AI limitations slide be interpreted? Select all correct statements.",
+    "answers": [
+      {
+        "body": "It proves that every AI answer is always worse than every human answer.",
+        "right": false,
+        "comment": "L4, slide 6 (PDF page 6): The slide provides a cautionary framing, not a universal quantified comparison."
+      },
+      {
+        "body": "It establishes a numerical accuracy guarantee for all coding tasks.",
+        "right": false,
+        "comment": "L4, slide 6 (PDF page 6): No numerical guarantee appears on the slide."
+      },
+      {
+        "body": "It motivates asking how the model was trained and what data it learned from.",
+        "right": true,
+        "comment": "L4, slide 6 (PDF page 6): Those questions lead the slide; average StackOverflow answers are its example."
+      },
+      {
+        "body": "It cautions against assuming that every answer has expert-level quality.",
+        "right": true,
+        "comment": "L4, slide 6 (PDF page 6): That is the purpose of the average-developer analogy in this presentation."
+      }
+    ],
+    "source": "L4, slide 6 (PDF page 6)"
+  },
+  {
+    "name": "Which learning approach does the lecture recommend when using AI for code? Select all correct statements.",
+    "answers": [
+      {
+        "body": "AI removes the need to acquire any knowledge yourself.",
+        "right": false,
+        "comment": "L4, slide 7 (PDF page 7): The slide contrasts some knowledge with zero knowledge and warns that AI can lead you astray."
+      },
+      {
+        "body": "Ask about the code and use AI as a teacher or senior, while checking answers and asking why.",
+        "right": true,
+        "comment": "L4, slide 7 (PDF page 7): The slide explicitly combines teaching with checking and asking why."
+      },
+      {
+        "body": "Learn from AI mistakes and use common sense.",
+        "right": true,
+        "comment": "L4, slide 7 (PDF page 7): Both are emphasized on the slide."
+      },
+      {
+        "body": "Accept every explanation because asking follow-up questions slows learning.",
+        "right": false,
+        "comment": "L4, slide 7 (PDF page 7): The lecture explicitly recommends asking why."
+      }
+    ],
+    "source": "L4, slide 7 (PDF page 7)"
+  },
+  {
+    "name": "Why was the ML.NET backlog-feature example risky according to the lecture? Select all correct statements.",
+    "answers": [
+      {
+        "body": "It was a low-value side feature requiring a large code change in a maintenance repository.",
+        "right": true,
+        "comment": "L4, slide 8 (PDF page 8): The slide lists all of these risk factors."
+      },
+      {
+        "body": "The usefulness of the change did not justify its maintenance risk.",
+        "right": true,
+        "comment": "L4, slide 8 (PDF page 8): The example is presented as high risk with low value."
+      },
+      {
+        "body": "The only concern was that AI refused to write enough code.",
+        "right": false,
+        "comment": "L4, slide 8 (PDF page 8): The problem was a large change for an unimportant feature."
+      },
+      {
+        "body": "Any backlog item is automatically worth implementing regardless of repository context.",
+        "right": false,
+        "comment": "L4, slide 8 (PDF page 8): This is precisely the assumption challenged by the example."
+      }
+    ],
+    "source": "L4, slide 8 (PDF page 8)"
+  },
+  {
+    "name": "What did the A2A example illustrate about a successful happy path? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The example also flags tests based on Task.Delay(200) as part of the concern.",
+        "right": true,
+        "comment": "L4, slide 8 (PDF page 8): That test pattern is explicitly listed in this cautionary example."
+      },
+      {
+        "body": "Passing the happy path establishes that shutdown and concurrency are correctly handled.",
+        "right": false,
+        "comment": "L4, slide 8 (PDF page 8): The slide says the rest was ignored despite the happy path."
+      },
+      {
+        "body": "The slide presents fixed delays as proof that all race conditions are solved.",
+        "right": false,
+        "comment": "L4, slide 8 (PDF page 8): The delay-based tests are part of the criticized example, not such a proof."
+      },
+      {
+        "body": "It can still omit locking, cancellation support and graceful shutdown.",
+        "right": true,
+        "comment": "L4, slide 8 (PDF page 8): These are the three missing concerns listed on the slide."
+      }
+    ],
+    "source": "L4, slide 8 (PDF page 8)"
+  },
+  {
+    "name": "What practical learning habit does the \"AI - The blessing\" slide encourage? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Memorize the exact credit values as a guarantee that they will never change.",
+        "right": false,
+        "comment": "L4, slide 9 (PDF page 9): The list is a snapshot of examples, not a permanent entitlement."
+      },
+      {
+        "body": "Avoid hands-on use until you can specify every detail in advance.",
+        "right": false,
+        "comment": "L4, slide 9 (PDF page 9): Experimentation is the point of the example."
+      },
+      {
+        "body": "Spend time experimenting to develop ideas and experience with AI.",
+        "right": true,
+        "comment": "L4, slide 9 (PDF page 9): The presenter describes several weeks of hands-on play and resulting ideas."
+      },
+      {
+        "body": "Explore available student access or credits to make experimentation easier.",
+        "right": true,
+        "comment": "L4, slide 9 (PDF page 9): The slide lists student offers and asks how to obtain access; it is a lecture-time example, not a current pricing guarantee."
+      }
+    ],
+    "source": "L4, slide 9 (PDF page 9)"
+  },
+  {
+    "name": "Which abilities does the lecture emphasize for an efficient AI coding workflow in interviews? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Never investigate generated code because reading any code is forbidden.",
+        "right": false,
+        "comment": "L4, slide 10 (PDF page 10): The slide says not to check every line, while still requiring deep-dive ability."
+      },
+      {
+        "body": "Be able to investigate code deeply and ask what it does, where, how and why.",
+        "right": true,
+        "comment": "L4, slide 10 (PDF page 10): The slide calls this prompting the code and being able to deep dive."
+      },
+      {
+        "body": "Build experience through use and avoid overspecifying every detail.",
+        "right": true,
+        "comment": "L4, slide 10 (PDF page 10): The slide recommends experience and warns against overspecification."
+      },
+      {
+        "body": "Rely exclusively on copying and pasting into web ChatGPT.",
+        "right": false,
+        "comment": "L4, slide 10 (PDF page 10): The slide explicitly advises against this workflow."
+      }
+    ],
+    "source": "L4, slide 10 (PDF page 10)"
+  },
+  {
+    "name": "What is a supported qualitative reading of the MAUI opened-PR chart? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The number of opened PRs drops sharply after the early-2026 peak.",
+        "right": true,
+        "comment": "L4, slide 11 (PDF page 11): The chart peaks around February 2026 and then declines toward September."
+      },
+      {
+        "body": "The chart measures opened PRs, so it should not be relabeled as merged PRs.",
+        "right": true,
+        "comment": "L4, slide 11 (PDF page 11): The chart heading is MAUI opened PRs; merges are discussed separately on later slides."
+      },
+      {
+        "body": "The chart by itself proves that AI caused every change in code quality.",
+        "right": false,
+        "comment": "L4, slide 11 (PDF page 11): It plots a PR count over time, not a controlled causal study of quality."
+      },
+      {
+        "body": "The chart shows opened PR counts increasing steadily throughout 2026.",
+        "right": false,
+        "comment": "L4, slide 11 (PDF page 11): The visible trend after the early-year peak is downward."
+      }
+    ],
+    "source": "L4, slide 11 (PDF page 11)"
+  },
+  {
+    "name": "Which development practices accompany the MAUI outcomes described in the lecture? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Humans review everything in this MAUI example.",
+        "right": true,
+        "comment": "L4, slides 12-13 (PDF pages 12-13): This is explicitly stated on slide 12."
+      },
+      {
+        "body": "Accept every AI-assisted PR without review because contribution counts have grown.",
+        "right": false,
+        "comment": "L4, slides 12-13 (PDF pages 12-13): The example retains human review and discusses closing PRs."
+      },
+      {
+        "body": "A higher number of merged PRs means meaningful tests are no longer needed.",
+        "right": false,
+        "comment": "L4, slides 12-13 (PDF pages 12-13): The lecture emphasizes useful tests alongside the reported outcomes."
+      },
+      {
+        "body": "Make the test demonstrate that the fix matters.",
+        "right": true,
+        "comment": "L4, slides 12-13 (PDF pages 12-13): Slide 12 explicitly calls for a test proving the value of the fix."
+      }
+    ],
+    "source": "L4, slides 12-13 (PDF pages 12-13)"
+  },
+  {
+    "name": "Which problems and remedies does the lecture discuss for AI-assisted MAUI contributions? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The lecture says newer models can help even when the harness is already established.",
+        "right": true,
+        "comment": "L4, slide 14 (PDF page 14): The slide identifies new models as helpful and says the harness is done."
+      },
+      {
+        "body": "Every generated PR was useful solely because it included code.",
+        "right": false,
+        "comment": "L4, slide 14 (PDF page 14): The slide explicitly describes a not-useful rate and reasons."
+      },
+      {
+        "body": "Issues could not be reproduced or tests were useless.",
+        "right": true,
+        "comment": "L4, slide 14 (PDF page 14): Both are listed under the not-useful category."
+      },
+      {
+        "body": "An outdated SDK.",
+        "right": true,
+        "comment": "L4, slide 14 (PDF page 14): This is another listed problem."
+      }
+    ],
+    "source": "L4, slide 14 (PDF page 14)"
+  },
+  {
+    "name": "What does the F# story show about the human role in AI-assisted development? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The example proves that no experience or coordination is needed to manage agents.",
+        "right": false,
+        "comment": "L4, slides 15-16 (PDF pages 15-16): The slide notes management experience and calibrated trust."
+      },
+      {
+        "body": "The presenter distinguishes routine non-AI bots from non-routine AI-assisted contributions.",
+        "right": true,
+        "comment": "L4, slides 15-16 (PDF pages 15-16): Slide 15 separates those categories before discussing assistance."
+      },
+      {
+        "body": "A person can coordinate agents and adjust trust rather than directly type every change.",
+        "right": true,
+        "comment": "L4, slides 15-16 (PDF pages 15-16): Slide 16 describes a manager of agents and different levels of trust."
+      },
+      {
+        "body": "Every kind of automation listed on slide 15 is classified as AI.",
+        "right": false,
+        "comment": "L4, slides 15-16 (PDF pages 15-16): Routine non-AI bots are a separate category."
+      }
+    ],
+    "source": "L4, slides 15-16 (PDF pages 15-16)"
+  },
+  {
+    "name": "Which interpretation of the two-series F# chart is supported? Select all correct statements.",
+    "answers": [
+      {
+        "body": "It separates all PRs per month from Tomas Grosup’s PRs per month.",
+        "right": true,
+        "comment": "L4, slide 17 (PDF page 17): The legend names those two series."
+      },
+      {
+        "body": "Both series rise from the 2025 point to the 2026 point.",
+        "right": true,
+        "comment": "L4, slide 17 (PDF page 17): Both plotted lines increase over that interval."
+      },
+      {
+        "body": "The second series is the number of failing tests per month.",
+        "right": false,
+        "comment": "L4, slide 17 (PDF page 17): It is labeled Tomas Grosup’s PRs per month."
+      },
+      {
+        "body": "The chart proves that every 2026 PR was generated by AI with no human involvement.",
+        "right": false,
+        "comment": "L4, slide 17 (PDF page 17): The series count PRs; authorship and assistance categories are discussed separately."
+      }
+    ],
+    "source": "L4, slide 17 (PDF page 17)"
+  },
+  {
+    "name": "What tradeoff is illustrated by the GitHub Copilot app example? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The presenter acknowledges breakages and missing first-class rollback, and warns that Azure cannot be run this way.",
+        "right": true,
+        "comment": "L4, slide 19 (PDF page 19): These limits are explicitly part of the example."
+      },
+      {
+        "body": "The same supervision level is recommended for every product regardless of risk.",
+        "right": false,
+        "comment": "L4, slide 19 (PDF page 19): The Azure contrast shows that the example is context-dependent."
+      },
+      {
+        "body": "Auto-merge guarantees that rollback will never be needed.",
+        "right": false,
+        "comment": "L4, slide 19 (PDF page 19): The slide explicitly mentions breakages and missing rollback support."
+      },
+      {
+        "body": "Targeted supervision and some auto-merging enable rapid releases.",
+        "right": true,
+        "comment": "L4, slide 19 (PDF page 19): The slide mentions targeted supervision, auto-merge in selected areas and frequent releases."
+      }
+    ],
+    "source": "L4, slide 19 (PDF page 19)"
+  },
+  {
+    "name": "Which uses beyond software development are actually given in the lecture? Select all correct statements.",
+    "answers": [
+      {
+        "body": "The security-status tracking example explicitly permits guessing instead of checking.",
+        "right": false,
+        "comment": "L4, slides 20-21 (PDF pages 20-21): Slide 20 specifies no guessing for security status tracking."
+      },
+      {
+        "body": "The slides provide a universal guarantee that AI advice needs no expertise or checking in these domains.",
+        "right": false,
+        "comment": "L4, slides 20-21 (PDF pages 20-21): They list use cases and varying knowledge levels, not a universal safety or correctness guarantee."
+      },
+      {
+        "body": "Researching purchases, configuring household technology and optimizing household spending.",
+        "right": true,
+        "comment": "L4, slides 20-21 (PDF pages 20-21): Examples include shopping, UniFi/HomeAssistant and energy/phone/insurance costs."
+      },
+      {
+        "body": "Tracking information, organizing notes or files, and supporting practical administrative work.",
+        "right": true,
+        "comment": "L4, slides 20-21 (PDF pages 20-21): Examples include status tracking, spending, interview notes, picture deduplication and tax preparation."
+      }
+    ],
+    "source": "L4, slides 20-21 (PDF pages 20-21)"
+  },
+  {
+    "name": "Which information-management habits does the presenter advocate? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Store binaries as the GitHub issue title and avoid file storage.",
+        "right": false,
+        "comment": "L4, slide 22 (PDF page 22): The slide places binaries in OneDrive."
+      },
+      {
+        "body": "Use Markdown files broadly for written information.",
+        "right": true,
+        "comment": "L4, slide 22 (PDF page 22): The MD files column strongly advocates this format."
+      },
+      {
+        "body": "Use GitHub for history and OneDrive for binaries in the workflow shown.",
+        "right": true,
+        "comment": "L4, slide 22 (PDF page 22): These appear in the history and binaries sections."
+      },
+      {
+        "body": "Discard history because previous versions are never useful.",
+        "right": false,
+        "comment": "L4, slide 22 (PDF page 22): The slide explicitly praises history."
+      }
+    ],
+    "source": "L4, slide 22 (PDF page 22)"
+  },
+  {
+    "name": "How does the practical-tips slide recommend handling recurring AI mistakes? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Keep settings simple and adjust them as needed.",
+        "right": true,
+        "comment": "L4, slide 23 (PDF page 23): The slide combines ongoing adjustment with KISS."
+      },
+      {
+        "body": "Ask AI to review the unwanted behavior and find where instructions should go to avoid repeating it.",
+        "right": true,
+        "comment": "L4, slide 23 (PDF page 23): Both suggested prompts aim to prevent future mistakes."
+      },
+      {
+        "body": "Assume settings across machines can never differ.",
+        "right": false,
+        "comment": "L4, slide 23 (PDF page 23): The slide says keeping them across machines is tricky."
+      },
+      {
+        "body": "Always solve recurring mistakes by expanding instructions without considering simplicity.",
+        "right": false,
+        "comment": "L4, slide 23 (PDF page 23): KISS is an explicit recommendation."
+      }
+    ],
+    "source": "L4, slide 23 (PDF page 23)"
+  },
+  {
+    "name": "What is the lecture’s main condition for using AI as a rubber duck? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Raw notes can be used to develop a title and abstract.",
+        "right": true,
+        "comment": "L4, slide 24 (PDF page 24): This is the concrete example on the slide."
+      },
+      {
+        "body": "Old accounting rules become correct merely because AI repeats them.",
+        "right": false,
+        "comment": "L4, slide 24 (PDF page 24): The accountant example is a warning about failing to think and check."
+      },
+      {
+        "body": "AI should replace the user’s own reasoning before any idea generation.",
+        "right": false,
+        "comment": "L4, slide 24 (PDF page 24): The slide makes prior human thought a condition."
+      },
+      {
+        "body": "Think first, then use AI to generate or refine ideas.",
+        "right": true,
+        "comment": "L4, slide 24 (PDF page 24): The slide explicitly says THINK first."
+      }
+    ],
+    "source": "L4, slide 24 (PDF page 24)"
+  },
+  {
+    "name": "An AI produces a large change for a low-value feature. The happy path works, but shutdown and cancellation were not considered. Use the lecture’s examples to propose a review and testing response.",
+    "answer": "First assess whether the feature’s value justifies the change and maintenance risk, as in the ML.NET example. Investigate the code and ask what it does, where, how and why. Review concerns beyond the happy path, including locking, cancellation and graceful shutdown from the A2A example. Do not treat delay-based tests or merely having tests as evidence of a useful fix: the MAUI story calls for tests that show the fix matters, reproducible issues and a suitable SDK. Keep human review and learn from discovered AI mistakes.",
+    "keyPoints": [
+      "Assess value against maintenance risk",
+      "Investigate and understand generated code",
+      "Check locking, cancellation and graceful shutdown",
+      "Require useful tests and a reproducible issue",
+      "Retain human review and learn from mistakes"
+    ],
+    "source": "L4, slides 7-8,10,12-14 (PDF pages 7-8,10,12-14)"
+  },
+  {
+    "name": "Explain how the lecture combines agent coordination, context-dependent supervision and personal responsibility. Use the F# and Copilot app stories and the rubber-duck advice.",
+    "answer": "The F# story presents a human coordinating agents with different levels of trust. The Copilot app story uses targeted supervision and some auto-merge for rapid iteration, but accepts breakages and highlights missing rollback; the presenter warns that Azure cannot use the same approach. Supervision therefore depends on the project context described, rather than being eliminated by AI. Keep settings simple, turn recurring mistakes into useful instructions, and think first when using AI as a rubber duck. AI can generate ideas, while the user remains responsible for understanding and checking them.",
+    "keyPoints": [
+      "Human coordination and calibrated trust",
+      "Targeted supervision in the Copilot app example",
+      "Breakage/rollback tradeoff and Azure contrast",
+      "Simple settings and instructions after recurring mistakes",
+      "Think first; retain responsibility"
+    ],
+    "source": "L4, slides 16,19,23-24 (PDF pages 16,19,23-24)"
+  }
+]

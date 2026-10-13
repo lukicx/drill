@@ -178,5 +178,41 @@
     "multipleChoiceCount": 28,
     "essayCount": 3,
     "group": "current"
+  },
+  {
+    "name": "PV179 - L1 Web API a dependency injection",
+    "id": "PV179_L01",
+    "dataset": "datasets/questions_PV179_L01.json",
+    "questionCount": 14,
+    "multipleChoiceCount": 12,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV179 - L2 Návrh dátového modelu a EF Core",
+    "id": "PV179_L02",
+    "dataset": "datasets/questions_PV179_L02.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV179 - L3 Dotazovanie, modifikácia a Micro ORMs",
+    "id": "PV179_L03",
+    "dataset": "datasets/questions_PV179_L03.json",
+    "questionCount": 23,
+    "multipleChoiceCount": 21,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV179 - L4 Responsible AI and vibe coding",
+    "id": "PV179_L04",
+    "dataset": "datasets/questions_PV179_L04.json",
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
+    "group": "current"
   }
 ]

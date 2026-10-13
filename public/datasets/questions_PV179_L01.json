@@ -1,0 +1,337 @@
+[
+  {
+    "name": "Ako je rozdelená zjednodušená webová aplikácia na diagrame? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Controller patrí do prezentačnej vrstvy; služby do vrstvy business logiky.",
+        "right": true,
+        "comment": "L1, slide 11 (PDF page 11): Diagram oddeľuje controllery od služieb."
+      },
+      {
+        "body": "DbContext a entity patria do dátovej vrstvy, ktorá komunikuje s databázou.",
+        "right": true,
+        "comment": "L1, slide 11 (PDF page 11): DbContext je spojený s databázou cez SQL."
+      },
+      {
+        "body": "Web API musí používateľovi vždy vrátiť HTML View.",
+        "right": false,
+        "comment": "L1, slide 11 (PDF page 11): Diagram odlišuje HTML vetvu s View od Web API vetvy s HTTP statusom a JSON/XML."
+      },
+      {
+        "body": "Business služby sú v diagrame súčasťou databázového servera.",
+        "right": false,
+        "comment": "L1, slide 11 (PDF page 11): Služby sú samostatná aplikačná vrstva nad dátovou vrstvou."
+      }
+    ],
+    "source": "L1, slide 11 (PDF page 11)"
+  },
+  {
+    "name": "Čím prednáška charakterizuje Web API? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Jednoduchou konfiguráciou a REST architektúrou.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Obe vlastnosti sú uvedené na slide."
+      },
+      {
+        "body": "Povinným vykresľovaním používateľského rozhrania na serveri.",
+        "right": false,
+        "comment": "L1, slide 12 (PDF page 12): Web API je tu HTTP služba; vykresľovanie View patrí do druhej vetvy diagramu na slide 11."
+      },
+      {
+        "body": "Komunikáciou bez URI a bez HTTP metód.",
+        "right": false,
+        "comment": "L1, slide 12 (PDF page 12): Úrovne REST na slide sú definované pomocou URI a HTTP metód."
+      },
+      {
+        "body": "Jednoúčelovými HTTP službami.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Slide uvádza jednoúčelové HTTP služby."
+      }
+    ],
+    "source": "L1, slide 12 (PDF page 12)"
+  },
+  {
+    "name": "Ktoré priradenia úrovní REST zodpovedajú modelu uvedenému na slide? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Level 3 pridáva podľa tejto prednášky content negotiation a HATEOAS.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Ide o formuláciu úrovne 3 na tomto slide."
+      },
+      {
+        "body": "Level 1 už vyžaduje viac HTTP metód aj HATEOAS.",
+        "right": false,
+        "comment": "L1, slide 12 (PDF page 12): Viac metód sa uvádza pri Level 2; HATEOAS až pri Level 3."
+      },
+      {
+        "body": "Level 0: jedna HTTP metóda a jedno URI; Level 1: jedna HTTP metóda a viac URI.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Takto slide odlišuje Level 0 a Level 1."
+      },
+      {
+        "body": "Level 2: viac HTTP metód a viac URI.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Level 2 rozširuje použitie HTTP metód."
+      }
+    ],
+    "source": "L1, slide 12 (PDF page 12)"
+  },
+  {
+    "name": "Ktoré zložky HTTP requestu uvádza prednáška? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Response body vytvorené serverom.",
+        "right": false,
+        "comment": "L1, slide 13 (PDF page 13): Response body patrí do odpovede servera, nie do requestu."
+      },
+      {
+        "body": "Request method a request URI.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): Prvé dve zložky v zozname."
+      },
+      {
+        "body": "Request body, ak požiadavka prenáša telo.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): Slide uvádza request body; zoznam neznamená, že každá požiadavka musí mať neprázdne telo."
+      },
+      {
+        "body": "Status code opisujúci výsledok spracovania požiadavky.",
+        "right": false,
+        "comment": "L1, slide 13 (PDF page 13): Status code patrí do response na slide 14."
+      }
+    ],
+    "source": "L1, slide 13 (PDF page 13)"
+  },
+  {
+    "name": "Ktoré priradenia HTTP metód k operáciám uvádza prednáška? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "GET - čítanie; POST - vytvorenie.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): GET = read, POST = create."
+      },
+      {
+        "body": "PUT - nahradenie; PATCH - aktualizácia.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): Slide rozlišuje replace a update."
+      },
+      {
+        "body": "DELETE - vymazanie.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): DELETE = delete."
+      },
+      {
+        "body": "PUT - čítanie; GET - vymazanie.",
+        "right": false,
+        "comment": "L1, slide 13 (PDF page 13): Tieto operácie sú na slide priradené iným metódam."
+      }
+    ],
+    "source": "L1, slide 13 (PDF page 13)"
+  },
+  {
+    "name": "Ktoré tvrdenia o HTTP response a uvedených status kódoch sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "400 znamená Bad Request, 403 Forbidden a 404 Not Found.",
+        "right": true,
+        "comment": "L1, slide 14 (PDF page 14): Takto sú kódy pomenované v zozname príkladov."
+      },
+      {
+        "body": "404 znamená úspešné vytvorenie nového zdroja.",
+        "right": false,
+        "comment": "L1, slide 14 (PDF page 14): Úspešné vytvorenie je 201 Created; 404 je Not Found."
+      },
+      {
+        "body": "403 znamená, že request bol syntakticky chybný, teda Bad Request.",
+        "right": false,
+        "comment": "L1, slide 14 (PDF page 14): 403 je Forbidden; Bad Request je 400."
+      },
+      {
+        "body": "Response zahŕňa status code a response body; 200 znamená OK a 201 Created.",
+        "right": true,
+        "comment": "L1, slide 14 (PDF page 14): Slide uvádza tieto zložky aj oba úspešné kódy."
+      }
+    ],
+    "source": "L1, slide 14 (PDF page 14)"
+  },
+  {
+    "name": "Form na diagrame pôvodne závisí od ClassicButton, UglyButton a CoolButton. Ktorá zmena ilustruje Dependency Inversion? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "IButton má závisieť od každého konkrétneho tlačidla, aby poznal všetky detaily.",
+        "right": false,
+        "comment": "L1, slides 15-17 (PDF pages 15-17): Slide 15 hovorí, že abstrakcie nemajú závisieť od detailov."
+      },
+      {
+        "body": "Form má sám vytvárať všetky konkrétne tlačidlá a riadiť ich životnosť.",
+        "right": false,
+        "comment": "L1, slides 15-17 (PDF pages 15-17): Slide 16 vysvetľuje, že závislosti má dostať zvonku."
+      },
+      {
+        "body": "Form závisí od IButton a konkrétne tlačidlá implementujú túto abstrakciu.",
+        "right": true,
+        "comment": "L1, slides 15-17 (PDF pages 15-17): Druhý diagram presúva závislosti na IButton."
+      },
+      {
+        "body": "Vyššia aj nižšia úroveň závisia od abstrakcie; detaily sa prispôsobia abstrakcii.",
+        "right": true,
+        "comment": "L1, slides 15-17 (PDF pages 15-17): To je princíp uvedený na slide 15 a zobrazený na slide 17."
+      }
+    ],
+    "source": "L1, slides 15-17 (PDF pages 15-17)"
+  },
+  {
+    "name": "Akú úlohu má v prednáške Inversion of Control vo vzťahu k Dependency Inversion? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Vyžaduje, aby vyšší modul vždy vytváral nižší modul cez new.",
+        "right": false,
+        "comment": "L1, slide 18 (PDF page 18): IoC rieši invertované riadenie vrátane tvorby objektov."
+      },
+      {
+        "body": "Je to prístup, ktorým sa dá implementovať Dependency Inversion.",
+        "right": true,
+        "comment": "L1, slide 18 (PDF page 18): Slide uvádza IoC ako použiteľný vzor pre implementáciu DIP."
+      },
+      {
+        "body": "Rieši, ako dostať inštanciu nižšieho modulu do vyššieho modulu.",
+        "right": true,
+        "comment": "L1, slide 18 (PDF page 18): Slide zdôrazňuje otázku AKO odovzdať inštanciu."
+      },
+      {
+        "body": "Je to výlučne názov pre HTTP content negotiation.",
+        "right": false,
+        "comment": "L1, slide 18 (PDF page 18): IoC sa tu týka odovzdávania závislostí medzi modulmi."
+      }
+    ],
+    "source": "L1, slide 18 (PDF page 18)"
+  },
+  {
+    "name": "Ktoré možnosti Creation Inversion sú uvedené v prednáške? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Factory a Service Locator.",
+        "right": true,
+        "comment": "L1, slide 19 (PDF page 19): Obe sú uvedené ako príklady Creation Inversion."
+      },
+      {
+        "body": "Dependency Injection.",
+        "right": true,
+        "comment": "L1, slide 19 (PDF page 19): DI je tretí uvedený príklad."
+      },
+      {
+        "body": "GET a PATCH.",
+        "right": false,
+        "comment": "L1, slide 19 (PDF page 19): To sú HTTP metódy, nie možnosti Creation Inversion na slide."
+      },
+      {
+        "body": "Content negotiation a HATEOAS.",
+        "right": false,
+        "comment": "L1, slide 19 (PDF page 19): Tieto pojmy patria k úrovniam REST na slide 12."
+      }
+    ],
+    "source": "L1, slide 19 (PDF page 19)"
+  },
+  {
+    "name": "Kto vytvára a viaže závislosti vo vysvetlení Dependency Injection? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Injector na diagrame prepája Form s konkrétnou implementáciou IButton.",
+        "right": true,
+        "comment": "L1, slide 20 (PDF page 20): Šípky Injectora smerujú k Form aj k implementáciám."
+      },
+      {
+        "body": "Form musí poznať konkrétny typ tlačidla a sám ho vytvoriť.",
+        "right": false,
+        "comment": "L1, slide 20 (PDF page 20): DI odovzdáva konkrétny objekt zvonku; Form môže pracovať cez IButton."
+      },
+      {
+        "body": "Väzba závislostí sa vykonáva zmenou HTTP status kódu.",
+        "right": false,
+        "comment": "L1, slide 20 (PDF page 20): Diagram opisuje väzby objektov, nie HTTP odpoveď."
+      },
+      {
+        "body": "Závislosti sa vytvoria a pripoja k modulu zvonku.",
+        "right": true,
+        "comment": "L1, slide 20 (PDF page 20): Presne toto opisuje text na slide."
+      }
+    ],
+    "source": "L1, slide 20 (PDF page 20)"
+  },
+  {
+    "name": "Čím sa líšia dve ukážky odovzdania IButton do Form? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "V oboch ukážkach Form vytvára UglyButton vo svojom vnútri.",
+        "right": false,
+        "comment": "L1, slide 21 (PDF page 21): UglyButton sa vytvára mimo Form a odovzdáva sa mu."
+      },
+      {
+        "body": "Setter injection v ukážke vyžaduje parameter konštruktora IButton.",
+        "right": false,
+        "comment": "L1, slide 21 (PDF page 21): Parameter konštruktora je zobrazený iba v prvej ukážke."
+      },
+      {
+        "body": "Constructor injection prijíma IButton ako parameter konštruktora Form.",
+        "right": true,
+        "comment": "L1, slide 21 (PDF page 21): Prvá ukážka má public Form(IButton button)."
+      },
+      {
+        "body": "Setter injection nastavuje verejnú property Button, v ukážke cez inicializátor objektu.",
+        "right": true,
+        "comment": "L1, slide 21 (PDF page 21): Druhá ukážka používa new Form { Button = button } a get/set property."
+      }
+    ],
+    "source": "L1, slide 21 (PDF page 21)"
+  },
+  {
+    "name": "Čo poskytuje Dependency Injection Container podľa prednášky? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Nahradenie databázy úložiskom HTTP status kódov.",
+        "right": false,
+        "comment": "L1, slide 22 (PDF page 22): Úlohou je realizácia DI, nie správa dát alebo HTTP kódov."
+      },
+      {
+        "body": "Konfiguráciu závislostí pre daný modul.",
+        "right": true,
+        "comment": "L1, slide 22 (PDF page 22): Konfigurácia je jednou z uvedených úloh kontajnera."
+      },
+      {
+        "body": "Rekurzívne riešenie závislostí podľa konfigurácie.",
+        "right": true,
+        "comment": "L1, slide 22 (PDF page 22): Slide výslovne uvádza rekurzívne riešenie."
+      },
+      {
+        "body": "Automatické určenie významu business pravidiel bez konfigurácie.",
+        "right": false,
+        "comment": "L1, slide 22 (PDF page 22): Kontajner rieši závislosti podľa konfigurácie, nie business požiadavky."
+      }
+    ],
+    "source": "L1, slide 22 (PDF page 22)"
+  },
+  {
+    "name": "Opíš cestu požiadavky na vytvorenie zdroja cez Web API v zjednodušenej architektúre prednášky. Ktorá metóda a úspešný status kód sa hodia a ako sa API odpoveď líši od vetvy s View?",
+    "answer": "Klient pošle POST na URI zdroja s dátami v request body. Web API controller patrí do prezentačnej vrstvy a využije službu vo vrstve business logiky. Tá využíva dátovú vrstvu s DbContextom a entitami, ktorá komunikuje s databázou cez SQL. Pri úspešnom vytvorení sa hodí 201 Created. Diagram Web API zobrazuje HTTP status a JSON/XML, zatiaľ čo druhá prezentačná vetva používa Controller a View s HTML.",
+    "keyPoints": [
+      "POST, URI a dáta v request body",
+      "Controller → business služba → dátová vrstva → databáza",
+      "201 Created",
+      "Web API: status + JSON/XML; vetva s View: HTML"
+    ],
+    "source": "L1, slides 11-14 (PDF pages 11-14)"
+  },
+  {
+    "name": "Navrhni úpravu Form, ktorý si sám vytvára konkrétny UglyButton. Ako spolu súvisia abstrakcia IButton, Dependency Inversion, Dependency Injection a kontajner?",
+    "answer": "Form má používať IButton namiesto závislosti na UglyButton. Konkrétne tlačidlá sa prispôsobia abstrakcii IButton, čo ilustruje Dependency Inversion. Konkrétny objekt sa vytvorí mimo Form a odovzdá sa mu cez konštruktor alebo setter: to je Dependency Injection, jedna z možností Creation Inversion v rámci IoC. DI kontajner môže nakonfigurovať väzbu a rekurzívne vyriešiť potrebné závislosti.",
+    "keyPoints": [
+      "Form závisí od IButton",
+      "Detaily implementujú abstrakciu",
+      "Konkrétny objekt sa odovzdáva zvonku",
+      "Konštruktor alebo setter",
+      "Kontajner rieši nakonfigurované závislosti rekurzívne"
+    ],
+    "source": "L1, slides 15-22 (PDF pages 15-22)"
+  }
+]
