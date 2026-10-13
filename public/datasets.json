@@ -216,6 +216,15 @@
     "group": "current"
   },
   {
+    "name": "PV179 - L5 Úvod do vrstvy business logiky",
+    "id": "PV179_L05",
+    "dataset": "datasets/questions_PV179_L05.json",
+    "questionCount": 14,
+    "multipleChoiceCount": 12,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PA191 - L1 Networking foundations",
     "id": "PA191_L01",
     "dataset": "datasets/questions_PA191_L01.json",
@@ -249,6 +258,15 @@
     "questionCount": 31,
     "multipleChoiceCount": 0,
     "essayCount": 31,
+    "group": "current"
+  },
+  {
+    "name": "PA191 - L5 Router functions and network softwarization",
+    "id": "PA191_L05",
+    "dataset": "datasets/questions_PA191_L05.json",
+    "questionCount": 29,
+    "multipleChoiceCount": 0,
+    "essayCount": 29,
     "group": "current"
   },
   {
