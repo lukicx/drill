@@ -82,7 +82,7 @@
     ]
   },
   {
-    "name": "Which five functions form the NIST CSF Framework Core shown in the lecture (version 1.1)?",
+    "name": "Which five functions form the NIST CSF Framework Core (version 1.1) according to the lecture?",
     "answers": [
       { "body": "Identify, Protect, Detect, Respond, Recover", "right": true, "comment": "Slide 26 (5 functions, 23 categories, 108 subcategories – slide 27)" },
       { "body": "Plan, Do, Check, Act, Improve", "right": false },

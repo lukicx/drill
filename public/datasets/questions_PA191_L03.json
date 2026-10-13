@@ -42,7 +42,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 23-25"
   },
   {
-    "name": "Interpret the NS and NA message-format diagrams. What identifies the neighbor being discussed, where is additional link-layer information carried, and what do the NA flags mean?",
+    "name": "Describe the format of the Neighbor Solicitation (NS) and Neighbor Advertisement (NA) messages. What identifies the neighbor being discussed, where is additional link-layer information carried, and what do the NA flags mean?",
     "answer": "Both messages have an ICMPv6 header with type, code and checksum, a target address and ICMPv6 options. Their different type values distinguish solicitation from advertisement; options carry additional information such as link-layer addresses. The NS diagram includes a reserved field, while the NA diagram also exposes flags. R indicates that the sender is a router, S that the advertisement is solicited and O that new information should override cached information. An NA can be unsolicited; when a node's link-layer address changes, it can notify all nodes at FF02::1.",
     "keyPoints": ["Target address identifies the IPv6 neighbor being discussed", "ICMPv6 options carry additional information", "NS and NA are different ICMPv6 message types", "R = Router, S = Solicited, O = Override", "Unsolicited NA can announce a change to FF02::1"],
     "source": "PA191 L3, lecture03.pdf, slides 24, 26-27"
@@ -54,7 +54,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 28, 33, 36"
   },
   {
-    "name": "Explain Neighbor Unreachability Detection and interpret the neighbor-cache state diagram, including how a stale entry becomes actively probed or removed.",
+    "name": "Explain Neighbor Unreachability Detection and the states of a neighbor-cache entry with the transitions between them, including how a stale entry becomes actively probed or removed.",
     "answer": "NUD tracks neighbors with which a node is communicating. A higher-layer protocol such as TCP may confirm that communication succeeds; otherwise ND performs its own checks. INCOMPLETE means address resolution is awaiting an NA or timeout. A solicited NA makes the entry REACHABLE; after its reachability timer expires it becomes STALE. Sending to a stale entry enters DELAY, giving the upper layer time to confirm reachability; if that time expires, PROBE actively sends unicast NS messages. Positive confirmation returns the entry to REACHABLE. If the solicitation retry limit is exceeded, the entry is removed; failed initial multicast resolution also removes an incomplete entry.",
     "keyPoints": ["Upper-layer progress or ND probing can establish reachability", "INCOMPLETE is pending address resolution", "REACHABLE becomes STALE as confirmation ages", "Sending from STALE leads to DELAY and then PROBE if no confirmation arrives", "Confirmation restores REACHABLE; retry exhaustion removes the entry"],
     "source": "PA191 L3, lecture03.pdf, slides 29-30"

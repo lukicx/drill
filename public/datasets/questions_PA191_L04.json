@@ -18,7 +18,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 8-9"
   },
   {
-    "name": "Why is the Internet divided into autonomous systems, and why are interior and exterior routing separated? Interpret the IGP/EGP diagram in these terms.",
+    "name": "Why is the Internet divided into autonomous systems, and why are interior and exterior routing separated? Where do IGPs and EGPs run relative to the AS boundaries?",
     "answer": "An AS is an administrative domain whose networks and routers are managed by one organization. This division reduces routing overhead and simplifies management; the slides list stub, multihomed and transit connectivity categories. Inside an AS, an IGP such as RIP, OSPF, EIGRP or IS-IS is controlled by its administrator and primarily seeks performance. Between ASs, an exterior protocol such as BGP emphasizes policy and scalability. In the diagram, IGP links remain inside AS clouds and EGP links connect clouds. Both levels must cooperate for end-to-end reachability.",
     "keyPoints": ["AS is an administrative routing domain", "Division reduces overhead and simplifies management", "Stub, multihomed and transit are listed categories", "IGP operates inside an AS with performance emphasis", "Exterior routing connects ASs with policy/scalability emphasis", "Both routing levels cooperate"],
     "source": "PA191 L4, lecture04.pdf, slides 11-13"
@@ -30,7 +30,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 15, 17-18"
   },
   {
-    "name": "Compare the RIPv1 and RIPv2 message-format diagrams. Explain the shared fields, the three added route fields and the change in update delivery.",
+    "name": "Compare the RIPv1 and RIPv2 message formats. Explain the shared fields, the three added route fields and the change in update delivery.",
     "answer": "Both include command (request/response), version and route entries with address-family identifier, destination address and metric. RIPv2 replaces reserved space with route tag, subnet mask and next hop. The tag distinguishes internal/external routes; the mask enables subnet-aware instead of classful routing; next hop can name a router other than the advertiser. RIPv1 broadcasts updates, while RIPv2 uses multicast 224.0.0.9. RIPv2 adds VLSM-related information without abandoning the basic RIP route-entry structure.",
     "keyPoints": ["Shared command/version and destination/metric fields", "Route tag distinguishes internal/external routes", "Subnet mask enables subnet routing and VLSM", "Next hop can differ from advertiser", "Broadcast becomes multicast 224.0.0.9"],
     "source": "PA191 L4, lecture04.pdf, slides 16-20"
@@ -48,7 +48,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 24-26"
   },
   {
-    "name": "Use the DV-protocol comparison table to explain EIGRP's improvements over IGRP and its differences from the RIP family.",
+    "name": "Compare the distance-vector protocols RIPv1, RIPv2, RIPng, IGRP and EIGRP: explain EIGRP's improvements over IGRP and its differences from the RIP family (metric, algorithm, convergence, VLSM).",
     "answer": "EIGRP adds loop-free routing, reliable delivery and VLSM to IGRP. Both use composite metrics rather than RIP's hop count. The table associates EIGRP with diffusing computation and faster loop-free convergence, while RIP variants use Bellman-Ford and show slower convergence. RIPv1 lacks VLSM, RIPv2 supports it and RIPng is the IPv6 form. The table presents IPv4 EIGRP, while the adjacent text notes a later IPv6 version.",
     "keyPoints": ["EIGRP adds reliable delivery, loop-free routing and VLSM", "Composite rather than RIP hop-count metric", "Diffusing computation versus RIP Bellman-Ford", "RIPv1 lacks VLSM; RIPv2 supports it; RIPng is IPv6", "Shown IPv4 table does not exclude the noted IPv6 EIGRP version"],
     "source": "PA191 L4, lecture04.pdf, slides 27-28"
@@ -60,7 +60,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 30-31"
   },
   {
-    "name": "Interpret the OSPF common-header diagram and list the five message types for neighbor and link-state database communication.",
+    "name": "Describe the fields of the OSPF common header and list the five message types for neighbor and link-state database communication.",
     "answer": "The shown header contains version, packet type/length, router ID, area ID, checksum and authentication fields. Type distinguishes messages; router and area identifiers associate the packet with sender and routing area. Listed types are Hello, Database Description, Link State Request, Link State Update and Link State Acknowledgement. Their names distinguish neighbor/database-description communication from requests, updates and acknowledgements of link-state information. The authentication fields belong to the illustrated header form consistent with the OSPFv2 discussion, not every OSPF-version header.",
     "keyPoints": ["Version/type/length, router ID and area ID", "Checksum and authentication shown", "Hello and Database Description types", "Link State Request, Update and Acknowledgement types", "Header form should not be generalized to all versions"],
     "source": "PA191 L4, lecture04.pdf, slides 31-32"
@@ -84,7 +84,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 39"
   },
   {
-    "name": "What problem does internal BGP solve? Explain the classic full-mesh arrangement shown and the rule for forwarding eBGP-learned versus iBGP-learned routes.",
+    "name": "What problem does internal BGP solve? Explain the classic full-mesh arrangement of iBGP peers and the rule for forwarding eBGP-learned versus iBGP-learned routes.",
     "answer": "Internal routers need externally learned destinations available at border routers. iBGP distributes this reachability among BGP speakers inside the AS. The classic arrangement shown fully meshes those peers. A speaker announces eBGP-learned routes to iBGP peers but does not announce a route learned via one iBGP peer onward to another. Direct full-mesh peer relationships provide distribution despite that rule. This is the slide's classic arrangement, not a claim that every possible iBGP deployment requires this topology.",
     "keyPoints": ["Distributes external reachability inside the AS", "Slide shows classic full mesh", "eBGP-learned routes can go to iBGP peers", "iBGP-learned routes are not relayed to other iBGP peers", "Direct peer relationships compensate for that restriction"],
     "source": "PA191 L4, lecture04.pdf, slides 40"
@@ -102,7 +102,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 44-45, 51-52"
   },
   {
-    "name": "Interpret the TE example: all a,b,c,d first equal 1; then b=7; finally a=c=2,b=7,d=10. What happens to U-X, V-Y and W-Z, and why can the final setting still cause undesirable routes?",
+    "name": "Practical (traffic engineering): hosts U, V, W, X, Y, Z attach to routers A, F, H, E, G, K respectively. Links: A-B, B-C, C-D, D-E, H-F, F-J, J-K and every host link have cost 1; the adjustable costs are a on A-F, b on F-G, c on G-E and d on G-K. The goal is to spread the flows U-X, V-Y and W-Z. First a = b = c = d = 1; then only b = 7; finally a = c = 2, b = 7, d = 10. Which paths do U-X, V-Y and W-Z take in each setting, and why can the final setting still cause undesirable routes (consider W-X and U-Y)?",
     "answer": "Equal weights concentrate traffic on F-G. Raising b alone sends U-X through B,C,D and V-Y plus W-Z through J, shifting congestion to J. Final weights send U-X through B,C,D at cost 6, V-Y through F,G at cost 9 and W-Z through J at cost 5. But W-X chooses WHFABCDEX at cost 9 instead of WHFGEX at cost 12 even though the latter has fewer links. Raising a to fix that can make U-Y prefer UABCDEGY over UAFGY. One set of weights affects many pairs, so fixing selected flows may harm others.",
     "keyPoints": ["Equal weights concentrate flows on F-G", "Raising b alone shifts congestion toward J", "Final weights separate the three intended flows", "Metric-minimum path need not have fewest links", "Changing a to help one pair may hurt another", "Weights must account for interacting demands"],
     "source": "PA191 L4, lecture04.pdf, slides 46-48"
@@ -132,7 +132,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 60-61"
   },
   {
-    "name": "Why distribute bindings before using an LSP? Compare the two paired approaches shown: downstream-on-demand/ordered control and downstream-unsolicited/independent control.",
+    "name": "Why distribute label bindings before using an LSP? Compare the two paired approaches from the lecture: downstream-on-demand with ordered control, and downstream-unsolicited with independent control.",
     "answer": "Each LSR needs populated forwarding state before the LSP is used. On-demand distribution waits for an upstream request. With ordered control, an LSR advertises only if it is egress for the FEC or already has a downstream binding. Unsolicited distribution sends bindings without a request; with independent control, an LSR can advertise after learning a route without waiting for a downstream label. The diagrams show adjacent requests/mappings, and a label need agree only in its adjacency. Listed distribution mechanisms include LDP, RSVP-TE and label-capable BGP.",
     "keyPoints": ["Populate forwarding state at every LSR", "On-demand waits for a request", "Ordered waits for downstream binding unless egress", "Unsolicited does not wait for a request", "Independent need not wait for downstream label", "LDP, RSVP-TE or BGP extensions can distribute labels"],
     "source": "PA191 L4, lecture04.pdf, slides 62-64"
@@ -168,7 +168,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 71-72"
   },
   {
-    "name": "Compare source-based, hop-by-hop and hierarchical QoS routing. Interpret the hierarchy diagram and information/scalability trade-offs.",
+    "name": "Compare source-based, hop-by-hop and hierarchical QoS routing. Explain how the hierarchy groups routers into higher-level logical nodes and discuss the information/scalability trade-offs.",
     "answer": "Source-based routing uses global state at the source to select a path and inform its routers, centralizing decisions but requiring complete state and high source computation. Hop-by-hop distributes decisions and computation with next-hop knowledge, fitting existing forwarding but risking loops under inconsistent state and still facing scale limits. Hierarchy groups physical routers and represents groups as higher-level logical nodes, integrating information at borders. The diagram shows groups A, B and C and their upper-level logical nodes. Nodes keep detailed local information and aggregated remote information, improving scale at an accuracy cost.",
     "keyPoints": ["Source uses global state to choose entire path", "Complete state/source computation limit scale", "Hop-by-hop distributes decisions but can loop with inconsistent state", "Hierarchy represents groups by logical nodes", "Local detail and remote aggregation", "Aggregation improves scale but reduces accuracy"],
     "source": "PA191 L4, lecture04.pdf, slides 73-77"

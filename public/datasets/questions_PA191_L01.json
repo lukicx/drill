@@ -11,7 +11,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 10-12 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Compare the circuit-switched and connectionless packet-switched networks illustrated in the lecture. What state and QoS implications follow?",
+    "name": "Compare circuit-switched and connectionless packet-switched networks. How is a communication carried in each, what state does the network keep, and what follows for QoS?",
     "answer": "In the circuit-switched example a connection is established and the same circuit is used throughout communication; the network maintains circuit state. This makes providing QoS relatively straightforward. In the connectionless example the message is divided into packets which may follow different routes and are reassembled at the receiver. No per-connection circuit is maintained, and QoS is harder to provide with best-effort service. Slide 14 illustrates the fixed route versus packets using different routes.",
     "keyPoints": [
       "Established circuit with network state",
@@ -44,7 +44,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 17 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Explain layered communication, map the seven OSI layers to the four-layer TCP/IP diagram, and interpret the IP hourglass.",
+    "name": "Explain layered communication, map the seven OSI layers onto the four TCP/IP layers, and explain what the \"IP hourglass\" model expresses.",
     "answer": "A layer implements particular functions, adds control information, uses the layer below and serves the layer above. Peer layers communicate logically; actual transmission traverses lower layers. From top to bottom OSI has application, presentation, session, transport, network, data link and physical layers. The diagram groups the top three into TCP/IP application, maps transport to transport and network to Internet, and groups data link and physical into network access. The hourglass shows many applications, transports and link/media technologies interoperating through the common IP layer at its narrow waist.",
     "keyPoints": [
       "Neighbouring-layer services and logical peer communication",
@@ -66,7 +66,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 24-29, 31 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Interpret the multiplexer/link/demultiplexer diagram and compare FDM, WDM and TDM.",
+    "name": "Explain multiplexing on a shared physical link, including the roles of the multiplexer and the demultiplexer, and compare FDM, WDM and TDM.",
     "answer": "Multiplexing divides a shared physical link into logical channels so concurrent communications use the available bandwidth efficiently. A multiplexer combines channels on the link and a demultiplexer separates them at the receiving side. Frequency-division multiplexing separates channels by frequency; wavelength-division multiplexing separates optical wavelengths; time-division multiplexing allocates different time intervals. The lecture groups FDM/WDM with analog signals and TDM with digital signals, and includes multiplexing among physical-layer services.",
     "keyPoints": [
       "Several logical channels share one physical medium",
@@ -287,7 +287,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 86-88 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Use the flow/congestion-control diagram to distinguish their protected resources. If the receiver window is 8 KiB and the congestion window 5 KiB, which limit governs outstanding data?",
+    "name": "Distinguish flow control from congestion control: which resource does each protect and where does its feedback come from? If the receiver window is 8 KiB and the congestion window 5 KiB, which limit governs outstanding data?",
     "answer": "Flow control protects the receiver from overload using its advertised window. Congestion control protects the network using a congestion window maintained by the sender. The amount allowed is limited by the lower of the two, so the example permits at most 5 KiB under these window limits, not their sum. Slide 90 draws feedback from the receiver for flow control and from the network for congestion control. The recap associates receiver flow control with explicit receiver information and congestion control with an estimate of available throughput using AIMD.",
     "keyPoints": [
       "Flow control protects receiver; congestion control protects network",
@@ -309,7 +309,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 92-93, 96 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Interpret the client-server and peer-to-peer diagrams and distinguish pull from push. What other application-classification criteria are listed?",
+    "name": "Compare the client-server and peer-to-peer communication models and distinguish pull from push. What other application-classification criteria does the lecture list?",
     "answer": "In the client-server diagram clients communicate with a server providing the service, whereas the peer-to-peer diagram shows communication among participating peers. In a pull model a client initiates data transfer; in a push model a server initiates it. Communication model and transfer initiator are separate classification criteria. The lecture additionally distinguishes thin versus fat clients within client-server systems and applications with low versus high demands on the network; it does not develop detailed thin/fat-client behaviour here.",
     "keyPoints": [
       "Clients access a server versus communication among peers",
