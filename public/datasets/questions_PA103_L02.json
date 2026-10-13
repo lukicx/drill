@@ -384,7 +384,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 18"
   },
   {
-    "name": "A ConversionRatio has an association to Number with exactly one Number per ratio. Which notation represents the same information in the lecture's technical example?",
+    "name": "A ConversionRatio has an association to Number with exactly one Number per ratio. Which UML notation represents the same information?",
     "answers": [
       {
         "body": "An attribute <tt>ratio: Number</tt> in ConversionRatio.",

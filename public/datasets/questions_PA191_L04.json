@@ -132,7 +132,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 60-61"
   },
   {
-    "name": "Why distribute label bindings before using an LSP? Compare the two paired approaches from the lecture: downstream-on-demand with ordered control, and downstream-unsolicited with independent control.",
+    "name": "Why distribute label bindings before using an LSP? Compare two paired approaches: downstream-on-demand with ordered control, and downstream-unsolicited with independent control.",
     "answer": "Each LSR needs populated forwarding state before the LSP is used. On-demand distribution waits for an upstream request. With ordered control, an LSR advertises only if it is egress for the FEC or already has a downstream binding. Unsolicited distribution sends bindings without a request; with independent control, an LSR can advertise after learning a route without waiting for a downstream label. The diagrams show adjacent requests/mappings, and a label need agree only in its adjacency. Listed distribution mechanisms include LDP, RSVP-TE and label-capable BGP.",
     "keyPoints": ["Populate forwarding state at every LSR", "On-demand waits for a request", "Ordered waits for downstream binding unless egress", "Unsolicited does not wait for a request", "Independent need not wait for downstream label", "LDP, RSVP-TE or BGP extensions can distribute labels"],
     "source": "PA191 L4, lecture04.pdf, slides 62-64"
@@ -174,13 +174,13 @@
     "source": "PA191 L4, lecture04.pdf, slides 73-77"
   },
   {
-    "name": "Describe PNNI's QoS routing, including state information, traffic classes, thresholds, hierarchy and the limitations identified in the lecture.",
+    "name": "Describe PNNI's QoS routing, including state information, traffic classes, thresholds, hierarchy and its limitations.",
     "answer": "PNNI is hierarchical dynamic LS routing for ATM. It floods nodes/links/addresses and maintains resource metrics such as delay, available bandwidth and jitter grouped by traffic class. Thresholds determine whether changes warrant updates. Levels and logical nodes aggregate topology/reachability. The lecture lists lack of multicast, policy routing and alternate-routing control, plus the difficulty of efficiently distributing rapidly changing QoS state.",
     "keyPoints": ["Hierarchical LS protocol for ATM", "Flood topology; maintain QoS metrics by class", "Thresholds select significant updates", "Logical nodes/levels aggregate topology and reachability", "Listed limitations and dynamic-state distribution overhead"],
     "source": "PA191 L4, lecture04.pdf, slides 78"
   },
   {
-    "name": "Explain the QOSPF extension presented: its metrics, update strategy and widest-shortest path computation.",
+    "name": "Explain the QOSPF extension of OSPF: its metrics, update strategy and widest-shortest path computation.",
     "answer": "QOSPF extends hierarchical LS OSPF for QoS plus best effort. The presented metrics are link bandwidth and propagation delay, added to LSAs. Significant changes trigger advertisements to reduce overhead. It precomputes destination paths; widest-shortest means minimum hop count with maximum available bandwidth among those paths. Slides associate widest-path Bellman-Ford with precomputation and widest-shortest Dijkstra with on-demand calculation. This adds resource-aware path selection rather than simply more periodic topology updates.",
     "keyPoints": ["QoS extension to hierarchical LS OSPF", "Presented metrics: bandwidth and propagation delay", "Significant changes trigger extended LSAs", "Widest-shortest is minimum hops with maximum bandwidth", "Bellman-Ford precomputation and Dijkstra on-demand variants"],
     "source": "PA191 L4, lecture04.pdf, slides 79"

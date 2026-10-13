@@ -268,7 +268,7 @@
     ]
   },
   {
-    "name": "Podle vzorce z přednášky: co zvyšuje úspěšnost útoku hrubou silou na heslo?",
+    "name": "Co zvyšuje pravděpodobnost úspěchu útoku hrubou silou na heslo?",
     "answers": [
       {
         "body": "Delší čas platnosti hesla.",

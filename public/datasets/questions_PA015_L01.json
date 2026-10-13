@@ -116,7 +116,7 @@
     "source": "Lecture 1, slide 29 (update: Lecture 4, slide 47)"
   },
   {
-    "name": "Explain why prompt injection is a serious risk for coding agents. Give the example from the lecture.",
+    "name": "Explain why prompt injection is a serious risk for coding agents. Illustrate it with this scenario: an agent that has access to a user's repositories reads a public GitHub issue written by a stranger.",
     "answer": "An agent reads <B>untrusted text</B> – issues, web pages, dependencies, comments – while holding <B>real credentials</B>: your shell, your git, your tokens. Text it reads can contain instructions, and the model cannot reliably tell data from commands; this is prompt injection. In a real case from 2025, a public GitHub issue told an agent with repository access to “help” by summarising the user’s private repositories into a public pull request – and it did. The failure modes now have names (OWASP Top 10 for Agentic Applications: goal hijack, tool misuse, privilege abuse, memory poisoning, rogue agents). Every step down the autonomy ladder widens what a single bad instruction can reach.",
     "keyPoints": [
       "Agent reads untrusted text and holds credentials (shell, git, tokens)",
@@ -128,7 +128,7 @@
     "source": "Lecture 1, slide 30"
   },
   {
-    "name": "Using the pull-request risk example, explain what a simple learned model is and how learning adjusts its weights. What carries over to large neural networks and what does not?",
+    "name": "A simple learned model scores pull requests: risk = w1·x1 + w2·x2 + b, where x1 is the size of the change in hundreds of lines and x2 the number of tests added, with w1 = 1.0, w2 = −0.5, b = −1.0 (positive means \"will cause a bug\"). Using this model, explain what a simple learned model is and how learning adjusts its weights. What carries over to large neural networks and what does not?",
     "answer": "The model computes a weighted sum: <TT>risk = w1·x1 + w2·x2 + b</TT>, with x1 = size of the change in hundreds of lines and x2 = number of tests added; positive means “will cause a bug”. With w1 = 1.0, w2 = −0.5, b = −1.0, a 300-line PR with two tests gets 1.0·3 − 0.5·2 − 1.0 = 1.0. Here the weights are readable: the sign says which way, the size how much. Geometrically, the weights define a line separating risky from fine PRs. Weights come from <B>data</B> – past PRs with known outcomes. Learning nudges each weight <B>against the error, in proportion to its own input, by a small step</B> (learning rate 0.1): after one step w1 = 0.7, w2 = −0.7, b = −1.1 and the same PR scores −0.4. The data is the specification; nobody sets weights by hand. In large networks the same holds – weighted sums, small steps towards the targets, computed by backpropagation, with web text and the next word as target – but you can <B>no longer read individual weights</B>. What is engineered is the data, the target, the step size and when to stop; the weights are learned.",
     "keyPoints": [
       "risk = w1·x1 + w2·x2 + b; sign and size of weights are interpretable",

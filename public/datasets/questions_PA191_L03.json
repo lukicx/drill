@@ -90,7 +90,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 47, 57"
   },
   {
-    "name": "Distinguish a DNS-SD service type from an instance name, host and port. Use the lecture's web-server example to explain why knowing a hostname alone is insufficient.",
+    "name": "Distinguish a DNS-SD service type from an instance name, host and port. Use a web server advertised as \"Alice's Web Server\", running on host alice-laptop.local at port 8080, to explain why knowing a hostname alone is insufficient.",
     "answer": "A service type identifies the kind of service and transport, such as _http._tcp; other examples are _ssh._tcp and _ipp._tcp. An instance name identifies a particular human-readable service, such as Alice's Web Server. That instance can be hosted by alice-laptop.local on port 8080 and accompanied by metadata. A hostname alone tells a client neither which service instances exist nor their service type, port or attributes. DNS-SD represents these properties using DNS records so a user can discover a requested kind of service.",
     "keyPoints": ["Service type is _service._transport and describes a kind of service", "Instance name gives one particular service a human-readable identity", "Host and port identify where that instance is reached", "Hostname alone omits service type, instance, port and metadata"],
     "source": "PA191 L3, lecture03.pdf, slides 49-51"
@@ -102,7 +102,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 51-53, 55, 60"
   },
   {
-    "name": "Explain the purpose and limits of DNS-SD TXT records using the advertised printer attributes as an example.",
+    "name": "Explain the purpose and limits of DNS-SD TXT records, using a printer that advertises txtvers=1, note=Second-floor printer, qtotal=1 and product=OfficePrinter as an example.",
     "answer": "TXT records carry service-specific metadata rather than the address and port used for the connection. A printer might advertise keys such as txtvers=1, note=Second-floor printer, qtotal=1 and product=OfficePrinter. Such attributes can convey capabilities, configuration hints, human-readable descriptions or protocol parameters. The exact keys and their interpretation depend on the service ecosystem. TXT records are therefore metadata understood by the relevant service protocol, rather than a general-purpose configuration language.",
     "keyPoints": ["TXT carries service-specific metadata", "Printer keys illustrate description and protocol-specific attributes", "Capabilities, hints and parameters depend on the service ecosystem", "Relevant service protocol defines interpretation", "TXT is not a general-purpose configuration language"],
     "source": "PA191 L3, lecture03.pdf, slides 54"

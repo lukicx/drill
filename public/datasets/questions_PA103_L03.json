@@ -338,7 +338,7 @@
     "source": "L3, Analysis Patterns, slides 66, 69"
   },
   {
-    "name": "In the illustrated public-transport planning model, where is the particular vehicle linked?",
+    "name": "A public-transport planning model separates the planned Schedule of a Line from \"Vehicle on the way\", which records how a schedule is actually carried out (with Completed route as one of its subclasses). Where is the particular vehicle linked?",
     "answers": [
       {
         "body": "To Vehicle on the way, the implemented schedule.",
@@ -390,7 +390,7 @@
     "source": "L3, Analysis Patterns, slides 74"
   },
   {
-    "name": "What is an Enterprise Segment in the coffee-company example?",
+    "name": "What is an Enterprise Segment in the Enterprise Segment analysis pattern (for example for a company that sells coffee)?",
     "answers": [
       {
         "body": "A part of the enterprise identified by combining classifications such as product, geography and customer sector.",

@@ -52,7 +52,7 @@
     "source": "L4, slide 5 (PDF page 5)"
   },
   {
-    "name": "How should the \"average developer\" framing on the AI limitations slide be interpreted? Select all correct statements.",
+    "name": "AI is sometimes described as answering like an \"average developer\". How should this framing be interpreted? Select all correct statements.",
     "answers": [
       {
         "body": "It proves that every AI answer is always worse than every human answer.",
@@ -104,7 +104,7 @@
     "source": "L4, slide 7 (PDF page 7)"
   },
   {
-    "name": "Why was the ML.NET backlog-feature example risky according to the lecture? Select all correct statements.",
+    "name": "AI was used to implement an old backlog feature request in ML.NET, a repository that is only being maintained. Why was this change risky? Select all correct statements.",
     "answers": [
       {
         "body": "It was a low-value side feature requiring a large code change in a maintenance repository.",
@@ -130,10 +130,10 @@
     "source": "L4, slide 8 (PDF page 8)"
   },
   {
-    "name": "What did the A2A example illustrate about a successful happy path? Select all correct statements.",
+    "name": "AI generated an implementation of an A2A (agent-to-agent) component whose happy path worked. What does a working happy path leave open in such generated code? Select all correct statements.",
     "answers": [
       {
-        "body": "The example also flags tests based on Task.Delay(200) as part of the concern.",
+        "body": "Unit tests that rely on a fixed delay such as Task.Delay(200) are part of the concern.",
         "right": true,
         "comment": "L4, slide 8 (PDF page 8): That test pattern is explicitly listed in this cautionary example."
       },
@@ -143,7 +143,7 @@
         "comment": "L4, slide 8 (PDF page 8): The slide says the rest was ignored despite the happy path."
       },
       {
-        "body": "The slide presents fixed delays as proof that all race conditions are solved.",
+        "body": "Fixed delays in tests prove that all race conditions are solved.",
         "right": false,
         "comment": "L4, slide 8 (PDF page 8): The delay-based tests are part of the criticized example, not such a proof."
       },
@@ -156,7 +156,7 @@
     "source": "L4, slide 8 (PDF page 8)"
   },
   {
-    "name": "What practical learning habit does the \"AI - The blessing\" slide encourage? Select all correct statements.",
+    "name": "What practical habit helps a student build real experience with AI tools? Select all correct statements.",
     "answers": [
       {
         "body": "Memorize the exact credit values as a guarantee that they will never change.",
@@ -208,10 +208,10 @@
     "source": "L4, slide 10 (PDF page 10)"
   },
   {
-    "name": "The lecture presents monthly counts of opened pull requests in the MAUI repository. Which statements about that data are supported? Select all correct statements.",
+    "name": "In the MAUI repository the monthly number of opened pull requests peaked in early 2026 and then dropped sharply. Which readings of this data are justified? Select all correct statements.",
     "answers": [
       {
-        "body": "The number of opened PRs drops sharply after the early-2026 peak.",
+        "body": "After the peak the trend is a decline, not continued growth.",
         "right": true,
         "comment": "L4, slide 11 (PDF page 11): The chart peaks around February 2026 and then declines toward September."
       },
@@ -234,10 +234,10 @@
     "source": "L4, slide 11 (PDF page 11)"
   },
   {
-    "name": "Which development practices accompany the MAUI outcomes described in the lecture? Select all correct statements.",
+    "name": "The MAUI repository accepts many AI-assisted pull requests. Which development practices go together with that? Select all correct statements.",
     "answers": [
       {
-        "body": "Humans review everything in this MAUI example.",
+        "body": "Humans review everything.",
         "right": true,
         "comment": "L4, slides 12-13 (PDF pages 12-13): This is explicitly stated on slide 12."
       },
@@ -286,7 +286,7 @@
     "source": "L4, slide 14 (PDF page 14)"
   },
   {
-    "name": "What does the F# story show about the human role in AI-assisted development? Select all correct statements.",
+    "name": "In the F# repository one maintainer produces many pull requests by coordinating AI agents, alongside routine bots. What does this show about the human role in AI-assisted development? Select all correct statements.",
     "answers": [
       {
         "body": "The example proves that no experience or coordination is needed to manage agents.",
@@ -294,7 +294,7 @@
         "comment": "L4, slides 15-16 (PDF pages 15-16): The slide notes management experience and calibrated trust."
       },
       {
-        "body": "The presenter distinguishes routine non-AI bots from non-routine AI-assisted contributions.",
+        "body": "Routine non-AI bots should be distinguished from non-routine AI-assisted contributions.",
         "right": true,
         "comment": "L4, slides 15-16 (PDF pages 15-16): Slide 15 separates those categories before discussing assistance."
       },
@@ -304,7 +304,7 @@
         "comment": "L4, slides 15-16 (PDF pages 15-16): Slide 16 describes a manager of agents and different levels of trust."
       },
       {
-        "body": "Every kind of automation listed on slide 15 is classified as AI.",
+        "body": "Every kind of automation in the repository, including routine bots, counts as AI.",
         "right": false,
         "comment": "L4, slides 15-16 (PDF pages 15-16): Routine non-AI bots are a separate category."
       }
@@ -312,15 +312,15 @@
     "source": "L4, slides 15-16 (PDF pages 15-16)"
   },
   {
-    "name": "The lecture presents F# repository data with two series of pull requests per month. Which interpretation is supported? Select all correct statements.",
+    "name": "F# repository data shows two monthly series - all pull requests, and the pull requests of one maintainer (Tomas Grosup) - and both are higher in 2026 than in 2025. Which interpretation is supported? Select all correct statements.",
     "answers": [
       {
-        "body": "It separates all PRs per month from Tomas Grosup’s PRs per month.",
+        "body": "The repository-wide count and one person's count are separate series and must be read separately.",
         "right": true,
         "comment": "L4, slide 17 (PDF page 17): The legend names those two series."
       },
       {
-        "body": "Both series rise from the 2025 point to the 2026 point.",
+        "body": "Both the total and the individual count grew between 2025 and 2026.",
         "right": true,
         "comment": "L4, slide 17 (PDF page 17): Both plotted lines increase over that interval."
       },
@@ -338,10 +338,10 @@
     "source": "L4, slide 17 (PDF page 17)"
   },
   {
-    "name": "What tradeoff is illustrated by the GitHub Copilot app example? Select all correct statements.",
+    "name": "The GitHub Copilot app is developed with heavy use of AI, including some automatically merged changes. What tradeoff does this way of working involve? Select all correct statements.",
     "answers": [
       {
-        "body": "The presenter acknowledges breakages and missing first-class rollback, and warns that Azure cannot be run this way.",
+        "body": "It comes with breakages and no first-class rollback, so a service like Azure cannot be run this way.",
         "right": true,
         "comment": "L4, slide 19 (PDF page 19): These limits are explicitly part of the example."
       },
@@ -364,15 +364,15 @@
     "source": "L4, slide 19 (PDF page 19)"
   },
   {
-    "name": "Which uses beyond software development are actually given in the lecture? Select all correct statements.",
+    "name": "For which kinds of tasks beyond software development does the lecture find AI useful? Select all correct statements.",
     "answers": [
       {
-        "body": "The security-status tracking example explicitly permits guessing instead of checking.",
+        "body": "When AI tracks a status for you (e.g. security updates), guessing is acceptable instead of checking.",
         "right": false,
         "comment": "L4, slides 20-21 (PDF pages 20-21): Slide 20 specifies no guessing for security status tracking."
       },
       {
-        "body": "The slides provide a universal guarantee that AI advice needs no expertise or checking in these domains.",
+        "body": "In these domains AI advice needs no expertise or checking.",
         "right": false,
         "comment": "L4, slides 20-21 (PDF pages 20-21): They list use cases and varying knowledge levels, not a universal safety or correctness guarantee."
       },
@@ -390,7 +390,7 @@
     "source": "L4, slides 20-21 (PDF pages 20-21)"
   },
   {
-    "name": "Which information-management habits does the presenter advocate? Select all correct statements.",
+    "name": "Which information-management habits does the lecture recommend for personal notes and files? Select all correct statements.",
     "answers": [
       {
         "body": "Store binaries as the GitHub issue title and avoid file storage.",
@@ -403,7 +403,7 @@
         "comment": "L4, slide 22 (PDF page 22): The MD files column strongly advocates this format."
       },
       {
-        "body": "Use GitHub for history and OneDrive for binaries in the workflow shown.",
+        "body": "Use GitHub for history and a file store such as OneDrive for binaries.",
         "right": true,
         "comment": "L4, slide 22 (PDF page 22): These appear in the history and binaries sections."
       },
@@ -416,7 +416,7 @@
     "source": "L4, slide 22 (PDF page 22)"
   },
   {
-    "name": "How does the practical-tips slide recommend handling recurring AI mistakes? Select all correct statements.",
+    "name": "How should recurring AI mistakes be handled? Select all correct statements.",
     "answers": [
       {
         "body": "Keep settings simple and adjust them as needed.",
@@ -468,7 +468,7 @@
     "source": "L4, slide 24 (PDF page 24)"
   },
   {
-    "name": "An AI produces a large change for a low-value feature. The happy path works, but shutdown and cancellation were not considered. Use the lecture’s examples to propose a review and testing response.",
+    "name": "An AI produces a large change for a low-value feature. The happy path works, but shutdown and cancellation were not considered. Propose a review and testing response.",
     "answer": "First assess whether the feature’s value justifies the change and maintenance risk, as in the ML.NET example. Investigate the code and ask what it does, where, how and why. Review concerns beyond the happy path, including locking, cancellation and graceful shutdown from the A2A example. Do not treat delay-based tests or merely having tests as evidence of a useful fix: the MAUI story calls for tests that show the fix matters, reproducible issues and a suitable SDK. Keep human review and learn from discovered AI mistakes.",
     "keyPoints": [
       "Assess value against maintenance risk",

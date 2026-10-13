@@ -22,7 +22,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 13-14 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Define a communication protocol using syntax, semantics and timing. Relate this to the human greeting and HTTP exchange examples.",
+    "name": "Define a communication protocol using syntax, semantics and timing. Illustrate it with two exchanges: one person greeting another and asking for the time, and a browser opening a TCP connection and requesting a web page over HTTP.",
     "answer": "A protocol defines the format and order of exchanged messages and the actions performed when sending or receiving them. Syntax describes message structure, semantics gives the meaning of fields, and timing determines when and how fast messages are sent. Both the greeting/time-request example and the TCP/HTTP example require participants to agree on an ordered exchange: a request has a recognised meaning and leads to a corresponding response or action.",
     "keyPoints": [
       "Format and order of messages plus sender/receiver actions",
@@ -99,7 +99,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 34 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "What problem does medium access control address? Compare the three protocol families listed in the lecture.",
+    "name": "What problem does medium access control address? Compare the three families of MAC protocols: random access, controlled access and channelisation.",
     "answer": "MAC coordinates several devices sharing a transmission medium to deal with collisions from concurrent transmissions. Random-access protocols let devices contend for access, with examples Aloha, CSMA/CD and CSMA/CA. Controlled-access protocols organise access using reservations, polling or tokens. Channelisation protocols divide the resource among users, for example by frequency with FDMA or time with TDMA.",
     "keyPoints": [
       "Concurrent use of a shared medium creates collisions",
@@ -121,7 +121,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 36-37, 40 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Describe the distributed spanning-tree procedure in the lecture: root election, root-port selection and disabling redundant ports.",
+    "name": "Describe the distributed spanning-tree procedure used by bridges: root election, root-port selection and disabling redundant ports.",
     "answer": "Bridges periodically report their own address, the root address and their current path cost to the root. Initially each claims to be root; the lowest bridge address wins. Each other bridge selects the root port with the lowest root-path cost, using the slide’s identifier tie-breaks when costs are equal. The root’s ports are designated, and bridges select designated ports on the remaining links. Ports outside the selected tree are disabled so active paths do not form loops. The lecture prioritises the preferred root, then path cost and identifiers.",
     "keyPoints": [
       "Periodic root/path-cost reports; initially each claims root",
@@ -232,7 +232,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 73-75 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Explain IP multicast and compare the source-based and core-based tree approaches presented in the lecture.",
+    "name": "Explain IP multicast and compare the source-based and core-based tree approaches to multicast routing.",
     "answer": "IP multicast identifies a receiver group with a multicast address and allows a data copy on a shared delivery link rather than separate unicast copies for every receiver. It remains a best-effort network service, with scope bounded in the lecture’s IPv4 example by TTL. The source-based approach starts from the source, floods and prunes branches without receivers; the lecture lists DVMRP, MOSPF and PIM-DM and notes broadcast overhead. The core-based approach uses a meeting point contacted by receivers, reducing flooding and improving scalability, but depending on core availability; CBT and PIM-SM are examples. IPv4 multicast uses 224.0.0.0-239.255.255.255 and IPv6 ff00::/8.",
     "keyPoints": [
       "Multicast group addressing with best-effort delivery",
@@ -298,7 +298,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 89-91 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Distinguish a network application from an application protocol, and explain its place in the layered communication example.",
+    "name": "Distinguish a network application from an application protocol, and explain how application data passes through the layers on its way between two users.",
     "answer": "The application layer provides user services such as web, email and name lookup. A network application contains an application protocol; HTTP or SMTP is a communication component rather than a complete application. The protocol specifies message types, syntax, semantics and rules for when/how messages are exchanged. In the diagram, user communication is prepared for transmission, lower layers carry it through the network and the receiving application presents it to the user. Examples pair DNS with name service, HTTP with the web, SMTP with email, FTP with file transfer and RTP/RTCP with multimedia.",
     "keyPoints": [
       "User-facing network application contains a communication protocol",
@@ -309,7 +309,7 @@
     "source": "PA191 L1, lecture01.pdf, slides 92-93, 96 (printed slide numbers = PDF pages)"
   },
   {
-    "name": "Compare the client-server and peer-to-peer communication models and distinguish pull from push. What other application-classification criteria does the lecture list?",
+    "name": "Compare the client-server and peer-to-peer communication models and distinguish pull from push. By which other criteria can network applications be classified?",
     "answer": "In the client-server diagram clients communicate with a server providing the service, whereas the peer-to-peer diagram shows communication among participating peers. In a pull model a client initiates data transfer; in a push model a server initiates it. Communication model and transfer initiator are separate classification criteria. The lecture additionally distinguishes thin versus fat clients within client-server systems and applications with low versus high demands on the network; it does not develop detailed thin/fat-client behaviour here.",
     "keyPoints": [
       "Clients access a server versus communication among peers",

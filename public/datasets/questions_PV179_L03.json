@@ -289,7 +289,7 @@
     "name": "Ktoré operácie prednáška uvádza pri čítaní a raw SQL? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Add je na slide príkaz na ručné vytvorenie migrácie.",
+        "body": "Add je príkaz na ručné vytvorenie migrácie.",
         "right": false,
         "comment": "L3, slide 14 (PDF page 14): Add patrí k Insert; migrácie vytvára add-migration v L2."
       },
@@ -312,7 +312,7 @@
     "source": "L3, slide 14 (PDF page 14)"
   },
   {
-    "name": "Ako sa podľa slide označia entity na pridanie alebo zmazanie? Vyber všetky správne tvrdenia.",
+    "name": "Ako sa v EF Core označia entity na pridanie alebo zmazanie? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Pridanie: Add, AddRange alebo stav Added.",
@@ -494,7 +494,7 @@
     "source": "L3, slides 18-19 (PDF pages 18-19)"
   },
   {
-    "name": "Čo musí raw SQL ukážka urobiť manuálne po vytvorení spojenia? Vyber všetky správne tvrdenia.",
+    "name": "Čo treba pri načítaní objektov Pet cez raw SQL (ADO.NET, bez ORM) urobiť manuálne po vytvorení spojenia? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Vykonať SELECT iba nastavením entity do stavu Added.",
@@ -520,7 +520,7 @@
     "source": "L3, slide 20 (PDF page 20)"
   },
   {
-    "name": "Ktoré rozdiely ukazujú tri príklady Micro ORMs? Vyber všetky správne tvrdenia.",
+    "name": "Ako sa v Micro ORMs Dapper, PetaPoco a Simple.Data zapíše načítanie objektov Pet typu „dog“? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "Dapper a PetaPoco používajú Query&lt;Pet&gt; s SQL a objektom parametrov pre @type.",
@@ -533,12 +533,12 @@
         "comment": "L3, slide 21 (PDF page 21): Tretia ukážka používa dynamic namiesto explicitného SQL textu na tomto mieste."
       },
       {
-        "body": "Všetky tri ukážky musia ručne čítať každý stĺpec cez SqlDataReader.",
+        "body": "Vo všetkých troch treba ručne čítať každý stĺpec cez SqlDataReader.",
         "right": false,
         "comment": "L3, slide 21 (PDF page 21): Manuálne mapovanie je v raw SQL príklade na slide 20, nie v týchto troch ukážkach."
       },
       {
-        "body": "Dapper ukážka vkladá názov typu priamo konkatenáciou do SQL textu.",
+        "body": "V Dapperi sa hodnota typu musí vkladať priamo konkatenáciou do SQL textu.",
         "right": false,
         "comment": "L3, slide 21 (PDF page 21): SQL používa @type a oddelený objekt parametrov."
       }

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Which statements correctly distinguish the UML class and object diagrams in the introductory Composite example?",
+    "name": "Which statements correctly distinguish a UML class diagram from a UML object diagram, taking the Composite pattern (Component, Leaf, Composite) as the example?",
     "answers": [
       { "body": "A diagram showing Component, Leaf and Composite with operations and inheritance describes classes.", "right": true, "comment": "Slide 5: The left diagram describes class definitions, operations and generalization relationships." },
       { "body": "A diagram showing underlined labels such as :Leaf and :Composite describes object instances and their links.", "right": true, "comment": "Slide 5: The right diagram is an object diagram; the colon notation and underlined instance labels distinguish it from the class diagram." },
@@ -190,7 +190,7 @@
     "source": "01-OO-Fundamentals.pdf, Slide 31"
   },
   {
-    "name": "A long method repeats a score-calculation fragment in several places. What does Extract Method contribute in the slide's example?",
+    "name": "A long method repeats a score-calculation fragment in several places. What does the Extract Method refactoring contribute here?",
     "answers": [
       { "body": "It moves the calculation into a separate method and lets the original method call it.", "right": true, "comment": "Slide 32: The example extracts the calculation into computeScore and replaces the original fragment with a call." },
       { "body": "It addresses Long Method and Duplicated Code smells.", "right": true, "comment": "Slide 32: These two bad smells are explicitly listed as problems solved by Extract Method." },
@@ -200,7 +200,7 @@
     "source": "01-OO-Fundamentals.pdf, Slide 32"
   },
   {
-    "name": "Model a nested group of drawable elements using the Composite structure shown in the lecture. Draw a UML class diagram with ModelElement, Atom and GroupElement and an object diagram where an outer group contains one atom and one inner group, and the inner group contains two atoms. Explain how setColor propagates from the outer group.",
+    "name": "Model a nested group of drawable elements using the Composite pattern. Draw a UML class diagram with ModelElement, Atom and GroupElement and an object diagram where an outer group contains one atom and one inner group, and the inner group contains two atoms. Explain how setColor propagates from the outer group.",
     "answer": "ModelElement defines setColor(Color). Atom and GroupElement inherit from it. GroupElement stores subElements typed as ModelElement and provides child-management operations such as add, remove and get. The object diagram contains five instances: an outer GroupElement, an inner GroupElement and three Atoms. The outer group links to one Atom and the inner GroupElement; the inner group links to the remaining two Atoms. Calling setColor on a GroupElement applies setColor to all its children. Since a child can itself be a GroupElement, the operation reaches the three leaf Atoms recursively. Use class definitions in the class diagram and underlined instance labels such as outer:GroupElement in the object diagram.",
     "keyPoints": [
       "ModelElement is the common superclass of Atom and GroupElement and supplies the shared setColor operation.",

@@ -156,7 +156,7 @@
     "source": "L1, slide 14 (PDF page 14)"
   },
   {
-    "name": "V príklade z prednášky Form pôvodne závisí priamo od tried ClassicButton, UglyButton a CoolButton. Ktorá zmena ilustruje Dependency Inversion? Vyber všetky správne tvrdenia.",
+    "name": "Trieda Form pôvodne závisí priamo od konkrétnych tried ClassicButton, UglyButton a CoolButton. Ktorá zmena ilustruje Dependency Inversion? Vyber všetky správne tvrdenia.",
     "answers": [
       {
         "body": "IButton má závisieť od každého konkrétneho tlačidla, aby poznal všetky detaily.",
@@ -260,15 +260,15 @@
     "source": "L1, slide 20 (PDF page 20)"
   },
   {
-    "name": "Čím sa líšia dve ukážky odovzdania IButton do Form? Vyber všetky správne tvrdenia.",
+    "name": "Čím sa líši constructor injection a setter injection pri odovzdaní IButton do triedy Form? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "V oboch ukážkach Form vytvára UglyButton vo svojom vnútri.",
+        "body": "V oboch prípadoch Form vytvára UglyButton vo svojom vnútri.",
         "right": false,
         "comment": "L1, slide 21 (PDF page 21): UglyButton sa vytvára mimo Form a odovzdáva sa mu."
       },
       {
-        "body": "Setter injection v ukážke vyžaduje parameter konštruktora IButton.",
+        "body": "Setter injection vyžaduje parameter konštruktora IButton.",
         "right": false,
         "comment": "L1, slide 21 (PDF page 21): Parameter konštruktora je zobrazený iba v prvej ukážke."
       },
@@ -278,7 +278,7 @@
         "comment": "L1, slide 21 (PDF page 21): Prvá ukážka má public Form(IButton button)."
       },
       {
-        "body": "Setter injection nastavuje verejnú property Button, v ukážke cez inicializátor objektu.",
+        "body": "Setter injection nastavuje verejnú property Button, napríklad cez inicializátor objektu.",
         "right": true,
         "comment": "L1, slide 21 (PDF page 21): Druhá ukážka používa new Form { Button = button } a get/set property."
       }

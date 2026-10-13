@@ -1,12 +1,12 @@
 [
   {
-    "name": "Explain why IPv6 was proposed and how its main design features addressed the limitations discussed in the lecture.",
+    "name": "Explain why IPv6 was proposed and how its main design features address the limitations of IPv4.",
     "answer": "The original driving concern was exhaustion of the IPv4 address space. IPv6 introduced 128-bit addresses, a fixed 40-byte basic header and extension headers. It also included support for traffic priorities and flows, IPsec-based security, mobility through home agents, and stateful or stateless autoconfiguration. The lecture places these goals in their historical context: CIDR and NAT mitigated address pressure, and several capabilities were later added to IPv4. An IPv6 feature therefore should not automatically be treated as unavailable in IPv4 today.",
     "keyPoints": ["IPv4 address exhaustion was the original motivation", "128-bit addresses and a simplified extensible header", "QoS, security, mobility and autoconfiguration were additional goals", "Historical context: CIDR/NAT and features later added to IPv4"],
     "source": "PA191 L2, lecture02.pdf, slides 4-5 and 65"
   },
   {
-    "name": "Describe the IPv6 basic header and explain how Next Header links extension headers to an upper-layer protocol. Trace the Hop-by-Hop/Fragment/TCP example from the lecture.",
+    "name": "Describe the IPv6 basic header and explain how Next Header links extension headers to an upper-layer protocol. Trace the header chain of a packet that carries a Hop-by-Hop Options header, a Fragment header and a TCP segment.",
     "answer": "The basic header has a fixed size of 40 bytes and carries version, Traffic Class (shown as PRI), Flow Label, payload length, Next Header, Hop Limit, source address and destination address. Options and fragmentation information are moved to extension headers; the basic header has no header checksum. Each Next Header value identifies the header immediately following it. Without extensions the basic header can point directly to TCP (6). In the illustrated chain it points to Hop-by-Hop Options (0), that header points to Fragment (44), and the Fragment header points to TCP (6), followed by TCP data. Thus extensions can be added without enlarging the fixed basic header.",
     "keyPoints": ["Fixed 40-byte basic header", "Options and fragmentation use extension headers; no IP header checksum", "Next Header identifies the immediately following header", "Example chain: IPv6 -> Hop-by-Hop -> Fragment -> TCP -> data"],
     "source": "PA191 L2, lecture02.pdf, slides 6-7"
@@ -18,7 +18,7 @@
     "source": "PA191 L2, lecture02.pdf, slides 8-9"
   },
   {
-    "name": "Explain the hierarchical structure of an IPv6 unicast address (its fields and their typical lengths) and how CIDR notation represents an IPv6 network. How does the lecture's allocation example subdivide the routing prefix among registries, and is that subdivision a general rule?",
+    "name": "Explain the hierarchical structure of an IPv6 unicast address (its fields and their typical lengths) and how CIDR notation represents an IPv6 network. Suppose the first 48 bits are subdivided into a 2001 field, a field assigned by the RIR and a field assigned by the LIR: is that subdivision a general rule for all IPv6 addresses?",
     "answer": "The diagram separates a unicast address into a global routing prefix, a subnet field and a 64-bit interface identifier. In its typical example, the routing prefix is 48 bits and the subnet field is 16 bits, supporting hierarchical routing rather than flat handling of individual addresses. The allocation example subdivides the first 48 bits into a 2001 field, an RIR-assigned field and an LIR-assigned field; this describes the example shown, rather than a requirement that every IPv6 address begin with 2001. IPv6 addresses are classless. CIDR appends the number of leading prefix bits, so /60 in FDEC:0:0:0:0:BBFF:0:FFFF/60 specifies a 60-bit network prefix.",
     "keyPoints": ["Global routing prefix, subnet field and 64-bit interface identifier", "Illustrated /48 routing prefix plus 16-bit subnet field", "2001/RIR/LIR subdivision is the depicted allocation example", "CIDR gives a prefix length; IPv6 has no address classes"],
     "source": "PA191 L2, lecture02.pdf, slides 10-11"
@@ -42,7 +42,7 @@
     "source": "PA191 L2, lecture02.pdf, slides 16-18"
   },
   {
-    "name": "Describe the IPsec framework and a Security Association (SA). In the lecture's model with separate AH and ESP protection, why are four SAs needed for protected two-way communication?",
+    "name": "Describe the IPsec framework and a Security Association (SA). If AH and ESP protection are applied separately, why are four SAs needed for protected two-way communication?",
     "answer": "IPsec provides a framework for both IPv4 and IPv6, including AH for authentication, ESP for encrypted payload protection, cryptographic algorithms, security policies, SAs and key management. Having IPsec support does not by itself make IPv6 more secure than IPv4. An SA specifies security information such as a key, an encryption or authentication mechanism, and parameters such as counters or duplicate protection. It is identified by the Security Parameter Index (SPI), destination IP address and security protocol identifier (AH or ESP). An SA is one-way. In the lecture's separate-AH-and-ESP example, two directions multiplied by two security protocols require four SAs; this count is conditional on using separate associations for both protocols.",
     "keyPoints": ["IPsec includes protocols, algorithms, policy, SAs and key management", "IPsec support alone does not guarantee IPv6 security", "SA contains key, mechanism and algorithm parameters", "SA identity: SPI, destination address and AH/ESP identifier", "One-way separate AH/ESP associations give four for two directions"],
     "source": "PA191 L2, lecture02.pdf, slides 19-20"
@@ -138,13 +138,13 @@
     "source": "PA191 L2, lecture02.pdf, slides 57 and 60-61"
   },
   {
-    "name": "Explain how the lecture's NAT-PT translator differs from dual stack and tunneling. Why is it presented as a temporary last-resort transition mechanism?",
+    "name": "Explain how a NAT-PT translator differs from dual stack and tunneling. Why is it regarded as a temporary last-resort transition mechanism?",
     "answer": "A translator changes IPv6 datagrams into IPv4 datagrams and translates replies in the reverse direction, allowing an IPv6-only host to communicate with an IPv4-only host. The slide 62 diagram therefore shows an IPv6 header on one side and an IPv4 header on the other, rather than carrying an unchanged IPv6 packet inside an outer IPv4 header. Dual stack instead has both protocols available on the communicating device. The lecture recommends its NAT-PT approach only temporarily when another technique is not possible: it does not preserve advanced features such as end-to-end security, constrains topology because replies must pass through the same translator, creates a single point of failure, and causes trouble for applications containing IP addresses in their payloads. This answer describes the historical mechanism taught on these slides.",
     "keyPoints": ["Translation enables IPv6-only to IPv4-only communication", "Headers are translated rather than tunneled intact", "Dual stack runs both protocols on a device", "Same-translator return path and single point of failure", "End-to-end security and embedded-address applications face limitations"],
     "source": "PA191 L2, lecture02.pdf, slides 57 and 62-63"
   },
   {
-    "name": "Explain the lecture's conclusion that adopting IPv6 involves more than making addresses longer. Why can coexistence persist despite extensive IPv6 deployment?",
+    "name": "Explain why adopting IPv6 involves more than making addresses longer. Why can IPv4/IPv6 coexistence persist despite extensive IPv6 deployment?",
     "answer": "The lecture summarizes IPv6 as a package of larger addresses, a different header/extension design, real-time support, IPsec and autoconfiguration. It also stresses that some original motivations were mitigated by CIDR/NAT or by features added to IPv4. Its adoption discussion describes dual-stack coexistence and substantial IPv6 use in datacenters and mobile operators. Full migration remains slow and laborious, with long addresses awkward for humans and low-power hardware, a different operational paradigm, and criticism of aspects of the design. Existing IPv4 deployment and these transition costs explain why IPv4 can remain alongside IPv6. Exact deployment percentages on the slide are time-sensitive observations, rather than facts needed to explain the transition problem.",
     "keyPoints": ["IPv6 changes headers and operating mechanisms as well as address size", "IPv4 mitigations and backported features changed the original motivation", "Dual stack allows deployment with continuing coexistence", "Migration effort, address handling and operational paradigm create barriers", "Time-sensitive adoption percentages do not determine the conceptual answer"],
     "source": "PA191 L2, lecture02.pdf, slides 65-66"

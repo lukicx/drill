@@ -128,7 +128,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 18 (figure: binary trie data structure example). The slide shows only the prefix list and the trie; the step-by-step lookup walk is derived from the figure."
   },
   {
-    "name": "Why is IP packet classification and filtering important for a network operator? Give the reasons named in the lecture.",
+    "name": "Why is IP packet classification and filtering important for a network operator? Give at least three reasons.",
     "answer": "Three reasons are given (the list is open-ended). Providing preferential treatment for different types of traffic: to provide different service guarantees for different traffic types, an ISP might maintain different paths for the same source and destination addresses. Flexibility in accounting and billing: an ISP needs flexible accounting and billing based on the traffic type, since different traffic can be charged at different prices. Preventing malicious attacks: the ability to identify malicious packets and drop them at the point of entry.",
     "keyPoints": [
       "Preferential treatment / different service guarantees per traffic type",
@@ -190,7 +190,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 25"
   },
   {
-    "name": "Characterize the function of the typical network devices compared in the lecture: switch, router, firewall, load balancer, IDS and access point.",
+    "name": "Characterize the function of these typical network devices: switch, router, firewall, load balancer, IDS and access point.",
     "answer": "Switch: L2 forwarding; connects devices on the same network. Router: L3 routing; connects networks. Firewall: filters traffic based on IP/port; it can be rule-based or behaviour-based. Load balancer: distributes traffic following a policy. IDS (intrusion detection system): alerts the operators or drops suspicious traffic. Access point: connects wireless devices and bridges wired and wireless devices. Each device serves a different function or emphasizes a different aspect of computing - which is the starting point for asking whether the same hardware could take different roles.",
     "keyPoints": [
       "Switch: L2 forwarding within one network",
@@ -293,7 +293,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 39"
   },
   {
-    "name": "What is the role of the SDN controller? List its responsibilities and give examples of controllers named in the lecture.",
+    "name": "What is the role of the SDN controller? List its responsibilities and give examples of SDN controllers.",
     "answer": "The SDN controller orchestrates the entire network. It offers a global view of the network to the application plane; translates high-level policies into low-level device-specific instructions (northbound-to-southbound translation); maintains the state of devices, links and hosts; and maintains logs and statistics. Examples listed on the slide: OpenDaylight (the baseline implementation), OpenvSwitch, ONOS and many others, including vendor-specific ones.",
     "keyPoints": [
       "Orchestrates the entire network",
@@ -332,7 +332,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 44-45"
   },
   {
-    "name": "Describe the evolution of network management towards Intent-Based Networking. What is the main idea of IBN, what is an IBN system, and which examples of intents does the lecture give?",
+    "name": "Describe the evolution of network management towards Intent-Based Networking. What is the main idea of IBN and what is an IBN system? Give examples of intents.",
     "answer": "Evolution: traditional networking uses manual, device-by-device configuration; the current trend, SDN, brings centralized, programmable control; the next step, IBN, is networks that understand and implement intent. The main idea of IBN is to move from 'how to configure' to 'what the network should do'. An IBN system allows users to specify intent. Intent can be formulated in natural language, so IBN benefits from language models such as BERT. The network automatically translates intent into configurations and policies - SDN provides the unified, centralized configuration for this. Continuous monitoring ensures that network behaviour matches the intent; feedback loops are another vital enabling concept. Example intents: reserve sufficient bandwidth for the communication of hosts A and B; any incoming traffic must pass intrusion detection before it is routed in the network; traffic found suspicious by the IDS is routed through a node performing deep packet inspection or redirected to a honeypot; our data cannot leave the EU, so do not route our communications through nodes outside the EU.",
     "keyPoints": [
       "Traditional: manual device-by-device; SDN: centralized programmable control; IBN: networks that understand and implement intent",

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Which changes distinguish the class design and C++ class models from the earlier conceptual model in the Person example? Select all correct statements.",
+    "name": "A conceptual model of a Person class is refined first into a class design model and then into a C++ class model. Which changes distinguish the two refined models from the conceptual one? Select all correct statements.",
     "answers": [
       {
         "body": "The class design model introduces implementation-oriented details such as visibility, accessor operations, and an explicit mother reference.",
@@ -291,7 +291,7 @@
     "source": "L4, slides 22-23"
   },
   {
-    "name": "Which statements apply the single-responsibility principle to the employment examples?",
+    "name": "Which statements apply the single-responsibility principle to modelling employment between Company and Person (optionally with a separate Job class)?",
     "answers": [
       {
         "body": "A class's services should be narrowly aligned with the part of functionality it encapsulates.",
@@ -536,7 +536,7 @@
     "source": "L4, slide 38"
   },
   {
-    "name": "DispatchService directly depends on SmsGatewayClient in an infrastructure package. Which changes establish the dependency inversion shown in the lecture?",
+    "name": "DispatchService directly depends on SmsGatewayClient in an infrastructure package. Which changes establish dependency inversion?",
     "answers": [
       {
         "body": "The dispatching module owns DriverNotifier, an abstraction named after its need; DispatchService uses that abstraction.",
@@ -562,7 +562,7 @@
     "source": "L4, slides 39-40"
   },
   {
-    "name": "Which statements about dependency inversion and dependency injection match the practical dispatching example?",
+    "name": "DispatchService must notify drivers; the abstraction DriverNotifier is introduced and implemented by an SMS notifier. Which statements about dependency inversion and dependency injection are correct here?",
     "answers": [
       {
         "body": "DIP specifies the direction of design dependencies; DI is a technique for supplying an implementation.",
@@ -619,7 +619,7 @@
     "source": "L4, slide 43 (PDF page 42)"
   },
   {
-    "name": "In the Public Transport supplement, the city plan must handle nested lines, stops, line numbers, and construction signs through highlight(). Which statements describe the Composite solution?",
+    "name": "A public-transport city plan must handle nested lines, stops, line numbers, and construction signs through highlight(). Which statements describe the Composite solution?",
     "answers": [
       {
         "body": "CityPlanElement supplies a common operation, and both Leaf and Composite specialize it.",
@@ -747,7 +747,7 @@
     "source": "L4, slides 38-41"
   },
   {
-    "name": "Using the Public Transport supplement, sketch two UML designs: (a) a nested city plan whose elements support highlight(), and (b) a daily work schedule whose shift behavior changes between workdays and vacations. Identify pattern roles, relationships, and which runtime links can change. Explain why the context does not need to change its own class.",
+    "name": "For a public-transport system, sketch two UML designs: (a) a nested city plan whose elements support highlight(), and (b) a daily work schedule whose shift behavior changes between workdays and vacations. Identify pattern roles, relationships, and which runtime links can change. Explain why the context does not need to change its own class.",
     "answer": "For (a), use Composite: CityPlanElement declares highlight(); Leaf and Composite inherit that contract; Composite associates with zero or more CityPlanElement children. ConstructionSign and LineNumber are leaves, while CityPlan, Line, and Stop are composites in the supplied example. The common contract lets the design handle a single element and a subtree uniformly; preserve any domain restrictions on allowed children separately. For (b), use State: DailyWorkSchedule is the context and holds one CurrentDay interface; WorkDay and VacationDay realize getShift(lineNo, numDriver). updateToday() replaces the associated state object according to the current day, while the schedule delegates day-specific behavior through the same interface. The context retains its class throughout its lifetime; the associated objects and links vary at runtime. The supplement supplies these pattern examples; they are additional material rather than individual slides in the L4 deck.",
     "keyPoints": [
       "Composite has a common CityPlanElement contract and a collection of children of that same type",
