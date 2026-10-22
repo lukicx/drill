@@ -18,7 +18,7 @@
         "comment": "Slide 6: dilema přestává platit, když se vyplatí produkce mnohakusové série padělků."
       },
       {
-        "body": "Čím levnější je výroba originálu, tím dražší je padělání, protože sériová výroba je pro jednotlivce nedostupná.",
+        "body": "Čím levnější je výroba originálu, tím dražší je padělání.",
         "right": false,
         "comment": "Slide 7–8: je to spíš naopak – levnější výroba snižuje i bariéru pro padělatele."
       },
@@ -83,7 +83,7 @@
         "comment": "Slide 12: dva nepropojené čipy má hybridní karta; duální má jeden čip se dvěma rozhraními."
       },
       {
-        "body": "Elektronický pas je paměťová karta bez procesoru, protože jeho úkolem je uchovávat data.",
+        "body": "Elektronický pas je paměťová karta bez procesoru.",
         "right": false,
         "comment": "Slide 12: elektronické pasy jsou výkonné bezkontaktní karty."
       }
@@ -113,7 +113,7 @@
         "comment": "Slide 12: omezený zdroj energie vede k procesorům s nízkou spotřebou, nižšímu výkonu a omezené funkčnosti."
       },
       {
-        "body": "Nehodí se pro fyzickou kontrolu přístupu, protože je nelze vložit do čtečky.",
+        "body": "Nehodí se pro fyzickou kontrolu přístupu.",
         "right": false,
         "comment": "Slide 12: bezkontaktní karty jsou vhodné pro fyzickou kontrolu přístupu."
       }
@@ -138,7 +138,7 @@
         "comment": "Slide 17: s každým souborem je svázána hlavička s přístupovými právy (ALW, CHV1, CHV2, NEV)."
       },
       {
-        "body": "Soubor s PINem je master file, protože jej karta při každé operaci kontroluje jako první.",
+        "body": "Soubor s PINem je master file; karta jej při každé operaci kontroluje jako první.",
         "right": false,
         "comment": "Slide 16, 18: MF je kořenový adresář; PINy jsou uloženy v elementárních souborech (EF)."
       },
@@ -168,7 +168,7 @@
         "comment": "Slide 18: karty jsou programovatelné, chování lze nastavit i jinak."
       },
       {
-        "body": "Při pozdější změně PINu stačí zadat nový PIN, protože uživatel už je ověřen.",
+        "body": "Při pozdější změně PINu stačí zadat nový PIN.",
         "right": false,
         "comment": "Slide 18: požadavek na změnu PINu je provázen starým i novým PINem."
       },
@@ -278,7 +278,7 @@
         "comment": "Slide 27: invazivní útoky – preparace čipu, mikrosondy, čtení paměti; narušení je viditelné."
       },
       {
-        "body": "Indukce chyb změnou napájecího napětí – invazivní fyzický útok, protože čip trvale poškodí.",
+        "body": "Indukce chyb změnou napájecího napětí – invazivní fyzický útok.",
         "right": false,
         "comment": "Slide 26, 29: indukce chyb během činnosti patří mezi logické útoky."
       },
@@ -358,7 +358,7 @@
         "comment": "Slide 35: chyby návrhu API mohou umožnit neautorizovaný přístup; rozhraní bývá složité a výrobci maximálně optimalizují."
       },
       {
-        "body": "Změna napájecího napětí je výkonová analýza, protože útočník pracuje s napájením karty a měří ho.",
+        "body": "Změna napájecího napětí je výkonová analýza; útočník pracuje s napájením karty a měří ho.",
         "right": false,
         "comment": "Slide 32, 34: výkonová analýza spotřebu pasivně sleduje; aktivní změna podmínek je indukce chyb."
       },
@@ -393,12 +393,12 @@
         "comment": "Slide 40: řeší se ztráta synchronizace hodin – záznam v čítači na serveru, po úspěšném přihlášení update, nejčastěji jako offset."
       },
       {
-        "body": "Odpověď kalkulátoru závisí jen na výzvě, takže ji spočítá kdokoli se stejným modelem kalkulátoru.",
+        "body": "Odpověď kalkulátoru závisí jen na výzvě; spočítá ji kdokoli se stejným modelem kalkulátoru.",
         "right": false,
         "comment": "Slide 36: odpověď závisí i na tajném klíči uloženém v kalkulátoru."
       },
       {
-        "body": "Token s hodinami musí mít klávesnici, protože do něj uživatel zadává výzvu.",
+        "body": "Token s hodinami musí mít klávesnici; uživatel do něj zadává výzvu od serveru.",
         "right": false,
         "comment": "Slide 40: tokeny s hodinami nemusejí být součástí kalkulátorů (např. RSA SecurID); hodnotu odvozují od času, ne od výzvy."
       }

@@ -13,12 +13,12 @@
         "comment": "Slide 3: identifikace – 1:n, nutné projít celou databázi, náročnější proces, dělení databáze."
       },
       {
-        "body": "Policejní systém provádí verifikaci, protože obličej porovnává se záznamy v databázi.",
+        "body": "Policejní systém provádí verifikaci; obličej porovnává se záznamy v celé databázi osob.",
         "right": false,
         "comment": "Slide 3: bez předem známé identity se prochází celá databáze – jde o identifikaci 1:n."
       },
       {
-        "body": "Identifikace je rychlejší než verifikace, protože nepotřebuje tvrzení o identitě.",
+        "body": "Identifikace je rychlejší než verifikace; nepotřebuje tvrzení o identitě cestujícího.",
         "right": false,
         "comment": "Slide 3: identifikace je náročnější proces, protože se porovnává s celou databází."
       },
@@ -38,7 +38,7 @@
         "comment": "Slide 7–8: biometrická data nejsou nikdy 100% shodná; 100% shoda znamená chybu, nebo útok – útočník získal registrační data."
       },
       {
-        "body": "Systém má shodu přijmout, protože práh je dolní mez a vyšší skóre shody znamená spolehlivější autentizaci.",
+        "body": "Systém má shodu přijmout. Práh je dolní mez a vyšší skóre znamená spolehlivější autentizaci.",
         "right": false,
         "comment": "Slide 7–8: u biometrik se počítá s variabilitou; přesná shoda není „lepší“ výsledek, ale znak chyby nebo podvodu."
       },
@@ -73,12 +73,12 @@
         "comment": "Slide 54: vysoké FAR znamená použitelnost jen pro aplikace s nízkou úrovní bezpečnosti, vysoké FRR nespokojené uživatele; volba je odvozena."
       },
       {
-        "body": "Klesnou obě chyby zároveň, protože přísnější práh dělá systém celkově přesnějším.",
+        "body": "Klesnou obě chyby zároveň. Přísnější práh dělá systém celkově přesnějším.",
         "right": false,
         "comment": "Slide 10: rozdělení skóre útočníků a oprávněných uživatelů se překrývají, takže posun prahu jednu chybu snižuje a druhou zvyšuje."
       },
       {
-        "body": "Vzroste FAR, protože přísnější systém je citlivější a častěji reaguje na podvrhy.",
+        "body": "Vzroste FAR. Přísnější systém je citlivější a častěji reaguje na podvrhy.",
         "right": false,
         "comment": "Slide 10: vyšší práh nesprávná přijetí snižuje, ne zvyšuje."
       }
@@ -128,12 +128,12 @@
         "comment": "Slide 20: samotné FAR a FRR bez znalosti detailů testování mnoho nepomůže; nutnost znát FRR plyne ze vztahu FAR a FRR (slide 10, odvozeno)."
       },
       {
-        "body": "FAR je pevná vlastnost technologie otisků prstů, takže se u různých výrobců lišit nemůže.",
+        "body": "FAR je pevná vlastnost technologie otisků prstů; u různých výrobců se lišit nemůže.",
         "right": false,
         "comment": "Slide 20: chybovost není pevná, závisí na řadě faktorů včetně typu snímače."
       },
       {
-        "body": "Nižší FAR znamená i nižší FRR, takže druhý snímač je lepší v obou ohledech.",
+        "body": "Nižší FAR znamená i nižší FRR; druhý snímač je proto lepší v obou ohledech, přestože testovací podmínky nejsou známy.",
         "right": false,
         "comment": "Slide 10: snížení FAR (např. vyšším prahem) zpravidla zvyšuje FRR."
       }
@@ -158,7 +158,7 @@
         "comment": "Slide 21: genotypické charakteristiky jsou geneticky založené, např. DNA."
       },
       {
-        "body": "Geometrie ruky je behaviorální, protože uživatel musí ruku přiložit ke snímači.",
+        "body": "Geometrie ruky je behaviorální. Uživatel musí ruku přiložit ke snímači.",
         "right": false,
         "comment": "Slide 21: geometrie ruky je fyziologická (statická) charakteristika; přiložení ruky není měřené chování."
       },
@@ -218,7 +218,7 @@
         "comment": "Slide 38: snímat lze kvalitním i běžným mikrofonem nebo telefonem."
       },
       {
-        "body": "Ověření mluvčího nelze použít pro kontinuální verifikaci, protože hlas se při delším hovoru mění.",
+        "body": "Ověření mluvčího nelze použít pro kontinuální verifikaci.",
         "right": false,
         "comment": "Slide 47: kontinuální verifikace (a výzva-odpověď) byla naopak výhodou ověření mluvčího; problémem jsou deepfakes a dlouhodobý vývoj řeči."
       }
@@ -273,12 +273,12 @@
         "comment": "Slide 55: žádná metoda neposkytuje 100% ochranu; každé řešení lze obelstít, záleží na ceně útoku."
       },
       {
-        "body": "Znalost principu testu živosti útočníkovi nepomůže, protože test měří fyziologii.",
+        "body": "Znalost principu testu živosti útočníkovi nepomůže. Test měří fyziologii.",
         "right": false,
         "comment": "Slide 55: znalost principu testu cenu útoku výrazně snižuje."
       },
       {
-        "body": "Pokles nesprávných odmítnutí, protože snímač lépe rozliší živé prsty.",
+        "body": "Pokles nesprávných odmítnutí. Snímač lépe rozliší živé prsty.",
         "right": false,
         "comment": "Slide 55: testování živosti obvykle počet nesprávných odmítnutí zvyšuje."
       }
@@ -333,12 +333,12 @@
         "comment": "Slide 68: biometriky mohou výhodně chránit přístup k tajnému klíči, nejlépe ještě s tajnou informací."
       },
       {
-        "body": "Návrh je dobrý, protože otisk je při každém snímání bitově shodný a klíč bude stále stejný.",
+        "body": "Návrh je dobrý. Otisk je při každém snímání bitově shodný a klíč bude stále stejný.",
         "right": false,
         "comment": "Slide 7: biometrická data nejsou nikdy 100% shodná."
       },
       {
-        "body": "Biometriky autentizují data a zprávy, takže mohou digitální podpis přímo nahradit.",
+        "body": "Biometriky autentizují data a zprávy. Mohou digitální podpis přímo nahradit.",
         "right": false,
         "comment": "Slide 68: biometriky autentizují uživatele, nikoliv počítače nebo data a zprávy."
       }
@@ -358,7 +358,7 @@
         "comment": "Slide 69: uživatel neví, s jakým klíčem se vytvořil digitální podpis (pokud vůbec) a kdo k němu má přístup."
       },
       {
-        "body": "Tablet z ručního podpisu sám vytvoří kvalifikovaný elektronický podpis, takže je vše v pořádku.",
+        "body": "Tablet z ručního podpisu sám vytvoří kvalifikovaný elektronický podpis.",
         "right": false,
         "comment": "Slide 69: podpis na cizím tabletu nic takového nezaručuje; je třeba se ptát po detailech varianty."
       },

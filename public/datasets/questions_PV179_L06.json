@@ -1,360 +1,350 @@
 [
   {
-    "name": "A typical “journey of a young architect” plots architecture complexity against the developer's experience. Which statements describe this journey?",
+    "name": "The “journey of a young architect” plots the complexity of the architectures a developer builds against the developer's experience. Select all correct statements.",
     "answers": [
       {
-        "body": "At first architecture visibly helps, so the complexity of the architectures the developer builds grows.",
+        "body": "At first, learning architecture makes the developer build ever more complex architectures, until the curve reaches a peak of over-engineering.",
         "right": true,
-        "comment": "L6, slides 2-5"
+        "comment": "L6, slides 2-9: The curve rises with experience to a peak before it drops."
       },
       {
-        "body": "The curve reaches a peak of over-engineered, excessive architecture, which is a necessary waypoint towards pragmatic architecture.",
+        "body": "The peak is a necessary waypoint toward pragmatic architecture, so the lecture does not tell you to skip it.",
         "right": true,
-        "comment": "L6, slides 2-10"
+        "comment": "L6, slide 10: The speaker says the peak is a necessary waypoint and only offers hints for later decisions."
       },
       {
-        "body": "After the peak, complexity drops and settles at “architectural enlightenment”: picking the correct amount of architecture the project needs.",
-        "right": true,
-        "comment": "L6, slides 9-10"
-      },
-      {
-        "body": "Experienced architects always choose the most complex architecture available.",
+        "body": "After the peak, experienced architects keep choosing the most complex architecture available, because complexity shows skill.",
         "right": false,
-        "comment": "L6, slides 9-10: Experience leads to choosing the amount of architecture the project needs."
+        "comment": "L6, slides 9-10: After the peak complexity drops to the amount the project actually needs."
+      },
+      {
+        "body": "The peak is wasted effort and a developer should skip over-engineered architectures completely to reach pragmatic architecture faster.",
+        "right": false,
+        "comment": "L6, slide 10: The lecture calls the peak a necessary waypoint, not a mistake to skip."
       }
     ],
-    "source": "L6, slides 2-11"
+    "source": "L6, slides 2-10"
   },
   {
-    "name": "Consider the complexity of the architecture versus the complexity of the problem we are trying to solve. Which combinations are a good fit?",
+    "name": "Complexity of the architecture is compared with complexity of the problem being solved. Select all combinations that the lecture presents as a good fit.",
     "answers": [
       {
-        "body": "Simple app + simple architecture",
+        "body": "A simple app with a simple architecture.",
         "right": true,
-        "comment": "L6, slides 13-14"
+        "comment": "L6, slide 14: Both complexities match, so there is no unnecessary overhead."
       },
       {
-        "body": "Complex app + complex architecture",
+        "body": "A complex app with a complex architecture.",
         "right": true,
-        "comment": "L6, slides 13, 15"
+        "comment": "L6, slide 15: The architecture is strong enough for the problem it has to solve."
       },
       {
-        "body": "Simple app + complex architecture",
+        "body": "A simple app with a complex architecture.",
         "right": false,
-        "comment": "L6, slide 16: a mismatch – unnecessary complexity."
+        "comment": "L6, slide 16: A mismatch – the app pays for layers and ceremony it does not need."
       },
       {
-        "body": "Complex app + simple architecture",
+        "body": "A complex app with a simple architecture.",
         "right": false,
-        "comment": "L6, slide 17: a mismatch – the architecture cannot cope with the problem."
+        "comment": "L6, slide 17: A mismatch – the structure cannot cope with the problem and breaks down as the app grows."
       },
       {
-        "body": "Any combination, because architecture is a single one-dimensional choice that does not depend on the problem.",
+        "body": "One architecture chosen once and reused unchanged for the next projects, whatever the problem.",
         "right": false,
-        "comment": "L6, slides 19-20: Architecture is not one-dimensional; it is a mosaic of complementary decisions."
+        "comment": "L6, slides 19-20: Architecture is a mosaic of decisions that should fit each problem, not one fixed choice."
       }
     ],
     "source": "L6, slides 13-20"
   },
   {
-    "name": "Architecture as a code structure decides how code is divided into blocks. Which observations indicate that a codebase needs MORE structure?",
+    "name": "A team of eight shares one codebase. Select all observations that suggest the code needs MORE structure.",
     "answers": [
       {
-        "body": "Frequent merge conflicts in “god” services or files.",
+        "body": "Merge conflicts keep appearing in a few “god” services or files.",
         "right": true,
-        "comment": "L6, slide 22"
+        "comment": "L6, slide 22: Frequent merge conflicts in god files are listed as a sign of too little structure."
       },
       {
-        "body": "Framework/ORM choices leak everywhere and the team feels locked in.",
+        "body": "ORM and framework choices leak into the whole codebase, so the team feels locked in.",
         "right": true,
-        "comment": "L6, slide 22"
+        "comment": "L6, slide 22: Leaking framework/ORM choices signal missing boundaries."
       },
       {
-        "body": "Onboarding is slow because the code layout does not match how the business thinks.",
-        "right": true,
-        "comment": "L6, slide 22"
-      },
-      {
-        "body": "Many layers, DTOs and mappers exist even for trivial CRUD.",
+        "body": "Trivial CRUD screens require many layers, DTOs and mappers, even for a simple field change.",
         "right": false,
-        "comment": "L6, slide 22: ceremony overload – a sign of too much structure."
+        "comment": "L6, slide 22: Ceremony overload signals too much structure, not too little."
       },
       {
         "body": "Simple features require touching 6+ layers or 10+ files.",
         "right": false,
-        "comment": "L6, slide 22: a sign of too much structure."
+        "comment": "L6, slide 22: This is a sign of too much structure."
+      },
+      {
+        "body": "80% of test time goes to mocks and wiring, and brittle tests assert call sequences.",
+        "right": false,
+        "comment": "L6, slide 22: That is a sign of too much structure."
       }
     ],
-    "source": "L6, slides 21-22"
+    "source": "L6, slide 22"
   },
   {
-    "name": "Architecture decisions were presented along three dimensions: code structure, deployment and problem modeling. Which statements about their goals are correct?",
+    "name": "Architecture decisions were presented along three dimensions: code structure, deployment and problem modeling. Select all correct statements about their goals.",
     "answers": [
       {
-        "body": "Code structure and deployment both aim to maximize cohesion, minimize coupling, define modules/components around business capabilities and support future proofing and replaceability – deployment just on a bigger scale.",
+        "body": "Code structure and deployment share goals at different scales: high cohesion, low coupling, modules around business capabilities, replaceability.",
         "right": true,
-        "comment": "L6, slides 21, 35"
+        "comment": "L6, slides 21, 35: The two slides list identical goals; deployment is “just on bigger scale”."
       },
       {
-        "body": "Problem modeling aims to capture business meaning, force the system to follow business rules, prevent developers from making mistakes and improve testability.",
+        "body": "Problem modeling aims to capture business meaning, enforce business rules, prevent developer mistakes and improve testability.",
         "right": true,
-        "comment": "L6, slide 46"
+        "comment": "L6, slide 46: These are the four goals listed for modeling."
       },
       {
-        "body": "In clean architecture your job is not to solve how data flow and are stored in a system, but to solve business problems with code.",
-        "right": true,
-        "comment": "L6, slide 24"
-      },
-      {
-        "body": "Each architectural style differs only in its complexity, so choosing an architecture means choosing a point on one axis.",
+        "body": "Each style differs along a single dimension, its complexity, and choosing an architecture means picking a point on one axis.",
         "right": false,
-        "comment": "L6, slides 20-21, 35: Architecture is a mosaic of decisions and each style has many dimensions, not just complexity."
+        "comment": "L6, slides 20-21, 35: Architecture is a mosaic of decisions; each style has many dimensions, not just complexity."
       },
       {
-        "body": "The goal of code structure is to maximize coupling so that every module can call every other module directly.",
+        "body": "Problem modeling aims to describe features as tables and DTOs, mirroring the database schema as closely as possible.",
         "right": false,
-        "comment": "L6, slides 21, 41: Minimize coupling; everyone knowing everyone is a sign of bad design."
+        "comment": "L6, slide 47: Schema-driven thinking is a warning sign that more domain modeling is needed."
       }
     ],
     "source": "L6, slides 20-21, 24, 35, 46"
   },
   {
-    "name": "Which statements compare three-layer architecture with clean architecture correctly?",
+    "name": "Three-layer architecture and clean architecture were compared. Select all correct statements.",
     "answers": [
       {
-        "body": "Three-layer architecture clearly separates UI, business and data logic and is super easy for CRUD-heavy applications.",
+        "body": "Three-layer architecture separates UI, business and data logic, suits CRUD-heavy apps and leads towards data-driven design.",
         "right": true,
-        "comment": "L6, slide 23"
+        "comment": "L6, slide 23: These are the stated properties of three-layer architecture."
       },
       {
-        "body": "Three-layer architecture intuitively leads towards data-driven design.",
+        "body": "Clean architecture focuses on solving business problems via use cases and tends to ignore how data is finally persisted.",
         "right": true,
-        "comment": "L6, slide 23"
+        "comment": "L6, slides 24-26: Persistence is deliberately postponed."
       },
       {
-        "body": "Clean architecture focuses on solving business problems (use cases) and tends to ignore how data will finally be persisted.",
-        "right": true,
-        "comment": "L6, slides 24-26"
-      },
-      {
-        "body": "In clean architecture, business logic is stored in use cases, which request needed dependencies (ports) without caring about their implementation (adapters).",
-        "right": true,
-        "comment": "L6, slide 27"
-      },
-      {
-        "body": "Clean architecture puts the repository implementation into the domain, next to the use cases.",
+        "body": "Clean architecture starts from the database tables and builds its use cases around them, putting data flow first.",
         "right": false,
-        "comment": "L6, slide 27: The domain holds use cases, entities and repository interfaces; the repository implementation belongs to the data side."
+        "comment": "L6, slide 24: The job in clean architecture is to solve business problems, not how data flows and is stored."
+      },
+      {
+        "body": "In clean architecture, use cases call concrete repository classes directly and the business logic knows how data is stored.",
+        "right": false,
+        "comment": "L6, slide 27: Use cases request dependencies (ports) without caring about the implementation (adapters)."
       }
     ],
     "source": "L6, slides 23-27"
   },
   {
-    "name": "A clean-architecture use case AddTransactionUseCase(userId, amount, description, expiration) is handled by a handler that declares a transaction repository, a current-user provider and a mediator as dependencies; it loads the balance through a specification, throws an exception for a negative balance, creates the transaction, publishes a UserBalanceChanged notification and finally saves the transaction. What does this illustrate?",
+    "name": "A clean-architecture use case AddTransactionUseCase(userId, amount, description, expiration) is handled by a handler that declares a transaction repository, a current-user provider and a mediator as dependencies; it loads the balance through a specification, throws an exception for a negative balance, creates the transaction, publishes a UserBalanceChanged notification and finally saves the transaction. Select all correct statements about what this illustrates.",
     "answers": [
       {
-        "body": "The request record contains only the part the UI needs.",
+        "body": "The handler just requests data through its dependencies without caring how it is retrieved.",
         "right": true,
-        "comment": "L6, slide 29"
+        "comment": "L6, slide 31: Retrieval details stay behind the abstraction (port)."
       },
       {
-        "body": "The handler just requests data without caring how it is retrieved.",
+        "body": "The main focus is the business rule; the dependent action is triggered by publishing a notification instead of being performed inside the handler.",
         "right": true,
-        "comment": "L6, slide 31"
+        "comment": "L6, slides 32-33: The handler is not bogged down with dependent actions."
       },
       {
-        "body": "The main focus is on the business rule; dependent actions are triggered by publishing a notification instead of being performed in the handler.",
-        "right": true,
-        "comment": "L6, slides 32-33"
-      },
-      {
-        "body": "Saving data is kind of an afterthought.",
-        "right": true,
-        "comment": "L6, slide 34"
-      },
-      {
-        "body": "The handler should open the database connection and build the SQL itself, so that the business rule knows how data is stored.",
+        "body": "The handler opens the database connection and builds SQL itself and the business rule knows how data is stored.",
         "right": false,
         "comment": "L6, slides 26, 31: Ignoring persistence helps design better solutions."
+      },
+      {
+        "body": "The handler calls the code that reacts to a balance change directly and the whole flow is visible in one place.",
+        "right": false,
+        "comment": "L6, slides 32-33: Dependent actions are published as notifications, not called directly."
+      },
+      {
+        "body": "Saving comes first and the balance rule is checked afterwards, with persistence as the main focus.",
+        "right": false,
+        "comment": "L6, slide 34: Saving data is kind of an afterthought; the rule comes first."
       }
     ],
     "source": "L6, slides 28-34"
   },
   {
-    "name": "Architecture as a deployment choice decides how code is divided into executables. Which observations indicate that you need MORE separate applications (services)?",
+    "name": "Select all observations that indicate you need MORE separate applications (services) instead of one deployment.",
     "answers": [
       {
-        "body": "Many teams work side by side.",
+        "body": "Many teams work side by side on the same codebase.",
         "right": true,
-        "comment": "L6, slide 36"
+        "comment": "L6, slide 36: Teams blocking each other is listed as a sign."
       },
       {
         "body": "Releases are slow or risky because one big deploy blocks everyone.",
         "right": true,
-        "comment": "L6, slide 36"
+        "comment": "L6, slide 36: A big deploy that blocks everyone is a listed sign."
       },
       {
-        "body": "Different parts need different scalability.",
+        "body": "Different parts of the system need different scalability.",
         "right": true,
-        "comment": "L6, slide 36"
+        "comment": "L6, slide 36: Different scalability needs justify separate apps."
       },
       {
-        "body": "There are too many services for the team size and everyone touches everything.",
+        "body": "There are too many services for the team size, and everyone touches everything.",
         "right": false,
-        "comment": "L6, slide 36: a sign that you need fewer separate apps."
+        "comment": "L6, slide 36: This signals that you need fewer separate apps."
       },
       {
-        "body": "You always deploy everything together anyway.",
+        "body": "You end up deploying everything together anyway.",
         "right": false,
-        "comment": "L6, slide 36: a sign that you need fewer separate apps."
+        "comment": "L6, slide 36: Always deploying everything together signals that you need fewer separate apps."
       }
     ],
-    "source": "L6, slides 35-37"
+    "source": "L6, slide 36"
   },
   {
-    "name": "Which statements about the modular monolith are correct?",
+    "name": "Which statements about the modular monolith are correct? Select all correct statements.",
     "answers": [
       {
-        "body": "The system is designed as if it were a microservice architecture, but the step of hosting each service separately (and its communication pain) is skipped.",
+        "body": "It is designed as if it were a microservice architecture, but each service is not hosted separately, which spares the communication pain.",
         "right": true,
-        "comment": "L6, slide 39"
+        "comment": "L6, slide 39: Microservice-style design without separate hosting."
       },
       {
-        "body": "Each service is a separate module/project, and implementation is kept separate from communication definitions: the messages (requests, notifications) are shared, the implementation stays hidden.",
+        "body": "Each service is a separate module/project, and the shared messages (requests, notifications) are kept apart from the hidden implementation.",
         "right": true,
-        "comment": "L6, slide 40"
+        "comment": "L6, slide 40: Implementation is kept separate from communication definitions."
       },
       {
-        "body": "Code spread across many loosely coupled projects helps when the monolith needs to be split.",
-        "right": true,
-        "comment": "L6, slide 41"
-      },
-      {
-        "body": "A sign of good design is that every module knows every other module (“small village”).",
+        "body": "Each module is hosted as its own service from the start and modules talk to each other over the network.",
         "right": false,
-        "comment": "L6, slide 41: Everyone knowing everyone is the small village syndrome – an indicator of bad design."
+        "comment": "L6, slide 39: Skipping separate hosting is the point of a modular monolith."
       },
       {
-        "body": "It is a recommended starting point for most projects whose future is unknown, together with clean architecture.",
-        "right": true,
-        "comment": "L6, slides 38, 68"
+        "body": "It is a sign of good design when each module knows the others directly and communication stays simple.",
+        "right": false,
+        "comment": "L6, slide 41: Everyone knowing everyone is the “small village syndrome”, a sign of bad design."
+      },
+      {
+        "body": "It is meant for projects that already have many teams and a single deployment is easier to split among them.",
+        "right": false,
+        "comment": "L6, slides 36, 68: It is a starting point when the future is unknown; many teams point towards more separate apps."
       }
     ],
     "source": "L6, slides 37-41, 68"
   },
   {
-    "name": "When and how should a module of a modular monolith be turned into a separate application (a “satellite”)?",
+    "name": "A module of a modular monolith may become a “satellite”. Select all correct statements.",
     "answers": [
       {
-        "body": "When the module has become large and self-sufficient.",
+        "body": "A module is a candidate when it is large and self-sufficient, carries much traffic needing more instances, or has its own team.",
         "right": true,
-        "comment": "L6, slide 42"
+        "comment": "L6, slide 42: These are the listed indicators."
       },
       {
-        "body": "When a large portion of traffic flows through it and more instances would help, or a team now mainly handles it.",
+        "body": "Launching means defining boundaries, moving the module to a separate app and redirecting messages from in-process to cross-app.",
         "right": true,
-        "comment": "L6, slide 42"
+        "comment": "L6, slide 43: The three steps listed."
       },
       {
-        "body": "Steps: define boundaries, move it to a separate app, and redirect the right messages from in-process to cross-app communication.",
-        "right": true,
-        "comment": "L6, slide 43"
-      },
-      {
-        "body": "The first satellite is hard: authentication, messaging (protocol choice, asynchronous execution) and data storage must be solved.",
-        "right": true,
-        "comment": "L6, slide 44"
-      },
-      {
-        "body": "Immediately at project start, every module should be launched as a satellite.",
+        "body": "A module should become a satellite as soon as it has its own database table in the shared schema.",
         "right": false,
-        "comment": "L6, slides 37-38: Start simple and upgrade on pain; most projects do not need microservices."
+        "comment": "L6, slide 42: Size, traffic and a dedicated team are indicators; a table alone is not."
+      },
+      {
+        "body": "The first satellite is easy and a modular monolith already solved authentication, messaging and data storage for it.",
+        "right": false,
+        "comment": "L6, slide 44: The first satellite is hard because it must solve exactly these concerns."
+      },
+      {
+        "body": "No messages need to be redirected and modules in a monolith already communicate over the network.",
+        "right": false,
+        "comment": "L6, slide 43: In a monolith messages flow in-process and must be redirected to cross-app communication."
       }
     ],
     "source": "L6, slides 42-44"
   },
   {
-    "name": "Architecture as a problem-modeling choice shapes how the business is modeled. Which observations indicate that you need MORE sophisticated domain modeling?",
+    "name": "Select all observations that indicate you need MORE sophisticated domain modeling.",
     "answers": [
       {
-        "body": "Invariants keep breaking and the same bug resurfaces in different places.",
+        "body": "Invariants keep breaking, and the same bug resurfaces in different places.",
         "right": true,
-        "comment": "L6, slide 47"
+        "comment": "L6, slide 47: Repeated broken invariants signal missing modeling of business rules."
       },
       {
-        "body": "Schema-driven thinking: features are described as tables/DTOs, not domain concepts.",
+        "body": "Features are described as tables and DTOs rather than domain concepts.",
         "right": true,
-        "comment": "L6, slide 47"
+        "comment": "L6, slide 47: Schema-driven thinking is a listed sign."
       },
       {
-        "body": "Teams use different terms for the same concept (no shared language).",
+        "body": "Different teams use different terms for the same concept, so there is no shared language.",
         "right": true,
-        "comment": "L6, slide 47"
+        "comment": "L6, slide 47: Missing shared language is a listed sign."
       },
       {
-        "body": "Heavy DDD is used for simple CRUD, with aggregates that just wrap a few fields.",
+        "body": "Heavy DDD is used for simple CRUD, with aggregates that wrap a few fields.",
         "right": false,
-        "comment": "L6, slide 47: a sign that the modeling is too complex."
+        "comment": "L6, slide 47: This signals that modeling is already too complex."
       },
       {
-        "body": "Stakeholders cannot follow the diagrams because the language drifted from the business.",
+        "body": "Stakeholders cannot follow the diagrams because the language has drifted from the business.",
         "right": false,
-        "comment": "L6, slide 47: a sign that the modeling is too complex."
+        "comment": "L6, slide 47: This signals that modeling is already too complex."
       }
     ],
-    "source": "L6, slides 46-47"
+    "source": "L6, slide 47"
   },
   {
-    "name": "Which statements about Domain Driven Design (DDD) are correct?",
+    "name": "Select all correct statements about Domain Driven Design (DDD) as presented in the lecture.",
     "answers": [
       {
-        "body": "The main concept is that a domain object (aggregate root) is always valid.",
+        "body": "The main concept is that the domain object (aggregate root) is always valid.",
         "right": true,
-        "comment": "L6, slide 53"
+        "comment": "L6, slide 53: Always-valid aggregate root is the main concept."
       },
       {
-        "body": "No public setters on properties and no mutable lists are exposed; e.g. a collection is exposed as IReadOnlyCollection while the list itself is private.",
+        "body": "There are no public setters and no mutable lists exposed; a collection is exposed as read-only while the list itself stays private.",
         "right": true,
-        "comment": "L6, slides 55, 59"
+        "comment": "L6, slide 55: No public setters on properties and no mutable lists."
       },
       {
-        "body": "All changes must come through public methods on the aggregate root, even when they change an inner entity.",
+        "body": "All changes come through public methods on the aggregate root, even when the change concerns an inner entity.",
         "right": true,
-        "comment": "L6, slides 51, 56"
+        "comment": "L6, slide 56: The root guards its own consistency."
       },
       {
-        "body": "Cross-domain communication is done only via domain events.",
-        "right": true,
-        "comment": "L6, slides 52, 57"
-      },
-      {
-        "body": "Inner entities of an aggregate may be modified directly by any other aggregate.",
+        "body": "Inner entities of an aggregate may be modified directly by other aggregates for convenience.",
         "right": false,
-        "comment": "L6, slides 56-57: Changes go through the aggregate root; other domains communicate by events."
+        "comment": "L6, slides 56-57: Changes go through the aggregate root only."
+      },
+      {
+        "body": "Aggregates in different domains communicate by calling each other's public methods directly.",
+        "right": false,
+        "comment": "L6, slide 57: Cross-domain communication is done via events."
       }
     ],
-    "source": "L6, slides 48-59"
+    "source": "L6, slides 51-57"
   },
   {
-    "name": "Which DDD terms are matched with a correct description?",
+    "name": "Select all DDD terms that are matched with a correct description.",
     "answers": [
       {
-        "body": "Bounded context – a boundary within which a model and its language apply; the same concept (e.g. Customer or Product) can appear in both a sales and a support context.",
+        "body": "Bounded context – a boundary within which a model and its language apply, e.g. Customer in a sales and a support context.",
         "right": true,
-        "comment": "L6, slide 49 shows a Sales Context and a Support Context that both contain Customer and Product; the one-line definition is general DDD wording, not slide text."
+        "comment": "L6, slide 49: The slide shows Customer and Product in both a Sales and a Support Context (the one-line definition is general DDD wording)."
       },
       {
-        "body": "Aggregate root – the entity that represents the aggregate and through which its aggregate boundary is accessed.",
+        "body": "Domain event – something that happened in the domain (e.g. OrderStarted), handled by one or more event handlers.",
         "right": true,
-        "comment": "L6, slides 50-51"
+        "comment": "L6, slides 52, 58: Events carry cross-domain communication."
       },
       {
-        "body": "Domain event – something that happened in the domain (e.g. OrderStarted) and is handled by one or more event handlers.",
-        "right": true,
-        "comment": "L6, slides 52, 58"
+        "body": "Aggregate root – the database table in which the aggregates of the system are stored with their inner entities.",
+        "right": false,
+        "comment": "L6, slide 50: The aggregate root is an entity through which the aggregate is accessed, not a table."
       },
       {
-        "body": "Inner entity – an entity that other aggregates reference and modify directly.",
+        "body": "Inner entity – an entity that other aggregates reference and modify directly, bypassing the aggregate root.",
         "right": false,
         "comment": "L6, slides 51, 56: Inner entities are changed only through the aggregate root."
       }
@@ -362,47 +352,59 @@
     "source": "L6, slides 49-52, 58"
   },
   {
-    "name": "Which recommendations summarize pragmatic architecture (“start simple, upgrade on pain”)?",
+    "name": "A startup does not know whether its project will end in a year or live for ten. Select all recommendations that match “start simple, upgrade on pain”.",
     "answers": [
       {
-        "body": "It is OK to skip architecture or start with something simple for prototypes and hobby projects.",
+        "body": "It is OK to skip architecture or start simple for prototypes and hobby projects.",
         "right": true,
-        "comment": "L6, slide 65"
+        "comment": "L6, slide 65: Starting small is fine for projects without further development plans."
       },
       {
-        "body": "Starting complex (e.g. DDD microservices) is a good idea for high traffic, complex business and many teams.",
+        "body": "With an unknown future, start a little overkill with upgrade paths (e.g. clean architecture, modular monolith) and grow slowly.",
         "right": true,
-        "comment": "L6, slide 66"
+        "comment": "L6, slides 38, 67-71: Uncertain future means a slightly overkill start, then upgrades."
       },
       {
-        "body": "When you do not know whether the project ends in a year or survives ten, start with something a little bit overkill with clear upgrade paths, e.g. clean architecture and a modular monolith.",
-        "right": true,
-        "comment": "L6, slides 38, 67-68"
-      },
-      {
-        "body": "Increase complexity slowly as the project grows (add DDD if the business is complex, spin up satellites when needed) and do not be afraid to make the jump a little too early.",
-        "right": true,
-        "comment": "L6, slides 69-71"
-      },
-      {
-        "body": "About 90 % of software projects need a microservice architecture from day one.",
+        "body": "Start with DDD microservices for new projects, to avoid refactoring later when the project grows.",
         "right": false,
-        "comment": "L6, slide 37: The opposite – 90 % of projects do not need microservices."
+        "comment": "L6, slide 37: Microservices are not needed by most projects; complex starts suit high traffic, complex business and many teams."
+      },
+      {
+        "body": "Starting very small is cheap and the architecture can be rewritten when pain appears.",
+        "right": false,
+        "comment": "L6, slide 67: Starting too small will kick you later; hence a slightly overkill start."
+      },
+      {
+        "body": "Delay decisions about complexity until the project succeeds, then redesign it in one jump.",
+        "right": false,
+        "comment": "L6, slides 70-71: Increase complexity slowly and do not fear a slightly early jump."
       }
     ],
     "source": "L6, slides 37-38, 64-71"
   },
   {
-    "name": "Open question: a startup with three developers builds an internal booking system. Today it is mostly CRUD with a few business rules, but nobody knows whether the product will be dropped within a year or grow for ten years with more teams and traffic. Recommend an architecture along the three dimensions – code structure, deployment and problem modeling – and justify it. For each dimension name the signals that would tell you to add more (or less) architecture later.",
-    "answer": "Architecture is a mosaic of complementary decisions, not one choice; the aim is to fit its complexity to the problem's complexity. Because the future is unknown, follow “start simple, upgrade on pain”: start with something a little bit overkill that has clear upgrade paths. <B>Code structure</B>: clean architecture – business logic in use cases that request dependencies through ports, implementations in adapters, persistence treated as an afterthought; this keeps cohesion high, coupling low and modules aligned with business capabilities. Add structure when merge conflicts concentrate in “god” files, framework/ORM choices leak everywhere or onboarding is slow because the layout does not match the business; reduce it when trivial CRUD needs many layers/DTOs/mappers, tests are mostly mocks/wiring or simple features touch 6+ layers or 10+ files. <B>Deployment</B>: a modular monolith – modules designed as if they were services (separate projects, shared message contracts, hidden implementations) but deployed together; no microservices yet (90 % of projects do not need them). Launch a satellite when a module becomes large and self-sufficient, carries much traffic needing more instances, or gets its own team; signals for more separate apps are many teams side by side, slow/risky big deploys and different scalability needs; signals for fewer are too many services for the team size or always deploying everything. Expect the first satellite to require solving authentication, messaging and data storage. <B>Problem modeling</B>: use-case-oriented modeling first; add DDD (aggregate roots that are always valid, no public setters, changes only through the root, cross-domain events, bounded contexts) when invariants keep breaking, features are described as tables/DTOs or teams use different terms for the same concept; avoid it while it would only wrap CRUD fields or drift from the business language.",
+    "name": "A startup with three developers builds an internal booking system. Today it is mostly CRUD with a few business rules, but nobody knows whether the product will be dropped within a year or grow for ten years. Recommend an architecture along the three dimensions (code structure, deployment, problem modeling) and name the signals that would make you add or remove architecture later.",
+    "answer": "<B>Principle:</B> Fit the architecture to the problem and, because the future is unknown, “start simple, upgrade on pain”: start a little overkill with clear upgrade paths.<BR><B>Code structure and deployment:</B> Clean architecture (use cases that request dependencies through ports, adapters outside, persistence an afterthought) in a modular monolith (modules as if services, shared messages, hidden implementations) – not microservices. Add structure when merge conflicts concentrate in god files, ORM choices leak everywhere or onboarding is slow; remove it when trivial CRUD needs many layers/DTOs or tests are mostly mocks. Launch a satellite when a module becomes large, loaded with traffic or gets its own team.<BR><B>Modeling:</B> Start with use-case-oriented modeling; add DDD (always-valid aggregate roots, events between domains) when invariants keep breaking, features are described as tables/DTOs or teams use different terms for one concept; avoid heavy DDD for plain CRUD.",
     "keyPoints": [
-      "Architecture = several complementary dimensions; fit complexity to the problem",
-      "Unknown future: start a little overkill with upgrade paths (start simple, upgrade on pain)",
-      "Code: clean architecture; more/less-structure indicators",
-      "Deployment: modular monolith; satellite indicators; more/fewer-apps indicators",
-      "Modeling: add DDD when invariants break / no shared language; avoid heavy DDD for CRUD",
-      "Microservices not needed for most projects at the start"
+      "Fit complexity to the problem; start slightly overkill with upgrade paths",
+      "Code: clean architecture; more/less-structure signals",
+      "Deployment: modular monolith, no microservices yet; satellite signals",
+      "Modeling: use cases first, DDD only when invariants break or language drifts",
+      "Avoid heavy DDD and many layers for plain CRUD",
+      "Upgrade when real pain appears, not in advance"
     ],
-    "source": "L6, slides 13-22, 27, 35-47, 53-57, 64-71; the step “use-case-oriented modeling first” is inferred from the complexity axis facades → use cases → DDD (slide 47) and slide 70"
+    "source": "L6, slides 13-22, 27, 35-47, 53-57, 64-71; “use-case-oriented modeling first” is inferred from the complexity axis on slide 47 and from slide 70"
+  },
+  {
+    "name": "The booking system runs as a modular monolith. Its Notifications module (e-mail and SMS) has grown large and self-sufficient, handles most of the traffic and is now looked after by a dedicated team. Plan how to turn it into a satellite: which of these facts are indicators, which steps you take in which order, what makes the first satellite difficult, and how the earlier modular design helps.",
+    "answer": "<B>Indicators:</B> All three facts from the scenario match: the module is large and self-sufficient, a large portion of traffic flows through it so more instances would help, and a team mainly handles it.<BR><B>Steps:</B> (1) Define the boundary of the module (which messages it receives and sends). (2) Move it into a separate application. (3) Redirect the messages that the rest of the system sends it from in-process to cross-application communication.<BR><B>Hard parts of the first satellite:</B> authentication between apps, messaging (choosing the right protocol, asynchronous execution) and data storage (its own data).<BR><B>Why the design helps:</B> modules were separate projects with shared message contracts and hidden implementations, so the boundary and the messages already exist and little code knows the internals; the “small village” (everyone knows everyone) would make this extraction painful.",
+    "keyPoints": [
+      "All three facts match satellite indicators: size, traffic, dedicated team",
+      "Steps: define boundaries, move to separate app, redirect messages to cross-app",
+      "First satellite is hard: authentication, messaging, data storage",
+      "Shared messages and hidden implementation make the split easier",
+      "Everyone-knows-everyone coupling would make the split painful"
+    ],
+    "source": "L6, slides 39-44"
   }
 ]

@@ -3,12 +3,12 @@
     "name": "Ověřovatel dostal podpis, ale ne podepsaný dokument. Která tvrzení o schématech s přílohou a s obnovou zprávy jsou správná?",
     "answers": [
       {
-        "body": "Čisté RSA (bez haše) podpis bez dokumentu neověří, protože každé schéma potřebuje podepsaná data.",
+        "body": "Čisté RSA (bez haše) podpis bez dokumentu neověří. Každé schéma potřebuje podepsaná data.",
         "right": false,
         "comment": "Slide 5: čisté RSA je schéma s obnovou zprávy – podpis data „obsahuje“ a další data k ověření nejsou potřeba."
       },
       {
-        "body": "DSA podpis bez dokumentu ověří, protože DSA umí podepsanou zprávu z podpisu obnovit.",
+        "body": "DSA podpis bez dokumentu ověří. DSA umí podepsanou zprávu z podpisu obnovit.",
         "right": false,
         "comment": "Slide 5: DSA (stejně jako ElGamal a Schnorr) je schéma s přílohou – pro ověření potřebuje i oddělená podepsaná data."
       },
@@ -113,7 +113,7 @@
         "comment": "Slide 16, 22: řešením je vzájemné propojení CA; kdo má přístup k soukromému klíči, může vytvářet platné podpisy, klíč se nesdílí."
       },
       {
-        "body": "Firma A si stáhne certifikát firmy B z jejího webu; certifikát dokazuje svou pravost sám, bez ohledu na CA2.",
+        "body": "Firma A si stáhne certifikát firmy B z jejího webu. Certifikát dokazuje svou pravost sám, bez ohledu na CA2.",
         "right": false,
         "comment": "Slide 23: certifikát má hodnotu jen díky podpisu důvěryhodné CA a otázkou zůstává integrita klíče CA."
       }
@@ -138,12 +138,12 @@
         "comment": "Slide 2, 20: podpis vytvoří jen držitel soukromého klíče a zajišťuje nepopiratelnost původu; že MAC to kvůli sdílenému klíči nedokáže, je odvozeno."
       },
       {
-        "body": "Utajit obsah souboru před cizími – MAC, protože bez klíče nelze zprávu ověřit.",
+        "body": "Utajit obsah souboru před cizími – MAC. Bez klíče nelze zprávu ověřit.",
         "right": false,
         "comment": "Slide 39: MAC slouží k zajištění integrity, ne důvěrnosti dat."
       },
       {
-        "body": "Chránit soubor proti úmyslné změně – CRC, protože útočník nezná použitý polynom.",
+        "body": "Chránit soubor proti úmyslné změně – CRC. Útočník nezná použitý polynom.",
         "right": false,
         "comment": "Slide 38: kontrolní součet je snadné spočítat i podvrhnout, proti úmyslné modifikaci nechrání."
       }
@@ -233,7 +233,7 @@
         "comment": "Slide 24: jedna dvojice klíčů pro šifrování i podpis není příliš vhodná kombinace."
       },
       {
-        "body": "Obnova klíčů není potřeba, protože data lze v nouzi dešifrovat veřejným klíčem.",
+        "body": "Obnova klíčů není potřeba.",
         "right": false,
         "comment": "Slide 28: dešifruje se soukromým exponentem \\(d\\); veřejným klíčem data dešifrovat nelze."
       }
@@ -258,12 +258,12 @@
         "comment": "Slide 30: výpočetní bezpečnost – faktorizace je možná, ale u velkých čísel ne v rozumném čase."
       },
       {
-        "body": "Kdo zná \\(n\\) a \\(e\\), spočítá \\(d\\) snadno, protože \\(\\varphi(n)\\) lze určit bez faktorizace \\(n\\).",
+        "body": "Kdo zná \\(n\\) a \\(e\\), spočítá \\(d\\) snadno; hodnotu \\(\\varphi(n)\\) lze určit bez faktorizace \\(n\\).",
         "right": false,
         "comment": "Slide 28, 30: k výpočtu \\(\\varphi(n)\\) jsou potřeba \\(p\\) a \\(q\\); bezpečnost stojí na nesnadnosti faktorizace."
       },
       {
-        "body": "Rychlejší faktorizace by RSA neohrozila, protože soukromý klíč nejde odvodit ani ze známých \\(p\\) a \\(q\\).",
+        "body": "Rychlejší faktorizace by RSA neohrozila; soukromý klíč nejde odvodit ani ze známých \\(p\\) a \\(q\\).",
         "right": false,
         "comment": "Slide 28, 30: kdo zná \\(p\\) a \\(q\\), spočítá \\(\\varphi(n)\\) i \\(d\\); pokrok ve faktorizaci proto může umožnit odvodit soukromý klíč z veřejného."
       }
@@ -293,7 +293,7 @@
         "comment": "Slide 28–29: veřejný klíč je \\((n, e) = (3233, 17)\\); \\(d\\) je soukromý."
       },
       {
-        "body": "\\(\\varphi(n) = n - 1 = 3232\\), protože \\(\\varphi\\) počítá čísla menší než \\(n\\).",
+        "body": "\\(\\varphi(n) = n - 1 = 3232\\); \\(\\varphi\\) počítá čísla menší než \\(n\\).",
         "right": false,
         "comment": "Slide 28: \\(n - 1\\) by platilo pro prvočíslo \\(n\\); pro \\(n = p \\cdot q\\) je \\(\\varphi(n) = (p-1)(q-1)\\)."
       }
@@ -313,7 +313,7 @@
         "comment": "Slide 34: narozeninový paradox – hledání libovolné kolize má větší šanci než hledání kolize se specifickou hodnotou."
       },
       {
-        "body": "Dobrá kryptografická hašovací funkce je prostá, takže dva různé vstupy nemohou dát stejný haš.",
+        "body": "Dobrá kryptografická hašovací funkce je prostá; dva různé vstupy nemohou dát stejný haš.",
         "right": false,
         "comment": "Slide 32–33: funkce není prostá; kolize existují, jen je nelze v rozumném čase najít."
       },
@@ -348,12 +348,12 @@
         "comment": "Slide 35: funkci je naopak jednoduché spočítat; problémem je chybějící bezkoliznost."
       },
       {
-        "body": "Změna jednoho znaku („ahok“, k = 107) haš nezmění, takže funkce chyby nedetekuje.",
+        "body": "Změna jednoho znaku („ahok“, k = 107) haš nezmění.",
         "right": false,
         "comment": "Slide 35: \\(419 \\bmod 256 = 163\\) – haš se změní, ale jen o 1, což ukazuje chybějící lavinový efekt (srov. slide 37, odvozeno)."
       },
       {
-        "body": "Kolize u této funkce vznikají mezi řetězci stejné délky; různě dlouhé řetězce kolidovat nemohou.",
+        "body": "Kolize u této funkce vznikají mezi řetězci stejné délky. Různě dlouhé řetězce kolidovat nemohou.",
         "right": false,
         "comment": "Slide 35: „QQ“ má dva znaky a „ahoj“ čtyři, a přesto mají stejný haš."
       }
@@ -373,12 +373,12 @@
         "comment": "Slide 36: u MD5 byly nalezeny významné slabiny; 128 bitů se již nepovažuje za dostatečné."
       },
       {
-        "body": "SHA-3 (Keccak), protože jde o delší variantu SHA-2 se stejnou vnitřní konstrukcí a vyšší rychlostí.",
+        "body": "SHA-3 (Keccak). Jde o delší variantu SHA-2 se stejnou vnitřní konstrukcí.",
         "right": false,
         "comment": "Slide 36: SHA-3 je algoritmus na zcela novém principu, ne varianta SHA-2."
       },
       {
-        "body": "SHA-1, protože má 256bitový výstup a je nejnovějším doporučeným standardem NIST.",
+        "body": "SHA-1. Má 256bitový výstup a je nejnovějším doporučeným standardem NIST.",
         "right": false,
         "comment": "Slide 36: SHA-1 má výstup 160 bitů a doporučují se funkce SHA-2."
       },
@@ -403,7 +403,7 @@
         "comment": "Slide 46–47: útočník získal od Verisignu certifikáty na jméno Microsoft; podepsaný kód šel spustit bez varování."
       },
       {
-        "body": "Že program je bezchybný a neobsahuje škodlivý kód, protože jej prověřila certifikační autorita.",
+        "body": "Že program je bezchybný a neobsahuje škodlivý kód. Prověřila jej certifikační autorita.",
         "right": false,
         "comment": "Slide 45: autentizace dat neznamená, že data jsou správná nebo programy bezchybné či bezpečné."
       },
@@ -413,7 +413,7 @@
         "comment": "Slide 43: je-li podpis neplatný nebo chybí, je interaktivně dotázán uživatel."
       },
       {
-        "body": "Že certifikát vydavatele nemohl být zneužit, protože certifikační autority mají pečlivé bezpečnostní předpisy.",
+        "body": "Že certifikát vydavatele nemohl být zneužit. Certifikační autority mají pečlivé předpisy.",
         "right": false,
         "comment": "Slide 46: 100% bezpečnost neexistuje – i pečlivé firmy vydaly útočníkovi certifikáty na cizí jméno."
       }
@@ -438,7 +438,7 @@
         "comment": "Slide 48: princip stojí právě na MAC, ne na šifrování."
       },
       {
-        "body": "Správnou zprávu pozná každý pozorovatel, protože správný MAC je delší než nesprávný.",
+        "body": "Správnou zprávu pozná každý pozorovatel; správný MAC je delší než ten nesprávný.",
         "right": false,
         "comment": "Slide 48: bez znalosti klíče nelze správný a nesprávný MAC odlišit."
       },
@@ -523,7 +523,7 @@
         "comment": "Slide 64–65: PID, elektronická potvrzení atributů a kvalifikovaný el. podpis (pro FO zdarma)."
       },
       {
-        "body": "Přinutit všechny občany EU k používání digitální identity, protože peněženka bude povinná.",
+        "body": "Přinutit všechny občany EU k používání digitální identity. Peněženka bude povinná.",
         "right": false,
         "comment": "Slide 64–65: používání je dobrovolné a kdo peněženku nevyužívá, nesmí být znevýhodněn."
       },
@@ -593,7 +593,7 @@
         "comment": "Slide 75–76: pečeť má stejné úrovně jako podpis – prostá, zaručená, kvalifikovaná."
       },
       {
-        "body": "Časové razítko může pečeť nahradit, protože také prokazuje původ dokumentu.",
+        "body": "Časové razítko může pečeť nahradit. Také prokazuje původ dokumentu jako pečeť.",
         "right": false,
         "comment": "Slide 77: razítko prokazuje existenci dat v daném okamžiku, ne jejich původ; s pečetí se kombinuje."
       }
@@ -623,7 +623,7 @@
         "comment": "Slide 80: v archivu dochází k přerazítkování opakovaně, zhruba po roce."
       },
       {
-        "body": "Transakční protokol archivu se ukládá bez razítka, protože jde o interní záznam.",
+        "body": "Transakční protokol archivu se ukládá bez razítka. Jde o interní záznam bez právního významu.",
         "right": false,
         "comment": "Slide 80: k protokolu ukládanému např. jednou denně se připojí kvalifikované razítko a podpis/pečeť."
       }

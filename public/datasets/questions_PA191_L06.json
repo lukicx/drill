@@ -1,7 +1,7 @@
 [
   {
     "name": "A web page of 14 kB often loads noticeably faster than one of 15 kB, while the difference between 13 kB and 14 kB (or 15 kB and 16 kB) is negligible. Explain why, and show the calculation. Assume a typical initial TCP window of 10 packets, 1500-byte packets with a 40-byte header, and a round-trip time of 200 ms (100 ms each way).",
-    "answer": "The reason is TCP <B>slow start</B>, the algorithm TCP uses to detect the available bandwidth, i.e. how many packets it can send at a time. Under a typical setting TCP first sends <B>10 packets</B> (settings vary, but 10 is a small and safe amount). A 1500-byte packet carries 1500 − 40 = <B>1460 bytes of data</B>, so the first round carries 10 × 1460 = <B>14 600 bytes ≈ 14 kB</B>.<BR><BR>For the first 10 packets only the <B>latency</B> plays a role (from milliseconds in a LAN, tens of ms over wire/fibre, hundreds of ms over satellite, plus queuing delays in servers and routers). The 11th packet (the 15th kB) cannot be sent until the client has received the first ten and sent back an <B>ACK</B> and the server has received it; then the server sends more packets (e.g. twice as many, 20) and keeps growing until packets are lost or no ACK arrives, when it reduces the number of packets. So for the 15th kB the <B>RTT becomes significant</B>: sending the first 10 packets 100 ms + ACK 100 ms + next round 100 ms = <B>300 ms</B>, instead of about 100 ms for a page that fits into the first round. 13 vs 14 kB (both fit into round one) or 15 vs 16 kB (both need round two) differ only marginally. In addition, the TCP and TLS handshakes add further RTTs.",
+    "answer": "The reason is TCP <B>slow start</B>, the algorithm TCP uses to detect the available bandwidth, i.e. how many packets it may send at a time. A typical initial window is <B>10 packets</B> (settings vary, but 10 is a small and safe amount). A 1500-byte packet with a 40-byte header carries \\(1500-40=1460\\) bytes of data, so the first round carries \\(10\\cdot 1460=14\\,600\\) bytes, about 14 kB.<BR><BR>For the first 10 packets only <B>latency</B> matters (milliseconds in a LAN, tens of ms over wire or fibre, hundreds of ms over satellite, plus queuing in servers and routers). The 11th packet (the 15th kB) cannot be sent until the client has received the first ten and returned an <B>ACK</B>; only then does the server send the next, larger round (e.g. 20 packets), and it keeps growing until packets are lost or ACKs stop arriving, when it reduces the window.<BR><BR>So the <B>RTT becomes significant</B> for the 15th kB: first round 100 ms + ACK 100 ms + next round 100 ms = <B>300 ms</B>, instead of about 100 ms for a page that fits into the first round. 13 vs 14 kB (both fit in round one) or 15 vs 16 kB (both need round two) differ only marginally. The TCP and TLS handshakes add further RTTs.",
     "keyPoints": [
       "Cause: TCP slow start limits how many packets may be sent before an ACK returns",
       "Typical initial window 10 packets; 1500 − 40 = 1460 B data each; 10 × 1460 = 14 600 B ≈ 14 kB",
@@ -13,39 +13,38 @@
     "source": "PA191 L6, lecture06.pdf, slides 4-6 (PDF pages 4-7)"
   },
   {
-    "name": "What must a protocol for reliable data transmission provide, why is traditional TCP considered insufficient for current networks, and which problems must a new transport protocol solve? Define aggressiveness, responsiveness and fairness as the key features used to compare such protocols.",
-    "answer": "A protocol for reliable data transmission has to ensure the <B>reliability</B> of the transfer (retransmissions of lost packets) and <B>protection from congestion</B> of both the network and the receiver. Traditional TCP is <B>too slow for current networks with high capacity and high latency</B>; the conclusion states there is a need to go beyond Tahoe and Reno.<BR><BR>Problems a new protocol must solve: how to achieve <B>better network utilisation</B>; how to ensure <B>reasonable co-existence with traditional TCP</B>; how to ensure <B>gradual deployment</B> of the new protocol.<BR><BR>Key features: <B>aggressiveness</B> – the ability to utilise the available bandwidth; <B>responsiveness</B> – the ability to recover from a packet loss (react to changed network conditions); <B>fairness</B> – getting a fair portion of the network throughput when more streams/participants use the network.",
+    "name": "State what a protocol for reliable data transmission must provide, explain why traditional TCP is considered insufficient for current networks, and name the three problems a new transport protocol has to solve.",
+    "answer": "A reliable transport protocol must ensure <B>reliability</B> of the transfer (retransmission of lost packets) and <B>protection from congestion</B>, both of the network and of the receiver.<BR><BR>Traditional TCP (Tahoe/Reno) is <B>too slow for current networks with high capacity and high latency</B>: its window grows slowly and shrinks sharply, so on such paths it cannot fill the pipe. Hence the need to go beyond Tahoe and Reno.<BR><BR>A new protocol must solve three problems: (1) achieve <B>better network utilisation</B>; (2) ensure <B>reasonable co-existence with traditional TCP</B>, so it does not starve ordinary users; (3) ensure <B>gradual deployment</B>, i.e. it must be usable while old and new protocols coexist.",
     "keyPoints": [
-      "Reliability: retransmission of lost packets",
-      "Congestion protection for the network and the receiver",
-      "Traditional TCP too slow for high-capacity, high-latency networks",
-      "Open problems: better utilisation, co-existence with TCP, gradual deployment",
-      "Aggressiveness = utilising available bandwidth",
-      "Responsiveness = recovering from loss; fairness = fair share among competing streams"
+      "Reliable transport = reliability (retransmissions) + congestion protection of network and receiver",
+      "Traditional TCP is too slow on high-capacity, high-latency paths",
+      "Problem 1: better utilisation",
+      "Problem 2: co-existence with traditional TCP",
+      "Problem 3: gradual deployment"
     ],
     "source": "PA191 L6, lecture06.pdf, slides 7 and 53 (PDF pages 8 and 54)"
   },
   {
-    "name": "Distinguish flow control from congestion control in TCP. Whom does each protect, how exact is each, and what historical problem led to congestion control being added to TCP? Illustrate the difference with a water analogy: a tap feeds water through a pipe network into a bucket – compare a small bucket fed through a wide pipe with a large bucket fed through a network that has a narrow section.",
-    "answer": "<B>Flow control</B> manages the rate of data transmission so that a <B>slower recipient</B> is not overwhelmed; it is <B>deterministic</B> (the receiver tells the sender how much it can accept). <B>Congestion control</B> avoids <B>congestion in the network</B>; it is only <B>approximate</B>, because the sender must infer the network state. In short: flow control is for receivers, congestion control is for the network.<BR><BR>Analogy (Tanenbaum): water from a tap (the transmission rate adjustment) flows through a pipe network into a bucket. If a wide pipe feeds a <B>small-capacity receiver</B> (small bucket), the receiver is the bottleneck – this is the flow-control problem. If a <B>large-capacity receiver</B> (big bucket) is fed through a network with a narrow section, water backs up inside the network (<B>internal congestion</B>) – this is the congestion-control problem. In both cases the tap must be turned down, but for different reasons.<BR><BR>History: <B>congestion collapse</B> was first observed in 1986 by V. Jacobson; congestion control was then added to TCP (TCP Tahoe, 1988).",
+    "name": "Distinguish flow control from congestion control in TCP. Whom does each protect and how exact is each? Illustrate the difference with a water analogy: a tap feeds water through a pipe network into a bucket. Compare (i) a small bucket fed through a wide pipe and (ii) a large bucket fed through a network with a narrow section. Finally, explain why the Internet needed congestion control in addition to flow control.",
+    "answer": "<B>Flow control</B> manages the transmission rate so that a <B>slower receiver</B> is not overwhelmed; it is <B>deterministic</B> because the receiver tells the sender how much it can accept. <B>Congestion control</B> avoids <B>congestion inside the network</B>; it is only <B>approximate</B>, because the sender must infer the network state (from losses, delays, marks). Flow control is for receivers, congestion control for the network.<BR><BR>Analogy: (i) a wide pipe into a <B>small bucket</B> – the receiver is the bottleneck and overflows: a flow-control problem. (ii) a <B>large bucket</B> behind a network with a narrow section – water backs up inside the network (<B>internal congestion</B>) although the receiver could take much more: a congestion-control problem. In both cases the tap (sending rate) must be turned down, but for different reasons.<BR><BR>Why both: with flow control alone, senders keep pushing data into a saturated network, queues overflow, packets are dropped and retransmitted, and useful throughput collapses (<B>congestion collapse</B>). This observed collapse is what led to adding congestion control to TCP (Tahoe).",
     "keyPoints": [
-      "Flow control: protects a slow receiver; deterministic",
-      "Congestion control: protects the network; approximate (inferred)",
-      "Small receiver = flow-control bottleneck; narrow network with big receiver = internal congestion",
-      "Both are handled by adjusting the sender's transmission rate",
-      "Congestion collapse observed 1986 (Jacobson) led to congestion control in TCP Tahoe (1988)"
+      "Flow control protects a slow receiver and is deterministic",
+      "Congestion control protects the network and is approximate (inferred)",
+      "Small bucket = receiver bottleneck (flow control); narrow network with big receiver = internal congestion",
+      "Both work by adjusting the sender's rate, but for different reasons",
+      "Without congestion control the network can suffer congestion collapse; this motivated congestion control in TCP"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 9-10 (PDF pages 10-11)"
+    "source": "PA191 L6, lecture06.pdf, slides 9-10 (PDF pages 10-11); the explanation of why flow control alone leads to collapse is derived"
   },
   {
-    "name": "Define MSS, cwnd, rwnd, ownd and sstresh (ssthresh) as used in TCP congestion and flow control. Which side maintains or advertises each value, and how do they combine into the amount of data the sender may actually send?",
-    "answer": "<B>MSS</B> – maximum segment size, derived from the MTU. <B>cwnd</B> – congestion window: kept on the <B>sender side</B>, dynamically adjusted by congestion control; how much data may be sent with respect to the network. <B>rwnd</B> – receive window: <B>advertised by the receiver</B>; how much data it can accept (flow control). <B>ownd = min{cwnd, rwnd}</B> – the final window actually used, so the sender respects both the network and the receiver. <B>sstresh</B> – slow-start threshold: a threshold of cwnd indicating the switch from slow start to congestion avoidance, i.e. from exponential to linear growth.",
+    "name": "Define MSS, cwnd, rwnd, ownd and ssthresh as used in TCP congestion and flow control. Which side maintains or advertises each value, and how do they combine into the amount of data the sender may actually have outstanding?",
+    "answer": "<B>MSS</B> – maximum segment size, derived from the MTU. <B>cwnd</B> – congestion window: kept on the <B>sender side</B>, adjusted dynamically by congestion control; how much data may be sent with respect to the network. <B>rwnd</B> – receive window: <B>advertised by the receiver</B>; how much data it can accept (flow control). The sender uses \\[\\text{ownd}=\\min\\{\\text{cwnd},\\,\\text{rwnd}\\}\\] as the window actually used, so it respects both the network and the receiver. <B>ssthresh</B> – slow-start threshold: a threshold of cwnd marking the switch from slow start to congestion avoidance, i.e. from exponential to linear growth. (The slides spell it \"sstresh\".)",
     "keyPoints": [
       "MSS = maximum segment size, derived from MTU",
       "cwnd = sender-side congestion window, adjusted dynamically",
       "rwnd = receive window advertised by the receiver",
-      "ownd = min{cwnd, rwnd} is the window actually used",
-      "sstresh = cwnd threshold for switching from exponential (slow start) to linear (congestion avoidance) growth"
+      "\\(\\text{ownd}=\\min\\{\\text{cwnd},\\text{rwnd}\\}\\) is the window actually used",
+      "ssthresh = cwnd threshold for switching from exponential to linear growth"
     ],
     "source": "PA191 L6, lecture06.pdf, slide 9 (PDF page 10)"
   },
@@ -62,54 +61,54 @@
     "source": "PA191 L6, lecture06.pdf, slide 11 (PDF page 12); region boundaries read from the slide figure"
   },
   {
-    "name": "Describe congestion control in TCP Tahoe: its components, the slow-start and congestion-avoidance phases with the per-ACK growth rules, the transitions between them, and the reaction to loss. Why is the scheme called AIMD?",
-    "answer": "Traditional congestion control is based on <B>AIMD – Additive Increase, Multiplicative Decrease</B>. Tahoe = <B>Slow Start + AIMD + Fast Retransmit</B>.<BR><B>Connection opening</B>: cwnd = 1 segment, phase <B>Slow Start</B> – exponential growth: for every useful acknowledgment cwnd = cwnd + 1 segment (cwnd doubles each RTT) until cwnd = sstresh.<BR>When cwnd reaches sstresh: <B>Congestion Avoidance</B> – additive growth: for every useful acknowledgment cwnd = cwnd + MSS·MSS/cwnd, so it takes a full window to increase cwnd by one segment, i.e. cwnd = cwnd + 1 per RTT without loss.<BR><B>Loss</B> (retransmission timeout, from either phase): sstresh = 0.5·cwnd, cwnd = 1 segment, back to Slow Start. <B>Fast Retransmit</B> is the loss detection algorithm: it is triggered by 3 duplicate ACKs and in Tahoe also resets cwnd.<BR>The increase is additive (+1 per RTT) and the decrease multiplicative (halving sstresh, window restarted) – hence AIMD.",
+    "name": "Describe congestion control in TCP Tahoe: its components, the slow-start and congestion-avoidance phases with their per-ACK growth rules, the condition for moving between the phases, and the reaction to loss. Why is the scheme called AIMD?",
+    "answer": "Traditional congestion control is based on <B>AIMD – Additive Increase, Multiplicative Decrease</B>. Tahoe = <B>Slow Start + AIMD + Fast Retransmit</B>.<BR><BR><B>Connection opening</B>: \\(\\text{cwnd}=1\\) segment, phase <B>Slow Start</B> – exponential growth: for every useful acknowledgment \\(\\text{cwnd}\\leftarrow\\text{cwnd}+1\\) segment, so cwnd doubles each RTT, until \\(\\text{cwnd}=\\text{ssthresh}\\).<BR><B>Congestion Avoidance</B> (from \\(\\text{cwnd}=\\text{ssthresh}\\)) – additive growth: per acknowledgment \\[\\text{cwnd}\\leftarrow\\text{cwnd}+\\frac{\\text{MSS}\\cdot\\text{MSS}}{\\text{cwnd}},\\] so a full window of ACKs adds one segment: \\(+1\\) segment per RTT without loss.<BR><B>Loss</B> (e.g. retransmission timeout, from either phase): \\(\\text{ssthresh}=0.5\\cdot\\text{cwnd}\\), \\(\\text{cwnd}=1\\) segment, back to Slow Start. <B>Fast Retransmit</B> is the loss detection algorithm triggered by 3 duplicate ACKs; in Tahoe it also resets cwnd.<BR><BR>The increase is additive (\\(+1\\) per RTT), the decrease multiplicative (threshold halved, window restarted) – hence AIMD.",
     "keyPoints": [
       "Tahoe = Slow Start + AIMD + Fast Retransmit",
-      "Start cwnd = 1; slow start: +1 segment per ACK (doubling per RTT) until sstresh",
-      "Congestion avoidance: +MSS²/cwnd per ACK = +1 segment per RTT",
-      "Loss: sstresh = cwnd/2, cwnd = 1, return to slow start",
+      "Start \\(\\text{cwnd}=1\\); slow start: +1 segment per ACK (doubling per RTT) until ssthresh",
+      "Congestion avoidance: \\(+\\text{MSS}^2/\\text{cwnd}\\) per ACK = +1 segment per RTT",
+      "Loss: \\(\\text{ssthresh}=\\text{cwnd}/2\\), \\(\\text{cwnd}=1\\), return to slow start",
       "Fast Retransmit detects loss by 3 duplicate ACKs; in Tahoe it resets cwnd",
       "AIMD: additive increase, multiplicative decrease"
     ],
     "source": "PA191 L6, lecture06.pdf, slides 12-13 (PDF pages 13-14)"
   },
   {
-    "name": "Trace cwnd (in MSS, once per RTT) for a TCP connection that starts with cwnd = 1 and sstresh = 16 and experiences a single loss, detected by three duplicate ACKs, at the moment cwnd reaches 26. Give the values (a) for TCP Tahoe and (b) for TCP Reno until the window is growing linearly again, and explain the resulting long-term sawtooth shapes.",
-    "answer": "<B>Common start</B>: slow start doubles cwnd each RTT: 1, 2, 4, 8, 16; at sstresh = 16 congestion avoidance begins: 17, 18, …, 26 (+1 per RTT). At 26 the loss is detected.<BR><B>(a) Tahoe</B>: sstresh = 0.5·26 = <B>13</B>, cwnd = <B>1</B>, slow start again: 1, 2, 4, 8, … and when the threshold of 13 is reached it continues linearly by +1 per RTT up to 26 again. (In the lecture's simulation, the doubling step goes from 8 straight to 16 before linear growth; if the doubling is capped at sstresh the switch happens at 13.) Long-term: a sawtooth that drops to 1 after every loss, with an exponential rise below sstresh and a linear rise above it.<BR><B>(b) Reno</B> (Fast Recovery, the slow-start phase is not used any more): sstresh = cwnd = 0.5·26 = <B>13</B>, then linear growth 14, 15, …, 26, and after the next loss again 13. Long-term: a sawtooth oscillating between about cwnd/2 and cwnd (13–26), so the average window – and throughput – is much higher than with Tahoe.",
+    "name": "A TCP connection starts with \\(\\text{cwnd}=1\\) MSS and \\(\\text{ssthresh}=16\\) MSS. Slow start doubles cwnd every RTT and ends exactly at ssthresh; in congestion avoidance cwnd grows by 1 MSS per RTT. In the RTT in which cwnd reaches 26 MSS, a single loss is detected by three duplicate ACKs (no timeout). Give the cwnd values, once per RTT, (a) before the loss, (b) after the loss for TCP Tahoe and (c) after the loss for TCP Reno, each until cwnd is 26 again (for Reno, ignore the temporary window inflation in Fast Recovery). How many RTTs does each need to get back to 26, and what is the average cwnd over that period? Explain the resulting long-term sawtooth shapes.",
+    "answer": "<B>(a) Before the loss</B>: slow start 1, 2, 4, 8, 16 (ends exactly at \\(\\text{ssthresh}=16\\)), then congestion avoidance 17, 18, …, 26. The loss is detected at 26.<BR><B>(b) Tahoe</B>: \\(\\text{ssthresh}=0.5\\cdot 26=13\\), \\(\\text{cwnd}=1\\). Slow start again: 1, 2, 4, 8, then, because doubling to 16 would pass the threshold, slow start ends exactly at \\(\\text{ssthresh}=13\\) (13), and linear growth 14, 15, …, 26. That is 17 RTTs from 1 to 26; the window sizes before returning to 26 sum to \\(1+2+4+8+(13+14+\\dots+25)=15+247=262\\), so the average is \\(262/17\\approx 15.4\\).<BR><B>(c) Reno</B> (Fast Recovery, slow start not used): \\(\\text{ssthresh}=\\text{cwnd}=0.5\\cdot 26=13\\), then 13, 14, …, 26: 13 RTTs; sum \\(13+\\dots+25=247\\), average \\(247/13=19\\).<BR><BR><B>Shapes</B>: Tahoe's sawtooth falls to 1 after every loss, rises exponentially below \\(\\text{ssthresh}\\) and linearly above it. Reno oscillates between about \\(W/2\\) and \\(W\\) (13 and 26), recovers 4 RTTs sooner, and its average window (and throughput) is higher.",
     "keyPoints": [
-      "Slow start 1, 2, 4, 8, 16; then linear 17 … 26",
-      "Tahoe after loss: sstresh = 13, cwnd = 1, slow start again, linear above the threshold",
-      "Reno after triple duplicate ACK: sstresh = cwnd = 13, linear growth from 13",
-      "Tahoe sawtooth falls to 1 each time; Reno oscillates between W/2 and W",
-      "Reno keeps a higher average window/throughput"
+      "Before loss: 1, 2, 4, 8, 16 then 17 … 26",
+      "Tahoe: ssthresh = 13, cwnd = 1, slow start 1, 2, 4, 8, 13, then linear to 26 (17 RTTs, average about 15.4)",
+      "Reno after 3 duplicate ACKs: ssthresh = cwnd = 13, linear 13 … 26 (13 RTTs, average 19)",
+      "Tahoe sawtooth falls to 1 each loss; Reno oscillates between W/2 and W",
+      "Reno keeps a higher average window and throughput"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 12-17 (PDF pages 13-18); values follow the Tahoe and Reno simulation charts on slides 14 and 17"
+    "source": "PA191 L6, lecture06.pdf, slides 12-17 (PDF pages 13-18); the traces follow the Tahoe/Reno rules on slides 12-16 (the slide charts double from 8 to 16 past ssthresh = 13, a simplification); averages are derived"
   },
   {
-    "name": "Explain how TCP Reno improves on Tahoe. Describe Fast Retransmission (when duplicate ACKs are generated and how a loss is recognised) and Fast Recovery, including the state transitions after three duplicate ACKs and after a retransmission timeout. What does NewReno add?",
-    "answer": "<B>Reno = Tahoe + Fast Recovery</B>.<BR><B>Fast Retransmission</B>: a TCP receiver sends an <B>immediate duplicate ACK</B> when an out-of-order segment arrives, so all segments after a dropped one trigger duplicate ACKs. A loss is indicated by <B>3 duplicate ACKs</B> (≈ four successive identical ACKs without intervening packets). Once they are received, TCP retransmits the segment <B>without waiting for the retransmission timer to expire</B>.<BR><B>Fast Recovery</B>: the slow-start phase is not used any more after such a loss; sstresh = cwnd = 0.5·cwnd. In the state view: from Slow Start or Congestion Avoidance, 3 duplicate ACKs lead to Fast Recovery, in which the window is temporarily increased (labelled “exponential increase beyond cwnd”); when the expected ACK is received, cwnd := cwnd/2 and the connection continues in <B>Congestion Avoidance</B> (linear growth). A <B>retransmission timeout</B> (from any state) still means sstresh := cwnd/2 and a return to <B>Slow Start</B>; on the transition from Congestion Avoidance the state diagram also gives cwnd := 1 segment.<BR><B>NewReno</B> is a more fine-grained variant: it uses <B>partial ACKs</B> and handles <B>multiple packet losses</B> in one window simultaneously.",
+    "name": "Explain Fast Retransmit and Fast Recovery in TCP Reno. When are duplicate ACKs generated and how is a loss recognised? Describe the state transitions between Slow Start, Congestion Avoidance and Fast Recovery after three duplicate ACKs, after a retransmission timeout, and when the expected ACK finally arrives.",
+    "answer": "<B>Reno = Tahoe + Fast Recovery.</B><BR><B>Fast Retransmit</B>: a receiver sends an <B>immediate duplicate ACK</B> whenever an out-of-order segment arrives, so every segment after a dropped one triggers a duplicate ACK. A loss is indicated by <B>3 duplicate ACKs</B> (about four identical ACKs without intervening packets). TCP then retransmits the segment <B>without waiting for the retransmission timer</B>.<BR><B>Fast Recovery</B>: the slow-start phase is not used after such a loss; \\(\\text{ssthresh}=\\text{cwnd}=0.5\\cdot\\text{cwnd}\\).<BR><BR>State machine: Slow Start moves to Congestion Avoidance when \\(\\text{cwnd}=\\text{ssthresh}\\). From Slow Start or Congestion Avoidance, <B>3 duplicate ACKs</B> lead to <B>Fast Recovery</B>, where the window is temporarily increased (“exponential increase beyond cwnd”) while waiting for the retransmitted segment to be acknowledged. When the <B>expected ACK</B> arrives, \\(\\text{cwnd}=\\text{cwnd}/2\\) and the connection continues in <B>Congestion Avoidance</B> (linear growth). A <B>retransmission timeout</B> – from any state – sets \\(\\text{ssthresh}=\\text{cwnd}/2\\) and returns to <B>Slow Start</B> with \\(\\text{cwnd}=1\\) segment in every case.<BR>So a mild loss signal (duplicate ACKs, data still flowing) halves the window, while a timeout (the severe signal) restarts from slow start.",
     "keyPoints": [
-      "Receiver sends an immediate duplicate ACK for each out-of-order segment",
-      "3 duplicate ACKs (≈ 4 identical ACKs) signal a loss",
-      "Fast retransmission: resend without waiting for the timer",
-      "Fast Recovery: no slow start; window temporarily inflated (“exponential increase beyond cwnd”); then sstresh = cwnd = cwnd/2 and congestion avoidance",
-      "Timeout from any state: sstresh := cwnd/2, back to slow start (cwnd := 1 segment from congestion avoidance)",
-      "NewReno: partial ACKs, several losses in one window"
+      "Receiver sends an immediate duplicate ACK for every out-of-order segment",
+      "3 duplicate ACKs signal a loss; retransmit without waiting for the timer",
+      "Fast Recovery: no slow start; \\(\\text{ssthresh}=\\text{cwnd}=\\text{cwnd}/2\\); window temporarily inflated",
+      "Expected ACK received: continue in Congestion Avoidance with linear growth",
+      "Timeout from any state: \\(\\text{ssthresh}=\\text{cwnd}/2\\) and back to Slow Start",
+      "Duplicate ACKs = mild signal (halve), timeout = severe signal (restart)"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 15-16 (PDF pages 16-17)"
+    "source": "PA191 L6, lecture06.pdf, slides 15-16 (PDF pages 16-17); the mild/severe-signal remark is an interpretation"
   },
   {
-    "name": "Compare what Tahoe, Reno, NewReno and TCP with Selective Acknowledgement (SACK) retransmit after a packet loss. Which fundamental question about traditional TCP remains open even with the best of these mechanisms?",
-    "answer": "The reaction to packet loss is retransmission: <B>Tahoe</B> retransmits the whole actual window <B>ownd</B>; <B>Reno</B> retransmits a <B>single segment</B> in Fast Retransmission mode; <B>NewReno</B> retransmits <B>more segments</B> in Fast Retransmission mode (it handles multiple losses); <B>SACK</B> retransmits <B>just the lost packets</B>.<BR>The fundamental question remains: <B>how can a sufficient size of cwnd be achieved under real conditions in a network with high capacity and high RTT</B> – without affecting or preventing the “common” users from using the network? Better retransmission does not solve the slow additive growth of the window.",
+    "name": "Compare what TCP Tahoe, Reno, NewReno and TCP with Selective Acknowledgement (SACK) retransmit after a packet loss and how NewReno differs from Reno. Which fundamental question about traditional TCP remains open even with the best of these mechanisms?",
+    "answer": "The reaction to packet loss is retransmission: <B>Tahoe</B> retransmits the whole actual window (ownd); <B>Reno</B> retransmits a <B>single segment</B> in Fast Retransmission mode; <B>NewReno</B> is a more fine-grained variant that uses <B>partial ACKs</B> and handles <B>multiple losses in one window</B>, so it retransmits several segments; <B>SACK</B> retransmits <B>just the lost packets</B>.<BR><BR>The fundamental question remains: <B>how can a sufficient cwnd be reached under real conditions on a network with high capacity and high RTT</B>, without affecting or preventing “common” users from using the network? Better retransmission does not remove the slow additive growth of the window.",
     "keyPoints": [
-      "Tahoe: the whole window ownd",
-      "Reno: one segment (fast retransmission)",
-      "NewReno: more segments in fast retransmission",
+      "Tahoe: whole window",
+      "Reno: one segment per fast retransmission",
+      "NewReno: partial ACKs, several losses in one window",
       "SACK: only the lost packets",
-      "Open question: reaching a large enough cwnd on high-capacity, high-RTT paths without harming other users"
+      "Open: reaching a large cwnd on high-capacity, high-RTT paths without harming others; retransmission is not the bottleneck"
     ],
-    "source": "PA191 L6, lecture06.pdf, slide 19 (PDF page 20)"
+    "source": "PA191 L6, lecture06.pdf, slides 15 and 19 (PDF pages 16 and 20)"
   },
   {
     "name": "Explain delay-based congestion control as used by TCP Vegas and FAST TCP. What signal do they use instead of (or in addition to) packet loss, how does each adjust its sending rate, and how does FAST TCP differ from Vegas?",
@@ -125,7 +124,7 @@
     "source": "PA191 L6, lecture06.pdf, slides 18 and 46 (PDF pages 19 and 47)"
   },
   {
-    "name": "Define aggressiveness, responsiveness and fairness of a TCP congestion-control algorithm more precisely. What is the trade-off between high and low aggressiveness, what does fairness mean (and not mean), and why does the speed of convergence matter?",
+    "name": "Define aggressiveness, responsiveness and fairness of a TCP congestion-control algorithm. What is the trade-off between high and low aggressiveness, what does fairness mean (and not mean), and why does the speed of convergence matter?",
     "answer": "<B>Aggressiveness</B>: a highly aggressive TCP increases cwnd quickly or reduces it relatively little when congestion occurs; a less aggressive TCP increases cwnd more slowly or reduces it more sharply. Highly aggressive algorithms are <B>unfair to other users</B>, because they take up available bandwidth quickly.<BR><B>Responsiveness</B> describes how quickly and effectively TCP reacts when network conditions change: a highly responsive connection detects congestion and reduces its sending rate quickly; a less responsive one reacts more slowly, potentially causing more packet loss and delays.<BR><B>Fairness</B>: competing flows sharing a bottleneck link receive <B>reasonable shares</B> of its capacity. The goal is <B>not necessarily equal throughput</B> in every situation – RTT, priorities and application requirements differ, and flows facing different conditions may receive unequal rates. Fairness is <B>not guaranteed – TCP is unfair</B>. The <B>speed of convergence</B> to the point of equilibrium does matter: a protocol that converges slowly can leave flows unfairly treated for a long time.",
     "keyPoints": [
       "High aggressiveness: fast increase / mild decrease; grabs bandwidth, unfair to others",
@@ -138,96 +137,152 @@
     "source": "PA191 L6, lecture06.pdf, slides 20-21 (PDF pages 21-22)"
   },
   {
-    "name": "Two AIMD flows share a bottleneck of capacity 100. Plot their rates x and y in a plane: the line x = y is the fairness line and x + y = 100 is full utilisation. Both add 1 MSS per step (additive increase) and multiply their window by β on a loss (multiplicative decrease). Starting from x = 80, y = 0, explain how the operating point moves and why it approaches the fair share. Compare β = 0.5 with β = 0.83 over the same 30 steps.",
-    "answer": "<B>Additive increase</B> adds the same amount to both flows, so the point moves at 45°, parallel to the fairness line: the <B>difference x − y stays the same</B>, until the sum reaches the capacity line (loss). <B>Multiplicative decrease</B> multiplies both rates by β, i.e. the point jumps towards the origin along the line through the origin: the <B>difference x − y is multiplied by β</B>. Each loss cycle therefore shrinks the unfairness by the factor β, and the trajectory zig-zags along the capacity line towards the intersection with the fairness line (x = y = 50).<BR>With <B>β = 0.5</B> the difference halves at every loss: starting from a difference of 80, after a few cycles the flows are close to the fair point. With <B>β = 0.83</B> the difference shrinks only by 17 % per loss, so after the same 30 steps the flows are still clearly unequal: a gentler decrease (less responsive, more aggressive) <B>converges more slowly</B> to fairness, even though it keeps utilisation higher between losses.",
+    "name": "Two AIMD flows share a bottleneck of capacity 100 (arbitrary units). Plot their rates \\(x\\) and \\(y\\) as a point in a plane: the line \\(x=y\\) is the fairness line and \\(x+y=100\\) is full utilisation. Both flows add 1 unit per step (additive increase), and whenever \\(x+y\\) reaches 100 a loss occurs and both rates are multiplied by \\(\\beta\\). Start at \\(x=80,\\ y=0\\). (a) How does the operating point move during increase and during decrease, and what happens to the difference \\(x-y\\)? (b) Give the difference after the \\(k\\)-th loss. (c) How many loss cycles are needed until the difference drops below 1 for \\(\\beta=0.5\\) and for \\(\\beta=0.83\\)? What does the comparison say about aggressiveness and fairness?",
+    "answer": "<B>(a) Additive increase</B> adds the same amount to both rates, so the point moves at 45°, parallel to the fairness line, and the <B>difference \\(x-y\\) stays unchanged</B> until the sum reaches the capacity line (loss). <B>Multiplicative decrease</B> multiplies both rates by \\(\\beta\\): the point jumps towards the origin along the line through it, and the difference becomes \\(\\beta\\,(x-y)\\). The trajectory therefore zig-zags between the capacity line \\(x+y=100\\) and the decreased line \\(x+y=100\\beta\\), moving towards the fairness line \\(x=y\\).<BR><B>(b)</B> The initial difference is 80, and each loss multiplies it by \\(\\beta\\): \\[d_k=80\\,\\beta^{k}.\\]<BR><B>(c)</B> We need \\(80\\beta^k<1\\), i.e. \\(k>\\ln 80/(-\\ln\\beta)\\).<BR>\\(\\beta=0.5\\): \\(k>4.382/0.693=6.32\\Rightarrow k=7\\) (\\(80\\cdot0.5^7=0.625\\), while \\(k=6\\) gives 1.25).<BR>\\(\\beta=0.83\\): \\(k>4.382/0.1863=23.5\\Rightarrow k=24\\) (\\(80\\cdot0.83^{24}\\approx0.91\\), while \\(k=23\\) gives \\(\\approx1.10\\)).<BR>With a gentler decrease the unfairness shrinks only by 17 % per loss, so more than three times as many loss cycles are needed. (The cycles are shorter: the sum must regrow by \\(100(1-\\beta)\\) at 2 units per step, i.e. 25 steps for \\(\\beta=0.5\\) but 8.5 steps for \\(\\beta=0.83\\).) A gentler decrease means a more aggressive, less responsive flow: higher utilisation between losses but <B>slower convergence to fairness</B>.",
     "keyPoints": [
       "Additive increase moves parallel to the fairness line; difference unchanged",
-      "Multiplicative decrease scales both rates; difference multiplied by β",
-      "Repeated cycles converge towards x = y on the capacity line",
-      "β = 0.5 converges quickly",
-      "β = 0.83 converges much more slowly (still unfair after 30 steps)",
-      "Trade-off: gentler decrease = higher utilisation but slower convergence to fairness"
+      "Multiplicative decrease scales both rates; difference multiplied by \\(\\beta\\)",
+      "Difference after the k-th loss: \\(80\\beta^k\\); zig-zag towards \\(x=y\\) on the capacity line",
+      "\\(\\beta=0.5\\): 7 losses to get below 1; \\(\\beta=0.83\\): 24 losses",
+      "Gentler decrease = higher utilisation but slower convergence to fairness"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 21-23 (PDF pages 22-24); the geometric explanation of the phase-plane simulation is an interpretation of the charts"
+    "source": "PA191 L6, lecture06.pdf, slides 21-23 (PDF pages 22-24, simulations with additive step 1 MSS and decrease factors 0.5 and 0.83); the geometric argument and the loss-cycle counts are derived"
   },
   {
-    "name": "Describe Scalable TCP: its update rules per RTT, per ACK and per loss, why it is MIMD rather than AIMD, and when it falls back to AIMD. Then compute the loss-recovery time on a path whose capacity is c = 1000 packets/RTT with RTT = 100 ms, for traditional TCP and for Scalable TCP, and explain the difference.",
-    "answer": "<B>Scalable TCP</B> (Tom Kelly, 2003): congestion control is not AIMD any more: cwnd = cwnd + 0.01·cwnd per RTT without loss (cwnd = cwnd + 0.01 per ACK) and cwnd = 0.875·cwnd per packet loss. Both increase and decrease are proportional to the window ⇒ <B>Multiplicative Increase Multiplicative Decrease (MIMD)</B>. For a smaller window and/or a higher loss rate in the network, Scalable TCP switches into <B>AIMD mode</B>.<BR><B>Traditional TCP</B>: after a loss at rate c the window drops to c/2 = 500 and grows by 1 packet per RTT, so recovery takes c/2 = <B>500 RTT = 50 s</B> – the recovery time is proportional to <B>cwnd and RTT</B>.<BR><B>Scalable TCP</B>: the window drops to 0.875·c = 875 and grows by a factor 1.01 per RTT; it needs n = log(1/0.875)/log(1.01) ≈ 0.1335/0.00995 ≈ <B>13.4 RTT ≈ 1.34 s</B> – independent of c, i.e. the recovery time is proportional to the connection's <B>RTT only</B>. That is why Scalable TCP stays efficient on high-capacity links.",
+    "name": "Describe Scalable TCP: its update rule per RTT, per ACK and per loss, and why it is called MIMD rather than AIMD. When does it fall back to AIMD? Explain why two competing pure-MIMD flows do not converge to a fair share, in contrast to AIMD.",
+    "answer": "<B>Scalable TCP</B> (Tom Kelly, 2003): \\(\\text{cwnd}\\leftarrow\\text{cwnd}+0.01\\,\\text{cwnd}\\) per RTT without loss, which is \\(\\text{cwnd}\\leftarrow\\text{cwnd}+0.01\\) per ACK (a window of ACKs arrives per RTT), and \\(\\text{cwnd}\\leftarrow0.875\\,\\text{cwnd}\\) per packet loss. Both increase and decrease are <B>proportional to the window</B> ⇒ <B>Multiplicative Increase Multiplicative Decrease (MIMD)</B>. For small windows and/or higher loss rates it switches into <B>AIMD mode</B> so that it stays friendly to standard TCP.<BR><BR><B>Fairness</B>: let two flows have windows \\(x\\) and \\(y\\). A multiplicative increase by 1.01 and a decrease by 0.875 scale both windows by the same factor, so the <B>ratio \\(x/y\\) is preserved</B>; an initial imbalance is never corrected. In AIMD the additive increase keeps the difference and the multiplicative decrease shrinks it each loss, which pushes the flows towards equality.",
     "keyPoints": [
       "Per RTT +1 % of cwnd (per ACK +0.01); per loss ×0.875",
-      "MIMD: both changes proportional to cwnd",
+      "MIMD: increase and decrease both proportional to cwnd",
       "Falls back to AIMD for small windows / high loss rates",
-      "Traditional: recovery c/2 RTT = 500 RTT = 50 s, proportional to cwnd and RTT",
-      "Scalable: −log(0.875)/log(1.01) ≈ 13.4 RTT ≈ 1.34 s, proportional to RTT only"
+      "Pure MIMD preserves the ratio of two flows: no convergence to fairness",
+      "AIMD decrease shrinks the difference between flows each loss"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 25-26 (PDF pages 26-27); the numeric example applies the recovery-time expressions shown on slide 26"
+    "source": "PA191 L6, lecture06.pdf, slides 25 and 27 (PDF pages 26 and 28); the ratio argument interprets the fairness simulation on slide 27 and is derived"
   },
   {
-    "name": "What is a response curve (response function) of a TCP variant? Compare the response curves of standard TCP, HighSpeed TCP and Scalable TCP, and explain what the curves mean for (a) fast links with very low loss rates and (b) congested links with high loss rates. Use these reference points: HighSpeed TCP sustains about 38 packets/RTT (like regular TCP) at a loss rate of 10<sup>−3</sup> and about 83 000 packets/RTT at 10<sup>−7</sup>; Scalable TCP's curve is steeper than standard TCP's, so the two curves cross. What happens to fairness between two flows that both use pure MIMD?",
-    "answer": "A <B>response curve</B> plots the window size (or sending rate in packets/RTT) a TCP variant sustains as a function of the <B>packet loss rate</B>, on log–log axes. Standard TCP has the flattest curve; Scalable TCP has a steeper one, so the curves cross.<BR><B>(a) Low loss rates</B> (e.g. 10<sup>−4</sup> and below): Scalable and HighSpeed TCP sustain far larger windows than standard TCP – in the lecture's charts HSTCP reaches 83 000 packets/RTT at a loss rate of 10<sup>−7</sup>, which is what a fast long-distance link needs; Scalable TCP's curve lies even higher than HSTCP's.<BR><B>(b) High loss rates</B>: HighSpeed TCP coincides with regular TCP for loss rates of 10<sup>−3</sup> and above (about 38 packets/RTT), i.e. it emulates traditional TCP for small windows / high loss; Scalable TCP likewise switches into AIMD mode for small windows and higher loss rates. This keeps the new variants friendly to standard TCP on congested links.<BR><B>MIMD fairness</B>: under pure MIMD both flows scale by the same factors on increase and on decrease, so their <B>ratio is preserved</B> and they do not converge to the fair share by themselves. In the lecture's simulation of two Scalable TCP streams (Scalable control switched on above 30 Mb/s) the pair settles at an unequal split near the capacity line rather than on the fairness line.",
+    "name": "A path can hold \\(c=1000\\) packets per RTT (its bandwidth-delay product expressed in packets) and \\(\\text{RTT}=100\\) ms. After a loss at full rate, standard TCP halves its window to \\(c/2\\) and then grows by 1 packet per RTT. Scalable TCP reduces the window to \\(0.875\\,c\\) and then grows by a factor 1.01 per RTT. Compute how long each needs to get back to \\(c\\). Then repeat for a ten times faster path (\\(c=10\\,000\\) packets per RTT) and explain which quantity the recovery time depends on in each protocol.",
+    "answer": "<B>Standard TCP</B>: from \\(c/2=500\\) to \\(1000\\) at +1 per RTT: \\(c/2=500\\) RTT \\(=500\\cdot0.1\\text{ s}=\\mathbf{50\\ s}\\). For \\(c=10\\,000\\): 5000 RTT = <B>500 s</B>.<BR><B>Scalable TCP</B>: from \\(0.875c\\) we need \\(0.875\\,c\\cdot1.01^{n}\\ge c\\), i.e. \\[n=\\frac{\\ln(1/0.875)}{\\ln 1.01}=\\frac{0.1335}{0.00995}\\approx 13.4\\ \\text{RTT}\\approx\\mathbf{1.34\\ s}.\\] For \\(c=10\\,000\\) the result is the same, about 13.4 RTT.<BR><BR>Standard TCP's recovery time grows with <B>cwnd (capacity) and RTT</B>, so it becomes unusable on fast long-distance links. Scalable TCP's recovery time depends only on the <B>RTT</B> (and the constants 0.875 and 1.01), not on the window size.",
     "keyPoints": [
-      "Response curve: sustained window/rate vs loss rate (log–log)",
-      "Scalable/HSTCP: much larger windows at low loss (HSTCP 83 000 pkts/RTT at 10⁻⁷)",
-      "HSTCP equals regular TCP at loss ≥ 10⁻³ (≈ 38 pkts/RTT)",
-      "Scalable switches to AIMD for small windows/high loss; friendliness on congested links",
-      "Pure MIMD preserves the rate ratio: no convergence to fairness"
+      "Standard TCP: \\(c/2\\) RTT = 500 RTT = 50 s; 500 s at ten times the capacity",
+      "Scalable TCP: \\(\\ln(1/0.875)/\\ln 1.01\\approx13.4\\) RTT \\(\\approx1.34\\) s, same for any c",
+      "Standard recovery time proportional to cwnd and RTT",
+      "Scalable recovery time proportional to RTT only"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 25, 27-28, 29 and 32 (PDF pages 26, 28-29, 30 and 33); values read from the response-curve charts; the MIMD ratio argument interprets the slide 27 simulation"
+    "source": "PA191 L6, lecture06.pdf, slides 25-26 (PDF pages 26-27); the numeric example applies the recovery-time expressions of slide 26 and the c = 10 000 case is derived"
   },
   {
-    "name": "Describe HighSpeed TCP (HSTCP, RFC 3649): its update rules, how it behaves for small and large windows, its relation to Scalable TCP and to multi-stream TCP, and the limitation it shares with Scalable TCP. As a practical check, how many parallel standard TCP connections does HSTCP emulate at cwnd = 10 000 MSS, according to N(cwnd) ≈ 0.23·cwnd<sup>0.4</sup>?",
-    "answer": "<B>HSTCP</B> (Sally Floyd, RFC 3649) uses AIMD/MIMD congestion control whose parameters depend on the window: cwnd = cwnd + a(cwnd) per RTT without loss (cwnd = cwnd + a(cwnd)/cwnd per ACK) and on a packet loss the window is decreased by a window-dependent factor b(cwnd). It <B>emulates traditional TCP</B> for small window sizes and/or higher loss rates; for large windows it increases faster and decreases less. The proposed parametrisation is b(cwnd) = −0.4·(log(cwnd) − 3.64)/7.69 + 0.5, with a(cwnd) derived from b(cwnd). (Check: with the natural logarithm b = 0.5 at cwnd ≈ 38 – standard halving – and b = 0.1 at cwnd ≈ 83 000, the end points of the response curve; in RFC 3649 b is the fraction by which the window is reduced, while the slide writes the loss rule compactly as cwnd = b(cwnd)·cwnd.)<BR>A parametrisation equivalent to Scalable TCP is possible: <B>Linear HSTCP</B>. Comparison with <B>multi-stream TCP</B>: N(cwnd) ≈ 0.23·cwnd<sup>0.4</sup> is the number of parallel TCP connections emulated by the HSTCP response function. For cwnd = 10 000: 10 000<sup>0.4</sup> = 10<sup>1.6</sup> ≈ 39.8, so N ≈ 0.23 × 39.8 ≈ <B>9 connections</B>.<BR>Shared limitation: <B>neither Scalable TCP nor HSTCP deal with the slow-start phase</B>.",
+    "name": "What is a response curve (response function) of a TCP variant? Explain what the curves of standard TCP, HighSpeed TCP (HSTCP) and Scalable TCP mean for (a) fast links with very low loss rates and (b) congested links with high loss rates. Use these data: HSTCP sustains about 38 packets/RTT (the same as standard TCP) at loss rate \\(p=10^{-3}\\) and about 83 000 packets/RTT at \\(p=10^{-7}\\). For standard TCP use the approximation \\(w\\approx 1.2/\\sqrt{p}\\). How many times larger is HSTCP's window at \\(p=10^{-7}\\), and what bit rate does that window correspond to with 1500-byte packets and \\(\\text{RTT}=100\\) ms?",
+    "answer": "A <B>response curve</B> plots the window (sending rate in packets/RTT) a TCP variant sustains as a function of the <B>packet loss rate</B>, on log–log axes. Standard TCP has the flattest curve; HSTCP and Scalable TCP are steeper at low loss.<BR><B>(a) Low loss rates</B>: the new variants sustain far larger windows than standard TCP, which is what a fast long-distance link needs. <B>(b) High loss rates</B>: HSTCP coincides with standard TCP for \\(p\\ge10^{-3}\\) (about 38 packets/RTT) and Scalable TCP also switches to AIMD for small windows/higher loss, so both stay friendly to standard TCP on congested links.<BR><BR>Computation: standard TCP at \\(p=10^{-3}\\): \\(1.2/\\sqrt{10^{-3}}=1.2/0.0316\\approx38\\) (agrees with HSTCP). At \\(p=10^{-7}\\): \\(1.2/\\sqrt{10^{-7}}=1.2/(3.16\\cdot10^{-4})\\approx3800\\) packets/RTT. HSTCP: \\(83\\,000/3800\\approx\\mathbf{22}\\) times larger. Rate: \\(83\\,000\\cdot1500\\cdot8\\approx9.96\\cdot10^{8}\\) bit per RTT, divided by 0.1 s gives about \\(\\mathbf{10\\ Gb/s}\\), whereas standard TCP would reach only about 0.46 Gb/s (\\(3800\\cdot12\\,000/0.1\\approx4.6\\cdot10^8\\) b/s).",
     "keyPoints": [
-      "Window-dependent increase a(cwnd) and decrease factor b(cwnd)",
-      "Emulates traditional TCP for small windows / high loss",
-      "b(cwnd) = −0.4(log cwnd − 3.64)/7.69 + 0.5 (0.5 at ≈ 38, 0.1 at ≈ 83 000)",
+      "Response curve: sustained window/rate versus loss rate (log–log)",
+      "Low loss: HSTCP/Scalable sustain much larger windows (needed on fast long-distance links)",
+      "High loss (\\(p\\ge10^{-3}\\)): HSTCP equals standard TCP, Scalable uses AIMD: friendliness",
+      "Standard TCP \\(w\\approx1.2/\\sqrt p\\): 38 at \\(10^{-3}\\), about 3800 at \\(10^{-7}\\)",
+      "HSTCP window at \\(10^{-7}\\) is about 22 times larger, about 10 Gb/s at 100 ms RTT"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slides 28-29 and 32 (PDF pages 29-30 and 33), values read from the response-curve charts; the standard-TCP approximation w = 1.2/sqrt(p) and the rate computation are general knowledge/derived"
+  },
+  {
+    "name": "Describe HighSpeed TCP (HSTCP, RFC 3649): how its increase and decrease rules depend on the window, how it behaves for small and for large windows, how it relates to Scalable TCP and to multi-stream TCP, and which limitation it shares with Scalable TCP.",
+    "answer": "<B>HSTCP</B> (Sally Floyd, RFC 3649) is an AIMD/MIMD scheme whose parameters depend on the current window: \\(\\text{cwnd}\\leftarrow\\text{cwnd}+a(\\text{cwnd})\\) per RTT without loss (\\(+a(\\text{cwnd})/\\text{cwnd}\\) per ACK), and on a loss the window is decreased by a window-dependent factor \\(b(\\text{cwnd})\\).<BR>For <B>small windows and/or high loss rates</B> it <B>emulates traditional TCP</B> (halving, +1 per RTT); for <B>large windows</B> it increases faster and decreases less, so it can fill high-capacity paths.<BR>A parametrisation equivalent to Scalable TCP is possible (<B>Linear HSTCP</B>). Compared with <B>multi-stream TCP</B>: the number of parallel standard TCP connections that the HSTCP response function emulates at window \\(\\text{cwnd}\\) is \\(N(\\text{cwnd})\\approx0.23\\,\\text{cwnd}^{0.4}\\), so HSTCP behaves like a bundle of standard connections that grows with the window.<BR>Shared limitation: <B>neither Scalable TCP nor HSTCP deals with the slow-start phase</B>.",
+    "keyPoints": [
+      "Window-dependent increase \\(a(\\text{cwnd})\\) and decrease \\(b(\\text{cwnd})\\)",
+      "Emulates traditional TCP for small windows / high loss; faster increase and smaller decrease for large windows",
       "Linear HSTCP is equivalent to Scalable TCP",
-      "N(cwnd) ≈ 0.23·cwnd^0.4 parallel connections; ≈ 9 at cwnd = 10 000",
+      "Equivalent to \\(N(\\text{cwnd})\\) parallel standard TCP connections",
       "Neither HSTCP nor Scalable TCP improves slow start"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 29-32 (PDF pages 30-33); the end-point check of b(cwnd) and the RFC 3649 note are added explanation, not slide text"
+    "source": "PA191 L6, lecture06.pdf, slides 29-32 (PDF pages 30-33)"
   },
   {
-    "name": "Explain H-TCP. On what does its increase rate depend, which quantities does it use (Δ, Δ<sub>L</sub>, Δ<sub>B</sub>, T<sub>min</sub>, T<sub>max</sub>, B(k)), and how are the increase function a(Δ) and the decrease factor b(B) defined? Compute a′(Δ) for Δ − Δ<sub>L</sub> = 2, and b(B) for T<sub>min</sub> = 60 ms, T<sub>max</sub> = 100 ms when the throughput did not change significantly. Which properties of standard TCP does H-TCP preserve?",
-    "answer": "<B>H-TCP</B> (Hamilton Institute, Ireland) makes a simple change to the cwnd increase function: it increases its aggressiveness (the rate of additive increase) as the <B>time since the previous loss (backoff)</B> increases. The increase rate α is a function of the elapsed time since the last backoff; the <B>AIMD mechanism is kept</B>.<BR>Quantities: <B>Δ</B> – time elapsed since the last congestion; <B>Δ<sub>L</sub></B> – for Δ ≤ Δ<sub>L</sub> standard TCP growth is used; <B>Δ<sub>B</sub></B> – bandwidth threshold above which the standard TCP fall (0.5) is used for significant bandwidth changes; <B>T<sub>min</sub>, T<sub>max</sub></B> – minimal and maximal measured RTTs; <B>B(k)</B> – maximum throughput measured in the last interval without loss.<BR>Rules: cwnd = cwnd + 2(1 − β)·a(Δ)/cwnd per ACK (β is not defined on the slide); cwnd = b(B)·cwnd per loss. a(Δ) = 1 for Δ ≤ Δ<sub>L</sub>, otherwise max{a′(Δ)·T<sub>min</sub>; 1}, with the quadratic increment a′(Δ) = 1 + 10(Δ − Δ<sub>L</sub>) + 0.5(Δ − Δ<sub>L</sub>)². b(B) = 0.5 if |(B(k+1) − B(k))/B(k)| > Δ<sub>B</sub>, otherwise min{T<sub>min</sub>/T<sub>max</sub>; 0.8}.<BR>Computation: a′ = 1 + 10·2 + 0.5·4 = <B>23</B>; b = min{60/100; 0.8} = <B>0.6</B> (the window is reduced to 60 %).<BR>H-TCP preserves many key properties of standard TCP: <B>fairness, responsiveness and the relationship to buffering</B>.",
+    "name": "HighSpeed TCP decreases its window after a loss by the fraction \\(b(w)=-\\dfrac{0.4\\,(\\ln w-3.64)}{7.69}+0.5\\) (natural logarithm, \\(w\\) in MSS) and emulates \\(N(w)\\approx0.23\\,w^{0.4}\\) parallel standard TCP connections. Compute \\(b\\) and \\(N\\) for \\(w=38\\), \\(w=10\\,000\\) and \\(w=83\\,000\\). What window does a loss at \\(w=10\\,000\\) leave, compared with standard TCP, and what do the results say about the design?",
+    "answer": "<B>\\(w=38\\)</B>: \\(\\ln38=3.64\\), so \\(b=0.5\\) (standard halving) and \\(N=0.23\\cdot38^{0.4}=0.23\\cdot4.29\\approx1\\) connection, i.e. standard TCP.<BR><B>\\(w=10\\,000\\)</B>: \\(\\ln w=9.21\\), \\(b=-0.4\\cdot(9.21-3.64)/7.69+0.5=-0.29+0.5\\approx0.21\\); \\(N=0.23\\cdot10\\,000^{0.4}=0.23\\cdot10^{1.6}=0.23\\cdot39.8\\approx9\\) connections. A loss removes 21 % of the window: it falls to about \\(10\\,000\\cdot0.79\\approx7900\\), while standard TCP would halve it to 5000.<BR><B>\\(w=83\\,000\\)</B>: \\(\\ln w=11.33\\), \\(b=-0.4\\cdot7.69/7.69+0.5\\approx0.1\\); \\(N=0.23\\cdot83\\,000^{0.4}\\approx0.23\\cdot92.8\\approx21\\) connections.<BR>So the decrease fraction slides from 0.5 at small windows to 0.1 at very large ones while the emulated number of connections grows: at small windows HSTCP is just standard TCP, at huge windows it is much more aggressive and backs off only gently.",
     "keyPoints": [
-      "Increase aggressiveness grows with time since the last backoff; still AIMD",
-      "Δ ≤ Δ_L: standard TCP growth (a = 1)",
-      "Beyond Δ_L: quadratic a′(Δ) = 1 + 10(Δ − Δ_L) + 0.5(Δ − Δ_L)²; a = max{a′·T_min; 1}",
-      "Decrease b(B) = 0.5 after a significant throughput change, else min{T_min/T_max; 0.8}",
-      "Example: a′ = 23, b = 0.6",
+      "\\(w=38\\): \\(b=0.5\\), \\(N\\approx1\\) – equal to standard TCP",
+      "\\(w=10\\,000\\): \\(b\\approx0.21\\), \\(N\\approx9\\); window falls to about 7900 (standard TCP: 5000)",
+      "\\(w=83\\,000\\): \\(b\\approx0.1\\), \\(N\\approx21\\)",
+      "Decrease fraction shrinks and emulated connection count grows with the window",
+      "Small windows behave as standard TCP; very large windows are more aggressive"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slides 30-32 (PDF pages 31-33); the numerical evaluation is derived; RFC 3649 defines b as the fraction by which the window is reduced, whereas the slide writes cwnd = b(cwnd)·cwnd, and the natural logarithm is inferred from b(38) = 0.5 and b(83 000) = 0.1"
+  },
+  {
+    "name": "Explain the idea of H-TCP. On what does its increase rate depend and why, what does it keep from standard TCP, and how does it choose the decrease factor? Describe the roles of \\(\\Delta\\), \\(\\Delta_L\\), \\(\\Delta_B\\), \\(T_{\\min}\\), \\(T_{\\max}\\) and \\(B(k)\\).",
+    "answer": "<B>H-TCP</B> (Hamilton Institute, Ireland) makes a simple change to the cwnd increase function: its <B>aggressiveness (the additive-increase rate \\(\\alpha\\)) grows with the time since the last loss (backoff)</B>. Shortly after a loss it behaves like standard TCP; the longer the connection has run without loss, the faster it increases, so it can fill a high-capacity path. The <B>AIMD mechanism is kept</B>, and it preserves many key properties of standard TCP: <B>fairness, responsiveness and the relationship to buffering</B>.<BR><BR>Quantities: <B>\\(\\Delta\\)</B> – time elapsed since the last congestion; <B>\\(\\Delta_L\\)</B> – for \\(\\Delta\\le\\Delta_L\\) standard TCP growth is used; <B>\\(\\Delta_B\\)</B> – threshold on the relative throughput change above which the standard 0.5 decrease is used (significant bandwidth change); <B>\\(T_{\\min},T_{\\max}\\)</B> – minimal and maximal measured RTT; <B>\\(B(k)\\)</B> – maximum throughput measured in the last interval without loss.<BR>Decrease: after a significant throughput change use 0.5; otherwise use \\(\\min\\{T_{\\min}/T_{\\max},\\,0.8\\}\\) – a mild decrease when RTT variation (queueing) is small.",
+    "keyPoints": [
+      "Increase rate grows with the time since the last backoff; AIMD is kept",
+      "For \\(\\Delta\\le\\Delta_L\\) standard TCP growth",
+      "Decrease factor: 0.5 after a significant throughput change, otherwise \\(\\min\\{T_{\\min}/T_{\\max},0.8\\}\\)",
+      "\\(T_{\\min},T_{\\max}\\): min/max RTT; \\(B(k)\\): max throughput in last loss-free interval",
       "Preserves fairness, responsiveness, relation to buffering"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 33-35 (PDF pages 34-36)"
+    "source": "PA191 L6, lecture06.pdf, slides 33-35 (PDF pages 34-36); the interpretation of the RTT ratio as a queueing indicator is derived"
   },
   {
-    "name": "Describe the four phases of BIC-TCP and trace its window after a loss with W<sub>max</sub> = 100, W<sub>min</sub> = 60, S<sub>max</sub> = 16 and S<sub>min</sub> = 1, assuming no further loss occurs. What happens after the window reaches W<sub>max</sub>, and what benefits are claimed for BIC?",
-    "answer": "<B>BIC-TCP</B> (a former default in Linux kernels) uses a <B>binary-search algorithm</B> for the cwnd update. Phases: <B>(1) Reaction to a packet loss</B> – BIC starts with TCP slow start; on a loss it uses multiplicative decrease and records W<sub>max</sub> (cwnd before the loss) and W<sub>min</sub> (cwnd after the loss). Because the loss occurred at W<sub>max</sub>, the equilibrium is searched in ⟨W<sub>min</sub>; W<sub>max</sub>⟩. <B>(2) Additive increase</B> – jumping straight to the midpoint might be too challenging for the network, so when (W<sub>min</sub> + W<sub>max</sub>)/2 > W<sub>min</sub> + S<sub>max</sub>, cwnd = W<sub>min</sub> + S<sub>max</sub> (linear growth by S<sub>max</sub> per RTT). <B>(3) Binary search</B> – once the target is reached without loss W<sub>min</sub> = cwnd (after a loss W<sub>max</sub> = cwnd) and the search continues to the new midpoint until the change of cwnd is less than S<sub>min</sub>; then cwnd = W<sub>max</sub>. <B>(4) Maximum probing</B> – the inverse process: inverse binary search (slow growth with increasing steps) until the growth exceeds S<sub>max</sub>, then linear growth by a fixed large increment.<BR><B>Trace</B>: midpoint 80 > 60 + 16 = 76 ⇒ cwnd = <B>76</B> (additive). No loss ⇒ W<sub>min</sub> = 76, midpoint 88 (step 12 ≤ 16) ⇒ <B>88</B>; then <B>94</B>, <B>97</B>, <B>98.5</B>; the next step would be 0.75 &lt; S<sub>min</sub> ⇒ cwnd = W<sub>max</sub> = <B>100</B>. Growth is linear first and then logarithmic (binary search). Above W<sub>max</sub>, maximum probing starts slowly and then grows linearly.<BR><B>Claimed benefits</B>: traditional-TCP “friendliness” (during the plateau of phase 3 other TCP flows can grow; phases 2 and 4 behave like (faster) AIMD); a more stable window and thus better utilisation, since BIC should spend most of the time on the plateau near W<sub>max</sub>.",
+    "name": "H-TCP uses the quadratic increment \\(a'(\\Delta)=1+10(\\Delta-\\Delta_L)+0.5(\\Delta-\\Delta_L)^2\\) (\\(\\Delta\\) in seconds) once \\(\\Delta>\\Delta_L\\), and the decrease factor (the window is multiplied by \\(b\\) after a loss) \\(b(B)=0.5\\) if the relative throughput change \\(\\left|\\dfrac{B(k+1)-B(k)}{B(k)}\\right|\\) exceeds \\(\\Delta_B\\), otherwise \\(b(B)=\\min\\{T_{\\min}/T_{\\max},\\,0.8\\}\\). Compute \\(a'\\) for \\(\\Delta-\\Delta_L=0,\\ 2\\) and \\(10\\) s, and \\(b\\) for (i) \\(T_{\\min}=60\\) ms, \\(T_{\\max}=100\\) ms with an insignificant throughput change, (ii) \\(T_{\\min}=90\\) ms, \\(T_{\\max}=100\\) ms with an insignificant change, (iii) a significant throughput change. Interpret the results.",
+    "answer": "<B>Increment</B>: \\(\\Delta-\\Delta_L=0\\): \\(a'=1\\). \\(\\Delta-\\Delta_L=2\\): \\(1+20+0.5\\cdot4=\\mathbf{23}\\). \\(\\Delta-\\Delta_L=10\\): \\(1+100+0.5\\cdot100=\\mathbf{151}\\). The increase grows quadratically with the time since the loss: right after a loss H-TCP is as gentle as standard TCP, after a long loss-free period it is very aggressive.<BR><B>Decrease</B>: (i) \\(\\min\\{60/100,0.8\\}=\\mathbf{0.6}\\) (window reduced to 60 %); (ii) \\(\\min\\{90/100,0.8\\}=\\mathbf{0.8}\\) (capped, window reduced only to 80 %); (iii) \\(b=\\mathbf{0.5}\\), the standard halving. When the RTT hardly varies (little queueing) the link is not saturated and a small decrease suffices; when throughput changes significantly (competing traffic) H-TCP backs off as standard TCP does.",
     "keyPoints": [
-      "Loss: multiplicative decrease, remember W_max (before) and W_min (after)",
-      "Additive increase by S_max while the midpoint is more than S_max away",
-      "Binary search: W_min = cwnd on success, W_max = cwnd on loss; stop when step &lt; S_min, set cwnd = W_max",
-      "Maximum probing: inverse binary search, then linear growth",
-      "Trace: 76, 88, 94, 97, 98.5, then 100",
-      "Benefits: TCP friendliness on the plateau, stable window, good utilisation"
+      "\\(a'=1\\), 23 and 151 for \\(\\Delta-\\Delta_L=0,2,10\\): quadratic growth with time since loss",
+      "(i) \\(b=\\min\\{0.6,0.8\\}=0.6\\)",
+      "(ii) \\(b=\\min\\{0.9,0.8\\}=0.8\\) (cap)",
+      "(iii) significant throughput change: \\(b=0.5\\)",
+      "Aggressive after long loss-free time, standard-like right after a loss"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 36-39 (PDF pages 37-40); the numeric trace applies the slide rules"
+    "source": "PA191 L6, lecture06.pdf, slides 35-36 (PDF pages 35-36); the numeric evaluation and its interpretation are derived"
   },
   {
-    "name": "Why was CUBIC introduced as a successor of BIC, and what is its window function? Explain the meaning of C, T, K, W<sub>max</sub> and β, and compute the window just after a loss, the time K and the window at T = 2K for W<sub>max</sub> = 100 segments, β = 0.2 and C = 0.4 (T in seconds).",
-    "answer": "Even though BIC is quite scalable, fair and stable, its growth function is still considered <B>too aggressive for TCP</B>, especially under <B>short RTTs or low-speed networks</B>. <B>CUBIC</B> is a new release of BIC that uses a <B>cubic function</B>; for simplicity of protocol analysis the number of phases was reduced. It is the <B>current default in the Linux kernel</B>.<BR>W<sub>cubic</sub> = C·(T − K)³ + W<sub>max</sub>, where C is a scaling constant, T the time elapsed since the last loss event, W<sub>max</sub> the window size before the loss event, K = ∛(W<sub>max</sub>·β/C) and β a constant decrease factor. The curve rises steeply after the loss, flattens around W<sub>max</sub> (steady-state behaviour, T ≈ K) and then accelerates again (probing beyond W<sub>max</sub>).<BR><B>Computation</B>: K = ∛(100·0.2/0.4) = ∛50 ≈ <B>3.68 s</B>. W(0) = 0.4·(−K)³ + 100 = −0.4·50 + 100 = <B>80</B> (the window is reduced by the fraction β). W(K) = W<sub>max</sub> = 100. W(2K) = 0.4·50 + 100 = <B>120</B>.",
+    "name": "Describe the four phases of BIC-TCP and explain why binary search lets the window grow quickly while it is far from the previous loss point \\(W_{\\max}\\) but slowly when it is close to it. What benefits are claimed for BIC?",
+    "answer": "<B>BIC-TCP</B> (a former default in Linux) updates cwnd by a <B>binary-search algorithm</B>. Phases: <B>(1) Reaction to loss</B> – after standard multiplicative decrease it records \\(W_{\\max}\\) (cwnd before the loss) and \\(W_{\\min}\\) (cwnd after); since the loss occurred around \\(W_{\\max}\\), the equilibrium is searched in \\(\\langle W_{\\min};W_{\\max}\\rangle\\). <B>(2) Additive increase</B> – jumping straight to the midpoint \\((W_{\\min}+W_{\\max})/2\\) might be too challenging for the network, so if that midpoint is more than \\(S_{\\max}\\) above \\(W_{\\min}\\), cwnd grows linearly by \\(S_{\\max}\\) per RTT. <B>(3) Binary search</B> – cwnd jumps to the midpoint; success moves \\(W_{\\min}\\) up, a loss moves \\(W_{\\max}\\) down; the steps halve until they fall below \\(S_{\\min}\\), then \\(\\text{cwnd}=W_{\\max}\\). <B>(4) Maximum probing</B> – the inverse process beyond \\(W_{\\max}\\): first inverse binary search (slowly growing steps), and once the growth exceeds \\(S_{\\max}\\), linear growth with a large fixed increment.<BR><BR><B>Why fast then slow</B>: the midpoint step is half the remaining distance to \\(W_{\\max}\\), so far away steps are large (capped by \\(S_{\\max}\\) for safety), and close to \\(W_{\\max}\\), where the last loss indicates that the capacity limit is near, the steps become tiny and the window lingers on a “plateau”.<BR><B>Claimed benefits</B>: friendliness to traditional TCP (flows can grow during the plateau; phases 2 and 4 are AIMD-like, though faster) and a more stable window, hence better utilisation, since BIC should spend most of its time near \\(W_{\\max}\\).",
     "keyPoints": [
-      "BIC still too aggressive, especially for short RTTs / low-speed networks",
-      "CUBIC: fewer phases, cubic window function; current Linux default",
-      "W = C(T − K)³ + W_max; K = ∛(W_max·β/C)",
-      "Concave growth to W_max (steady state), convex growth beyond it (probing)",
-      "Example: K ≈ 3.68 s, W(0) = 80, W(K) = 100, W(2K) = 120"
+      "Four phases: reaction to loss, additive increase, binary search, maximum probing",
+      "Loss: remember \\(W_{\\max}\\) (before) and \\(W_{\\min}\\) (after) and search between them",
+      "Additive increase by \\(S_{\\max}\\) when the midpoint is farther than \\(S_{\\max}\\)",
+      "Binary search halves the step: fast far from \\(W_{\\max}\\), slow near it; stops below \\(S_{\\min}\\)",
+      "Maximum probing beyond \\(W_{\\max}\\): inverse binary search, then linear",
+      "Benefits: TCP friendliness on the plateau, stable window, better utilisation"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slides 36-39 (PDF pages 37-40); the explanation of fast-far/slow-near is derived from the midpoint rule"
+  },
+  {
+    "name": "BIC-TCP rules: after a loss it sets \\(W_{\\max}\\) (window before the loss) and \\(W_{\\min}\\) (window after). Each RTT the target is the midpoint \\((W_{\\min}+W_{\\max})/2\\); if the midpoint is more than \\(S_{\\max}\\) above \\(W_{\\min}\\), the window grows only to \\(W_{\\min}+S_{\\max}\\). When a target is reached without loss, \\(W_{\\min}\\) is set to the new window. When the step to the next target would be smaller than \\(S_{\\min}\\), the window is set to \\(W_{\\max}\\). Trace the window per RTT after a loss with \\(W_{\\max}=100\\), \\(W_{\\min}=60\\), \\(S_{\\max}=16\\), \\(S_{\\min}=1\\), assuming no further loss, and state which phase each step belongs to.",
+    "answer": "<B>Step 1</B>: midpoint \\((60+100)/2=80\\); \\(80>60+16=76\\) ⇒ <B>additive increase</B>: \\(\\text{cwnd}=60+16=\\mathbf{76}\\).<BR>Target reached without loss ⇒ \\(W_{\\min}=76\\). <B>Step 2</B>: midpoint 88; \\(88\\le76+16=92\\) ⇒ binary search: \\(\\mathbf{88}\\) (step 12). \\(W_{\\min}=88\\): midpoint 94 ⇒ <B>94</B> (step 6); \\(W_{\\min}=94\\): midpoint 97 ⇒ <B>97</B> (step 3); \\(W_{\\min}=97\\): midpoint 98.5 ⇒ <B>98.5</B> (step 1.5); \\(W_{\\min}=98.5\\): the next step would be \\(99.25-98.5=0.75<S_{\\min}=1\\) ⇒ \\(\\text{cwnd}=W_{\\max}=\\mathbf{100}\\).<BR>Trace: 76, 88, 94, 97, 98.5, 100. Growth is linear first and then logarithmic (steps 12, 6, 3, 1.5 halve). Beyond 100 the maximum-probing phase starts slowly and then becomes linear.",
+    "keyPoints": [
+      "Midpoint 80 exceeds \\(60+16=76\\), so additive step to 76",
+      "Then binary search: 88, 94, 97, 98.5 (steps 12, 6, 3, 1.5 halve)",
+      "Next step 0.75 is below \\(S_{\\min}\\): window set to \\(W_{\\max}=100\\)",
+      "Linear first, then logarithmic growth",
+      "Beyond \\(W_{\\max}\\): maximum probing"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slides 37-39 (PDF pages 38-40); the numeric trace applies the slide rules"
+  },
+  {
+    "name": "Why was CUBIC introduced as a successor of BIC, and what is its window function? Explain the meaning of \\(C\\), \\(T\\), \\(K\\), \\(W_{\\max}\\) and \\(\\beta\\), and describe the shape of the curve: why does the window grow quickly just after a loss, slowly around \\(W_{\\max}\\) and quickly again beyond it?",
+    "answer": "Even though BIC is quite scalable, fair and stable, its growth function is still considered <B>too aggressive for TCP</B>, especially under <B>short RTTs or low-speed networks</B>. <B>CUBIC</B> is a new release of BIC that uses a <B>cubic function</B>; for simplicity of analysis the number of phases was reduced. It is the <B>current default in the Linux kernel</B>.<BR>\\[W_{\\text{cubic}}=C\\,(T-K)^3+W_{\\max},\\qquad K=\\sqrt[3]{\\frac{W_{\\max}\\,\\beta}{C}}\\]<BR>\\(C\\) is a scaling constant, \\(T\\) the time since the last loss event, \\(W_{\\max}\\) the window before the loss and \\(\\beta\\) a constant decrease factor; \\(K\\) is the time at which the curve returns to \\(W_{\\max}\\).<BR><B>Shape</B>: at \\(T=0\\) the window is \\(W_{\\max}(1-\\beta)\\); the cubic is steep while \\(|T-K|\\) is large, so the window climbs quickly towards \\(W_{\\max}\\) (concave part), flattens near \\(T=K\\) (the plateau around the last loss point, where the network is most likely near its limit) and then accelerates again (convex part) to probe for new bandwidth.",
+    "keyPoints": [
+      "BIC still too aggressive for TCP, especially at short RTT / low speed; CUBIC has fewer phases and is the Linux default",
+      "\\(W_{\\text{cubic}}=C(T-K)^3+W_{\\max}\\), \\(K=\\sqrt[3]{W_{\\max}\\beta/C}\\)",
+      "\\(T\\) = time since last loss; \\(W_{\\max}\\) = window before the loss; \\(\\beta\\) = decrease factor; \\(C\\) = scaling constant",
+      "Concave growth back to \\(W_{\\max}\\), plateau at \\(T\\approx K\\)",
+      "Convex growth beyond \\(W_{\\max}\\) probes for more bandwidth"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slide 40 (PDF page 41); the explanation of the curve shape is derived from the formula"
+  },
+  {
+    "name": "CUBIC uses \\(W(T)=C\\,(T-K)^3+W_{\\max}\\) with \\(K=\\sqrt[3]{W_{\\max}\\beta/C}\\), where \\(T\\) is the time in seconds since the last loss. For \\(W_{\\max}=100\\) segments, \\(\\beta=0.2\\) and \\(C=0.4\\) compute \\(K\\), the window just after the loss (\\(T=0\\)), at \\(T=K\\) and at \\(T=2K\\), and interpret the values.",
+    "answer": "\\[K=\\sqrt[3]{\\frac{100\\cdot0.2}{0.4}}=\\sqrt[3]{50}\\approx\\mathbf{3.68\\ s}.\\]\\(W(0)=0.4\\cdot(-K)^3+100=-0.4\\cdot50+100=\\mathbf{80}\\) segments, i.e. the window drops by the fraction \\(\\beta=0.2\\). \\(W(K)=100=W_{\\max}\\) (back at the old maximum after 3.68 s). \\(W(2K)=0.4\\cdot K^3+100=0.4\\cdot50+100=\\mathbf{120}\\) segments: beyond \\(W_{\\max}\\) the window probes for more bandwidth, ending 20 above \\(W_{\\max}\\), mirroring the 20 below it at \\(T=0\\).",
+    "keyPoints": [
+      "\\(K=\\sqrt[3]{50}\\approx3.68\\) s",
+      "\\(W(0)=0.4\\cdot(-50)+100=80\\) (decrease by \\(\\beta\\))",
+      "\\(W(K)=W_{\\max}=100\\)",
+      "\\(W(2K)=0.4\\cdot50+100=120\\)",
+      "Curve is symmetric around \\((K,W_{\\max})\\): concave below, convex above"
     ],
     "source": "PA191 L6, lecture06.pdf, slide 40 (PDF page 41); the numeric example applies the slide formula"
   },
   {
-    "name": "Describe the Quick-Start (Limited Slow-Start) proposal. What assumption motivates it, which IP option fields does it use, and how do the sender, the routers and the receiver handle them? A sender requests an initial rate of 100 Mb/s on a path with four routers, one of which can only offer 40 Mb/s: what does the sender learn (a) if all four routers support Quick-Start and (b) if one router does not support it? What is the main drawback?",
-    "answer": "Motivation: a strong assumption that the <B>slow-start phase cannot be improved without interaction with lower network layers</B>. Proposal: a <B>4-byte option in the IP header</B> with the fields <B>QS TTL</B> and <B>Initial Rate</B>. The sender that wants to use QS sets the QS TTL to an arbitrary (but high enough) value and the Initial Rate to the requested starting rate, and sends the SYN packet. <B>Each router</B> on the path that supports QS decreases the QS TTL by one and decreases the Initial Rate if necessary. The <B>receiver</B> returns the QS TTL and Initial Rate in the SYN/ACK. The sender knows whether all routers on the path support QS by <B>comparing the QS TTL with the TTL</B>, then sets the appropriate cwnd and continues with its normal congestion control (e.g. AIMD).<BR>(a) All four routers decrement the QS TTL in step with the IP TTL and the limiting router lowers the rate: the sender learns an approved rate of <B>40 Mb/s</B> and starts with a matching cwnd. (b) The QS TTL has decreased by 3 while the IP TTL decreased by 4: the mismatch shows that <B>not all routers approved</B> the request, so the returned rate cannot be relied on and the sender should not use it (falling back to normal slow start – an inference; the slide only says the sender learns whether all routers support QS).<BR>Drawback: it <B>requires changes in the IP layer</B> (every router must support it).",
+    "name": "Describe the Quick-Start (Limited Slow-Start) proposal. What assumption motivates it, which IP option fields does it use, and how do the sender, the routers and the receiver handle them? A sender requests an initial rate of 100 Mb/s on a path with four routers, one of which can only offer 40 Mb/s. What does the sender learn (a) if all four routers support Quick-Start and (b) if one router does not support it? What is the main drawback?",
+    "answer": "Motivation: a strong assumption that the <B>slow-start phase cannot be improved without interaction with lower network layers</B>. Proposal: a <B>4-byte option in the IP header</B> with the fields <B>QS TTL</B> and <B>Initial Rate</B>. The sender that wants to use QS sets the QS TTL to an arbitrary (but high enough) value and the Initial Rate to the requested starting rate, and sends the SYN packet. <B>Each router</B> on the path that supports QS decreases the QS TTL by one and decreases the Initial Rate if necessary. The <B>receiver</B> returns the QS TTL and Initial Rate in the SYN/ACK. The sender knows whether all routers on the path support QS by <B>comparing the QS TTL with the TTL</B>, then sets the appropriate cwnd and continues with its normal congestion control (e.g. AIMD).<BR>(a) All four routers decrement the QS TTL in step with the IP TTL and the limiting router lowers the rate: the sender learns an approved rate of <B>40 Mb/s</B> and starts with a matching cwnd. (b) The QS TTL has decreased by 3 while the IP TTL decreased by 4: the mismatch shows that <B>not all routers approved</B> the request, so the returned rate cannot be relied on and the sender should not use it (falling back to normal slow start is an inference; the course material only says the sender learns whether all routers support QS).<BR>Drawback: it <B>requires changes in the IP layer</B> (every router must support it).",
     "keyPoints": [
       "Assumption: slow start cannot be improved without lower-layer help",
       "4-byte IP option: QS TTL + Initial Rate, sent in the SYN",
@@ -240,9 +295,9 @@
   },
   {
     "name": "Explain Early Congestion Notification (ECN) and the E-TCP proposal built on it. Who sets and who mirrors the ECN bit, how should TCP react, how does E-TCP change this, and what deployment problems do both have?",
-    "answer": "<B>ECN</B> is a component of <B>Advanced Queue Management (AQM)</B>: a bit that is <B>set by routers</B> when congestion of a link/buffer/queue is coming. The ECN flag has to be <B>mirrored by the receiver</B> back to the sender, and TCP should react to the ECN bit in the <B>same way as to a packet loss</B>. Problem: it requires the routers' administrators to configure AQM/ECN.<BR><B>E-TCP</B> proposes to mirror the ECN bit <B>just once</B> (the first time only) and to <B>freeze cwnd</B> when an ACK with the ECN bit set is received from the receiver, instead of reducing it. Because of fairness, it requires introducing <B>small (synthetic) losses</B> into the network in order to still perform a multiplicative decrease. Problem: it requires a <B>change in the receivers' behaviour</B> to the ECN bit.",
+    "answer": "<B>ECN</B> is a component of <B>Active Queue Management (AQM)</B> (the slide writes “Advanced”): a bit that is <B>set by routers</B> when congestion of a link/buffer/queue is coming. The ECN flag has to be <B>mirrored by the receiver</B> back to the sender, and TCP should react to the ECN bit in the <B>same way as to a packet loss</B>. Problem: it requires the routers' administrators to configure AQM/ECN.<BR><B>E-TCP</B> proposes to mirror the ECN bit <B>just once</B> (the first time only) and to <B>freeze cwnd</B> when an ACK with the ECN bit set is received from the receiver, instead of reducing it. Because of fairness, it requires introducing <B>small (synthetic) losses</B> into the network in order to still perform a multiplicative decrease. Problem: it requires a <B>change in the receivers' behaviour</B> to the ECN bit.",
     "keyPoints": [
-      "ECN: part of AQM (Advanced Queue Management); routers set the bit when congestion is coming",
+      "ECN: part of AQM (Active Queue Management; the slide says “Advanced”); routers set the bit when congestion is coming",
       "Receiver mirrors the ECN flag; sender reacts as to a loss",
       "ECN needs routers configured for AQM/ECN",
       "E-TCP: mirror once, freeze cwnd on ECN instead of decreasing",
@@ -252,41 +307,51 @@
     "source": "PA191 L6, lecture06.pdf, slides 44-45 (PDF pages 45-46)"
   },
   {
-    "name": "Describe the idea of transport approaches that split control and data into separate TCP and UDP channels, using tsunami and Reliable Blast UDP (RBUDP). What does each channel carry, how are losses handled, and how does an RBUDP transfer proceed step by step until all data are delivered? For which transfers is RBUDP intended?",
-    "answer": "<B>tsunami</B> splits the communication into two streams using TCP and UDP simultaneously. A <B>TCP connection</B> is an out-of-band <B>control channel</B>: connection parameter negotiation, retransmission requests – it uses <B>NACKs instead of ACKs</B> – and connection termination negotiation. A <B>UDP channel</B> carries the <B>data</B> with <B>MIMD</B> congestion control and is highly configurable (MIMD parameters, loss threshold, maximum size of the retransmission queue, interval of sending retransmission requests, etc.).<BR><B>RBUDP</B> is similar: an out-of-band TCP channel for control, UDP for data. It was proposed for <B>disk-to-disk transfers</B>, or transfers where the <B>complete data can be held in the sender's memory</B>. It sends data at a <B>user-defined rate</B>; app_perf (a modified iperf) is used to estimate the network's/receiver's capacity.<BR>Transfer: (A) the sender starts blasting the data over UDP at the predefined rate; (B) end of this transmission; (C) the sender sends a DONE signal over the TCP control channel and the receiver responds with a <B>mask of the data that have arrived</B>; (D) the sender re-sends the missing data over UDP; steps C and D repeat until all data are delivered; (E–F–G) end of transmission.",
+    "name": "Explain the idea of transport approaches that split control and data into separate TCP and UDP channels, using tsunami. What does each channel carry, how are losses handled, and what does tsunami make configurable? Why can this design avoid the limits of standard TCP congestion control?",
+    "answer": "<B>tsunami</B> splits the communication into two streams, using TCP and UDP simultaneously. A <B>TCP connection</B> is an out-of-band <B>control channel</B>: negotiation of connection parameters, retransmission requests – it uses <B>NACKs instead of ACKs</B> (the receiver reports what is missing) – and negotiation of connection termination. A <B>UDP channel</B> carries the <B>bulk data</B> under <B>MIMD</B> congestion control, and it is highly configurable (MIMD parameters, loss threshold, maximum size of the retransmission queue, interval of sending retransmission requests, etc.).<BR>Because reliability is handled by NACK-based retransmission requests on the control channel, the data flow is not tied to TCP's ACK-clocked AIMD window, so the data channel can use its own, more aggressive MIMD control (this reasoning is derived).",
     "keyPoints": [
-      "TCP channel: out-of-band control (negotiation, retransmission requests, termination)",
-      "UDP channel: bulk data",
-      "tsunami: NACKs instead of ACKs; MIMD congestion control; highly configurable",
-      "RBUDP: disk-to-disk / data fits in sender memory; user-defined rate estimated with app_perf",
-      "RBUDP: blast over UDP, DONE over TCP, receiver returns bitmap of received data",
-      "Missing data re-sent; repeat until complete"
+      "TCP = out-of-band control channel (negotiation, retransmission requests, termination)",
+      "UDP = data channel",
+      "NACKs instead of ACKs",
+      "UDP channel uses MIMD congestion control",
+      "Highly configurable: MIMD parameters, loss threshold, retransmission queue, request interval"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 48-50 (PDF pages 49-51)"
+    "source": "PA191 L6, lecture06.pdf, slide 48 (PDF page 49); the explanation of the avoided limits is derived"
   },
   {
-    "name": "Characterise SCTP, DCCP and Reliable UDP as alternatives to TCP: what reliability, ordering and congestion control does each provide, and what distinctive features do they have? Which UDP-based protocol ultimately succeeded as a replacement for TCP in practice, and what motivated its design?",
-    "answer": "<B>SCTP</B>: <B>multi-stream</B> – multiple streams running in parallel (e.g. a web page and an image); <B>multi-homed</B> transport (an end node may have several IP addresses); <B>message-oriented like UDP</B>, but ensures <B>reliable, in-sequence</B> transport of messages with <B>congestion control like TCP</B>.<BR><B>DCCP</B>: a <B>non-reliable</B> protocol with <B>congestion control compatible with TCP</B>.<BR><B>Reliable UDP</B>: ensures reliable and in-order delivery up to a maximum number of retransmissions; RFC 908 and RFC 1151, originally for IP telephony; connection parameters can be set per connection.<BR>The lecture concludes that replacing TCP is attempted by combining UDP and TCP (data over UDP, control over TCP – tsunami, RBUDP) or by alternative protocols (SCTP, Reliable UDP, DCCP), and names <B>QUIC</B> as the winner: it is <B>UDP-based</B> and its design is motivated by the issues of <B>HTTP</B> (covered in the next lecture).",
+    "name": "Describe how Reliable Blast UDP (RBUDP) transfers data. For which kind of transfers was it proposed, how is the sending rate chosen, and how does an RBUDP transfer proceed step by step until all data are delivered?",
+    "answer": "<B>RBUDP</B> uses an out-of-band TCP channel for control and UDP for data. It was proposed for <B>disk-to-disk transfers</B>, or transfers where the <B>complete data can be held in the sender's memory</B>. It sends at a <B>user-defined rate</B>; app_perf (a modified iperf that also accounts for the extra memory copy applications perform) is used to estimate the capacity of the network/receiver.<BR>Steps: (1) the sender “blasts” the data over UDP at the predefined rate; (2) when this transmission ends, the sender sends a DONE signal over the TCP control channel; (3) the receiver answers with a <B>mask (bitmap) of the data that arrived</B>; (4) the sender re-sends the missing data over UDP; steps 2-4 repeat until the mask shows that all data are delivered; then the transfer ends.",
+    "keyPoints": [
+      "Out-of-band TCP control channel, UDP data channel",
+      "For disk-to-disk transfers or data that fits into the sender's memory",
+      "User-defined sending rate, estimated with app_perf",
+      "Sender blasts data, then DONE over TCP; receiver returns a mask of received data",
+      "Missing data re-sent; repeat until complete"
+    ],
+    "source": "PA191 L6, lecture06.pdf, slides 49-50 (PDF pages 50-51)"
+  },
+  {
+    "name": "Characterise SCTP, DCCP and Reliable UDP as alternatives to TCP: what reliability, ordering and congestion control does each provide and what distinctive features? Finally, the protocol QUIC is the UDP-based design that in practice succeeded as a TCP replacement: what motivated its design?",
+    "answer": "<B>SCTP</B>: <B>multi-stream</B> (several streams in parallel, e.g. a web page and an image); <B>multi-homed</B> (an end node may have several IP addresses); <B>message-oriented like UDP</B>, but ensures <B>reliable, in-sequence</B> delivery of messages with <B>congestion control like TCP</B>.<BR><B>DCCP</B>: a <B>non-reliable</B> protocol with <B>congestion control compatible with TCP</B>.<BR><B>Reliable UDP</B>: reliable and in-order delivery up to a maximum number of retransmissions; connection parameters can be set per connection; originally for IP telephony.<BR><B>QUIC</B> is <B>UDP-based</B> and its design was motivated by the <B>issues of HTTP</B> (covered in the next lecture). Building on UDP also avoids the deployment obstacle of changing the IP layer or of new protocol numbers (derived).",
     "keyPoints": [
       "SCTP: multi-stream, multi-homed, message-oriented, reliable in-sequence, TCP-like congestion control",
       "DCCP: unreliable, TCP-compatible congestion control",
-      "Reliable UDP: reliable in-order up to a retransmission limit; per-connection parameters; originally IP telephony",
-      "Replacement routes: UDP+TCP combinations or alternative protocols",
-      "Winner: QUIC – UDP-based, motivated by HTTP issues"
+      "Reliable UDP: reliable in-order up to a retransmission limit; per-connection parameters",
+      "QUIC: UDP-based replacement for TCP, motivated by HTTP issues",
+      "UDP basis eases deployment (derived)"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 51 and 54 (PDF pages 52 and 55-56)"
+    "source": "PA191 L6, lecture06.pdf, slides 51 and 54 (PDF pages 52 and 55-56); the deployment remark is derived"
   },
   {
-    "name": "Approaches that go beyond traditional TCP can be grouped into (1) improved TCP congestion control, (2) TCP extensions with IP (lower-layer) support, (3) combinations of UDP and TCP and (4) alternative transport protocols. Give examples of each group, assess their deployability, and explain why interaction with lower layers (L3 or L2) is considered not very feasible.",
-    "answer": "<B>1. Improving TCP congestion control (conservative extensions)</B> – end-host changes only: Scalable TCP, HighSpeed TCP, H-TCP, BIC, CUBIC. They change how cwnd grows and shrinks; they are deployable gradually (CUBIC is the current Linux default) and try to remain friendly to standard TCP for small windows/high loss.<BR><B>2. TCP extensions with IP support</B> – interaction with lower layers: Quick-Start (IP option processed by routers), ECN/E-TCP (routers mark congestion; E-TCP also needs changed receivers and synthetic losses), FAST (uses delay and can use ECN). Judged <B>not very feasible</B>, because they require changes in the IP layer of every router on the path, configuration of AQM/ECN by router administrators, or changed receiver behaviour – this conflicts with gradual deployment.<BR><B>3. Combining UDP and TCP</B>: data over UDP, control over TCP – tsunami, RBUDP.<BR><B>4. Alternative protocols</B> – unreliable protocols with flow and congestion control or new reliable designs: SCTP, Reliable UDP, DCCP. The eventual winner is <B>QUIC</B> (UDP-based).<BR>Overall goals stay the same: aggressiveness to utilise bandwidth, responsiveness to recover from loss and fairness for all users, because traditional TCP is too slow for today's networks.",
+    "name": "Approaches that go beyond traditional TCP can be grouped into (1) improved TCP congestion control, (2) TCP extensions with IP (lower-layer) support, (3) combinations of UDP and TCP and (4) alternative transport protocols. Name at least two examples of each group, assess how deployable each group is, and explain why interaction with lower layers (L3 or L2) is considered not very feasible.",
+    "answer": "<B>1. Improving TCP congestion control</B> – end-host changes only: Scalable TCP, HighSpeed TCP, H-TCP, BIC, CUBIC. They change how cwnd grows and shrinks, can be deployed gradually (CUBIC is the Linux default) and try to remain friendly to standard TCP for small windows/high loss.<BR><B>2. TCP extensions with IP support</B>: Quick-Start (IP option handled by routers), ECN/E-TCP (routers mark congestion; E-TCP also needs changed receivers and synthetic losses), FAST (delay-based, can use ECN). Judged <B>not very feasible</B>: they need changes in the IP layer of every router on the path, AQM/ECN configured by router administrators, or changed receiver behaviour – in conflict with gradual deployment.<BR><B>3. Combining UDP and TCP</B>: data over UDP, control over TCP – tsunami, RBUDP.<BR><B>4. Alternative protocols</B>: SCTP, Reliable UDP, DCCP; the one that succeeded in practice is <B>QUIC</B> (UDP-based).<BR>The goals stay the same: aggressiveness (use bandwidth), responsiveness (recover from loss) and fairness for all users, because traditional TCP is too slow for today's networks.",
     "keyPoints": [
-      "Conservative CC improvements: Scalable, HSTCP, H-TCP, BIC, CUBIC (end hosts only)",
-      "IP-supported extensions: Quick-Start, ECN/E-TCP, FAST",
-      "Lower-layer interaction needs router IP changes, admin configuration or receiver changes: not very feasible",
-      "UDP data + TCP control: tsunami, RBUDP",
-      "Alternative protocols: SCTP, Reliable UDP, DCCP; winner QUIC",
+      "Group 1 (Scalable, HSTCP, H-TCP, BIC, CUBIC): end hosts only, gradually deployable",
+      "Group 2 (Quick-Start, ECN/E-TCP, FAST): need router, administrator or receiver changes: not very feasible",
+      "Group 3 (tsunami, RBUDP): data over UDP, control over TCP",
+      "Group 4 (SCTP, Reliable UDP, DCCP; QUIC as the winner)",
       "Common goals: aggressiveness, responsiveness, fairness"
     ],
-    "source": "PA191 L6, lecture06.pdf, slides 43-45 and 53-54 (PDF pages 44-46 and 54-56); the deployability assessment and the reasons for “not very feasible” are inferred from the requirements listed (and marked :-( ) on slides 43-45"
+    "source": "PA191 L6, lecture06.pdf, slides 43-47 and 53-54 (PDF pages 44-48 and 54-56); the deployability assessment is inferred from the requirements marked as drawbacks on slides 43-46"
   }
 ]

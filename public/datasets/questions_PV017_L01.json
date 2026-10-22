@@ -35,7 +35,7 @@
       { "body": "Chybějící záloha důležitých dat – zranitelnost", "right": true, "comment": "Slide 25: zranitelnost je slabina využitelná ke způsobení škod útokem; nezálohovaná data škodu umožnila." },
       { "body": "Smazání dat zaměstnancem – útok, tedy realizovaná hrozba", "right": true, "comment": "Slide 25, 50: útok je pokus o způsobení škody na aktivech, realizovaná hrozba." },
       { "body": "Data ve sdílených složkách – opatření", "right": false, "comment": "Slide 25: data jsou aktivum (cokoli hodnotného); opatření je prostředek, který modifikuje riziko." },
-      { "body": "Nespokojený zaměstnanec – vnější hrozba, protože útočí na server", "right": false, "comment": "Slide 46: vnější hrozba má zdroj mimo vnitřní síť organizace; zaměstnanec je uvnitř." }
+      { "body": "Nespokojený zaměstnanec s přístupem ke sdíleným složkám – vnější hrozba", "right": false, "comment": "Slide 46: vnější hrozba má zdroj mimo vnitřní síť organizace; zaměstnanec je uvnitř." }
     ]
   },
   {

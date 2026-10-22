@@ -13,7 +13,7 @@
     "answers": [
       { "body": "Provádí ji třetí, nezávislá certifikační instituce.", "right": true, "comment": "Slide 9: certifikace je důkazem důvěryhodnosti ISMS od nezávislé autority." },
       { "body": "Vždy jde o finální etapu vývoje a zavedení ISMS; pro podnikání je ceněná, ale ne vždy nezbytná.", "right": true, "comment": "Slide 9: certifikace uzavírá zavedení ISMS a není povinná pro každého." },
-      { "body": "Provádí ji CISO organizace, protože ISMS zná nejlépe a odpovídá za jeho fungování.", "right": false, "comment": "Slide 9: certifikaci musí provést nezávislá třetí strana, ne vlastní pracovník." },
+      { "body": "Provádí ji CISO organizace.", "right": false, "comment": "Slide 9: certifikaci musí provést nezávislá třetí strana, ne vlastní pracovník." },
       { "body": "Probíhá na začátku zavádění ISMS, aby se ověřil návrh dřív, než se do něj investuje.", "right": false, "comment": "Slide 9: certifikace je finální etapa, ne vstupní kontrola návrhu." },
       { "body": "Certifikovat lze splnění požadavků ISO 27002, tedy kodexu nejlepších praktik.", "right": false, "comment": "Slide 6: certifikuje se splnění požadavků ISO 27001; ISO 27002 je kodex praktik." }
     ]
@@ -73,7 +73,7 @@
       { "body": "Akceptace není nečinnost – je to formální rozhodnutí oprávněné role.", "right": true, "comment": "Slide 30: akceptace je formální rozhodnutí, ne opomenutí." },
       { "body": "Akceptační záznam obsahuje vlastníka, odůvodnění, zbytkové skóre, podmínky, platnost a datum přezkumu.", "right": true, "comment": "Slide 30: náležitosti akceptačního záznamu." },
       { "body": "Akceptací se riziko z registru odstraní a už se nepřezkoumává.", "right": false, "comment": "Slide 30: záznam má platnost a datum přezkumu, riziko se dál sleduje." },
-      { "body": "Akceptací se riziko přenáší na vlastníka aktiva, takže organizace za ně dál neodpovídá.", "right": false, "comment": "Slide 30: akceptace je rozhodnutí oprávněné role, riziko nepřenáší; přenos pojištěním či smlouvou je jiná strategie zvládání rizik (přednáška 4, slide 20)." }
+      { "body": "Akceptací se riziko přenáší na vlastníka aktiva; organizace za ně dál neodpovídá.", "right": false, "comment": "Slide 30: akceptace je rozhodnutí oprávněné role, riziko nepřenáší; přenos pojištěním či smlouvou je jiná strategie zvládání rizik (přednáška 4, slide 20)." }
     ]
   },
   {
@@ -103,7 +103,7 @@
       { "body": "Zasedá 2× až 4× ročně, vydává řádné zápisy a jeho závěry projednává výkonný management.", "right": true, "comment": "Slide 52: frekvence zasedání a navazující projednání." },
       { "body": "Každá část organizace s vlastním CISO má mít vlastní řídící výbor.", "right": false, "comment": "Slide 52: CISO může být víc, řídící výbor má být jeden." },
       { "body": "Výbor sám získává vstupy pro posouzení ISMS managementem a sděluje výstupy všem relevantním osobám.", "right": false, "comment": "Slide 54: výbor zajišťuje, že posouzení probíhá; za vstupy a sdělení výstupů odpovídá CISO." },
-      { "body": "Tvoří ho pracovníci IT oddělení, protože jde o technickou agendu.", "right": false, "comment": "Slide 52: jde o fórum členů napříč funkční strukturou organizace." }
+      { "body": "Tvoří ho pracovníci IT oddělení; jde o technickou agendu bez vlivu na management.", "right": false, "comment": "Slide 52: jde o fórum členů napříč funkční strukturou organizace." }
     ]
   },
   {

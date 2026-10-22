@@ -6,7 +6,7 @@
       { "body": "Řízení KB převádí požadavky regulace (CO) na role, procesy a rozhodování o rizicích (JAK).", "right": true, "comment": "Slide 4, 41: regulace říká CO, řízení říká JAK." },
       { "body": "Stačí nakoupit technologie doporučené výrobci; řízení není potřeba.", "right": false, "comment": "Slide 4, 6: výsledkem má být odolnost i doložitelnost; technologie bez procesu je nespravovaná." },
       { "body": "Když zákon nic konkrétního nepředepisuje, povinnost nelze splnit ani kontrolovat.", "right": false, "comment": "Slide 4: povinnost se plní tím, že organizace opatření zdůvodní a doloží." },
-      { "body": "Regulace stanoví JAK, takže řízení kontroluje, zda technici postupují podle zákona.", "right": false, "comment": "Slide 4: je to obráceně – regulace říká CO, řízení JAK." }
+      { "body": "Regulace stanoví JAK; řízení kontroluje, zda technici postupují podle zákona.", "right": false, "comment": "Slide 4: je to obráceně – regulace říká CO, řízení JAK." }
     ]
   },
   {
@@ -52,7 +52,7 @@
     "answers": [
       { "body": "Jeden systém řízení KB se společnou sadou opatření pokryje více regulací a požadavků najednou.", "right": true, "comment": "Slide 12: jeden systém řízení, mnoho regulací." },
       { "body": "Jedno zavedené opatření, např. vícefaktorová autentizace, může sloužit jako doklad pro více regulací současně.", "right": true, "comment": "Slide 12: společná sada opatření; konkrétní příklad je odvozený." },
-      { "body": "Opatření se zavedou jednou a dál se nepřezkoumávají, protože splněná povinnost platí trvale.", "right": false, "comment": "Slide 9: cyklus compliance se opakuje – mění se regulace, organizace i hrozby." },
+      { "body": "Opatření se zavedou jednou a dál se nepřezkoumávají; splněná povinnost platí trvale.", "right": false, "comment": "Slide 9: cyklus compliance se opakuje – mění se regulace, organizace i hrozby." },
       { "body": "Pro každou regulaci se zavádí samostatný systém řízení s vlastními opatřeními.", "right": false, "comment": "Slide 12: smyslem je naopak jeden jednotný systém." },
       { "body": "Certifikace ISO 27001 sama o sobě splní všechny zákonné povinnosti organizace.", "right": false, "comment": "Slide 8, 12: ISO je jen jeden z pokrývaných požadavků (dobrovolně převzatá povinnost)." }
     ]
@@ -64,7 +64,7 @@
       { "body": "Chybí měření, audit a přezkoumání vedením (CHECK, kap. 9) i nápravná opatření a zlepšování (ACT, kap. 10).", "right": true, "comment": "Slide 15: obsah fází CHECK a ACT a vazba na kapitoly ISO/IEC 27001:2022." },
       { "body": "Problém je ve fázi PLAN – chybí kontext, analýza rizik a cíle.", "right": false, "comment": "Slide 15: politika a opatření existují; chybí kontrola a náprava, ne plánování." },
       { "body": "Jde o nedostatek fáze DO; problém vyřeší nasazení dalších technických opatření.", "right": false, "comment": "Slide 15: další opatření nevyřeší chybějící měření, audit a nápravu." },
-      { "body": "ISO/IEC 27001:2022 měření účinnosti nepožaduje, takže je organizace v souladu.", "right": false, "comment": "Slide 15: měření, monitoring a audit tvoří kap. 9 normy." }
+      { "body": "ISO/IEC 27001:2022 měření účinnosti nepožaduje; organizace je tedy v souladu s normou.", "right": false, "comment": "Slide 15: měření, monitoring a audit tvoří kap. 9 normy." }
     ]
   },
   {
@@ -91,7 +91,7 @@
     "answers": [
       { "body": "Vedení", "right": true, "comment": "Slide 20: o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení; v matici RACI má u akceptace A/R (slide 37)." },
       { "body": "Manažer KB – analýzu připravil, proto i rozhoduje", "right": false, "comment": "Slide 20: manažer KB analýzu připravuje, rozhodnutí patří vedení." },
-      { "body": "IT provoz, protože opatření provozuje", "right": false, "comment": "Slide 20, 42: o akceptaci rizika nemá rozhodovat IT, rozhoduje vedení." },
+      { "body": "IT provoz", "right": false, "comment": "Slide 20, 42: o akceptaci rizika nemá rozhodovat IT, rozhoduje vedení." },
       { "body": "Auditor KB", "right": false, "comment": "Slide 34: auditor nezávisle ověřuje soulad a účinnost, o rizicích nerozhoduje." },
       { "body": "Garant aktiva", "right": false, "comment": "Slide 20, 34: garant odpovídá za konkrétní aktivum a podílí se na analýze; o zbytkovém riziku rozhoduje vedení." }
     ]
@@ -130,7 +130,7 @@
       { "body": "Bezpečnostní politika určuje PROČ a CO a schvaluje ji vrcholné vedení.", "right": true, "comment": "Slide 26: vrchol hierarchie." },
       { "body": "Směrnice a tematické politiky obsahují závazná pravidla pro jednotlivé oblasti, např. přístupy nebo incidenty.", "right": true, "comment": "Slide 26: druhá úroveň hierarchie." },
       { "body": "Postupy a procedury určují PROČ a CO, politika pak JAK, KDO a KDY.", "right": false, "comment": "Slide 26: je to obráceně – postupy a procedury určují JAK, KDO a KDY." },
-      { "body": "Návody, formuláře a záznamy stojí mimo hierarchii, protože nic nepředepisují.", "right": false, "comment": "Slide 26: tvoří spodní úroveň hierarchie a slouží jako důkazy o plnění." },
+      { "body": "Návody, formuláře a záznamy stojí mimo hierarchii dokumentace; nic nepředepisují a jen se archivují.", "right": false, "comment": "Slide 26: tvoří spodní úroveň hierarchie a slouží jako důkazy o plnění." },
       { "body": "Směrnice mají povahu nezávazných doporučení, závazná je politika.", "right": false, "comment": "Slide 26: směrnice jsou závazná pravidla pro oblasti." }
     ]
   },
@@ -160,7 +160,7 @@
       { "body": "Zařazení pod ředitele IT vede ke konfliktu zájmů – CISO by dohlížel na vlastního nadřízeného.", "right": true, "comment": "Slide 36: varianta A – pod IT." },
       { "body": "Doporučené je zařazení pod vedení, s nezávislostí a přímým přístupem k vedení.", "right": true, "comment": "Slide 36: varianta B – pod vedením." },
       { "body": "Roli CISO by neměl zastávat pracovník interního auditu – i to je konflikt zájmů.", "right": true, "comment": "Přednáška 2, slide 55: nikdy někdo z oddělení interního auditu." },
-      { "body": "Zařazení pod ředitele IT je doporučené, protože tam má CISO nejblíž k technickým informacím.", "right": false, "comment": "Slide 36: varianta pod IT znamená konflikt zájmů; předpokladem úspěchu je oddělení od správy systémů." },
+      { "body": "Zařazení pod ředitele IT je doporučené; CISO tam má nejblíž k technickým informacím.", "right": false, "comment": "Slide 36: varianta pod IT znamená konflikt zájmů; předpokladem úspěchu je oddělení od správy systémů." },
       { "body": "Ve velké organizaci je ideální sdružit roli CISO s šéfem IT.", "right": false, "comment": "Přednáška 2, slide 55: sdružení s šéfem IT je přípustné v malých organizacích; ve velkých je ideál samostatná role pod CEO." }
     ]
   },
@@ -169,9 +169,9 @@
     "answers": [
       { "body": "R provádí, A odpovídá a schvaluje, C je konzultován, I je informován.", "right": true, "comment": "Slide 37: význam písmen." },
       { "body": "Činnost může mít více rolí R nebo C, ale role A je u každé činnosti vždy jen jedna.", "right": true, "comment": "Slide 37: A je vždy jen jeden; R může mít více rolí – např. analýzu rizik provádí manažer KB (A/R) i garant aktiva (R)." },
-      { "body": "Jedna činnost může mít libovolný počet rolí A.", "right": false, "comment": "Slide 37: A je vždy jen jeden." },
-      { "body": "U auditu KB má auditor roli C, protože audit provádí manažer KB.", "right": false, "comment": "Slide 37: u auditu KB audit provádí auditor (R), odpovídá vedení (A) a manažer KB je jen konzultován (C)." },
-      { "body": "Role I znamená, že daná role činnost schvaluje.", "right": false, "comment": "Slide 37: I je jen informován; schvaluje A." }
+      { "body": "Jedna činnost může mít libovolný počet rolí A, pokud je potřeba více schvalovatelů.", "right": false, "comment": "Slide 37: A je vždy jen jeden." },
+      { "body": "U auditu KB má auditor roli C; audit provádí manažer KB.", "right": false, "comment": "Slide 37: u auditu KB audit provádí auditor (R), odpovídá vedení (A) a manažer KB je jen konzultován (C)." },
+      { "body": "Role I znamená, že daná role činnost schvaluje a nese za ni odpovědnost.", "right": false, "comment": "Slide 37: I je jen informován; schvaluje A." }
     ]
   },
   {

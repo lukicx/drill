@@ -24,7 +24,7 @@
     "answers": [
       { "body": "Technická porucha disku způsobí výpadek služby – primární oblast zájmu CSIRTů (neúmyslný incident)", "right": true, "comment": "Slide 18: neúmyslné incidenty (nehody, poruchy, lidské chyby) jsou primárně zájmem CSIRTů." },
       { "body": "Ransomware zločinecké skupiny ochromí nemocnici – společná oblast CSIRTů i OČTŘ (Typ 1)", "right": true, "comment": "Slide 18: úmyslné útoky proti důvěrnosti, integritě a dostupnosti ICT tvoří společnou oblast." },
-      { "body": "Internetový podvod při prodeji zboží – společná oblast, protože probíhá přes ICT", "right": false, "comment": "Slide 18: trestné činy páchané prostřednictvím ICT (Typ 2) jsou primárně zájmem OČTŘ." },
+      { "body": "Internetový podvod při prodeji zboží – společná oblast", "right": false, "comment": "Slide 18: trestné činy páchané prostřednictvím ICT (Typ 2) jsou primárně zájmem OČTŘ." },
       { "body": "Trestný čin, při němž se jako důkaz zajišťují data z mobilu pachatele – primární oblast CSIRTů", "right": false, "comment": "Slide 18: trestné činy, kde hrají roli elektronické důkazy (Typ 3), jsou primárně zájmem OČTŘ." }
     ]
   },
@@ -51,7 +51,7 @@
     "answers": [
       { "body": "Kybernetická bezpečnost je nedistributivní právo – nelze ji rozdělit a přiřadit jednotlivcům, musí být sdílena.", "right": true, "comment": "Slide 28: proto ji zajišťuje stát." },
       { "body": "Nedistributivní práva se konstruují omezováním distributivních, např. vlastnictví či soukromí.", "right": true, "comment": "Slide 28: nedistributivní práva sama o sobě neexistují." },
-      { "body": "Soukromí je nedistributivní právo, protože se týká všech občanů.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." },
+      { "body": "Soukromí je nedistributivní právo; týká se všech občanů současně.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." },
       { "body": "Kybernetickou bezpečnost lze rozdělit mezi jednotlivce, a proto ji stačí zajistit každému zvlášť.", "right": false, "comment": "Slide 28: bezpečnost nelze individualizovat." },
       { "body": "Distributivní a nedistributivní práva jsou na sobě nezávislá a navzájem se neomezují.", "right": false, "comment": "Slide 28: nedistributivní práva vznikají omezováním distributivních – hledá se rovnováha." }
     ]
@@ -62,7 +62,7 @@
       { "body": "EU typicky volí odolnostní přístup (resilience-based), zaměřený na pravděpodobnost selhání.", "right": true, "comment": "Slide 29: odolnostní přístup je přiřazen EU." },
       { "body": "Informační přístup (vědět nebo najít) je typický pro USA a autokratické či diktátorské režimy.", "right": true, "comment": "Slide 29: informační přístup." },
       { "body": "Odolnostní přístup staví na odstrašení útočníka hrozbou následků.", "right": false, "comment": "Slide 29: na následcích staví deterrence theory (odstrašení)." },
-      { "body": "Informační přístup je typický pro EU, protože NIS 2 vyžaduje hlášení incidentů.", "right": false, "comment": "Slide 29: EU přednáška řadí k odolnostnímu přístupu." }
+      { "body": "Informační přístup je typický pro EU; směrnice NIS 2 vyžaduje hlášení incidentů.", "right": false, "comment": "Slide 29: EU přednáška řadí k odolnostnímu přístupu." }
     ]
   },
   {
@@ -71,7 +71,7 @@
       { "body": "Zakládají kategorie subjektů, role odpovědných osob i pravomoci institucí.", "right": true, "comment": "Slide 30: podstatná část kyberbezpečnostní regulace je performativní." },
       { "body": "Nelze je ověřit měřením, jen vyložit; výklad a metodiky úřadu jsou součástí bezpečnostní praxe.", "right": true, "comment": "Slide 30: performativní pravidlo se vykládá, neměří." },
       { "body": "Definice se volí podle maximální technické přesnosti.", "right": false, "comment": "Slide 30: definice se volí podle účelu regulace, ne podle technické přesnosti." },
-      { "body": "Performativní pravidlo popisuje skutečnost, takže jeho splnění lze objektivně změřit.", "right": false, "comment": "Slide 30: právní pojem je nástroj, nikoli popis skutečnosti." },
+      { "body": "Performativní pravidlo popisuje skutečnost; jeho splnění lze objektivně změřit.", "right": false, "comment": "Slide 30: právní pojem je nástroj, nikoli popis skutečnosti." },
       { "body": "Regulace předepisuje konkrétní technické prostředky místo cílového stavu.", "right": false, "comment": "Slide 30: reguluje se cílový stav, resp. požadovaný dopad." }
     ]
   },
@@ -101,7 +101,7 @@
       { "body": "Rozsah povinností se řídí dopadem selhání, místo stejné povinnosti pro všechny.", "right": true, "comment": "Slide 34: protiklad plošné regulace." },
       { "body": "Proporcionalita znamená, že zásah má být vhodný, potřebný a přiměřený.", "right": true, "comment": "Slide 34: definice proporcionality." },
       { "body": "Proporcionalita znamená, že všechny subjekty nesou stejné náklady na compliance.", "right": false, "comment": "Slide 34: stejná povinnost pro všechny je znak plošné regulace." },
-      { "body": "Rizikově orientovaná regulace je bez nákladů, protože si subjekty volí opatření samy.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéra vstupu, odliv kapacit." }
+      { "body": "Rizikově orientovaná regulace je bez nákladů.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéra vstupu, odliv kapacit." }
     ]
   },
   {

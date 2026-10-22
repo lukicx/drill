@@ -1,705 +1,687 @@
 [
   {
-    "name": "A team needs depth on hidden stakeholder needs, agreement between stakeholders, and evidence of actual working habits. Which elicitation choices fit these needs?",
+    "name": "Admission clerks in a hospital say they always follow the official admission form, but the analyst suspects that daily practice differs. The new system must also exchange data with the existing laboratory system. Which elicitation techniques fit these two needs best?",
     "answers": [
       {
-        "body": "Use interviews to explore needs in depth.",
+        "body": "Observation (job shadowing): watch the clerks at work to see what they actually do.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 2-3: Interviews are suited to depth and uncovering hidden needs during requirements analysis."
+        "comment": "L2, slide 3: Observation reveals what users actually do, which often differs from what they say."
       },
       {
-        "body": "Use facilitated workshops to help stakeholders agree on requirements.",
+        "body": "Reverse engineering and interface analysis of the laboratory system.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 2-3: Workshops bring stakeholders together to agree on requirements quickly."
+        "comment": "L2, slide 3: This technique studies existing systems and the systems the new one must connect to."
       },
       {
-        "body": "Prefer questionnaires over interviews whenever deep answers are required.",
+        "body": "A questionnaire sent to the clerks asking how they process admissions.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 2-3: Surveys reach many users quickly but provide shallower answers."
+        "comment": "L2, slide 3: Questionnaires reach many people quickly but give shallow, self-reported answers, so they repeat what clerks say rather than what they do."
       },
       {
-        "body": "Observe users at work to discover differences between reported and actual practice.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 2-3: Observation and job shadowing reveal what users actually do."
+        "body": "A brainstorming session to collect as many ideas as possible about admissions.",
+        "right": false,
+        "comment": "L2, slide 3: Brainstorming generates ideas freely; it gives no evidence of actual working practice or of the lab interface."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 2-3"
+    "source": "02-03-Analysis-patterns.pdf, slide 3"
   },
   {
-    "name": "Which statements correctly describe further requirements-elicitation techniques?",
+    "name": "Three departments disagree about the requirements of a new booking system and a decision is needed soon. In addition, one key user cannot describe the screens she needs, and a manager has hidden concerns he does not voice in meetings. Which techniques fit?",
     "answers": [
       {
-        "body": "Brainstorming means filtering ideas before participants can generate them freely.",
+        "body": "A facilitated workshop (e.g. JAD) with all three departments.",
+        "right": true,
+        "comment": "L2, slide 3: Workshops bring stakeholders together to agree on requirements quickly."
+      },
+      {
+        "body": "A mockup or prototype that the user can react to.",
+        "right": true,
+        "comment": "L2, slide 3: Prototyping lets users react to something concrete when they cannot describe it in the abstract."
+      },
+      {
+        "body": "A one-on-one, open-ended interview with the manager.",
+        "right": true,
+        "comment": "L2, slide 3: Interviews give depth and are good at uncovering hidden needs."
+      },
+      {
+        "body": "Document analysis of current regulations to resolve the disagreement between departments.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 3: Brainstorming generates many ideas freely before filtering them."
+        "comment": "L2, slide 3: Document analysis reviews manuals, regulations and forms; it does not bring stakeholders to an agreement."
       },
       {
-        "body": "Document analysis examines existing manuals, regulations, forms, and specifications.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 3: These existing documents are named as sources for document analysis."
-      },
-      {
-        "body": "Reverse engineering and interface analysis examine existing systems and required connections.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 3: The technique studies both existing systems and systems the new solution must connect to."
-      },
-      {
-        "body": "Prototypes let users react to concrete mockups or working examples.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 3: Prototyping is used to obtain reactions to something concrete."
-      },
-      {
-        "body": "Focus groups collect feedback from a representative group of users.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 3: This is the purpose of focus groups in the elicitation list."
+        "body": "A large online survey to explore the manager's concerns in depth.",
+        "right": false,
+        "comment": "L2, slide 3: Surveys reach many users but give shallower answers, the opposite of what an in-depth exploration needs."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 3"
+    "source": "02-03-Analysis-patterns.pdf, slide 3"
   },
   {
-    "name": "Which descriptions of requirements-analysis artifacts are correct?",
+    "name": "A ticketing project needs to describe: (1) how a ticket moves between reserved, paid and cancelled; (2) the wish \"As a passenger I want to buy a ticket on my phone so that I avoid queues\", with conditions for acceptance; (3) which actors interact with the system and how. Which pairings of need and technique are correct?",
     "answers": [
       {
-        "body": "Use cases describe interactions between actors and the system.",
+        "body": "(1) State diagram.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: Use cases and their diagrams describe actor-system interactions."
+        "comment": "L2, slide 4: State diagrams show how an entity changes state over time."
       },
       {
-        "body": "Scenarios and storyboards provide step-by-step narratives of system use.",
+        "body": "(2) User story with acceptance criteria.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: They describe how the system will be used as a sequence of steps."
+        "comment": "L2, slide 4: User stories are short \"As a … I want … so that …\" statements with acceptance criteria."
       },
       {
-        "body": "User stories are primarily detailed database schemas.",
+        "body": "(3) Data flow diagram.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: User stories are short statements such as As a ... I want ... so that ..., with acceptance criteria."
+        "comment": "L2, slide 4: A DFD shows how data moves through a system; actor–system interactions are described by use cases and use case diagrams."
       },
       {
-        "body": "Acceptance criteria may accompany Agile user stories.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: The slide explicitly includes acceptance criteria with user stories."
+        "body": "(1) Entity-relationship diagram.",
+        "right": false,
+        "comment": "L2, slide 4: ER and class diagrams show the information the system handles, not the life cycle of one entity."
+      },
+      {
+        "body": "(3) BPMN or activity diagram of internal data storage.",
+        "right": false,
+        "comment": "L2, slide 4: BPMN, flowcharts and activity diagrams show workflows; actor–system interaction is the job of use cases."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 4"
+    "source": "02-03-Analysis-patterns.pdf, slide 4"
   },
   {
-    "name": "Which modeling technique is matched to the information it captures?",
+    "name": "How are use case modeling and domain modeling combined in this course?",
     "answers": [
       {
-        "body": "BPMN, flowcharts, and activity diagrams: workflows.",
+        "body": "Use cases capture functional requirements, but only as broader context needed for the data modeling.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: These are listed under process modeling."
+        "comment": "L2, slide 5: Use case modeling is used only to provide the functional context that data modeling needs."
       },
       {
-        "body": "Entity-relationship and class diagrams: information handled by the system.",
+        "body": "Thinking about domain concepts drives discussion about the functional requirements.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: These are listed under data modeling."
+        "comment": "L2, slide 6: The domain model helps a common understanding, and thinking about concepts drives discussion of requirements."
       },
       {
-        "body": "Data flow diagrams: how data moves through a system.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: DFDs belong to structured analysis and show data movement."
-      },
-      {
-        "body": "State diagrams: changes in the state of an entity over time.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: State diagrams model entity state changes."
-      },
-      {
-        "body": "A data flow diagram and a state diagram answer the same question by definition.",
+        "body": "Use cases should already fix the implementation and architecture before domain analysis starts.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 4: Data movement and entity state changes are different modeling concerns."
+        "comment": "L2, slide 5: Use cases capture functional requirements without any implementation or architecture details."
+      },
+      {
+        "body": "Analysis patterns are applied mainly to the use case model.",
+        "right": false,
+        "comment": "L2, slide 5: Analysis patterns are applied to the data (domain) modeling part."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 4"
+    "source": "02-03-Analysis-patterns.pdf, slides 5–6"
   },
   {
-    "name": "What is the intended relationship between use case modeling and domain modeling in PA103?",
+    "name": "The documentation of a transport company contains the nouns <I>driver</I>, <I>motorman</I> (used for the same person as driver), <I>licence number</I>, <I>tram</I>, <I>line</I>, <I>depot</I> and <I>depot address</I>. Which decisions follow the entity-identification method?",
     "answers": [
       {
-        "body": "Use cases should fix implementation and architecture choices before domain analysis begins.",
+        "body": "Merge driver and motorman into one entity, because they are synonyms.",
+        "right": true,
+        "comment": "L2, slide 8: Synonyms that describe the same thing are consolidated."
+      },
+      {
+        "body": "Treat licence number and depot address as attributes of Driver and Depot, not as entities.",
+        "right": true,
+        "comment": "L2, slide 8: Nouns that are attributes or properties of other nouns are removed from the entity list."
+      },
+      {
+        "body": "Keep each noun as its own entity so that nothing is lost.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 5-7, 10: The course uses use cases to capture functional requirements without implementation or architecture details."
+        "comment": "L2, slide 8: The list is reduced by merging synonyms and removing property nouns."
       },
       {
-        "body": "Domain modeling provides a high-level static conceptual view of entities, relationships, and business rules.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 5-7, 10: The domain model is a conceptual problem domain model of the business area."
+        "body": "Add methods such as assignDriver() and database keys so the diagram is ready for implementation.",
+        "right": false,
+        "comment": "L2, slide 8: The diagram stays at a conceptual level: no methods and no design attributes."
       },
       {
-        "body": "Thinking about domain concepts can reveal or clarify functional requirements.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 5-7, 10: The slides describe a synergy: discussion of concepts drives discussion of user requirements."
-      },
-      {
-        "body": "Use cases provide broader functional context for the course's pattern-based data modeling.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 5-7, 10: The stated course role of use case modeling is to provide context needed for data modeling."
+        "body": "Leave out Depot, which is an address rather than a person.",
+        "right": false,
+        "comment": "L2, slide 8: Entities may be people, processes, system components or any other noun that must be documented or stored."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 5-7, 10"
+    "source": "02-03-Analysis-patterns.pdf, slide 8"
   },
   {
-    "name": "You identify candidate entities from written project documentation. Which steps follow the lecture's method?",
+    "name": "A first conceptual model links Driver and Vehicle. Drivers hold licences for some vehicle kinds, and they also drive particular vehicles. What should the analyst do next?",
     "answers": [
       {
-        "body": "List nouns and consolidate synonyms referring to the same thing.",
+        "body": "Model \"has licence\" and \"drives\" as two separate, named associations with roles and multiplicities.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 8: Entity identification begins with nouns and consolidation of synonyms."
+        "comment": "L2, slides 9–10: Relationships are named and given roles and multiplicities; the transport model keeps \"has license\" and \"drives\" apart."
       },
       {
-        "body": "Keep every noun as an independent entity, even when it is only another entity's property.",
+        "body": "Ask when a driver is assigned to a vehicle, how permanent the assignment is and what must be remembered about it.",
+        "right": true,
+        "comment": "L2, slide 10: These context questions (creation, permanence, history, responsibility) clarify functional requirements."
+      },
+      {
+        "body": "Use one unnamed association between Driver and Vehicle to cover both relationships at once.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 8: Nouns that are attributes or properties of other nouns should be removed from the entity list."
+        "comment": "L2, slides 9–10: Different relationships need their own names so that their purpose is clear."
       },
       {
-        "body": "Draw a conceptual ERD or UML class diagram without implementation methods and design attributes.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 8: The slide requires a conceptual level and warns against methods and design attributes."
-      },
-      {
-        "body": "Consider domain things that must be documented or persistently stored.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 8: This is how the slide characterizes candidate entities; they may include people, processes, or system components."
+        "body": "Postpone such questions to the implementation phase, when the exact behaviour will be known.",
+        "right": false,
+        "comment": "L2, slide 9: Although the domain model is static, it is used to clarify behaviour and functional requirements."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 8"
+    "source": "02-03-Analysis-patterns.pdf, slides 9–10"
   },
   {
-    "name": "Which additions make a conceptual relationship useful during requirements analysis?",
+    "name": "Which statements reflect the course's view of domain models as living documentation?",
     "answers": [
       {
-        "body": "Multiplicity to show how many instances participate.",
+        "body": "A domain model is never done and never exhaustive; it is refined as understanding grows.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 9-10: Multiplicity clarifies the number of instances involved in a relationship."
+        "comment": "L2, slide 11: Domain models are living documents, continually refined, never done and never exhaustive."
       },
       {
-        "body": "Association names and endpoint roles to explain its purpose.",
+        "body": "It should contain only as much information as is useful to the people involved.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 9-10: The slide asks analysts to name relationships and provide roles."
+        "comment": "L2, slide 11: Domain models are conversational and provide only as much information as is useful."
       },
       {
-        "body": "Questions about when the relationship is created, its permanence, and required history.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 9-10: The transport example asks when drivers are assigned, how permanent the assignment is, and what must be remembered."
-      },
-      {
-        "body": "Only database foreign-key names, because static models cannot help clarify behavior.",
+        "body": "Storing domain knowledge as AI-agent skills and constraints removes the need for iterative domain reasoning.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 9-10: The static problem domain model is explicitly used to clarify behavior and functional requirements."
+        "comment": "L2, slide 11: Knowledge can be stored this way, but building it still requires iterative reasoning, otherwise agents produce nonsense."
+      },
+      {
+        "body": "Once approved, the domain model should be frozen to protect the shared understanding.",
+        "right": false,
+        "comment": "L2, slide 11: Shared understanding comes from keeping the model up to date, not from freezing it."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 9-10"
+    "source": "02-03-Analysis-patterns.pdf, slide 11"
   },
   {
-    "name": "Which statements reflect the lecture's view of domain knowledge and living documentation?",
+    "name": "Why use analysis patterns in domain modeling, even when an LLM can draft the model?",
     "answers": [
       {
-        "body": "A useful domain model is continually refined as understanding grows.",
+        "body": "Many concepts recur across domains, and well-documented patterns save reinventing them from scratch.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 11: Domain models are living documents refined as needed."
+        "comment": "L2, slide 12: Recurring, domain-independent concepts can be described by well-documented guidelines instead of reinventing the wheel."
       },
       {
-        "body": "The model should contain as much information as is useful to the project participants.",
+        "body": "Pattern vocabulary is needed both to prompt the LLM and to review its result.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 11: The slides reject exhaustiveness and characterize models as conversational."
+        "comment": "L2, slide 13: You still need patterns to drive AI agents efficiently and to check their results (drive, generate, review)."
       },
       {
-        "body": "Storing knowledge as AI-agent skills and constraints eliminates iterative domain reasoning.",
+        "body": "A pattern is the final, correct model that should be copied unchanged.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 11: Knowledge may be stored this way, but building it still requires specific iterative reasoning."
+        "comment": "L2, slide 20: Models are not right or wrong, only more or less useful; a pattern is a starting point, not a destination."
       },
       {
-        "body": "Once drawn, the domain model should be treated as complete and unchangeable.",
+        "body": "An LLM already chooses suitable patterns by itself, so pattern knowledge matters mainly when drawing by hand.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 11: The model is never done or exhaustive; keeping it current helps shared understanding."
+        "comment": "L2, slides 13 and 16: The LLM answers the question it was asked; without pattern vocabulary it produces an average schema."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 11"
+    "source": "02-03-Analysis-patterns.pdf, slides 12–13 and 20"
   },
   {
-    "name": "Which statements explain the role of analysis patterns?",
+    "name": "An information system must (a) record who is responsible to whom between employees and organisational units, (b) store patients' blood pressure with units, and (c) track how goods and money move between warehouses and accounts. Which Fowler pattern collections match these concerns?",
     "answers": [
       {
-        "body": "They describe recurring concepts so that analysts can reuse well-documented modeling guidance.",
+        "body": "(a) Accountability.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 12-13, 19-21: Pattern-driven modeling avoids reinventing recurring concepts from scratch."
+        "comment": "L2, slide 21: Accountability covers organisational structure and responsibilities."
       },
       {
-        "body": "A model's usefulness in its situation matters, and a pattern is a starting point to adapt.",
+        "body": "(b) Observations and Measurements.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 12-13, 19-21: The literature slide says models are more or less useful and patterns are a starting point, not a destination."
+        "comment": "L2, slide 21: This collection is about measured values."
       },
       {
-        "body": "Each pattern collection is only one fixed final model, with no evolutionary sequence.",
+        "body": "(c) Inventory and Accounting.",
+        "right": true,
+        "comment": "L2, slide 21: Inventory and Accounting covers cash flow and inventorying."
+      },
+      {
+        "body": "(c) Planning of stock movements.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 12-13, 19-21: The collections evolve from basic forms through combinations of aspects to complex solutions."
+        "comment": "L2, slide 21: Planning covers schedules and protocols for repetitive plans; movements between \"pots\" of resources are Inventory and Accounting."
       },
       {
-        "body": "Pattern vocabulary helps both prompt an LLM and review its output.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 12-13, 19-21: The slides use patterns for driving generation and checking the resulting model."
+        "body": "(a) Referring to Objects.",
+        "right": false,
+        "comment": "L2, slide 21: Referring to Objects is about identifying objects, not about responsibilities between parties."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 12-13, 19-21"
+    "source": "02-03-Analysis-patterns.pdf, slide 21"
   },
   {
-    "name": "Which analysis-pattern collection is matched to its stated concern?",
+    "name": "A city transport company asked an LLM for a data model. <B>Model A</B>: Depot employs 0..* Drivers, each Driver works at exactly 1 Depot (a fixed depot reference), and nothing is dated. <B>Model B</B>: Party, Accountability with an AccountabilityType and a TimePeriod. Three months later a new requirement arrives: \"From January a driver may be temporarily assigned to a second depot, and when an accident occurs we must know who was responsible for that driver at that moment.\" Which conclusions are correct?",
     "answers": [
       {
-        "body": "Accountability: organizational structure and responsibilities.",
+        "body": "In Model B the new requirement is a data change: one new AccountabilityType instance.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: This is the collection's stated business concern."
+        "comment": "L2, slide 16: Model B needs only a new AccountabilityType instance; Model A needs a new table, a migration and a deprecated depot_id."
       },
       {
-        "body": "Observations and Measurements: measured values.",
+        "body": "For a company that never reorganises and never audits, Model A is the better choice because it is simpler.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: Measured values are the stated concern of this collection."
+        "comment": "L2, slide 16: The slide states this explicitly; Model B is heavier and harder to read."
       },
       {
-        "body": "Referring to Objects: object identification.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: The collection concerns identification of objects."
-      },
-      {
-        "body": "Planning: prices derived from other subjects' prices.",
+        "body": "Model B is better in every situation, whatever the business needs.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: Planning concerns schedules and protocols for repetitive plans; derived prices belong to Derivative Contracts."
+        "comment": "L2, slide 16: Usefulness depends on the business; for a stable, unaudited company the simple model wins."
       },
       {
-        "body": "Inventory and Accounting: cash flow and inventorying.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: Cash flow and inventorying are the concerns listed for this collection."
+        "body": "After a migration, Model A can rebuild the assignment history from before January.",
+        "right": false,
+        "comment": "L2, slide 16: That history is lost in Model A because it was never recorded; in Model B it is already there via TimePeriod."
+      },
+      {
+        "body": "A short, vague prompt is enough for the LLM to choose Model B on its own.",
+        "right": false,
+        "comment": "L2, slide 16: A vague prompt gets the internet-average schema; choosing patterns and instructing the LLM precisely is the designer's skill."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 21"
+    "source": "02-03-Analysis-patterns.pdf, slides 14–16"
   },
   {
-    "name": "Which further analysis-pattern collection descriptions are correct?",
+    "name": "A reviewer finds the following defects in an LLM-generated domain model. Which repairs match the defect?",
     "answers": [
       {
-        "body": "Observations for Corporate Finance analyzes complex financial relationships and company results.",
+        "body": "Rules are hard-coded in the schema, so a new value needs a schema change → separate knowledge-level types (e.g. AccountabilityType, PhenomenonType) from operational entities.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: This is its stated concern."
+        "comment": "L2, slide 17: Flattening of abstraction is repaired by distinguishing conceptual (knowledge) and operational entities."
       },
       {
-        "body": "Trading concerns buying and selling goods.",
+        "body": "Relationships look permanent and nothing says what was true in March → use TimePeriod on Accountability, Dual Time Record or Proposed vs. Implemented Action.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: Purchase and sale of goods is the stated concern of Trading."
+        "comment": "L2, slide 17: These are the remedies listed for missing temporal changes."
       },
       {
-        "body": "Derivative Contracts concerns prices derived from other subjects' prices.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: This is the stated concern of Derivative Contracts."
-      },
-      {
-        "body": "Trading Packages is described as trading for big companies.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: The collection is described in these terms."
-      },
-      {
-        "body": "Planning is the collection dedicated to identifying objects.",
+        "body": "People and companies end up as one table client(name, address, is_company) → add more boolean flags so each kind of client fits the same table.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 21: Planning concerns schedules and repetitive-plan protocols; identification belongs to Referring to Objects."
+        "comment": "L2, slides 17 and 26: This is the generic-CRUD failure itself; the repair is an abstract structure such as Party, Accountability or Observation."
+      },
+      {
+        "body": "Temporal information is missing → rename the classes with precise domain terms and keep the permanent associations.",
+        "right": false,
+        "comment": "L2, slide 17: Renaming adds no time periods and does not separate when something happened from when it was recorded."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 21"
+    "source": "02-03-Analysis-patterns.pdf, slides 17 and 26"
   },
   {
-    "name": "Model A has simple fixed Driver-Depot links. Model B uses Party, dated Accountability, and types. Which conclusions follow from the transport comparison?",
+    "name": "An LLM generated a class Organization with a recursive association: <TT>parent</TT> with multiplicity 1 and <TT>children</TT> with multiplicity *. The brief says: \"Associated Coffee Makers is the top organisation; its departments are sales and purchasing; sales has Boston and London offices.\" How should you check the model, and what do you find?",
     "answers": [
       {
-        "body": "Model B is always the better model, regardless of business needs.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 14-16: Model A is preferable for the stated company that never reorganizes or audits because it is simpler."
-      },
-      {
-        "body": "For the later temporary second-depot assignment requirement, Model B can express the change as data.",
+        "body": "Write down requirements from the brief and try to build an object diagram that satisfies each one.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 14-16: The comparison describes a new AccountabilityType instance instead of a schema change."
+        "comment": "L2, slide 18: You must test the model, not read it; the requirement that cannot be instantiated is the gap."
       },
       {
-        "body": "Model A automatically reconstructs assignment history that it never recorded.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 14-16: The comparison says history before January is lost when it was never recorded."
-      },
-      {
-        "body": "Choosing suitable patterns and stating the business context remain skills even when an LLM draws the model.",
+        "body": "The top organisation cannot be instantiated, because every Organization must have exactly one parent; parent should be 0..1.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 14-16: The lecture says these skills are valuable with or without an LLM."
+        "comment": "L2, slide 18: The slide crosses out the extra parent object that multiplicity 1 would demand above the top organisation."
+      },
+      {
+        "body": "Accept the model unchanged; its class names match the nouns of the brief.",
+        "right": false,
+        "comment": "L2, slide 18: A confident-looking schema can silently fail to cover a requirement; there is no error or warning."
+      },
+      {
+        "body": "Apply a further analysis pattern such as Organization Structure, which guarantees that no requirement is missed.",
+        "right": false,
+        "comment": "L2, slide 18: No pattern fixes silent incompleteness; only testing with instances does."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 14-16"
+    "source": "02-03-Analysis-patterns.pdf, slide 18"
   },
   {
-    "name": "Which repair is matched to the described LLM-modeling failure?",
+    "name": "Class ConversionRatio has an association to class Number, with exactly one Number per ConversionRatio. Which UML notations express the same information?",
     "answers": [
       {
-        "body": "Rules hard-coded into the schema: distinguish knowledge-level types from operational entities.",
+        "body": "An attribute <TT>ratio: Number</TT> in ConversionRatio, with no association line.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 17: Flattening of abstraction is repaired by making levels such as Accountability Knowledge Level explicit."
+        "comment": "L2, slide 22: The slide marks the association form and the attribute form as equal."
       },
       {
-        "body": "Apparently permanent relationships with no history: consider TimePeriod and other temporal patterns.",
+        "body": "Both the attribute <TT>ratio: Number</TT> and the association drawn together, read as one and the same value.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 17: The temporal-changes failure is linked to TimePeriod, Dual Time Record, and proposed versus implemented actions."
+        "comment": "L2, slide 22: The third drawing shows attribute and association at once and is also marked as equal; they are two views of one value."
       },
       {
-        "body": "Domain nouns in a generic CRUD structure: consider abstract structures such as Party and Accountability.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 17: These structures are named as a response to regression to generic CRUD."
-      },
-      {
-        "body": "Temporal information is missing: change domain names while preserving the same permanent associations.",
+        "body": "Both the attribute and the association, read as two independent numbers stored in ConversionRatio.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 17: Renaming does not supply time periods or distinguish relevant kinds of time."
+        "comment": "L2, slide 22: The redundant drawing does not add a second value; it shows the same single Number twice."
+      },
+      {
+        "body": "Neither attribute nor association; the ratio is derived from the two units.",
+        "right": false,
+        "comment": "L2, slide 22: All equal notations keep the Number value; dropping it loses information."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 17"
+    "source": "02-03-Analysis-patterns.pdf, slide 22"
   },
   {
-    "name": "A generated organization model looks plausible. How should you check for silent incompleteness?",
+    "name": "A system handles people and companies. When is the Party pattern justified, and how is it applied?",
     "answers": [
       {
-        "body": "Accept it if the class names resemble the requirements.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 18: A confident-looking schema can silently fail to cover a requirement."
-      },
-      {
-        "body": "For requirements from the brief, construct instance data or object diagrams that satisfy them.",
+        "body": "If people and companies share behaviour, e.g. orders for either, a common Party supertype gives that shared context a place.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 18: The proposed check is to test whether each requirement can actually be instantiated."
+        "comment": "L2, slide 26: The key question is whether people and companies share behaviour; if they do, they need a common context."
       },
       {
-        "body": "If the top organization cannot exist without a parent, examine whether the parent multiplicity is too restrictive.",
+        "body": "Shared context (e.g. address, orders) is linked to Party, while context specific to one subtype stays on that subtype.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 18: The slide marks a required parent multiplicity of 1 and crosses out the attempted top organization instance."
+        "comment": "L2, slide 27: Common context goes to Party, specific context (e.g. employees of a company) to the specific term."
       },
       {
-        "body": "Adding any named pattern guarantees completeness without instance testing.",
+        "body": "Whenever two classes share an attribute name such as <TT>name</TT>, they have to be merged into Party.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 18: The slide explicitly says no pattern fixes silent incompleteness; the model must be tested."
+        "comment": "L2, slide 26: If people and companies do not share behaviour, keeping them separate is fine."
+      },
+      {
+        "body": "Party is a synonym for a natural person, so organisational units stay outside it and get their own hierarchy.",
+        "right": false,
+        "comment": "L2, slide 27: Party unifies individuals and organisational units (e.g. a teacher and a faculty) involved in mutual responsibility."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 18"
+    "source": "02-03-Analysis-patterns.pdf, slides 26–27"
   },
   {
-    "name": "A ConversionRatio has an association to Number with exactly one Number per ratio. Which UML notation represents the same information?",
+    "name": "Sales offices belong to divisions, divisions to regions and regions to an operating unit. Instead of a fixed chain of associations OperatingUnit–Region–Division–SalesOffice, the Organization Hierarchies pattern uses Organization with a recursive association (<TT>parent</TT> 0..1, <TT>subsidiary</TT> 0..*) and the subtypes OperatingUnit, Region, Division and SalesOffice. What makes this version more flexible?",
     "answers": [
       {
-        "body": "An attribute <tt>ratio: Number</tt> in ConversionRatio.",
+        "body": "One recursive parent–subsidiary association replaces all the level-to-level associations as a reusable backbone.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 22: The slide equates the association notation with the ratio attribute notation."
+        "comment": "L2, slides 29–30: The solution to rigid hierarchies is a recursive relationship on Organization."
       },
       {
-        "body": "Removing both the association and the attribute because the value is inferable.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 22: The equivalence retains the information about the Number value."
+        "body": "Unit kinds remain as subtypes, and rules such as \"the parent of a SalesOffice is a Division\" are kept as constraints on them.",
+        "right": true,
+        "comment": "L2, slides 30–31: Subtypes discuss which units exist and are a suitable place for constraints on the hierarchy."
       },
       {
-        "body": "Showing both <tt>ratio: Number</tt> and the corresponding association as two independent values.",
+        "body": "Each unit may have several parents, which is what makes the hierarchy flexible.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 22: The third equivalent drawing shows redundant representations of the same information, not two independent values."
+        "comment": "L2, slide 30: The parent end has multiplicity 0..1, so a unit has at most one parent; flexibility comes from the recursive association and the subtypes."
+      },
+      {
+        "body": "The recursive version can no longer say which kinds of unit exist; all units are plain Organization objects.",
+        "right": false,
+        "comment": "L2, slides 30–31: The subtypes OperatingUnit, Region, Division and SalesOffice remain in the model."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 22"
+    "source": "02-03-Analysis-patterns.pdf, slides 28–31 and 33"
   },
   {
-    "name": "When is the Party pattern justified, and how should its shared context be modeled?",
+    "name": "In the flexible Organization Hierarchies model (Organization with recursive parent/subsidiary association and subtypes Division, SalesOffice, …), a Subdivision must now be inserted between Division and SalesOffice. What is expected?",
     "answers": [
       {
-        "body": "Whenever two entities share one attribute name, they must be replaced by Party.",
+        "body": "Replace the recursive association with a separate association for every pair of levels.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 24-27: The motivation asks whether people and companies share behavior or context; keeping them separate can be appropriate."
+        "comment": "L2, slide 32: The recursive backbone stays; rebuilding level-to-level associations is what the pattern avoids."
       },
       {
-        "body": "If people and organizations participate in the same responsibility or order context, a common Party abstraction can support that association.",
+        "body": "Add only one Subdivision subclass and update the parent rules, which are not part of the data model itself.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 24-27: Shared context such as orders or accountability motivates a common Party."
+        "comment": "L2, slide 32: The changes are: add one subclass and change rules that are not part of the data model."
       },
       {
-        "body": "Shared associations belong to Party, while context specific to a subtype can remain there.",
+        "body": "Check whether the request reflects a real reorganisation or just better understanding during analysis.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 24-27: The solution links common context to Party and specific context to specific terms."
+        "comment": "L2, slide 29: Such requests often arise from iterative clarification of requirements, not only from real change."
       },
       {
-        "body": "Party is only a synonym for a natural person and excludes organizational units.",
+        "body": "Keep the rule that a SalesOffice's parent is a Division, even though the new structure says Subdivision.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 24-27: Party is a common term for subjects in mutual responsibility, often including individuals and organizational units."
+        "comment": "L2, slide 32: The rules must be adapted to the new structure."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 24-27"
+    "source": "02-03-Analysis-patterns.pdf, slides 29 and 32"
   },
   {
-    "name": "What makes the Organization Hierarchies pattern more flexible than a fixed OperatingUnit-Region-Division-SalesOffice chain?",
+    "name": "A company has several parallel organisational hierarchies (e.g. sales and public relations), and their number may grow. Why model them with the Organization Structure pattern (an OrganizationStructure class with an OrganizationStructureType) instead of one more recursive association per hierarchy?",
     "answers": [
       {
-        "body": "A recursive Organization parent-subsidiary relationship supplies a reusable structural backbone.",
+        "body": "Separate recursive associations lead to an explosion of subtypes and constraints, and an unknown number of hierarchies cannot be modelled that way.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The flexible model replaces the fixed level-to-level associations with a recursive association."
+        "comment": "L2, slide 36: Many or an unknown number of parallel hierarchies \"get out of hand\"; the information becomes scattered."
       },
       {
-        "body": "Organization subtypes can express unit kinds, with constraints about legal parents.",
+        "body": "Each OrganizationStructure object is an edge of the tree, which gives a place for its type and extra context such as a TimePeriod.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The diagrams retain unit kinds as subclasses and attach constraints such as a SalesOffice parent being a Division."
+        "comment": "L2, slides 36–37: Reflexive associations provide no space for context, so the association is replaced by a class."
       },
       {
-        "body": "It must use exactly one parent for every organization, including the root.",
+        "body": "A new hierarchy is introduced by adding a new subclass of OrganizationStructureType, one per kind of hierarchy, each with its own constraints.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The pattern diagram uses parent multiplicity 0..1, allowing a root; legal parent kinds are specified separately."
+        "comment": "L2, slide 37: Hierarchy types such as sales and production are recorded as instances of OrganizationStructureType, not new classes."
       },
       {
-        "body": "Both a fixed chain and the recursive model can represent the lecture's concrete example of an organizational tree.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 28-33: The summary says the same object diagram is captured by both models, with the latter being more flexible."
+        "body": "A unit must report to the same parent in every hierarchy; the structure objects share one parent link per unit.",
+        "right": false,
+        "comment": "L2, slide 38: Each structure type has its own parent links, e.g. Brno reports to Moravia in Sale but to Central in PR."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 28-33"
+    "source": "02-03-Analysis-patterns.pdf, slides 36–37"
   },
   {
-    "name": "A Subdivision must be inserted between Division and SalesOffice. What change is expected in the flexible hierarchy model?",
+    "name": "Which statements about the Accountability pattern (Party, Accountability, AccountabilityType, TimePeriod) are correct?",
     "answers": [
       {
-        "body": "Replace the generic Organization parent-subsidiary association with a separate association for every level.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 29-32: The recursive backbone is retained; introducing a level does not require rebuilding all level-to-level associations."
-      },
-      {
-        "body": "Introduce the Subdivision subtype and update the applicable parent rules.",
+        "body": "Each Accountability links exactly two parties (commissioner and responsible); its AccountabilityType says what kind of link it is.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 29-32: The exercise says to add one subclass and change rules that are not part of the data model."
+        "comment": "L2, slide 39: Each instance links two parties; the type indicates the nature of the link, so any number of relationship kinds can be handled."
       },
       {
-        "body": "Clarify whether the request reflects a real organizational change or improved understanding during analysis.",
+        "body": "A TimePeriod attached to an Accountability can record when a responsibility was valid.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 29-32: The motivation notes that iterative requirements clarification can reveal such changes."
+        "comment": "L2, slides 39 and 48: TimePeriod is an example of context on the accountability, answering \"temporary or permanent, is history needed?\""
       },
       {
-        "body": "Preserve the rule that a SalesOffice must have a Division parent even when the new requirement says Subdivision.",
+        "body": "It reuses the recursive association of Organization Hierarchies, so no link objects are needed.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 29-32: The constraints must be adapted to the newly required organizational structure."
+        "comment": "L2, slide 39: It combines Party with the principle of Organization Structure, where links are objects, not plain associations."
+      },
+      {
+        "body": "Its links connect only organisational units, so a driver cannot take part in one.",
+        "right": false,
+        "comment": "L2, slides 39–41: People have similar relationships to organisations or other people; Party covers both."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 29-32"
+    "source": "02-03-Analysis-patterns.pdf, slides 39–41"
   },
   {
-    "name": "Why introduce OrganizationStructure rather than one more recursive Organization association for each hierarchy?",
+    "name": "In the Accountability Knowledge Level pattern, what does a ConnectionRule describe?",
     "answers": [
       {
-        "body": "Many or an unknown number of parallel hierarchies make separate associations and constraints difficult to maintain.",
+        "body": "One legal pairing of parent and child PartyTypes for a given AccountabilityType, e.g. driver → assignment to workplace → depot.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 35-38: The motivation describes scattered information and an explosion of subtypes and constraints."
+        "comment": "L2, slides 42–43: Each accountability type has a group of connection rules, each defining one legal parent/child party-type pairing."
       },
       {
-        "body": "Each OrganizationStructure object gives the relationship a place for its type and additional context such as a TimePeriod.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 35-38: The diagram reifies the edge and attaches OrganizationStructureType and an example TimePeriod."
-      },
-      {
-        "body": "OrganizationStructureType helps ask which structures exist and can provide a common place for rules.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 35-38: The type drives discussion, and rules may be assigned there rather than scattered among units."
-      },
-      {
-        "body": "The pattern requires every organizational unit to have the same parent in sales and public relations.",
+        "body": "The concrete people and depots that take part in one particular assignment, e.g. driver Novák at Depot North.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 35-38: The exercise gives sales offices different parents under Sale and PublicRelations."
+        "comment": "L2, slide 42: Concrete participants are Party objects at the operational level; rules speak about types."
+      },
+      {
+        "body": "Part of the configuration above the operational level, which every operational Accountability must respect.",
+        "right": true,
+        "comment": "L2, slide 42: The knowledge level is the configuration of the operational level."
+      },
+      {
+        "body": "A replacement for the two Party ends of an operational Accountability, so that accountabilities no longer need to link parties.",
+        "right": false,
+        "comment": "L2, slides 42–43: Each Accountability still links its two parties; rules only say which party types may be linked."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 35-38"
+    "source": "02-03-Analysis-patterns.pdf, slides 42–43"
   },
   {
-    "name": "Which interpretation of the Accountability pattern is correct?",
+    "name": "During requirements analysis a new role (e.g. Inspector) is discovered. What does the separation of knowledge level and operational level give you?",
     "answers": [
       {
-        "body": "An Accountability instance represents a typed link between two parties.",
+        "body": "Only the knowledge-level specifications change; the operational level stays untouched as a stable backbone.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 39-41, 48: Each instance is a link between two parties, and AccountabilityType identifies the nature of that link."
+        "comment": "L2, slide 44: \"Nothing\" happens: the knowledge level is updated and the operational level is untouched."
       },
       {
-        "body": "It combines Party with the relationship-as-object principle of Organization Structure.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 39-41, 48: The slide explicitly describes this combination."
-      },
-      {
-        "body": "A TimePeriod can record the period of validity of a responsibility relationship.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 39-41, 48: The diagram attaches TimePeriod to Accountability, and the summary asks about temporary assignments and history."
-      },
-      {
-        "body": "Its links are restricted to pairs of organizational units, so a driver cannot participate.",
+        "body": "Every concrete Party is replaced by a ConnectionRule, so the operational level disappears.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 39-41, 48: Party extends these relationships to people as well as organizations."
+        "comment": "L2, slide 44: The two levels keep their meanings; parties remain operational objects."
+      },
+      {
+        "body": "A flexible way to discuss roles and their relationships with stakeholders.",
+        "right": true,
+        "comment": "L2, slide 44: The knowledge level drives discussion about roles and their relationships and gives flexibility."
+      },
+      {
+        "body": "Roles no longer need to be clarified with stakeholders.",
+        "right": false,
+        "comment": "L2, slide 44: The pattern supports the discussion of roles; it does not replace it."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 39-41, 48"
+    "source": "02-03-Analysis-patterns.pdf, slide 44"
   },
   {
-    "name": "What does a ConnectionRule describe in Accountability Knowledge Level?",
+    "name": "How does the Accountability knowledge level relate to authorization?",
     "answers": [
       {
-        "body": "One legal pairing of parent and child PartyTypes for an AccountabilityType.",
+        "body": "Discussing user roles and responsibilities is in effect discussing authorization; connection rules are often authorization rules.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 42-43: Each accountability type has connection rules defining legal parent-child party-type pairings."
+        "comment": "L2, slide 45: A role accountable for something must be authorized to do it, so connection rules often are authorization rules."
       },
       {
-        "body": "The specific individuals participating in every operational assignment.",
+        "body": "The conceptual model fixes one authorization technology, so RBAC or ABAC is chosen before analysis begins.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 42-43: Concrete participants are Party instances in operational accountabilities; rules describe permitted types."
+        "comment": "L2, slide 45: The mental model captures authorization principles regardless of technology."
       },
       {
-        "body": "Configuration above the operational Party and Accountability backbone.",
+        "body": "The operational realization can be role-based or attribute-based access control.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 42-43: The diagram labels the knowledge level as configuration of the operational level."
+        "comment": "L2, slide 45: RBAC and ABAC are given as possible realizations of the operational level."
       },
       {
-        "body": "A replacement for the two Party endpoints of an operational Accountability.",
+        "body": "Authorization rules mainly need explicit clarification in multi-tenant systems such as GitHub.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 42-43: The operational model still links every accountability to its parent and child parties."
+        "comment": "L2, slide 45: Authorization must be clarified explicitly in any modern system."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 42-43"
+    "source": "02-03-Analysis-patterns.pdf, slide 45"
   },
   {
-    "name": "A new role is discovered during requirements analysis. What advantage does separating the knowledge and operational levels provide?",
+    "name": "Stakeholders are asked: \"What happens when the company adds a new role next year? Who configures authorization, and when?\" How does the answer affect the system boundary?",
     "answers": [
       {
-        "body": "The role specifications can change at the knowledge level while the operational backbone remains stable.",
+        "body": "If developers adapt the system in a new version, the knowledge level serves only as rules for implementation (new if-else branches).",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 44: The slide says to update knowledge-level specifications without changing the operational level."
+        "comment": "L2, slide 46: With developer-made changes, the knowledge level stays a blueprint for the code."
       },
       {
-        "body": "All concrete Party instances become ConnectionRule instances.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 44: The levels retain their distinct meanings; roles and rules configure operational parties and links."
-      },
-      {
-        "body": "The knowledge level helps discuss system roles and their relationships flexibly.",
+        "body": "If a user must add roles from the UI, the knowledge level has to be implemented too, and the running system only changes data.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 44: This discussion is identified as the knowledge level's requirements-analysis purpose."
+        "comment": "L2, slide 46: Runtime configuration requires implemented accountability types, party types and connection rules."
       },
       {
-        "body": "The distinction means requirements no longer need clarification with stakeholders.",
+        "body": "Both answers lead to the same implemented functionality and the same system boundary.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 44: Its purpose is to support flexible discussion, not remove the need for requirements analysis."
+        "comment": "L2, slide 46: The answers differ in whether the knowledge level is part of the system."
+      },
+      {
+        "body": "Independent per-tenant configuration (as in multi-tenant systems) can be achieved with hard-coded if-else branches alone.",
+        "right": false,
+        "comment": "L2, slide 46: Dynamic, independent configurability of tenants is the typical case for implementing the knowledge level as data."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 44"
+    "source": "02-03-Analysis-patterns.pdf, slides 46 and 48"
   },
   {
-    "name": "How does Accountability Knowledge Level relate to authorization?",
+    "name": "In a transport company, (1) the right to approve drivers' overtime belongs to the position \"depot manager\" and must not change when a new person takes the job, and (2) the knowledge level repeats the same connection rules for Driver, Technician and Dispatcher, which is getting hard to maintain. Which further Accountability patterns address these needs?",
     "answers": [
       {
-        "body": "Discussing responsibilities and user-role relationships helps clarify authorization principles.",
+        "body": "(1) Post: model the position as another party type that holds the accountability, separate from the person occupying it.",
         "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 45: A role accountable for a responsibility must be authorized to carry it out."
+        "comment": "L2, slide 47: Posts are used when accountability and scopes are defined by the post and do not change when the holder changes."
       },
       {
-        "body": "The conceptual structure fixes one mandatory authorization technology.",
+        "body": "(2) Party Type Generalization: introduce a general party type (e.g. Employee) so one rule covers its subtypes.",
+        "right": true,
+        "comment": "L2, slide 47: Adding generalization to party types makes the knowledge level easier to define."
+      },
+      {
+        "body": "(1) Attach the approval right to the current person and copy it whenever the holder changes.",
         "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 45: The operational realization can differ, for example RBAC or ABAC."
+        "comment": "L2, slides 47–48: \"Is responsibility tied to the person or to the post?\" – here it is tied to the post, so Post avoids copying."
       },
       {
-        "body": "Connection rules can capture authorization rules independently of implementation technology.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 45: The slide links connection rules with authorization and calls the mental model technology independent."
-      },
-      {
-        "body": "Authorization can be implemented using role-based or attribute-based access control.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 45: RBAC and ABAC are given as examples of operational realization."
+        "body": "(2) Hierarchic Accountability: it records which person currently holds which post, so rules apply per holder.",
+        "right": false,
+        "comment": "L2, slide 47: Hierarchic Accountability improves handling of constraints in organisation structures; it does not track post holders."
       }
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 45"
+    "source": "02-03-Analysis-patterns.pdf, slides 25 and 47–48"
   },
   {
-    "name": "How does the question Who adds a new role next year? affect system boundaries?",
-    "answers": [
-      {
-        "body": "If developers adapt the next version, the knowledge level may serve as implementation rules.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 46, 48: The slide says this can lead to new application-logic branches rather than runtime configuration."
-      },
-      {
-        "body": "If a user must configure roles through the UI, the knowledge level must also be implemented as configurable data.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 46, 48: Runtime configurability requires implemented accountability types, party types, and connection rules."
-      },
-      {
-        "body": "Both answers imply exactly the same implemented functionality and system boundary.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 46, 48: The answers distinguish developer-managed rules from user-editable runtime configuration."
-      },
-      {
-        "body": "Dynamic, independent tenant configurability is a reason to implement the knowledge level.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 46, 48: The latter option is described as typical of multi-tenant systems."
-      }
-    ],
-    "source": "02-03-Analysis-patterns.pdf, slides 46, 48"
-  },
-  {
-    "name": "Which descriptions of further Accountability patterns are correct?",
-    "answers": [
-      {
-        "body": "Party Type Generalization adds a hierarchy of party types to simplify knowledge-level definitions.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 25, 47: This is the stated motivation for generalizing party types."
-      },
-      {
-        "body": "Hierarchic Accountability improves handling of constraints in organizational structures.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 25, 47: This is its stated concern on the further-patterns slide."
-      },
-      {
-        "body": "Operating Scopes defines responsibilities taken on when an accountability is created.",
-        "right": true,
-        "comment": "02-03-Analysis-patterns.pdf, slides 25, 47: This is the slide's definition of operating scopes."
-      },
-      {
-        "body": "Post attaches responsibilities and scopes only to the current person, so they necessarily change with every new holder.",
-        "right": false,
-        "comment": "02-03-Analysis-patterns.pdf, slides 25, 47: Post is used when accountabilities and scopes are tied to the post and remain when its holder changes."
-      }
-    ],
-    "source": "02-03-Analysis-patterns.pdf, slides 25, 47"
-  },
-  {
-    "name": "Sketch a conceptual UML fragment for the public transport company. A dispatcher creates daily work schedules connected to lines and their line schedules. Drivers can be licensed for vehicles independently of current driving assignments; vehicles include buses, trams, and trolleybuses. Show the separate concepts and relationships, then identify requirements questions needed before fixing driving-assignment multiplicities and history.",
-    "answer": "Use conceptual entities Dispatcher, DailyWorkSchedule, Line, LineSchedule, Driver, and Vehicle. Associate DailyWorkSchedule with Line, and Line with LineSchedule; keep the two schedule concepts distinct. Bus, Tram, and TrolleyBus specialize Vehicle. Label the dispatcher-schedule relation creates and keep has license separate from drives between Driver and Vehicle. The supplied example shows a many-to-many license relation. Clarify when a driving assignment is made, whether drivers select a free vehicle or have a regular vehicle, how many drivers and vehicles participate, how permanent assignments are, and which history must be retained. Ask who manages vehicle records and whether removal from service and its history belong inside the system boundary. Draw conceptual information rather than implementation methods or database keys.",
+    "name": "Sketch a conceptual UML class model for a public transport company. A dispatcher creates daily work schedules; a daily work schedule refers to a line, and each line has its line schedule. A daily work schedule is assigned to drivers. Drivers can be licensed for vehicles independently of which vehicle they currently drive; vehicles are buses, trams and trolleybuses. Then list the requirements questions you must ask before fixing the multiplicities and history of the driving relationship and of vehicle records.",
+    "answer": "<B>Entities.</B> Dispatcher, DailyWorkSchedule, Line, LineSchedule, Driver and Vehicle, with Bus, Tram and TrolleyBus as subclasses of Vehicle.<BR><B>Associations.</B> Dispatcher –creates→ DailyWorkSchedule; DailyWorkSchedule – Line; Line – LineSchedule (keep the two schedule concepts distinct); DailyWorkSchedule – Driver. Between Driver and Vehicle draw two separate associations: <I>has licence</I> (many-to-many) and <I>drives</I>, whose multiplicity stays provisional.<BR><B>Questions about the driving relationship.</B> When is a driver assigned to a vehicle? Does the driver take the first free tram of the line, or does each driver have \"his\" vehicle shared with others in turns? How permanent is the assignment? What must be remembered about it, and who is responsible for that information?<BR><B>Questions about vehicle records.</B> Who manages vehicle records? What is the process of taking a vehicle out of service, and is it inside the system boundary? If a vehicle is put out of service, should its history be kept?<BR>Draw conceptual entities only: no methods, no database keys.",
     "keyPoints": [
-      "Includes the stated schedule, line, driver, dispatcher, and vehicle concepts, with Vehicle specializations.",
-      "Includes DailyWorkSchedule-Line and Line-LineSchedule associations while keeping the schedule concepts distinct.",
-      "Distinguishes qualification has license from actual driving assignments rather than merging the two.",
-      "Uses association names, endpoint roles, and justified or explicitly provisional multiplicities.",
-      "Raises timing, permanence, history, and ownership questions for assignments.",
-      "Raises record management and vehicle-removal system-boundary questions; avoids methods and implementation attributes."
+      "Includes the stated concepts, with Bus, Tram and TrolleyBus as Vehicle subclasses.",
+      "Links DailyWorkSchedule to Line and Line to LineSchedule, keeping the two schedules distinct.",
+      "Separates \"has licence\" from \"drives\" between Driver and Vehicle.",
+      "Names associations and marks the driving multiplicity as provisional until clarified.",
+      "Asks about timing, permanence and history of driving assignments and who is responsible for them.",
+      "Asks who manages vehicle records and whether out-of-service handling and its history are inside the system boundary."
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 7-10; public-transport.pdf, pages 2-3 (Use Case Model and Problem Domain Model). Practical synthesis from these diagrams; unresolved driving policy remains an elicitation question."
+    "source": "02-03-Analysis-patterns.pdf, slides 8–10 (entities, relationships and the transport conceptual model with its context and class questions); public-transport.pdf, pages 2–3."
   },
   {
-    "name": "Draw a UML class fragment and object example for two simultaneous structures. In Sale, the Brno sales office reports to Moravia and the Prague sales office to Bohemia. In PublicRelations, both offices report to Central. Use Organization Structure so the offices are shared between the two structures.",
-    "answer": "Model OrganizationStructureType and OrganizationStructure. Each structure-link object has one type and two Organization endpoints named parent and subsidiary. Use Organization subtypes SalesOffice, Division, and OperatingUnit as needed. Create shared Organization objects Brno and Prague, Division objects Moravia and Bohemia, and OperatingUnit object Central. Create Sale and PublicRelations type objects. The four link objects are Sale(parent=Moravia, subsidiary=Brno), Sale(parent=Bohemia, subsidiary=Prague), PublicRelations(parent=Central, subsidiary=Brno), and PublicRelations(parent=Central, subsidiary=Prague). Add applicable type-specific rules separately rather than requiring a single parent across both structures. The pattern also provides a place for link context such as a TimePeriod when needed.",
+    "name": "Model the following description with the Organization Hierarchies pattern: \"Dispatchers sit at headquarters. Technicians and drivers are located at their depot. Headquarters manages depots.\" First give the straightforward model with one association per relationship, then the pattern-based model, and say where the rules go.",
+    "answer": "<B>Straightforward model.</B> Headquarter 1 – * Depot; Headquarter 1 – * Dispatcher; Depot 1 – * Technician; Depot 1 – * Driver. Each relationship is a separate association, so any new unit or level changes the schema (\"you get what you ask for\").<BR><B>Pattern-based model.</B> One abstract class OrganizationUnit with a recursive association: parent (0..1) and subsidiaries (*). Subclasses: Headquarter, Depot, HqEmployee (with subclass Dispatcher) and DepotEmployee (with subclasses Technician and Driver).<BR><B>Rules.</B> Constraints are attached to subclasses: the parent of an HqEmployee is a Headquarter; the parent of a DepotEmployee is a Depot; the parent of a Depot is a Headquarter.<BR><B>Trade-off.</B> The pattern version is more complex but flexible: a new kind of unit is a new subclass plus a rule, not new associations. The top unit needs a parent multiplicity of 0..1 so it can exist without a parent.",
     "keyPoints": [
-      "Reifies each typed parent-subsidiary relationship as OrganizationStructure.",
-      "Creates Sale and PublicRelations type instances, not separate classes or fixed associations for each concrete hierarchy.",
-      "Reuses the same Brno and Prague Organization objects in both structures.",
-      "Shows all four links with the required parents and types.",
-      "Keeps applicable constraints and additional relationship context explicit."
+      "Straightforward model has separate associations Headquarter–Depot, Headquarter–Dispatcher, Depot–Technician and Depot–Driver.",
+      "Pattern model uses one OrganizationUnit class with a recursive parent/subsidiary association.",
+      "Headquarter, Depot and the employee kinds are subclasses, with grouping such as HqEmployee and DepotEmployee.",
+      "Parent rules (e.g. parent = Depot for depot employees) are constraints on the subclasses.",
+      "Explains the trade-off: more complex, but new units need a subclass and a rule rather than a schema change; root parent 0..1."
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 35-38 (Multiple Organization Hierarchies and Organization Structure exercise); public-transport.pdf, page 5 (motivation to switch when multiple hierarchies or temporal changes appear)."
+    "source": "02-03-Analysis-patterns.pdf, slides 28–34 (Organization Hierarchies; transport example on slide 34). The slide 34 diagram shows parent multiplicity 1 at the top; the 0..1 remark follows the generic pattern on slide 30 and the silent-incompleteness example on slide 18."
   },
   {
-    "name": "Extend a public transport responsibility model for workplace assignment and work distribution. A driver may have a temporary second-depot assignment, and an accident investigation needs to reconstruct the assignments valid at the accident time. Sketch Party and Accountability with a knowledge level. Use the lecture's orientation in which workplace-assignment rules pair an employee parent with a depot child. Show example rules for Driver-Depot and Technician-Depot assignments, Dispatcher-Driver and DepotManager-Technician work distribution. Explain how the model changes if a responsibility belongs to a post whose holder may change.",
-    "answer": "Keep Party and Accountability on the operational level. Every Accountability has two Party endpoints, an AccountabilityType, and a TimePeriod to preserve its validity interval. Store the temporary second-depot assignment as another dated Accountability rather than overwriting the first depot reference; inspect the intervals at the accident time. At the knowledge level, create PartyTypes Driver, Technician, Dispatcher, DepotManager, and Depot, plus AccountabilityTypes WorkplaceAssignment and WorkDistribution. Give WorkplaceAssignment connection rules for (Driver, Depot) and (Technician, Depot), and WorkDistribution rules for (Dispatcher, Driver) and (DepotManager, Technician), using the stated parent-child orientation consistently. Concrete parties and dated links instantiate these rules. Discuss authorization explicitly and decide whether developers maintain the knowledge-level rules or users must configure them through the UI. If accountability and scope should survive a change of holder, represent Post as another Party type and attach the stable responsibility to it, distinguishing the current holder from the post.",
+    "name": "Draw a UML class fragment and an object example for two simultaneous structures. In Sale, the Brno sales office reports to the Moravia division and the Prague sales office to the Bohemia division. In PublicRelations, both offices report to the Central operating unit. Use the Organization Structure pattern so that the offices are shared between the two structures.",
+    "answer": "<B>Classes.</B> OrganizationStructureType; OrganizationStructure, each with one type and two Organization ends named parent and subsidiary; Organization with subclasses SalesOffice, Division and OperatingUnit.<BR><B>Objects.</B> Organizations Brno and Prague (SalesOffice), Moravia and Bohemia (Division), Central (OperatingUnit). Type objects Sale and PublicRelations.<BR><B>Links (four OrganizationStructure objects).</B><PRE>Sale:            parent = Moravia,  subsidiary = Brno\nSale:            parent = Bohemia,  subsidiary = Prague\nPublicRelations: parent = Central,  subsidiary = Brno\nPublicRelations: parent = Central,  subsidiary = Prague</PRE>Brno and Prague are the same objects in both structures. Rules per structure type (e.g. \"in Sale, a SalesOffice reports to a Division\") are attached to the type or the subclasses, rather than requiring one parent across both structures. Each structure object can also carry context such as a TimePeriod.",
     "keyPoints": [
-      "Separates knowledge-level types and connection rules from concrete operational Party and Accountability instances.",
-      "Models both Party endpoints, link type, and dated validity for each Accountability.",
-      "Preserves concurrent temporary assignments and can examine their validity at the incident time.",
-      "Shows all four requested permitted type pairings with a consistent parent-child orientation.",
-      "Distinguishes a post and its stable responsibilities from the person currently holding it.",
-      "Recognizes authorization and runtime-configuration decisions as questions that affect the system boundary."
+      "Reifies each typed parent–subsidiary relationship as an OrganizationStructure object.",
+      "Sale and PublicRelations are instances of OrganizationStructureType, not new classes or associations.",
+      "The same Brno and Prague objects appear in both structures.",
+      "Shows all four links with the right parents and types.",
+      "Keeps type-specific rules and extra context (e.g. TimePeriod) explicit."
     ],
-    "source": "02-03-Analysis-patterns.pdf, slides 16, 39-48; public-transport.pdf, pages 6-8 (Accountability motivation, pattern, and knowledge-level diagram). Practical extension includes the temporary-assignment requirement from slide 16."
+    "source": "02-03-Analysis-patterns.pdf, slides 35–38 (Multiple Organization Hierarchies, Organization Structure and its exercise); public-transport.pdf, page 5."
+  },
+  {
+    "name": "Extend a public transport responsibility model with Party, Accountability and a knowledge level. Requirements: a driver may be temporarily assigned to a second depot, and an accident investigation must find which assignments were valid at the accident time. Use this orientation for workplace assignment: the employee is the parent and the depot is the child; for work distribution the distributor is the parent and the worker the child. Show the knowledge-level party types, accountability types and the connection rules for Driver–Depot and Technician–Depot workplace assignment and for Dispatcher–Driver and DepotManager–Technician work distribution. Show one example of operational objects.",
+    "answer": "<B>Operational level.</B> Party (with concrete parties such as driver Novák, Depot North, Depot South) and Accountability. Each Accountability has two Party ends (parent and child), one AccountabilityType and a TimePeriod.<BR><B>Knowledge level.</B> PartyType instances: Driver, Technician, Dispatcher, DepotManager, Depot. AccountabilityType instances: WorkplaceAssignment and WorkDistribution. Each Party has one PartyType. Each AccountabilityType has ConnectionRules with an allowed parent and an allowed child PartyType:<PRE>WorkplaceAssignment: (Driver, Depot), (Technician, Depot)\nWorkDistribution:    (Dispatcher, Driver), (DepotManager, Technician)</PRE><B>Temporary second depot.</B> Store it as another WorkplaceAssignment Accountability (Novák → Depot South) with its own TimePeriod, next to the permanent one (Novák → Depot North). Nothing is overwritten. To answer the accident question, select the accountabilities whose TimePeriod contains the accident time.<BR><B>Open questions.</B> Are the connection rules maintained by developers or configured by users through the UI (system boundary)? These rules also express authorization.",
+    "keyPoints": [
+      "Separates knowledge-level PartyType, AccountabilityType and ConnectionRule from operational Party and Accountability.",
+      "Each Accountability has two Party ends, one type and a TimePeriod.",
+      "Lists all four connection rules with the stated parent–child orientation.",
+      "Records the temporary assignment as an additional dated Accountability instead of overwriting the depot.",
+      "Answers the accident question by selecting accountabilities valid at that time.",
+      "Raises who maintains the rules (developers vs. UI) and their link to authorization."
+    ],
+    "source": "02-03-Analysis-patterns.pdf, slides 16 and 39–48 (temporary second-depot requirement, Accountability, Knowledge Level with the connection rules on slide 43, authorization and system boundary); public-transport.pdf, pages 6–8. The example parties are invented for illustration."
+  },
+  {
+    "name": "Test a model with instances. An LLM produced this model for a coffee-machine company: class Organization with a recursive association, <TT>parent</TT> multiplicity 1 and <TT>children</TT> multiplicity *. Requirements from the brief: (R1) Associated Coffee Makers is the top organisation; (R2) its departments are sales and purchasing; (R3) sales has offices in Boston and London. Build an object diagram for these requirements, say which requirement cannot be instantiated and why, and propose the fix.",
+    "answer": "<B>Object diagram.</B> Objects: acm : Organization (Associated Coffee Makers), sales : Organization, purchasing : Organization, boston : Organization, london : Organization. Links: sales.parent = acm, purchasing.parent = acm, boston.parent = sales, london.parent = sales.<BR><B>Gap.</B> R1 cannot be instantiated: multiplicity 1 forces acm to have a parent, but by definition the top organisation has none. To satisfy the model you would have to invent an extra anonymous Organization above acm, which is wrong. R2 and R3 work.<BR><B>Fix.</B> Change parent to 0..1, so exactly one organisation (the root) may lack a parent.<BR><B>Lesson.</B> This is silent incompleteness: the model looks confident and raises no error. No pattern fixes it; only writing down requirements and trying to build instances reveals it.",
+    "keyPoints": [
+      "Builds instances acm, sales, purchasing, boston and london with the correct parent links.",
+      "Identifies R1 (the top organisation) as the requirement that cannot be instantiated.",
+      "Explains that multiplicity 1 forces every Organization, including the root, to have a parent.",
+      "Proposes parent multiplicity 0..1.",
+      "Names this as silent incompleteness, found by testing with instances rather than by reading."
+    ],
+    "source": "02-03-Analysis-patterns.pdf, slide 18 (silent incompleteness, Organization with parent 1 and the crossed-out extra parent object); slide 30 uses parent 0..1."
   }
 ]

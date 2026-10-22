@@ -65,7 +65,7 @@
       { "body": "Místo stavby protipovodňové hráze přemístit serverovnu na kopec – eliminace rizika", "right": true, "comment": "Slide 13: příklad eliminace rizika přímo ze slidu." },
       { "body": "Uzavřít pojištění proti škodám z povodně – přenesení rizika na jinou organizaci", "right": true, "comment": "Slide 13: přenos smluvně nebo pojištěním, sdílení nákladů na škodní řízení." },
       { "body": "Instalovat bariéry, které riziko sníží na akceptovatelnou úroveň – přenesení rizika", "right": false, "comment": "Slide 13: jde o snížení rizika implementací opatření, ne o přenos." },
-      { "body": "Pojištění – eliminace rizika, protože škodu uhradí pojišťovna", "right": false, "comment": "Slide 13: pojištění riziko neodstraní, jen přenese náklady škody na jinou organizaci." },
+      { "body": "Uzavřít pojištění proti škodám z povodně – eliminace rizika", "right": false, "comment": "Slide 13: pojištění riziko neodstraní, jen přenese náklady škody na jinou organizaci." },
       { "body": "Riziko neřešit a škody neevidovat – tolerované riziko", "right": false, "comment": "Slide 13–14: tolerované riziko je vědomé rozhodnutí po zvážení, s náklady zabudovanými do byznys modelu a se souhlasem managementu." }
     ]
   },
@@ -125,7 +125,7 @@
     "answers": [
       { "body": "Politiky autorizuje nejvyšší management (demonstrace jeho odpovědnosti); jsou to strategické, poměrně řídce měněné dokumenty.", "right": true, "comment": "Slide 29: autorizace a povaha politik." },
       { "body": "Pracovní instrukce autorizují přímí nadřízení vlastníků procesů a CISO; mění se často, ale jen v mezích procedur.", "right": true, "comment": "Slide 31: autorizace a změny pracovních instrukcí." },
-      { "body": "Politiky se mění nejčastěji ze všech vrstev, protože reagují na každodenní provoz.", "right": false, "comment": "Slide 29, 31: politiky jsou poměrně stabilní; nejčastěji se mění pracovní instrukce." },
+      { "body": "Politiky se mění nejčastěji ze všech vrstev; reagují na každodenní provoz a potřeby oddělení.", "right": false, "comment": "Slide 29, 31: politiky jsou poměrně stabilní; nejčastěji se mění pracovní instrukce." },
       { "body": "Pracovní instrukce se smějí měnit i nad rámec procedur, pokud to vyžaduje provoz.", "right": false, "comment": "Slide 31: změny smějí probíhat jen v mezích procedur, které implementují." },
       { "body": "Procedury autorizuje nejvyšší management sám, bez projednání s řídicím výborem informační bezpečnosti.", "right": false, "comment": "Slide 30: procedury autorizuje výkonný management a CSO, vždy po projednání s řídicím výborem." }
     ]
@@ -135,9 +135,9 @@
     "answers": [
       { "body": "Metoda pokusů a omylů vlastními silami je nejpomalejší, chybí znalost nejlepších postupů a hrozí selhání projektu.", "right": true, "comment": "Slide 33: kritika metody pokusů a omylů." },
       { "body": "Postup podle návodů a dokumentového nástroje třetí strany je nejrychlejší, nákladově efektivní a usnadňuje PDCA.", "right": true, "comment": "Slide 35: přínosy použití prototypů a nástrojů třetí strany." },
-      { "body": "Externí konzultanti jsou nejlevnější varianta, protože odpadá vlastní práce.", "right": false, "comment": "Slide 34: kritikou spolupráce s konzultanty jsou právě vysoké náklady." },
-      { "body": "Metoda pokusů a omylů je nejrychlejší, protože odpadá studium standardů.", "right": false, "comment": "Slide 33: je nejpomalejší a chybí znalost nejlepších postupů." },
-      { "body": "S externími konzultanty se průběžné zlepšování (PDCA) řeší nejsnáze, protože know-how zůstane v organizaci.", "right": false, "comment": "Slide 34: obtížně řešitelné průběžné vylepšování ISMS je kritikou externí spolupráce." }
+      { "body": "Externí konzultanti jsou nejlevnější varianta; odpadá vlastní práce na dokumentaci.", "right": false, "comment": "Slide 34: kritikou spolupráce s konzultanty jsou právě vysoké náklady." },
+      { "body": "Metoda pokusů a omylů je nejrychlejší; odpadá studium standardů a návodů třetích stran.", "right": false, "comment": "Slide 33: je nejpomalejší a chybí znalost nejlepších postupů." },
+      { "body": "S externími konzultanty se průběžné zlepšování (PDCA) řeší nejsnáze; know-how zůstane v organizaci.", "right": false, "comment": "Slide 34: obtížně řešitelné průběžné vylepšování ISMS je kritikou externí spolupráce." }
     ]
   },
   {
@@ -147,7 +147,7 @@
       { "body": "„Papírové“ testování je logické testování opatření a procedur podle znalosti zranitelností a hrozeb.", "right": true, "comment": "Slide 36: typy testů." },
       { "body": "ISMS se testuje jednou, a to při certifikačním auditu, který prověří všechny jeho rysy.", "right": false, "comment": "Slide 36: testovat se má průběžně, během roku každý rys." },
       { "body": "„Papírové“ testování znamená kontrolu, že je dokumentace kompletní, vytištěná a podepsaná vedením.", "right": false, "comment": "Slide 36: jde o logické testování opatření a procedur." },
-      { "body": "Plán zachování činnosti se netestuje, protože rozsáhlý scénářový test by narušil provoz.", "right": false, "comment": "Slide 36: rozsáhlé scénářově orientované testy prověřují právě plán zachování činnosti." }
+      { "body": "Plán zachování činnosti se netestuje; rozsáhlý scénářový test by narušil provoz.", "right": false, "comment": "Slide 36: rozsáhlé scénářově orientované testy prověřují právě plán zachování činnosti." }
     ]
   },
   {
@@ -157,7 +157,7 @@
       { "body": "Cílem je ověřit, zda jsou procedury definovány správně, a odhalit neošetřené bezpečnostní díry.", "right": true, "comment": "Slide 38: hlavní cíle auditu." },
       { "body": "Kontrolní útvar nesmí výkon auditu zajišťovat outsourcingem, odpovědnost i výkon musí mít sám.", "right": false, "comment": "Slide 37: kontrolní útvar si může ponechat odpovědnost a výkon zajistit outsourcingem." },
       { "body": "Pro hladký průběh auditu je vhodné oblast vyššího managementu auditorům nezpřístupnit.", "right": false, "comment": "Slide 39: auditorům je nutné zpřístupnit i oblast vyššího managementu." },
-      { "body": "Postup auditu si auditor nechá vysvětlit od auditovaných útvarů, protože systém znají nejlépe.", "right": false, "comment": "Slide 38: auditor musí audit vykonat bez spoléhání na radu „jak audit dělat“ od monitorovaných entit." }
+      { "body": "Postup auditu si auditor nechá vysvětlit od auditovaných útvarů.", "right": false, "comment": "Slide 38: auditor musí audit vykonat bez spoléhání na radu „jak audit dělat“ od monitorovaných entit." }
     ]
   },
   {
@@ -184,9 +184,9 @@
     "answers": [
       { "body": "Politiku porušil Bob, Alice ne – politika jí ochranu souborů neukládala.", "right": true, "comment": "Slide 48: politika zakazuje opisování; Bob opisoval a systém se dostal do jiného než bezpečného stavu." },
       { "body": "Kdyby politika studentům předepisovala povinnost chránit úlohy před opsáním, porušila by ji i Alice.", "right": true, "comment": "Slide 48: porušení se posuzuje podle toho, co politika předepisuje." },
-      { "body": "Porušili ji oba, protože k nebezpečnému stavu přispěli oba.", "right": false, "comment": "Slide 48: Alice nijak nenarušila definovanou politiku – ochranu nepožadovala." },
+      { "body": "Porušili ji oba; k nebezpečnému stavu přispěla Alice nechráněným souborem i Bob jeho zkopírováním.", "right": false, "comment": "Slide 48: Alice nijak nenarušila definovanou politiku – ochranu nepožadovala." },
       { "body": "Alice ji porušila, Bob ne – soubor byl volně čitelný.", "right": false, "comment": "Slide 48: zakázané bylo opisování, které provedl Bob." },
-      { "body": "Bob ji neporušil, protože mu systém čtení souboru technicky umožnil.", "right": false, "comment": "Slide 48: rozhoduje, co politika zakazuje, ne co systém technicky dovolí." }
+      { "body": "Bob ji neporušil; systém mu čtení cizího souboru technicky umožnil a nic mu nebránilo.", "right": false, "comment": "Slide 48: rozhoduje, co politika zakazuje, ne co systém technicky dovolí." }
     ]
   },
   {

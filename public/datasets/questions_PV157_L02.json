@@ -13,12 +13,12 @@
         "comment": "Slide 3: kryptografické klíče umožňují provést průkaznou operaci a přitom klíč nesdělit (protokoly výzva-odpověď)."
       },
       {
-        "body": "Heslo převedené funkcí PBKDF2 na 256bitový klíč – patří mezi dlouhé klíče, protože je stejně odolné proti hádání jako náhodný klíč.",
+        "body": "Heslo převedené funkcí PBKDF2 na 256bitový klíč – patří mezi dlouhé klíče. Je stejně odolné proti hádání jako náhodný klíč.",
         "right": false,
         "comment": "Slide 44: entropie klíče odvozeného z hesla je stejná jako entropie hesla (nízká); délka výstupu odolnost proti hádání nezvýší."
       },
       {
-        "body": "Otisk prstu – krátká tajná informace pro lidi, protože je osobní a těžko zjistitelný.",
+        "body": "Otisk prstu – krátká tajná informace pro lidi.",
         "right": false,
         "comment": "Slide 2: biometriky jsou „něco, co jsme“, ne tajná informace; přednáška 4 zdůrazňuje, že biometriky nejsou tajné."
       },
@@ -98,7 +98,7 @@
         "comment": "Slide 10: skupinová hesla – málo používaná, bezpečnost mizivá."
       },
       {
-        "body": "Nejčastější jsou unikátní hesla (heslo = userid), protože uživatel nemusí zadávat jméno.",
+        "body": "Nejčastější jsou unikátní hesla (heslo = userid). Uživatel nemusí zadávat jméno.",
         "right": false,
         "comment": "Slide 10: nejčastější jsou neunikátní hesla používaná společně s userid; u unikátního hesla platí heslo = userid."
       },
@@ -113,7 +113,7 @@
         "comment": "Slide 10: jednorázová hesla mohou být unikátní i neunikátní („ať už unikátní či nikoliv“)."
       },
       {
-        "body": "Skupinové heslo je bezpečné, protože ho lze snadno změnit pro celou skupinu najednou.",
+        "body": "Skupinové heslo je bezpečné. Lze ho snadno změnit pro celou skupinu najednou.",
         "right": false,
         "comment": "Slide 10: bezpečnost skupinových hesel je mizivá – heslo zná více lidí a nelze určit, kdo se přihlásil (odvozeno)."
       }
@@ -133,7 +133,7 @@
         "comment": "Slide 13: stejná hesla s různou solí budou mít různé haše."
       },
       {
-        "body": "Šifrování hesel odstraní nutnost důvěřovat administrátorovi, protože hesla v otevřené podobě nevidí.",
+        "body": "Šifrování hesel odstraní nutnost důvěřovat administrátorovi. Hesla v otevřené podobě nevidí.",
         "right": false,
         "comment": "Slide 12: u šifrovaných hesel přetrvávají problémy podobné jako u otevřených hesel, včetně důvěry v administrátora."
       },
@@ -168,7 +168,7 @@
         "comment": "Slide 13: jednosměrnost s rychlostí nesouvisí; pomalost se volí kvůli zdražení opakovaného zkoušení hesel."
       },
       {
-        "body": "Dostatečně pomalá funkce nahrazuje sůl, takže sůl pak není nutné generovat ani ukládat do tabulky hesel.",
+        "body": "Dostatečně pomalá funkce nahrazuje sůl; sůl pak není nutné generovat ani ukládat.",
         "right": false,
         "comment": "Slide 13: sůl řeší jiný problém (stejná hesla, delší efektivní heslo) a v tabulce hesel se ukládat musí."
       },
@@ -248,12 +248,12 @@
         "comment": "Slide 33: náhodně vybraná hesla se obtížně pamatují a nejsou lepší než hesla založená na frázích."
       },
       {
-        "body": "Samotné školení uživatelů bezpečnost hesel výrazně zlepší.",
+        "body": "Samotné školení uživatelů bezpečnost hesel výrazně zlepší a není třeba dalších opatření.",
         "right": false,
         "comment": "Slide 33: školení uživatelů nemá za následek výrazný posun v bezpečnosti hesel."
       },
       {
-        "body": "Nejlepší volbou jsou náhodná hesla, protože jsou výrazně odolnější než hesla z frází.",
+        "body": "Nejlepší volbou jsou náhodná hesla. Jsou výrazně odolnější než hesla z frází.",
         "right": false,
         "comment": "Slide 31, 33: úspěšnost útoku byla u náhodných i frázových hesel podobně nízká a náhodná hesla nejsou lepší."
       }
@@ -278,7 +278,7 @@
         "comment": "Slide 36–37: úsilí zaměřené na kvalitní heslo je lepší investicí; blacklist se uplatní při volbě nového hesla."
       },
       {
-        "body": "Bezpečnost výrazně vzroste, protože prozrazené heslo brzy přestane platit.",
+        "body": "Bezpečnost výrazně vzroste. Prozrazené heslo útočníkovi brzy přestane platit.",
         "right": false,
         "comment": "Slide 36: aktuální výzkum ukazuje expiraci hesel jako málo účinnou."
       },
@@ -308,7 +308,7 @@
         "comment": "Slide 43: takový server by tajemství znal; požadavkem je, aby je služba sama zjistit nemohla."
       },
       {
-        "body": "Službě lze plně důvěřovat, takže stačí, aby přenos hesel probíhal přes šifrované spojení.",
+        "body": "Službě lze plně důvěřovat. Stačí, aby přenos hesel probíhal přes šifrované spojení.",
         "right": false,
         "comment": "Slide 43: výchozím předpokladem je naopak, že službě nelze plně důvěřovat."
       },
@@ -363,7 +363,7 @@
         "comment": "Slide 45: HMAC-based OTP – udržované počitadlo na serveru i klientovi, tolerance rozdílu."
       },
       {
-        "body": "Z odposlechnutého hesla Lamportova řetězce útočník snadno spočítá příští heslo, protože zná hašovací funkci.",
+        "body": "Z odposlechnutého hesla Lamportova řetězce útočník snadno spočítá příští heslo; zná hašovací funkci.",
         "right": false,
         "comment": "Slide 45: příští heslo je vzorem současného hesla; kvůli jednosměrnosti haše jej útočník spočítat neumí (odvozeno)."
       },
@@ -373,7 +373,7 @@
         "comment": "Slide 45: počitadlo udržuje server i klient; jinak by server hodnotu nemohl ověřit."
       },
       {
-        "body": "SMS kód je velmi bezpečný, protože přichází odděleným kanálem, který útočník nemá.",
+        "body": "SMS kód je velmi bezpečný; přichází odděleným kanálem, který útočník nemá.",
         "right": false,
         "comment": "Slide 26: oddělené kanály de facto nejsou oddělenými – prominentní případ SMS s jednorázovým heslem."
       }
@@ -433,7 +433,7 @@
         "comment": "Slide 59: hesla se jednoduše změní či nahradí – to je výhoda."
       },
       {
-        "body": "Uživatelé s hesly neumějí pracovat, protože jejich problémy nejsou prostudované.",
+        "body": "Uživatelé s hesly neumějí pracovat.",
         "right": false,
         "comment": "Slide 59: všichni uživatelé mají základní know-how a nedostatky hesel jsou dobře známy a dlouho studovány."
       }
@@ -453,7 +453,7 @@
         "comment": "Slide 49: malá entropie – často jednoduše uhodnutelné útočníkem."
       },
       {
-        "body": "Odpovědi mají vysokou entropii, protože jsou osobní, takže je útočník nezjistí.",
+        "body": "Odpovědi mají vysokou entropii. Jsou osobní a útočník je nezjistí.",
         "right": false,
         "comment": "Slide 49: osobní odpovědi mají naopak malou entropii a jsou uhodnutelné (srov. slide 5: ne jméno psa, datum narození…)."
       },
@@ -463,7 +463,7 @@
         "comment": "Slide 22, 49: bezpečnostní otázky jsou mechanismus obnovy, ne druhý faktor – jsou to další „něco, co známe“; reset e-mailem jen přesouvá bezpečnost na záložní systém, který bývá chráněn slaběji (odvozeno)."
       },
       {
-        "body": "Otázky jsou bezpečné, protože se ověřují principem výzva-odpověď stejně jako kryptografické protokoly.",
+        "body": "Otázky jsou bezpečné. Ověřují se principem výzva-odpověď jako kryptografické protokoly.",
         "right": false,
         "comment": "Slide 9, 49: otázky jsou výzva-odpověď jen formou; odpovědi jsou krátké, s malou entropií a uhodnutelné, nejde o kryptografický protokol s dlouhým klíčem."
       }

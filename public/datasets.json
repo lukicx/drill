@@ -165,9 +165,9 @@
     "name": "PA103 - L1 OO fundamentals, quality and decomposition",
     "id": "PA103_L01",
     "dataset": "datasets/questions_PA103_L01.json",
-    "questionCount": 21,
-    "multipleChoiceCount": 20,
-    "essayCount": 1,
+    "questionCount": 20,
+    "multipleChoiceCount": 18,
+    "essayCount": 2,
     "group": "current"
   },
   {
@@ -175,17 +175,17 @@
     "id": "PA103_L02",
     "dataset": "datasets/questions_PA103_L02.json",
     "questionCount": 28,
-    "multipleChoiceCount": 25,
-    "essayCount": 3,
+    "multipleChoiceCount": 23,
+    "essayCount": 5,
     "group": "current"
   },
   {
     "name": "PA103 - L3 Observations, planning and accounting",
     "id": "PA103_L03",
     "dataset": "datasets/questions_PA103_L03.json",
-    "questionCount": 24,
-    "multipleChoiceCount": 21,
-    "essayCount": 3,
+    "questionCount": 25,
+    "multipleChoiceCount": 20,
+    "essayCount": 5,
     "group": "current"
   },
   {
@@ -201,26 +201,26 @@
     "name": "PA103 - L5 Design patterns I: Singleton, Composite, Iterator",
     "id": "PA103_L05",
     "dataset": "datasets/questions_PA103_L05.json",
-    "questionCount": 19,
+    "questionCount": 21,
     "multipleChoiceCount": 17,
-    "essayCount": 2,
+    "essayCount": 4,
     "group": "current"
   },
   {
     "name": "PA103 - L6 Design patterns II: Strategy, State, Adapter, Bridge, Decorator",
     "id": "PA103_L06",
     "dataset": "datasets/questions_PA103_L06.json",
-    "questionCount": 22,
+    "questionCount": 24,
     "multipleChoiceCount": 20,
-    "essayCount": 2,
+    "essayCount": 4,
     "group": "current"
   },
   {
     "name": "PV179 - L1 Web API a dependency injection",
     "id": "PV179_L01",
     "dataset": "datasets/questions_PV179_L01.json",
-    "questionCount": 14,
-    "multipleChoiceCount": 12,
+    "questionCount": 13,
+    "multipleChoiceCount": 11,
     "essayCount": 2,
     "group": "current"
   },
@@ -228,8 +228,8 @@
     "name": "PV179 - L2 Návrh dátového modelu a EF Core",
     "id": "PV179_L02",
     "dataset": "datasets/questions_PV179_L02.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 15,
+    "multipleChoiceCount": 13,
     "essayCount": 2,
     "group": "current"
   },
@@ -237,8 +237,8 @@
     "name": "PV179 - L3 Dotazovanie, modifikácia a Micro ORMs",
     "id": "PV179_L03",
     "dataset": "datasets/questions_PV179_L03.json",
-    "questionCount": 23,
-    "multipleChoiceCount": 21,
+    "questionCount": 19,
+    "multipleChoiceCount": 17,
     "essayCount": 2,
     "group": "current"
   },
@@ -246,8 +246,8 @@
     "name": "PV179 - L4 Responsible AI and vibe coding",
     "id": "PV179_L04",
     "dataset": "datasets/questions_PV179_L04.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 14,
+    "multipleChoiceCount": 12,
     "essayCount": 2,
     "group": "current"
   },
@@ -255,8 +255,8 @@
     "name": "PV179 - L5 Úvod do vrstvy business logiky",
     "id": "PV179_L05",
     "dataset": "datasets/questions_PV179_L05.json",
-    "questionCount": 14,
-    "multipleChoiceCount": 12,
+    "questionCount": 10,
+    "multipleChoiceCount": 8,
     "essayCount": 2,
     "group": "current"
   },
@@ -264,9 +264,9 @@
     "name": "PV179 - L6 Pragmatic architecture (guest lecture)",
     "id": "PV179_L06",
     "dataset": "datasets/questions_PV179_L06.json",
-    "questionCount": 14,
+    "questionCount": 15,
     "multipleChoiceCount": 13,
-    "essayCount": 1,
+    "essayCount": 2,
     "group": "current"
   },
   {
@@ -291,36 +291,36 @@
     "name": "PA191 - L3 Zero-configuration networking",
     "id": "PA191_L03",
     "dataset": "datasets/questions_PA191_L03.json",
-    "questionCount": 19,
+    "questionCount": 17,
     "multipleChoiceCount": 0,
-    "essayCount": 19,
+    "essayCount": 17,
     "group": "current"
   },
   {
     "name": "PA191 - L4 Advanced routing mechanisms",
     "id": "PA191_L04",
     "dataset": "datasets/questions_PA191_L04.json",
-    "questionCount": 31,
+    "questionCount": 30,
     "multipleChoiceCount": 0,
-    "essayCount": 31,
+    "essayCount": 30,
     "group": "current"
   },
   {
     "name": "PA191 - L5 Router functions and network softwarization",
     "id": "PA191_L05",
     "dataset": "datasets/questions_PA191_L05.json",
-    "questionCount": 29,
+    "questionCount": 27,
     "multipleChoiceCount": 0,
-    "essayCount": 29,
+    "essayCount": 27,
     "group": "current"
   },
   {
     "name": "PA191 - L6 Advanced TCP congestion and flow control",
     "id": "PA191_L06",
     "dataset": "datasets/questions_PA191_L06.json",
-    "questionCount": 23,
+    "questionCount": 29,
     "multipleChoiceCount": 0,
-    "essayCount": 23,
+    "essayCount": 29,
     "group": "current"
   },
   {
@@ -354,18 +354,18 @@
     "name": "PV021 - L4 MLP training: practical issues",
     "id": "PV021_L04",
     "dataset": "datasets/questions_PV021_L04.json",
-    "questionCount": 16,
+    "questionCount": 20,
     "multipleChoiceCount": 0,
-    "essayCount": 16,
+    "essayCount": 20,
     "group": "current"
   },
   {
     "name": "PV021 - L5 Convolutional networks and applications",
     "id": "PV021_L05",
     "dataset": "datasets/questions_PV021_L05.json",
-    "questionCount": 12,
+    "questionCount": 11,
     "multipleChoiceCount": 0,
-    "essayCount": 12,
+    "essayCount": 11,
     "group": "current"
   }
 ]

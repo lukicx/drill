@@ -1,494 +1,379 @@
 [
   {
-    "name": "Ktoré ciele návrhu dátového modelu uvádza prednáška? Vyber všetky správne tvrdenia.",
+    "name": "Pri návrhu dátového modelu chceš s dátami pracovať efektívne aj bezpečne. Ktoré rozhodnutia slúžia danému cieľu? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Efektívnu prácu s dátami podporujú kľúče, indexy a normalizácia.",
+        "body": "Kľúče, indexy a normalizácia podporujú efektívnu prácu s dátami.",
         "right": true,
-        "comment": "L2, slide 3 (PDF page 3): Tieto prvky sú uvedené pri efektívnosti."
+        "comment": "L2, slide 3 (PDF page 3): Efektivita je spojená s kľúčmi, indexmi a normalizáciou."
       },
       {
-        "body": "Bezpečnú prácu s dátami podporujú domény atribútov a constrainty.",
+        "body": "Domény atribútov a constrainty podporujú bezpečnosť, lebo databáza odmietne neplatné hodnoty.",
         "right": true,
-        "comment": "L2, slide 3 (PDF page 3): V kontexte slide ide o obmedzenia prípustných dát."
+        "comment": "L2, slide 3 (PDF page 3): Bezpečnosť je spojená s doménami atribútov a constraintmi."
       },
       {
-        "body": "Model tvorí iba zoznam tabuliek bez vzťahov.",
+        "body": "Constrainty primárne zrýchľujú dotazy, lebo databáza môže preskočiť kontrolu riadkov.",
         "right": false,
-        "comment": "L2, slide 3 (PDF page 3): Slide uvádza tabuľky aj vzťahy."
+        "comment": "L2, slide 3 (PDF page 3): Constrainty chránia dáta pred neplatnými hodnotami, rýchlosť dotazov rieši indexovanie."
       },
       {
-        "body": "Constrainty sa používajú na generovanie používateľského HTML rozhrania.",
+        "body": "Indexy zaručujú, že do tabuľky sa nedostanú hodnoty mimo povolenej domény.",
         "right": false,
-        "comment": "L2, slide 3 (PDF page 3): Sú uvedené pri bezpečnej práci s dátami, nie pri prezentácii."
+        "comment": "L2, slide 3 (PDF page 3): Neplatné hodnoty zachytáva doména atribútu a constrainty, nie index."
       }
     ],
     "source": "L2, slide 3 (PDF page 3)"
   },
   {
-    "name": "Aké je podľa prednášky poradie vrstiev aplikácie? Vyber všetky správne tvrdenia.",
+    "name": "Tím píše vlastnú dátovú vrstvu: pre každú tabuľku vlastná trieda so Select, Insert, Update, Delete cez SqlConnection a SqlCommand. Ktoré tvrdenia o tomto prístupe sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Business logika je medzi prezentačnou a dátovou vrstvou.",
+        "body": "Tím má plnú kontrolu nad vykonávanými SQL operáciami.",
         "right": true,
-        "comment": "L2, slide 4 (PDF page 4): Prostredný blok je vrstva business logiky."
+        "comment": "L2, slide 5 (PDF page 5): Plná kontrola nad operáciami je uvedená ako výhoda."
       },
       {
-        "body": "Databáza obsahuje prezentačnú vrstvu a priamo generuje všetky controllery.",
-        "right": false,
-        "comment": "L2, slide 4 (PDF page 4): Databáza je samostatný prvok pod dátovou vrstvou."
-      },
-      {
-        "body": "Dátová vrstva leží nad prezentačnou vrstvou.",
-        "right": false,
-        "comment": "L2, slide 4 (PDF page 4): Dátová vrstva je pod business logikou."
-      },
-      {
-        "body": "Prezentačná vrstva → business logika → dátová vrstva → databáza.",
+        "body": "Réžia môže byť nižšia, ale za cenu veľkého množstva ručnej práce pre každú tabuľku.",
         "right": true,
-        "comment": "L2, slide 4 (PDF page 4): Ide o poradie vrstiev a šípok v diagrame."
-      }
-    ],
-    "source": "L2, slide 4 (PDF page 4)"
-  },
-  {
-    "name": "Aké vlastnosti má vlastná (ručne písaná) implementácia DAL bez ORM? Vyber všetky správne tvrdenia.",
-    "answers": [
+        "comment": "L2, slide 5 (PDF page 5): Nižšia réžia je výhoda, veľa roboty nevýhoda."
+      },
       {
-        "body": "Odstraňuje potrebu implementovať operácie Select, Insert, Update a Delete.",
+        "body": "SqlCommand vygeneruje CRUD operácie podľa tried a ručne sa píšu iba samotné entity.",
         "right": false,
-        "comment": "L2, slide 5 (PDF page 5): Vlastný DAL má tieto operácie implementovať pre tabuľky."
+        "comment": "L2, slide 5 (PDF page 5): SQL príkazy aj operácie sa píšu ručne; práve preto je to veľa roboty."
       },
       {
-        "body": "Vždy vyžaduje Entity Framework Core.",
+        "body": "Vlastná vrstva ponúka menšiu kontrolu než ORM; SQL príkazy pripravuje framework.",
         "right": false,
-        "comment": "L2, slide 5 (PDF page 5): Príklad vlastného DAL pracuje priamo so SqlConnection a SqlCommand."
-      },
-      {
-        "body": "Zapúzdruje prístup k DB a môže používať SqlConnection a SqlCommand.",
-        "right": true,
-        "comment": "L2, slide 5 (PDF page 5): Tieto triedy sú v príklade explicitne uvedené."
-      },
-      {
-        "body": "Poskytuje plnú kontrolu a nižšiu réžiu, ale vyžaduje veľa práce.",
-        "right": true,
-        "comment": "L2, slide 5 (PDF page 5): Takto slide sumarizuje výhody a nevýhodu."
+        "comment": "L2, slide 5 (PDF page 5): Pri vlastnej vrstve píše SQL tím, takže kontrola je naopak plná."
       }
     ],
     "source": "L2, slide 5 (PDF page 5)"
   },
   {
-    "name": "Čo znamená ORM v kontexte tejto prednášky? Vyber všetky správne tvrdenia.",
+    "name": "Čo je ORM a aké sú jeho prínosy a nevýhody? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Náhradu relačných tabuliek výlučne obrázkami.",
-        "right": false,
-        "comment": "L2, slide 6 (PDF page 6): Mapuje dáta relačnej databázy na objekty."
-      },
-      {
-        "body": "Mapovanie medzi relačnými databázami a objektmi objektovo orientovaného jazyka.",
+        "body": "ORM prevádza dáta medzi nekompatibilnými typovými systémami relačnej databázy a objektového jazyka.",
         "right": true,
-        "comment": "L2, slide 6 (PDF page 6): Ide o konverziu medzi ich nekompatibilnými typovými systémami."
+        "comment": "L2, slide 6 (PDF page 6): Definícia ORM zo slidu."
       },
       {
-        "body": "Techniku, ktorá znižuje náklady na tvorbu DAL.",
+        "body": "ORM podstatne znižuje náklady na tvorbu DAL, ale treba sledovať cenu dotazov a ručná optimalizácia je ťažšia.",
         "right": true,
-        "comment": "L2, slide 6 (PDF page 6): Toto je uvedená výhoda ORM."
+        "comment": "L2, slide 6 (PDF page 6): Výhoda: nižšie náklady na DAL; nevýhody: cena dotazov, ťažšia optimalizácia, obmedzená funkcionalita."
       },
       {
-        "body": "Protokol na výmenu HTTP status kódov.",
+        "body": "ORM generuje z tried schému databázy, ale mapovanie objektov na riadky rieši programátor ručne.",
         "right": false,
-        "comment": "L2, slide 6 (PDF page 6): ORM rieši objektovo-relačné mapovanie."
+        "comment": "L2, slide 6 (PDF page 6): Podstata ORM je práve mapovanie medzi objektmi a relačnými dátami."
+      },
+      {
+        "body": "ORM dáva lepšiu kontrolu nad SQL než ručne písané príkazy a manuálna optimalizácia dotazov je jednoduchšia.",
+        "right": false,
+        "comment": "L2, slide 6 (PDF page 6): Slide uvádza ako nevýhodu ťažšiu manuálnu optimalizáciu dotazov."
       }
     ],
     "source": "L2, slide 6 (PDF page 6)"
   },
   {
-    "name": "Aké obmedzenia ORM zdôrazňuje prednáška? Vyber všetky správne tvrdenia.",
+    "name": "Začínaš nový projekt s Entity Framework Core. Ktoré tvrdenia o inštalácii a spôsobe práce sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Treba sledovať cenu dotazov a manuálna optimalizácia môže byť ťažšia.",
+        "body": "EF Core nie je v jadre .NET, inštaluje sa cez NuGet, napr. Microsoft.EntityFrameworkCore.SqlServer pre SQL Server.",
         "right": true,
-        "comment": "L2, slide 6 (PDF page 6): Oba body sú uvedené medzi nevýhodami."
+        "comment": "L2, slide 7 (PDF page 7): Package sa pridáva cez NuGet; príkladom je balík pre SqlServer."
       },
       {
-        "body": "ORM môže mať obmedzenú funkcionalitu.",
+        "body": "Ak databáza ešte neexistuje, napíšeš triedy a z nich sa vytvorí databáza (Code First).",
         "right": true,
-        "comment": "L2, slide 6 (PDF page 6): Slide uvádza aj tento limit."
+        "comment": "L2, slide 8 (PDF page 8): Pri „Nemám databázu“ sa z tried vytvorí DB."
       },
       {
-        "body": "Každý dotaz cez ORM má automaticky najnižšiu možnú cenu.",
+        "body": "Ak už databáza existuje, napíšeš entity ručne a EF Core ich pri štarte prepíše na schému databázy.",
         "right": false,
-        "comment": "L2, slide 6 (PDF page 6): Slide naopak upozorňuje na cenu dotazov."
+        "comment": "L2, slide 8 (PDF page 8): Pri existujúcej DB sa triedy vygenerujú podľa nej, nie naopak."
       },
       {
-        "body": "ORM vylučuje potrebu premýšľať o databázovom výkone.",
+        "body": "Balík providera je voliteľný; EF Core rozpozná databázu podľa názvu triedy DbContext.",
         "right": false,
-        "comment": "L2, slide 6 (PDF page 6): Práve výkon a optimalizácia patria medzi uvedené riziká."
+        "comment": "L2, slide 10 (PDF page 10): Treba explicitne určiť dátový provider a connectionString."
       }
     ],
-    "source": "L2, slide 6 (PDF page 6)"
+    "source": "L2, slide 7 (PDF page 7), L2, slide 8 (PDF page 8)"
   },
   {
-    "name": "Ako sa podľa prednášky pridáva Entity Framework Core do projektu? Vyber všetky správne tvrdenia.",
+    "name": "Ktoré súčasti Entity Framework Core zodpovedajú ktorým návrhovým vzorom? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Je to technológia od Microsoftu mimo samotného jadra .NET.",
+        "body": "DbContext zaisťuje, že opakované načítanie riadku vráti rovnakú inštanciu entity (Identity Map).",
         "right": true,
-        "comment": "L2, slide 7 (PDF page 7): Obe informácie sú uvedené na slide."
+        "comment": "L2, slide 9 (PDF page 9): Identity Map patrí DbContextu."
       },
       {
-        "body": "Je súčasťou každého .NET projektu bez potreby ďalšieho balíka.",
-        "right": false,
-        "comment": "L2, slide 7 (PDF page 7): Slide hovorí, že ho treba nainštalovať."
-      },
-      {
-        "body": "Inštaluje sa zmenou HTTP metódy z GET na POST.",
-        "right": false,
-        "comment": "L2, slide 7 (PDF page 7): HTTP metódy neurčujú inštaláciu balíkov."
-      },
-      {
-        "body": "Inštaluje sa cez NuGet; príklad je Microsoft.EntityFrameworkCore.SqlServer.",
+        "body": "DbContext sleduje všetky zmeny v načítaných entitách a ukladá ich do databázy (Unit of Work).",
         "right": true,
-        "comment": "L2, slide 7 (PDF page 7): Slide uvádza NuGet a konkrétny SQL Server balík."
-      }
-    ],
-    "source": "L2, slide 7 (PDF page 7)"
-  },
-  {
-    "name": "Ako sa líšia dva spôsoby práce s EF Core – s existujúcou databázou a bez nej (Code First)? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Oba postupy vyžadujú najprv ručne vymazať všetky existujúce dáta.",
-        "right": false,
-        "comment": "L2, slide 8 (PDF page 8): Taká požiadavka na slide nie je."
+        "comment": "L2, slide 9 (PDF page 9): Sledovanie zmien a uloženie je Unit of Work."
       },
       {
-        "body": "Code First znamená, že databáza nikdy nevznikne.",
-        "right": false,
-        "comment": "L2, slide 8 (PDF page 8): Databáza sa vytvorí z pripravených tried."
-      },
-      {
-        "body": "Bez existujúcej DB vytvorím triedy, z ktorých sa vytvorí databáza.",
+        "body": "DbSet pre tabuľku ponúka CRUD operácie nad množinou entít (Repository).",
         "right": true,
-        "comment": "L2, slide 8 (PDF page 8): Prvý postup zodpovedá Code First prístupu."
+        "comment": "L2, slide 9 (PDF page 9): DbSet realizuje vzor Repository."
       },
       {
-        "body": "Pri existujúcej DB sa triedy môžu vygenerovať podľa databázy.",
-        "right": true,
-        "comment": "L2, slide 8 (PDF page 8): Druhý uvedený postup vychádza z existujúcej schémy."
-      }
-    ],
-    "source": "L2, slide 8 (PDF page 8)"
-  },
-  {
-    "name": "Aké úlohy majú entity a DbSet v opise Code First? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Entity predstavujú iba databázové servery, nie uložené dáta.",
+        "body": "DbSet pri každom dotaze vytvára novú inštanciu toho istého riadku, aby sa dali porovnať verzie (Identity Map).",
         "right": false,
-        "comment": "L2, slide 9 (PDF page 9): Entity reprezentujú riadky tabuliek."
+        "comment": "L2, slide 9 (PDF page 9): Identity Map vracia tú istú inštanciu, a patrí DbContextu."
       },
       {
-        "body": "Entity reprezentujú riadky tabuliek.",
-        "right": true,
-        "comment": "L2, slide 9 (PDF page 9): To je prvý krok uvedeného postupu."
-      },
-      {
-        "body": "DbSet poskytuje operácie nad množinou entít a slide ho spája s Repository.",
-        "right": true,
-        "comment": "L2, slide 9 (PDF page 9): DbSet umožňuje CRUD nad množinou daných entít."
-      },
-      {
-        "body": "DbSet je kontajner výlučne pre HTTP response body.",
+        "body": "DbSet sleduje zmeny entít a na konci ich potvrdí do databázy (Unit of Work).",
         "right": false,
-        "comment": "L2, slide 9 (PDF page 9): DbSet sa týka entít a databázových operácií."
+        "comment": "L2, slide 9 (PDF page 9): Sledovanie zmien robí DbContext; DbSet ponúka CRUD (Repository)."
       }
     ],
     "source": "L2, slide 9 (PDF page 9)"
   },
   {
-    "name": "Čo vysvetľuje Identity Map pri sledovaných entitách v tom istom DbContexte? Vyber všetky správne tvrdenia.",
+    "name": "Pri Code First určuješ connectionString pre provider (pre MSSQL napr. Data Source, Initial Catalog, User ID, Password). Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Opakované načítanie rovnakého riadku môže pracovať s rovnakou inštanciou entity.",
+        "body": "Data Source určuje server a Initial Catalog názov databázy, ku ktorej sa pripojí.",
         "right": true,
-        "comment": "L2, slide 9 (PDF page 9): Slide spája opakované načítanie s Identity Map; otázka je obmedzená na sledované entity v jednom kontexte."
+        "comment": "L2, slide 10 (PDF page 10): Reťazec obsahuje Data Source, Initial Catalog a prihlasovacie údaje."
       },
       {
-        "body": "DbContext vytvára inštancie entít pri načítaní dát z DB.",
+        "body": "Reťazec sa typicky drží v konfigurácii prezentačnej vrstvy, aby sa menil podľa prostredia a heslo nebolo v kóde (dôvod odvodený).",
         "right": true,
-        "comment": "L2, slide 9 (PDF page 9): To je jedna z úloh DbContextu v zozname."
+        "comment": "L2, slide 10 (PDF page 10): Slide uvádza umiestnenie v konfigurácii; dôvody sú odvodené."
       },
       {
-        "body": "Dva ľubovoľné DbContexty musia zdieľať tú istú inštanciu každej entity.",
+        "body": "Data Source je názov databázy a Initial Catalog adresa servera, ku ktorému sa aplikácia pripája.",
         "right": false,
-        "comment": "L2, slide 9 (PDF page 9): Vysvetlenie sa týka konkrétneho DbContextu, nie globálnej identity objektov."
+        "comment": "L2, slide 10 (PDF page 10): Úlohy sú opačne – Data Source je server, Initial Catalog databáza."
       },
       {
-        "body": "Každé načítanie rovnakého sledovaného riadku musí vytvoriť novú nezávislú inštanciu.",
+        "body": "Reťazec generuje EF Core sám podľa názvov DbSet vlastností a programátor ho do aplikácie nezadáva.",
         "right": false,
-        "comment": "L2, slide 9 (PDF page 9): To je opak cieľa Identity Map uvedeného na slide."
-      }
-    ],
-    "source": "L2, slide 9 (PDF page 9)"
-  },
-  {
-    "name": "Prečo prednáška spája DbContext s Unit of Work? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Následne umožňuje tieto zmeny uložiť do databázy.",
-        "right": true,
-        "comment": "L2, slide 9 (PDF page 9): Sledovanie aj uloženie sa uvádzajú pri Unit of Work."
-      },
-      {
-        "body": "Jeho jedinou úlohou je vykresľovať View.",
-        "right": false,
-        "comment": "L2, slide 9 (PDF page 9): To je úloha prezentačnej vrstvy, nie DbContextu."
-      },
-      {
-        "body": "Každá zmena property sa musí okamžite vykonať ako samostatný SQL príkaz bez ďalšieho uloženia.",
-        "right": false,
-        "comment": "L2, slide 9 (PDF page 9): Slide opisuje sledovanie zmien a ich následné uloženie."
-      },
-      {
-        "body": "Sleduje zmeny v načítaných entitách.",
-        "right": true,
-        "comment": "L2, slide 9 (PDF page 9): Slide uvádza sledovanie zmien."
-      }
-    ],
-    "source": "L2, slide 9 (PDF page 9)"
-  },
-  {
-    "name": "Čo treba určiť pri vytvorení DB v Code First podľa prednášky? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Connection string sa typicky nachádza v konfiguračnom súbore prezentačnej vrstvy.",
-        "right": true,
-        "comment": "L2, slide 10 (PDF page 10): Toto je uvedené typické umiestnenie."
-      },
-      {
-        "body": "Provider sa určuje HTTP status kódom 201.",
-        "right": false,
-        "comment": "L2, slide 10 (PDF page 10): HTTP kód nevyberá databázový provider."
-      },
-      {
-        "body": "Databázový provider a connection string odovzdaný provideru.",
-        "right": true,
-        "comment": "L2, slide 10 (PDF page 10): Tieto dve veci slide požaduje explicitne."
-      },
-      {
-        "body": "SQL Server connection string môže zahŕňať Data Source, Initial Catalog a prihlasovacie údaje.",
-        "right": true,
-        "comment": "L2, slide 10 (PDF page 10): Tieto položky sú v príklade uvedené."
+        "comment": "L2, slide 10 (PDF page 10): Cestu k DB určuje programátor parametrom odovzdaným provideru."
       }
     ],
     "source": "L2, slide 10 (PDF page 10)"
   },
   {
-    "name": "Ktoré názvy property rozpozná EF Core podľa konvencie ako primárny kľúč? Vyber všetky správne tvrdenia.",
+    "name": "Ktoré vlastnosti EF Core podľa konvencie považuje za primárny kľúč a ako sa kľúč generuje? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Property sa môže považovať za PK iba vtedy, keď je typu string.",
-        "right": false,
-        "comment": "L2, slide 11 (PDF page 11): Slide uvádza aj číselné a GUID kľúče."
-      },
-      {
-        "body": "ID alebo {MenoTriedy}ID, bez ohľadu na veľkosť písmen.",
+        "body": "Vlastnosť s názvom Id (bez ohľadu na veľkosť písmen) v ľubovoľnej entite.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Tieto dve možnosti sú uvedené pri konvencii PK."
+        "comment": "L2, slide 11 (PDF page 11): Názov ID alebo {MenoTriedy}ID, non-case sensitive."
       },
       {
-        "body": "Pri číselných alebo GUID kľúčoch sa hodnoty podľa konvencie generujú automaticky.",
+        "body": "V triede Customer vlastnosť s názvom CustomerId; ak je číselného typu alebo GUID, generuje sa automaticky.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Otázka opisuje konvenciu v prednáške, nie záruku pre každú konfiguráciu."
+        "comment": "L2, slide 11 (PDF page 11): Konvencia {MenoTriedy}ID a automatické generovanie pre číselný typ alebo GUID."
       },
       {
-        "body": "Len property s presným názvom DatabasePassword.",
+        "body": "Prvá vlastnosť triedy, nech sa volá akokoľvek.",
         "right": false,
-        "comment": "L2, slide 11 (PDF page 11): Taký názov medzi konvenciami nie je."
+        "comment": "L2, slide 11 (PDF page 11): Pozícia vlastnosti nerozhoduje; rozhoduje názov."
+      },
+      {
+        "body": "Vlastnosť s názvom Customer_Id v triede Customer; podčiarkovník sa pri porovnaní ignoruje.",
+        "right": false,
+        "comment": "L2, slide 11 (PDF page 11): Konvencia je {MenoTriedy}ID; iný tvar treba označiť [Key]."
       }
     ],
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
-    "name": "Ako prednáška opisuje konvencie vzťahov medzi entitami? Vyber všetky správne tvrdenia.",
+    "name": "Entita Order má vlastnosti <TT>int CustomerId</TT> a <TT>Customer Customer</TT>; entita Customer má kľúč <TT>int Id</TT>. Ktoré tvrdenia o konvenciách vzťahov sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Property typu inej entity sa používa ako navigation property.",
+        "body": "Customer v Order je navigation property a EF Core vytvorí cudzí kľúč.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Slide opisuje property entity A typu entity B."
+        "comment": "L2, slide 11 (PDF page 11): Vlastnosť typu inej entity sa stane navigation property a vznikne cudzí kľúč."
       },
       {
-        "body": "Property {A}Id v B s typom PK entity A sa môže rozpoznať ako cudzí kľúč.",
+        "body": "CustomerId sa rozpozná ako cudzí kľúč, lebo má názov {A}Id a rovnaký typ ako primárny kľúč triedy Customer.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Toto je uvedená konvencia cudzieho kľúča."
+        "comment": "L2, slide 11 (PDF page 11): Pravidlo {A}Id s rovnakým typom ako PK."
       },
       {
-        "body": "Slide odporúča uvádzať väzbu z oboch strán.",
+        "body": "Odporúča sa uviesť väzbu z oboch strán, napr. aj List&lt;Order&gt; v Customer.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Ide o výslovné odporúčanie pri navigation property."
+        "comment": "L2, slide 11 (PDF page 11): Slide odporúča uvádzať väzbu z oboch strán."
       },
       {
-        "body": "Cudzí kľúč musí mať vždy iný dátový typ ako odkazovaný primárny kľúč.",
+        "body": "CustomerId sa nerozpozná, lebo PK triedy Customer sa volá Id a nie CustomerId.",
         "right": false,
-        "comment": "L2, slide 11 (PDF page 11): Uvedená konvencia vyžaduje rovnaký typ."
+        "comment": "L2, slide 11 (PDF page 11): Podmienkou je zhodný typ s PK, nie zhodný názov PK."
+      },
+      {
+        "body": "Bez anotácie [ForeignKey] sa v databáze nevytvorí žiadny cudzí kľúč.",
+        "right": false,
+        "comment": "L2, slide 11 (PDF page 11): Konvencia vytvorí cudzí kľúč automaticky."
       }
     ],
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
-    "name": "DbContext obsahuje DbSet entity A a A má navigáciu na B. Čo vysvetľuje konvencia objavovania typov? Vyber všetky správne tvrdenia.",
+    "name": "Kontext obsahuje iba <TT>DbSet&lt;Order&gt;</TT>. Order má vlastnosť typu Customer a Customer nemá vlastný DbSet. Čo sa stane podľa konvencie objavovania typov? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "B nemusí byť ignorovaný len preto, že sme ho samostatne nevymenovali cez DbSet.",
+        "body": "DbSet pre entitu Customer sa automaticky zahrnie do modelu.",
         "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Navigácia z už známeho typu je cestou k jeho objaveniu."
+        "comment": "L2, slide 11 (PDF page 11): Ak A má property typu B a DbSet je iba pre A, DbSet pre B sa zahrnie tiež."
       },
       {
-        "body": "EF musí automaticky dopísať novú C# property DbSet&lt;B&gt; do zdrojového súboru.",
+        "body": "EF Core vyhodí chybu, kým sa DbSet&lt;Customer&gt; nepridá ručne.",
         "right": false,
-        "comment": "L2, slide 11 (PDF page 11): Objavovanie typu znamená zaradenie do modelu; nemení C# zdrojový kód."
+        "comment": "L2, slide 11 (PDF page 11): Typ sa objaví cez navigation property automaticky."
       },
       {
-        "body": "Navigation properties nemajú nijaký súvis s objavovaním typov.",
+        "body": "Customer sa uloží ako serializovaný stĺpec v tabuľke Order a samostatná tabuľka nevznikne.",
         "right": false,
-        "comment": "L2, slide 11 (PDF page 11): Práve navigation property tvorí príklad na slide."
+        "comment": "L2, slide 11 (PDF page 11): Customer sa zahrnie ako samostatná entita."
       },
       {
-        "body": "Typ B môže byť zahrnutý do modelu cez navigáciu z A.",
-        "right": true,
-        "comment": "L2, slide 11 (PDF page 11): Slide týmto príkladom vysvetľuje automatické objavovanie súvisiacich typov."
+        "body": "Customer sa zahrnie až po označení anotáciou [Key] na jeho kľúči.",
+        "right": false,
+        "comment": "L2, slide 11 (PDF page 11): Objavenie závisí od navigation property, nie od anotácie."
       }
     ],
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
-    "name": "Kedy a ako prednáška používa dátové anotácie? Vyber všetky správne tvrdenia.",
+    "name": "Entita má vlastnosť <TT>Code</TT>, ktorá má byť primárnym kľúčom, vlastnosť <TT>Name</TT> povinná s najviac 20 znakmi a vlastnosť <TT>Note</TT>, ktorá sa do databázy ukladať nemá. Ktoré anotácie sa hodia? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Anotácie sú len alternatívne názvy HTTP metód.",
-        "right": false,
-        "comment": "L2, slide 12 (PDF page 12): Ide o metadáta pre model a jeho vlastnosti."
-      },
-      {
-        "body": "Prednáška tvrdí, že dátové anotácie nikdy nesúvisia s mapovaním entít.",
-        "right": false,
-        "comment": "L2, slide 12 (PDF page 12): Sú uvedené práve ako spôsob úpravy konvencií mapovania."
-      },
-      {
-        "body": "Keď konvencie nestačia alebo ich treba upraviť.",
+        "body": "[Key] na Code, lebo názov Code nezodpovedá konvencii kľúča.",
         "right": true,
-        "comment": "L2, slide 12 (PDF page 12): Slide hovorí, že konvenciám treba niekedy pomôcť."
+        "comment": "L2, slide 12 (PDF page 12): Anotácia [Key] pomáha tam, kde konvencia nestačí."
       },
       {
-        "body": "Uvádza napríklad [Key], [ForeignKey], [Required] a [NotMapped].",
+        "body": "[Required] a [MaxLength(20)] na Name.",
         "right": true,
-        "comment": "L2, slide 12 (PDF page 12): Všetky štyri sú v zozname príkladov."
+        "comment": "L2, slide 12 (PDF page 12): Required a MaxLength sú uvedené dátové anotácie."
+      },
+      {
+        "body": "[NotMapped] na Note, aby sa vlastnosť nepremietla do tabuľky.",
+        "right": true,
+        "comment": "L2, slide 12 (PDF page 12): NotMapped vyradí vlastnosť z mapovania."
+      },
+      {
+        "body": "[Index] na Note, aby sa vlastnosť z databázy vylúčila.",
+        "right": false,
+        "comment": "L2, slide 12 (PDF page 12): Index vytvára index nad stĺpcom, nevylučuje ho."
+      },
+      {
+        "body": "[ForeignKey(\"Code\")] na Code, aby sa označil primárny kľúč.",
+        "right": false,
+        "comment": "L2, slide 12 (PDF page 12): ForeignKey označuje cudzí kľúč, pre primárny je [Key]."
       }
     ],
     "source": "L2, slide 12 (PDF page 12)"
   },
   {
-    "name": "Čo zachytávajú migrácie v opise prednášky? Vyber všetky správne tvrdenia.",
+    "name": "Čo sú migrácie v EF Core? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Každá migrácia musí vždy vymazať celú databázu.",
-        "right": false,
-        "comment": "L2, slide 13 (PDF page 13): Cieľom je riadená aktualizácia schémy; slide ju predstavuje ako alternatívu k strate dát."
-      },
-      {
-        "body": "Postup zmeny schémy z predchádzajúceho stavu do aktuálneho.",
+        "body": "Umožňujú aktualizovať schému databázy bez straty dát.",
         "right": true,
-        "comment": "L2, slide 13 (PDF page 13): Slide opisuje informáciu potrebnú pre aktualizáciu schémy."
+        "comment": "L2, slide 13 (PDF page 13): Migrácie menia schému bez straty dát."
       },
       {
-        "body": "Aj postup návratu schémy do predchádzajúceho stavu.",
+        "body": "Každá migrácia nesie návod na zmenu schémy z predošlého obrazu na aktuálny aj návod na návrat do predošlého obrazu.",
         "right": true,
-        "comment": "L2, slide 13 (PDF page 13): Slide uvádza aj opačný smer zmeny."
+        "comment": "L2, slide 13 (PDF page 13): Obraz modelu obsahuje zmenu dopredu aj späť."
       },
       {
-        "body": "Iba CSS štýly používateľského rozhrania.",
+        "body": "Migrácia zmaže databázu a vytvorí ju nanovo; dáta treba vopred zálohovať.",
         "right": false,
-        "comment": "L2, slide 13 (PDF page 13): Migrácie sa týkajú databázovej schémy."
+        "comment": "L2, slide 13 (PDF page 13): Migrácie práve preto existujú, aby sa dáta zachovali."
+      },
+      {
+        "body": "Migrácia uloží zálohu dát tabuľky, no schému databázy ponechá nezmenenú.",
+        "right": false,
+        "comment": "L2, slide 13 (PDF page 13): Migrácia mení schému; nejde o zálohu dát."
       }
     ],
     "source": "L2, slide 13 (PDF page 13)"
   },
   {
-    "name": "Ako sa líši add-migration od update-database v ukázanom postupe? Vyber všetky správne tvrdenia.",
+    "name": "Pridal si entite novú vlastnosť a chceš zmenu premietnuť do databázy cez Package Manager Console. Ktoré postupy sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "add-migration MenoMigracie vytvorí migráciu po zmene entít.",
+        "body": "Po zmene entít napíšeš add-migration MenoMigracie, čím vznikne nová migrácia.",
         "right": true,
-        "comment": "L2, slide 14 (PDF page 14): Krok 5 vytvára pomenovanú migráciu."
+        "comment": "L2, slide 14 (PDF page 14): Príkaz add-migration vytvára migráciu."
       },
       {
-        "body": "update-database aplikuje migrácie; možno aktualizovať aj na konkrétnu verziu.",
+        "body": "Migráciu aplikuješ príkazom update-database, ktorý možno nasmerovať aj na konkrétnu verziu.",
         "right": true,
-        "comment": "L2, slide 14 (PDF page 14): Krok 6 opisuje aplikovanie a konkrétnu verziu."
+        "comment": "L2, slide 14 (PDF page 14): update-database aplikuje migráciu, aj na zvolenú verziu."
       },
       {
-        "body": "add-migration je príkaz na vykreslenie View.",
+        "body": "Najprv spustíš update-database, ktorý vytvorí migračný súbor, a potom add-migration schému aplikuje.",
         "right": false,
-        "comment": "L2, slide 14 (PDF page 14): Je to príkaz pre migrácie dátového modelu."
+        "comment": "L2, slide 14 (PDF page 14): Poradie je opačné – add-migration vytvára, update-database aplikuje."
       },
       {
-        "body": "update-database je názov anotácie primárneho kľúča.",
+        "body": "Databázu musíš zmazať a znova spustiť Code First; migrácie menia iba triedy, nie schému.",
         "right": false,
-        "comment": "L2, slide 14 (PDF page 14): Anotácia [Key] je na slide 12; update-database je konzolový príkaz."
+        "comment": "L2, slide 13 (PDF page 13): Migrácia aktualizuje schému existujúcej databázy bez straty dát."
       }
     ],
     "source": "L2, slide 14 (PDF page 14)"
   },
   {
-    "name": "Aké možnosti seedovania dát uvádza prednáška? Vyber všetky správne tvrdenia.",
+    "name": "Do databázy chceš pri jej vytváraní vložiť počiatočné dáta (seed). Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Prípadne manuálnu úpravu migrácie.",
+        "body": "Prekryješ metódu OnModelCreating v DbContexte a vytvoríš novú migráciu.",
         "right": true,
-        "comment": "L2, slide 15 (PDF page 15): To je druhá uvedená možnosť."
+        "comment": "L2, slide 15 (PDF page 15): Seedovanie sa robí v OnModelCreating a cez migráciu."
       },
       {
-        "body": "Úprava seed dát v OnModelCreating sa automaticky prejaví po update-database aj bez vytvorenia alebo úpravy migrácie.",
-        "right": false,
-        "comment": "L2, slide 15 (PDF page 15): Ukázaný postup vyžaduje novú migráciu po úprave OnModelCreating; alternatívou je manuálna úprava migrácie."
-      },
-      {
-        "body": "add-migration MenoMigracie už samo vykoná seedovanie v cieľovej databáze.",
-        "right": false,
-        "comment": "L2, slides 14-15 (PDF pages 14-15): add-migration vytvára migráciu; update-database ju aplikuje do databázy."
-      },
-      {
-        "body": "Prekrytie OnModelCreating v DbContexte a vytvorenie novej migrácie.",
+        "body": "Seed dáta možno doplniť manuálnou úpravou migrácie.",
         "right": true,
-        "comment": "L2, slide 15 (PDF page 15): To je prvý uvedený postup."
+        "comment": "L2, slide 15 (PDF page 15): Slide pripúšťa manuálne prepísanie migrácie."
+      },
+      {
+        "body": "Seed dáta sa vložia konštruktorom DbSet pri každom štarte aplikácie, nová migrácia netreba.",
+        "right": false,
+        "comment": "L2, slide 15 (PDF page 15): Seedovanie sa viaže na OnModelCreating a migráciu."
+      },
+      {
+        "body": "Seed možno urobiť mimo EF Core, migrácie sa dát netýkajú.",
+        "right": false,
+        "comment": "L2, slide 15 (PDF page 15): Seedovanie je súčasťou migrácií."
       }
     ],
-    "source": "L2, slides 14-15 (PDF pages 14-15)"
+    "source": "L2, slide 15 (PDF page 15)"
   },
   {
-    "name": "Nemáš existujúcu databázu. Opíš postup Code First od entít po vytvorenie a naplnenie schémy podľa prednášky.",
-    "answer": "Vytvorím entity reprezentujúce riadky tabuliek, DbContext a DbSety pre prácu s množinami entít. Nakonfigurujem databázový provider a connection string. Po príprave alebo zmene modelu vytvorím migráciu príkazom add-migration MenoMigracie a aplikujem ju cez update-database. Pre seed dáta prednáška uvádza prekrytie OnModelCreating a novú migráciu, prípadne manuálnu úpravu migrácie. Prednáškový postup využíva Microsoft.EntityFrameworkCore.Tools a Package Manager Console.",
+    "name": "Navrhni Code First model pre knihkupectvo: autor napísal viac kníh, kniha má povinný názov s najviac 100 znakmi a pomocnú vlastnosť, ktorá sa do databázy ukladať nemá. Napíš triedy entít a DbContext, a pre každú časť povedz, či ju zabezpečí konvencia, dátová anotácia, DbSet (Repository) alebo DbContext (Identity Map, Unit of Work).",
+    "answer": "<PRE>public class Author\n{\n    public int Id { get; set; }                   // PK podľa konvencie\n    public string Name { get; set; }\n    public List&lt;Book&gt; Books { get; set; }        // navigation property, strana 1\n}\n\npublic class Book\n{\n    public int Id { get; set; }                   // PK podľa konvencie\n    [Required, MaxLength(100)]\n    public string Title { get; set; }             // anotácia\n    public int AuthorId { get; set; }             // FK podľa konvencie {A}Id\n    public Author Author { get; set; }            // navigation property, strana N\n    [NotMapped]\n    public string DisplayLabel { get; set; }      // do DB sa neuloží\n}\n\npublic class BookstoreContext : DbContext\n{\n    public DbSet&lt;Book&gt; Books { get; set; }\n}</PRE><B>Konvencie:</B> Id je primárny kľúč (číselný sa generuje automaticky), AuthorId s typom PK triedy Author je cudzí kľúč, navigation properties z oboch strán vytvoria vzťah 1 : N. Author nemá vlastný DbSet, no zahrnie sa automaticky (objavovanie typov). <B>Anotácie:</B> [Required] a [MaxLength(100)] obmedzujú názov, [NotMapped] vyradí pomocnú vlastnosť. <B>DbSet</B> Books je Repository s CRUD operáciami. <B>DbContext</B> vytvára entity pri načítaní, pri opakovanom načítaní toho istého riadku vráti rovnakú inštanciu (Identity Map) a sleduje zmeny, ktoré uloží do databázy (Unit of Work). Connection string a provider (napr. Microsoft.EntityFrameworkCore.SqlServer) sa zadajú pri konfigurácii kontextu.",
     "keyPoints": [
-      "Entity, DbContext a DbSet",
-      "Provider a connection string",
-      "Vytvorenie migrácie verzus jej aplikovanie",
-      "OnModelCreating a nová migrácia pre seed dáta",
-      "Tools a Package Manager Console v ukázanom postupe"
+      "Id a AuthorId rozpozná konvencia (PK, FK s rovnakým typom ako PK autora)",
+      "Navigation properties List&lt;Book&gt; a Author vytvoria vzťah 1 : N, najlepšie z oboch strán",
+      "[Required] a [MaxLength(100)] pre názov, [NotMapped] pre pomocnú vlastnosť",
+      "DbSet = Repository (CRUD); typ Author sa objaví automaticky",
+      "DbContext = Identity Map a Unit of Work"
     ],
-    "source": "L2, slides 8-10,13-15 (PDF pages 8-10,13-15)"
+    "source": "L2, slide 9 (PDF page 9), L2, slide 11 (PDF page 11), L2, slide 12 (PDF page 12)"
   },
   {
-    "name": "Navrhuješ prepojené entity a nechceš sa spoliehať iba na konvencie. Vysvetli konvencie pre kľúče a navigácie, objavovanie súvisiaceho typu a akú úlohu majú anotácie. Uveď aj príklady anotácií.",
-    "answer": "Primárny kľúč sa podľa pomenovacej konvencie rozpoznáva z ID alebo {MenoTriedy}ID. Property typu inej entity slúži ako navigácia; FK sa môže rozpoznať z názvu {A}Id a typu zodpovedajúceho PK entity A. Navigácia z A na B môže zahrnúť B do modelu aj bez samostatne deklarovaného DbSetu B. Ak konvencie nestačia, pomôžu anotácie. Slide uvádza [Key], [ForeignKey(\"PlayerSupportId\")], [Required], [MaxLength(20)], [MinLength(5)], [NotMapped] a [Index]. Samotný zoznam neznamená, že každá anotácia je databázový constraint alebo sa používa na rovnakom druhu člena.",
+    "name": "Aplikácia beží v produkcii s dátami. Produktu pridávaš vlastnosť <TT>Price</TT> a zároveň chceš doplniť tabuľku kategórií počiatočnými hodnotami. Popíš krok za krokom, ako zmenu bezpečne zavedieš cez migrácie a prečo nestačí databázu zmazať a vytvoriť nanovo. Uveď aj, ako by sa zmena vrátila späť.",
+    "answer": "<B>Prečo nie zmazanie:</B> pri novom vytvorení by sa stratili produkčné dáta; migrácie existujú práve na aktualizáciu schémy bez straty dát.<BR><B>Postup:</B> (1) Máš nainštalovaný Microsoft.EntityFrameworkCore.Tools a DAL ako startup project (DbContext má bezparametrický konštruktor). (2) Pridáš vlastnosť Price do entity a seed kategórií do metódy OnModelCreating v DbContexte. (3) V Package Manager Console spustíš <TT>add-migration AddPriceAndCategorySeed</TT> – vznikne migrácia obsahujúca zmenu schémy aj seed; ak treba, seed alebo SQL sa dá upraviť ručne. (4) Spustíš <TT>update-database</TT> (prípadne na konkrétnu verziu) a EF Core zmeny aplikuje na existujúcu databázu.<BR><B>Návrat:</B> každá migrácia nesie aj opis zmeny späť do predošlého obrazu modelu, takže update-database na staršiu verziu schému vráti.",
     "keyPoints": [
-      "Pomenovanie ID alebo {MenoTriedy}ID",
-      "Navigácia a konvencia cudzieho kľúča",
-      "Objavovanie B cez navigáciu z A",
-      "Anotácie upravujú alebo dopĺňajú konvencie",
-      "Príklady anotácií uvedené na slide"
+      "Zmazanie DB by zničilo dáta; migrácie menia schému bez straty dát",
+      "Po zmene entity a OnModelCreating spustiť add-migration Meno",
+      "Seed cez OnModelCreating a novú migráciu, prípadne ručná úprava migrácie",
+      "update-database aplikuje migráciu, možno na konkrétnu verziu",
+      "Migrácia nesie aj spätný krok do predošlého obrazu modelu"
     ],
-    "source": "L2, slides 11-12 (PDF pages 11-12)"
+    "source": "L2, slide 13 (PDF page 13)–L2, slide 15 (PDF page 15)"
   }
 ]

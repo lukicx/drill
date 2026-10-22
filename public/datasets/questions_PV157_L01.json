@@ -113,7 +113,7 @@
         "comment": "Slide 21: substituce a permutace jsou druhy použitých operací, ne druhy klíčů."
       },
       {
-        "body": "Generátor náhodných čísel patří do asymetrické kryptografie, protože pracuje s prvočísly.",
+        "body": "Generátor náhodných čísel patří do asymetrické kryptografie; pracuje s prvočísly.",
         "right": false,
         "comment": "Slide 21: RND je uveden mezi kryptografií bez klíčů; prvočísla se jen používají při tvorbě asymetrických klíčů (slide 23)."
       }
@@ -168,7 +168,7 @@
         "comment": "Slide 43: privátním klíčem se nešifruje, ale podepisuje; Alicin veřejný klíč zná každý, takže by zprávu přečetl kdokoli."
       },
       {
-        "body": "Bob zprávu dešifruje Aliciným veřejným klíčem, protože zprávu poslala Alice.",
+        "body": "Bob zprávu dešifruje Aliciným veřejným klíčem.",
         "right": false,
         "comment": "Slide 25: dešifruje se privátním klíčem adresáta (Boba), ne veřejným klíčem odesílatele."
       },
@@ -203,7 +203,7 @@
         "comment": "Slide 26: pomalejší jsou asymetrické algoritmy; symetrickou šifrou se šifrují data."
       },
       {
-        "body": "Symetrická kryptografie se hodí pro autentizaci, protože klíč znají obě strany.",
+        "body": "Symetrická kryptografie se hodí pro autentizaci; klíč znají obě komunikující strany.",
         "right": false,
         "comment": "Slide 26: symetrické algoritmy jsou naopak obtížněji využitelné v situacích vyžadujících autentizaci."
       }
@@ -253,7 +253,7 @@
         "comment": "Slide 30: o 8 bitů delší klíč znamená \\(2^{8} = 256\\)krát více klíčů; 2560 hodin je asi 107 dní (odvozeno z tabulky)."
       },
       {
-        "body": "112bitový klíč: asi 20 hodin, protože má dvakrát více bitů.",
+        "body": "112bitový klíč: asi 20 hodin; má totiž dvakrát více bitů.",
         "right": false,
         "comment": "Slide 30: o 56 bitů delší klíč znamená \\(2^{56}\\)krát více klíčů, ne dvojnásobek; čas roste exponenciálně, ne lineárně."
       },
@@ -318,7 +318,7 @@
         "comment": "Slide 41: CA potvrzuje platnost klíčů, komunikaci uživatelů nešifruje."
       },
       {
-        "body": "Spojení klíče s entitou není kritické, protože matematicky platný podpis lze ověřit i bez něj.",
+        "body": "Spojení klíče s entitou není kritické; matematicky platný podpis lze ověřit i bez něj.",
         "right": false,
         "comment": "Slide 38: spojení veřejného klíče s označením entity je kritické – „S kým komunikuji?“."
       }

@@ -1,340 +1,249 @@
 [
   {
-    "name": "Ktoré stavebné bloky patria v architektúre webovej aplikácie z prednášky do vrstvy „business“ logiky? Vyber všetky správne tvrdenia.",
+    "name": "Webová aplikácia má tieto bloky: Controller, View a Model; UI fasády; služby; Query objekty; repozitáre; ORM. Do ktorej vrstvy patria? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "UI fasády a služby.",
+        "body": "UI fasády, služby a Query objekty patria do vrstvy business logiky, kde sa drží aplikačná logika.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): V bloku Vrstva „business“ logiky sú UI Fasády (F1…Fn) a Služby (S1…Sm)."
+        "comment": "L5, slide 2 (PDF page 2): Fasády, služby aj Query objekty tvoria vrstvu „business“ logiky."
       },
       {
-        "body": "Query objekty.",
+        "body": "Repozitáre, Query a ORM patria do dátovej vrstvy, ktorá sprostredkúva prístup k databáze.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Query objekty patria v diagrame do vrstvy business logiky, pod službami."
+        "comment": "L5, slide 2 (PDF page 2): Repozitáre, Query a ORM sú v dátovej vrstve."
       },
       {
-        "body": "Repozitáre a ORM.",
+        "body": "Query objekty patria do dátovej vrstvy a pracujú priamo s databázovými dotazmi a filtrami.",
         "right": false,
-        "comment": "L5, slide 2 (PDF page 2): Repozitáre, Query a ORM sú v diagrame v dátovej vrstve."
+        "comment": "L5, slide 2 (PDF page 2): Query objekty sú vo vrstve business logiky; v dátovej vrstve ich zostavuje Query."
       },
       {
-        "body": "Controller, View a Model.",
+        "body": "UI fasády patria do prezentačnej vrstvy a Controllery ich volajú v rámci tej istej vrstvy.",
         "right": false,
-        "comment": "L5, slide 2 (PDF page 2): Controller, View a Model tvoria prezentačnú vrstvu (resp. Web API)."
+        "comment": "L5, slide 2 (PDF page 2): Fasády sú vo vrstve business logiky; Controllery sú prezentačná vrstva."
       }
     ],
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
-    "name": "Ako v architektúre webovej aplikácie z prednášky spolupracujú prezentačná, business a dátová vrstva? Vyber všetky správne tvrdenia.",
+    "name": "Controller potrebuje zoznam zákazníkov filtrovaný podľa krajiny a iný Controller vytvára nového zákazníka. Ako spolupracujú vrstvy? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Controllery prezentačnej vrstvy aj Web API volajú UI fasády, fasády volajú služby.",
+        "body": "Controllery (aj Web API) volajú UI fasády a fasády volajú služby.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Šípky vedú z oboch Controllerov do bloku UI Fasády a z fasád F1…Fn na služby S1…Sm."
+        "comment": "L5, slide 2 (PDF page 2): Controllery volajú fasády a fasády volajú služby."
       },
       {
-        "body": "Služby vykonávajú CRUD operácie cez repozitáre a dotazy cez Query objekty, ktoré zostavujú Query v dátovej vrstve.",
+        "body": "Služby získavajú dáta cez Query objekty a menia ich cez CRUD operácie repozitárov.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Šípka „CRUD operácie“ vedie do Repozitárov, šípka „dotazy“ do Query objektov, tie „zostavujú“ Query."
+        "comment": "L5, slide 2 (PDF page 2): Dotazy idú cez Query objekty, CRUD operácie cez repozitáre."
       },
       {
-        "body": "View komunikuje priamo s ORM a obchádza fasády aj služby.",
-        "right": false,
-        "comment": "L5, slide 2 (PDF page 2): Z prezentačnej vrstvy vedú šípky len do UI fasád; s ORM pracujú Repozitáre a Query."
+        "body": "Controller s View aj Web API Controller môžu využívať tie isté UI fasády.",
+        "right": true,
+        "comment": "L5, slide 2 (PDF page 2): Obe vetvy prezentačnej vrstvy (View aj Web API) volajú UI fasády."
       },
       {
-        "body": "Query objekty posielajú SQL priamo do databázy bez ORM.",
+        "body": "Controller volá priamo repozitár, aby sa vynechala fasáda aj služba a dotazy boli rýchlejšie.",
         "right": false,
-        "comment": "L5, slide 2 (PDF page 2): Query objekty zostavujú Query, tá ide cez ORM a až ORM posiela SQL do databázy."
+        "comment": "L5, slide 2 (PDF page 2): Prezentačná vrstva komunikuje s UI fasádami, nie s repozitármi."
+      },
+      {
+        "body": "Query objekt pošle SQL priamo databáze a ORM sa pri tom nepoužije.",
+        "right": false,
+        "comment": "L5, slide 2 (PDF page 2): Query objekty zostavujú Query v dátovej vrstve a SQL do databázy posiela ORM."
       }
     ],
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
-    "name": "Čo platí v architektúre webovej aplikácie z prednášky o Unit of Work a o komunikácii s databázou? Vyber všetky správne tvrdenia.",
+    "name": "Kde sa v architektúre z prednášky stretávajú SQL a Commit? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Unit of Work zastrešuje bloky vrstvy business logiky aj dátovej vrstvy, nie iba jednu z nich.",
+        "body": "SQL do databázy posiela ORM v dátovej vrstve.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Prerušovaný rámec „Unit of Work“ obopína fasády, služby, Query objekty, repozitáre, Query aj ORM."
+        "comment": "L5, slide 2 (PDF page 2): ORM posiela SQL do databázy."
       },
       {
-        "body": "Unit of Work potvrdzuje zmeny do databázy cez Commit; SQL posiela do databázy ORM.",
+        "body": "Unit of Work obopína fasády, služby, Query objekty, repozitáre, Query aj ORM a potvrdí zmeny do databázy cez Commit.",
         "right": true,
-        "comment": "L5, slide 2 (PDF page 2): Šípka ORM → Databáza je označená SQL, prerušovaná šípka z rámca Unit of Work je označená Commit."
+        "comment": "L5, slide 2 (PDF page 2): Unit of Work zastrešuje business aj dátovú vrstvu a zmeny potvrdzuje Commitom."
       },
       {
-        "body": "Unit of Work je súčasťou prezentačnej vrstvy medzi Controllerom a View.",
+        "body": "Unit of Work patrí do prezentačnej vrstvy medzi Controller a View a potvrdzuje, čo sa zobrazí.",
         "right": false,
-        "comment": "L5, slide 2 (PDF page 2): Rámec Unit of Work nezahŕňa prezentačnú vrstvu ani Web API."
+        "comment": "L5, slide 2 (PDF page 2): Unit of Work zastrešuje business a dátovú vrstvu, nie prezentačnú."
       },
       {
         "body": "Commit posiela View používateľovi spolu s HTML.",
         "right": false,
-        "comment": "L5, slide 2 (PDF page 2): View vracia používateľovi HTML; Commit smeruje do databázy."
+        "comment": "L5, slide 2 (PDF page 2): View vracia HTML používateľovi; Commit smeruje do databázy."
       }
     ],
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
-    "name": "Čo je DTO a načo slúži? Vyber všetky správne tvrdenia.",
+    "name": "Entita Customer má heslo (hash) a interné príznaky. Zoznam zákazníkov potrebuje meno a e-mail a formulár úpravy iné polia. Prečo použiť DTO a ako sa vzťahujú k entitám? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Data Transfer Object – trieda reprezentujúca dáta, ktoré sa prenášajú medzi dvoma vrstvami aplikácie.",
+        "body": "Vrstva nad Business Layer nemusí závisieť od entít, lebo komunikuje cez DTO.",
         "right": true,
-        "comment": "L5, slide 5 (PDF page 5): Presne takto slide DTO definuje."
+        "comment": "L5, slide 5 (PDF page 5): DTO pomáha vrstve nad Business Layer nebyť závislá od entít."
       },
       {
-        "body": "Pomáha vrstve nad Business Layer nebyť závislou na entitách.",
+        "body": "Typicky jeden DTO zodpovedá jednému use casu, takže jedna entita sa mapuje na viac DTO (napr. zoznam a editácia).",
         "right": true,
-        "comment": "L5, slide 5 (PDF page 5): Slide uvádza túto nezávislosť ako prínos DTO."
+        "comment": "L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7): Jeden DTO = jeden use case; jedna entita na viac DTOčiek."
       },
       {
-        "body": "Trieda, ktorá sleduje zmeny entít a na konci transakcie volá Commit.",
+        "body": "Entita má jedno univerzálne DTO s rovnakými vlastnosťami pre zoznam, detail aj editáciu.",
         "right": false,
-        "comment": "L5, slide 5 (PDF page 5): Toto nie je definícia DTO; DTO len prenáša dáta medzi vrstvami."
+        "comment": "L5, slide 5 (PDF page 5): DTO sa viaže na use case, preto ich je na entitu typicky viac."
       },
       {
-        "body": "Návrhový vzor, ktorý reprezentuje dotaz nad dátami v databáze.",
+        "body": "DTO sleduje zmeny entity a na konci transakcie ich potvrdí do databázy.",
         "right": false,
-        "comment": "L5, slide 5 (PDF page 5): Takto je na slide 9 definovaný Query Object, nie DTO."
+        "comment": "L5, slide 5 (PDF page 5): To je úloha Unit of Work; DTO iba prenáša dáta medzi vrstvami."
       }
     ],
-    "source": "L5, slide 5 (PDF page 5)"
+    "source": "L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7)"
   },
   {
-    "name": "Aký je typický vzťah medzi DTO, use casmi a entitami? Vyber všetky správne tvrdenia.",
+    "name": "Ako sa DTO používajú a mapujú medzi prezentačnou vrstvou a entitami pri CRUD operáciách? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Typicky jeden DTO zodpovedá jednému use casu.",
+        "body": "Mapovanie ide oboma smermi: z entity do DTO pri čítaní a z DTO do entity pri Create a Update.",
         "right": true,
-        "comment": "L5, slide 5 (PDF page 5): „Typicky jeden DTO = jeden use case.“"
+        "comment": "L5, slide 7 (PDF page 7): Mapovanie DTO ←→ Entita ide oboma smermi; slide 8: Create a Update ponúkajú DTO, Retrieve DTO vracia."
       },
       {
-        "body": "Typicky sa jedna entita mapuje na viacero DTO.",
+        "body": "Pri Create a Update prezentačná vrstva ponúkne DTO a pri Retrieve DTO dostane.",
         "right": true,
-        "comment": "L5, slide 7 (PDF page 7): „Typicky sa mapuje jedna entita na viacero DTOčiek.“"
+        "comment": "L5, slide 8 (PDF page 8): Create a Update ponúkajú DTO, Retrieve DTO dostane."
       },
       {
-        "body": "Každá entita má vždy práve jedno DTO s rovnakými vlastnosťami.",
-        "right": false,
-        "comment": "L5, slides 5 a 7 (PDF pages 5, 7): DTO sa viaže na use case, takže jedna entita má typicky viacero DTO."
+        "body": "Pri Delete sa DTO s dátami entity nepoužíva.",
+        "right": true,
+        "comment": "L5, slide 8 (PDF page 8): Delete – DTO nepotrebujeme."
       },
       {
-        "body": "Jedno DTO má typicky pokryť všetky use casy aplikácie.",
+        "body": "Mapovanie ide iba z entity do DTO; opačný smer netreba, prezentačná vrstva dáta neposiela.",
         "right": false,
-        "comment": "L5, slide 5 (PDF page 5): Slide uvádza opak – jeden DTO na jeden use case."
+        "comment": "L5, slide 8 (PDF page 8): Pri Create a Update prezentačná vrstva DTO odosiela, takže treba aj mapovanie DTO na entitu."
+      },
+      {
+        "body": "Pri Update pracuje prezentačná vrstva priamo s entitou a DTO sa nepoužije.",
+        "right": false,
+        "comment": "L5, slide 8 (PDF page 8): Aj pri Update prezentačná vrstva ponúka DTO."
       }
     ],
-    "source": "L5, slides 5, 7 (PDF pages 5, 7)"
+    "source": "L5, slides 7-8 (PDF pages 7-8)"
   },
   {
-    "name": "Čo platí o mapovaní v business vrstve? Vyber všetky správne tvrdenia.",
+    "name": "Obrazovka „produkty“ má filter podľa cenového rozpätia, zoradenie podľa názvu a stránkovanie; rovnaký dotaz používa aj export. Čo prináša Query Object? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Prebieha oboma smermi: DTO ↔ Entita.",
+        "body": "Každý dotaz je na jednom mieste: transparentný, bez duplicity a ľahko upraviteľný.",
         "right": true,
-        "comment": "L5, slide 7 (PDF page 7): Slide uvádza obojsmernú šípku DTO ←→ Entita."
+        "comment": "L5, slide 10 (PDF page 10): Výhody Query Objectov."
       },
       {
-        "body": "Uľahčuje písanie kódu.",
+        "body": "ExecuteQuery podľa FilterDto vráti QueryResultDto s kolekciou DTO nájdených entít.",
         "right": true,
-        "comment": "L5, slide 7 (PDF page 7): Prvý bod slidu o mapovaní."
+        "comment": "L5, slide 9 (PDF page 9): FilterDto je vstup, QueryResultDto je výsledok s DTO entít."
       },
       {
-        "body": "Prekladá Query objekty priamo na SQL príkazy.",
+        "body": "Výsledok sa vracia ako kolekcia entít priamo prezentačnej vrstve, bez použitia DTO.",
         "right": false,
-        "comment": "L5, slide 7 (PDF page 7): Mapovanie je medzi DTO a entitou; SQL vzniká podľa diagramu (slide 2) až v ORM."
+        "comment": "L5, slide 9 (PDF page 9): Výsledkom je QueryResultDto s DTO entít."
       },
       {
-        "body": "Je možné len smerom z entity na DTO, opačný smer sa nepoužíva.",
+        "body": "Každý controller zostaví vlastný dotaz, aby ostal blízko miestu, kde sa výsledok použije.",
         "right": false,
-        "comment": "L5, slides 7–8 (PDF pages 7–8): Šípka je obojsmerná a pri Create/Update prezentačná vrstva DTO ponúka."
+        "comment": "L5, slide 10 (PDF page 10): Výhodou je naopak jedno miesto dotazov bez duplicity."
       }
     ],
-    "source": "L5, slide 7 (PDF page 7)"
+    "source": "L5, slide 9 (PDF page 9), L5, slide 10 (PDF page 10)"
   },
   {
-    "name": "Ako sa DTO používajú pri jednotlivých CRUD operáciách? Vyber všetky správne tvrdenia.",
+    "name": "OrderService má 40 metód: vytvára objednávky, spravuje sklad, formátuje faktúry a posiela e-maily. Čo z toho vyplýva pre dekompozíciu do služieb? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Pri Create a Update prezentačná vrstva DTO ponúkne.",
+        "body": "Porušuje Single responsibility; logiku treba rozdeliť s vysokou súdržnosťou a nízkou previazanosťou.",
         "right": true,
-        "comment": "L5, slide 8 (PDF page 8): Create aj Update – prezentačná vrstva ponúkne DTO."
+        "comment": "L5, slide 11 (PDF page 11): Dekompozícia má vychádzať zo Single responsibility, High Cohesion & Low Coupling."
       },
       {
-        "body": "Pri Delete DTO nepotrebujeme.",
+        "body": "Služba obsahuje súvisiacu logiku; členenie podľa entity často sedí, no nie je vždy ideálne.",
         "right": true,
-        "comment": "L5, slide 8 (PDF page 8): „Delete – DTO nepotrebujeme.“"
+        "comment": "L5, slide 11 (PDF page 11): Služba = trieda so súvisiacou logikou; členenie podľa entity nie je vždy ideálne."
       },
       {
-        "body": "Pri Retrieve prezentačná vrstva DTO ponúkne a naspäť dostane entitu.",
+        "body": "Ideálne je mať jednu službu na každú entitu; tak vzniká najvyššia súdržnosť v aplikácii.",
         "right": false,
-        "comment": "L5, slide 8 (PDF page 8): Pri Retrieve prezentačná vrstva DTO dostane."
+        "comment": "L5, slide 11 (PDF page 11): Slide upozorňuje, že členenie podľa entity nie je vždy ideálne."
       },
       {
-        "body": "Pri Update prezentačná vrstva pracuje priamo s entitou, DTO sa nepoužije.",
+        "body": "Cieľom dekompozície je vysoká previazanosť služieb, aby si navzájom ľahko volali metódy medzi sebou.",
         "right": false,
-        "comment": "L5, slide 8 (PDF page 8): Aj pri Update prezentačná vrstva ponúkne DTO."
-      }
-    ],
-    "source": "L5, slide 8 (PDF page 8)"
-  },
-  {
-    "name": "Čo je Query Object a ako vykonáva dotaz? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Je to návrhový vzor, ktorý reprezentuje dotaz nad dátami v databáze.",
-        "right": true,
-        "comment": "L5, slide 9 (PDF page 9): Definícia zo slidu."
-      },
-      {
-        "body": "Dotaz vykoná pomocou ExecuteQuery, ktorá podľa zadaného FilterDto získa dáta do QueryResultDto.",
-        "right": true,
-        "comment": "L5, slide 9 (PDF page 9): Slide menuje ExecuteQuery, FilterDto aj QueryResultDto."
-      },
-      {
-        "body": "Je to jednoduché rozhranie pre prezentačnú vrstvu, ktoré kombinuje viacero služieb.",
-        "right": false,
-        "comment": "L5, slide 9 (PDF page 9): Toto je popis fasády (slide 12), nie Query Objectu."
-      },
-      {
-        "body": "Výsledok vracia ako kolekciu entít priamo prezentačnej vrstve, bez DTO.",
-        "right": false,
-        "comment": "L5, slide 9 (PDF page 9): Výsledkom je QueryResultDto s kolekciou DTO entít."
-      }
-    ],
-    "source": "L5, slide 9 (PDF page 9)"
-  },
-  {
-    "name": "Čo obsahujú FilterDto a QueryResultDto pri Query Objecte? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "FilterDto – napríklad paging, sorting a špecifické filtrovanie podľa vlastností entity.",
-        "right": true,
-        "comment": "L5, slide 9 (PDF page 9): Presne tieto príklady slide uvádza pri FilterDto."
-      },
-      {
-        "body": "QueryResultDto – DTO na QueryResult; obsahuje kolekciu DTO entít, ktoré dotaz vrátil.",
-        "right": true,
-        "comment": "L5, slide 9 (PDF page 9): Popis QueryResultDto zo slidu."
-      },
-      {
-        "body": "FilterDto – kolekciu DTO entít, ktoré dotaz vrátil.",
-        "right": false,
-        "comment": "L5, slide 9 (PDF page 9): Vrátené DTO nesie QueryResultDto; FilterDto je vstup dotazu."
-      },
-      {
-        "body": "QueryResultDto – nastavenie pagingu a sortingu, podľa ktorého sa má dotaz vykonať.",
-        "right": false,
-        "comment": "L5, slide 9 (PDF page 9): Paging a sorting sú príklady obsahu FilterDto, teda zadania dotazu."
-      }
-    ],
-    "source": "L5, slide 9 (PDF page 9)"
-  },
-  {
-    "name": "Aké výhody Query Objectov uvádza prednáška? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "Dotazy sú na jednom mieste a sú transparentné.",
-        "right": true,
-        "comment": "L5, slide 10 (PDF page 10): Prvé dva body zoznamu výhod."
-      },
-      {
-        "body": "Odstránenie duplicitného kódu a jednoduchšia úprava dotazov.",
-        "right": true,
-        "comment": "L5, slide 10 (PDF page 10): Tretí a štvrtý bod zoznamu výhod."
-      },
-      {
-        "body": "Prezentačná vrstva môže písať SQL priamo, bez business vrstvy.",
-        "right": false,
-        "comment": "L5, slide 10 (PDF page 10): Takáto výhoda na slide nie je; Query objekty patria do business vrstvy (slide 2)."
-      },
-      {
-        "body": "Dotazy sú rozptýlené po jednotlivých controlleroch, takže sa menia nezávisle.",
-        "right": false,
-        "comment": "L5, slide 10 (PDF page 10): Výhodou je naopak to, že dotazy sú na jednom mieste."
-      }
-    ],
-    "source": "L5, slide 10 (PDF page 10)"
-  },
-  {
-    "name": "Ako prednáška charakterizuje služby (Services) a ich dekompozíciu? Vyber všetky správne tvrdenia.",
-    "answers": [
-      {
-        "body": "V kontexte predmetu je služba trieda, ktorá obsahuje súvisiacu aplikačnú logiku.",
-        "right": true,
-        "comment": "L5, slide 11 (PDF page 11): Definícia služby zo slidu."
-      },
-      {
-        "body": "Logika sa má do služieb dekomponovať okrem iného podľa Single responsibility princípu – High Cohesion & Low Coupling.",
-        "right": true,
-        "comment": "L5, slide 11 (PDF page 11): Slide menuje SRP aj High Cohesion & Low Coupling."
-      },
-      {
-        "body": "Služba musí vždy obsahovať operácie práve nad jednou konkrétnou entitou, čo je vždy ideálne riešenie.",
-        "right": false,
-        "comment": "L5, slide 11 (PDF page 11): Operácie nad konkrétnou entitou sú časté, ale slide výslovne hovorí, že to nie je vždy ideálne."
-      },
-      {
-        "body": "Cieľom dekompozície je nízka kohézia a vysoká previazanosť služieb.",
-        "right": false,
-        "comment": "L5, slide 11 (PDF page 11): Slide uvádza opak – High Cohesion & Low Coupling."
+        "comment": "L5, slide 11 (PDF page 11): Cieľom je Low Coupling."
       }
     ],
     "source": "L5, slide 11 (PDF page 11)"
   },
   {
-    "name": "Čo platí o fasádach (Façades)? Vyber všetky správne tvrdenia.",
+    "name": "Obrazovka „dokončiť objednávku“ potrebuje OrderService, StockService a PaymentService. Čo ponúkne fasáda? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Poskytujú jednoduché rozhranie pre prezentačnú vrstvu.",
+        "body": "Jednoduché rozhranie pre prezentačnú vrstvu, ktoré kombinuje funkcionalitu viacerých služieb.",
         "right": true,
-        "comment": "L5, slide 12 (PDF page 12): Prvý bod slidu o fasádach."
+        "comment": "L5, slide 12 (PDF page 12): Fasáda poskytuje jednoduché rozhranie a typicky kombinuje služby."
       },
       {
-        "body": "Typicky kombinujú funkcionalitu viacerých služieb.",
+        "body": "Fasád je zásadne menej než služieb, lebo jedna fasáda obslúži viac služieb.",
         "right": true,
-        "comment": "L5, slide 12 (PDF page 12): Druhý bod slidu; aj v diagrame (slide 2) jedna fasáda volá viac služieb."
+        "comment": "L5, slide 12 (PDF page 12): Počet fasád je zásadne menší než počet služieb."
       },
       {
-        "body": "Počet fasád je zásadne menší než počet služieb.",
+        "body": "Fasáda nemá vlastnú databázovú logiku; deleguje na služby.",
         "right": true,
-        "comment": "L5, slide 12 (PDF page 12): Tretí bod slidu."
+        "comment": "L5, slide 2 (PDF page 2): Fasády volajú služby, ktoré cez Query objekty a repozitáre pristupujú k dátam."
       },
       {
-        "body": "Každá služba má typicky vlastnú fasádu, takže fasád je rovnako veľa ako služieb.",
+        "body": "Fasáda pristupuje k repozitárom priamo, aby sa vynechali služby.",
         "right": false,
-        "comment": "L5, slide 12 (PDF page 12): Fasád je zásadne menej než služieb."
+        "comment": "L5, slide 2 (PDF page 2): Fasády volajú služby; CRUD cez repozitáre vykonávajú služby."
+      },
+      {
+        "body": "Fasáda potvrdzuje zmeny do databázy cez Commit.",
+        "right": false,
+        "comment": "L5, slide 2 (PDF page 2): Commit patrí Unit of Work, ktorý obopína business aj dátovú vrstvu."
       }
     ],
     "source": "L5, slide 12 (PDF page 12)"
   },
   {
-    "name": "Popíš architektúru webovej aplikácie z prednášky: cestu požiadavky od používateľa cez prezentačnú vrstvu (alebo Web API), vrstvu business logiky a dátovú vrstvu až po databázu. Uveď stavebné bloky každej vrstvy, kto koho volá, čo sa vracia používateľovi a kde je Unit of Work.",
-    "answer": "Používateľ posiela požiadavku buď na Controller prezentačnej vrstvy, alebo na Controller Web API. V prezentačnej vrstve Controller napĺňa Model a vyberá View; Model predáva dáta View a View vracia používateľovi HTML. Controller Web API napĺňa Model a vracia HttpStatusCode + JSON / XML. Oba Controllery volajú vrstvu „business“ logiky cez UI fasády (F1…Fn). Fasády volajú služby (S1…Sm), pričom jedna fasáda typicky využíva viac služieb. Služby vykonávajú CRUD operácie cez repozitáre a dotazy cez Query objekty, ktoré zostavujú Query. Repozitáre a Query patria spolu s ORM do dátovej vrstvy; ORM komunikuje s databázou pomocou SQL. Unit of Work zastrešuje fasády, služby, Query objekty, repozitáre, Query a ORM (v diagrame je to rámec okolo nich) a vedie z neho do databázy Commit.",
+    "name": "Používateľ otvorí stránku zákazníkov s filtrom „krajina = SK“ (druhá strana, 20 záznamov) a potom upraví e-mail jedného zákazníka. Popíš pre obe požiadavky, cez ktoré bloky prejdú (Controller, fasáda, služba, Query objekt, repozitár, Unit of Work, ORM, databáza), aké DTO sa prenášajú a kde prebieha mapovanie.",
+    "answer": "<B>Zobrazenie zoznamu (Retrieve):</B> Controller prezentačnej vrstvy (alebo Web API) vytvorí FilterDto (krajina SK, strana 2, veľkosť 20, zoradenie) a zavolá UI fasádu. Fasáda použije službu, tá cez Query objekt zavolá ExecuteQuery. Query objekt zostaví Query v dátovej vrstve, ORM ju preloží na SQL a načíta entity z databázy. Entity sa namapujú na DTO a prezentačná vrstva dostane QueryResultDto s kolekciou DTO zákazníkov. Controller naplní Model a View vykreslí HTML (resp. Web API vráti status a JSON/XML).<BR><B>Úprava e-mailu (Update):</B> Prezentačná vrstva odošle DTO s upraveným e-mailom do fasády a služby; DTO sa namapuje na entitu a služba zmenu vykoná cez repozitár (CRUD). Zmeny sleduje Unit of Work a pri Commit ich ORM pošle do databázy ako SQL.<BR>Prezentačná vrstva tak pracuje len s DTO, nie s entitami.",
     "keyPoints": [
-      "Prezentačná vrstva: Controller napĺňa Model, vyberá View; View vracia HTML",
-      "Web API: Controller vracia HttpStatusCode + JSON / XML",
-      "Controllery volajú UI fasády, fasády volajú služby",
-      "Služby: CRUD operácie cez repozitáre, dotazy cez Query objekty, ktoré zostavujú Query",
-      "Dátová vrstva: Repozitáre, Query, ORM; ORM posiela SQL do databázy",
-      "Rámec Unit of Work zahŕňa fasády, služby, Query objekty, repozitáre, Query a ORM; vedie z neho Commit do databázy"
+      "Zoznam: FilterDto → fasáda → služba → Query objekt → Query → ORM → databáza",
+      "Návrat: entity sa mapujú na DTO, výsledok je QueryResultDto",
+      "Update: DTO sa odošle a namapuje na entitu, zmenu vykoná repozitár",
+      "Unit of Work sleduje zmeny a pri Commit ich ORM zapíše do databázy ako SQL",
+      "Prezentačná vrstva pracuje len s DTO"
     ],
-    "source": "L5, slide 2 (PDF page 2)"
+    "source": "L5, slide 2 (PDF page 2), L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7)–L5, slide 9 (PDF page 9)"
   },
   {
-    "name": "Vysvetli, ako sa v business vrstve rozdeľujú zodpovednosti medzi DTO a mapovanie, Query Objecty, služby a fasády. Pri každom pojme uveď, čo to je a prečo sa používa.",
-    "answer": "DTO (Data Transfer Object) je trieda reprezentujúca dáta prenášané medzi dvoma vrstvami aplikácie; vďaka nej vrstva nad Business Layer nie je závislá na entitách a typicky platí jeden DTO = jeden use case. Mapovanie prevádza DTO ↔ entitu, uľahčuje písanie kódu a typicky sa jedna entita mapuje na viacero DTO. Pri CRUD prezentačná vrstva pri Create a Update DTO ponúkne, pri Retrieve DTO dostane a pri Delete DTO netreba. Query Object je návrhový vzor reprezentujúci dotaz nad dátami v databáze: ExecuteQuery podľa FilterDto (paging, sorting, filtrovanie podľa vlastností entity) získa dáta do QueryResultDto, ktoré obsahuje kolekciu vrátených DTO. Výhody: dotazy sú na jednom mieste, sú transparentné, odstráni sa duplicitný kód a dotazy sa ľahšie upravujú. Služba je trieda so súvisiacou aplikačnou logikou; často obsahuje operácie nad konkrétnou entitou, čo však nie je vždy ideálne, a logika sa má dekomponovať podľa Single responsibility princípu (High Cohesion & Low Coupling). Fasády poskytujú jednoduché rozhranie pre prezentačnú vrstvu, typicky kombinujú funkcionalitu viacerých služieb a je ich zásadne menej než služieb.",
+    "name": "E-shop potrebuje obrazovku „dokončiť objednávku“, ktorá využíva OrderService, StockService a PaymentService, a stránku „história objednávok“ s filtrom a stránkovaním. Navrhni business vrstvu: aké služby, fasády a Query objekty vytvoríš, aké DTO a mapovanie použiješ a čo odôvodníš princípmi z prednášky (Single responsibility, High Cohesion, Low Coupling).",
+    "answer": "<B>Služby:</B> OrderService (objednávky), StockService (sklad), PaymentService (platby); každá drží súvisiacu logiku, majú jednu zodpovednosť, vysokú súdržnosť a nízku previazanosť, takže sa nemiešajú napr. platby so skladom.<BR><B>Fasáda:</B> jedna fasáda „CheckoutFacade“ s metódou „dokončiť objednávku“ kombinuje tri služby; prezentačná vrstva vidí jednoduché rozhranie a fasád je menej než služieb.<BR><B>Query objekt:</B> OrderHistoryQuery s FilterDto (zákazník, dátum, strana, zoradenie) a výsledkom QueryResultDto s DTO objednávok; dotaz je na jednom mieste, transparentný a bez duplicitného kódu, takže sa mení pohodlne.<BR><B>DTO a mapovanie:</B> samostatné DTO pre každý use case (napr. CheckoutDto, OrderListItemDto, OrderDetailDto), aby prezentačná vrstva nezávisela od entít; mapovanie DTO ↔ entita ide oboma smermi a jedna entita Order má viac DTO.",
     "keyPoints": [
-      "DTO: dáta prenášané medzi vrstvami, nezávislosť od entít, jeden DTO = jeden use case",
-      "Mapovanie DTO ↔ entita; jedna entita na viacero DTO",
-      "CRUD: Create/Update DTO ponúkne, Retrieve DTO dostane, Delete bez DTO",
-      "Query Object: ExecuteQuery, FilterDto → QueryResultDto; dotazy na jednom mieste, bez duplicít",
-      "Služby: súvisiaca aplikačná logika, SRP, High Cohesion & Low Coupling",
-      "Fasády: jednoduché rozhranie pre prezentačnú vrstvu, kombinujú služby, je ich menej"
+      "Tri služby s jednou zodpovednosťou, vysoká súdržnosť, nízka previazanosť",
+      "Jedna fasáda skladá služby pre obrazovku; fasád je menej než služieb",
+      "Query objekt s FilterDto a QueryResultDto pre históriu objednávok",
+      "DTO podľa use casov; jedna entita má viac DTO",
+      "Mapovanie oboma smermi, prezentačná vrstva nezávisí od entít"
     ],
-    "source": "L5, slides 5, 7–12 (PDF pages 5, 7–12)"
+    "source": "L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7), L5, slide 9 (PDF page 9)–L5, slide 12 (PDF page 12); názvy tried sú ilustračné"
   }
 ]

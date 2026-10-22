@@ -1,214 +1,504 @@
 [
   {
-    "name": "Which statements correctly distinguish a UML class diagram from a UML object diagram, taking the Composite pattern (Component, Leaf, Composite) as the example?",
+    "name": "Two UML diagrams describe the Composite pattern. Diagram X has boxes Component, Leaf and Composite with operations and generalization arrows. Diagram Y has underlined boxes :Client, two :Composite and six :Leaf, connected by plain lines. Which statements are correct?",
     "answers": [
-      { "body": "A diagram showing Component, Leaf and Composite with operations and inheritance describes classes.", "right": true, "comment": "Slide 5: The left diagram describes class definitions, operations and generalization relationships." },
-      { "body": "A diagram showing underlined labels such as :Leaf and :Composite describes object instances and their links.", "right": true, "comment": "Slide 5: The right diagram is an object diagram; the colon notation and underlined instance labels distinguish it from the class diagram." },
-      { "body": "A class diagram must show one box for every object currently in memory.", "right": false, "comment": "Slide 5: The class diagram describes types; the object diagram shows particular instances, including several instances of the same class." },
-      { "body": "Textual UML cannot serve as a shared artifact between a human designer and an LLM.", "right": false, "comment": "Slide 4: Textual UML such as PlantUML or Mermaid can be read by both humans and LLMs and can serve as a shared model." }
+      {
+        "body": "Diagram X is a class diagram: it describes types, their operations and inheritance.",
+        "right": true,
+        "comment": "L1, slide 5: Class boxes with operations and generalization arrows define types, which is what a class diagram shows."
+      },
+      {
+        "body": "Diagram Y is an object diagram: underlined labels with a colon name instances, and the lines are links between them.",
+        "right": true,
+        "comment": "L1, slide 5: The underlined \"name : Class\" notation marks instances, so the right-hand diagram is an object diagram."
+      },
+      {
+        "body": "An object diagram may show several instances of the same class, such as six :Leaf boxes.",
+        "right": true,
+        "comment": "L1, slides 5–6: The object diagram contains six :Leaf and two :Composite instances, because one class can have any number of objects."
+      },
+      {
+        "body": "A class diagram contains one box per object that exists at run time.",
+        "right": false,
+        "comment": "L1, slide 5: A class diagram describes each type once; individual run-time objects belong in an object diagram."
+      },
+      {
+        "body": "Generalization arrows between instance boxes are the usual way to show inheritance in an object diagram.",
+        "right": false,
+        "comment": "L1, slide 5: Inheritance is a relationship between classes; instances are connected only by links, so it is shown in the class diagram."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 4–5"
+    "source": "01-OO-Fundamentals.pdf, slides 4–6"
   },
   {
-    "name": "In the Composite example, Leaf and Composite inherit from Component and a Composite stores children typed as Component. Which objects can be its children?",
+    "name": "In a Composite pattern, Leaf and Composite inherit from the abstract class Component, and Composite has an association <TT>children</TT> typed as Component. A Client calls Component operations. Which objects can a Composite hold as children?",
     "answers": [
-      { "body": "A Leaf instance.", "right": true, "comment": "Slide 6: Leaf is a subtype of Component, so a Component-typed child reference can refer to a Leaf." },
-      { "body": "Another Composite instance.", "right": true, "comment": "Slide 6: Composite is also a subtype of Component; the object diagram explicitly shows a nested Composite among the children." },
-      { "body": "A Client instance merely because it invokes Component operations.", "right": false, "comment": "Slide 6: Client depends on Component but is not shown as its subtype. Using a Component does not make Client a valid Component-typed child." },
-      { "body": "Only direct Component instances, because inheritance does not affect references.", "right": false, "comment": "Slide 6: The object diagram contains Leaf and Composite children; the shared Component type enables these different child types." }
+      {
+        "body": "A Leaf instance, since a Component-typed reference accepts any Component subtype.",
+        "right": true,
+        "comment": "L1, slide 6: Leaf is a subtype of Component, so a Component-typed child reference can point to a Leaf."
+      },
+      {
+        "body": "Another Composite instance, which may itself hold further children.",
+        "right": true,
+        "comment": "L1, slide 6: Composite is also a Component subtype, so composites can be nested; the object diagram shows a nested :Composite."
+      },
+      {
+        "body": "A Client instance that uses the Component interface.",
+        "right": false,
+        "comment": "L1, slides 5–6: Client only depends on Component; using a type does not make Client a subtype, so it cannot be a child."
+      },
+      {
+        "body": "Only objects whose class is exactly Component, not instances of any of its subclasses.",
+        "right": false,
+        "comment": "L1, slide 6: Subtype objects can be referenced through the supertype; Component is abstract, so the children are in fact Leaf and Composite objects."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 6"
+    "source": "01-OO-Fundamentals.pdf, slides 5–6"
   },
   {
-    "name": "A generated application meets its functional requirements. Which conclusions about its long-term quality follow from the lecture?",
+    "name": "A team let an LLM generate an application, and it passes all functional acceptance tests. Which conclusions about the remaining challenges are justified?",
     "answers": [
-      { "body": "Maintainability still matters when bugs must be fixed or new features introduced.", "right": true, "comment": "Slide 8: Maintainability is the ability to maintain and adapt code for bug fixes and changing feature requirements." },
-      { "body": "Efficiency, security and reliability remain separate demands that must be addressed.", "right": true, "comment": "Slide 8: Quality includes qualitative aspects such as efficiency, security and reliability, beyond delivering required functions." },
-      { "body": "Cheap code generation also makes specification, verification and maintenance nearly free.", "right": false, "comment": "Slide 8: The lecture explicitly distinguishes cheap code production from the remaining difficulty of specifying, verifying and maintaining it." },
-      { "body": "Successful functional execution removes design quality as a bottleneck.", "right": false, "comment": "Slide 8: Design quality remains a bottleneck for both humans and agents, even when producing functional code is easy." }
+      {
+        "body": "Maintainability is still open: the code must be adaptable for bug fixes and new feature requests.",
+        "right": true,
+        "comment": "L1, slide 8: Maintainability, the ability to adapt code for fixes and new requirements, is named as one of the real problems beyond functionality."
+      },
+      {
+        "body": "Qualities such as efficiency, security and reliability still have to be guaranteed separately.",
+        "right": true,
+        "comment": "L1, slide 8: Quality means meeting qualitative demands such as efficiency, security and reliability, which functional tests do not establish."
+      },
+      {
+        "body": "Specifying and verifying the code has also become cheap.",
+        "right": false,
+        "comment": "L1, slide 8: The slide contrasts cheap code production with specification, verification and maintenance, which remain hard."
+      },
+      {
+        "body": "Passing functional tests shows that design quality is no longer a bottleneck for this project.",
+        "right": false,
+        "comment": "L1, slide 8: Design quality is described as the bottleneck now, for agents as much as for humans, regardless of functional success."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 8"
+    "source": "01-OO-Fundamentals.pdf, slide 8"
   },
   {
-    "name": "Why does decomposition help with both system complexity and changing requirements?",
+    "name": "Why does system decomposition help with both system complexity and changing requirements?",
     "answers": [
-      { "body": "Smaller coherent parts are easier to maintain and assess independently.", "right": true, "comment": "Slides 9 and 19: Decomposition applies divide and conquer to complexity and enables independent maintenance and quality assessment." },
-      { "body": "Isolated parts with clear responsibilities and communication protocols help localize changes.", "right": true, "comment": "Slide 9: Clear responsibilities and communication protocols limit how far requirement changes spread." },
-      { "body": "A large LLM context makes decomposition unnecessary because the agent cannot miss information.", "right": false, "comment": "Slide 9: The lecture warns that performance can degrade with growing context and information can be missed; agents also benefit from small contexts." },
-      { "body": "Decomposition guarantees that user requirements stop changing during development.", "right": false, "comment": "Slide 9: Requirements continue to change. Decomposition manages their impact rather than preventing change." }
+      {
+        "body": "Smaller coherent parts can be maintained and their quality assessed independently.",
+        "right": true,
+        "comment": "L1, slides 9 and 19: Decomposition applies \"divide et impera\" so that each part is small enough to maintain and measure on its own."
+      },
+      {
+        "body": "Isolated parts with clear responsibilities and communication protocols keep a change local.",
+        "right": true,
+        "comment": "L1, slide 9: Clear responsibilities and protocols limit how far a requirement change spreads."
+      },
+      {
+        "body": "With a large enough LLM context window, decomposition stops being useful.",
+        "right": false,
+        "comment": "L1, slide 9: LLM performance degrades as context grows and information can be missed, so agents also need small contexts."
+      },
+      {
+        "body": "A well-decomposed system prevents users from changing their requirements during development.",
+        "right": false,
+        "comment": "L1, slide 9: Requirements keep changing; decomposition limits the impact of changes rather than stopping them."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 9 and 19"
+    "source": "01-OO-Fundamentals.pdf, slides 9 and 19"
   },
   {
-    "name": "Which activities belong to process management as presented in the lecture?",
+    "name": "A company introduces AI coding agents. Which of its planned activities belong to process management in the sense of the course?",
     "answers": [
-      { "body": "Defining how development is performed and how team members communicate.", "right": true, "comment": "Slide 11: Process management deals with dynamic development activities, collaboration standards, tactics, methodologies and guidelines." },
-      { "body": "Managing agent instructions, tools and guardrails as part of an AI development harness.", "right": true, "comment": "Slide 11: The AI-era extension of process management includes managing agents and their harness." },
-      { "body": "Replacing all requirements analysis with a final code inspection.", "right": false, "comment": "Slide 11: Pattern-driven requirements analysis and domain modeling are part of the course's process-management scope, not steps to discard." },
-      { "body": "Defining only the static class structure, with no development or collaboration rules.", "right": false, "comment": "Slide 11: Static structure alone does not answer the process questions of how development is done and how people communicate." }
+      {
+        "body": "Agreeing on how development tasks are carried out and how team members communicate.",
+        "right": true,
+        "comment": "L1, slide 11: Process management covers the dynamic \"how to do it\" side and collaboration standards inside teams."
+      },
+      {
+        "body": "Deciding which instructions, tools and guardrails the agents receive, and how they are supervised.",
+        "right": true,
+        "comment": "L1, slide 11: In the AI era, process management includes managing agents and their harness of instructions, tools and guardrails."
+      },
+      {
+        "body": "Choosing the attributes of the Customer class in the domain model of the product.",
+        "right": false,
+        "comment": "L1, slides 11 and 27: Class structure is a matter of system decomposition and modeling, not of how the development process runs."
+      },
+      {
+        "body": "Measuring the response time of the finished product against the agreed performance targets.",
+        "right": false,
+        "comment": "L1, slides 11 and 13: Response time is a product quality attribute handled by quality assurance, not a development-process rule."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 11"
+    "source": "01-OO-Fundamentals.pdf, slide 11"
   },
   {
-    "name": "Which statement matches the lecture's view of software quality from different stakeholder perspectives?",
+    "name": "A stakeholder-based quality model (presented with ISO/IEC 25010) distinguishes the customer's user experience, the developer's code quality and the manager's long-term view. Which statements fit this model?",
     "answers": [
-      { "body": "Customer experience, internal code quality and long-term adjustability are complementary quality perspectives.", "right": true, "comment": "Slide 13: The diagram distinguishes the customer, developer and manager views, including visible behavior, internal engineering quality and long-term maintainability." },
-      { "body": "Quality concerns only the features visible to the customer today.", "right": false, "comment": "Slide 13: The diagram also includes invisible code qualities and a long-term view; ISO/IEC 25010:2023 is introduced as a software quality standard." },
-      { "body": "Maintainability is grouped with immediate user experience rather than the long-term view.", "right": false, "comment": "Slide 13: Maintainability is highlighted in the long-term view and adjustability area." },
-      { "body": "Understandability and testability belong only to external customer behavior.", "right": false, "comment": "Slide 13: Understandability and testability are shown among internal code-quality and engineering concerns." }
+      {
+        "body": "Testability and understandability are developer-facing qualities that the customer does not see.",
+        "right": true,
+        "comment": "L1, slide 13: They are listed under code quality (\"it looks good inside\"), the invisible engineering view."
+      },
+      {
+        "body": "Maintainability belongs to the long-term view: whether the system will still work and adapt next year.",
+        "right": true,
+        "comment": "L1, slide 13: Maintainability is highlighted in the long-term (manager) view, together with adaptability, portability and scalability."
+      },
+      {
+        "body": "If customers see correct and fast behaviour, the internal code quality is thereby also confirmed.",
+        "right": false,
+        "comment": "L1, slide 13: Code quality is invisible to the customer, so good visible behaviour says nothing about it."
+      },
+      {
+        "body": "Security and reliability are internal concerns hidden from the customer.",
+        "right": false,
+        "comment": "L1, slide 13: Security and reliability are listed under user experience, the part of quality the customer sees."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 13"
+    "source": "01-OO-Fundamentals.pdf, slide 13"
   },
   {
-    "name": "What should a designer do when an LLM is asked to satisfy competing quality requirements?",
+    "name": "A designer asks an LLM for a system that is highly secure, very fast and easy to port. What should the designer keep in mind?",
     "answers": [
-      { "body": "Set priorities explicitly because improving one quality may conflict with another.", "right": true, "comment": "Slide 14: Quality attributes can conflict, and an LLM may silently choose a trade-off if the designer does not set priorities." },
-      { "body": "Review security separately from syntactic correctness, including suggested package dependencies.", "right": true, "comment": "Slide 14: The lecture contrasts syntax correctness with security results and warns about nonexistent suggested packages that can be hijacked." },
-      { "body": "Assume that all quality attributes can always be optimized simultaneously.", "right": false, "comment": "Slide 14: The diagram and text explicitly warn that there is no way to optimize all conflicting qualities at once." },
-      { "body": "Treat syntactically valid generated code as sufficient evidence that it is secure and maintainable.", "right": false, "comment": "Slide 14: Syntactic correctness does not establish security or maintainability; analyst and designer judgment remains necessary." }
+      {
+        "body": "Priorities must be set explicitly, otherwise the LLM silently picks a trade-off between conflicting qualities.",
+        "right": true,
+        "comment": "L1, slide 14: LLMs try to satisfy every request, even conflicting ones, and choose a trade-off for you unless you set priorities."
+      },
+      {
+        "body": "Syntactically correct generated code still needs a separate security review, including the suggested packages.",
+        "right": true,
+        "comment": "L1, slide 14: Syntax correctness is much higher than the security pass rate, and suggested packages may not exist and can be hijacked."
+      },
+      {
+        "body": "All quality attributes can be maximised at once if the prompt is detailed enough.",
+        "right": false,
+        "comment": "L1, slide 14: Quality attributes often conflict; there is no way to optimise all of them at once."
+      },
+      {
+        "body": "An LLM reliably delivers maintainable output, so designer judgement is needed only for functional correctness.",
+        "right": false,
+        "comment": "L1, slide 14: LLMs may struggle to deliver maintainable outputs; the insight of an analyst or designer is still required."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 14"
+    "source": "01-OO-Fundamentals.pdf, slide 14"
   },
   {
-    "name": "Which measures improve software quality according to the lecture?",
+    "name": "Which measures improve software quality according to the course?",
     "answers": [
-      { "body": "Standardize processes and development tactics, and perform regular testing and code reviews.", "right": true, "comment": "Slide 15: Standardization, regular automated testing and code reviews are listed as quality-improvement measures." },
-      { "body": "Use suitable patterns to build quality into requirements, class models and component architectures.", "right": true, "comment": "Slides 15–16: Quality by Design uses patterns; the course applies analysis and design patterns, refactoring and component-system evaluation." },
-      { "body": "Let agents choose arbitrary patterns because automated output no longer needs management.", "right": false, "comment": "Slide 15: LLMs can help with quality assurance but must be managed properly, for example by requiring selected patterns." },
-      { "body": "Delay every quality decision until the application has been fully implemented.", "right": false, "comment": "Slides 15–16: Quality by Design and analysis patterns address quality before and during implementation, not only afterward." }
+      {
+        "body": "Standardising processes and development tactics, and running regular (automated) tests and code reviews.",
+        "right": true,
+        "comment": "L1, slide 15: Standardisation, regular automated testing and code reviews are listed as ways to improve quality."
+      },
+      {
+        "body": "Quality by Design: building quality in through selected patterns, for example by requiring AI agents to use them.",
+        "right": true,
+        "comment": "L1, slides 15–16: Patterns are a form of standardisation; forcing agents to use selected patterns is the Quality by Design example."
+      },
+      {
+        "body": "Letting the agents choose patterns freely, with little management or review of their output.",
+        "right": false,
+        "comment": "L1, slide 15: LLMs can help with testing and reviews, but only if they are managed properly."
+      },
+      {
+        "body": "Postponing quality decisions until the application is fully implemented and can be measured as a whole.",
+        "right": false,
+        "comment": "L1, slides 15–16: Analysis and design patterns address quality during requirements and design, before implementation is finished."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 15–16"
+    "source": "01-OO-Fundamentals.pdf, slides 15–16"
   },
   {
-    "name": "Which description matches the lecture's mental model of structured program execution?",
+    "name": "Which description matches the mental model of structured (procedural) program execution?",
     "answers": [
-      { "body": "Procedures are allocated before execution, read or write data segments and call other procedures.", "right": true, "comment": "Slide 18: This is the presented structured-code model, with program and data segments and procedure calls as jumps in code." },
-      { "body": "Every procedure must instantiate a new object to access a data segment.", "right": false, "comment": "Slide 18: Procedures directly read or write data segments; mandatory object instantiation is not part of this model." },
-      { "body": "Data and responsibilities are necessarily encapsulated in dynamically created objects.", "right": false, "comment": "Slides 18 and 22: Distribution among dynamically appearing objects describes the OO mental model, rather than the structured-code model." },
-      { "body": "Calling another procedure changes only the data segment and never transfers control.", "right": false, "comment": "Slide 18: Procedure calls are described as jumps in code, so they do transfer control." }
+      {
+        "body": "Procedures exist in memory before execution, access data segments, and call each other as jumps in code.",
+        "right": true,
+        "comment": "L1, slide 18: This is the structured-code model: fixed procedures, shared data segments and calls as jumps."
+      },
+      {
+        "body": "Each procedure instantiates a new object before it may read or write a data segment.",
+        "right": false,
+        "comment": "L1, slide 18: Procedures access data segments directly; object instantiation belongs to the OO model."
+      },
+      {
+        "body": "Data and responsibilities are distributed among objects that appear and disappear dynamically.",
+        "right": false,
+        "comment": "L1, slides 18 and 22: This describes the object-oriented mental model, not structured code."
+      },
+      {
+        "body": "Calling another procedure changes the data segment but does not transfer control to that procedure.",
+        "right": false,
+        "comment": "L1, slide 18: Procedure calls are jumps in code, so they do transfer control."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 18"
+    "source": "01-OO-Fundamentals.pdf, slides 18 and 22"
   },
   {
-    "name": "What is a central modeling difficulty in structured decomposition?",
+    "name": "What is a central modeling difficulty of structured decomposition?",
     "answers": [
-      { "body": "Separate functional and data models must be elaborated and kept consistent both internally and with each other.", "right": true, "comment": "Slide 20: Structured modeling separates functional artifacts such as data-flow diagrams from data artifacts such as ER diagrams, requiring synchronization within and between models." },
-      { "body": "Functional hierarchies and data clustering remove every relationship between the functional and data models.", "right": false, "comment": "Slide 21: These techniques organize the models, but relationships between them remain complex." },
-      { "body": "An ER diagram alone specifies all functional behavior, so a functional model is redundant.", "right": false, "comment": "Slide 20: ER diagrams belong to the data model; functional requirements and data-flow diagrams are represented separately." },
-      { "body": "Consistency must be checked only within individual diagrams, never across models.", "right": false, "comment": "Slide 20: The slide explicitly identifies both within-model and between-model consistency." }
+      {
+        "body": "Functional models (e.g. DFDs) and data models (e.g. ER diagrams) are separate, so both must be kept consistent within and between each other.",
+        "right": true,
+        "comment": "L1, slide 20: Structured modeling keeps functional and data models apart, so consistency has to be maintained inside and across them."
+      },
+      {
+        "body": "Functional hierarchies and data clustering remove all relationships between the functional and the data model, so they never need syncing.",
+        "right": false,
+        "comment": "L1, slide 21: These techniques organise each model, but the relationships between functional and data models remain too complex."
+      },
+      {
+        "body": "An ER diagram alone captures the functional behaviour, so a separate functional model is redundant.",
+        "right": false,
+        "comment": "L1, slide 20: ER diagrams belong to the data model; functions are captured in context and data-flow diagrams."
+      },
+      {
+        "body": "Consistency needs to be checked only inside each individual diagram; the functional and data models describe different aspects and need not agree.",
+        "right": false,
+        "comment": "L1, slide 20: The slide names both consistency within models and consistency between models."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 20–21"
+    "source": "01-OO-Fundamentals.pdf, slides 20–21"
   },
   {
     "name": "Which statements match the mental model of object-oriented program execution?",
     "answers": [
-      { "body": "Objects cooperate by invoking other objects' methods to respond to an invocation.", "right": true, "comment": "Slide 22: Object cooperation is described as message sending through method calls and waiting for responses." },
-      { "body": "Objects can instantiate other objects, and objects can appear or disappear dynamically in memory.", "right": true, "comment": "Slide 22: The lecture describes dynamic object creation and removal, with data and responsibilities distributed among objects." },
-      { "body": "All object instances must exist before program execution begins.", "right": false, "comment": "Slide 22: Objects can instantiate others and appear or disappear dynamically; the fixed-before-execution description concerns procedures in the structured model." },
-      { "body": "Objects cannot carry responsibilities; they only store data for external procedures.", "right": false, "comment": "Slide 22: Both data and responsibilities are distributed among cooperating objects." }
+      {
+        "body": "Objects cooperate by sending messages: they call other objects' methods and wait for the response.",
+        "right": true,
+        "comment": "L1, slide 22: Objects cooperate to respond to a method invocation by calling methods of other objects."
+      },
+      {
+        "body": "Objects can create other objects, and objects appear in and disappear from memory dynamically.",
+        "right": true,
+        "comment": "L1, slide 22: Objects can instantiate others, and data and responsibilities live in objects that come and go at run time."
+      },
+      {
+        "body": "Objects are allocated before the program starts, just like procedures in structured code.",
+        "right": false,
+        "comment": "L1, slides 18 and 22: Pre-allocation describes procedures in structured code; objects are created dynamically."
+      },
+      {
+        "body": "Objects hold the data, while the responsibilities stay in global procedures that operate on them.",
+        "right": false,
+        "comment": "L1, slide 22: Both data and responsibilities are distributed among the objects."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 22"
+    "source": "01-OO-Fundamentals.pdf, slide 22"
   },
   {
     "name": "What makes an OO decomposition useful for controlling complexity?",
     "answers": [
-      { "body": "It hides tight data-operation dependencies inside encapsulated parts and aims for loose relationships between parts.", "right": true, "comment": "Slide 23: Encapsulation hides internal coupling, while inter-part relationships should be loosely coupled." },
-      { "body": "It can be organized hierarchically at class/object or component/subsystem granularity.", "right": true, "comment": "Slide 23: Hierarchical clustering and different granularities are presented as ways to clarify the decomposition." },
-      { "body": "Its static structure eliminates the need to understand dynamic behavior.", "right": false, "comment": "Slide 23: The slide explicitly emphasizes dynamic behavior behind the static decomposition." },
-      { "body": "It improves clarity by exposing every internal dependency to all other parts.", "right": false, "comment": "Slide 23: Dependencies should be hidden inside parts; the diagram warns against tangled relationships crossing many parts." }
+      {
+        "body": "Tight coupling between data and operations is hidden inside encapsulated parts, while relationships between parts stay loose.",
+        "right": true,
+        "comment": "L1, slide 23: Encapsulation hides the internal data-operation coupling, and inter-part relationships should be loosely coupled."
+      },
+      {
+        "body": "Parts can be clustered hierarchically and exist at different granularities, e.g. classes versus components or subsystems.",
+        "right": true,
+        "comment": "L1, slide 23: Hierarchical clustering and different granularity are presented as ways to clarify the decomposition."
+      },
+      {
+        "body": "Once the static structure is right, dynamic behaviour needs no further attention or separate modelling.",
+        "right": false,
+        "comment": "L1, slide 23: The slide stresses the dynamic behaviour that lies behind the static decomposition."
+      },
+      {
+        "body": "Exposing internal dependencies to the other parts makes the design clearer and easier to change.",
+        "right": false,
+        "comment": "L1, slide 23: Dependencies should stay hidden inside parts; many crossing relationships are the situation to avoid."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 23"
+    "source": "01-OO-Fundamentals.pdf, slide 23"
   },
   {
-    "name": "How should multiple OO models be used during development?",
+    "name": "A team uses several OO models (use case, class, interaction and state machine diagrams) and also AI agents. Which practices does the course recommend?",
     "answers": [
-      { "body": "Select relevant views for the current phase or system part and check consistency within and between them.", "right": true, "comment": "Slide 24: Not all views are always needed, but consistency checking remains necessary for the selected models." },
-      { "body": "Use iterative modeling and development to manage the complex life cycle.", "right": true, "comment": "Slide 24: The class diagram is the main model, and iterative modeling and development help handle life-cycle complexity." },
-      { "body": "Replace visual models with agent constraints and assume that development is no longer being modeled.", "right": false, "comment": "Slide 24: Skills and constraints are another type of modeling and development control, not an absence of models." },
-      { "body": "Allow unrestricted generation because LLMs reliably choose the right level of abstraction on their own.", "right": false, "comment": "Slide 24: Without control, LLMs may choose an overly straightforward solution or over-engineer with unnecessary abstractions and duplicate helpers." }
+      {
+        "body": "Use only the views relevant to the current phase or system part, but check consistency within and between the models used.",
+        "right": true,
+        "comment": "L1, slide 24: Not all models are always used, yet life-cycle management and consistency checking inside and between models remain necessary."
+      },
+      {
+        "body": "Treat agent skills and constraints as another form of modeling that controls development.",
+        "right": true,
+        "comment": "L1, slide 24: Visual models can be replaced by agent skills and constraints, but that is just another type of modeling and control."
+      },
+      {
+        "body": "Treat the state machine diagram as the main model from which all others are derived.",
+        "right": false,
+        "comment": "L1, slide 24: The class diagram is named as the main model, not the state machine diagram."
+      },
+      {
+        "body": "Let the agents generate freely and review only the final result once the whole application runs.",
+        "right": false,
+        "comment": "L1, slide 24: Without control, LLMs take the most straightforward solution or over-engineer with needless abstractions and duplicate helpers."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 24"
+    "source": "01-OO-Fundamentals.pdf, slide 24"
   },
   {
-    "name": "What lesson does the lecture draw from the cited study of proficiency in LLM-assisted 'vibe coding'?",
+    "name": "LLMs now write most of the code. Which conclusions about the skills a software engineer needs does the course draw?",
     "answers": [
-      { "body": "Basic programming knowledge remains valuable even when participants do not write source code themselves.", "right": true, "comment": "Slide 25: In the study summarized on the slide, success in a basic programming course was the dominant predictor of success." },
-      { "body": "Clearly structuring and expressing intent in writing helps users obtain better results.", "right": true, "comment": "Slide 25: Written communication was another important predictor because it affects how intent is conveyed to AI." },
-      { "body": "The study demonstrates that introductory programming courses are useless once LLMs produce the code.", "right": false, "comment": "Slide 25: This is the opposite of the lecture's conclusion from the cited study." },
-      { "body": "The reported predictors guarantee that every skilled programmer will produce a high-quality generated system.", "right": false, "comment": "Slide 25: The slide reports predictors from a study, not a universal guarantee for every person or generated system." }
+      {
+        "body": "Basic programming knowledge stays valuable: in a cited study it was the dominant predictor of success at LLM-assisted \"vibe coding\".",
+        "right": true,
+        "comment": "L1, slide 25: Success in a basic programming course was the dominant predictor, so introductory courses are not useless."
+      },
+      {
+        "body": "Clear written communication of intent matters, because it directly shapes what the AI produces.",
+        "right": true,
+        "comment": "L1, slide 25: Written communication was the second predictor; structuring thoughts in writing affects the generated result."
+      },
+      {
+        "body": "Repository instruction files such as AGENTS.md or CLAUDE.md act as lightweight models that constrain agents.",
+        "right": true,
+        "comment": "L1, slide 26: The slide calls these files essentially lightweight models, part of the comeback of model-driven development."
+      },
+      {
+        "body": "Model-driven development is obsolete now that models are no longer useful for guiding code.",
+        "right": false,
+        "comment": "L1, slide 26: Model-driven development was suppressed by agile, but it is now making a comeback."
+      },
+      {
+        "body": "Higher-level software engineering principles matter less once nobody writes code by hand.",
+        "right": false,
+        "comment": "L1, slide 26: The lecture says the opposite: knowledge of higher-level SE principles becomes even more important."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 25"
+    "source": "01-OO-Fundamentals.pdf, slides 25–26"
   },
   {
-    "name": "Why does the lecture describe repository-level agent instruction files as lightweight models?",
+    "name": "Which pairings of a pattern with its granularity level are correct?",
     "answers": [
-      { "body": "They constrain agents and encode development intent, making higher-level software engineering principles relevant to AI-assisted work.", "right": true, "comment": "Slide 26: AGENTS.md and CLAUDE.md are presented as lightweight models that constrain agents, within a renewed interest in model-driven development." },
-      { "body": "They are automatically executable class diagrams that replace all design judgment.", "right": false, "comment": "Slide 26: The analogy concerns constraints and guidance; the slide does not claim that these files are executable class diagrams or replace engineering judgment." },
-      { "body": "They make architecture unnecessary because well-managed LLMs can rely entirely on quick fixes.", "right": false, "comment": "Slide 26: The illustration favors proper architecture, clean code and maintainability through well-managed AI-assisted engineering." },
-      { "body": "They show that software modeling can only be represented graphically.", "right": false, "comment": "Slide 26: Textual repository instructions are themselves the example of a lightweight model." }
+      {
+        "body": "Extract Method – low-level refactoring pattern.",
+        "right": true,
+        "comment": "L1, slide 32: Extract Method is one of the refactoring examples in the small (low-level) category."
+      },
+      {
+        "body": "Adapter and Composite – middle-level design patterns for class-based models.",
+        "right": true,
+        "comment": "L1, slides 27 and 33: GoF design patterns such as Adapter and Composite are middle-level and target maintainable class models."
+      },
+      {
+        "body": "Accounting and Measurement – high-level architectural patterns for whole systems.",
+        "right": false,
+        "comment": "L1, slides 27 and 33: These are analysis patterns at the middle level, used to capture functional requirements and the domain."
+      },
+      {
+        "body": "Layers and broker – middle-level design patterns inside one class model.",
+        "right": false,
+        "comment": "L1, slide 34: Layers, broker, SOA and peer-to-peer are high-level architectural patterns."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 26"
+    "source": "01-OO-Fundamentals.pdf, slides 27 and 32–34"
   },
   {
-    "name": "Which associations between pattern granularity and design goals are correct?",
+    "name": "Which ideas behind Christopher Alexander's pattern language carry over to software patterns?",
     "answers": [
-      { "body": "Low-level coding and refactoring patterns can improve code structure, for example through Extract Method.", "right": true, "comment": "Slide 32: Coding and refactoring patterns are the small-granularity category, with Extract Method among the examples." },
-      { "body": "Analysis patterns support maintainable functional requirements, while design patterns support class-based models.", "right": true, "comment": "Slides 27 and 33: The course connects analysis patterns with requirements and design patterns with low-level class models; both belong to the middle category in the granularity overview." },
-      { "body": "Architectural patterns address high-level components, interfaces and architecture; layers and peer-to-peer are examples.", "right": true, "comment": "Slides 27 and 34: Architectural patterns are the high-level category, including SOA, peer-to-peer, layers and broker." },
-      { "body": "Adapter and Facade are low-level coding idioms, while Extract Method defines the overall component architecture.", "right": false, "comment": "Slides 32–34: Adapter and Facade are middle-level design patterns; Extract Method is a low-level refactoring pattern." }
+      {
+        "body": "A pattern describes a problem that recurs in a context, together with the core of its solution.",
+        "right": true,
+        "comment": "L1, slide 29: Alexander defines a pattern as the solution of a problem in a given context, for a problem that occurs over and over again."
+      },
+      {
+        "body": "A pattern language documents each pattern's meaning, properties, consequences and relationships, from coarse to fine granularity.",
+        "right": true,
+        "comment": "L1, slide 29: Alexander's 253 patterns are well documented and range from coarse-grained to fine-grained."
+      },
+      {
+        "body": "Reusing a pattern means reproducing the same design in each application.",
+        "right": false,
+        "comment": "L1, slide 29: The core solution can be used a million times without ever doing it the same way twice."
+      },
+      {
+        "body": "Modern LLM and agentic patterns (e.g. RAG, ReAct) are unrelated to classic patterns and need a completely new theory.",
+        "right": false,
+        "comment": "L1, slide 30: The lecture characterises them as largely classic patterns in a new context."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 27 and 32–34"
-  },
-  {
-    "name": "Which properties of Christopher Alexander's pattern language motivate the use of software patterns?",
-    "answers": [
-      { "body": "A pattern describes a recurring problem and the core of a solution in a context.", "right": true, "comment": "Slide 29: Alexander's formulation connects a recurring problem, its context and a reusable core solution." },
-      { "body": "A pattern language documents meanings, properties, consequences and relationships across different granularities.", "right": true, "comment": "Slide 29: Alexander's patterns are described as well documented and ranging from coarse to fine granularity." },
-      { "body": "Reusing a pattern requires producing an identical design every time.", "right": false, "comment": "Slide 29: The same core solution can be reused without applying it in exactly the same way twice." },
-      { "body": "A pattern is only a named example and need not describe a problem, context or consequences.", "right": false, "comment": "Slide 29: The pattern's problem, contextual solution and documented consequences are central to the definition." }
-    ],
-    "source": "01-OO-Fundamentals.pdf, Slide 29"
-  },
-  {
-    "name": "Which statements correctly connect the historical development of patterns with the course's pattern families?",
-    "answers": [
-      { "body": "Beck and Cunningham applied Alexander's ideas to Smalltalk GUI development.", "right": true, "comment": "Slide 30: This is the early application of Alexander's ideas to software described in the lecture." },
-      { "body": "The GoF book concerns reusable OO design patterns, while Fowler's book concerns analysis patterns.", "right": true, "comment": "Slides 16 and 30: Gamma, Helm, Johnson and Vlissides are associated with OO design patterns; Fowler is associated with analysis patterns." },
-      { "body": "Modern agentic patterns are presented as unrelated inventions with no connection to classic patterns.", "right": false, "comment": "Slide 30: The lecture characterizes LLM and agentic patterns as largely classic patterns in a new context." },
-      { "body": "Software patterns originated exclusively as methods for writing prompts to LLMs.", "right": false, "comment": "Slides 29–30: The history begins with Alexander's architectural pattern language and later moves into software, long before modern LLMs." }
-    ],
-    "source": "01-OO-Fundamentals.pdf, Slides 16 and 29–30"
+    "source": "01-OO-Fundamentals.pdf, slides 29–30"
   },
   {
     "name": "What does responsible use of patterns require?",
     "answers": [
-      { "body": "Select patterns for specific goals and consider consequences when combining them.", "right": true, "comment": "Slide 31: Pattern use requires designer judgment because features can conflict and applications can have negative consequences." },
-      { "body": "Use pattern names as shared vocabulary that concisely conveys design intent to people and agents.", "right": true, "comment": "Slide 31: Requests such as using Strategy for pricing rules or Facade for a subsystem compress design intent into a shared vocabulary." },
-      { "body": "Apply every known pattern to each project to maximize quality.", "right": false, "comment": "Slide 31: Real projects typically use only a few selected patterns for particular goals or parts." },
-      { "body": "Follow patterns mechanically because combining them cannot introduce trade-offs.", "right": false, "comment": "Slide 31: The lecture calls pattern application a creative process and warns about contradictory features and negative consequences." }
+      {
+        "body": "Selecting only patterns that serve specific goals, and weighing their consequences when combining them.",
+        "right": true,
+        "comment": "L1, slide 31: Only a few patterns are used for specific goals; combined patterns can conflict and have negative consequences."
+      },
+      {
+        "body": "Using pattern names as a shared vocabulary that compresses design intent for both people and agents.",
+        "right": true,
+        "comment": "L1, slide 31: \"Use a Strategy for pricing rules\" packs a whole design intent into a few words that a model understands."
+      },
+      {
+        "body": "Applying as many known patterns as possible to every project to maximise quality.",
+        "right": false,
+        "comment": "L1, slide 31: Real projects typically use only a few patterns, chosen for particular goals or parts."
+      },
+      {
+        "body": "Following patterns mechanically wherever possible, without weighing the trade-offs of combining them.",
+        "right": false,
+        "comment": "L1, slide 31: Pattern use is a creative process; pattern features can be contradictory."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 31"
+    "source": "01-OO-Fundamentals.pdf, slide 31"
   },
   {
-    "name": "A long method repeats a score-calculation fragment in several places. What does the Extract Method refactoring contribute here?",
+    "name": "Method <TT>foo()</TT> in class Person does too much; the same score calculation also appears in other methods:<PRE>public int foo() {\n    ...\n    int score = a*b + c;\n    score = score * 0.8 / Math.PI;\n    score *= factor;\n    ...\n    return score;\n}</PRE>What does the Extract Method refactoring contribute here?",
     "answers": [
-      { "body": "It moves the calculation into a separate method and lets the original method call it.", "right": true, "comment": "Slide 32: The example extracts the calculation into computeScore and replaces the original fragment with a call." },
-      { "body": "It addresses Long Method and Duplicated Code smells.", "right": true, "comment": "Slide 32: These two bad smells are explicitly listed as problems solved by Extract Method." },
-      { "body": "It primarily introduces a new component architecture such as SOA or layers.", "right": false, "comment": "Slides 32 and 34: Extract Method is low-level refactoring; SOA and layers are high-level architectural patterns." },
-      { "body": "It solves duplication by copying the calculation into every caller.", "right": false, "comment": "Slide 32: The example centralizes the fragment in a callable method instead of duplicating it." }
+      {
+        "body": "It moves the calculation into a new method, e.g. <TT>computeScore(a, b, c, factor)</TT>, and <TT>foo()</TT> calls it.",
+        "right": true,
+        "comment": "L1, slide 32: The example extracts the fragment into computeScore and replaces it with a call."
+      },
+      {
+        "body": "It removes the Long Method and Duplicated Code smells.",
+        "right": true,
+        "comment": "L1, slide 32: These two bad smells are listed as the ones solved by Extract Method."
+      },
+      {
+        "body": "It restructures the system into a component architecture such as layers.",
+        "right": false,
+        "comment": "L1, slides 32 and 34: Extract Method is a low-level refactoring; layers are a high-level architectural pattern."
+      },
+      {
+        "body": "It removes duplication by copying the calculation into each caller.",
+        "right": false,
+        "comment": "L1, slide 32: Copying creates duplication; the refactoring centralises the fragment in one callable method."
+      }
     ],
-    "source": "01-OO-Fundamentals.pdf, Slide 32"
+    "source": "01-OO-Fundamentals.pdf, slides 32 and 34"
   },
   {
-    "name": "Model a nested group of drawable elements using the Composite pattern. Draw a UML class diagram with ModelElement, Atom and GroupElement and an object diagram where an outer group contains one atom and one inner group, and the inner group contains two atoms. Explain how setColor propagates from the outer group.",
-    "answer": "ModelElement defines setColor(Color). Atom and GroupElement inherit from it. GroupElement stores subElements typed as ModelElement and provides child-management operations such as add, remove and get. The object diagram contains five instances: an outer GroupElement, an inner GroupElement and three Atoms. The outer group links to one Atom and the inner GroupElement; the inner group links to the remaining two Atoms. Calling setColor on a GroupElement applies setColor to all its children. Since a child can itself be a GroupElement, the operation reaches the three leaf Atoms recursively. Use class definitions in the class diagram and underlined instance labels such as outer:GroupElement in the object diagram.",
+    "name": "A class model is given in textual UML (PlantUML):<PRE>class Depot { name: String }\nclass Driver { name: String }\nclass Vehicle { number: String }\nDepot \"1\" -- \"0..*\" Driver : employs\nDepot \"1\" -- \"0..*\" Vehicle : houses</PRE>(a) Write an object diagram (drawn or textual) for: Depot North employs drivers Novák and Svoboda and houses tram 7021; Depot South has no drivers and no vehicles. (b) Explain how your diagram differs from the class diagram. (c) Would a Driver object with no link to any Depot be a valid instance of this model? Why?",
+    "answer": "<B>(a) Object diagram.</B> Instances use underlined \"name : Class\" labels and concrete attribute values; links are plain lines without multiplicities:<PRE>object \"north : Depot\" as north\nnorth : name = \"North\"\nobject \"south : Depot\" as south\nsouth : name = \"South\"\nobject \"novak : Driver\" as novak\nnovak : name = \"Novák\"\nobject \"svoboda : Driver\" as svoboda\nsvoboda : name = \"Svoboda\"\nobject \"t7021 : Vehicle\" as t7021\nt7021 : number = \"7021\"\nnorth -- novak\nnorth -- svoboda\nnorth -- t7021</PRE><B>(b) Difference.</B> The class diagram describes types once, with attribute types and multiplicities (1, 0..*). The object diagram shows one particular situation: two Depot objects, two Driver objects and one Vehicle object, with attribute values and links. One class can have many objects (two Depots), and a class can have zero links in a given situation (Depot South), which 0..* allows.<BR><B>(c) Validity.</B> No. The multiplicity 1 at the Depot end of <I>employs</I> requires every Driver to be linked to exactly one Depot. A Driver without a depot violates the model; if the domain needs such drivers, the multiplicity must become 0..1.<BR>A textual notation like this can be read by both people and LLMs, so it can serve as a shared model.",
     "keyPoints": [
-      "ModelElement is the common superclass of Atom and GroupElement and supplies the shared setColor operation.",
-      "GroupElement's children are typed as ModelElement, so both Atom and nested GroupElement instances can be children.",
-      "The object diagram has two group instances and three atom instances with exactly the parent-child links stated in the task.",
-      "GroupElement delegates setColor to every child; nested delegation reaches all leaf Atoms.",
-      "The class diagram describes types and inheritance; the object diagram describes particular instances and links."
+      "Object diagram uses instance labels \"name : Class\", attribute values and links without multiplicities.",
+      "Shows two Depot objects, two Driver objects and one Vehicle with exactly the stated links.",
+      "Explains that a class diagram describes types and multiplicities, an object diagram one concrete situation.",
+      "Notes that Depot South with no links is valid because of 0..*.",
+      "Rejects a Driver without a Depot because of multiplicity 1, and names 0..1 as the fix if needed."
     ],
-    "source": "01-OO-Fundamentals.pdf, Slides 5–6 and 33"
+    "source": "01-OO-Fundamentals.pdf, slides 4–5 (textual UML as a shared artifact; class versus object diagram). The depot/driver model is a constructed exercise in the course's transport domain, not taken from a slide."
+  },
+  {
+    "name": "Read an object diagram given as text. Class model: abstract ModelElement with setColor(Color); Atom and GroupElement inherit from it; GroupElement has association <TT>subElements</TT> to ModelElement with multiplicity 1..* at the ModelElement end. Instances and links:<PRE>g1 : GroupElement  --subElements-->  a1 : Atom\ng1 : GroupElement  --subElements-->  g2 : GroupElement\ng2 : GroupElement  --subElements-->  a2 : Atom\ng2 : GroupElement  --subElements-->  a3 : Atom\na3 : Atom          --subElements-->  a4 : Atom\ng3 : GroupElement  (no links)</PRE>(a) How many objects of each class are there? (b) Which link or object violates the class model, and why? (c) After removing the illegal link, which Atoms receive setColor when it is called on g1?",
+    "answer": "<B>(a) Counts.</B> GroupElement: g1, g2, g3 (3 objects). Atom: a1, a2, a3, a4 (4 objects). No object of ModelElement itself exists, because it is abstract; each object belongs to one concrete class.<BR><B>(b) Violations.</B><BR>• The link a3 → a4 is illegal: subElements is defined only on GroupElement, so an Atom has no children.<BR>• g3 violates the multiplicity 1..*: every GroupElement must contain at least one sub-element.<BR>The links g1 → a1, g1 → g2, g2 → a2 and g2 → a3 are legal, because a subElements link can point to any ModelElement subtype, including a nested GroupElement.<BR><B>(c) Propagation.</B> GroupElement.setColor applies setColor to all children. From g1 the call reaches a1 and g2, and g2 forwards it to a2 and a3. So a1, a2 and a3 get the colour. a4 and g3 are not reachable from g1 (and need fixing anyway).",
+    "keyPoints": [
+      "Counts objects per concrete class: 3 GroupElement, 4 Atom, none of the abstract ModelElement.",
+      "Identifies a3 → a4 as illegal because only GroupElement has subElements.",
+      "Identifies empty g3 as violating the 1..* multiplicity.",
+      "Accepts nested GroupElement children because links may point to any ModelElement subtype.",
+      "Traces setColor from g1 to a1, a2 and a3 via g2."
+    ],
+    "source": "01-OO-Fundamentals.pdf, slides 5–6 and 33 (class and object diagrams; ModelElement/Atom/GroupElement with subElements 1..* and \"setColor() is applied to all children\"). The instance set is a constructed reading exercise, not copied from a slide."
   }
 ]

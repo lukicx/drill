@@ -1,613 +1,646 @@
 [
   {
-    "name": "A Context class must support two versions of an algorithm. Two simple options are a parameter (compute(strategy)) or separate methods (computeWithStrategyA(), computeWithStrategyB()). A third option makes Context abstract with subclasses ContextImplA and ContextImplB. Which statements are correct?",
+    "name": "A <TT>Context</TT> class must support two versions of an algorithm. Two simple options are a parameter (<TT>compute(strategy)</TT>) or separate methods (<TT>computeWithStrategyA()</TT>, <TT>computeWithStrategyB()</TT>). A third option makes Context abstract with subclasses <TT>ContextImplA</TT> and <TT>ContextImplB</TT>. Which statements are correct?",
     "answers": [
       {
-        "body": "With the first two options, clients are responsible for choosing the strategy – which is a feature, not necessarily a drawback.",
+        "body": "With a parameter or separate methods, clients choose the strategy, which is a feature, but a new strategy means changing the existing class.",
         "right": true,
-        "comment": "L6, slide 3"
-      },
-      {
-        "body": "With the first two options, implementing a new strategy requires changing the existing class, which violates the open-closed principle.",
-        "right": true,
-        "comment": "L6, slide 3"
+        "comment": "L6, slide 3: The choice by clients is not a drawback, but extending the class violates the open-closed principle."
       },
       {
         "body": "Subclassing the context tackles the open-closed issue, but changing the behavior requires redirecting all clients to a new instance.",
         "right": true,
-        "comment": "L6, slide 4"
+        "comment": "L6, slide 4: Inheritance helps with extension, but an existing context object cannot change its subclass."
       },
       {
-        "body": "Subclassing the context lets one existing context object switch its behavior at run-time without affecting clients.",
+        "body": "With a parameter or separate methods, a new strategy can be added without touching Context, so the open-closed principle holds.",
+        "right": false,
+        "comment": "L6, slide 3: Implementing a new strategy requires changes in the existing class."
+      },
+      {
+        "body": "Subclassing the context lets one existing context object switch its behavior at run time without affecting clients.",
         "right": false,
         "comment": "L6, slide 4: The clients would have to be redirected to the instance of the other subclass."
+      },
+      {
+        "body": "With a parameter, the context itself decides which strategy runs, so clients take no part in the choice.",
+        "right": false,
+        "comment": "L6, slide 3: The clients are responsible for choosing the strategy by passing the parameter."
       }
-    ],
-    "source": "L6, slides 3-4"
+    ]
   },
   {
     "name": "Which statements about the structure and collaboration of the Strategy pattern are correct?",
     "answers": [
       {
-        "body": "Context aggregates exactly one Strategy and calls its algorithmInterface() from contextInterface().",
+        "body": "Context aggregates exactly one Strategy and calls its <TT>algorithmInterface()</TT> from <TT>contextInterface()</TT>.",
         "right": true,
-        "comment": "L6, slide 5"
+        "comment": "L6, slide 5: The context delegates the algorithm to the strategy object it holds; the concrete strategies implement the common interface."
       },
       {
-        "body": "ConcreteStrategyA and ConcreteStrategyB implement the common Strategy interface.",
+        "body": "A client that understands the strategies can pass one to the context (<TT>setStrategy</TT>); another client just calls <TT>contextInterface()</TT>.",
         "right": true,
-        "comment": "L6, slide 5"
+        "comment": "L6, slides 5-6: The client that understands the strategies can differ from the client calling the context."
       },
       {
-        "body": "A client can create a strategy object and pass it to the context (setStrategy), while another client just calls contextInterface().",
-        "right": true,
-        "comment": "L6, slides 5-6: the client that understands the strategies can differ from the client calling the context."
-      },
-      {
-        "body": "A text-editor window (context) with exchangeable line-breaking algorithms (strategies) is a typical use.",
-        "right": true,
-        "comment": "L6, slide 5"
-      },
-      {
-        "body": "Each concrete strategy holds a reference to the context and replaces itself by another strategy when appropriate.",
+        "body": "Context is abstract, with subclasses <TT>ContextImplA</TT> and <TT>ContextImplB</TT> that override <TT>contextInterface()</TT> for each algorithm.",
         "right": false,
-        "comment": "L6, slide 18: That describes State; strategies do not store the context and do not replace themselves."
+        "comment": "L6, slide 4: That is the alternative of subclassing the context, which Strategy replaces."
+      },
+      {
+        "body": "Context inherits from Strategy, so it switches algorithms by changing its own class at run time.",
+        "right": false,
+        "comment": "L6, slide 5: The context holds a strategy object; changing the algorithm means exchanging that object."
+      },
+      {
+        "body": "Each ConcreteStrategy declares its own interface; every algorithm needs different operations.",
+        "right": false,
+        "comment": "L6, slide 5: The concrete strategies implement the common Strategy interface, so the context can use them interchangeably."
       }
-    ],
-    "source": "L6, slides 5-6, 18"
+    ]
   },
   {
     "name": "Which are applicability conditions or consequences of the Strategy pattern?",
     "answers": [
       {
-        "body": "Many related classes differ only in their behavior, or different variants of an algorithm are needed.",
+        "body": "A class with many conditional behaviors can move each branch into its own Strategy class and drop the switch-case.",
         "right": true,
-        "comment": "L6, slide 6"
+        "comment": "L6, slide 6: Strategies eliminate conditional statements."
       },
       {
-        "body": "A class has many behaviors that appear as multiple conditional statements; each branch can move into its own Strategy class, eliminating switch-case.",
+        "body": "The Strategy interface can become more complex, since the strategy has only limited access to the context state.",
         "right": true,
-        "comment": "L6, slide 6"
+        "comment": "L6, slide 6: The strategy should be independent of the context, which costs some communication (overhead)."
       },
       {
-        "body": "It is an alternative to subclassing the context itself and defines families of related algorithms.",
-        "right": true,
-        "comment": "L6, slide 6"
-      },
-      {
-        "body": "Communication overhead: the Strategy interface can be more complex because the strategy has limited access to the context's internal state.",
-        "right": true,
-        "comment": "L6, slide 6"
-      },
-      {
-        "body": "It decreases the number of objects in the system.",
+        "body": "Strategy decreases the number of objects in the system. An algorithm no longer needs an object of its own.",
         "right": false,
-        "comment": "L6, slide 6: It increases the number of objects (a feature rather than a drawback)."
+        "comment": "L6, slide 6: It increases the number of objects, which is a feature rather than a drawback."
+      },
+      {
+        "body": "Strategies may read all internal fields of the context freely, so Strategy adds no communication overhead.",
+        "right": false,
+        "comment": "L6, slide 6: The strategy has limited access to the context state, which causes the overhead."
+      },
+      {
+        "body": "Strategy makes clients simpler. Clients no longer need to know how the individual strategies differ.",
+        "right": false,
+        "comment": "L6, slide 6: A client that understands how strategies differ is still needed, though it can differ from the client calling the context."
       }
-    ],
-    "source": "L6, slide 6"
+    ]
   },
   {
-    "name": "Atoms of a molecule “shake”: their positions differ in each frame of a simulation. Two storage approaches exist: all positions in memory (array), or a buffer holding only a moving window of frames loaded from a file on demand. Initially they are modeled as subclasses HugeMemAtom and BufferedAtom of Atom. When is refactoring to the Strategy pattern (Atom with an AtomPositionStrategy: AllInMemStrategy or BufferedStrategy) worth it, and why?",
+    "name": "Atoms of a molecule \"shake\": their positions differ in each frame of a simulation. Two storage approaches exist: all positions in memory (an array), or a buffer holding only a window of frames loaded from a file on demand. Initially they are subclasses <TT>HugeMemAtom</TT> and <TT>BufferedAtom</TT> of <TT>Atom</TT>. Refactoring to Strategy (Atom with an <TT>AtomPositionStrategy</TT>: <TT>AllInMemStrategy</TT> or <TT>BufferedStrategy</TT>) is considered. Which statements are correct?",
     "answers": [
       {
-        "body": "Refactoring pays off only if the storage strategy should change at run-time, during an atom's lifetime; if it never changes, the Strategy pattern is useless here.",
+        "body": "Refactoring pays off only if the storage strategy should change during an atom's lifetime; if it never changes, Strategy is useless here.",
         "right": true,
-        "comment": "L6, slide 9"
+        "comment": "L6, slide 9: The design decision depends on whether the strategy changes during the atom's lifetime."
       },
       {
-        "body": "With subclasses, changing the storage means replacing the atom instance, which affects the residue holding it and anybody else who traversed the tree and holds a reference.",
+        "body": "With Strategy, each atom can have its own storage strategy and change it at run time while clients keep the same Atom object.",
         "right": true,
-        "comment": "L6, slide 9"
+        "comment": "L6, slides 10, 41: The strategy can differ for individual atoms and can change at run time."
       },
       {
-        "body": "With Strategy, the strategy can be changed at run-time and can differ for individual atoms, while clients keep the same Atom object.",
-        "right": true,
-        "comment": "L6, slides 10, 41"
-      },
-      {
-        "body": "One reason to consider a Strategy-based decomposition at all: distributing responsibilities between Atom and strategy classes increases maintainability when Atom is a complex class.",
-        "right": true,
-        "comment": "L6, slide 8"
-      },
-      {
-        "body": "Strategy is required whenever two subclasses implement the same interface, regardless of whether behavior ever changes.",
+        "body": "Strategy is needed whenever two storage variants exist, even if an atom never switches its storage during its lifetime.",
         "right": false,
-        "comment": "L6, slide 9: If the strategy never changes during the lifetime, Strategy is useless."
+        "comment": "L6, slide 9: If the strategy never changes during the lifetime, the Strategy pattern is useless."
+      },
+      {
+        "body": "HugeMemAtom and BufferedAtom cannot share the signature <TT>getPosition(frame)</TT>, so only a strategy hierarchy can unify them.",
+        "right": false,
+        "comment": "L6, slide 8: Both subclasses already implement the common getPosition(frame) interface of Atom."
+      },
+      {
+        "body": "With Strategy, all atoms of a residue have to share one storage strategy object, which keeps the memory use low.",
+        "right": false,
+        "comment": "L6, slide 10: Every atom can have its own strategy."
       }
-    ],
-    "source": "L6, slides 8-10"
+    ]
   },
   {
     "name": "Which statements about the State pattern are correct?",
     "answers": [
       {
-        "body": "Context delegates state-specific requests to the current ConcreteState object.",
+        "body": "The Context delegates every state-specific request to the current ConcreteState and may pass itself as an argument, so the state can use the context.",
         "right": true,
-        "comment": "L6, slide 14"
-      },
-      {
-        "body": "A Context may pass itself as an argument to the State object, so the state can access the context if necessary.",
-        "right": true,
-        "comment": "L6, slide 14"
+        "comment": "L6, slide 14: The context is the primary interface and hands requests to its state object."
       },
       {
         "body": "Either the Context or the ConcreteState subclasses can decide which state succeeds another and under what circumstances.",
         "right": true,
-        "comment": "L6, slide 14"
+        "comment": "L6, slide 14: Both variants of controlling transitions are allowed."
       },
       {
-        "body": "It localizes state-specific behavior, makes state transitions explicit and state objects can be shared.",
-        "right": true,
-        "comment": "L6, slide 15"
-      },
-      {
-        "body": "Once configured, clients must call the State objects directly instead of the Context.",
+        "body": "After the initial configuration, clients have to call the State objects directly and bypass the Context.",
         "right": false,
-        "comment": "L6, slide 14: Context is the primary interface; clients do not have to deal with State objects directly."
+        "comment": "L6, slide 14: The Context is the primary interface; clients do not deal with State objects directly."
+      },
+      {
+        "body": "State transitions stay implicit, hidden inside one large conditional of the Context, which is the main benefit of the pattern.",
+        "right": false,
+        "comment": "L6, slide 15: State makes transitions explicit and removes large multipart conditionals."
+      },
+      {
+        "body": "State objects can never be shared between contexts. Each one stores the data of exactly one context.",
+        "right": false,
+        "comment": "L6, slide 15: State objects can be shared (see the Flyweight pattern)."
       }
-    ],
-    "source": "L6, slides 13-15"
+    ]
   },
   {
-    "name": "A Printer has the operation print(Document) and behaves differently when it is Ready, Printing or OutOfToner. Which design follows the State pattern?",
+    "name": "A <TT>Printer</TT> has the operation <TT>print(Document)</TT> and behaves differently when it is Ready, Printing or OutOfToner. Which statements about a design following the State pattern are correct?",
     "answers": [
       {
-        "body": "Printer holds a state reference to a PrinterState interface with handle(Document); Ready, Printing and OutOfToner implement it and Printer.print() calls state.handle(document).",
+        "body": "Printer holds a <TT>PrinterState</TT> reference; <TT>Ready</TT>, <TT>Printing</TT> and <TT>OutOfToner</TT> implement <TT>handle(Document)</TT> and <TT>print()</TT> delegates to the current state.",
         "right": true,
-        "comment": "L6, slides 13-14"
+        "comment": "L6, slides 13-14: The context delegates state-specific requests to the current state object."
       },
       {
-        "body": "Printer.print() contains one large switch over a status attribute with a branch for each situation.",
+        "body": "The transition, for example from Printing to OutOfToner, can be decided by the Printer or by any of the state objects themselves.",
+        "right": true,
+        "comment": "L6, slide 14: Either the context or the state subclasses decide the successor state."
+      },
+      {
+        "body": "<TT>Printer.print()</TT> contains one large switch over a status attribute with a branch for Ready, Printing and OutOfToner, each handled inline.",
         "right": false,
         "comment": "L6, slide 15: Large multipart conditionals depending on state are exactly what State replaces."
       },
       {
-        "body": "Clients create a new Printer subclass instance (ReadyPrinter, PrintingPrinter…) whenever the status changes and redirect all references to it.",
+        "body": "Clients create a new Printer subclass instance (ReadyPrinter, PrintingPrinter, ...) whenever the status changes and redirect their references to it.",
         "right": false,
         "comment": "L6, slides 4, 14: Replacing instances forces clients to be redirected; State keeps one Context object."
       },
       {
-        "body": "Each document object stores the printer status and decides how it will be printed.",
+        "body": "Each Document object stores the printer status and decides by itself how it will be printed on the printer.",
         "right": false,
-        "comment": "L6, slide 14: State-specific behavior belongs to the state objects delegated to by the Context."
+        "comment": "L6, slide 14: State-specific behavior belongs to the state objects that the Context delegates to."
       }
-    ],
-    "source": "L6, slides 13-15"
+    ]
   },
   {
     "name": "How does the State pattern differ from the Strategy pattern?",
     "answers": [
       {
-        "body": "States can store a reference to the context object that contains them; strategies do not.",
+        "body": "A state may keep a reference to its context and replace itself by another state, which a strategy never does.",
         "right": true,
-        "comment": "L6, slide 18"
+        "comment": "L6, slide 18: States can store the context and change the context's state; strategies do not."
       },
       {
-        "body": "States may replace themselves (change the context's state), while strategies may not.",
+        "body": "A strategy handles one specific task, whereas states provide the implementation for almost everything the context does.",
         "right": true,
-        "comment": "L6, slide 18"
+        "comment": "L6, slide 18: This is the difference in scope of responsibility."
       },
       {
-        "body": "Strategies are passed to the context as parameters, while states are created by the context object itself.",
-        "right": true,
-        "comment": "L6, slide 18"
-      },
-      {
-        "body": "A strategy handles a single, specific task, while states provide the implementation for (almost) everything the context does.",
-        "right": true,
-        "comment": "L6, slide 18"
-      },
-      {
-        "body": "Their class diagrams look completely different, so they are easy to tell apart visually.",
+        "body": "Strategies are created by the context itself, while states are passed to the context by clients as parameters.",
         "right": false,
-        "comment": "L6, slide 13: State is visually similar to Strategy and has a similar purpose."
+        "comment": "L6, slide 18: It is the other way round: strategies come in as parameters, states are created by the context."
+      },
+      {
+        "body": "Their class diagrams differ clearly, so the two patterns can be told apart visually without knowing their purpose.",
+        "right": false,
+        "comment": "L6, slides 13, 7: State is visually similar to Strategy and has a similar purpose."
+      },
+      {
+        "body": "A strategy changes the strategy of its context when its task is finished, just as a state changes the state.",
+        "right": false,
+        "comment": "L6, slide 18: Strategies are not allowed to replace themselves; states are."
       }
-    ],
-    "source": "L6, slides 13, 18"
+    ]
   },
   {
-    "name": "In the shaking-molecule model, atom position storage could switch between all-in-memory and buffered depending on whether enough memory is available. Why is State not chosen, even though there are clear states driving the behavior?",
+    "name": "In the shaking-molecule model, the storage of atom positions could switch between all-in-memory and buffered depending on available memory. There are clear states (enough memory, running out of memory) driving the behavior. Which statements about the decision between State and Strategy are correct?",
     "answers": [
       {
-        "body": "The state-change logic would have to sit in every single atom, which wastes memory.",
+        "body": "The state-change logic would have to live in every single atom, which wastes memory for the many atoms of a molecule.",
         "right": true,
-        "comment": "L6, slide 16"
+        "comment": "L6, slide 16: Putting the transition logic in each atom is a waste of memory."
       },
       {
         "body": "Decentralized knowledge does not work: an atom would switch its storage only when it is called, which can be too late.",
         "right": true,
-        "comment": "L6, slide 16"
+        "comment": "L6, slide 16: The storage must change before the atom is asked for its position."
       },
       {
-        "body": "Strategy combined with a centralized memory manager that switches the atoms' strategies is the clear choice.",
-        "right": true,
-        "comment": "L6, slide 16"
+        "body": "State is the better choice. Every atom needs its own memory check to decide when to switch its storage.",
+        "right": false,
+        "comment": "L6, slide 16: A per-atom check is exactly what is rejected; a centralized memory manager switches the strategies."
       },
       {
-        "body": "Because State cannot be used when an object has only two states.",
+        "body": "State cannot be used when an object has only two states, so a Strategy with two variants is the only option.",
         "right": false,
         "comment": "L6, slide 16: The reason is where the state-change logic lives, not the number of states."
       }
-    ],
-    "source": "L6, slide 16"
+    ]
   },
   {
-    "name": "Which statements about the Adapter pattern and its two variants are correct?",
+    "name": "Which statements about the Adapter pattern are correct?",
     "answers": [
       {
-        "body": "Adapter (also known as wrapper) integrates an existing external class by converting its interface into the interface our abstraction expects.",
+        "body": "An adapter (wrapper) integrates an existing external class by converting its interface into the one our abstraction expects.",
         "right": true,
-        "comment": "L6, slide 20"
+        "comment": "L6, slide 20: It converts the interface to a compatible form, like a power plug adapter."
       },
       {
-        "body": "A class adapter adapts request() by multiple inheritance: it inherits from Target and (as implementation) from Adaptee.",
+        "body": "An object adapter implements <TT>request()</TT> by re-sending it to an associated adaptee object, e.g. <TT>adaptee.specificRequest()</TT>.",
         "right": true,
-        "comment": "L6, slide 21"
+        "comment": "L6, slide 22: Object adapter adapts by re-sending to the associated adaptee."
       },
       {
-        "body": "An object adapter implements request() by re-sending it to an associated adaptee object (adaptee->specificRequest()).",
-        "right": true,
-        "comment": "L6, slide 22"
-      },
-      {
-        "body": "Adapter is meant to add new responsibilities to an object while keeping its interface unchanged.",
+        "body": "An adapter adds new responsibilities to an object while keeping its interface unchanged, so clients are unaffected.",
         "right": false,
-        "comment": "L6, slide 38: That is Decorator; an adapter gives an object a completely new interface."
+        "comment": "L6, slide 38: That describes Decorator; an adapter gives an object a completely new interface."
+      },
+      {
+        "body": "An adapter hides a complex subsystem behind a simplified, aggregated interface so that clients call fewer operations.",
+        "right": false,
+        "comment": "L5, slide 12: That describes Facade; an adapter converts one interface into another and does not simplify a subsystem."
+      },
+      {
+        "body": "A class adapter implements <TT>request()</TT> by re-sending it to a separate adaptee object, whereas an object adapter inherits from the adaptee.",
+        "right": false,
+        "comment": "L6, slides 21-22: It is the other way round: class adapter uses multiple inheritance, object adapter uses association."
       }
-    ],
-    "source": "L6, slides 20-22, 38"
+    ]
   },
   {
-    "name": "Our drawing code uses an interface Shape with display(x, y, w, h), where (x, y) is the top-left corner, w the width and h the height. A legacy class LegacyRectangle offers show(x1, y1, x2, y2) taking two opposite corners. We write an object adapter Rectangle implements Shape that holds a LegacyRectangle. How should Rectangle.display(x, y, w, h) be implemented?",
+    "name": "<PRE>interface Shape { void display(int x, int y, int w, int h); }  // (x, y) top-left corner, w width, h height\nclass LegacyRectangle { void show(int x1, int y1, int x2, int y2) { ... } }  // two opposite corners</PRE>Drawing code uses <TT>Shape</TT>. The class <TT>LegacyRectangle</TT> may not be changed. We write an object adapter <TT>Rectangle implements Shape</TT>. Which statements are correct?",
     "answers": [
       {
-        "body": "legacy.show(x, y, x + w, y + h)",
+        "body": "<TT>display(x, y, w, h)</TT> calls <TT>legacy.show(x, y, x + w, y + h)</TT>: the adapter converts width and height into the opposite corner and re-sends the request.",
         "right": true,
-        "comment": "L6, slides 20, 22: The object adapter converts the interface and re-sends the request to the adaptee; the corner arithmetic (x + w, y + h) is the obvious conversion, not slide text."
+        "comment": "L6, slides 20, 22: Interface conversion plus re-sending to the adaptee; the corner arithmetic is derived, not slide text."
       },
       {
-        "body": "legacy.show(x, y, w, h)",
-        "right": false,
-        "comment": "show expects the second corner, not the width and height."
+        "body": "<TT>Rectangle</TT> holds a <TT>LegacyRectangle</TT> as an attribute, so clients always keep using <TT>Shape</TT> and the legacy class stays unchanged.",
+        "right": true,
+        "comment": "L6, slide 22: An object adapter refers to the adaptee and implements the target interface."
       },
       {
-        "body": "Change LegacyRectangle.show() so that it accepts (x, y, w, h).",
+        "body": "<TT>display(x, y, w, h)</TT> calls <TT>legacy.show(x, y, w, h)</TT>. Both operations take four numbers in the same order.",
         "right": false,
-        "comment": "L6, slides 20, 23: Adapter is used precisely when an existing class's interface does not match and we integrate it without changing it."
+        "comment": "L6, slides 20, 22: show() expects the second corner, not the width and height, so the call would draw a wrong rectangle."
       },
       {
-        "body": "Make Shape inherit from LegacyRectangle.",
+        "body": "Change <TT>LegacyRectangle.show()</TT> so that it accepts (x, y, w, h) and the adapter becomes unnecessary. Adapters are for classes we may modify.",
         "right": false,
-        "comment": "L6, slide 22: Our abstraction stays as it is; the adapter bridges to the adaptee."
+        "comment": "L6, slides 20, 23: An adapter is used exactly when an existing class does not match and we integrate it without changing it."
+      },
+      {
+        "body": "Make <TT>Shape</TT> inherit from <TT>LegacyRectangle</TT>, so every shape gets <TT>show()</TT> and the adapter is obsolete.",
+        "right": false,
+        "comment": "L6, slide 22: Our abstraction stays as it is; the adapter bridges to the adaptee instead."
       }
-    ],
-    "source": "L6, slides 20-23"
+    ]
   },
   {
     "name": "Compare the class adapter and the object adapter. Which statements are correct?",
     "answers": [
       {
-        "body": "A class adapter commits to a concrete Adaptee class, so it does not work when we want to adapt a class and all its subclasses.",
+        "body": "One object adapter works with the Adaptee and all its subclasses, whereas a class adapter commits to one concrete Adaptee class.",
         "right": true,
-        "comment": "L6, slide 24"
+        "comment": "L6, slides 23-25: The class adapter does not work when a class and all its subclasses are to be adapted."
       },
       {
-        "body": "A class adapter can override some of the Adaptee's behavior, because it is a subclass of the Adaptee.",
+        "body": "A class adapter is a subclass of the Adaptee, so it can override some of the Adaptee's behavior.",
         "right": true,
-        "comment": "L6, slide 24"
+        "comment": "L6, slide 24: This possibility is much more limited in an object adapter."
       },
       {
-        "body": "A class adapter introduces only one object, with no extra pointer indirection to the adaptee.",
-        "right": true,
-        "comment": "L6, slide 24"
-      },
-      {
-        "body": "One object adapter can work with the Adaptee and all its subclasses, but overriding Adaptee behavior requires subclassing the Adaptee and referring to that subclass.",
-        "right": true,
-        "comment": "L6, slides 23, 25"
-      },
-      {
-        "body": "Only a class adapter can adapt several existing subclasses through the interface of their parent class.",
+        "body": "A class adapter needs two objects and an extra pointer indirection to reach the adaptee, unlike an object adapter.",
         "right": false,
-        "comment": "L6, slide 23: That is applicability of the object adapter only."
+        "comment": "L6, slide 24: A class adapter introduces only one object and needs no additional pointer indirection."
+      },
+      {
+        "body": "Overriding the Adaptee's behavior is easiest with an object adapter.",
+        "right": false,
+        "comment": "L6, slide 25: It is harder with an object adapter; it requires subclassing the Adaptee and referring to that subclass."
+      },
+      {
+        "body": "Only a class adapter can adapt several existing subclasses at once through the interface of their common parent class.",
+        "right": false,
+        "comment": "L6, slide 23: That is the applicability of the object adapter only."
       }
-    ],
-    "source": "L6, slides 23-25"
+    ]
   },
   {
-    "name": "Each TV model must currently be programmed for each kind of remote controller (push-button, touch), so every new TV model or controller multiplies the classes. Which statements describe the Bridge solution?",
+    "name": "Each TV model is programmed for each kind of remote controller (push-button, touch), so every new TV model or controller multiplies the classes. Which statements describe the Bridge solution?",
     "answers": [
       {
-        "body": "Separate the abstraction (remote controller with a generic interface: switch to channel X, next channel, volume up) from the implementation (TV with its remote-control interface).",
+        "body": "The remote controller (abstraction) holds a reference <TT>imp</TT> to the TV (implementor) and delegates <TT>operation()</TT> to <TT>imp.operationImp()</TT>.",
         "right": true,
-        "comment": "L6, slides 28-29"
+        "comment": "L6, slides 28-29: The abstraction is separated from the implementation and linked by a reference."
       },
       {
-        "body": "Refined abstractions (push-button and touch controllers) may extend the generic interface (press button 1, swipe right…), and TV models X and Y implement the implementor interface.",
+        "body": "Both hierarchies can be extended independently by subclassing, so a new TV model needs no new controller classes for any controller.",
         "right": true,
-        "comment": "L6, slide 28"
+        "comment": "L6, slide 30: Bridge lets you combine abstractions and implementations and extend them independently."
       },
       {
-        "body": "The abstraction holds a reference (imp) to the implementor, and operation() calls imp.operationImp(); the implementor's interface can differ from the abstraction's, e.g. offer lower-level operations.",
-        "right": true,
-        "comment": "L6, slides 28-29"
+        "body": "The implementor interface has to be identical to the generic interface of the abstraction.",
+        "right": false,
+        "comment": "L6, slide 28: The remote-control interface of the TV can differ from the controller's generic interface, e.g. be lower-level."
       },
       {
-        "body": "Both hierarchies can then be extended by subclassing independently, so a new TV model does not require new controller classes.",
-        "right": true,
-        "comment": "L6, slide 30"
-      },
-      {
-        "body": "Bridge requires a subclass for every combination of controller and TV model.",
+        "body": "Bridge needs one subclass for every combination of controller and TV model, so that each pair is programmed separately.",
         "right": false,
         "comment": "L6, slides 27, 30: That proliferation of classes is the problem Bridge removes."
+      },
+      {
+        "body": "Refined abstractions such as the touch controller replace the implementor, so a controller has to know which TV model it controls.",
+        "right": false,
+        "comment": "L6, slide 28: The refined abstractions extend the abstraction's interface; the implementor hierarchy of TV models stays separate."
       }
-    ],
-    "source": "L6, slides 27-30"
+    ]
   },
   {
     "name": "Which are applicability conditions or consequences of the Bridge pattern?",
     "answers": [
       {
-        "body": "Avoiding a permanent binding between an abstraction and its implementation, e.g. when the implementation must be selected or switched at run-time.",
+        "body": "Bridge fits when a proliferation of classes shows that an object should be split into two parts, abstraction and implementation.",
         "right": true,
-        "comment": "L6, slide 30"
+        "comment": "L6, slide 30: Such a class hierarchy indicates the need for splitting an object into two parts."
       },
       {
-        "body": "Changes in the implementation of an abstraction should have no impact on clients, whose code should not have to be recompiled.",
+        "body": "It decouples interface from implementation, hides implementation details from clients, and changes need not force recompiling client code.",
         "right": true,
-        "comment": "L6, slide 30"
+        "comment": "L6, slide 30: These are the listed consequences and applicability conditions."
       },
       {
-        "body": "A proliferation of classes indicates the need to split an object into two parts.",
-        "right": true,
-        "comment": "L6, slide 30"
-      },
-      {
-        "body": "Decoupling interface and implementation, improved extensibility and hiding implementation details from clients.",
-        "right": true,
-        "comment": "L6, slide 30"
-      },
-      {
-        "body": "Bridge is the best choice whenever the only goal is to change behavior at run-time.",
+        "body": "Bridge is the best choice whenever the only goal is to change behavior at run time. No other pattern is needed.",
         "right": false,
         "comment": "L6, slide 30: If the only reason is a run-time change of behavior, use Strategy instead."
-      }
-    ],
-    "source": "L6, slide 30"
-  },
-  {
-    "name": "java.io.InputStreamReader(InputStream) creates a character Reader from a binary InputStream; it is described as a bridge from byte streams to character streams. Is it a Bridge or an Adapter?",
-    "answers": [
-      {
-        "body": "It depends on the point of view: two patterns can lead to similar class diagrams, and the difference lies in the circumstances under which we select them.",
-        "right": true,
-        "comment": "L6, slide 32"
       },
       {
-        "body": "If the problem is the proliferation of classes, I would use (call it) Bridge.",
-        "right": true,
-        "comment": "L6, slide 32"
-      },
-      {
-        "body": "If the problem is integrating one hierarchy into another, I would use an object adapter.",
-        "right": true,
-        "comment": "L6, slide 32"
-      },
-      {
-        "body": "It must be a Decorator, because it wraps another stream.",
+        "body": "Bridge merges abstraction and implementation into one class hierarchy, which reduces the number of classes.",
         "right": false,
-        "comment": "L6, slides 32, 38: A decorator keeps the interface; InputStreamReader turns an InputStream into a Reader (a different interface)."
+        "comment": "L6, slide 29: Bridge separates the abstraction from the implementation into two hierarchies."
+      },
+      {
+        "body": "Bridge binds an abstraction permanently to one implementation at compile time, which is why clients stay unaffected by changes.",
+        "right": false,
+        "comment": "L6, slide 30: Bridge avoids a permanent binding; the implementation can be selected or switched at run time."
       }
-    ],
-    "source": "L6, slide 32"
+    ]
   },
   {
-    "name": "A pizza menu offers a base pizza and toppings (sausage, cheese, spinach) in any combination. Modeling each combination as a subclass (PizzaWithSausage, PizzaWithCheese, PizzaWithSausageAndCheese, …) quickly explodes. Which statements are correct?",
+    "name": "<TT>java.io.InputStreamReader(InputStream)</TT> creates a character Reader from a binary InputStream and is described as a bridge from byte streams to character streams, although it could also be read as an adapter. The two patterns can lead to similar class diagrams. Which statements about choosing between them are correct?",
     "answers": [
       {
-        "body": "With three independent toppings, subclassing needs a class for every non-empty combination: 2³ − 1 = 7 subclasses besides the base Pizza.",
+        "body": "If the problem is a proliferation of classes (e.g. every TV model programmed for each remote controller), I would choose Bridge.",
         "right": true,
-        "comment": "L6, slides 33, 36: explosion of subclasses to support every combination (count derived)."
+        "comment": "L6, slides 27, 32: Splitting an object into two hierarchies is the Bridge circumstance."
       },
       {
-        "body": "With Decorator, one base class plus one decorator per topping suffices; a pizza with cheese and sausage is a sausage decorator wrapping a cheese decorator wrapping the pizza.",
+        "body": "If the problem is integrating an existing class hierarchy into another one, I would choose an object adapter.",
         "right": true,
-        "comment": "L6, slides 34-35"
+        "comment": "L6, slide 32: Integrating one hierarchy into another is the Adapter circumstance."
       },
       {
-        "body": "Bridge addresses the proliferation of classes, whereas Decorator addresses the explosion of objects combining different states and behavior.",
-        "right": true,
-        "comment": "L6, slide 33"
+        "body": "The two patterns are interchangeable and the circumstances of the design play no role.",
+        "right": false,
+        "comment": "L6, slide 32: The difference lies in the circumstances under which we select the pattern."
       },
       {
-        "body": "Decorators add responsibilities to individual objects dynamically, not to an entire class.",
-        "right": true,
-        "comment": "L6, slide 34"
+        "body": "InputStreamReader is a Decorator. It wraps another stream and therefore keeps the interface of InputStream.",
+        "right": false,
+        "comment": "L6, slides 32, 38: A decorator keeps the interface; InputStreamReader turns an InputStream into a Reader, a different interface."
       },
       {
-        "body": "With Decorator, the toppings must be fixed when the Pizza class is compiled.",
+        "body": "Bridge and Adapter differ in that only Bridge needs an association between two classes. An adapter works by inheritance alone.",
+        "right": false,
+        "comment": "L6, slides 22, 28: An object adapter also uses an association to the adaptee; the patterns differ in their purpose."
+      }
+    ]
+  },
+  {
+    "name": "A pizza menu offers a base pizza and the toppings sausage, cheese and spinach in any combination. Modeling each combination as a subclass (<TT>PizzaWithSausage</TT>, <TT>PizzaWithCheese</TT>, <TT>PizzaWithSausageAndCheese</TT>, ...) quickly explodes. Which statements are correct?",
+    "answers": [
+      {
+        "body": "Subclassing needs a class for every non-empty combination: \\(2^n - 1\\) for \\(n\\) toppings, e.g. \\(2^3 - 1 = 7\\).",
+        "right": true,
+        "comment": "L6, slides 33, 35: An explosion of subclasses supports every combination (the count is derived)."
+      },
+      {
+        "body": "Decorator needs one base class plus one decorator per topping: sausage wraps cheese wraps the pizza, built per order at run time.",
+        "right": true,
+        "comment": "L6, slides 34-35: Responsibilities are attached to individual objects dynamically."
+      },
+      {
+        "body": "With Decorator, the toppings must be fixed when the Pizza class is compiled, so a pizza cannot get another topping later.",
         "right": false,
         "comment": "L6, slides 34, 36: Responsibilities are attached dynamically and can be withdrawn."
+      },
+      {
+        "body": "A Decorator holds a list of components and forwards the call to all of them, like a Composite with many children.",
+        "right": false,
+        "comment": "L6, slide 35: A decorator holds exactly one component; that is an important difference from Composite."
+      },
+      {
+        "body": "With Decorator, a pizza with cheese and sausage is one object of a class combining both toppings, created in advance.",
+        "right": false,
+        "comment": "L6, slides 33-35: Decorator avoids the combination classes by wrapping objects at run time."
       }
-    ],
-    "source": "L6, slides 33-36"
+    ]
   },
   {
     "name": "Which statements about the structure of the Decorator pattern are correct?",
     "answers": [
       {
-        "body": "Decorator inherits from Component and holds exactly one component, so decorators can appear anywhere a Component can.",
+        "body": "Decorator inherits from Component and holds exactly one component; <TT>operation()</TT> forwards to it and a concrete decorator may add behavior.",
         "right": true,
-        "comment": "L6, slide 35"
+        "comment": "L6, slide 35: The decorator wraps a component and adds responsibilities before or after forwarding."
       },
       {
-        "body": "Decorator.operation() forwards to component.operation(); a concrete decorator may call it and then perform addedBehavior().",
+        "body": "Decorators can appear anywhere a Component can, so they can wrap other decorators, and they are free to add own operations.",
         "right": true,
-        "comment": "L6, slide 35"
+        "comment": "L6, slide 35: This is the important aspect of the pattern."
       },
       {
-        "body": "Holding a single component (instead of many children) is an important difference from Composite.",
-        "right": true,
-        "comment": "L6, slide 35"
-      },
-      {
-        "body": "Decorator subclasses are free to add operations for specific functionality.",
-        "right": true,
-        "comment": "L6, slide 35"
-      },
-      {
-        "body": "A decorator keeps a list of children and forwards the operation to all of them.",
+        "body": "A decorator keeps a list of children and forwards the operation to all of them, which is its main purpose.",
         "right": false,
         "comment": "L6, slide 35: That is Composite; a decorator wraps exactly one component."
+      },
+      {
+        "body": "A decorator changes the interface of the wrapped component, so clients need different calls for decorated objects.",
+        "right": false,
+        "comment": "L6, slide 38: A decorator changes or extends responsibilities, not the interface; an adapter gives a new interface."
+      },
+      {
+        "body": "Concrete decorators must not add operations of their own; that would violate the Component interface.",
+        "right": false,
+        "comment": "L6, slide 35: Decorator subclasses are free to add operations for specific functionality."
       }
-    ],
-    "source": "L6, slide 35"
+    ]
   },
   {
     "name": "Which are applicability conditions or consequences (including liabilities) of the Decorator pattern?",
     "answers": [
       {
-        "body": "Use it to add responsibilities to individual objects dynamically and transparently, without affecting other objects, and for responsibilities that can be withdrawn.",
+        "body": "Use it to add responsibilities to individual objects dynamically and transparently, without affecting any other object, for responsibilities that can be withdrawn.",
         "right": true,
-        "comment": "L6, slide 36"
+        "comment": "L6, slide 36: These are the stated applicability conditions."
       },
       {
-        "body": "It avoids feature-laden classes high up in the hierarchy: a simple class gets functionality incrementally from decorators.",
+        "body": "Liabilities: a decorator and its component are not identical objects, and the design creates lots of little objects.",
         "right": true,
-        "comment": "L6, slide 36"
+        "comment": "L6, slide 36: Both are listed as liabilities."
       },
       {
-        "body": "Liability: a decorator and its component are not identical objects.",
-        "right": true,
-        "comment": "L6, slide 36"
-      },
-      {
-        "body": "Liability: lots of little objects.",
-        "right": true,
-        "comment": "L6, slide 36"
-      },
-      {
-        "body": "It offers less flexibility than static inheritance.",
+        "body": "It offers less flexibility than static inheritance. Decorators are fixed at compile time and cannot be removed.",
         "right": false,
-        "comment": "L6, slide 36: More flexibility than static inheritance."
+        "comment": "L6, slide 36: It offers more flexibility than static inheritance."
+      },
+      {
+        "body": "Feature-laden classes high in the hierarchy are an advantage. Every feature is available in the base class.",
+        "right": false,
+        "comment": "L6, slide 36: Decorator avoids feature-laden classes; a simple class gets functionality incrementally."
+      },
+      {
+        "body": "Decorating one object also changes the behavior of all other objects of the same class. The responsibility is added to the class.",
+        "right": false,
+        "comment": "L6, slides 34, 36: Responsibilities are added to individual objects without affecting other objects."
       }
-    ],
-    "source": "L6, slide 36"
+    ]
   },
   {
     "name": "How is Decorator related to Adapter, Composite and Strategy?",
     "answers": [
       {
-        "body": "A decorator changes or extends an object's responsibilities, not its interface; an adapter gives an object a completely new interface.",
+        "body": "A decorator changes or extends an object's responsibilities, not its interface, whereas an adapter gives an object a completely new interface.",
         "right": true,
-        "comment": "L6, slide 38"
-      },
-      {
-        "body": "A decorator can be viewed as a degenerate composite with only one component, but it adds responsibilities rather than aggregating objects.",
-        "right": true,
-        "comment": "L6, slide 38"
+        "comment": "L6, slide 38: This separates Decorator from Adapter."
       },
       {
         "body": "A decorator changes the skin of an object, a strategy changes its guts; strategies rather change behavior, decorators rather extend it.",
         "right": true,
-        "comment": "L6, slide 38"
+        "comment": "L6, slide 38: These are two alternative ways of changing an object."
       },
       {
-        "body": "Decorator and Strategy are identical; the names are synonyms.",
+        "body": "A decorator's main purpose is to aggregate objects, which makes it a composite with exactly one child that is meant for aggregation.",
         "right": false,
-        "comment": "L6, slide 38: They are two alternative ways of changing an object."
+        "comment": "L6, slide 38: A decorator can be viewed as a degenerate composite, but it adds responsibilities; change is not intended for object aggregation."
+      },
+      {
+        "body": "A decorator changes the guts of an object, while a strategy changes its skin, so both are alternatives to subclassing.",
+        "right": false,
+        "comment": "L6, slide 38: The skin and guts are swapped: decorator is the skin, strategy the guts."
+      },
+      {
+        "body": "Decorator and Strategy are identical; the names are synonyms for exchanging an algorithm at run time.",
+        "right": false,
+        "comment": "L6, slide 38: They are two alternative ways of changing an object, not synonyms."
       }
-    ],
-    "source": "L6, slide 38"
+    ]
   },
   {
-    "name": "In the shaking-molecule model, a Residue references its atoms. Compare a Strategy design (Atom with an exchangeable AtomPositionStrategy) with a Decorator design (StaticAtom wrapped by exclusive decorators AllInMemAtom or BufferedAtom deriving from DynamicAtom with firstFrame(), nextFrame(), previousFrame()). Which statements are correct?",
+    "name": "In the shaking-molecule model a <TT>Residue</TT> references its atoms. The Strategy design gives <TT>Atom</TT> an exchangeable <TT>AtomPositionStrategy</TT> (<TT>AllInMemStrategy</TT>, <TT>BufferedStrategy</TT>). The Decorator design wraps a <TT>StaticAtom</TT> in exclusive decorators <TT>AllInMemAtom</TT> or <TT>BufferedAtom</TT> (derived from <TT>DynamicAtom</TT> with <TT>firstFrame()</TT>, <TT>nextFrame()</TT>, <TT>previousFrame()</TT>). Which statements are correct?",
     "answers": [
       {
-        "body": "With Strategy, changing the strategy does not affect the Residue – it keeps referencing the same Atom.",
+        "body": "With Strategy, replacing the storage strategy does not affect the Residue, which always keeps referencing the same Atom object.",
         "right": true,
-        "comment": "L6, slide 41"
+        "comment": "L6, slide 41: The change of the strategy does not affect the Residue."
       },
       {
-        "body": "With Decorator, replacing BufferedAtom by AllInMemAtom requires the Residue to update its pointers, because the outermost object changes.",
+        "body": "With Decorator, replacing <TT>BufferedAtom</TT> by <TT>AllInMemAtom</TT> changes the outermost object, so the Residue has to update its pointer.",
         "right": true,
-        "comment": "L6, slide 41"
+        "comment": "L6, slide 41: In the decorator design the Residue has to update its pointers."
       },
       {
-        "body": "In the decorator design, a generic decorator interface lets us always move between frames sequentially, and a specific decorator (all in memory) adds jumping to the N-th frame.",
-        "right": true,
-        "comment": "L6, slide 40"
-      },
-      {
-        "body": "The decorators in this design are an adaptation of the pattern: they are exclusive, not freely stackable.",
-        "right": true,
-        "comment": "L6, slide 40"
-      },
-      {
-        "body": "With Decorator, clients never need to update references when behavior changes.",
+        "body": "With Decorator, the Residue keeps its pointer unchanged. The decorator and the decorated atom share the same interface.",
         "right": false,
-        "comment": "L6, slide 41: The Residue has to update its pointers."
+        "comment": "L6, slide 41: The shared interface does not help; the outermost object is replaced, so the pointers change."
+      },
+      {
+        "body": "The decorators in this design can be stacked freely in any order, like pizza toppings, so several storage kinds can combine.",
+        "right": false,
+        "comment": "L6, slide 40: The slide notes the adaptation that the decorators are exclusive."
+      },
+      {
+        "body": "A decorator design cannot offer jumping to the N-th frame. A generic decorator interface only moves sequentially.",
+        "right": false,
+        "comment": "L6, slide 40: The generic interface moves sequentially, and a specific decorator (all in memory) adds jumping to the N-th position."
       }
-    ],
-    "source": "L6, slides 39-41"
+    ]
   },
   {
     "name": "Which pairs of a Java core API element and the design pattern it exemplifies are correct?",
     "answers": [
       {
-        "body": "java.util.Comparator#compare() used by new TreeSet(comparator) – Strategy (sorting strategy)",
+        "body": "<TT>java.util.Comparator#compare()</TT>, passed to <TT>new TreeSet(comparator)</TT>, is a sorting strategy: Strategy.",
         "right": true,
-        "comment": "L6, slide 12"
+        "comment": "L6, slide 12: The comparator is an exchangeable sorting algorithm of the set."
       },
       {
-        "body": "java.util.Arrays#asList(T...) – Adapter (an array integrated into the list API; changes write through)",
+        "body": "<TT>java.util.Arrays#asList(T...)</TT> integrates an array into the list API, with changes written through: Adapter.",
         "right": true,
-        "comment": "L6, slide 26"
+        "comment": "L6, slide 26: The array is the class we integrate into the API of lists."
       },
       {
-        "body": "new PrintWriter(new BufferedWriter(new FileWriter(…))) – Decorator",
-        "right": true,
-        "comment": "L6, slide 37"
-      },
-      {
-        "body": "java.util.Comparator – State",
+        "body": "<TT>java.io.BufferedWriter</TT> adapts a Writer to a new interface that supports buffering: Adapter.",
         "right": false,
-        "comment": "L6, slide 12: A comparator is an exchangeable sorting strategy."
+        "comment": "L6, slide 37: BufferedWriter adds buffering on top of a Writer with the same interface, which is Decorator."
       },
       {
-        "body": "java.io.BufferedWriter – Adapter",
+        "body": "<TT>java.util.Comparator</TT> switches the behavior of a TreeSet when the set changes its internal state: State.",
         "right": false,
-        "comment": "L6, slide 37: BufferedWriter adds buffering on top of a Writer with the same interface – Decorator."
+        "comment": "L6, slide 12: A comparator is an exchangeable sorting strategy passed in from outside, not a state of the set."
+      },
+      {
+        "body": "<TT>java.util.Arrays#asList(T...)</TT> adds sorting behavior around an existing list object: Decorator.",
+        "right": false,
+        "comment": "L6, slide 26: It converts an array to the list interface, which is Adapter."
       }
-    ],
-    "source": "L6, slides 12, 26, 37"
+    ]
   },
   {
-    "name": "Practical modeling: a public transport company computes daily driver shifts in a DailyWorkSchedule (attribute date, operation computeShifts(), contains DailyShifts). On workdays shifts must prioritize regularity, during vacations they must reflect drivers' priorities. Model the problem in UML (a) with the Strategy pattern and (b) with the State pattern, where the schedule itself updates today's day type. Show the classes, roles, key operations and who decides about the variant, and explain when you would prefer each solution.",
-    "answer": "<B>(a) Strategy</B>: &lt;&lt;context&gt;&gt; DailyWorkSchedule (date, computeShifts(), constructor DailyWorkSchedule(DailyShiftPlanner)) aggregates exactly one &lt;&lt;strategy&gt;&gt; DailyShiftPlanner with getMorningShift(line, numDriver): Driver[] and getAfternoonShift(line, numDriver): Driver[]. Concrete strategies WorkDayPlanner (prioritizes regularity) and VacationPlanner (reflects drivers' priorities) implement it. The client that understands the planners chooses and passes the strategy (as a parameter, e.g. in the constructor); computeShifts() delegates to the planner and produces the DailyShift objects. The strategy handles one specific task (computing shifts) and does not know the context. <BR><B>(b) State</B>: &lt;&lt;context&gt;&gt; DailyWorkSchedule (today: Date, getDailyShift(): Map&lt;LineNo, List&lt;Driver&gt;&gt;) has a state association to the &lt;&lt;state&gt;&gt; interface CurrentDay with getShift(lineNo, numDriver): Driver[]; WorkDay and VacationDay implement it. The context creates the states itself: in getDailyShift() it calls updateToday() and then, if today is a workday, setState(new WorkDay()), otherwise setState(new VacationDay()), and delegates to the current state. Clients only talk to the context. <BR><B>Choice</B>: Strategy fits when a client configures the algorithm explicitly (e.g. a dispatcher chooses the planning policy) and the variant should be replaceable without changing the schedule (open-closed); State fits when the behavior is driven by the context's own internal state (the type of the current day) and the transitions should be explicit and hidden from clients. Both have a visually similar structure; the difference is who creates and switches the variant and whether it may know the context.",
+    "name": "An online shop has an <TT>Order</TT>. Its <TT>computePrice()</TT> must use either a regular pricing policy or a sale pricing policy, chosen by the sales department. Its <TT>pay()</TT> and <TT>ship()</TT> behave differently while the order is New, Paid or Shipped, and the order itself updates its status. Model the problem in UML (a) with the Strategy pattern for pricing and (b) with the State pattern for the status. Show the classes, roles, key operations and who decides about the variant, and explain how the two patterns differ although their diagrams look similar. (The scenario is derived; the patterns are from the lecture.)",
+    "answer": "<B>(a) Strategy.</B> &lt;&lt;context&gt;&gt; <TT>Order</TT> with <TT>computePrice()</TT> aggregates exactly one &lt;&lt;strategy&gt;&gt; <TT>PricingPolicy</TT> with <TT>price(items) : Money</TT>. <TT>RegularPricing</TT> and <TT>SalePricing</TT> implement it. The client that understands the policies (the sales department's code) creates one and passes it to the order, e.g. through the constructor or <TT>setPricingPolicy</TT>; <TT>computePrice()</TT> delegates to it. The strategy handles one specific task, receives the data it needs as parameters and does not store the order, so the interface can be somewhat more complex (limited access to the context). A new policy is a new class and Order stays unchanged (open-closed). <BR><B>(b) State.</B> &lt;&lt;context&gt;&gt; <TT>Order</TT> holds a state association to the &lt;&lt;state&gt;&gt; interface <TT>OrderState</TT> with <TT>pay()</TT> and <TT>ship()</TT>; <TT>NewOrder</TT>, <TT>PaidOrder</TT> and <TT>ShippedOrder</TT> implement it. Order delegates its requests to the current state and may pass itself to it. The order or the state itself decides the successor, e.g. <TT>NewOrder.pay()</TT> calls <TT>order.setState(new PaidOrder())</TT>. Clients talk only to Order. This replaces a large conditional on a status attribute and makes the transitions explicit. <BR><B>Difference.</B> A strategy is passed in from outside, handles one task, and neither stores the context nor replaces itself. States are created by the context (or by other states), may hold the context, may replace themselves, and provide the implementation of almost everything the context does. Prefer Strategy for a policy that a client chooses; prefer State when behavior follows the object's own life-cycle.",
     "keyPoints": [
-      "Strategy: DailyWorkSchedule context with 1 DailyShiftPlanner; WorkDayPlanner, VacationPlanner",
-      "Strategy chosen and passed by the client (parameter/constructor); single task; no context reference",
-      "State: DailyWorkSchedule with state CurrentDay; WorkDay, VacationDay",
-      "Context creates and switches states itself (updateToday, setState(new WorkDay()/VacationDay()))",
-      "Strategy for explicit client-configured policy; State for behavior driven by internal state",
-      "Similar diagrams; difference is who creates/switches the variant"
+      "Strategy: Order as context with one PricingPolicy; RegularPricing and SalePricing implement it",
+      "Strategy is chosen and passed in by a client; it handles one task and does not know the context",
+      "State: Order as context with OrderState; NewOrder, PaidOrder, ShippedOrder implement pay() and ship()",
+      "Order or state objects switch the state (setState); clients use only Order",
+      "Difference: who creates and switches the variant, context reference, scope of responsibility; similar diagrams"
     ],
-    "source": "L6, slides 5-6, 11, 14, 17-18; the “dispatcher chooses the policy” example in the choice paragraph is an illustration, not slide content"
+    "source": "L6, slides 5-6, 13-15, 18; the order scenario is derived"
   },
   {
-    "name": "Practical modeling: in a pizzeria system every pizza has getLabel() and getPrice(). The base pizza costs 100 and is labelled “Pizza”; cheese adds 20 and sausage adds 30 to the price and append their name to the label. Toppings can be combined freely and added to individual orders at run-time. Draw a UML class diagram using the Decorator pattern, show the object structure of a pizza with cheese and sausage, and compute its label and price. Explain why the design is better than subclasses for each combination and name its liabilities.",
-    "answer": "Classes: an abstract component Pizza (or a PizzaComponent interface) with getLabel() and getPrice(); a concrete component BasePizza (label “Pizza”, price 100); an abstract decorator ToppingDecorator that inherits from the component and holds exactly one component (association multiplicity 1), forwarding getLabel() and getPrice() to it; concrete decorators Cheese and Sausage that call the wrapped component and add their own part (Cheese: price + 20, label + “, cheese”; Sausage: price + 30, label + “, sausage”). Object structure: aSausage → aCheese → aPizza (each decorator references the next object). For this pizza getPrice() = 30 + (20 + 100) = <B>150</B> and getLabel() = “Pizza, cheese, sausage” (order of the label depends on the wrapping order). Benefits: responsibilities are attached to individual objects dynamically and can be withdrawn; one class per topping replaces a subclass for every combination (with n independent toppings 2ⁿ − 1 combinations, e.g. 7 for three toppings), so feature-laden classes high in the hierarchy are avoided and new toppings are added without touching existing classes. Liabilities: a decorated pizza is not identical to the wrapped component object (identity checks fail) and the design creates lots of little objects. Contrast: Bridge addresses proliferation of classes, Decorator the explosion of objects combining states and behavior.",
+    "name": "Practical modeling: in a pizzeria system every pizza has <TT>getLabel()</TT> and <TT>getPrice()</TT>. The base pizza costs 100 and is labelled \"Pizza\"; cheese adds 20 and sausage adds 30 to the price and append their name to the label. Toppings can be combined freely and added to individual orders at run time. Draw a UML class diagram using the Decorator pattern, show the object structure of a pizza with cheese and sausage, and compute its label and price. Explain why the design is better than subclasses for each combination and name its liabilities.",
+    "answer": "<B>Classes.</B> An abstract component <TT>Pizza</TT> (or a <TT>PizzaComponent</TT> interface) with <TT>getLabel()</TT> and <TT>getPrice()</TT>; a concrete component <TT>BasePizza</TT> (label \"Pizza\", price 100); an abstract decorator <TT>ToppingDecorator</TT> that inherits from the component and holds exactly one component (multiplicity 1), forwarding <TT>getLabel()</TT> and <TT>getPrice()</TT> to it; concrete decorators <TT>Cheese</TT> and <TT>Sausage</TT> that call the wrapped component and add their part (Cheese: price + 20, label + \", cheese\"; Sausage: price + 30, label + \", sausage\"). <BR><B>Objects.</B> <TT>aSausage</TT> references <TT>aCheese</TT>, which references <TT>aPizza</TT>. The price is \\(30 + (20 + 100) = 150\\), and the label is \"Pizza, cheese, sausage\" (the label order depends on the wrapping order). <BR><B>Benefits.</B> Responsibilities are attached to individual objects dynamically and can be withdrawn; one class per topping replaces a subclass for every combination (\\(2^n - 1\\) combinations for \\(n\\) toppings, e.g. \\(2^3 - 1 = 7\\)), so feature-laden classes high in the hierarchy are avoided and new toppings are added without touching existing classes. <BR><B>Liabilities.</B> A decorated pizza is not identical to the wrapped component object (identity checks fail), and the design creates lots of little objects.",
     "keyPoints": [
-      "Component Pizza with getLabel/getPrice; BasePizza concrete component",
+      "Component Pizza with getLabel/getPrice; BasePizza as concrete component",
       "Abstract decorator inherits from the component and wraps exactly one component",
       "Cheese and Sausage decorators add to price and label after delegating",
-      "aSausage → aCheese → aPizza; price 150, label “Pizza, cheese, sausage”",
-      "Dynamic, per-object, withdrawable; avoids 2ⁿ − 1 subclasses",
-      "Liabilities: decorator ≠ component identity, many little objects"
+      "aSausage references aCheese references aPizza; price 150, label \"Pizza, cheese, sausage\"",
+      "Dynamic, per-object, withdrawable; avoids the \\(2^n - 1\\) combination subclasses",
+      "Liabilities: decorator is not identical to its component, many little objects"
     ],
-    "source": "L6, slides 33-36; prices are example data"
+    "source": "L6, slides 33-36; prices are example data, the subclass count is derived"
+  },
+  {
+    "name": "A reporting module works with an interface <TT>Notifier</TT> that has <TT>send(recipient, text)</TT>. A vendor class <TT>SmsGateway</TT>, which you may not modify, offers <TT>transmit(phoneNumber, payload, priority)</TT>, and the vendor also ships subclasses such as <TT>BulkSmsGateway</TT>. Draw UML class diagrams of an object adapter and of a class adapter that make the gateway usable as a <TT>Notifier</TT>, sketch the code of <TT>send</TT> for the object adapter, and explain which variant you choose here and why. (The scenario is derived; the pattern is from the lecture.)",
+    "answer": "<B>Object adapter.</B> <TT>SmsNotifier implements Notifier</TT> and holds an association to an <TT>SmsGateway</TT> (the adaptee). <PRE>void send(String recipient, String text) {\n  gateway.transmit(phoneOf(recipient), text, NORMAL);\n}</PRE>The adapter converts the interface (recipient and text to phone number, payload and a priority; the conversion and constant are assumptions) and re-sends the request to the adaptee. <BR><B>Class adapter.</B> <TT>SmsNotifierC</TT> inherits from both the target <TT>Notifier</TT> and the adaptee <TT>SmsGateway</TT> (multiple inheritance; in Java the target would be an interface) and implements <TT>send</TT> by calling the inherited <TT>transmit(...)</TT>. <BR><B>Choice.</B> Choose the object adapter. One adapter then works with <TT>SmsGateway</TT> and all its subclasses such as <TT>BulkSmsGateway</TT>, whereas a class adapter commits to one concrete adaptee class and would need a separate adapter for each subclass. The price is that overriding vendor behavior is harder: it would require subclassing the adaptee and referring to that subclass. A class adapter fits when we need to override some adaptee behavior and want a single object without pointer indirection. An adapter only converts the interface; it does not add responsibilities (that would be Decorator).",
+    "keyPoints": [
+      "Object adapter: SmsNotifier implements Notifier and holds an SmsGateway; send converts and re-sends",
+      "Class adapter: inherits from Notifier and SmsGateway; send calls the inherited transmit",
+      "Object adapter chosen: it works with the adaptee and all its subclasses",
+      "Class adapter commits to one concrete adaptee class; it can override adaptee behavior and needs no indirection",
+      "Adapter converts the interface only; adding responsibilities is Decorator"
+    ],
+    "source": "L6, slides 20-25; the SMS scenario is derived"
+  },
+  {
+    "name": "A TV manufacturer programs every TV model separately for each kind of remote controller. Currently there are two TV models and two controller kinds (push-button and touch); a third TV model and a gesture controller are planned. The generic controller interface offers \"switch to channel X\", \"next channel\" and \"volume up\"; the TV's own remote-control interface may be lower-level. Model the problem with the Bridge pattern: draw a UML class diagram with the pattern roles, explain how the abstraction reaches the implementation, and count the concrete classes needed with and without Bridge after both extensions.",
+    "answer": "<B>Roles.</B> The abstraction <TT>RemoteController</TT> offers the generic interface (<TT>switchToChannel(x)</TT>, <TT>nextChannel()</TT>, <TT>volumeUp()</TT>) and holds a reference <TT>imp</TT> to the implementor. The refined abstractions <TT>PushButtonController</TT>, <TT>TouchController</TT> and later <TT>GestureController</TT> extend the interface with their own operations (press button 1, swipe right, ...). The implementor interface <TT>TVImplementor</TT> is the TV's remote-control interface and may be lower-level than the abstraction's; the concrete implementors are <TT>TvModelX</TT>, <TT>TvModelY</TT> and later <TT>TvModelZ</TT>. <BR><B>Collaboration.</B> A controller operation such as <TT>nextChannel()</TT> is implemented by calling <TT>imp.operationImp()</TT> on the TV it is bound to, so the two hierarchies are connected only by this reference (the bridge) and can be extended independently; the binding to a TV can also be chosen or switched at run time. <BR><B>Count (derived).</B> Without Bridge every combination is a class: \\(2 \\times 2 = 4\\) now and \\(3 \\times 3 = 9\\) after the extensions, i.e. \\(m \\times n\\). With Bridge, only the two hierarchies grow: \\(2 + 2 = 4\\) now and \\(3 + 3 = 6\\) concrete classes afterwards, i.e. \\(m + n\\), plus the abstraction and implementor interfaces. Adding a TV model touches no controller class and vice versa.",
+    "keyPoints": [
+      "Abstraction RemoteController with a generic interface and a reference imp to the implementor",
+      "Refined abstractions (push-button, touch, gesture) extend the interface; concrete implementors are TV models",
+      "imp.operationImp(): the implementor interface may differ and be lower-level",
+      "The two hierarchies extend independently; the implementation can be switched at run time",
+      "Count: \\(m \\times n\\) combination classes without Bridge, \\(m + n\\) with Bridge (4 growing to 9 versus 4 growing to 6)"
+    ],
+    "source": "L6, slides 27-30; the class counts are derived"
   }
 ]

@@ -2,151 +2,292 @@
   {
     "name": "Explain why IPv6 was proposed and how its main design features address the limitations of IPv4.",
     "answer": "The original driving concern was exhaustion of the IPv4 address space. IPv6 introduced 128-bit addresses, a fixed 40-byte basic header and extension headers. It also included support for traffic priorities and flows, IPsec-based security, mobility through home agents, and stateful or stateless autoconfiguration. The lecture places these goals in their historical context: CIDR and NAT mitigated address pressure, and several capabilities were later added to IPv4. An IPv6 feature therefore should not automatically be treated as unavailable in IPv4 today.",
-    "keyPoints": ["IPv4 address exhaustion was the original motivation", "128-bit addresses and a simplified extensible header", "QoS, security, mobility and autoconfiguration were additional goals", "Historical context: CIDR/NAT and features later added to IPv4"],
+    "keyPoints": [
+      "IPv4 address exhaustion was the original motivation",
+      "128-bit addresses and a simplified extensible header",
+      "QoS, security, mobility and autoconfiguration were additional goals",
+      "Historical context: CIDR/NAT and features later added to IPv4"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 4-5 and 65"
   },
   {
-    "name": "Describe the IPv6 basic header and explain how Next Header links extension headers to an upper-layer protocol. Trace the header chain of a packet that carries a Hop-by-Hop Options header, a Fragment header and a TCP segment.",
-    "answer": "The basic header has a fixed size of 40 bytes and carries version, Traffic Class (shown as PRI), Flow Label, payload length, Next Header, Hop Limit, source address and destination address. Options and fragmentation information are moved to extension headers; the basic header has no header checksum. Each Next Header value identifies the header immediately following it. Without extensions the basic header can point directly to TCP (6). In the illustrated chain it points to Hop-by-Hop Options (0), that header points to Fragment (44), and the Fragment header points to TCP (6), followed by TCP data. Thus extensions can be added without enlarging the fixed basic header.",
-    "keyPoints": ["Fixed 40-byte basic header", "Options and fragmentation use extension headers; no IP header checksum", "Next Header identifies the immediately following header", "Example chain: IPv6 -> Hop-by-Hop -> Fragment -> TCP -> data"],
+    "name": "Explain how the Next Header field chains IPv6 extension headers to the upper-layer protocol. Trace the header chain of a packet that carries a Hop-by-Hop Options header, a Fragment header and a TCP segment, and say why this design keeps the basic header fixed.",
+    "answer": "Each header carries a Next Header value that identifies the header immediately following it. Without extensions the basic header points directly to the upper-layer protocol, e.g. TCP (6). For a packet with Hop-by-Hop Options and Fragment headers, the basic header points to Hop-by-Hop Options (0), that header points to Fragment (44), and the Fragment header points to TCP (6), followed by the TCP data. Because options and fragmentation information live in such optional extension headers, the basic header stays at a fixed 40 bytes and new extensions can be added without changing it.",
+    "keyPoints": [
+      "Next Header identifies the immediately following header",
+      "Without extensions: basic header -> TCP (6)",
+      "Example chain: IPv6 (NH 0) -> Hop-by-Hop (NH 44) -> Fragment (NH 6) -> TCP -> data",
+      "Extensions keep the 40-byte basic header fixed and extensible"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 6-7"
   },
   {
     "name": "Explain IPv6 text notation and abbreviate these two addresses: FDEC:BA98:0074:3210:000F:BBFF:0000:FFFF and FDEC:0:0:0:0:BBFF:0:FFFF. Why may '::' occur only once?",
     "answer": "An IPv6 address contains 128 bits, written as eight hexadecimal groups of 16 bits separated by colons. Leading zeros within a group may be omitted, but trailing zeros in a nonzero group may not: 0074 becomes 74, whereas 3210 stays 3210. The first address becomes FDEC:BA98:74:3210:F:BBFF:0:FFFF. The second can become FDEC::BBFF:0:FFFF by replacing its consecutive zero groups with ::. Only one run may be compressed this way, so expansion back to eight groups remains unambiguous.",
-    "keyPoints": ["Eight 16-bit hexadecimal groups represent a 128-bit address", "Omit leading zeros only", "Correct abbreviations of both supplied examples", "A single :: avoids ambiguous expansion"],
+    "keyPoints": [
+      "Eight 16-bit hexadecimal groups represent a 128-bit address",
+      "Omit leading zeros only",
+      "Correct abbreviations of both supplied examples",
+      "A single :: avoids ambiguous expansion"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 8-9"
   },
   {
-    "name": "Explain the hierarchical structure of an IPv6 unicast address (its fields and their typical lengths) and how CIDR notation represents an IPv6 network. Suppose the first 48 bits are subdivided into a 2001 field, a field assigned by the RIR and a field assigned by the LIR: is that subdivision a general rule for all IPv6 addresses?",
-    "answer": "The diagram separates a unicast address into a global routing prefix, a subnet field and a 64-bit interface identifier. In its typical example, the routing prefix is 48 bits and the subnet field is 16 bits, supporting hierarchical routing rather than flat handling of individual addresses. The allocation example subdivides the first 48 bits into a 2001 field, an RIR-assigned field and an LIR-assigned field; this describes the example shown, rather than a requirement that every IPv6 address begin with 2001. IPv6 addresses are classless. CIDR appends the number of leading prefix bits, so /60 in FDEC:0:0:0:0:BBFF:0:FFFF/60 specifies a 60-bit network prefix.",
-    "keyPoints": ["Global routing prefix, subnet field and 64-bit interface identifier", "Illustrated /48 routing prefix plus 16-bit subnet field", "2001/RIR/LIR subdivision is the depicted allocation example", "CIDR gives a prefix length; IPv6 has no address classes"],
-    "source": "PA191 L2, lecture02.pdf, slides 10-11"
+    "name": "Explain the hierarchical structure of a unicast IPv6 address (its fields and typical lengths) and how CIDR notation expresses an IPv6 network, for example FDEC:0:0:0:0:BBFF:0:FFFF/60. One allocation scheme splits the 48-bit global routing prefix into three 16-bit fields: the value 2001, a field assigned by a Regional Internet Registry (RIR) and a field assigned by a Local Internet Registry (LIR). Is that subdivision a rule for all IPv6 addresses?",
+    "answer": "A unicast address is split into a global routing prefix (roughly the network address), a subnet field and an interface identifier. In the typical case the subnet field is 16 bits, the routing prefix 48 bits and the interface identifier 64 bits. The hierarchy simplifies routing: routes can be handled per prefix instead of per individual address.<br>In the described allocation scheme the 48-bit prefix consists of 2001, a 16-bit field assigned by the RIR and a 16-bit field assigned by the LIR. This is an allocation hierarchy for such global addresses, not a rule for every IPv6 address: addresses used elsewhere in the course, such as FE80:: link-local, FF02::1 multicast or FDEC:: addresses, do not start with 2001.<br>IPv6 addresses are classless; there are no address classes. CIDR notation appends the number of leading prefix bits, so /60 in FDEC:0:0:0:0:BBFF:0:FFFF/60 means that the first 60 bits form the network prefix.",
+    "keyPoints": [
+      "Global routing prefix, subnet field and 64-bit interface identifier",
+      "Typical split: 48-bit prefix plus 16-bit subnet field",
+      "The 2001/RIR/LIR split is one allocation hierarchy, not a rule for all addresses (FE80, FF02 and FDEC addresses differ)",
+      "CIDR gives the prefix length, so /60 means 60 network bits",
+      "IPv6 has no address classes"
+    ],
+    "source": "PA191 L2, lecture02.pdf, slides 10-11 (the remark that other prefixes exist is an interpretation based on addresses used elsewhere in L2-L3)"
   },
   {
     "name": "Compare IPv6 unicast, multicast and anycast delivery. How does IPv6 address all nodes on a local link without IPv4-style broadcast?",
     "answer": "Unicast identifies one interface and delivers to that recipient. Multicast identifies a group and delivers to all members of the addressed group; IPv6 multicast addresses use the ff00::/8 prefix. Anycast also identifies a group, but routing delivers the packet to one member, described as the closest member in the lecture. IPv6 does not use IPv4-style broadcast addresses. A suitable multicast group replaces the broadcast purpose: FF02::1 addresses all nodes on the particular local link.",
-    "keyPoints": ["Unicast: one interface", "Multicast: all members of the addressed group", "Anycast: one closest group member", "Local all-nodes delivery uses FF02::1 multicast instead of broadcast"],
+    "keyPoints": [
+      "Unicast: one interface",
+      "Multicast: all members of the addressed group",
+      "Anycast: one closest group member",
+      "Local all-nodes delivery uses FF02::1 multicast instead of broadcast"
+    ],
     "source": "PA191 L2, lecture02.pdf, slide 12"
   },
   {
     "name": "Trace IPv6 Path MTU Discovery for a path whose successive link MTUs are 1500, 1500, 1350 and 1400 bytes. Explain the responsibilities of the source and routers.",
-    "answer": "The source initially sends a packet sized for its 1500-byte local-link MTU. A router that would forward it onto the 1350-byte link cannot fragment it; it drops the oversized packet and sends ICMPv6 Packet Too Big feedback identifying 1350 bytes. The source reduces its packet size to 1350 and sends again. The packet can then cross all shown links, including the final 1400-byte link, so 1350 is the discovered path limit in this example. IPv6 fragmentation is the responsibility of the end node, while routers report a size problem rather than fragmenting the packet themselves.",
-    "keyPoints": ["Initial upper bound is the source's 1500-byte local MTU", "Router drops the oversized packet and reports Packet Too Big with 1350", "Source retries at 1350, the bottleneck MTU in the example", "Only end nodes perform IPv6 fragmentation"],
+    "answer": "The source initially sends a packet sized for its 1500-byte local-link MTU. A router that would forward it onto the 1350-byte link cannot fragment it; it drops the oversized packet and sends ICMPv6 Packet Too Big feedback identifying 1350 bytes. The source reduces its packet size to 1350 and sends again. The packet can then cross every link on the path, including the final 1400-byte link, so 1350 is the discovered path limit in this example. IPv6 fragmentation is the responsibility of the end node, while routers report a size problem rather than fragmenting the packet themselves.",
+    "keyPoints": [
+      "Initial upper bound is the source's 1500-byte local MTU",
+      "Router drops the oversized packet and reports Packet Too Big with 1350",
+      "Source retries at 1350, the bottleneck MTU in the example",
+      "Only end nodes perform IPv6 fragmentation"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 13-14"
   },
   {
     "name": "Explain the CIA and AAA security goals, nonrepudiation, and the roles of encryption and secure checksums. Distinguish symmetric from asymmetric cryptography.",
     "answer": "Confidentiality prevents unauthorized reading, integrity lets unauthorized changes be detected, and availability keeps information accessible to authorized users. Authentication checks a claimed identity; authorization determines the authenticated party's access rights; accounting records resource use. Nonrepudiation concerns a party being unable to deny an action such as sending or receiving information. Encryption provides confidentiality, while secure checksums support integrity; suitable combinations can support authenticity and nonrepudiation. Symmetric cryptography uses a secret shared by the communicating parties, whereas asymmetric cryptography uses a public/private key pair. A message digest maps arbitrary-length input to a fixed-length value used in integrity mechanisms.",
-    "keyPoints": ["CIA: confidentiality, integrity and availability", "AAA: authentication, authorization and accounting", "Nonrepudiation relates to denying an action", "Encryption and secure checksums serve different security goals", "Shared secret versus public/private key pair; fixed-length message digest"],
+    "keyPoints": [
+      "CIA: confidentiality, integrity and availability",
+      "AAA: authentication, authorization and accounting",
+      "Nonrepudiation relates to denying an action",
+      "Encryption and secure checksums serve different security goals",
+      "Shared secret versus public/private key pair; fixed-length message digest"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 16-18"
   },
   {
     "name": "Describe the IPsec framework and a Security Association (SA). If AH and ESP protection are applied separately, why are four SAs needed for protected two-way communication?",
-    "answer": "IPsec provides a framework for both IPv4 and IPv6, including AH for authentication, ESP for encrypted payload protection, cryptographic algorithms, security policies, SAs and key management. Having IPsec support does not by itself make IPv6 more secure than IPv4. An SA specifies security information such as a key, an encryption or authentication mechanism, and parameters such as counters or duplicate protection. It is identified by the Security Parameter Index (SPI), destination IP address and security protocol identifier (AH or ESP). An SA is one-way. In the lecture's separate-AH-and-ESP example, two directions multiplied by two security protocols require four SAs; this count is conditional on using separate associations for both protocols.",
-    "keyPoints": ["IPsec includes protocols, algorithms, policy, SAs and key management", "IPsec support alone does not guarantee IPv6 security", "SA contains key, mechanism and algorithm parameters", "SA identity: SPI, destination address and AH/ESP identifier", "One-way separate AH/ESP associations give four for two directions"],
+    "answer": "IPsec provides a framework for both IPv4 and IPv6, including AH for authentication, ESP for encrypted payload protection, cryptographic algorithms, security policies, SAs and key management. Having IPsec support does not by itself make IPv6 more secure than IPv4. An SA specifies security information such as a key, an encryption or authentication mechanism, and parameters such as counters or duplicate protection. It is identified by the Security Parameter Index (SPI), destination IP address and security protocol identifier (AH or ESP). An SA is one-way. If AH and ESP are applied separately, two directions times two security protocols, \\(2\\cdot 2=4\\), require four SAs; this count holds only when separate associations are used for both protocols.",
+    "keyPoints": [
+      "IPsec includes protocols, algorithms, policy, SAs and key management",
+      "IPsec support alone does not guarantee IPv6 security",
+      "SA contains key, mechanism and algorithm parameters",
+      "SA identity: SPI, destination address and AH/ESP identifier",
+      "One-way separate AH/ESP associations give four for two directions"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 19-20"
   },
   {
-    "name": "What problem does Internet Key Exchange solve for IPsec peers, and how does the lecture distinguish a protected negotiation channel from the SAs used for data traffic?",
-    "answer": "Before using IPsec, peers need to agree on cryptographic algorithms and keys, even though their initial communication path may be insecure. The lecture presents IKEv2 as an automated successor that consolidates the earlier ISAKMP/IKEv1 approach and removes bugs and ambiguities. IKE authenticates peers and manages the creation and deletion of SAs and cryptographic material. The conceptual distinction on slide 22 is between establishing a protected negotiation channel, represented by an IKE SA, and establishing protection for actual data transmission, represented by a pair of IPsec SAs for the two directions. The management association and the data-protection associations therefore have different purposes.",
-    "keyPoints": ["Peers must agree on algorithms and keys over an initially insecure path", "IKEv2 automates negotiation and succeeds the older approach", "Peer authentication and management of cryptographic material/SAs", "IKE SA protects negotiation; a pair of IPsec SAs protects data directions"],
+    "name": "What problem does Internet Key Exchange (IKE) solve for IPsec peers? Distinguish the IKE SA used for the negotiation from the IPsec SAs used for data traffic.",
+    "answer": "Before using IPsec, the peers need to agree on cryptographic algorithms and keys, even though their initial communication path may be insecure. IKEv2 automates this: it is the successor that consolidates the earlier ISAKMP/IKEv1 approach and removes bugs and ambiguities. IKE authenticates the peers and manages the creation and deletion of SAs and cryptographic material.<br>Two kinds of associations are involved. The <b>IKE SA</b> is a protected channel for the negotiation between the peers. The <b>IPsec SAs</b> protect the actual data transmission: a pair of one-way SAs, one for each direction. The first is for management, the others for data protection.",
+    "keyPoints": [
+      "Peers must agree on algorithms and keys over an initially insecure path",
+      "IKEv2 automates negotiation and succeeds the older ISAKMP/IKEv1 approach",
+      "IKE authenticates peers and manages creation/deletion of SAs and keys",
+      "IKE SA = protected negotiation channel",
+      "Pair of IPsec SAs (one per direction) = protection of data traffic"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 21-22"
   },
   {
     "name": "Compare IPsec transport and tunnel modes by describing the packet layout in each. Then explain how two branch networks are connected through security gateways using an IPsec tunnel.",
-    "answer": "In transport mode, AH/ESP protects the message supplied by the transport layer, and the resulting packet has the original IP header, the IPsec header and the transport-layer data. In tunnel mode, an entire original IP datagram is the protected inner packet: a new outer IP header and IPsec header precede the original IP header and its data. The gateway diagram illustrates ordinary datagrams inside each branch and an IPsec tunnel between the security gateways across the intervening network. The gateways handle the protected encapsulation for that segment, while the inner datagram retains its original IP header.",
-    "keyPoints": ["Transport mode: original IP header then IPsec and transport data", "Tunnel mode: new outer IP header then IPsec and complete original datagram", "Tunnel preserves the original IP header as an inner header", "Branch gateways protect the inter-branch segment"],
+    "answer": "In transport mode, AH/ESP protects the message supplied by the transport layer, and the resulting packet has the original IP header, the IPsec header and the transport-layer data. In tunnel mode, an entire original IP datagram is the protected inner packet: a new outer IP header and IPsec header precede the original IP header and its data. For two branch networks, hosts inside each branch exchange ordinary datagrams. The security gateways at the branch edges set up an IPsec tunnel across the intervening network: the sending gateway applies tunnel-mode encapsulation, the receiving gateway removes it, and the inner datagram keeps its original IP header.",
+    "keyPoints": [
+      "Transport mode: original IP header then IPsec and transport data",
+      "Tunnel mode: new outer IP header then IPsec and complete original datagram",
+      "Tunnel preserves the original IP header as an inner header",
+      "Branch gateways protect the inter-branch segment"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 23-24"
   },
   {
     "name": "Explain how Authentication Header (AH) lets a receiver detect a modified datagram without hiding its contents. List the AH header fields and say where AH is placed in transport mode and in tunnel mode.",
-    "answer": "The peers first establish an SA that supplies the shared security information. The sender computes an Integrity Check Value (ICV) over the protected datagram fields using that information and includes it as AH authentication data. The receiver performs the corresponding computation and checks the result, detecting changes to the authenticated fields. AH provides authentication and integrity, not encryption or privacy. Its header contains Next Header, Payload Length, a reserved field, SPI, Sequence Number and the ICV. The placement diagrams show AH in the IPv6 header chain in transport mode and between the new outer IP header and encapsulated original datagram in tunnel mode; the authenticated region includes IP-header fields as well as the carried data.",
-    "keyPoints": ["An SA supplies the shared security information", "Sender includes an ICV and receiver recomputes/checks it", "Authentication/integrity without confidentiality", "SPI, Sequence Number and ICV are part of the AH layout", "AH is inserted in the header chain; tunnel mode carries the original datagram inside"],
+    "answer": "The peers first establish an SA that supplies the shared security information. The sender computes an Integrity Check Value (ICV) over the protected datagram fields using that information and includes it as AH authentication data. The receiver performs the corresponding computation and checks the result, detecting changes to the authenticated fields. AH provides authentication and integrity, not encryption or privacy. Its header contains Next Header, Payload Length, a reserved field, SPI, Sequence Number and the ICV. In transport mode AH is inserted into the header chain after the IP header (before the transport data); in tunnel mode it sits between the new outer IP header and the encapsulated original datagram. The authenticated region includes IP-header fields as well as the carried data.",
+    "keyPoints": [
+      "An SA supplies the shared security information",
+      "Sender includes an ICV and receiver recomputes/checks it",
+      "Authentication/integrity without confidentiality",
+      "SPI, Sequence Number and ICV are part of the AH layout",
+      "AH is inserted in the header chain; tunnel mode carries the original datagram inside"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 25-27"
   },
   {
-    "name": "Describe ESP's components and distinguish its encrypted and authenticated regions in transport and tunnel modes. Why does the lecture still discuss AH when ESP can also authenticate?",
-    "answer": "ESP encrypts payload data to provide privacy and can additionally provide authentication. Its header precedes the encrypted data and contains SPI and Sequence Number. Its trailer follows the payload and contains padding, Pad Length and Next Header; optional authentication data contains an ICV. The format diagram shows encryption covering the payload and trailer, while authentication covers the ESP header and the protected payload/trailer, excluding the authentication-data field itself. In transport mode the carried transport data is protected; in tunnel mode the encrypted payload includes the entire original IP datagram. The outer IP header is outside ESP's authenticated region. The lecture contrasts this with AH's protection of IP-header fields and notes that authentication without payload encryption may be sufficient.",
-    "keyPoints": ["ESP provides encryption and optional authentication", "Header: SPI/Sequence Number; trailer: padding/Pad Length/Next Header; optional ICV", "Encrypted payload/trailer versus the larger authenticated ESP region", "Tunnel payload includes the original IP datagram", "ESP excludes the outer IP header; AH remains relevant for authentication-only protection"],
+    "name": "Describe ESP's components and distinguish its encrypted and authenticated regions in transport and tunnel modes. Why can AH still be useful when ESP can also authenticate?",
+    "answer": "ESP encrypts payload data to provide privacy and can additionally provide authentication. Its header precedes the encrypted data and contains SPI and Sequence Number. Its trailer follows the payload and contains padding, Pad Length and Next Header; optional authentication data contains an ICV. Encryption covers the payload and the trailer, while authentication covers the ESP header together with the payload and trailer, excluding the authentication-data field itself. In transport mode the carried transport data is protected; in tunnel mode the encrypted payload includes the entire original IP datagram. The outer IP header is outside ESP's authenticated region. AH, in contrast, also protects IP-header fields, and authentication without payload encryption may be sufficient.",
+    "keyPoints": [
+      "ESP provides encryption and optional authentication",
+      "Header: SPI/Sequence Number; trailer: padding/Pad Length/Next Header; optional ICV",
+      "Encrypted payload/trailer versus the larger authenticated ESP region",
+      "Tunnel payload includes the original IP datagram",
+      "ESP excludes the outer IP header; AH remains relevant for authentication-only protection"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 28-31"
   },
   {
     "name": "Explain why best-effort forwarding is inadequate for some real-time applications and describe the Integrated Services resource-reservation process. For a flow from host H1 to host H2 through routers R1-R4, explain the scalability problem of this approach.",
-    "answer": "Best-effort, first-come-first-served forwarding treats packets alike and gives no control over delay, jitter or bandwidth allocation. Integrated Services instead requests resources for a particular end-to-end flow. The application announces requirements and admission control checks whether the network can satisfy them; the request is rejected if resources are insufficient, and the application may reduce its requirements. If accepted, a reservation protocol such as RSVP signals the required reservations to components along the path. The illustration shows setup signaling along the H1-to-H2 route through R1-R4. Those routers must maintain and act on per-flow reservation state, which creates scalability problems as the number of flows grows.",
-    "keyPoints": ["Best effort does not guarantee delay, jitter or bandwidth", "Per-flow end-to-end requirements and admission control", "Accept and reserve, or reject and possibly reduce requirements", "Reservation signaling affects routers along the illustrated path", "Per-flow state in inner routers is the scalability drawback"],
+    "answer": "Best-effort, first-come-first-served forwarding treats packets alike and gives no control over delay, jitter or bandwidth allocation. Integrated Services instead requests resources for a particular end-to-end flow. The application announces requirements and admission control checks whether the network can satisfy them; the request is rejected if resources are insufficient, and the application may reduce its requirements. If accepted, a reservation protocol such as RSVP signals the required reservations to components along the path. The signaling follows the H1-to-H2 path through R1, R2, R3 and R4, so that every router on the path reserves resources for the flow. Those routers must maintain and act on per-flow reservation state, which creates scalability problems as the number of flows grows.",
+    "keyPoints": [
+      "Best effort does not guarantee delay, jitter or bandwidth",
+      "Per-flow end-to-end requirements and admission control",
+      "Accept and reserve, or reject and possibly reduce requirements",
+      "Reservation signaling affects every router along the path",
+      "Per-flow state in inner routers is the scalability drawback"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 33-35"
   },
   {
     "name": "Describe Differentiated Services packet handling and the different roles of leaf (edge) routers and core routers. Why does this approach scale better than per-flow reservations?",
-    "answer": "Differentiated Services assigns packets a priority class instead of negotiating detailed end-to-end resources for each flow. Packets are classified and conditioned at the network edge and marked in the IPv4 Type of Service or IPv6 Traffic Class field. Inner routers read the class mark and apply the corresponding forwarding treatment. The diagram assigns classification/conditioning to leaf routers such as R1, R2, R6 and R7, while core routers such as R3-R5 forward the marked traffic. It needs no initial reservation protocol or per-flow state in inner routers, simplifying implementation and avoiding reservation setup delay. The lecture contrasts this class-based treatment with Integrated Services' precise per-flow reservation mechanism.",
-    "keyPoints": ["Packets carry a priority-class mark", "Leaf/edge routers classify and condition traffic", "Core routers forward according to the mark", "No per-flow reservation state or reservation setup delay", "Class-based treatment differs from precise per-flow reservations"],
+    "answer": "Differentiated Services assigns packets a priority class instead of negotiating detailed end-to-end resources for each flow. Packets are classified and conditioned at the network edge and marked in the IPv4 Type of Service or IPv6 Traffic Class field. Inner routers read the class mark and apply the corresponding forwarding treatment. Leaf (edge) routers do the classification and conditioning, while core routers only forward the marked traffic according to its class. It needs no initial reservation protocol or per-flow state in inner routers, simplifying implementation and avoiding reservation setup delay. The lecture contrasts this class-based treatment with Integrated Services' precise per-flow reservation mechanism.",
+    "keyPoints": [
+      "Packets carry a priority-class mark",
+      "Leaf/edge routers classify and condition traffic",
+      "Core routers forward according to the mark",
+      "No per-flow reservation state or reservation setup delay",
+      "Class-based treatment differs from precise per-flow reservations"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 36-37"
   },
   {
     "name": "Explain the layout and purposes of the IPv6 Traffic Class field, including DSCP, the default behavior and Explicit Congestion Notification.",
-    "answer": "Traffic Class is an eight-bit field, also labeled Packet Priority in the lecture's basic-header diagram. Its first six bits form the Differentiated Services Code Point (DSCP), giving 64 possible values that select packet-forwarding treatment. The all-zero DSCP is the required default best-effort behavior in the lecture's description. The final two bits carry Explicit Congestion Notification (ECN), providing four possible codepoints. They allow congestion to be signaled before packet loss occurs. The slide 39 diagram locates these DSCP/ECN portions within the Traffic Class field of the IPv6 basic header.",
-    "keyPoints": ["Eight-bit Traffic Class in the IPv6 basic header", "Six-bit DSCP selects forwarding treatment", "All-zero DSCP represents default best effort", "Two-bit ECN signals congestion before loss"],
+    "answer": "Traffic Class is an eight-bit field, also called Priority (PRI). Its first six bits form the Differentiated Services Code Point (DSCP), giving 64 possible values that select packet-forwarding treatment. The all-zero DSCP is the required default best-effort behavior in the lecture's description. The final two bits carry Explicit Congestion Notification (ECN), providing four possible codepoints. They allow congestion to be signaled before packet loss occurs.",
+    "keyPoints": [
+      "Eight-bit Traffic Class in the IPv6 basic header",
+      "Six-bit DSCP selects forwarding treatment",
+      "All-zero DSCP represents default best effort",
+      "Two-bit ECN signals congestion before loss"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 38-39"
   },
   {
     "name": "Explain the IPv6 Flow Label and compare flow classification using it with the traditional five-tuple. What advantage does it offer when packets are fragmented or encrypted?",
-    "answer": "A flow is a sequence of related packets from a source to a unicast, anycast or multicast destination. The Flow Label is a 20-bit basic-header field used to classify such packets. The traditional five-tuple uses source/destination addresses, source/destination ports and transport protocol, requiring examination of transport information that may be unavailable because of fragmentation or encryption. The lecture's IPv6 classifier uses Flow Label together with source and destination addresses, all at fixed positions in the basic header. It also describes caching header-processing results for later packets of the same flow instead of repeating the analysis. Zero is used when the field supplies no flow label, and the lecture notes that efficient use of the mechanism remains an open issue in its discussion.",
-    "keyPoints": ["20-bit Flow Label identifies related packets with source/destination addresses", "Traditional five-tuple depends on transport ports/protocol", "Fragmentation or encryption can hide transport information", "Fixed-position basic-header classification and possible processing cache", "Zero denotes no flow labeling; the lecture leaves efficient use open"],
+    "answer": "A flow is a sequence of related packets from a source to a unicast, anycast or multicast destination. The Flow Label is a 20-bit basic-header field used to classify such packets. The traditional five-tuple uses source/destination addresses, source/destination ports and transport protocol, requiring examination of transport information that may be unavailable because of fragmentation or encryption. An IPv6 classifier can use the Flow Label together with the source and destination addresses, all at fixed positions in the basic header. It also describes caching header-processing results for later packets of the same flow instead of repeating the analysis. Zero is used when the packet carries no flow label.",
+    "keyPoints": [
+      "20-bit Flow Label identifies related packets with source/destination addresses",
+      "Traditional five-tuple depends on transport ports/protocol",
+      "Fragmentation or encryption can hide transport information",
+      "Fixed-position basic-header classification and possible processing cache",
+      "Zero means no flow labeling"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 40-41"
   },
   {
-    "name": "A Mobile IPv6 node leaves its home network while communicating with a correspondent. Explain the addresses, binding and delivery paths that preserve reachability, and why route optimization is useful.",
-    "answer": "The node retains its persistent global-unicast home address and gains a care-of address based on the foreign network where it is now located. The association between these addresses is a binding, registered with the Home Agent on its home link. At home, normal routing suffices. Away from home, the correspondent can send to the home address; the Home Agent receives and tunnels packets to the care-of address, with bidirectional tunneling available for the reverse path. Route optimization instead lets the correspondent communicate directly with the mobile node after the binding is registered and authorized. The diagram contrasts this direct path with the detour through the Home Agent. This can matter for applications such as VPN or VoIP that are disrupted by address/connectivity changes, even though many clients handle mobility at the application layer.",
-    "keyPoints": ["Persistent home address and foreign-network care-of address", "Binding is registered with the Home Agent", "Ordinary routing at home; bidirectional tunneling when away", "Authorized route optimization avoids the Home Agent detour", "VPN/VoIP illustrate sensitivity to changing connectivity"],
+    "name": "A Mobile IPv6 node leaves its home network while communicating with a correspondent node. Explain (a) which addresses the node uses and what the binding is, (b) how packets reach it at home and while away, and (c) what route optimization changes and why it is useful.",
+    "answer": "The node retains its persistent global-unicast home address and gains a care-of address based on the foreign network where it is now located. The association between these addresses is a binding, registered with the Home Agent on its home link. At home, normal routing suffices. Away from home, the correspondent can send to the home address; the Home Agent receives and tunnels packets to the care-of address, with bidirectional tunneling available for the reverse path. Route optimization instead lets the correspondent communicate directly with the mobile node after the binding is registered and authorized. This avoids the detour through the Home Agent. This can matter for applications such as VPN or VoIP that are disrupted by address/connectivity changes, even though many clients handle mobility at the application layer.",
+    "keyPoints": [
+      "Persistent home address and foreign-network care-of address",
+      "Binding is registered with the Home Agent",
+      "Ordinary routing at home; bidirectional tunneling when away",
+      "Authorized route optimization avoids the Home Agent detour",
+      "VPN/VoIP illustrate sensitivity to changing connectivity"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 43-46"
   },
   {
     "name": "Explain the security purpose and message paths of Mobile IPv6 Return Routability. Trace the home test and the care-of test (which messages travel through the Home Agent and which directly) through to the protected Binding Update.",
-    "answer": "Before route optimization, the correspondent needs reasonable assurance that the mobile node is reachable through both its claimed home address and care-of address. The lecture motivates Return Routability because the nodes do not initially share a secret and cannot rely on a universal PKI. The mobile node sends Home Test Init through the Home Agent and Care-of Test Init directly to the correspondent. The correspondent returns Home Test through the Home Agent and Care-of Test directly to the care-of address. The slide's cookie/nonce information supports home and care-of key-generation tokens; both parties derive a management key used to protect Binding Update messages. The diagram then shows Binding Update and Binding Acknowledgement. Testing both paths reduces the risk of a malicious false binding redirecting traffic.",
-    "keyPoints": ["Require reachability through both claimed addresses before route optimization", "Home Test Init/Home Test use the Home Agent path", "Care-of Test Init/Care-of Test use the direct path", "Both path tests contribute to a management key protecting Binding Update", "Binding Update/Acknowledgement follow the tests; false-redirection risk is reduced"],
+    "answer": "Before route optimization, the correspondent needs reasonable assurance that the mobile node is reachable through both its claimed home address and care-of address. The lecture motivates Return Routability because the nodes do not initially share a secret and cannot rely on a universal PKI. The mobile node sends Home Test Init through the Home Agent and Care-of Test Init directly to the correspondent. The correspondent returns Home Test through the Home Agent and Care-of Test directly to the care-of address. Cookies and nonce information in these messages support a home key-generation token and a care-of key-generation token; from both, the nodes derive a management key that protects the Binding Update. The mobile node then sends the Binding Update and the correspondent answers with a Binding Acknowledgement. Testing both paths reduces the risk of a malicious false binding redirecting traffic.",
+    "keyPoints": [
+      "Require reachability through both claimed addresses before route optimization",
+      "Home Test Init/Home Test use the Home Agent path",
+      "Care-of Test Init/Care-of Test use the direct path",
+      "Both path tests contribute to a management key protecting Binding Update",
+      "Binding Update/Acknowledgement follow the tests; false-redirection risk is reduced"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 47-49"
   },
   {
     "name": "Describe the Home Agent's ongoing responsibilities and explain how a mobile node can recover when its configured Home Agent is renumbered or replaced.",
     "answer": "A Home Agent maintains a binding cache and a list of routers on the same link that provide Home Agent services. It processes bindings, identifies a primary care-of address, and handles care-of-address changes or removal. It tunnels received packets to the care-of address and sends Neighbor Advertisements on behalf of the mobile node. Although a mobile node is normally configured with a Home Agent address, renumbering or replacement can make that address unusable. Dynamic Home Agent Address Discovery then uses a Request sent to the home-agents anycast address and a Discovery Reply to obtain Home Agent information.",
-    "keyPoints": ["Maintain binding cache and same-link Home Agent list", "Process primary care-of addresses, changes and removal", "Tunnel packets and advertise on behalf of the mobile node", "Anycast Discovery Request and Discovery Reply support recovery"],
+    "keyPoints": [
+      "Maintain binding cache and same-link Home Agent list",
+      "Process primary care-of addresses, changes and removal",
+      "Tunnel packets and advertise on behalf of the mobile node",
+      "Anycast Discovery Request and Discovery Reply support recovery"
+    ],
     "source": "PA191 L2, lecture02.pdf, slide 50"
   },
   {
     "name": "Review a legacy IPv4 application that stores addresses in 32-bit integers, manually parses address strings, treats ':' as a port separator and tries only the first DNS result. Explain the IPv6 porting problems and the changes needed.",
-    "answer": "An IP-version-independent design is recommended for most applications. A 32-bit integer cannot hold a 128-bit IPv6 address, so address storage and code using it need an appropriate structure. IPv6 hex-colon notation and canonical rendering are more complex than dotted decimal, so parsing and formatting should use library support. Colons inside IPv6 literals would conflict with a URL's port separator; the lecture's bracketed example is http://[fe80::219:d1ff:fe06:e908]:8080/. The code must also handle multiple addresses, because an interface may have IPv4, global IPv6 and link-local IPv6 addresses, and name resolution may return several candidates. The client should traverse the returned addresses until it finds one that answers instead of assuming the first or only address always works.",
-    "keyPoints": ["Prefer IP-version-independent application design", "Use structures capable of storing 128-bit addresses", "Use library parsing/formatting for IPv6 notation", "Bracket IPv6 URL literals to distinguish the port", "Handle multiple addresses and iterate DNS candidates"],
+    "answer": "An IP-version-independent design is recommended for most applications. A 32-bit integer cannot hold a 128-bit IPv6 address, so address storage and code using it need an appropriate structure. IPv6 hex-colon notation and canonical rendering are more complex than dotted decimal, so parsing and formatting should use library support. Colons inside IPv6 literals would conflict with a URL's port separator; for example http://[fe80::219:d1ff:fe06:e908]:8080/. The code must also handle multiple addresses, because an interface may have IPv4, global IPv6 and link-local IPv6 addresses, and name resolution may return several candidates. The client should traverse the returned addresses until it finds one that answers instead of assuming the first or only address always works.",
+    "keyPoints": [
+      "Prefer IP-version-independent application design",
+      "Use structures capable of storing 128-bit addresses",
+      "Use library parsing/formatting for IPv6 notation",
+      "Bracket IPv6 URL literals to distinguish the port",
+      "Handle multiple addresses and iterate DNS candidates"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 52-54"
   },
   {
     "name": "Describe the roles of addrinfo, sockaddr_in6, sockaddr_storage, getaddrinfo and getnameinfo in an IP-version-independent socket application.",
-    "answer": "addrinfo replaces the older hostent-style connection-resolution information and is used by getaddrinfo. getaddrinfo resolves a hostname into a linked list of address candidates that the calling program should traverse. sockaddr_in6 is the IPv6 socket-address structure: it holds an IPv6 address, port, flow information and address scope, but directly assuming this type makes the code IPv6-specific. sockaddr_storage can hold either an IPv4 sockaddr_in or an IPv6 sockaddr_in6, making it suitable when the IP version is not fixed. getnameinfo provides name information for an address, including the hostname operation described on the slide, as the newer interface in place of legacy address/name conversion functions.",
-    "keyPoints": ["addrinfo carries getaddrinfo resolution results", "getaddrinfo returns address candidates that must be traversed", "sockaddr_in6 is IPv6-specific and includes address/port/flow/scope", "sockaddr_storage accommodates either IP version", "getnameinfo provides address-to-name information"],
+    "answer": "addrinfo replaces the older hostent-style connection-resolution information and is used by getaddrinfo. getaddrinfo resolves a hostname into a linked list of address candidates that the calling program should traverse. sockaddr_in6 is the IPv6 socket-address structure: it holds an IPv6 address, port, flow information and address scope, but directly assuming this type makes the code IPv6-specific. sockaddr_storage can hold either an IPv4 sockaddr_in or an IPv6 sockaddr_in6, making it suitable when the IP version is not fixed. getnameinfo provides name information for an address, including the hostname, as the newer interface in place of legacy address/name conversion functions.",
+    "keyPoints": [
+      "addrinfo carries getaddrinfo resolution results",
+      "getaddrinfo returns address candidates that must be traversed",
+      "sockaddr_in6 is IPv6-specific and includes address/port/flow/scope",
+      "sockaddr_storage accommodates either IP version",
+      "getnameinfo provides address-to-name information"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 55-56"
   },
   {
     "name": "Explain how dual stack achieves IPv4/IPv6 coexistence, how the two protocol stacks are arranged between the applications and the link layer, and what costs the approach brings.",
-    "answer": "A dual-stack device supports IPv4 and IPv6 simultaneously and uses the appropriate version to communicate with each peer. The diagram shows applications using TCP or UDP over either the IPv4 side or the IPv6 side, above a shared underlying LAN/WAN technology. This is flexible for IPv4-only and IPv6 peers, applications and network islands; once IPv4 is unnecessary its stack can be disabled. The cost is maintaining two protocol stacks and their resources. Applications must handle peer-version selection, DNS resolution must support both address types, and routing must support both IP versions, potentially through separate routing protocols.",
-    "keyPoints": ["Both IP versions operate on one device", "Choose IPv4 or IPv6 according to the peer", "Shared underlying network with separate IP/control-protocol stacks", "Two stacks consume resources and require application/DNS/routing support", "IPv4 can later be disabled"],
+    "answer": "A dual-stack device supports IPv4 and IPv6 simultaneously and uses the appropriate version to communicate with each peer. Applications use TCP or UDP over either the IPv4 stack or the IPv6 stack, both running above the same underlying LAN/WAN technology. This is flexible for IPv4-only and IPv6 peers, applications and network islands; once IPv4 is unnecessary its stack can be disabled. The cost is maintaining two protocol stacks and their resources. Applications must handle peer-version selection, DNS resolution must support both address types, and routing must support both IP versions, potentially through separate routing protocols.",
+    "keyPoints": [
+      "Both IP versions operate on one device",
+      "Choose IPv4 or IPv6 according to the peer",
+      "Shared underlying network with separate IP/control-protocol stacks",
+      "Two stacks consume resources and require application/DNS/routing support",
+      "IPv4 can later be disabled"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 57-59"
   },
   {
     "name": "Describe IPv6-over-IPv4 tunneling, including what the packet looks like outside and inside the IPv4-only region. Explain its migration advantage and the operational problems an administrator must consider.",
-    "answer": "A tunnel encapsulates a complete IPv6 packet inside an IPv4 packet across an IPv4-only region. The illustration shows IPv6 header plus payload at the endpoints, and an additional outer IPv4 header inside the region; tunnel endpoints add and remove that encapsulation. Separate IPv6 islands can therefore be connected without a fixed order for upgrading all intervening networks, and the tunnel can be discarded when the path supports IPv6. The lecture lists mechanisms such as 6to4, Teredo and ISATAP as examples. Operational costs include extra router load, tunnel endpoints as single points of failure, harder troubleshooting of hop count/MTU/fragmentation, less straightforward accounting of encapsulated traffic, and additional attack points.",
-    "keyPoints": ["Outer IPv4 packet transports an intact inner IPv6 packet", "Tunnel endpoints encapsulate and decapsulate", "Connect IPv6 islands without a fixed infrastructure-upgrade order", "Extra load, failure points and MTU/fragmentation/troubleshooting issues", "Encapsulation complicates accounting and creates attack points"],
+    "answer": "A tunnel encapsulates a complete IPv6 packet inside an IPv4 packet across an IPv4-only region. Outside the IPv4-only region the packet is an ordinary IPv6 header plus payload; inside the region it carries an additional outer IPv4 header, which the tunnel endpoints add and remove. Separate IPv6 islands can therefore be connected without a fixed order for upgrading all intervening networks, and the tunnel can be discarded when the path supports IPv6. The lecture lists mechanisms such as 6to4, Teredo and ISATAP as examples. Operational costs include extra router load, tunnel endpoints as single points of failure, harder troubleshooting of hop count/MTU/fragmentation, less straightforward accounting of encapsulated traffic, and additional attack points.",
+    "keyPoints": [
+      "Outer IPv4 packet transports an intact inner IPv6 packet",
+      "Tunnel endpoints encapsulate and decapsulate",
+      "Connect IPv6 islands without a fixed infrastructure-upgrade order",
+      "Extra load, failure points and MTU/fragmentation/troubleshooting issues",
+      "Encapsulation complicates accounting and creates attack points"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 57 and 60-61"
   },
   {
     "name": "Explain how a NAT-PT translator differs from dual stack and tunneling. Why is it regarded as a temporary last-resort transition mechanism?",
-    "answer": "A translator changes IPv6 datagrams into IPv4 datagrams and translates replies in the reverse direction, allowing an IPv6-only host to communicate with an IPv4-only host. The slide 62 diagram therefore shows an IPv6 header on one side and an IPv4 header on the other, rather than carrying an unchanged IPv6 packet inside an outer IPv4 header. Dual stack instead has both protocols available on the communicating device. The lecture recommends its NAT-PT approach only temporarily when another technique is not possible: it does not preserve advanced features such as end-to-end security, constrains topology because replies must pass through the same translator, creates a single point of failure, and causes trouble for applications containing IP addresses in their payloads. This answer describes the historical mechanism taught on these slides.",
-    "keyPoints": ["Translation enables IPv6-only to IPv4-only communication", "Headers are translated rather than tunneled intact", "Dual stack runs both protocols on a device", "Same-translator return path and single point of failure", "End-to-end security and embedded-address applications face limitations"],
+    "answer": "A translator changes IPv6 datagrams into IPv4 datagrams and translates replies in the reverse direction, allowing an IPv6-only host to communicate with an IPv4-only host. The packet therefore has an IPv6 header on one side of the translator and an IPv4 header on the other, rather than carrying an unchanged IPv6 packet inside an outer IPv4 header as in tunneling. Dual stack instead has both protocols available on the communicating device. The lecture recommends NAT-PT only temporarily when another technique is not possible: it does not preserve advanced features such as end-to-end security, constrains topology because replies must pass through the same translator, creates a single point of failure, and causes trouble for applications containing IP addresses in their payloads.",
+    "keyPoints": [
+      "Translation enables IPv6-only to IPv4-only communication",
+      "Headers are translated rather than tunneled intact",
+      "Dual stack runs both protocols on a device",
+      "Same-translator return path and single point of failure",
+      "End-to-end security and embedded-address applications face limitations"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 57 and 62-63"
   },
   {
-    "name": "Explain why adopting IPv6 involves more than making addresses longer. Why can IPv4/IPv6 coexistence persist despite extensive IPv6 deployment?",
-    "answer": "The lecture summarizes IPv6 as a package of larger addresses, a different header/extension design, real-time support, IPsec and autoconfiguration. It also stresses that some original motivations were mitigated by CIDR/NAT or by features added to IPv4. Its adoption discussion describes dual-stack coexistence and substantial IPv6 use in datacenters and mobile operators. Full migration remains slow and laborious, with long addresses awkward for humans and low-power hardware, a different operational paradigm, and criticism of aspects of the design. Existing IPv4 deployment and these transition costs explain why IPv4 can remain alongside IPv6. Exact deployment percentages on the slide are time-sensitive observations, rather than facts needed to explain the transition problem.",
-    "keyPoints": ["IPv6 changes headers and operating mechanisms as well as address size", "IPv4 mitigations and backported features changed the original motivation", "Dual stack allows deployment with continuing coexistence", "Migration effort, address handling and operational paradigm create barriers", "Time-sensitive adoption percentages do not determine the conceptual answer"],
+    "name": "Why do IPv4 and IPv6 still coexist despite substantial IPv6 deployment? Name the mechanism that allows gradual deployment and the costs that slow full migration.",
+    "answer": "Dual stack lets hosts and networks run IPv4 and IPv6 side by side, so IPv6 can be deployed gradually without switching everything at once; IPv6 is already widely used, for example by large datacenters and mobile operators. Full migration remains slow and laborious: the installed IPv4 base keeps working, long IPv6 addresses are awkward for humans and for low-power hardware, IPv6 brings a different operational paradigm (autoconfiguration, extension headers, new tooling), and parts of the design are criticised. Since running both is possible and switching off IPv4 has costs and little immediate benefit, the two coexist.",
+    "keyPoints": [
+      "Dual stack allows gradual deployment alongside IPv4",
+      "IPv6 is substantially deployed (e.g. datacenters, mobile operators) yet IPv4 remains",
+      "Installed IPv4 base keeps working",
+      "Migration costs: effort, awkward long addresses, different operational paradigm, design criticism"
+    ],
     "source": "PA191 L2, lecture02.pdf, slides 65-66"
   }
 ]
