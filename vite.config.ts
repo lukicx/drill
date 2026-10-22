@@ -20,4 +20,6 @@ export default defineConfig({
   plugins: [react(), stampServiceWorker()],
   // GitHub Pages serves the app at https://lukicx.github.io/drill/
   base: '/drill/',
+  // KaTeX (formula rendering) makes the single bundle ~0.5 MB; it is cached offline, so that is fine.
+  build: { chunkSizeWarningLimit: 600 },
 })

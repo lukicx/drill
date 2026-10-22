@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { asHtml } from './math'
 import { checkSelection, clearSession, createSession, getPersistenceFailed, nextQuestion,
   questionsToReview, recordAttempt, saveResult, saveSession, subscribePersistence } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
@@ -60,17 +61,17 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       {wrong.length > 0 && <section className="results-review"><h2 className="section-title">What to review</h2>
         <p className="hint">Open a question to compare your answer and explanation.</p>
         {session.attempts.filter((attempt) => attempt.assessment !== 'correct').map((attempt) => <details className="review-item" key={attempt.item.key}>
-          <summary><span dangerouslySetInnerHTML={{ __html: attempt.item.question.name }} /><span className="badge">{attempt.assessment === 'partial' ? 'Partly recalled' : 'Need practice'}</span></summary>
+          <summary><span dangerouslySetInnerHTML={asHtml(attempt.item.question.name)} /><span className="badge">{attempt.assessment === 'partial' ? 'Partly recalled' : 'Need practice'}</span></summary>
           <div className="review-content">
             {session.datasetIds.length > 1 && <p className="hint">{sourceTitles[attempt.item.datasetId]}</p>}
             {attempt.item.question.answers ? <ul className="review-answers">{attempt.item.question.answers.map((answer, i) => <li key={i}>
               <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? attempt.selected.includes(i) ? '✓ Your correct selection' : '✓ Correct answer you missed' : attempt.selected.includes(i) ? '✗ Your incorrect selection' : 'Not selected'}: </span>
-              <span dangerouslySetInnerHTML={{ __html: answer.body }} />
-              {answer.comment && <p className="hint" dangerouslySetInnerHTML={{ __html: answer.comment }} />}
+              <span dangerouslySetInnerHTML={asHtml(answer.body)} />
+              {answer.comment && <p className="hint" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
             </li>)}</ul> : <>
               {attempt.draft && <><h3>Your answer</h3><p className="saved-draft">{attempt.draft}</p></>}
-              {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={{ __html: point }} />)}</ul></> : null}
-              <h3>Model answer</h3><div dangerouslySetInnerHTML={{ __html: attempt.item.question.answer ?? '' }} />
+              {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={asHtml(point)} />)}</ul></> : null}
+              <h3>Model answer</h3><div dangerouslySetInnerHTML={asHtml(attempt.item.question.answer ?? '')} />
               {attempt.item.question.source && <p className="hint">{attempt.item.question.source}</p>}
             </>}
           </div>
@@ -89,15 +90,15 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     {storageNotice}
     <progress className="progress-bar" max={session.round.length} value={session.attempts.length} aria-label="Questions answered" />
     {session.datasetIds.length > 1 && <p className="eyebrow">{sourceTitles[session.round[session.index].datasetId]}</p>}
-    <h2 ref={heading} tabIndex={-1} className="question" dangerouslySetInnerHTML={{ __html: question.name }} />
+    <h2 ref={heading} tabIndex={-1} className="question" dangerouslySetInnerHTML={asHtml(question.name)} />
     {isEssay ? <>
       <p className="hint">Essay question. Write or think through your answer, then compare.</p>
       <label className="hint" htmlFor="essay-answer">Your answer (optional)</label>
       <textarea id="essay-answer" className="essay-input" rows={6} value={session.draft}
         onChange={(event) => setSession((s) => ({ ...s, draft: event.target.value }))} placeholder="Write your answer here…" />
       {checked && <section className="model-answer">
-        {question.keyPoints && question.keyPoints.length > 0 && <><h3>Key points</h3><ul>{question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={{ __html: point }} />)}</ul></>}
-        <details open><summary>Full model answer</summary><div className="model-answer-body" dangerouslySetInnerHTML={{ __html: question.answer ?? '' }} /></details>
+        {question.keyPoints && question.keyPoints.length > 0 && <><h3>Key points</h3><ul>{question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={asHtml(point)} />)}</ul></>}
+        <details open><summary>Full model answer</summary><div className="model-answer-body" dangerouslySetInnerHTML={asHtml(question.answer ?? '')} /></details>
         {question.source && <p className="comment">{question.source}</p>}
       </section>}
     </> : <p className="hint">One or more answers can be correct.</p>}
@@ -107,9 +108,9 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
         const state = checked ? answer.right ? selected ? 'correct' : 'missed' : selected ? 'wrong' : '' : ''
         return <li key={`${session.index}:${i}`} className={state}>
           <label><input type="checkbox" checked={selected} disabled={checked} onChange={() => toggle(i)} />
-            <span dangerouslySetInnerHTML={{ __html: answer.body }} />{state && <span className="mark">{MARKS[state]}</span>}
+            <span dangerouslySetInnerHTML={asHtml(answer.body)} />{state && <span className="mark">{MARKS[state]}</span>}
           </label>
-          {checked && answer.comment && <p className="comment" dangerouslySetInnerHTML={{ __html: answer.comment }} />}
+          {checked && answer.comment && <p className="comment" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
         </li>
       })}
     </ul>

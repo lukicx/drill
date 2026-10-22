@@ -2,6 +2,20 @@
 // Usage: node scripts/validate-questions.mjs public/datasets/questions_PA015_L01.json [more files...]
 // Hard errors = the app would reject the file or show it wrong; warnings = quality issues in generated sets.
 import { readFileSync } from 'node:fs'
+import katex from 'katex'
+// Same delimiters as src/math.ts: \( … \) inline, \[ … \] display. Every formula must parse with KaTeX.
+const MATH = /\\\[([\s\S]+?)\\\]|\\\(([\s\S]+?)\\\)/g
+const decode = (t) => t.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ')
+function mathErrors(s) {
+  const out = []
+  for (const m of s.matchAll(MATH)) {
+    const tex = m[1] ?? m[2]
+    try { katex.renderToString(decode(tex), { displayMode: m[1] !== undefined, throwOnError: true }) }
+    catch (e) { out.push(`bad LaTeX "${tex.slice(0, 40)}": ${String(e.message).split('\n')[0].slice(0, 80)}`) }
+  }
+  if (/\\[()[\]]/.test(s.replace(MATH, ''))) out.push('unbalanced math delimiter \\( \\) or \\[ \\]')
+  return out
+}
 const ALLOWED = new Set(['tt', 'b', 'i', 'pre', 'br', 'sup', 'sub', 'strong', 'em', 'code'])
 let failed = false
 for (const f of process.argv.slice(2)) {
@@ -19,7 +33,8 @@ for (const f of process.argv.slice(2)) {
       if (!Array.isArray(q.keyPoints) || q.keyPoints.length < 3) warnings.push(`${L}: fewer than 3 key points`)
       if (typeof q.source !== 'string' || !/slide/i.test(q.source)) warnings.push(`${L}: no slide reference in source`)
       for (const s of [q.name, q.answer ?? '', ...(q.keyPoints ?? []), q.source ?? '']) {
-        for (const m of s.matchAll(/<\/?([a-zA-Z][\w-]*)/g)) if (!ALLOWED.has(m[1].toLowerCase())) errors.push(`${L}: unescaped "<${m[1]}" (write &lt;)`)
+        for (const m of s.replace(MATH, '').matchAll(/<\/?([a-zA-Z][\w-]*)/g)) if (!ALLOWED.has(m[1].toLowerCase())) errors.push(`${L}: unescaped "<${m[1]}" (write &lt;)`)
+      for (const e of mathErrors(s)) errors.push(`${L}: ${e}`)
       }
       return
     }
@@ -33,7 +48,8 @@ for (const f of process.argv.slice(2)) {
     if (new Set(bodies).size !== bodies.length) errors.push(`${L}: duplicate answers`)
     if (!q.answers.some(a => typeof a.comment === 'string' && a.comment.trim())) warnings.push(`${L}: no comment/slide reference`)
     for (const s of [q.name, ...q.answers.flatMap(a => [a.body, a.comment ?? ''])]) {
-      for (const m of s.matchAll(/<\/?([a-zA-Z][\w-]*)/g)) if (!ALLOWED.has(m[1].toLowerCase())) errors.push(`${L}: unescaped "<${m[1]}" (write &lt;)`)
+      for (const m of s.replace(MATH, '').matchAll(/<\/?([a-zA-Z][\w-]*)/g)) if (!ALLOWED.has(m[1].toLowerCase())) errors.push(`${L}: unescaped "<${m[1]}" (write &lt;)`)
+      for (const e of mathErrors(s)) errors.push(`${L}: ${e}`)
     }
   })
   const keys = (Array.isArray(data) ? data : []).map(q => q?.name?.trim())

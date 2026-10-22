@@ -325,3 +325,7 @@ pre {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Display formulas (\[ … \]) may be wider than a phone screen: scroll them instead of the page. */
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.katex { font-size: 1.08em; }

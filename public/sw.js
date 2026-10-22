@@ -23,6 +23,14 @@ async function precache() {
   const list = await save(cache, scope + 'datasets.json')
   const sets = (await list.json()).map((entry) => scope + entry.dataset)
   await Promise.allSettled([...files, ...sets].map((url) => save(cache, url)))
+  // Formula fonts are referenced from the stylesheets, not the page, so save those too (woff2 is
+  // the format current browsers load).
+  const fonts = []
+  for (const url of files.filter((u) => u.endsWith('.css'))) {
+    const css = await (await cache.match(url))?.text()
+    for (const m of css?.matchAll(/url\(([^)]+\.woff2)\)/g) ?? []) fonts.push(new URL(m[1].replace(/["']/g, ''), url).href)
+  }
+  await Promise.allSettled(fonts.filter((url) => url.startsWith(scope)).map((url) => save(cache, url)))
 }
 
 self.addEventListener('install', (event) => {
