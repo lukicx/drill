@@ -1,7 +1,7 @@
 [
   {
-    "name": "Describe the agentic loop of an AI coding agent. Name its components and explain what each one does, using the example of a typical run.",
-    "answer": "You give the agent a task in natural language (e.g. “add rate limiting to the upload endpoint, keep the existing tests green”). The agent then runs a loop: <B>plan → act → observe → verify</B>, repeated until done. The <B>model</B> is the reasoning engine that chooses the next step. The <B>context</B> is what the model sees: the prompt, the repository, docs and memory. <B>Tools</B> are how it acts: shell, files, tests, git, MCP servers. The <B>harness</B> is the scaffold that runs the loop. <B>Verification</B> (tests, linters, review) closes the loop and decides whether to continue or finish with a pull request. The <B>trace</B> records reasoning, actions and observations. In the example run every step is a tool call chosen by the model, not scripted; a failing test is not a bug report but the next instruction; and the human’s job starts at “open pull request”: reading the diff and the trace.",
+    "name": "Describe the agentic loop of an AI coding agent. Name its components, explain what each does, and say what a typical run looks like (who chooses each step, what a failing test means, what the human does).",
+    "answer": "You give the agent a task in natural language (e.g. “add rate limiting to the upload endpoint, keep the existing tests green”). The agent then runs a loop: <B>plan → act → observe → verify</B>, repeated until done. The <B>model</B> is the reasoning engine that chooses the next step. The <B>context</B> is what the model sees: the prompt, the repository, docs and memory. <B>Tools</B> are how it acts: shell, files, tests, git, MCP servers. The <B>harness</B> is the scaffold that runs the loop. <B>Verification</B> (tests, linters, review) closes the loop and decides whether to continue or finish with a pull request. The <B>trace</B> records reasoning, actions and observations. In a typical run every step is a tool call chosen by the model, not scripted; a failing test is not a bug report but the next instruction; and the human’s job starts at “open pull request”: reading the diff and the trace.",
     "keyPoints": [
       "Loop: plan → act → observe → verify; not done → next step, done → pull request",
       "Model = reasoning engine; context = prompt, repo, docs, memory",
@@ -28,9 +28,12 @@
     "name": "Describe the five stages from autocomplete to multi-agent systems. What changes as you go down the list?",
     "answer": "(1) <B>Completion</B> predicts the next tokens in the editor; you keep every decision. (2) <B>Chat</B>: you paste code, it answers, you copy back; it has no access to your environment. (3) <B>Agent in the IDE</B> reads and edits files and runs commands while you approve steps. (4) <B>Background agent</B> takes a task, works in its own sandbox and returns a pull request. (5) <B>Multi-agent</B>: one agent plans and delegates to others, with shared memory and specialised roles. Going down the list changes <B>who decides</B>, <B>what the model can touch</B>, and <B>how much you see before it acts</B>. Tools available today sit at levels 3 and 4; the course considers mostly 3–5.",
     "keyPoints": [
-      "1 completion, 2 chat, 3 agent in the IDE, 4 background agent, 5 multi-agent",
-      "Changes: who decides, what the model can touch, how much you see before it acts",
-      "Today’s tools are at levels 3 and 4"
+      "Completion: predicts the next tokens in the editor; you keep every decision",
+      "Chat: you paste code and copy the answer back; no access to your environment",
+      "Agent in the IDE: reads and edits files, runs commands; you approve steps",
+      "Background agent: works alone in its own sandbox and returns a pull request",
+      "Multi-agent: one agent plans and delegates to specialised agents with shared memory",
+      "Down the list: who decides, what the model can touch, how much you see before it acts"
     ],
     "source": "Lecture 1, slide 6"
   },
@@ -47,7 +50,7 @@
     "source": "Lecture 1, slides 7–8"
   },
   {
-    "name": "“Nothing in the loop is new.” Which parts of the development loop were already automated around 2015, and which step was not? Why does that matter for today’s agents?",
+    "name": "“Nothing in the loop is new.” Which parts of the development loop were already automated before AI agents (around 2015), and which step was not? Why does that matter for today’s agents?",
     "answer": "By 2015 developers already ran the loop by hand – read the ticket, edit, run the tests, read the failure, fix, push – and everything around the human was automated: CI ran the test suite on every push and reported failures, linters and type checkers gated the merge, codemods rewrote thousands of call sites mechanically, and bots opened pull requests (e.g. dependency bumps) and let CI judge them. The one step never automated was <B>reading the failure and deciding what to do next</B>: CI could say which tests were red, but only a person could work out what caused it, often something other than the edited code. That step is what the model now does – the progress in models is what made it good enough to close the loop.",
     "keyPoints": [
       "The loop (ticket → edit → test → read failure → fix → push) was already standard practice",
@@ -58,20 +61,20 @@
     "source": "Lecture 1, slide 12"
   },
   {
-    "name": "Explain why neural networks were considered a dead end in 2010 and what changed in 2012. What general pattern does the lecture see in the development of AI since then?",
-    "answer": "In 2010 SVMs, random forests and gradient boosting won, and feature engineering was the key skill. Neural networks faced two objections: they were <B>too complex</B> (a black box with no theory of generalisation, unlike SVM margins or forest feature importances) and <B>not powerful enough</B> (hard to train: vanishing gradients, sigmoids, no good initialisation). Both were correct then. In 2012 AlexNet won ILSVRC with top-5 error 15.3 % vs 26.2 % for a classical pipeline, using ImageNet’s 1.2 M labelled images, two consumer GPUs, eight layers, ReLU and dropout – nothing new on its own, but it worked together at scale. This removed the second objection; the first (we cannot read the weights) still holds. The pattern since then: <B>more data, more compute, and one idea that lets them be used</B> – each time an engineered pipeline is replaced by a learned one once the scale is there (e.g. the Transformer is not smarter than older networks, just easier to scale).",
+    "name": "Explain why neural networks were considered a dead end around 2010 and what changed in 2012. What general pattern do you see in the development of AI since then?",
+    "answer": "Around 2010, SVMs, random forests and gradient boosting won competitions, and feature engineering was the key skill. Neural networks faced two objections: they were <B>too complex</B> (a black box with no theory of generalisation, unlike SVM margins or forest feature importances) and <B>not powerful enough</B> (hard to train: vanishing gradients, sigmoids, no good initialisation). Both objections were correct then. In 2012 a deep network (AlexNet) won the ImageNet challenge by a large margin over the best classical pipeline (top-5 error about 15 % vs 26 %). Its recipe – a large labelled data set, two consumer GPUs, eight layers, ReLU and dropout – contained nothing new on its own; it worked because the pieces came together at scale. This removed the second objection; the first (we cannot read the weights) still holds. Within a few years every entry was a deep net, and learned representations replaced hand-designed features. <B>The pattern since then:</B> more data, more compute, and one idea that lets them be used together – each time an engineered pipeline is replaced by a learned one once the scale is there (learned features beat engineered ones in 2012; around 2020 one model trained on everything beat a model per task). The Transformer, for example, is not smarter than older networks, just easier to scale, because its training parallelises.",
     "keyPoints": [
-      "2010: SVMs/forests/boosting + feature engineering dominated",
-      "Objections: black box (still true) and hard to train (stopped being true in 2012)",
-      "AlexNet 2012: ImageNet + GPUs + 8 layers + ReLU/dropout; 15.3 % vs 26.2 % top-5 error",
-      "Pattern: data + compute + one idea; learned replaces engineered once scale exists",
+      "2010: shallow models plus hand-engineered features dominated",
+      "Objections: black box (still true) and hard to train (overcome in 2012)",
+      "2012: a deep net clearly beat classical pipelines – data, GPUs and simple tricks together at scale",
+      "Pattern: data + compute + one enabling idea; learned replaces engineered once scale exists",
       "Transformer: not smarter, just easier to scale (parallel training)"
     ],
-    "source": "Lecture 1, slides 14–16, 20"
+    "source": "Lecture 1, slides 14–20"
   },
   {
-    "name": "What made reinforcement learning in game playing (AlphaGo, AlphaZero) work, and how does this connect to today’s coding agents?",
-    "answer": "AlphaGo (2016) beat Lee Sedol 4–1 with a learned policy and value network guiding tree search, trained on human games and then self-play; AlphaZero (2017) used no human games at all, only self-play from the rules. What made this possible was a <B>verifiable signal</B> (you win or lose), <B>cheap to compute</B>, and a <B>loop that runs millions of times without a human</B>. The lecture calls this “closed world, cheap verifier, let the loop run” – which is how models are trained on code today, and it is the agentic loop with the human removed. Around 2024–25 reasoning models (o1, DeepSeek-R1) applied reinforcement learning to tasks with a verifier (maths, code), and models were trained for tool use and whole agentic trajectories: the 2019 game-playing recipe met the 2020 language model.",
+    "name": "What made reinforcement learning in game playing (e.g. AlphaGo, AlphaZero) work, and how does this connect to how today’s coding models are trained?",
+    "answer": "AlphaGo (2016) beat a top professional Go player with a learned policy and value network guiding tree search, trained on human games and then self-play; AlphaZero (2017) used no human games at all, only self-play from the rules. What made this possible was a <B>verifiable signal</B> (you win or lose), <B>cheap to compute</B>, and a <B>loop that runs millions of times without a human</B>. This is sometimes summarised as “closed world, cheap verifier, let the loop run” – which is how models are trained on code today, and it is the agentic loop with the human removed. Around 2024–25 reasoning models (o1, DeepSeek-R1) applied reinforcement learning to tasks with a verifier (maths, code), and models were trained for tool use and whole agentic trajectories: the 2019 game-playing recipe met the 2020 language model.",
     "keyPoints": [
       "AlphaGo: policy/value network + tree search, human games then self-play; AlphaZero: self-play only",
       "Key ingredients: verifiable signal, cheap to compute, loop without a human",
@@ -93,50 +96,65 @@
     "source": "Lecture 1, slides 21–26"
   },
   {
-    "name": "Benchmark numbers suggest AI coding tools work very well. Which four things do these numbers not tell you? Explain each briefly.",
-    "answer": "(1) <B>They work less often than the demo suggests:</B> benchmark tasks are short, self-contained and come with tests that define “done”, unlike most real tasks; on harder benchmarks (SWE-bench Pro, at its launch) the same models dropped from about three quarters to about a quarter of tasks; task length matters most, and the length completed reliably is several times shorter than the 50 % length; and failure is quiet – a plausible diff with green tests the agent wrote itself. (2) <B>They do not make you faster the way it feels</B> (the METR randomised trial: measured slower, felt faster). (3) <B>They can be turned against you:</B> the agent reads untrusted text while holding real credentials – prompt injection. (4) <B>They change what you learn:</B> in a trial of developers learning a new library, the AI group had no average productivity gain and scored about 17 points lower on a later comprehension test, worst on debugging; those who leaned on it hardest understood least. Conclusion: the loop works on tasks you can specify and verify, at lengths you can check, in code you understand. Outside that it fails quietly, feels productive and is exposed to anyone who can get text in front of it – and where that boundary runs for your task, code base and tool, no benchmark tells you: you have to measure it yourself.",
+    "name": "Benchmark numbers suggest AI coding tools work very well. Name four things these numbers do not tell you and explain each briefly. What follows for using the tools on your own tasks?",
+    "answer": "(1) <B>They work less often than the demo suggests:</B> benchmark tasks are short, self-contained and come with tests that define “done”, unlike most real tasks; on harder, more realistic benchmarks the same models solve far fewer tasks; task length matters most – the length an agent completes reliably is several times shorter than the length it completes half the time; and failure is quiet: the agent stops with a plausible diff and green tests it wrote itself. (2) <B>They do not make you faster the way it feels:</B> in a randomised trial, developers felt faster with AI but were measured slower. (3) <B>They can be turned against you:</B> the agent reads untrusted text while holding real credentials, so instructions hidden in that text can act with your rights. (4) <B>They change what you learn:</B> in a randomised trial of developers learning an unfamiliar library, the AI group had no average productivity gain but scored clearly lower on a later comprehension test taken without AI, worst on debugging; those who leaned on it hardest finished fastest and understood least, while asking it for explanations cost nothing (limits: one library, mostly junior developers, immediate comprehension). Reviewing a diff or judging a trace rests on skills you get by doing the work. <B>Conclusion:</B> the loop works on tasks you can specify and verify, at lengths you can check, in code you understand. Outside that it fails quietly, feels productive and is exposed to anyone who can get text in front of it – and where that boundary runs for your task, code base and tool, no benchmark tells you: you have to measure it yourself.",
     "keyPoints": [
-      "Work less often: benchmark tasks short and well-tested; harder benchmarks much lower; quiet failure",
-      "Not faster as it feels (METR study)",
-      "Can be turned against you: prompt injection with your credentials",
-      "Change what you learn: ~17 points lower comprehension, worst on debugging",
-      "Works on specifiable, verifiable, checkable tasks in code you understand; where the boundary is for you, measure yourself"
+      "Work less often than demos: benchmark tasks are short and well-tested; harder benchmarks score much lower; failure is quiet",
+      "Feel faster than they are: perceived and measured speed disagree",
+      "Can be turned against you: untrusted text plus your credentials",
+      "Change what you learn: heavy reliance lowers comprehension, especially debugging; asking for explanations does not",
+      "Works on specifiable, verifiable, checkable tasks in code you understand; measure the boundary yourself"
     ],
     "source": "Lecture 1, slides 27–32"
   },
   {
-    "name": "Describe the METR randomised trial on developer productivity with AI (2025). What did it find, and how does the lecture explain the result?",
-    "answer": "METR ran a randomised trial with 16 experienced open-source developers on about 250 real issues in their own repositories; for each issue AI use was allowed or not at random. Before the study the developers expected to be about 24 % faster with AI, and afterwards they believed they had been about 20 % faster – but measured, they were about <B>19 % slower</B>. The time went into prompting, waiting, and reviewing and fixing output that was almost right; the developers knew their code base far better than the model did. Earlier studies with large speed-ups used small greenfield tasks in unfamiliar code, the setting where “everyone’s code” beats “your code”. The feeling of speed and the measured speed disagreed by about 40 points. (Lecture 4 later updates this: the result held for early-2025 tools; for newer tools there is no clean measurement yet.)",
+    "name": "Describe the randomised controlled trial on developer productivity with AI (METR, 2025): experienced open-source developers worked on real issues in their own repositories, and for each issue AI use was allowed or forbidden at random. What did it find, and what explains the result?",
+    "answer": "<B>Setup:</B> 16 experienced open-source developers and about 250 real issues in repositories they knew well; randomising per issue makes the issues with and without AI comparable. <B>Finding:</B> before the study the developers expected to be faster with AI (by about a quarter), and afterwards they still believed they had been faster (by about a fifth) – but measured, they were <B>slower</B> (by about a fifth). The feeling of speed and the measurement disagreed by roughly 40 percentage points. <B>Explanation:</B> the time went into prompting, waiting, and reviewing and fixing output that was almost right; and the developers knew their code base far better than the model did, so the model’s knowledge of “everyone’s code” added little to their knowledge of “their code”. Earlier studies with large speed-ups used small greenfield tasks in unfamiliar code – exactly the setting where the model’s general knowledge beats the developer’s. <B>Caveat:</B> the result holds for the tools of early 2025. A follow-up with newer tools suggested a speed-up, but its range includes zero, and the design broke down because many developers no longer wanted to do tasks without AI – for current tools there is no clean measurement.",
     "keyPoints": [
-      "16 experienced developers, ~250 real issues in their own repos, AI allowed at random",
-      "Expected ~24 % faster, believed ~20 % faster, measured ~19 % slower",
-      "Time lost: prompting, waiting, reviewing/fixing almost-right output",
-      "Developers knew their code better than the model; earlier studies used greenfield/unfamiliar code"
+      "Randomised per issue; experienced developers in their own repositories",
+      "Developers expected and afterwards believed they were faster; measured, they were slower",
+      "Perception and measurement can disagree widely – measure, do not rely on feeling",
+      "Time lost on prompting, waiting, reviewing and fixing almost-right output",
+      "Familiar code favours the developer; earlier speed-ups came from greenfield, unfamiliar tasks",
+      "Holds for early-2025 tools; no clean measurement for newer ones"
     ],
     "source": "Lecture 1, slide 29 (update: Lecture 4, slide 47)"
   },
   {
-    "name": "Explain why prompt injection is a serious risk for coding agents. Illustrate it with this scenario: an agent that has access to a user's repositories reads a public GitHub issue written by a stranger.",
+    "name": "Explain why prompt injection is a serious risk for coding agents, and why the risk grows with autonomy. Illustrate it with this scenario: an agent that has access to a user's repositories reads a public GitHub issue written by a stranger.",
     "answer": "An agent reads <B>untrusted text</B> – issues, web pages, dependencies, comments – while holding <B>real credentials</B>: your shell, your git, your tokens. Text it reads can contain instructions, and the model cannot reliably tell data from commands; this is prompt injection. In a real case from 2025, a public GitHub issue told an agent with repository access to “help” by summarising the user’s private repositories into a public pull request – and it did. The failure modes now have names (OWASP Top 10 for Agentic Applications: goal hijack, tool misuse, privilege abuse, memory poisoning, rogue agents). Every step down the autonomy ladder widens what a single bad instruction can reach.",
     "keyPoints": [
       "Agent reads untrusted text and holds credentials (shell, git, tokens)",
       "Model cannot reliably separate data from instructions",
       "Example: public issue made an agent leak private repos into a public PR",
-      "OWASP Top 10 for Agentic Applications names the failure modes",
+      "Failure modes are now catalogued (OWASP agentic list): goal hijack, tool misuse, privilege abuse, memory poisoning, rogue agents",
       "More autonomy → a bad instruction reaches further"
     ],
     "source": "Lecture 1, slide 30"
   },
   {
-    "name": "A simple learned model scores pull requests: risk = w1·x1 + w2·x2 + b, where x1 is the size of the change in hundreds of lines and x2 the number of tests added, with w1 = 1.0, w2 = −0.5, b = −1.0 (positive means \"will cause a bug\"). Using this model, explain what a simple learned model is and how learning adjusts its weights. What carries over to large neural networks and what does not?",
-    "answer": "The model computes a weighted sum: <TT>risk = w1·x1 + w2·x2 + b</TT>, with x1 = size of the change in hundreds of lines and x2 = number of tests added; positive means “will cause a bug”. With w1 = 1.0, w2 = −0.5, b = −1.0, a 300-line PR with two tests gets 1.0·3 − 0.5·2 − 1.0 = 1.0. Here the weights are readable: the sign says which way, the size how much. Geometrically, the weights define a line separating risky from fine PRs. Weights come from <B>data</B> – past PRs with known outcomes. Learning nudges each weight <B>against the error, in proportion to its own input, by a small step</B> (learning rate 0.1): after one step w1 = 0.7, w2 = −0.7, b = −1.1 and the same PR scores −0.4. The data is the specification; nobody sets weights by hand. In large networks the same holds – weighted sums, small steps towards the targets, computed by backpropagation, with web text and the next word as target – but you can <B>no longer read individual weights</B>. What is engineered is the data, the target, the step size and when to stop; the weights are learned.",
+    "name": "A simple learned model scores pull requests: \\(\\text{risk} = w_1 x_1 + w_2 x_2 + b\\), where \\(x_1\\) is the size of the change in hundreds of lines and \\(x_2\\) the number of tests added; a positive score means “will cause a bug”, a negative one “fine”. The current weights are \\(w_1 = 1.0\\), \\(w_2 = -0.5\\), \\(b = -1.0\\).<BR>(a) Compute the risk of a 300-line PR with two tests and say what the model predicts.<BR>(b) This PR in fact caused no bug, so the score should have been negative. Do one learning step with learning rate 0.1, in which every weight moves against the error in proportion to its own input (the bias has input 1): \\(w_i \\leftarrow w_i - 0.1 \\cdot x_i\\). Give the new weights and the new score of the same PR.<BR>(c) What do the signs and sizes of the weights mean, and where do the weights come from?",
+    "answer": "<B>(a) Score.</B> With \\(x_1 = 3\\) and \\(x_2 = 2\\): \\[\\text{risk} = 1.0 \\cdot 3 - 0.5 \\cdot 2 - 1.0 = 1.0\\] Positive, so the model predicts “will cause a bug” – wrong, because the PR was fine.<BR><B>(b) One learning step.</B> The score was too high, so each weight moves down by the learning rate times its own input: \\[w_1 = 1.0 - 0.1 \\cdot 3 = 0.7,\\quad w_2 = -0.5 - 0.1 \\cdot 2 = -0.7,\\quad b = -1.0 - 0.1 \\cdot 1 = -1.1\\] The weight with the largest input (\\(w_1\\), which pushed the score up hardest) moves most. New score: \\[0.7 \\cdot 3 - 0.7 \\cdot 2 - 1.1 = -0.4\\] Negative – the PR is now on the right side. (A simplified illustration: real training also scales the step by how wrong the output was.)<BR><B>(c) Meaning.</B> The weights are readable: the sign says in which direction an input pushes the risk (bigger change → more risk, each test → less risk), the size says how much, and \\(b\\) is the starting point for a tiny PR with no tests. Geometrically, \\(\\text{risk} = 0\\) is a line separating risky from fine PRs; \\(w_1\\) and \\(w_2\\) tilt it, \\(b\\) shifts it, and learning moves and rotates it. The weights come from <B>data</B>: past PRs with known outcomes, each nudging the weights a little. The data is the specification; nobody sets the weights by hand.",
     "keyPoints": [
-      "risk = w1·x1 + w2·x2 + b; sign and size of weights are interpretable",
-      "Weights draw a line between risky and fine",
-      "Learning: move each weight against the error, proportional to its input, by a small learning rate",
-      "Data is the specification; weights are learned, not set by hand",
-      "Large nets: same principle via backpropagation, but weights are no longer readable"
+      "Score: \\(1.0 \\cdot 3 - 0.5 \\cdot 2 - 1.0 = 1.0\\) → predicts a bug (wrong)",
+      "Update rule: each weight moves against the error by learning rate × its own input",
+      "New weights: \\(w_1 = 0.7\\), \\(w_2 = -0.7\\), \\(b = -1.1\\)",
+      "New score: \\(0.7 \\cdot 3 - 0.7 \\cdot 2 - 1.1 = -0.4\\) → now correct",
+      "Sign = direction, size = strength; \\(\\text{risk} = 0\\) is a separating line",
+      "Weights are learned from data with known outcomes, not set by hand"
     ],
-    "source": "Lecture 1, slides 33–38"
+    "source": "Lecture 1, slides 33–36"
+  },
+  {
+    "name": "What carries over from a simple weighted-sum model (a few readable weights learned from labelled examples) to a large neural network with around \\(10^{12}\\) weights, and what does not? What is engineered by people and what is learned?",
+    "answer": "<B>The object.</B> A neural network takes a vector of numbers and returns a vector of numbers. In between are many copies of one simple device, the neuron, arranged in layers: each neuron computes a weighted sum of its inputs, applies a fixed non-linear function (e.g. ReLU, which sets negatives to zero) and outputs one number. All the behaviour is in the weights – there may be around \\(10^{12}\\) of them.<BR><B>What carries over.</B> The same weighted sums and the same learning loop: compare the output with a target from the data and nudge every weight a small step towards it, one example after another; a weight learns only from what is in the data. At scale the data is web text, the target is the next word, and the nudge for each weight is computed automatically by backpropagation.<BR><B>What does not.</B> You can no longer read the weights. In the small model a negative weight on “tests added” means “tests reduce risk”; in a large model a single weight somewhere in layer 61 means nothing on its own – the “black box” objection from 2010 still holds.<BR><B>Engineered vs learned.</B> People choose the data, what counts as the target, how big a step to take and when to stop; the weights themselves are learned.",
+    "keyPoints": [
+      "Neuron = weighted sum + fixed non-linearity (ReLU); behaviour lives in the weights",
+      "Same learning loop: small steps towards targets taken from the data",
+      "At scale: web text, next-word target, backpropagation computes the nudges",
+      "Individual weights are no longer interpretable (black box)",
+      "Engineered: data, target, step size, stopping; learned: the weights"
+    ],
+    "source": "Lecture 1, slides 13, 37–38"
   }
 ]

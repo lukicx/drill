@@ -1,530 +1,463 @@
 [
   {
-    "name": "V čem spočívá dilema tokenů?",
+    "name": "Výrobce vstupních karet díky velké sérii výrazně zlevnil výrobu jednoho kusu. Co z dilematu „cena výroby versus cena padělání“ plyne?",
     "answers": [
       {
-        "body": "Cena výroby jednoho kusu v mnohakusové sérii má být co nejmenší, cena padělání jednoho kusu co největší.",
+        "body": "Cílem je co nejlevnější výroba kusu v sérii, ale co nejdražší padělání jednoho kusu pro vniknutí do systému.",
         "right": true,
-        "comment": "Slide 6"
+        "comment": "Slide 6: dilema tokenů – nízká cena výroby kusu v sérii versus vysoká cena padělání jednoho kusu."
       },
       {
-        "body": "Cena výroby má být co největší, cena padělání co nejmenší.",
+        "body": "S klesající cenou výroby klesá i bariéra pro padělatele, což se týká hlavně uživatelů prvních sérií.",
+        "right": true,
+        "comment": "Slide 7: cena výroby klesá s velikostí série a s ní i bariéra pro ty, kdo zvažují padělání."
+      },
+      {
+        "body": "Ochrana přestává fungovat, když se útočníkovi vyplatí vyrobit celou sérii padělků.",
+        "right": true,
+        "comment": "Slide 6: dilema přestává platit, když se vyplatí produkce mnohakusové série padělků."
+      },
+      {
+        "body": "Čím levnější je výroba originálu, tím dražší je padělání, protože sériová výroba je pro jednotlivce nedostupná.",
         "right": false,
-        "comment": "Je to obráceně (slide 6)."
+        "comment": "Slide 7–8: je to spíš naopak – levnější výroba snižuje i bariéru pro padělatele."
       },
       {
-        "body": "Token má být co nejkratší kvůli paměti a co nejdelší kvůli bezpečnosti.",
+        "body": "Legislativní postih padělání cenu padělání neovlivňuje; ta je dána technickou náročností výroby kopie.",
         "right": false,
-        "comment": "To je dilema hesel."
-      },
-      {
-        "body": "Token musí být zároveň tajný i veřejný.",
-        "right": false
+        "comment": "Slide 8: do ceny padělání se počítá i to, zda existuje legislativní postih padělání jako takového."
       }
     ]
   },
   {
-    "name": "Co platí o kartě s magnetickým proužkem?",
+    "name": "Proč jsou karty s magnetickým proužkem považovány za slabý token?",
     "answers": [
       {
-        "body": "Třístopý proužek pojme spolehlivě asi 250 B.",
+        "body": "Proužek se poměrně snadno zkopíruje, např. falešnou čtečkou nebo upraveným bankomatem.",
         "right": true,
-        "comment": "Slide 11"
+        "comment": "Slide 11: magnetické karty se poměrně jednoduše kopírují (falešné bankomaty, čtečky)."
       },
       {
-        "body": "Poměrně jednoduše se kopíruje.",
+        "body": "Hologram na kartě se obtížně kontroluje, zvlášť automaticky.",
         "right": true,
-        "comment": "Slide 11"
+        "comment": "Slide 11: hologramy se obtížně kontrolují (automaticky?)."
       },
       {
-        "body": "Hologramy se obtížně kontrolují.",
-        "right": true,
-        "comment": "Slide 11"
-      },
-      {
-        "body": "Podvody s PINy na kartách (čtení, přehrání) jsou běžné.",
-        "right": true,
-        "comment": "Slide 11"
-      },
-      {
-        "body": "Kopírování je prakticky nemožné.",
+        "body": "Data na proužku chrání vestavěný procesor, ale ten je pomalý.",
         "right": false,
-        "comment": "Slide 11 říká opak."
+        "comment": "Slide 11–12: magnetický proužek žádný procesor nemá; procesor mají čipové karty (smartcard)."
+      },
+      {
+        "body": "Charakteristiky jednotlivých proužků se nemění, a proto spolehlivě odhalí každou kopii.",
+        "right": false,
+        "comment": "Slide 11: charakteristiky proužků se v čase mírně mění a čtečky mají různou citlivost."
+      },
+      {
+        "body": "Posun částí stop je účinná obrana, která kopírování znemožní.",
+        "right": false,
+        "comment": "Slide 11: posun částí stop je nepříliš účinný."
       }
     ]
   },
   {
-    "name": "Jak přednáška dělí čipové karty podle toho, co umí?",
+    "name": "Jak se dělí čipové karty podle toho, co umí, a podle rozhraní?",
     "answers": [
       {
-        "body": "Paměťové (chipcard), případně se speciální logikou (ochrana PINem, čítače).",
+        "body": "Paměťová karta (chipcard) může mít speciální logiku (ochrana PINem, čítače), procesor ale nemá.",
         "right": true,
-        "comment": "Slide 12"
+        "comment": "Slide 12: paměťové karty, případně se speciální logikou; procesorové karty jsou smartcard."
       },
       {
-        "body": "Procesorové (smartcard).",
+        "body": "Hybridní karta má dva nepropojené čipy, duální (kombinovaná) jeden čip se dvěma rozhraními.",
         "right": true,
-        "comment": "Slide 12"
+        "comment": "Slide 12: hybridní – 2 nepropojené čipy; duální/kombinované – 1 čip, 2 rozhraní."
       },
       {
-        "body": "Kontaktní a bezkontaktní.",
+        "body": "Kontaktní a bezkontaktní karty se rozlišují podle toho, co umějí (podle výpočetních schopností).",
         "right": false,
-        "comment": "To je dělení podle způsobu komunikace (slide 12)."
+        "comment": "Slide 12: kontaktní/bezkontaktní je dělení podle způsobu komunikace; podle schopností se dělí na paměťové a procesorové."
       },
       {
-        "body": "Invazivní a semi-invazivní.",
+        "body": "Duální karta má dva čipy, z nichž každý obsluhuje jedno ze dvou rozhraní.",
         "right": false,
-        "comment": "To je dělení fyzických útoků (slide 26–27)."
+        "comment": "Slide 12: dva nepropojené čipy má hybridní karta; duální má jeden čip se dvěma rozhraními."
+      },
+      {
+        "body": "Elektronický pas je paměťová karta bez procesoru, protože jeho úkolem je uchovávat data.",
+        "right": false,
+        "comment": "Slide 12: elektronické pasy jsou výkonné bezkontaktní karty."
       }
     ]
   },
   {
-    "name": "Čím se liší hybridní a duální (kombinovaná) čipová karta?",
+    "name": "Jaká specifická rizika a omezení mají bezkontaktní karty?",
     "answers": [
       {
-        "body": "Hybridní má 2 vzájemně nepropojené čipy, duální 1 čip se 2 rozhraními.",
+        "body": "Operace s kartou mohou proběhnout bez vědomí uživatele.",
         "right": true,
-        "comment": "Slide 12"
+        "comment": "Slide 12: u bezkontaktních karet mohou být operace prováděny bez vědomí uživatele."
       },
       {
-        "body": "Hybridní má 1 čip se 2 rozhraními, duální 2 nepropojené čipy.",
+        "body": "Autentizace bývá často založena jen na sériovém čísle, které karta na požádání sdělí.",
+        "right": true,
+        "comment": "Slide 41: autentizace bývá někdy založena jen na ověření sériového čísla, které karta sdělí."
+      },
+      {
+        "body": "Zařízení útočníka napodobující kartu musí mít stejnou velikost jako karta, což útok ztěžuje.",
         "right": false,
-        "comment": "Je to obráceně (slide 12)."
+        "comment": "Slide 41: zařízení útočníka nemusí být stejně velké jako původní karta."
       },
       {
-        "body": "Hybridní je paměťová, duální procesorová.",
-        "right": false
-      },
-      {
-        "body": "Žádný rozdíl, jde o synonyma.",
+        "body": "Díky indukčnímu napájení mají vyšší výkon než kontaktní karty.",
         "right": false,
-        "comment": "Slide 12 je uvádí jako dvě různé kategorie."
+        "comment": "Slide 12: omezený zdroj energie vede k procesorům s nízkou spotřebou, nižšímu výkonu a omezené funkčnosti."
+      },
+      {
+        "body": "Nehodí se pro fyzickou kontrolu přístupu, protože je nelze vložit do čtečky.",
+        "right": false,
+        "comment": "Slide 12: bezkontaktní karty jsou vhodné pro fyzickou kontrolu přístupu."
       }
     ]
   },
   {
-    "name": "Jaké prvky má logická struktura dat na čipové kartě?",
+    "name": "Na čipové kartě je kořenový adresář, v něm adresář aplikace a v něm soubor s PINem. Která tvrzení o struktuře dat a přístupu k nim platí?",
     "answers": [
       {
-        "body": "Kořenový adresář – hlavní soubor, master file (MF).",
+        "body": "Kořenový adresář je master file (MF), adresář aplikace dedicated file (DF) a soubor s PINem elementary file (EF).",
         "right": true,
-        "comment": "Slide 16"
+        "comment": "Slide 16: kořenový adresář → MF, adresáře → DF, soubory → EF; PINy jsou v samostatných EF (slide 18)."
       },
       {
-        "body": "Adresáře – dedikovaný soubor, dedicated file (DF).",
+        "body": "Po personalizaci jsou data přístupná jen přes logickou strukturu souborů a adresářů.",
         "right": true,
-        "comment": "Slide 16"
+        "comment": "Slide 16: po personalizaci je přístup k datům možný pouze přes logickou strukturu souborů a adresářů."
       },
       {
-        "body": "Soubory – elementární soubor, elementary file (EF).",
+        "body": "Přístupová práva k souboru určuje jeho hlavička; podmínka CHV1 vyžaduje zadat PIN č. 1 držitele karty.",
         "right": true,
-        "comment": "Slide 16"
+        "comment": "Slide 17: s každým souborem je svázána hlavička s přístupovými právy (ALW, CHV1, CHV2, NEV)."
       },
       {
-        "body": "Soubory – master file (MF), kořenový adresář – elementary file (EF).",
+        "body": "Soubor s PINem je master file, protože jej karta při každé operaci kontroluje jako první.",
         "right": false,
-        "comment": "Je to obráceně (slide 16)."
+        "comment": "Slide 16, 18: MF je kořenový adresář; PINy jsou uloženy v elementárních souborech (EF)."
+      },
+      {
+        "body": "Podmínka NEV v hlavičce souboru znamená, že přístup k souboru je povolen vždy, bez PINu.",
+        "right": false,
+        "comment": "Slide 17: NEV znamená, že přístup není povolen; vždy povolený přístup je ALW."
       }
     ]
   },
   {
-    "name": "Co platí o PIN managementu na čipové kartě?",
+    "name": "Uživatel několikrát za sebou zadal špatný PIN k SIM kartě a karta PIN zablokovala. Co platí?",
     "answers": [
       {
-        "body": "PINy jsou ukládány v samostatných souborech (EF).",
+        "body": "K odblokování musí zadat odblokovací PIN (u SIM karet PUK) spolu s PINem.",
         "right": true,
-        "comment": "Slide 18"
+        "comment": "Slide 18: pro odblokování je třeba zadat PIN a odblokovací PIN (u SIM karet PUK)."
       },
       {
-        "body": "Při změně PINu je požadavek provázen starým a novým PINem.",
+        "body": "I počet neúspěšných pokusů o odblokování je omezen.",
         "right": true,
-        "comment": "Slide 18"
+        "comment": "Slide 18: i počet neúspěšných odblokování je omezen."
       },
       {
-        "body": "Počet neúspěšných pokusů bývá omezen; po překročení limitu (3–5) je PIN blokován.",
-        "right": true,
-        "comment": "Slide 18"
-      },
-      {
-        "body": "Počet neúspěšných odblokování není nijak omezen.",
+        "body": "Limit pokusů je dán normou a na kartě jej nelze nastavit jinak.",
         "right": false,
-        "comment": "I počet neúspěšných odblokování je omezen (slide 18)."
+        "comment": "Slide 18: karty jsou programovatelné, chování lze nastavit i jinak."
+      },
+      {
+        "body": "Při pozdější změně PINu stačí zadat nový PIN, protože uživatel už je ověřen.",
+        "right": false,
+        "comment": "Slide 18: požadavek na změnu PINu je provázen starým i novým PINem."
+      },
+      {
+        "body": "Zda lze PIN změnit, určují přístupová práva k souboru (EF), v němž je PIN uložen.",
+        "right": true,
+        "comment": "Slide 18: PINy jsou v samostatných EF a přístupová práva k nim určují možnost jejich změny."
       }
     ]
   },
   {
-    "name": "Co platí o čipové kartě jako aktivním prvku?",
+    "name": "Proč je výhodné vytvářet digitální podpis přímo na čipové kartě?",
     "answers": [
       {
-        "body": "Na kartě lze implementovat kryptografické algoritmy i protokoly.",
+        "body": "Soukromý klíč nemusí kartu opustit – operace s ním proběhne uvnitř karty.",
         "right": true,
-        "comment": "Slide 21"
+        "comment": "Slide 21: operace s citlivými daty lze provádět tak, že data nemusí opustit kartu (např. vytváření podpisu)."
       },
       {
-        "body": "Operace s citlivými daty lze provádět tak, že data nemusí kartu opustit (např. vytváření digitálního podpisu).",
+        "body": "Karta má nezanedbatelný výkon; asymetrické operace jsou ale náročnější a vyžadují specifický koprocesor.",
         "right": true,
-        "comment": "Slide 21"
+        "comment": "Slide 21: karty mají nezanedbatelnou výpočetní sílu, asymetrické algoritmy vyžadují specifické koprocesory."
       },
       {
-        "body": "Symetrické šifrovací algoritmy běží na kartě bez problémů.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Asymetrické algoritmy jsou řádově náročnější, proto vyžadují specifické koprocesory.",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Čipové karty mají zanedbatelnou výpočetní sílu.",
+        "body": "Symetrické šifrování na kartě kvůli nízkému výkonu nefunguje, karta proto slouží k podpisu.",
         "right": false,
-        "comment": "Mají nezanedbatelnou výpočetní sílu (slide 21)."
+        "comment": "Slide 21: symetrické algoritmy běží na kartě bez problémů, často s HW akcelerátorem (např. AES)."
+      },
+      {
+        "body": "Karta předá soukromý klíč počítači, který podpis spočítá rychleji.",
+        "right": false,
+        "comment": "Slide 21: výhodou je právě to, že klíč kartu neopouští."
       }
     ]
   },
   {
-    "name": "Jak přednáška definuje fyzickou bezpečnost?",
+    "name": "Pouzdro platebního terminálu má (a) pečeť, která se při otevření viditelně poruší, (b) spínač, který otevření automaticky zaznamená, (c) obvod, který při otevření smaže klíče. Která přiřazení jsou správná?",
     "answers": [
       {
-        "body": "Překážka/y umístěná/é kolem počítačového systému za účelem ztížení neautorizovaného fyzického přístupu k tomuto systému.",
+        "body": "(a) zjistitelnost narušení (tamper evidence) – otevření zanechá viditelnou stopu.",
         "right": true,
-        "comment": "Slide 24"
+        "comment": "Slide 24: zjistitelnost narušení – neautorizovaná modifikace zanechává zjistitelné stopy."
       },
       {
-        "body": "Systém, u kterého jakákoliv neautorizovaná modifikace zanechává zjistitelné stopy.",
-        "right": false,
-        "comment": "To je zjistitelnost narušení – tamper evidence (slide 24)."
+        "body": "(c) odpověď na narušení (tamper response) – chráněná část sama provede akci.",
+        "right": true,
+        "comment": "Slide 24: odpověď na narušení – automatická akce chráněné části při zjištění pokusu o narušení."
       },
       {
-        "body": "Automatické zjištění pokusu o narušení.",
+        "body": "(b) odpověď na narušení (tamper response) – spínač na otevření reaguje.",
         "right": false,
-        "comment": "To je detekce narušení – tamper detection (slide 24)."
+        "comment": "Slide 24: samotné automatické zjištění pokusu je detekce narušení (tamper detection); odpovědí je až akce, např. smazání klíčů."
       },
       {
-        "body": "Automatická akce provedená chráněnou částí při zjištění pokusu o narušení.",
+        "body": "(a) detekce narušení (tamper detection) – porušení pečeti pozná obsluha.",
         "right": false,
-        "comment": "To je odpověď na narušení – tamper response (slide 24)."
+        "comment": "Slide 24: detekce je automatické zjištění; pečeť jen zanechá stopy, které musí někdo zkontrolovat – to je tamper evidence."
+      },
+      {
+        "body": "Prvky (a)–(c) jsou fyzická bezpečnost (překážka), ne odolnost vůči narušení.",
+        "right": false,
+        "comment": "Slide 24: evidence, detection a response jsou úrovně odolnosti vůči narušení (tamper resistance); fyzická bezpečnost je překážka ztěžující přístup."
       }
     ]
   },
   {
-    "name": "Jak klasifikace firmy IBM popisuje útočníky třídy 1?",
+    "name": "Útočníky lze dělit podle znalostí, vybavení a financí (klasifikace IBM). Která přiřazení jsou správná?",
     "answers": [
       {
-        "body": "Chytří nezasvěcení útočníci – často velmi inteligentní, nedostatečné znalosti systému, přístup pouze ke středně sofistikovanému vybavení.",
+        "body": "Student, který spustí hotový nástroj z internetu bez porozumění – třída 0 („script kiddies“).",
         "right": true,
-        "comment": "Slide 25"
+        "comment": "Slide 25: pod třídou 1 se jako třída 0 uvádějí „script kiddies“."
       },
       {
-        "body": "Zasvěcení insideři se značným specializovaným technickým vzděláním i zkušenostmi.",
-        "right": false,
-        "comment": "To je třída 2 (slide 25)."
+        "body": "Bývalý vývojář výrobce karet se specializovaným vzděláním a znalostí návrhu – třída 2 (zasvěcený insider).",
+        "right": true,
+        "comment": "Slide 25: třída 2 – zasvěcení insideři se značným specializovaným vzděláním a zkušenostmi."
       },
       {
-        "body": "Dobře finančně podporované organizace schopné vytvořit týmy specialistů.",
+        "body": "Státem financovaný tým specialistů, který provádí detailní analýzu čipu – třída 1.",
         "right": false,
-        "comment": "To je třída 3 (slide 25)."
+        "comment": "Slide 25: dobře financované organizace schopné vytvořit týmy specialistů jsou třída 3."
       },
       {
-        "body": "„Script kiddies“.",
+        "body": "Velmi inteligentní nezasvěcený útočník se středně sofistikovaným vybavením – třída 3.",
         "right": false,
-        "comment": "Ti se uvádějí jako třída 0 (slide 25)."
+        "comment": "Slide 25: chytří nezasvěcení útočníci se středně sofistikovaným vybavením jsou třída 1."
       }
     ]
   },
   {
-    "name": "Které útoky na čipové karty patří mezi logické?",
+    "name": "Které útoky na čipové karty jsou zařazeny správně?",
     "answers": [
       {
-        "body": "Monitorování činnosti karty – časové analýzy.",
+        "body": "Měření doby, za kterou karta vytvoří podpis – logický útok (monitorování činnosti karty).",
         "right": true,
-        "comment": "Slide 26 a 29"
+        "comment": "Slide 26, 29–30: časová analýza patří mezi logické útoky."
       },
       {
-        "body": "Monitorování činnosti karty – výkonové analýzy.",
+        "body": "Ozáření čipu laserem, při kterém se čip nezničí – semi-invazivní fyzický útok.",
         "right": true,
-        "comment": "Slide 26 a 29"
+        "comment": "Slide 27: semi-invazivní útoky čip přímo neničí a využívají záření, laser, elektromagnetická pole."
       },
       {
-        "body": "Indukce chyb během činnosti.",
+        "body": "Odbroušení pouzdra a čtení paměti mikrosondami – invazivní fyzický útok s viditelnými stopami.",
         "right": true,
-        "comment": "Slide 26 a 29"
+        "comment": "Slide 27: invazivní útoky – preparace čipu, mikrosondy, čtení paměti; narušení je viditelné."
       },
       {
-        "body": "Programové útoky přes API.",
-        "right": true,
-        "comment": "Slide 26 a 29"
-      },
-      {
-        "body": "Testování čipu s využitím mikrosond.",
+        "body": "Indukce chyb změnou napájecího napětí – invazivní fyzický útok, protože čip trvale poškodí.",
         "right": false,
-        "comment": "To je invazivní fyzický útok (slide 27)."
+        "comment": "Slide 26, 29: indukce chyb během činnosti patří mezi logické útoky."
+      },
+      {
+        "body": "Logické útoky vyžadují drahé specializované vybavení, fyzické vystačí s běžnými přístroji.",
+        "right": false,
+        "comment": "Slide 27, 29: je to naopak – fyzické útoky vyžadují nákladné vybavení, logické ne (ale potřebují detailní znalosti karty)."
       }
     ]
   },
   {
-    "name": "Co charakterizuje semi-invazivní útoky?",
+    "name": "Na čem je založena časová analýza čipové karty a jak se proti ní bránit?",
     "answers": [
       {
-        "body": "Nedochází k přímému zničení čipu.",
+        "body": "Doba výpočtu závisí na vstupu i tajných datech; ze vstupu, implementace a času lze odvodit klíč.",
         "right": true,
-        "comment": "Slide 27"
+        "comment": "Slide 30: čas rutiny závisí na známém vstupu a datech na kartě, z čehož lze odvodit kryptografická data."
       },
       {
-        "body": "Využívají záření, laser, elektromagnetická pole apod.",
+        "body": "Obranou je co nejmenší závislost délky výpočtu na vstupu, často za cenu ztráty optimalizací.",
         "right": true,
-        "comment": "Slide 27"
+        "comment": "Slide 30: podstata obrany je minimalizace závislosti délky výpočtu na vstupu; přicházíme tak o optimalizace."
       },
       {
-        "body": "Patří mezi logické útoky.",
+        "body": "Časová analýza sleduje spotřebu proudu karty při jednotlivých operacích, ne dobu výpočtu.",
         "right": false,
-        "comment": "Patří mezi fyzické útoky (slide 26–27)."
+        "comment": "Slide 32: sledování spotřeby proudu je výkonová analýza."
       },
       {
-        "body": "Spočívají ve volání chybně navrženého API.",
+        "body": "Proti časové analýze stačí výpočet co nejvíce zrychlit pomocí optimalizací, např. CRT u RSA.",
         "right": false,
-        "comment": "To jsou programové útoky přes API (slide 35)."
+        "comment": "Slide 30: optimalizace naopak často vytvářejí závislost času na datech; obrana se jich spíš vzdává."
+      },
+      {
+        "body": "Obrana proti časové analýze zároveň chrání i proti ostatním typům útoků na kartu.",
+        "right": false,
+        "comment": "Slide 30: některé snahy o obranu naopak přinášejí možnost jiných typů útoků."
       }
     ]
   },
   {
-    "name": "Na čem je založena časová analýza čipové karty?",
+    "name": "Karta ověřuje PIN a udržuje čítač zbývajících pokusů. Útočník sleduje spotřebu proudu, a jakmile pozná chybný PIN, přeruší napájení dřív, než se čítač zapíše. Která implementace tomuto útoku (SPA) odolá?",
     "answers": [
       {
-        "body": "Čas nutný pro vykonání rutiny závisí na známém vstupu a na datech uložených na kartě; ze znalosti vstupu, algoritmu a času výpočtu lze odvodit použitá kryptografická data.",
+        "body": "Nejprve snížit čítač (zápis do paměti), pak ověřit PIN a při správném PINu čítač opět zvýšit.",
         "right": true,
-        "comment": "Slide 30"
+        "comment": "Slide 33: správné pořadí je „sniž čítač – ověř – [zvyš čítač]“; přerušení napájení pak pokus nevrátí."
       },
       {
-        "body": "Na sledování spotřeby proudu kartou při jednotlivých operacích.",
+        "body": "Nejprve ověřit PIN a pak podle výsledku čítač snížit, nebo zvýšit.",
         "right": false,
-        "comment": "To je výkonová analýza (slide 32)."
+        "comment": "Slide 33: „ověř – [zvyš/sniž čítač]“ je zranitelné – rozdíl lze detekovat a napájení přerušit před zápisem."
       },
       {
-        "body": "Na vyvolání změny hodnoty v paměti náhlou změnou operačních podmínek.",
+        "body": "Ověřit PIN a čítač snížit až při chybném výsledku, ale co nejrychleji po ověření.",
         "right": false,
-        "comment": "To je indukce chyb (slide 34)."
+        "comment": "Slide 33: zápis čítače stále následuje po ověření, takže útočník může napájení přerušit mezi nimi (odvozeno)."
       },
       {
-        "body": "Na čtení paměti čipu mikrosondami.",
+        "body": "Ověřit PIN dvakrát za sebou a teprve potom zapsat výsledek do čítače.",
         "right": false,
-        "comment": "To je invazivní fyzický útok (slide 27)."
+        "comment": "Slide 33: dvojí ověření nic nemění – zápis čítače je stále až po zjistitelném výsledku ověření (odvozeno)."
       }
     ]
   },
   {
-    "name": "Jaká implementace verifikace PINu je odolná proti útoku jednoduchou výkonovou analýzou (SPA) s přerušením napájení?",
+    "name": "Která tvrzení o indukci chyb a o útocích přes aplikační rozhraní (API) karty platí?",
     "answers": [
       {
-        "body": "Nejprve snížit čítač, pak ověřit PIN a při korektním PINu čítač zvýšit.",
+        "body": "Krátký pokles napájecího napětí při ověřování PINu může přeskočit instrukci, a tak obejít kontrolu PINu.",
         "right": true,
-        "comment": "Slide 33"
+        "comment": "Slide 34: indukce chyb – náhlou změnou operačních podmínek obejít instrukci, autentizaci či kontrolu práv."
       },
       {
-        "body": "Nejprve ověřit PIN a teprve potom čítač zvýšit nebo snížit.",
+        "body": "API karty bývá složité a rozsáhlé; chyba v jeho návrhu může umožnit neautorizovaný přístup k datům.",
+        "right": true,
+        "comment": "Slide 35: chyby návrhu API mohou umožnit neautorizovaný přístup; rozhraní bývá složité a výrobci maximálně optimalizují."
+      },
+      {
+        "body": "Změna napájecího napětí je výkonová analýza, protože útočník pracuje s napájením karty a měří ho.",
         "right": false,
-        "comment": "To je zranitelná implementace – lze detekovat rozdíl a přerušit napájení (slide 33)."
+        "comment": "Slide 32, 34: výkonová analýza spotřebu pasivně sleduje; aktivní změna podmínek je indukce chyb."
       },
       {
-        "body": "Čítač pokusů vůbec nepoužívat.",
-        "right": false
+        "body": "Útok přes API vyžaduje nejprve fyzicky odstranit kryt čipu a připojit k němu mikrosondy.",
+        "right": false,
+        "comment": "Slide 27, 35: útok přes API volá rutiny karty přes rozhraní; mikrosondy patří k invazivním fyzickým útokům."
       },
       {
-        "body": "Čítač snížit až po pěti nekorektních PINech najednou.",
-        "right": false
+        "body": "Indukci chyb lze vyvolat napájecím napětím, nikoli však změnou teploty nebo hodinového signálu.",
+        "right": false,
+        "comment": "Slide 34: ovlivnitelné prvky okolí jsou napájecí napětí, hodinový a reset signál, elektrické pole i teplota."
       }
     ]
   },
   {
-    "name": "Co je cílem útoku indukcí chyb během výpočtu?",
+    "name": "Banka dává klientům autentizační kalkulátor. Které vlastnosti mají kalkulátory s výzvou-odpovědí a tokeny založené na hodinách?",
     "answers": [
       {
-        "body": "Pomocí náhlých změn operačních podmínek vyvolat změnu hodnoty v paměti, registru apod.",
+        "body": "U kalkulátoru s výzvou-odpovědí je odpověď funkcí tajného klíče v kalkulátoru a výzvy od serveru.",
         "right": true,
-        "comment": "Slide 34"
+        "comment": "Slide 36: odpověď je funkcí tajné informace – klíče a výzvy."
       },
       {
-        "body": "Obejít určitou instrukci či změnit data v registrech nebo na sběrnici.",
+        "body": "Token s hodinami dává hodnotu platnou jen v určitém časovém rámci; stejnou hodnotu umí spočítat i server.",
         "right": true,
-        "comment": "Slide 34"
+        "comment": "Slide 40: hodnota je jedinečná pro přístroj, platná po určitou dobu a umí ji spočítat i autentizační server."
       },
       {
-        "body": "Lze tak obejít správnou autentizaci, kontrolu přístupových práv nebo modifikovat počet cyklů algoritmu.",
+        "body": "Server si u tokenu s hodinami vede posun jeho hodin (offset) a po každém úspěšném přihlášení jej aktualizuje.",
         "right": true,
-        "comment": "Slide 34"
+        "comment": "Slide 40: řeší se ztráta synchronizace hodin – záznam v čítači na serveru, po úspěšném přihlášení update, nejčastěji jako offset."
       },
       {
-        "body": "Pouze pasivně měřit dobu výpočtu.",
+        "body": "Odpověď kalkulátoru závisí jen na výzvě, takže ji spočítá kdokoli se stejným modelem kalkulátoru.",
         "right": false,
-        "comment": "To je časová analýza (slide 30)."
+        "comment": "Slide 36: odpověď závisí i na tajném klíči uloženém v kalkulátoru."
+      },
+      {
+        "body": "Token s hodinami musí mít klávesnici, protože do něj uživatel zadává výzvu.",
+        "right": false,
+        "comment": "Slide 40: tokeny s hodinami nemusejí být součástí kalkulátorů (např. RSA SecurID); hodnotu odvozují od času, ne od výzvy."
       }
     ]
   },
   {
-    "name": "Útok na čipové karty přes aplikační rozhraní (API) je založen na:",
+    "name": "Čím se FIDO token (U2F, WebAuthn) liší od tokenu, z jehož displeje uživatel opisuje jednorázový kód?",
     "answers": [
       {
-        "body": "využití chyb v návrhu API, které mohou útočníkovi umožnit neautorizovaný přístup k datům.",
+        "body": "Používá standardní asymetrickou kryptografii s dedikovanými klíči pro jednotlivé aplikace.",
         "right": true,
-        "comment": "Slide 35"
+        "comment": "Slide 42: standardní techniky asymetrické kryptografie, dedikované klíče pro novou aplikaci."
       },
       {
-        "body": "fyzickém odstranění krytu čipu.",
+        "body": "Klíče lze svázat s URL (i s ID kanálu TLS), takže podvržená stránka s jinou adresou nedostane platnou odpověď.",
+        "right": true,
+        "comment": "Slide 42: možnost svázání URL s klíči; ochrana proti podvržené stránce je z toho odvozena."
+      },
+      {
+        "body": "Uživatel opisuje šestimístný kód z displeje FIDO tokenu do přihlašovacího formuláře.",
         "right": false,
-        "comment": "To je fyzický útok (slide 27)."
+        "comment": "Slide 42: FIDO komunikuje s prohlížečem (WebAuthn) a odpovídá asymetrickou kryptografií; opisování kódu je typické pro kalkulátory (odvozeno)."
       },
       {
-        "body": "sledování spotřeby proudu.",
+        "body": "Server a token sdílejí tajný symetrický klíč, ze kterého se počítá odpověď.",
         "right": false,
-        "comment": "To je výkonová analýza (slide 32)."
+        "comment": "Slide 42: FIDO používá asymetrickou kryptografii, server zná jen veřejný klíč (odvozeno)."
       },
       {
-        "body": "odpozorování PINu při zadávání.",
-        "right": false
+        "body": "FIDO zařízením musí být samostatný USB klíč; chytrý telefon tuto roli plnit nemůže.",
+        "right": false,
+        "comment": "Slide 42: zařízením může být i chytrý telefon (Android 9+)."
       }
     ]
   },
   {
-    "name": "Co platí o autentizačních kalkulátorech?",
-    "answers": [
-      {
-        "body": "Obvykle využívají protokol výzva-odpověď.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Odpověď je funkcí tajné informace (klíče) a výzvy.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Přenos informací může být manuální (klávesnice, displej) nebo automatický (optika, čárový kód, infrared).",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Odpověď je funkcí pouze výzvy, žádné tajemství není potřeba.",
-        "right": false,
-        "comment": "Odpověď je funkcí klíče a výzvy (slide 36)."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o tokenech založených na hodinách?",
-    "answers": [
-      {
-        "body": "V daném okamžiku dávají správnou hodnotu, jedinečnou pro daný přístroj.",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "Hodnota je platná pouze po určitou dobu (časový rámec).",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "Tuto hodnotu umí spočítat i autentizační server.",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "Je potřeba řešit otázku ztráty synchronizace hodin.",
-        "right": true,
-        "comment": "Slide 40"
-      },
-      {
-        "body": "Jsou vždy součástí autentizačních kalkulátorů.",
-        "right": false,
-        "comment": "Ne vždy – viz nejrozšířenější RSA SecurID (slide 40)."
-      }
-    ]
-  },
-  {
-    "name": "Co platí o FIDO tokenu?",
-    "answers": [
-      {
-        "body": "FIDO = Fast IDentity Online.",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Slouží jako Universal 2nd Factor (U2F).",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Používá standardní techniky asymetrické kryptografie.",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Umožňuje svázání URL s klíči.",
-        "right": true,
-        "comment": "Slide 42"
-      },
-      {
-        "body": "Je založen výhradně na symetrické kryptografii a sdíleném hesle.",
-        "right": false,
-        "comment": "Používá asymetrickou kryptografii (slide 42)."
-      }
-    ]
-  },
-  {
-    "name": "Jaké jsou obecné nevýhody tokenů?",
-    "answers": [
-      {
-        "body": "Ke kontrole je často potřeba speciální čtečka, zařízení nebo vycvičená osoba.",
-        "right": true,
-        "comment": "Slide 44"
-      },
-      {
-        "body": "Bez tokenu není autorizovaný uživatel rozeznán.",
-        "right": true,
-        "comment": "Slide 44"
-      },
-      {
-        "body": "Token musí být dostatečně složitý, aby se zvýšila obtížnost kopírování.",
-        "right": true,
-        "comment": "Slide 44"
-      },
-      {
-        "body": "Může se polámat nebo přestat fungovat, což nemusí být vždy jednoduše detekovatelné uživatelem.",
-        "right": true,
-        "comment": "Slide 44"
-      },
-      {
-        "body": "Jeho ztráta se zjistí až po velmi dlouhé době.",
-        "right": false,
-        "comment": "Ztráta se zjistí rychle – to je výhoda (slide 43)."
-      }
-    ]
-  },
-  {
-    "name": "Popište útoky na čipové karty podle členění z přednášky (fyzické a logické) a u jednotlivých typů uveďte princip a případnou obranu.",
-    "answer": "<B>Fyzické útoky</B> jsou reverzní inženýrství: dochází k nevratné změně karty či čipu, narušení je viditelné a vyžadují nákladné vybavení, specializované přístroje a znalosti. <B>Invazivní:</B> preparace čipu, rekonstrukce a analýza návrhu čipu, testování čipu mikrosondami, čtení paměti čipu. <B>Semi-invazivní:</B> nedochází k přímému zničení čipu, využívá se záření, laser, elektromagnetická pole. <B>Logické útoky</B> vyžadují detailní znalosti o struktuře karty (často z předchozího fyzického útoku), ale ne speciální a nákladné vybavení. <B>Časová analýza:</B> čas vykonání rutiny závisí na známém vstupu a datech na kartě, takže ze znalosti vstupu, algoritmu a času lze odvodit kryptografická data; obranou je minimalizace závislosti délky výpočtu na vstupu, čímž se ale často ztrácí optimalizace (CRT u RSA). <B>Výkonová analýza:</B> sledování spotřeby proudu – různé operace používají různé množství tranzistorů; liší se spotřeba při sčítání a násobení a při zápisu 0 či 1. Typy: SPA, DPA, IPA. Příklad SPA: verifikace PINu má být „sniž čítač – ověř – [zvyš čítač]“, zranitelné je „ověř – [zvyš/sniž čítač]“, kde lze rozdíl detekovat a přerušit napájení. <B>Indukce chyb:</B> náhlou změnou operačních podmínek (napájecí napětí, hodinový a reset signál, elektrické pole, teplota) vyvolat změnu hodnoty v paměti či registru a tím obejít instrukci, autentizaci nebo kontrolu práv. <B>Útoky přes API:</B> chyby návrhu API mohou umožnit neautorizovaný přístup k datům; rozhraní bývá složité a výrobci maximálně optimalizují.",
+    "name": "Navrhněte ochranu čipové karty, která podepisuje platby, a jejího platebního terminálu proti útočníkovi třídy 2 podle IBM (zasvěcený insider se specializovanými znalostmi). Ke každému opatření uveďte, proti jakému útoku chrání: umístění klíče, odolnost terminálu vůči narušení, správa PINu a čítače pokusů, ochrana proti časové a výkonové analýze, indukci chyb a útokům přes API.",
+    "answer": "<B>Výchozí bod:</B> útočník třídy 2 má značné specializované vzdělání a zkušenosti; žádné řešení není neprolomitelné, cílem je zvýšit cenu útoku.<BR><B>Klíč na kartě:</B> podpis se vytváří přímo na kartě, soukromý klíč kartu neopouští; asymetrické operace provádí koprocesor.<BR><B>Terminál:</B> odolnost vůči narušení ve třech úrovních – zjistitelnost (pečeti, stopy po otevření), detekce (automatické zjištění pokusu, např. spínače) a odpověď (automatické smazání klíčů). Invazivní útoky (preparace čipu, mikrosondy) tak zanechají viditelné stopy a zdraží se.<BR><B>PIN a čítač:</B> PIN v samostatném EF s přístupovými právy; omezený počet pokusů a pak blokace; odblokování jen odblokovacím PINem (PUK), jehož pokusy jsou také omezeny; změna PINu vyžaduje starý i nový PIN. Ověření v pořadí „sniž čítač – ověř – [zvyš čítač]“, aby útočník nemohl po rozpoznání chybného PINu (SPA) přerušit napájení před zápisem čítače.<BR><B>Časová analýza:</B> délka výpočtu nezávislá na vstupu a tajných datech, i za cenu ztráty optimalizací (CRT u RSA); ověřit, že obrana neotevírá jiný typ útoku.<BR><B>Výkonová analýza:</B> operace s tajnými daty nemají mít rozpoznatelné rozdíly ve spotřebě (odvozeno: vyrovnaný průběh operací).<BR><B>Indukce chyb:</B> hlídat napájecí napětí, hodinový a reset signál, teplotu a elektrické pole a při anomálii operaci přerušit; kritické kontroly (PIN, přístupová práva) zdvojit (odvozeno).<BR><B>API:</B> co nejmenší a prověřené rozhraní – chyby v rozsáhlém, maximálně optimalizovaném API mohou umožnit neautorizovaný přístup k datům.",
     "keyPoints": [
-      "Fyzické: nevratná změna, viditelné narušení, nákladné vybavení",
-      "Invazivní: preparace čipu, analýza návrhu, mikrosondy, čtení paměti",
-      "Semi-invazivní: čip se neničí; záření, laser, elektromagnetická pole",
-      "Logické: detailní znalosti karty, ale levné vybavení",
-      "Časová analýza – obrana: nezávislost délky výpočtu na vstupu (ztráta optimalizací)",
-      "Výkonová analýza: spotřeba proudu; SPA, DPA, IPA; správné pořadí u verifikace PINu",
-      "Indukce chyb: napětí, hodiny, reset, elektrické pole, teplota",
-      "Útoky přes API: chyby návrhu rozhraní"
+      "Soukromý klíč neopouští kartu (podpis na kartě, koprocesor)",
+      "Terminál: tamper evidence, detection, response (smazání klíčů)",
+      "PIN: omezený počet pokusů, PUK s omezením, změna se starým PINem",
+      "Pořadí sniž čítač – ověř – zvyš proti SPA s přerušením napájení",
+      "Časová analýza: výpočet nezávislý na vstupu, za cenu optimalizací",
+      "Indukce chyb a API: hlídat provozní podmínky, malé prověřené rozhraní"
     ],
-    "source": "Přednáška 3, slide 26–35"
+    "source": "Přednáška 3, slide 18, 21, 24–27, 30, 32–35; konkrétní obrany proti výkonové analýze a indukci chyb (vyrovnaná spotřeba, hlídání podmínek, zdvojené kontroly) jsou odvozené"
   },
   {
-    "name": "Shrňte obecné výhody a nevýhody tokenů a vysvětlete dilema ceny výroby a ceny padělání tokenu.",
-    "answer": "<B>Výhody:</B> rychle se zjistí jejich ztráta; nejsou jednoduše kopírovatelné; tokeny samy o sobě mohou být schopny zpracovávat nebo přenášet další informace. <B>Nevýhody:</B> ke kontrole je často potřeba speciální čtečka, zařízení nebo vycvičená osoba; bez tokenu není autorizovaný uživatel rozeznán; token musí být dostatečně složitý, aby se zvýšila obtížnost kopírování; může se polámat či přestat fungovat, což uživatel nemusí vždy jednoduše zjistit. <B>Dilema:</B> cena výroby jednoho kusu v mnohakusové sérii má být co nejmenší, kdežto cena padělání jednoho kusu za účelem vniknutí do systému co největší; to přestává platit, když se vyplatí produkce mnohakusové série padělků. <B>Cena výroby</B> v přepočtu na kus klesá při větších sériích; to je důležité pro uživatele prvních sérií, protože s klesající cenou výroby klesá i bariéra pro padělatele. <B>U ceny padělání</B> navíc záleží na tom, zda útočník získá stejně výrobou jednoho nebo více padělků (motivace), jak dlouho a kolik původních tokenů musí mít k dispozici a zda existuje legislativní postih padělání. Další omezení: prevence (dostupnost vybavení, modifikace běžného vybavení jako barevné kopírky, kontrola a licence živností) a utajení určitých informací.",
+    "name": "Banka vybírá prostředek pro autorizaci internetových plateb: kartu s magnetickým proužkem, autentizační kalkulátor s výzvou-odpovědí, do kterého klient opisuje údaje platby, token založený na hodinách, nebo FIDO token. Porovnejte varianty z hlediska bezpečnosti, odolnosti proti kopírování a použitelnosti a doporučte řešení.",
+    "answer": "<B>Magnetický proužek:</B> poměrně snadno se kopíruje (falešné čtečky a bankomaty), hologramy se těžko kontrolují, podvody s PINy jsou běžné – pro autorizaci plateb nevhodný.<BR><B>Kalkulátor s výzvou-odpovědí:</B> odpověď je funkcí tajného klíče a výzvy, takže odposlechnutá odpověď útočníkovi moc nedá. Zadá-li klient do kalkulátoru částku a účet příjemce, kód autentizuje i data transakce – podvržená platba by měla jiný kód (odvozeno). Slabinou je použitelnost: nutnost přepisovat řadu údajů (odstrašující případ z ČR); přívětivější je autentizace biometrikou a snímání flicker kódu z obrazovky.<BR><B>Token s hodinami:</B> hodnota je jedinečná pro přístroj a platná jen v časovém rámci, server ji umí spočítat; je nutné řešit ztrátu synchronizace (offset na serveru). Kód není vázán na konkrétní platbu (odvozeno).<BR><B>FIDO:</B> standardní asymetrická kryptografie, dedikované klíče pro aplikace, svázání klíčů s URL a kanálem TLS, podpora prohlížečů (WebAuthn), zařízením může být i telefon; perspektivní, ale se složitostí přicházejí obvyklé problémy.<BR><B>Obecně:</B> ztráta tokenu se rychle zjistí a token se těžko kopíruje, ale bez něj není uživatel rozeznán, může se porouchat a ke kontrole bývá třeba čtečka; levná výroba v sérii nesmí snížit cenu padělání. Token je vhodné kombinovat s PINem (dva faktory).<BR><B>Doporučení (odvozené):</B> pro autorizaci plateb zařízení, které do odpovědi zahrne údaje transakce, s co nejmenším přepisováním (flicker kód); pro přihlášení FIDO; magnetický proužek ne.",
     "keyPoints": [
-      "Výhody: rychle zjištěná ztráta, obtížné kopírování, zpracování dalších informací",
-      "Nevýhody: speciální čtečka/osoba, bez tokenu není uživatel rozeznán, složitost, poruchy",
-      "Dilema: levná výroba v sérii vs. drahé padělání jednoho kusu",
-      "Neplatí, když se vyplatí série padělků",
-      "Cena výroby klesá se sérií a s ní i bariéra pro padělatele",
-      "Cena padělání: motivace útočníka, doba držení originálu, legislativní postih"
+      "Magnetický proužek: snadné kopírování → nevhodný",
+      "Výzva-odpověď: odpověď z klíče a výzvy; údaje platby v kódu jej vážou na transakci",
+      "Kalkulátor: slabá použitelnost (přepisování), řešení flicker kód či biometrika",
+      "Hodiny: časový rámec, synchronizace, kód nevázaný na platbu",
+      "FIDO: asymetrická kryptografie, vazba na URL/TLS, WebAuthn",
+      "Obecné výhody a nevýhody tokenů, kombinace s PINem"
     ],
-    "source": "Přednáška 3, slide 6–9 a 43–44"
+    "source": "Přednáška 3, slide 2, 6, 11, 36, 38–40, 42–44; vazba kódu na transakci a výsledné doporučení jsou odvozené"
   }
 ]

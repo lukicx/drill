@@ -1,518 +1,497 @@
 [
   {
-    "name": "Jak přednáška obecně (nejen pro lidi) člení autentizaci entit tajnými informacemi?",
+    "name": "Autentizaci entit tajnými informacemi lze obecně (nejen pro lidi) rozdělit do tří skupin. Které příklady jsou zařazeny správně?",
     "answers": [
       {
-        "body": "Krátké/slabé tajné informace pro lidi – hesla, PINy.",
+        "body": "PIN k platební kartě – krátká (slabá) tajná informace určená pro lidi.",
         "right": true,
-        "comment": "Slide 3"
+        "comment": "Slide 3: první skupina jsou krátké/slabé tajné informace pro lidi – hesla, PINy."
       },
       {
-        "body": "Dostatečně dlouhé = kryptografické klíče, se kterými lze provést průkaznou operaci a přitom je nesdělit (protokoly výzva-odpověď).",
+        "body": "Server prokáže znalost klíče podepsáním náhodné výzvy, aniž klíč sdělí – dostatečně dlouhá tajná informace (kryptografický klíč).",
         "right": true,
-        "comment": "Slide 3"
+        "comment": "Slide 3: kryptografické klíče umožňují provést průkaznou operaci a přitom klíč nesdělit (protokoly výzva-odpověď)."
       },
       {
-        "body": "Protokoly s nulovým šířením znalostí (zero-knowledge).",
-        "right": true,
-        "comment": "Slide 3"
-      },
-      {
-        "body": "Biometrické charakteristiky.",
+        "body": "Heslo převedené funkcí PBKDF2 na 256bitový klíč – patří mezi dlouhé klíče, protože je stejně odolné proti hádání jako náhodný klíč.",
         "right": false,
-        "comment": "Biometriky jsou „něco, co jsme“, ne tajná informace (slide 2)."
+        "comment": "Slide 44: entropie klíče odvozeného z hesla je stejná jako entropie hesla (nízká); délka výstupu odolnost proti hádání nezvýší."
+      },
+      {
+        "body": "Otisk prstu – krátká tajná informace pro lidi, protože je osobní a těžko zjistitelný.",
+        "right": false,
+        "comment": "Slide 2: biometriky jsou „něco, co jsme“, ne tajná informace; přednáška 4 zdůrazňuje, že biometriky nejsou tajné."
+      },
+      {
+        "body": "Protokol, kterým strana prokáže znalost tajemství, aniž by o něm prozradila jakoukoli informaci – protokol s nulovým šířením znalostí.",
+        "right": true,
+        "comment": "Slide 3: třetí skupinou jsou protokoly s nulovým šířením znalostí (zero-knowledge); popis jejich vlastnosti je odvozen z názvu."
       }
     ]
   },
   {
-    "name": "Co je nutné dodržet, aby byla autentizace tajnou informací bezpečná?",
+    "name": "Banka navrhuje autentizaci klientů tajnou informací. Které z návrhů porušují požadavky na bezpečnou autentizaci tajnou informací?",
     "answers": [
       {
-        "body": "Informace musí být opravdu tajná – neměl by ji znát nikdo jiný než oprávněný uživatel.",
+        "body": "Jako tajnou odpověď použije rodné příjmení matky klienta.",
         "right": true,
-        "comment": "Slide 5"
+        "comment": "Slide 5: informace musí být opravdu tajná – ne jméno psa, datum narození rodičů, adresa apod."
       },
       {
-        "body": "Autentizační informace by měla být vybrána z velkého prostoru možných hodnot.",
+        "body": "Heslo smí obsahovat jen malá písmena, aby se lépe psalo na mobilu.",
         "right": true,
-        "comment": "Slide 5"
+        "comment": "Slide 5: autentizační informace má být vybrána z velkého prostoru hodnot – ne heslo jen z písmen."
       },
       {
-        "body": "Pravděpodobnost všech hodnot z prostoru by měla být pokud možno stejná.",
+        "body": "Klienti si PIN volí sami a velká část z nich zvolí 1234 nebo 1111.",
         "right": true,
-        "comment": "Slide 5"
+        "comment": "Slide 5: pravděpodobnost všech hodnot má být pokud možno stejná; uživatelsky volené PINy jsou silně nerovnoměrné (srov. přednáška 3, slide 19)."
       },
       {
-        "body": "Při kompromitaci musí být možné nastavit novou, jinou autentizační informaci.",
-        "right": true,
-        "comment": "Slide 5"
-      },
-      {
-        "body": "Tajnou informaci je nutné sdělit administrátorovi pro případné zásahy.",
+        "body": "PIN se generuje náhodně s rovnoměrným rozdělením ze všech čtyřmístných hodnot.",
         "right": false,
-        "comment": "Nikdo jiný než oprávněný uživatel by ji neměl znát (slide 5)."
+        "comment": "Slide 5: rovnoměrná volba z celého prostoru hodnot požadavky naopak splňuje (krátkost PINu kompenzují jiná opatření, slide 50)."
+      },
+      {
+        "body": "Po podezření na prozrazení si klient může nastavit nové, jiné heslo.",
+        "right": false,
+        "comment": "Slide 5: možnost nastavit po kompromitaci novou autentizační informaci je přímo jedním z požadavků."
       }
     ]
   },
   {
-    "name": "Při autentizaci se místo samotného hesla posílá pouze haš hesla. Co o tom platí?",
+    "name": "Porovnejte dvě varianty přihlášení po síti: (a) klient pošle místo hesla jeho haš, (b) protokol výzva-odpověď. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Kdo odposlechne haš, nezíská automaticky heslo.",
+        "body": "U varianty (a) útočník, který haš odposlechne, nezná heslo, ale může se tímto hašem sám autentizovat.",
         "right": true,
-        "comment": "Slide 8"
+        "comment": "Slide 8: kdo odposlechne haš, nezíská automaticky heslo, haš však lze použít pro podvodnou autentizaci."
       },
       {
-        "body": "Odposlechnutý haš lze použít pro podvodnou autentizaci.",
+        "body": "U varianty (b) útočník odposlechem výzvy i odpovědi moc nezíská.",
         "right": true,
-        "comment": "Slide 8"
+        "comment": "Slide 9: odposlechem výzvy i odpovědi útočník moc nezíská; při další autentizaci přijde jiná náhodná výzva (odvozeno)."
       },
       {
-        "body": "Odposlechnutý haš je útočníkovi k ničemu.",
-        "right": false,
-        "comment": "Haš lze použít pro podvodnou autentizaci (slide 8)."
+        "body": "Typicky je výzvou náhodné číslo a odpovědí jeho digitální podpis.",
+        "right": true,
+        "comment": "Slide 9: výzvou je náhodné číslo, odpovědí digitálně podepsané číslo."
       },
       {
-        "body": "Z odposlechnutého haše útočník heslo získá automaticky.",
+        "body": "Posílání haše místo hesla brání i tomu, aby útočník odposlechnutou zprávu přehrál.",
         "right": false,
-        "comment": "Slide 8 říká opak."
+        "comment": "Slide 8: odposlechnutý haš lze použít pro podvodnou autentizaci, tedy právě přehrát."
+      },
+      {
+        "body": "U varianty (b) musí ověřovatel získat tajemství dokazovatele, aby mohl odpověď ověřit.",
+        "right": false,
+        "comment": "Slide 9: Alice se přesvědčí o identitě Boba, aniž by získala jeho tajemství."
       }
     ]
   },
   {
-    "name": "Co platí pro protokoly typu výzva-odpověď (challenge-response)?",
+    "name": "Hesla se dělí na skupinová, unikátní, neunikátní a jednorázová. Která tvrzení o nich jsou správná?",
     "answers": [
       {
-        "body": "Odposlechem výzvy i odpovědi útočník moc nezíská.",
+        "body": "Skupinové heslo (sdílené pro uživatelskou roli) se používá málo a jeho bezpečnost je mizivá.",
         "right": true,
-        "comment": "Slide 9"
+        "comment": "Slide 10: skupinová hesla – málo používaná, bezpečnost mizivá."
       },
       {
-        "body": "Alice se přesvědčí o identitě Boba bez získání jeho tajemství.",
-        "right": true,
-        "comment": "Slide 9"
-      },
-      {
-        "body": "V příkladu z přednášky je výzvou náhodné číslo a odpovědí digitálně podepsané číslo.",
-        "right": true,
-        "comment": "Slide 9"
-      },
-      {
-        "body": "Bob musí Alici své tajemství poslat, aby jej mohla ověřit.",
+        "body": "Nejčastější jsou unikátní hesla (heslo = userid), protože uživatel nemusí zadávat jméno.",
         "right": false,
-        "comment": "Alice tajemství nezíská (slide 9)."
+        "comment": "Slide 10: nejčastější jsou neunikátní hesla používaná společně s userid; u unikátního hesla platí heslo = userid."
+      },
+      {
+        "body": "Unikátní heslo se zadává společně s uživatelským jménem, které je k němu nutné.",
+        "right": false,
+        "comment": "Slide 10: u unikátního hesla platí heslo = userid, samo heslo osobu určuje; se jménem se zadává neunikátní heslo."
+      },
+      {
+        "body": "Jednorázové heslo musí být unikátní, jinak by nešlo o jednorázové heslo.",
+        "right": false,
+        "comment": "Slide 10: jednorázová hesla mohou být unikátní i neunikátní („ať už unikátní či nikoliv“)."
+      },
+      {
+        "body": "Skupinové heslo je bezpečné, protože ho lze snadno změnit pro celou skupinu najednou.",
+        "right": false,
+        "comment": "Slide 10: bezpečnost skupinových hesel je mizivá – heslo zná více lidí a nelze určit, kdo se přihlásil (odvozeno)."
       }
     ]
   },
   {
-    "name": "Které druhy hesel přednáška rozlišuje?",
+    "name": "Útočník získal kopii tabulky hesel ze serveru. Co platí podle toho, jak byla hesla uložena?",
     "answers": [
       {
-        "body": "Skupinová (uživatelská role).",
+        "body": "Jsou-li hesla šifrovaná a klíč leží na tomtéž serveru, ochrana stojí jen na klíči – s ním útočník získá všechna hesla.",
         "right": true,
-        "comment": "Slide 10"
+        "comment": "Slide 12: ochrana souboru s hesly se mění na ochranu šifrovacího klíče, který musí být autentizačnímu systému přístupný."
       },
       {
-        "body": "Unikátní pro danou osobu (heslo = userid).",
+        "body": "Jsou-li hesla hašovaná se solí, mají stejná hesla dvou uživatelů v tabulce různé haše.",
         "right": true,
-        "comment": "Slide 10"
+        "comment": "Slide 13: stejná hesla s různou solí budou mít různé haše."
       },
       {
-        "body": "Neunikátní (používaná společně s userid).",
-        "right": true,
-        "comment": "Slide 10"
-      },
-      {
-        "body": "Jednorázová.",
-        "right": true,
-        "comment": "Slide 10"
-      },
-      {
-        "body": "Genotypická.",
+        "body": "Šifrování hesel odstraní nutnost důvěřovat administrátorovi, protože hesla v otevřené podobě nevidí.",
         "right": false,
-        "comment": "To je druh biometrické charakteristiky, ne hesla."
+        "comment": "Slide 12: u šifrovaných hesel přetrvávají problémy podobné jako u otevřených hesel, včetně důvěry v administrátora."
+      },
+      {
+        "body": "Hašovaná hesla útočník z hašů jednoduše dešifruje, pokud zná použitou hašovací funkci.",
+        "right": false,
+        "comment": "Slide 13: hašovací funkce je jednosměrná; útočník musí heslo k haši hledat (hádat), dešifrovat nelze."
+      },
+      {
+        "body": "Sůl se musí uchovávat tajně mimo tabulku hesel, jinak solení ztrácí smysl.",
+        "right": false,
+        "comment": "Slide 13: sůl se ukládá přímo v tabulce (userid, sůl, f(sůl, heslo)); tajná sůl se nazývá pepř."
       }
     ]
   },
   {
-    "name": "Co platí o ukládání hesel v šifrované podobě?",
+    "name": "Proč se pro hašování hesel volí záměrně pomalá funkce a k čemu slouží pepř?",
     "answers": [
       {
-        "body": "Ochrana souboru s hesly se mění na ochranu šifrovacího klíče.",
+        "body": "Pomalá funkce při jednom přihlášení téměř nevadí, ale výrazně zdrží útočníka, který zkouší obrovské množství hesel.",
         "right": true,
-        "comment": "Slide 12"
+        "comment": "Slide 13: pomalá funkce – jednou to není problém, opakovaně ano; ztěžuje hledání hesla k haši."
       },
       {
-        "body": "Šifrovací klíč musí být přístupný autentizačnímu systému (uložen na disku, v paměti apod.).",
+        "body": "Pepř je tajná sůl; útočník, který má jen tabulku hesel, jej nezná, což útok (např. hádání hesla) dále zpomalí.",
         "right": true,
-        "comment": "Slide 12"
+        "comment": "Slide 13: pepř = tajná sůl, cílem je také zpomalení útoku, např. hádání hesla."
       },
       {
-        "body": "Přetrvává problém důvěry v administrátora.",
-        "right": true,
-        "comment": "Slide 12"
-      },
-      {
-        "body": "Odpadá jakákoli potřeba důvěřovat administrátorovi.",
+        "body": "Pomalá funkce se volí proto, že rychlé hašovací funkce nejsou jednosměrné a heslo by z nich šlo spočítat.",
         "right": false,
-        "comment": "Problémy jsou podobné jako u otevřených hesel (slide 12)."
+        "comment": "Slide 13: jednosměrnost s rychlostí nesouvisí; pomalost se volí kvůli zdražení opakovaného zkoušení hesel."
+      },
+      {
+        "body": "Dostatečně pomalá funkce nahrazuje sůl, takže sůl pak není nutné generovat ani ukládat do tabulky hesel.",
+        "right": false,
+        "comment": "Slide 13: sůl řeší jiný problém (stejná hesla, delší efektivní heslo) a v tabulce hesel se ukládat musí."
+      },
+      {
+        "body": "Pomalé hašování chrání hlavně proti odposlechu hesla při jeho přenosu po síti mezi klientem a serverem.",
+        "right": false,
+        "comment": "Slide 13: pomalá funkce ztěžuje útoky, kdy útočník k haši hledá heslo (tj. práci s ukradenými haši), ne odposlech."
       }
     ]
   },
   {
-    "name": "Proč se pro hašování hesel volí pomalá funkce?",
+    "name": "O jaký druh útoku na hesla jde v jednotlivých scénářích?",
     "answers": [
       {
-        "body": "Pro ztížení útoků, kdy se k haši hledá odpovídající heslo – jeden výpočet není problém, opakovaný ano.",
+        "body": "Útočník zkouší hesla přímo na přihlašovací stránce banky, která po pěti chybách účet na hodinu zablokuje – online útok.",
         "right": true,
-        "comment": "Slide 13"
+        "comment": "Slide 20: online – tipy jdou na verifikační zařízení, které může zpomalovat (omezit počet pokusů za jednotku času)."
       },
       {
-        "body": "Aby se uživatelé přihlašovali co nejméně často.",
-        "right": false
+        "body": "Útočník stáhl uniklou databázi hašů hesel a zkouší hesla na vlastních grafických kartách – offline útok.",
+        "right": true,
+        "comment": "Slide 20: offline – útočník se dostal k souboru s hesly a pracuje s ním."
       },
       {
-        "body": "Protože rychlé hašovací funkce nejsou jednosměrné.",
-        "right": false
-      },
-      {
-        "body": "Aby nebylo nutné ukládat sůl.",
+        "body": "Útočník zkouší „Heslo2024“, „Hes1o2024!“ a podobné obměny slov – útok hrubou silou.",
         "right": false,
-        "comment": "Sůl se v tabulce hesel ukládat musí (slide 13)."
+        "comment": "Slide 21: obměny slov s typickými náhradami jsou permutační útok; hrubá síla zkouší všechny možné kombinace."
+      },
+      {
+        "body": "Útočník si nechá poslat odkaz pro obnovu hesla na e-mail oběti, k němuž zná slabé heslo – krádež hesla.",
+        "right": false,
+        "comment": "Slide 22: jde o zneužití obnovy hesla (záložní systémy mívají slabší autentizaci); krádež hesla je jeho odpozorování (slide 20)."
+      },
+      {
+        "body": "Útočník zkouší jméno psa a datum narození konkrétní oběti – plošný útok.",
+        "right": false,
+        "comment": "Slide 20–21: útok na heslo konkrétního uživatele je cílený; plošný útok hledá heslo kohokoliv ze skupiny."
       }
     ]
   },
   {
-    "name": "Co platí o „solení“ hesel?",
+    "name": "Úspěšnost útoku hrubou silou na heslo lze odhadnout modelem \\[P \\approx \\frac{T \\cdot G}{A^{L}},\\]kde \\(T\\) je doba platnosti hesla, \\(G\\) počet odhadů za jednotku času, \\(A\\) velikost abecedy a \\(L\\) délka hesla. Která tvrzení z modelu plynou?",
     "answers": [
       {
-        "body": "Haš není jen funkcí hesla, ale i dodatečné náhodné informace (soli).",
+        "body": "Zkrácení doby platnosti hesla na polovinu sníží odhad úspěšnosti na polovinu.",
         "right": true,
-        "comment": "Slide 13"
+        "comment": "Slide 23: \\(T\\) je v čitateli, úspěšnost je s ním přímo úměrná."
       },
       {
-        "body": "V tabulce hesel se musí ukládat i sůl: userid, sůl, f(sůl, heslo).",
+        "body": "Prodloužení hesla o jeden znak sníží úspěšnost \\(A\\)-krát.",
         "right": true,
-        "comment": "Slide 13"
+        "comment": "Slide 23: délka je v exponentu jmenovatele, \\(A^{L+1} = A \\cdot A^{L}\\)."
       },
       {
-        "body": "Stejná hesla s různou solí budou mít různé haše.",
-        "right": true,
-        "comment": "Slide 13"
-      },
-      {
-        "body": "Výsledkem je delší efektivní heslo.",
-        "right": true,
-        "comment": "Slide 13"
-      },
-      {
-        "body": "Sůl se nesmí nikam ukládat, uživatel si ji pamatuje spolu s heslem.",
+        "body": "Zdvojnásobení velikosti abecedy sníží úspěšnost na polovinu.",
         "right": false,
-        "comment": "Sůl se ukládá v tabulce hesel (slide 13)."
+        "comment": "Slide 23: abeceda je umocněna na délku hesla, úspěšnost klesne \\(2^{L}\\)-krát, ne dvakrát."
+      },
+      {
+        "body": "Je-li útočník desetkrát rychlejší, vyrovná to až prodloužení hesla zhruba o deset znaků.",
+        "right": false,
+        "comment": "Slide 23: desetinásobné \\(G\\) vyrovná zvýšení \\(A^{L}\\) desetkrát – při abecedě s alespoň 10 znaky stačí jeden znak navíc."
       }
     ]
   },
   {
-    "name": "Co charakterizuje online útok na heslo?",
+    "name": "Experiment J. Yana a kol. porovnával skupiny studentů: bez školení, s pravidlem „alespoň 8 znaků a jeden nealfabetický znak“, s náhodně generovaným heslem a s heslem odvozeným z delší fráze. Které závěry z něj plynou pro politiku hesel?",
     "answers": [
       {
-        "body": "Tipy jsou posílány na určené verifikační zařízení, které má často prostor pro zpomalování (omezení počtu pokusů).",
+        "body": "Hesla odvozená z frází jsou obtížněji uhodnutelná než naivně zvolená hesla a nepamatují se hůře.",
         "right": true,
-        "comment": "Slide 20"
+        "comment": "Slide 33: hesla založená na frázích jsou obtížněji uhodnutelná a nepamatují se hůře než naivně zvolená."
       },
       {
-        "body": "Útočník se dostal k souboru s hesly a pracuje s ním.",
-        "right": false,
-        "comment": "To je offline útok (slide 20)."
+        "body": "Náhodná hesla se obtížně pamatují a bezpečnostně nejsou lepší než hesla z frází.",
+        "right": true,
+        "comment": "Slide 33: náhodně vybraná hesla se obtížně pamatují a nejsou lepší než hesla založená na frázích."
       },
       {
-        "body": "Útočník heslo odpozoruje při zadávání nebo přenosu.",
+        "body": "Samotné školení uživatelů bezpečnost hesel výrazně zlepší.",
         "right": false,
-        "comment": "To je krádež hesla (slide 20)."
+        "comment": "Slide 33: školení uživatelů nemá za následek výrazný posun v bezpečnosti hesel."
       },
       {
-        "body": "Útočník zneužije mechanismus pro nastavení nového hesla.",
+        "body": "Nejlepší volbou jsou náhodná hesla, protože jsou výrazně odolnější než hesla z frází.",
         "right": false,
-        "comment": "To je útok přes obnovu hesla (slide 22)."
+        "comment": "Slide 31, 33: úspěšnost útoku byla u náhodných i frázových hesel podobně nízká a náhodná hesla nejsou lepší."
       }
     ]
   },
   {
-    "name": "Které techniky hádání hesla přednáška uvádí?",
+    "name": "Firma vynucuje změnu hesla každých 30 dní. Co lze očekávat a co je lepší investicí?",
     "answers": [
       {
-        "body": "Slovníkový útok – databáze často používaných řetězců (slov).",
+        "body": "Uživatelé budou heslo měnit předvídatelně, např. MojeHeslo09 v září a MojeHeslo10 v říjnu.",
         "right": true,
-        "comment": "Slide 21"
+        "comment": "Slide 35: typický problém vyžadovaných změn hesel."
       },
       {
-        "body": "Permutace písmen s několika znaky a typickými náhradami.",
+        "body": "Uživatelé budou heslo častěji zapomínat a vzrostou administrativní náklady na reset.",
         "right": true,
-        "comment": "Slide 21"
+        "comment": "Slide 36: lidé heslo častěji zapomínají; vědomi si toho pak volí hesla slabá."
       },
       {
-        "body": "Slova, data a číslice související s uživatelem, institucí/systémem.",
+        "body": "Lepší investicí je úsilí věnovat volbě kvalitního hesla, např. kontrolou proti blacklistu.",
         "right": true,
-        "comment": "Slide 21"
+        "comment": "Slide 36–37: úsilí zaměřené na kvalitní heslo je lepší investicí; blacklist se uplatní při volbě nového hesla."
       },
       {
-        "body": "Hrubou silou (všechny možné kombinace).",
-        "right": true,
-        "comment": "Slide 21"
-      },
-      {
-        "body": "Testování živosti.",
+        "body": "Bezpečnost výrazně vzroste, protože prozrazené heslo brzy přestane platit.",
         "right": false,
-        "comment": "To je pojem z biometrik, ne technika hádání hesla."
+        "comment": "Slide 36: aktuální výzkum ukazuje expiraci hesel jako málo účinnou."
+      },
+      {
+        "body": "Zákaz další změny hesla po určitou dobu od poslední změny bezpečnost zvýší.",
+        "right": false,
+        "comment": "Slide 35: zákaz změn po nějakou dobu způsobí problém v případě prozrazení hesla."
       }
     ]
   },
   {
-    "name": "Co zvyšuje pravděpodobnost úspěchu útoku hrubou silou na heslo?",
+    "name": "Uživatel chce hesla ukládat ve vzdáleném (cloudovém) správci hesel. Jaké bezpečnostní požadavky má takový správce splňovat?",
     "answers": [
       {
-        "body": "Delší čas platnosti hesla.",
+        "body": "Služba sama nesmí být schopna zjistit uložená hesla, je-li hlavní heslo či klíč dostatečně silné.",
         "right": true,
-        "comment": "Slide 23 – je v čitateli."
+        "comment": "Slide 43: službě nelze plně důvěřovat ohledně ochrany tajemství."
       },
       {
-        "body": "Vyšší počet odhadů za jednotku času.",
+        "body": "Citlivé operace s klíčem se provádějí na klientovi, ne na serveru služby.",
         "right": true,
-        "comment": "Slide 23 – je v čitateli."
+        "comment": "Slide 43: citlivé operace s klíčem musí být prováděny na klientovi."
       },
       {
-        "body": "Větší velikost abecedy.",
+        "body": "Hesla šifruje server klíčem, který spravuje služba, aby je mohla uživateli obnovit.",
         "right": false,
-        "comment": "Slide 23 – je ve jmenovateli, úspěšnost snižuje."
+        "comment": "Slide 43: takový server by tajemství znal; požadavkem je, aby je služba sama zjistit nemohla."
       },
       {
-        "body": "Větší délka hesla.",
+        "body": "Službě lze plně důvěřovat, takže stačí, aby přenos hesel probíhal přes šifrované spojení.",
         "right": false,
-        "comment": "Slide 23 – je ve jmenovateli (exponent), úspěšnost snižuje."
+        "comment": "Slide 43: výchozím předpokladem je naopak, že službě nelze plně důvěřovat."
+      },
+      {
+        "body": "Ztracené zařízení se revokuje okamžitě, návrh proto se ztrátou zařízení počítat nemusí.",
+        "right": false,
+        "comment": "Slide 43: zařízení se může ztratit a být revokováno až později – návrh s tím musí počítat."
       }
     ]
   },
   {
-    "name": "Které závěry experimentu J. Yana a kol. přednáška uvádí?",
+    "name": "Aplikace potřebuje šifrovací klíč, který odvodí z hesla uživatele funkcí jako PBKDF2. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Náhodně vybraná hesla se obtížně pamatují.",
+        "body": "Entropie odvozeného klíče není vyšší než entropie hesla, ať je klíč jakkoli dlouhý.",
         "right": true,
-        "comment": "Slide 33"
+        "comment": "Slide 44: entropie klíče = entropie hesla (nízká)."
       },
       {
-        "body": "Hesla založená na frázích jsou obtížněji uhodnutelná než naivně zvolená hesla.",
+        "body": "PBKDF2 přidává sůl a mnoho iterací, aby každý pokus útočníka trval déle.",
         "right": true,
-        "comment": "Slide 33"
+        "comment": "Slide 44: sůl a zvýšené iterace zpomalují útok hrubou silou."
       },
       {
-        "body": "Náhodná hesla nejsou lepší než ta založená na frázích.",
+        "body": "Novější funkce (např. Argon2) jsou náročné i na paměť (memory hard), což ztěžuje útoky na dedikovaném hardwaru.",
         "right": true,
-        "comment": "Slide 33"
+        "comment": "Slide 44: nové funkce zohledňují i náročnost na paměť; souvislost s dedikovaným HW a paralelizací uvádí slide jako důvod zvyšování náročnosti."
       },
       {
-        "body": "Hesla založená na frázích se nepamatují hůře než naivně zvolená hesla.",
-        "right": true,
-        "comment": "Slide 33"
-      },
-      {
-        "body": "Školení uživatelů vede k výraznému posunu v bezpečnosti hesel.",
+        "body": "256bitový klíč odvozený z hesla odolá hrubé síle stejně jako náhodný 256bitový klíč.",
         "right": false,
-        "comment": "Slide 33: školení nemá za následek výrazný posun."
+        "comment": "Slide 44: útočník hádá heslo, ne klíč; odolnost určuje nízká entropie hesla."
+      },
+      {
+        "body": "Počet iterací se stanoví jednou provždy, později jej zvyšovat nemá smysl.",
+        "right": false,
+        "comment": "Slide 44: počty iterací se časem zvyšují jako reakce na růst výkonu, paralelizaci a dedikovaný HW."
       }
     ]
   },
   {
-    "name": "Co říká přednáška o expiraci hesel?",
+    "name": "Jak fungují mechanismy jednorázových hesel (OTP)?",
     "answers": [
       {
-        "body": "Aktuální výzkum ji ukazuje jako málo účinnou.",
+        "body": "Lamportův řetězec: z tajného \\(x_0\\) se spočítá \\(h(x_0), h(h(x_0)), \\dots\\); hesla se použijí pozpátku a haš nového hesla musí dát předchozí.",
         "right": true,
-        "comment": "Slide 36"
+        "comment": "Slide 45: řetězec haší – nová hodnota potvrdí správnost předchozí; \\(x_0\\) je tajné."
       },
       {
-        "body": "Lidé heslo častěji zapomínají – administrativní náklady.",
+        "body": "HOTP počítá heslo z tajného klíče a počitadla, které udržuje server i klient (s tolerancí rozdílu).",
         "right": true,
-        "comment": "Slide 36"
+        "comment": "Slide 45: HMAC-based OTP – udržované počitadlo na serveru i klientovi, tolerance rozdílu."
       },
       {
-        "body": "Lidé jsou si toho vědomi a volí hesla slabá.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Stejné úsilí zaměřené na volbu kvalitního hesla je lepší investicí.",
-        "right": true,
-        "comment": "Slide 36"
-      },
-      {
-        "body": "Je to nejúčinnější opatření pro bezpečnost hesel.",
+        "body": "Z odposlechnutého hesla Lamportova řetězce útočník snadno spočítá příští heslo, protože zná hašovací funkci.",
         "right": false,
-        "comment": "Slide 36 říká opak."
+        "comment": "Slide 45: příští heslo je vzorem současného hesla; kvůli jednosměrnosti haše jej útočník spočítat neumí (odvozeno)."
+      },
+      {
+        "body": "U HOTP stačí, aby počitadlo udržoval server; klient místo něj generuje náhodná čísla, která server přijme.",
+        "right": false,
+        "comment": "Slide 45: počitadlo udržuje server i klient; jinak by server hodnotu nemohl ověřit."
+      },
+      {
+        "body": "SMS kód je velmi bezpečný, protože přichází odděleným kanálem, který útočník nemá.",
+        "right": false,
+        "comment": "Slide 26: oddělené kanály de facto nejsou oddělenými – prominentní případ SMS s jednorázovým heslem."
       }
     ]
   },
   {
-    "name": "Která doporučení k heslům přednáška dává?",
+    "name": "Proč se u platebních karet používá krátký čtyřmístný PIN, přestože by se dal snadno uhodnout hrubou silou?",
     "answers": [
       {
-        "body": "Používat fráze.",
+        "body": "PIN se obvykle používá spolu s fyzickým předmětem (kartou), takže útočník potřebuje i kartu.",
         "right": true,
-        "comment": "Slide 39"
+        "comment": "Slide 50: PIN je obvykle používán s fyzickým předmětem."
       },
       {
-        "body": "Myslet na délku – minimálně 8 znaků, raději 10.",
+        "body": "Hrubou sílu omezují procedurální opatření, např. zabavení karty po třech chybných PINech.",
         "right": true,
-        "comment": "Slide 39"
+        "comment": "Slide 50: zabavení karty při několika (3) nesprávných PINech, re-aktivace záložním PINem."
       },
       {
-        "body": "Používat nealfabetické znaky.",
+        "body": "Při náhodném PINu z rozsahu 1000–9999 a třech pokusech je šance na uhodnutí asi 1 : 3000.",
         "right": true,
-        "comment": "Slide 39"
+        "comment": "Slide 57: dobrý systém by měl mít 1/3000 – 9000 možných PINů a 3 pokusy dávají 3/9000."
       },
       {
-        "body": "Prosazovat politiku volby hesel nějakým mechanismem.",
-        "right": true,
-        "comment": "Slide 39"
-      },
-      {
-        "body": "Nepoužívat správce hesel.",
+        "body": "Čtyřmístný PIN má dost velký prostor hodnot, aby odolal i offline útoku na uložená data.",
         "right": false,
-        "comment": "Správce hesel je pro řadu uživatelů a běžných situací vhodný (slide 39)."
+        "comment": "Slide 50: PIN má jen \\(10^{4}\\) hodnot; ochranu dává omezení počtu pokusů, ne velikost prostoru (odvozeno)."
+      },
+      {
+        "body": "PIN je snadněji zapamatovatelný než heslo, a proto je i bezpečnější.",
+        "right": false,
+        "comment": "Slide 50: PINy jsou obtížněji zapamatovatelné než hesla."
       }
     ]
   },
   {
-    "name": "Co platí o generování kryptografického klíče z hesla?",
+    "name": "Které z uvedených vlastností jsou nevýhodami hesel (tajných informací)?",
     "answers": [
       {
-        "body": "Entropie klíče = entropie hesla (nízká).",
+        "body": "Prolomené heslo se snadno kopíruje či sděluje dál.",
         "right": true,
-        "comment": "Slide 44"
+        "comment": "Slide 58: při zjištění/prolomení se heslo jednoduše kopíruje či sděluje dále."
       },
       {
-        "body": "Funkce PBKDF2 přidává sůl a zvyšuje počet iterací pro zpomalení útoku hrubou silou.",
+        "body": "Uživatel nemusí ihned zjistit, že jeho heslo zná někdo další.",
         "right": true,
-        "comment": "Slide 44"
+        "comment": "Slide 58: heslo lze zjistit, aniž by si toho byl uživatel ihned vědom."
       },
       {
-        "body": "Nové funkce zohledňují i náročnost na použitou paměť (memory hard).",
-        "right": true,
-        "comment": "Slide 44"
-      },
-      {
-        "body": "Klíč odvozený z hesla má vždy vyšší entropii než samotné heslo.",
+        "body": "Ke kontrole hesla je potřeba speciální čtečka nebo jiný hardware.",
         "right": false,
-        "comment": "Entropie klíče = entropie hesla (slide 44)."
+        "comment": "Slide 59: hesla nevyžadují žádný dodatečný HW – to je výhoda; čtečku potřebují tokeny."
+      },
+      {
+        "body": "Heslo se po prozrazení obtížně mění nebo nahrazuje.",
+        "right": false,
+        "comment": "Slide 59: hesla se jednoduše změní či nahradí – to je výhoda."
+      },
+      {
+        "body": "Uživatelé s hesly neumějí pracovat, protože jejich problémy nejsou prostudované.",
+        "right": false,
+        "comment": "Slide 59: všichni uživatelé mají základní know-how a nedostatky hesel jsou dobře známy a dlouho studovány."
       }
     ]
   },
   {
-    "name": "Jak funguje řetězec haší (Lamport) pro jednorázová hesla?",
+    "name": "Služba umožňuje obnovu zapomenutého hesla zodpovězením bezpečnostních otázek zadaných při registraci. Jaké problémy tato metoda má?",
     "answers": [
       {
-        "body": "Nová hodnota potvrdí správnost předchozí; řetězec vychází z tajné hodnoty x<SUB>0</SUB>.",
+        "body": "Odpovědi se v čase mění a uživatelé často už při registraci zadají nesprávné odpovědi.",
         "right": true,
-        "comment": "Slide 45"
+        "comment": "Slide 49: odpovědi se mění v čase, uživatelé zadávají nesprávné odpovědi (citlivost otázek, kulturní rozdíly)."
       },
       {
-        "body": "Server i klient udržují počitadlo podle RFC 4226.",
-        "right": false,
-        "comment": "To je HOTP (slide 45)."
+        "body": "Odpovědi mají malou entropii a útočník je často snadno uhodne.",
+        "right": true,
+        "comment": "Slide 49: malá entropie – často jednoduše uhodnutelné útočníkem."
       },
       {
-        "body": "Heslo je odvozeno z aktuálního času, hodiny je třeba synchronizovat.",
+        "body": "Odpovědi mají vysokou entropii, protože jsou osobní, takže je útočník nezjistí.",
         "right": false,
-        "comment": "To je OTP založené na čase (slide 45)."
+        "comment": "Slide 49: osobní odpovědi mají naopak malou entropii a jsou uhodnutelné (srov. slide 5: ne jméno psa, datum narození…)."
       },
       {
-        "body": "Uživatel vybírá své obrázky z řady nabídnutých.",
+        "body": "Odpověď lze snadno resetovat e-mailem, proto se otázky používají jako druhý faktor.",
         "right": false,
-        "comment": "To je systém Déjà Vu (slide 47)."
+        "comment": "Slide 22, 49: bezpečnostní otázky jsou mechanismus obnovy, ne druhý faktor – jsou to další „něco, co známe“; reset e-mailem jen přesouvá bezpečnost na záložní systém, který bývá chráněn slaběji (odvozeno)."
+      },
+      {
+        "body": "Otázky jsou bezpečné, protože se ověřují principem výzva-odpověď stejně jako kryptografické protokoly.",
+        "right": false,
+        "comment": "Slide 9, 49: otázky jsou výzva-odpověď jen formou; odpovědi jsou krátké, s malou entropií a uhodnutelné, nejde o kryptografický protokol s dlouhým klíčem."
       }
     ]
   },
   {
-    "name": "Co platí o PINech (Personal Identification Number)?",
-    "answers": [
-      {
-        "body": "Stačí pro ně levnější klávesnice.",
-        "right": true,
-        "comment": "Slide 50"
-      },
-      {
-        "body": "Jsou obtížněji zapamatovatelné než hesla.",
-        "right": true,
-        "comment": "Slide 50"
-      },
-      {
-        "body": "Obvykle jsou používány s fyzickým předmětem.",
-        "right": true,
-        "comment": "Slide 50"
-      },
-      {
-        "body": "Obvykle jsou 4–8 znaků dlouhé.",
-        "right": true,
-        "comment": "Slide 50"
-      },
-      {
-        "body": "Nikdy je nelze změnit podle přání zákazníka.",
-        "right": false,
-        "comment": "Někdy je změnit lze (slide 50)."
-      }
-    ]
-  },
-  {
-    "name": "Které nevýhody hesel (tajných informací) přednáška uvádí?",
-    "answers": [
-      {
-        "body": "Při zjištění/prolomení se jednoduše kopírují či sdělují dále.",
-        "right": true,
-        "comment": "Slide 58"
-      },
-      {
-        "body": "Lze je zjistit, aniž by si toho byl uživatel ihned vědom.",
-        "right": true,
-        "comment": "Slide 58"
-      },
-      {
-        "body": "Od uživatelů se implicitně očekává, že hesla nezapisují a nepoužívají stejná hesla mezi více účty.",
-        "right": true,
-        "comment": "Slide 58"
-      },
-      {
-        "body": "Vyžadují dodatečný hardware.",
-        "right": false,
-        "comment": "Naopak – nevyžadují žádný dodatečný HW (slide 59)."
-      }
-    ]
-  },
-  {
-    "name": "Popište a porovnejte způsoby ukládání hesel: v otevřeném tvaru, šifrovaná a hašovaná. Vysvětlete, k čemu slouží pomalá hašovací funkce, sůl a pepř.",
-    "answer": "<B>V otevřeném tvaru:</B> ochrana je jen na úrovni systému (řízení přístupu pro zápis i čtení), vyžaduje absolutní důvěru v administrátora a je problém při zkopírování souboru – raději ne. <B>Šifrovaná:</B> ochrana souboru s hesly se mění na ochranu šifrovacího klíče (moc jsme si nepomohli); klíč musí být přístupný autentizačnímu systému (na disku, v paměti). Problémy jsou podobné jako u otevřených hesel – důvěra v administrátora, kompromitace klíče. Šifrování se používá tehdy, když chceme mít přístup k otevřenému tvaru hesla, např. když autentizační protokol nepřenáší heslo, ale jen odvozenou informaci. <B>Hašovaná:</B> ukládá se jen výsledek hašovací funkce; hodí se její jednosměrnost – kdo získá haš, nezískává automaticky heslo. <B>Pomalá funkce</B> ztěžuje útoky, při nichž se k haši hledá odpovídající heslo (jeden výpočet nevadí, opakovaný ano). <B>Solení:</B> haš je funkcí hesla i dodatečné náhodné informace (soli); ukládá se userid, sůl, f(sůl, heslo). Dává delší efektivní heslo a stejná hesla s různou solí mají různé haše. <B>Pepř</B> je tajná sůl, cílem je také zpomalení útoku.",
+    "name": "Online službě unikla tabulka hesel všech uživatelů. Porovnejte riziko pro uživatele ve čtyřech variantách uložení: (a) hesla v otevřeném tvaru, (b) šifrovaná hesla, jejichž klíč je na stejném serveru, (c) rychlé hašování bez soli, (d) pomalé hašování se solí, případně s pepřem. Co musí útočník v každé variantě udělat a jak riziko ovlivňuje volba hesla uživatelem?",
+    "answer": "<B>(a) Otevřený tvar:</B> útočník má všechna hesla okamžitě a může je zkusit i u jiných služeb (heslo konkrétního uživatele z jednoho systému pro jiný). Proto „raději NE“.<BR><B>(b) Šifrovaná hesla:</B> ochrana souboru se změnila na ochranu klíče, který musí být autentizačnímu systému přístupný (disk, paměť); při průniku na server jej útočník pravděpodobně získá také a dešifruje vše – „moc jsme si nepomohli“.<BR><B>(c) Rychlý haš bez soli:</B> díky jednosměrnosti útočník heslo nezíská přímo, musí hádat offline (slovník, permutace, údaje o uživateli, hrubá síla, rainbow tables, paralelizace). Rychlá funkce dovolí obrovské množství pokusů – např. u NTLM padne osmiznakové heslo z malých písmen řádově za dny. Stejná hesla mají stejné haše, takže jedno uhodnutí odhalí všechny uživatele se stejným heslem a předpočítané tabulky platí pro celou tabulku (odvozeno).<BR><B>(d) Pomalý haš se solí:</B> každý pokus je drahý. Sůl je uložena v tabulce, útočník ji tedy zná, ale musí hádat každý účet zvlášť a stejná hesla mají různé haše (předpočítané tabulky ztrácejí smysl – odvozeno). Pepř (tajnou sůl) útočník bez dalšího průniku nezná, což útok dále zpomalí; memory-hard funkce ztěžují útok na dedikovaném HW.<BR><B>Vliv uživatele:</B> žádný způsob uložení nezachrání slabé nebo slovníkové heslo – uhodne se i ve variantě (d). Odolnost určuje velikost abecedy a délka hesla (\\(A^{L}\\) ve jmenovateli odhadu úspěšnosti). Pomáhají hesla z frází, blacklist při volbě hesla a jiné heslo pro každou službu; po úniku je třeba hesla změnit.",
     "keyPoints": [
-      "Otevřený tvar: jen ochrana systémem, absolutní důvěra v administrátora, problém při zkopírování souboru",
-      "Šifrování: ochrana se přesouvá na šifrovací klíč, který musí být systému přístupný",
-      "Šifrování jen když je potřeba otevřený tvar hesla",
-      "Hašování: ukládá se jen haš, využívá se jednosměrnost",
-      "Pomalá funkce ztěžuje hledání hesla k haši",
-      "Sůl: náhodná informace, ukládá se userid, sůl, f(sůl, heslo); stejná hesla → různé haše",
-      "Pepř = tajná sůl"
+      "Otevřený tvar: okamžitý únik všech hesel, riziko i pro jiné služby",
+      "Šifrování: útočník získá i klíč dostupný systému a dešifruje vše",
+      "Rychlý haš bez soli: offline hádání ve velkém, stejná hesla = stejné haše",
+      "Pomalý haš se solí: drahý pokus, každý účet zvlášť; pepř útok dál zpomalí",
+      "Slabé heslo padne v každé variantě; pomáhá délka, fráze, blacklist, jiné heslo pro každou službu"
     ],
-    "source": "Přednáška 2, slide 11–13"
+    "source": "Přednáška 2, slide 11–13, 20–21, 23–24, 37–39, 44; dopad soli na předpočítané tabulky a na stejná hesla napříč účty je odvozený"
   },
   {
-    "name": "Rozdělte útoky na hesla, jak je uvádí přednáška (podle cíle, způsobu provedení a techniky hádání), a uveďte, kde k útokům dochází a proč k prozrazení hesel dochází.",
-    "answer": "<B>Podle cíle:</B> cílený útok – zjistit heslo konkrétního uživatele nebo využít jeho heslo z jednoho systému pro jiný; plošný – zjistit heslo kteréhokoliv ze skupiny uživatelů. <B>Podle provedení:</B> online – tipy se posílají na verifikační zařízení, které může zpomalovat (omezení počtu pokusů za čas nebo absolutně, např. 3 pokusy PINu v bankomatu); offline – útočník získal soubor s hesly a pracuje s ním; krádež hesla – odpozorování při zadávání nebo přenosu (malware, sociální inženýrství, kamery). <B>Hádání:</B> slovníkový útok, permutace písmen s několika znaky a typickými náhradami, údaje související s uživatelem nebo institucí, hrubá síla; pomocné techniky jsou rainbow tables a paralelizace. <B>Nejen hádání:</B> zneužití mechanismu obnovy hesla (autentizace k záložním systémům bývá slabší) a přístup k datům bez znalosti hesla (malware, chyba v designu nebo řízení přístupu). <B>Kde:</B> klient, databáze hesel (i záloha či stará kopie), server/host (paměť, cache, záznamy), síťová komunikace, tvrdě zakódovaná hesla, manuály a dokumentace. <B>Proč:</B> uživatelé volí slabá hesla, servery a jejich databáze jsou častým cílem úspěšných útoků, oddělené kanály de facto oddělené nejsou (SMS), obnova hesla je pro útočníka jednodušší než jiné útoky.",
+    "name": "Útočník chce získat přístup k e-mailovému účtu konkrétní manažerky. Popište alespoň čtyři různé cesty, kudy může heslo získat nebo ověření obejít (kde útok probíhá a proč bývá úspěšný), a ke každé navrhněte obranu. Jak lze zneužití účtu odhalit?",
+    "answer": "<B>Cílené online hádání</B> na přihlašovací stránce s využitím údajů o oběti (jména, data, instituce). Obrana: omezení počtu pokusů za jednotku času, heslo z delší fráze, blacklist slabých hesel.<BR><B>Únik databáze hesel</B> – ze serveru, zálohy, staré kopie, paměti či záznamů – a následný offline útok; případně stejné heslo použité v jiné, napadené službě. Obrana: pomalý haš se solí na straně služby; u uživatelky jiné heslo pro každou službu, ideálně správce hesel.<BR><B>Krádež hesla</B> – odpozorování při zadávání, malware, sociální inženýrství, kamery, odposlech přenosu. Obrana: neposílat heslo v čisté podobě (protokol výzva-odpověď), jednorázová hesla, ochrana klientského zařízení.<BR><B>Zneužití obnovy hesla</B> – záložní systémy (záložní e-mail, bezpečnostní otázky s malou entropií) bývají chráněny slaběji než cílový účet. Obrana: obnova přes dříve evidované zařízení, žádné snadno uhodnutelné otázky.<BR><B>Neoddělený druhý kanál</B> – SMS s jednorázovým heslem de facto oddělený kanál není. Obrana: generátor jednorázových hesel (HOTP/TOTP) nebo jiný token.<BR><B>Detekce:</B> informace o posledním přístupu zobrazená po přihlášení, nesmazatelné záznamy o přístupech a kontrola, zda se heslo neobjevilo v uniklých databázích (např. haveibeenpwned).",
     "keyPoints": [
-      "Cílený vs. plošný útok",
-      "Online (verifikační zařízení může omezit pokusy) vs. offline (soubor s hesly)",
-      "Krádež hesla – odpozorování, malware, sociální inženýrství",
-      "Hádání: slovník, permutace, údaje o uživateli, hrubá síla",
-      "Obnova hesla jako slabé místo",
-      "Místa útoku: klient, databáze hesel, server, síť, zakódovaná hesla, dokumentace",
-      "Příčiny: slabá hesla, napadené servery, neoddělené kanály (SMS)"
+      "Cílené online hádání → omezení počtu pokusů, silné heslo, blacklist",
+      "Únik databáze nebo opakované heslo → pomalý haš se solí, jiné heslo pro každou službu, správce hesel",
+      "Krádež (malware, odpozorování, odposlech) → výzva-odpověď, jednorázová hesla",
+      "Obnova hesla je slabé místo (záložní systémy, otázky) → zabezpečit obnovu",
+      "SMS není skutečně oddělený kanál",
+      "Detekce: poslední přístup po přihlášení, nesmazatelné záznamy, kontrola úniků"
     ],
-    "source": "Přednáška 2, slide 20–22 a 25–26"
+    "source": "Přednáška 2, slide 8–9, 13, 20–22, 25–26, 34, 39, 45, 49; přiřazení konkrétních obran k jednotlivým cestám útoku je odvozené"
   }
 ]

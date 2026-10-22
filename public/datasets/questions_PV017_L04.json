@@ -1,190 +1,204 @@
 [
   {
-    "name": "Jaký je podle přednášky vztah mezi regulací a řízením kybernetické bezpečnosti?",
+    "name": "Zákon požaduje přiměřená bezpečnostní opatření, ale nepředepisuje konkrétní firewall. Co z toho podle přednášky plyne pro organizaci?",
     "answers": [
-      { "body": "Regulace říká CO, řízení říká JAK.", "right": true, "comment": "Slide 4, 41" },
-      { "body": "Regulace předepisuje konkrétní technologie, řízení je jen nakupuje.", "right": false, "comment": "Zákon nepředepisuje konkrétní firewall (slide 4)." },
-      { "body": "Řízení je potřeba jen tam, kde regulace neplatí.", "right": false },
-      { "body": "Regulace říká JAK, řízení říká CO.", "right": false }
+      { "body": "Musí sama určit, která opatření zavede, proč a kdo za ně odpovídá – a umět to doložit.", "right": true, "comment": "Slide 4: zákon vyžaduje, aby organizace věděla, proč má která opatření, a uměla to doložit." },
+      { "body": "Řízení KB převádí požadavky regulace (CO) na role, procesy a rozhodování o rizicích (JAK).", "right": true, "comment": "Slide 4, 41: regulace říká CO, řízení říká JAK." },
+      { "body": "Stačí nakoupit technologie doporučené výrobci; řízení není potřeba.", "right": false, "comment": "Slide 4, 6: výsledkem má být odolnost i doložitelnost; technologie bez procesu je nespravovaná." },
+      { "body": "Když zákon nic konkrétního nepředepisuje, povinnost nelze splnit ani kontrolovat.", "right": false, "comment": "Slide 4: povinnost se plní tím, že organizace opatření zdůvodní a doloží." },
+      { "body": "Regulace stanoví JAK, takže řízení kontroluje, zda technici postupují podle zákona.", "right": false, "comment": "Slide 4: je to obráceně – regulace říká CO, řízení JAK." }
     ]
   },
   {
-    "name": "Na které ze tří úrovní (řízení, správa, provoz) se stanovuje směr, odpovědnost, dohled a apetit k riziku?",
+    "name": "Která přiřazení rolí a úkolů ke třem úrovním (řízení, správa, provoz) jsou správná?",
     "answers": [
-      { "body": "Governance – řízení (vrcholné vedení, výbor pro řízení KB)", "right": true, "comment": "Slide 5" },
-      { "body": "Management – správa (manažer KB/CISO, architekt KB)", "right": false, "comment": "Správa = plánování, zavádění, měření, zlepšování (slide 5)." },
-      { "body": "Operations – provoz (IT provoz, SOC, garanti aktiv, uživatelé)", "right": false, "comment": "Provoz = každodenní výkon opatření, monitoring, reakce (slide 5)." },
-      { "body": "Na úrovni externího auditora", "right": false }
+      { "body": "Governance (řízení) – vrcholné vedení a výbor pro řízení KB; směr, odpovědnost, dohled a apetit k riziku", "right": true, "comment": "Slide 5: úroveň řízení." },
+      { "body": "Management (správa) – manažer KB/CISO a architekt KB; plánování, zavádění, měření a zlepšování", "right": true, "comment": "Slide 5: úroveň správy." },
+      { "body": "Operations (provoz) – manažer KB a architekt KB; stanovení apetitu k riziku a dohled", "right": false, "comment": "Slide 5: provoz tvoří IT provoz, SOC, garanti aktiv a uživatelé; apetit k riziku je věcí řízení." },
+      { "body": "Governance (řízení) – IT provoz a SOC; každodenní výkon opatření a monitoring", "right": false, "comment": "Slide 5: každodenní výkon opatření je úroveň provozu." }
     ]
   },
   {
     "name": "Jak přednáška definuje compliance?",
     "answers": [
-      { "body": "Schopnost organizace prokazatelně dodržovat povinnosti, které se na ni vztahují – a doložit to.", "right": true, "comment": "Slide 8" },
-      { "body": "Úspěšně složený certifikační audit ISO 27001.", "right": false },
-      { "body": "Splnění pouze zákonných povinností, smluvní se nepočítají.", "right": false, "comment": "Patří sem i smluvní a dobrovolně převzaté povinnosti (slide 8)." },
-      { "body": "Nasazení všech opatření z ISO 27002.", "right": false }
+      { "body": "Schopnost organizace prokazatelně dodržovat povinnosti, které se na ni vztahují – a doložit to.", "right": true, "comment": "Slide 8: definice compliance." },
+      { "body": "Úspěšně složený certifikační audit ISO 27001, potvrzený certifikátem.", "right": false, "comment": "Slide 8: certifikace je jen jedna z dobrovolně převzatých povinností, ne definice compliance." },
+      { "body": "Splnění zákonných povinností; smluvní povinnosti se nepočítají.", "right": false, "comment": "Slide 8: patří sem i smluvní a dobrovolně převzaté povinnosti." },
+      { "body": "Nasazení všech opatření z katalogu ISO 27002.", "right": false, "comment": "Slide 8: compliance se týká povinností, které se na organizaci vztahují, ne úplného katalogu opatření." }
     ]
   },
   {
-    "name": "Do které kategorie povinností patří podle přednášky certifikace ISO/IEC 27001?",
+    "name": "Která přiřazení povinností do kategorií (právní, smluvní, dobrovolně převzaté) jsou správná?",
     "answers": [
-      { "body": "Dobrovolně převzaté povinnosti", "right": true, "comment": "Slide 8" },
-      { "body": "Právní povinnosti", "right": false, "comment": "Sem patří ZoKB, NIS2, DORA, CRA, GDPR čl. 32 (slide 8)." },
-      { "body": "Smluvní povinnosti", "right": false, "comment": "Sem patří požadavky zákazníků, podmínky pojištění, SLA (slide 8)." },
-      { "body": "Trestněprávní povinnosti", "right": false }
+      { "body": "Certifikace ISO/IEC 27001 – dobrovolně převzatá povinnost", "right": true, "comment": "Slide 8: certifikace patří mezi dobrovolně převzaté povinnosti." },
+      { "body": "Podmínky kybernetického pojištění – smluvní povinnost", "right": true, "comment": "Slide 8: podmínky pojištění jsou smluvní povinnost." },
+      { "body": "GDPR čl. 32 (zabezpečení zpracování) – smluvní povinnost", "right": false, "comment": "Slide 8: GDPR je právní povinnost." },
+      { "body": "SLA a bezpečnostní přílohy smluv – právní povinnost", "right": false, "comment": "Slide 8: SLA a přílohy smluv jsou smluvní povinnosti." },
+      { "body": "Vlastní politiky a směrnice organizace – právní povinnost", "right": false, "comment": "Slide 8: vlastní politiky jsou dobrovolně převzaté povinnosti." }
     ]
   },
   {
     "name": "Co stanoví NIS2 čl. 20 a čl. 32 odst. 5 o odpovědnosti vedení?",
     "answers": [
-      { "body": "Řídicí orgány schvalují opatření k řízení rizik, dohlížejí na ně, odpovídají za porušení a musí se školit.", "right": true, "comment": "Slide 11 (čl. 20)" },
-      { "body": "U základních subjektů je možný dočasný zákaz výkonu řídicí funkce.", "right": true, "comment": "Slide 11 (čl. 32 odst. 5)" },
-      { "body": "Vedení může kyberbezpečnost plně delegovat na IT a dál se o ni nestarat.", "right": false, "comment": "Vedení nemůže kyberbezpečnost „delegovat a zapomenout“ (slide 11)." },
-      { "body": "Odpovědnost nese výhradně CISO.", "right": false }
+      { "body": "Řídicí orgány schvalují opatření k řízení rizik, dohlížejí na ně, odpovídají za porušení a musí se školit.", "right": true, "comment": "Slide 11: NIS2 čl. 20." },
+      { "body": "U základních subjektů je možný dočasný zákaz výkonu řídicí funkce.", "right": true, "comment": "Slide 11: NIS2 čl. 32 odst. 5." },
+      { "body": "Vedení může kyberbezpečnost delegovat na CISO a tím se odpovědnosti zbavit.", "right": false, "comment": "Slide 11: vedení nemůže kyberbezpečnost „delegovat a zapomenout“." },
+      { "body": "Odpovědnost vedení se týká finančních entit podle DORA, NIS2 ji nestanoví.", "right": false, "comment": "Slide 11: odpovědnost vedení stanoví NIS2 čl. 20; DORA čl. 5 je obdobné pravidlo pro finanční sektor." },
+      { "body": "Povinnost školení se vztahuje na technické pracovníky, členové řídicích orgánů ji nemají.", "right": false, "comment": "Slide 11: školit se musí právě řídicí orgány." }
     ]
   },
   {
     "name": "Co vyjadřuje heslo „Implement once, comply many“?",
     "answers": [
-      { "body": "Jeden jednotný systém řízení KB se společnou sadou opatření pokryje více regulací a požadavků (NIS2/DORA, GDPR, CRA, smlouvy, ISO).", "right": true, "comment": "Slide 12" },
-      { "body": "Opatření stačí zavést jednou a už je nikdy nepřezkoumávat.", "right": false, "comment": "Cyklus se opakuje, mění se regulace i hrozby (slide 9)." },
-      { "body": "Pro každou regulaci je nutný samostatný systém řízení.", "right": false },
-      { "body": "Certifikace ISO 27001 automaticky splní všechny zákony.", "right": false }
+      { "body": "Jeden systém řízení KB se společnou sadou opatření pokryje více regulací a požadavků najednou.", "right": true, "comment": "Slide 12: jeden systém řízení, mnoho regulací." },
+      { "body": "Jedno zavedené opatření, např. vícefaktorová autentizace, může sloužit jako doklad pro více regulací současně.", "right": true, "comment": "Slide 12: společná sada opatření; konkrétní příklad je odvozený." },
+      { "body": "Opatření se zavedou jednou a dál se nepřezkoumávají, protože splněná povinnost platí trvale.", "right": false, "comment": "Slide 9: cyklus compliance se opakuje – mění se regulace, organizace i hrozby." },
+      { "body": "Pro každou regulaci se zavádí samostatný systém řízení s vlastními opatřeními.", "right": false, "comment": "Slide 12: smyslem je naopak jeden jednotný systém." },
+      { "body": "Certifikace ISO 27001 sama o sobě splní všechny zákonné povinnosti organizace.", "right": false, "comment": "Slide 8, 12: ISO je jen jeden z pokrývaných požadavků (dobrovolně převzatá povinnost)." }
     ]
   },
   {
-    "name": "Co charakterizuje „compliance bez řízení“ (papírovou bezpečnost)?",
+    "name": "Organizace má schválenou politiku a zavedená opatření, ale jejich účinnost neměří, interní audit nedělá a zjištěné nedostatky neřeší. Co platí?",
     "answers": [
-      { "body": "Dokumenty vznikají pro kontrolu, ne podle skutečného stavu.", "right": true, "comment": "Slide 13" },
-      { "body": "Jednorázový projekt před auditem.", "right": true, "comment": "Slide 13" },
-      { "body": "Opatření bez vazby na rizika; nikdo neví, zda fungují.", "right": true, "comment": "Slide 13" },
-      { "body": "Účinnost opatření se pravidelně měří a vyhodnocuje.", "right": false, "comment": "To je compliance skrze řízení (slide 13)." }
+      { "body": "Šetří na fázích CHECK a ACT – právě tam podle přednášky vzniká papírová bezpečnost.", "right": true, "comment": "Slide 15: nejčastěji se šetří na CHECK a ACT." },
+      { "body": "Chybí měření, audit a přezkoumání vedením (CHECK, kap. 9) i nápravná opatření a zlepšování (ACT, kap. 10).", "right": true, "comment": "Slide 15: obsah fází CHECK a ACT a vazba na kapitoly ISO/IEC 27001:2022." },
+      { "body": "Problém je ve fázi PLAN – chybí kontext, analýza rizik a cíle.", "right": false, "comment": "Slide 15: politika a opatření existují; chybí kontrola a náprava, ne plánování." },
+      { "body": "Jde o nedostatek fáze DO; problém vyřeší nasazení dalších technických opatření.", "right": false, "comment": "Slide 15: další opatření nevyřeší chybějící měření, audit a nápravu." },
+      { "body": "ISO/IEC 27001:2022 měření účinnosti nepožaduje, takže je organizace v souladu.", "right": false, "comment": "Slide 15: měření, monitoring a audit tvoří kap. 9 normy." }
     ]
   },
   {
-    "name": "Jak se fáze PDCA mapují na kapitoly ISO/IEC 27001:2022?",
+    "name": "Organizace poskytuje regulovanou službu, ale rozsah (scope) řízení KB zatím neurčila. Co platí?",
     "answers": [
-      { "body": "Plan – kap. 4–6; Do – kap. 7–8; Check – kap. 9; Act – kap. 10", "right": true, "comment": "Slide 15" },
-      { "body": "Plan – kap. 1–3; Do – kap. 4–6; Check – kap. 7–8; Act – kap. 9–10", "right": false },
-      { "body": "Plan – kap. 4; Do – kap. 5–9; Check – kap. 10; Act – příloha A", "right": false },
-      { "body": "ISO 27001:2022 PDCA nepoužívá", "right": false }
+      { "body": "Dokud rozsah není určen, vztahuje se řízení KB na celou organizaci.", "right": true, "comment": "Slide 16: krok 4 – dokud není rozsah určen, platí pro celou organizaci." },
+      { "body": "Rozsah se odvodí od primárních aktiv souvisejících s regulovanou službou a doplní se související organizační části a podpůrná aktiva.", "right": true, "comment": "Slide 16: kroky 1–3 určení rozsahu." },
+      { "body": "Bez určeného rozsahu povinnost řízení KB nevzniká, organizace ji plní až po jeho určení.", "right": false, "comment": "Slide 16: povinnost trvá a dopadá na celou organizaci." },
+      { "body": "Rozsah tvoří podpůrná aktiva (HW, SW, sítě, dodavatelé); primární aktiva se do něj nezahrnují.", "right": false, "comment": "Slide 16: výchozím bodem jsou primární aktiva (informace, služby), k nim se doplní podpůrná." }
     ]
   },
   {
-    "name": "Na co se vztahuje řízení KB, dokud není určen jeho rozsah (scope)?",
+    "name": "Co platí o řízení rizik jako „motoru“ řízení KB?",
     "answers": [
-      { "body": "Na celou organizaci", "right": true, "comment": "Slide 16" },
-      { "body": "Pouze na IT oddělení", "right": false },
-      { "body": "Na nic – bez rozsahu nevzniká povinnost", "right": false },
-      { "body": "Pouze na primární aktiva", "right": false }
+      { "body": "Výstupy řízení rizik jsou registr aktiv, registr rizik, plán zvládání rizik a prohlášení o aplikovatelnosti.", "right": true, "comment": "Slide 20: výstupy řízení rizik." },
+      { "body": "Analýzu rizik připravuje manažer KB spolu s garanty aktiv.", "right": true, "comment": "Slide 20: kdo připravuje analýzu." },
+      { "body": "Přenést riziko na dodavatele lze i bez smlouvy, pokynem nebo vnitřním předpisem odběratele.", "right": false, "comment": "Slide 20–21: přenos jde přes pojištění či smlouvu; vnitřní předpis dodavatele nezavazuje." },
+      { "body": "Vyhnout se riziku znamená riziko do registru nezaznamenat.", "right": false, "comment": "Slide 20: vyhnutí se riziku znamená ukončit rizikovou činnost." },
+      { "body": "Uzavření kybernetického pojištění je strategie snížení rizika zavedením opatření.", "right": false, "comment": "Slide 20: pojištění je strategie přenesení rizika." }
     ]
   },
   {
-    "name": "Které strategie zvládání rizik přednáška uvádí?",
+    "name": "Manažer KB připravil s garanty aktiv analýzu rizik. Kdo podle přednášky prokazatelně rozhoduje o přijatelnosti zbytkových rizik?",
     "answers": [
-      { "body": "Snížit – zavést opatření", "right": true, "comment": "Slide 20" },
-      { "body": "Přenést – pojištění, smlouva", "right": true, "comment": "Slide 20" },
-      { "body": "Vyhnout se – ukončit činnost", "right": true, "comment": "Slide 20" },
-      { "body": "Akceptovat – vědomé rozhodnutí vedení", "right": true, "comment": "Slide 20" },
-      { "body": "Ignorovat – riziko nezaznamenat", "right": false }
-    ]
-  },
-  {
-    "name": "Kdo podle přednášky prokazatelně rozhoduje o přijatelnosti zbytkových rizik?",
-    "answers": [
-      { "body": "Vedení", "right": true, "comment": "Slide 20; v RACI má vedení u akceptace zbytkového rizika A/R (slide 37)." },
-      { "body": "Manažer KB – připravuje analýzu, proto i rozhoduje", "right": false, "comment": "Manažer KB analýzu připravuje s garanty aktiv, rozhoduje vedení (slide 20)." },
-      { "body": "IT provoz", "right": false },
-      { "body": "Auditor KB", "right": false }
+      { "body": "Vedení", "right": true, "comment": "Slide 20: o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení; v matici RACI má u akceptace A/R (slide 37)." },
+      { "body": "Manažer KB – analýzu připravil, proto i rozhoduje", "right": false, "comment": "Slide 20: manažer KB analýzu připravuje, rozhodnutí patří vedení." },
+      { "body": "IT provoz, protože opatření provozuje", "right": false, "comment": "Slide 20, 42: o akceptaci rizika nemá rozhodovat IT, rozhoduje vedení." },
+      { "body": "Auditor KB", "right": false, "comment": "Slide 34: auditor nezávisle ověřuje soulad a účinnost, o rizicích nerozhoduje." },
+      { "body": "Garant aktiva", "right": false, "comment": "Slide 20, 34: garant odpovídá za konkrétní aktivum a podílí se na analýze; o zbytkovém riziku rozhoduje vedení." }
     ]
   },
   {
     "name": "Co platí o řízení dodavatelů?",
     "answers": [
-      { "body": "Vnitřní předpis odběratele dodavatele nezavazuje; co není ve smlouvě, nelze vymáhat.", "right": true, "comment": "Slide 21, 29" },
-      { "body": "Při ukončení spolupráce je třeba řešit exit strategii, vrácení a výmaz dat a odebrání přístupů.", "right": true, "comment": "Slide 21" },
-      { "body": "Smlouva má obsahovat bezpečnostní přílohu, hlášení incidentů a právo auditu.", "right": true, "comment": "Slide 21" },
-      { "body": "Dodavatele stačí seznámit s vnitřní směrnicí a je vázán.", "right": false }
+      { "body": "Vnitřní předpis odběratele dodavatele nezavazuje; co není ve smlouvě, nelze vymáhat.", "right": true, "comment": "Slide 21, 29: dodavatele zavazuje jen smlouva." },
+      { "body": "Při ukončení spolupráce se řeší exit strategie, vrácení a výmaz dat a odebrání přístupů.", "right": true, "comment": "Slide 21: fáze ukončení." },
+      { "body": "Dodavatel s certifikací ISO 27001 nepotřebuje ve smlouvě bezpečnostní přílohu ani právo auditu.", "right": false, "comment": "Slide 21: certifikace je jedno z kritérií výběru; smlouva má obsahovat bezpečnostní přílohu, hlášení incidentů a právo auditu." },
+      { "body": "Riziko dodavatele se hodnotí až v provozu, po podpisu smlouvy.", "right": false, "comment": "Slide 21: hodnocení rizika dodavatele patří už do fáze výběru." }
     ]
   },
   {
-    "name": "Jaké lhůty pro hlášení incidentu stanoví NIS2 čl. 23 (transponováno do ZoKB)?",
+    "name": "Organizace zjistí významný kybernetický incident, při kterém unikly i osobní údaje. Které lhůty pro hlášení platí?",
     "answers": [
-      { "body": "24 h včasné varování, 72 h oznámení incidentu, 1 měsíc závěrečná zpráva", "right": true, "comment": "Slide 23" },
-      { "body": "72 h včasné varování, 1 týden oznámení, 1 rok závěrečná zpráva", "right": false },
-      { "body": "1 h včasné varování, 24 h oznámení, 72 h závěrečná zpráva", "right": false },
-      { "body": "Jen jedno hlášení do 30 dnů", "right": false }
+      { "body": "Podle NIS2 čl. 23 (transponováno do ZoKB): 24 h včasné varování, 72 h oznámení incidentu, 1 měsíc závěrečná zpráva", "right": true, "comment": "Slide 23: lhůty hlášení podle NIS2." },
+      { "body": "Souběžně podle GDPR čl. 33 oznámení porušení zabezpečení osobních údajů ÚOOÚ do 72 h", "right": true, "comment": "Slide 23: souběh povinností s GDPR." },
+      { "body": "Podle NIS2: 72 h včasné varování, 1 týden oznámení, 1 rok závěrečná zpráva", "right": false, "comment": "Slide 23: včasné varování je do 24 h, oznámení do 72 h, závěrečná zpráva do 1 měsíce." },
+      { "body": "Podle NIS2: 1 h včasné varování, 24 h oznámení, 72 h závěrečná zpráva", "right": false, "comment": "Slide 23: lhůty jsou 24 h, 72 h a 1 měsíc." },
+      { "body": "Hlášení podle GDPR nahrazuje hlášení podle NIS2, podává se tedy jediné hlášení do 30 dnů.", "right": false, "comment": "Slide 23: povinnosti běží souběžně, každá se svými lhůtami." }
     ]
   },
   {
-    "name": "Co platí o hierarchii bezpečnostní dokumentace?",
+    "name": "SOC zachytí podezřelou aktivitu. Co platí o procesu řízení incidentů podle přednášky?",
     "answers": [
-      { "body": "Bezpečnostní politika říká PROČ a CO, schvaluje ji vrcholné vedení a je stabilní.", "right": true, "comment": "Slide 26" },
-      { "body": "Čím níže v hierarchii, tím detailnější, častěji měněné a schvalované na nižší úrovni.", "right": true, "comment": "Slide 26" },
-      { "body": "Postupy a procedury určují JAK, KDO a KDY.", "right": true, "comment": "Slide 26" },
-      { "body": "Pracovní instrukce schvaluje vždy vrcholné vedení.", "right": false }
+      { "body": "Po detekci se nejprve vyhodnotí, zda je incident významný; na tom závisí povinnost hlásit.", "right": true, "comment": "Slide 23: detekce → vyhodnocení (je incident významný?) → hlášení." },
+      { "body": "Řízení musí předem určit, kdo incident vyhodnocuje a rozhoduje o hlášení, a kontakty na NÚKIB/CSIRT se zastupitelností.", "right": true, "comment": "Slide 23: co musí řízení určit předem." },
+      { "body": "Proces končí odesláním závěrečné zprávy regulátorovi; úprava opatření už do řízení incidentů nepatří.", "right": false, "comment": "Slide 23: poslední krok je poučení (lessons learned) a úprava opatření." },
+      { "body": "Kontakty na NÚKIB a zástupce se dohledávají až během incidentu podle aktuální situace.", "right": false, "comment": "Slide 23: kontakty a zastupitelnost určuje řízení předem." }
     ]
   },
   {
-    "name": "Co je podle přednášky klíčové, aby zaměstnanec byl vázán vnitřním předpisem (§ 301 ZP)?",
+    "name": "Co platí o hierarchii bezpečnostní dokumentace podle přednášky?",
     "answers": [
-      { "body": "Prokazatelné seznámení (podpis, potvrzení v e-learningu, evidence verzí)", "right": true, "comment": "Slide 28" },
-      { "body": "Zveřejnění předpisu na webu organizace", "right": false },
-      { "body": "Schválení předpisu NÚKIB", "right": false },
-      { "body": "Ústní informace od nadřízeného bez záznamu", "right": false }
+      { "body": "Bezpečnostní politika určuje PROČ a CO a schvaluje ji vrcholné vedení.", "right": true, "comment": "Slide 26: vrchol hierarchie." },
+      { "body": "Směrnice a tematické politiky obsahují závazná pravidla pro jednotlivé oblasti, např. přístupy nebo incidenty.", "right": true, "comment": "Slide 26: druhá úroveň hierarchie." },
+      { "body": "Postupy a procedury určují PROČ a CO, politika pak JAK, KDO a KDY.", "right": false, "comment": "Slide 26: je to obráceně – postupy a procedury určují JAK, KDO a KDY." },
+      { "body": "Návody, formuláře a záznamy stojí mimo hierarchii, protože nic nepředepisují.", "right": false, "comment": "Slide 26: tvoří spodní úroveň hierarchie a slouží jako důkazy o plnění." },
+      { "body": "Směrnice mají povahu nezávazných doporučení, závazná je politika.", "right": false, "comment": "Slide 26: směrnice jsou závazná pravidla pro oblasti." }
     ]
   },
   {
-    "name": "Do které linie modelu tří linií patří pověřenec pro ochranu osobních údajů (DPO)?",
+    "name": "Co musí vnitřní předpis splnit, aby zavazoval zaměstnance (§ 301 a § 305 zákoníku práce)?",
     "answers": [
-      { "body": "2. linie – expertíza a dohled", "right": true, "comment": "Slide 33" },
-      { "body": "1. linie – výkon", "right": false, "comment": "Vlastníci procesů, IT provoz, SOC, garanti aktiv (slide 33)." },
-      { "body": "3. linie – nezávislá kontrola", "right": false, "comment": "Interní audit, auditor KB (slide 33)." },
-      { "body": "Externí ověřování", "right": false, "comment": "NÚKIB, externí auditor, certifikační orgán (slide 33)." }
+      { "body": "Zaměstnanec musí být s předpisem prokazatelně seznámen (podpis, potvrzení v e-learningu, evidence verzí).", "right": true, "comment": "Slide 28: prokazatelné seznámení je klíčové." },
+      { "body": "Předpis musí být písemný, bez zpětné účinnosti a v souladu s právními předpisy.", "right": true, "comment": "Slide 28: náležitosti podle § 305 ZP." },
+      { "body": "Předpis se zveřejní na webu organizace, čímž zaměstnance zavazuje.", "right": false, "comment": "Slide 28: samotné zveřejnění neprokazuje seznámení zaměstnance." },
+      { "body": "Předpis musí schválit NÚKIB, jinak není pro zaměstnance závazný.", "right": false, "comment": "Slide 30: předpis schvaluje oprávněná osoba organizace (politiku vedení), ne NÚKIB." },
+      { "body": "Nadřízený zaměstnance o předpisu ústně informuje, bez záznamu.", "right": false, "comment": "Slide 28: bez záznamu nelze seznámení prokázat." }
     ]
   },
   {
-    "name": "Jaký problém nastává, když je CISO organizačně zařazen pod ředitele IT (varianta A)?",
+    "name": "Která zařazení do modelu tří linií jsou správná?",
     "answers": [
-      { "body": "Konflikt zájmů – CISO dohlíží na vlastního nadřízeného.", "right": true, "comment": "Slide 36" },
-      { "body": "CISO nemá žádný přístup k technickým informacím.", "right": false },
-      { "body": "Je to v rozporu s § 305 zákoníku práce.", "right": false },
-      { "body": "Žádný, je to doporučená varianta.", "right": false, "comment": "Doporučená je varianta B – pod vedením, s nezávislostí (slide 36)." }
+      { "body": "Pověřenec (DPO) – 2. linie (expertíza a dohled)", "right": true, "comment": "Slide 33: DPO patří do 2. linie vedle manažera KB a řízení rizik." },
+      { "body": "Interní audit a auditor KB – 3. linie (nezávislá kontrola)", "right": true, "comment": "Slide 33: 3. linie." },
+      { "body": "IT provoz a SOC – 2. linie (expertíza a dohled)", "right": false, "comment": "Slide 33: IT provoz a SOC jsou 1. linie (výkon)." },
+      { "body": "Manažer KB/CISO – 3. linie (nezávislá kontrola)", "right": false, "comment": "Slide 33: manažer KB je 2. linie; nezávislou kontrolu provádí audit." },
+      { "body": "NÚKIB a certifikační orgán – 3. linie (nezávislá kontrola)", "right": false, "comment": "Slide 33: NÚKIB, externí auditor a certifikační orgán stojí mimo organizaci (externí ověřování)." }
+    ]
+  },
+  {
+    "name": "Organizace zvažuje, kam zařadit manažera KB (CISO). Co platí?",
+    "answers": [
+      { "body": "Zařazení pod ředitele IT vede ke konfliktu zájmů – CISO by dohlížel na vlastního nadřízeného.", "right": true, "comment": "Slide 36: varianta A – pod IT." },
+      { "body": "Doporučené je zařazení pod vedení, s nezávislostí a přímým přístupem k vedení.", "right": true, "comment": "Slide 36: varianta B – pod vedením." },
+      { "body": "Roli CISO by neměl zastávat pracovník interního auditu – i to je konflikt zájmů.", "right": true, "comment": "Přednáška 2, slide 55: nikdy někdo z oddělení interního auditu." },
+      { "body": "Zařazení pod ředitele IT je doporučené, protože tam má CISO nejblíž k technickým informacím.", "right": false, "comment": "Slide 36: varianta pod IT znamená konflikt zájmů; předpokladem úspěchu je oddělení od správy systémů." },
+      { "body": "Ve velké organizaci je ideální sdružit roli CISO s šéfem IT.", "right": false, "comment": "Přednáška 2, slide 55: sdružení s šéfem IT je přípustné v malých organizacích; ve velkých je ideál samostatná role pod CEO." }
     ]
   },
   {
     "name": "Co platí o matici RACI?",
     "answers": [
-      { "body": "A (odpovídá a schvaluje) je u každé činnosti vždy jen jeden.", "right": true, "comment": "Slide 37" },
-      { "body": "R = provádí, C = konzultován, I = informován.", "right": true, "comment": "Slide 37" },
-      { "body": "U akceptace zbytkového rizika má v příkladu A/R vedení.", "right": true, "comment": "Slide 37" },
-      { "body": "Jedna činnost může mít libovolný počet rolí A.", "right": false }
+      { "body": "R provádí, A odpovídá a schvaluje, C je konzultován, I je informován.", "right": true, "comment": "Slide 37: význam písmen." },
+      { "body": "Činnost může mít více rolí R nebo C, ale role A je u každé činnosti vždy jen jedna.", "right": true, "comment": "Slide 37: A je vždy jen jeden; R může mít více rolí – např. analýzu rizik provádí manažer KB (A/R) i garant aktiva (R)." },
+      { "body": "Jedna činnost může mít libovolný počet rolí A.", "right": false, "comment": "Slide 37: A je vždy jen jeden." },
+      { "body": "U auditu KB má auditor roli C, protože audit provádí manažer KB.", "right": false, "comment": "Slide 37: u auditu KB audit provádí auditor (R), odpovídá vedení (A) a manažer KB je jen konzultován (C)." },
+      { "body": "Role I znamená, že daná role činnost schvaluje.", "right": false, "comment": "Slide 37: I je jen informován; schvaluje A." }
     ]
   },
   {
     "name": "Vysvětlete vztah compliance a skutečné bezpečnosti. Co je „papírová bezpečnost“ a jak jí řízení kybernetické bezpečnosti předchází?",
-    "answer": "<B>Compliance</B> je schopnost organizace prokazatelně dodržovat povinnosti, které se na ni vztahují, a doložit to. Povinnosti jsou právní (ZoKB 264/2025, NIS2, DORA, CRA, GDPR čl. 32, sektorová regulace), smluvní (požadavky zákazníků, podmínky kybernetického pojištění, SLA a bezpečnostní přílohy) a dobrovolně převzaté (certifikace ISO 27001, kodexy, vlastní politiky). <B>Papírová bezpečnost</B> (compliance bez řízení): dokumenty vznikají jen pro kontrolu, jde o jednorázový projekt před auditem, opatření nemají vazbu na rizika, nikdo neví, zda fungují, odpovědnost je rozmazaná. <B>Compliance skrze řízení</B>: dokumenty popisují skutečný stav, kontinuální PDCA proces, opatření odvozená z analýzy rizik, měřená účinnost a jasní vlastníci. Papírová bezpečnost vzniká hlavně tím, že se šetří na fázích CHECK a ACT. Proto „compliance je minimum, ne cíl“ – řízení z ní dělá vedlejší produkt dobré bezpečnosti. Jeden jednotný systém řízení se společnou sadou opatření pokryje více regulací („implement once, comply many“). Regulace říká CO, řízení říká JAK.",
+    "answer": "<B>Compliance</B> je schopnost organizace prokazatelně dodržovat povinnosti, které se na ni vztahují, a doložit to. Povinnosti jsou <B>právní</B> (ZoKB, NIS2, DORA, CRA, GDPR čl. 32), <B>smluvní</B> (požadavky zákazníků, podmínky kybernetického pojištění, SLA) a <B>dobrovolně převzaté</B> (certifikace ISO 27001, kodexy, vlastní politiky).<BR><B>Papírová bezpečnost</B> (compliance bez řízení): dokumenty vznikají pro kontrolu, jde o jednorázový projekt před auditem, opatření nemají vazbu na rizika, nikdo neví, zda fungují, odpovědnost je rozmazaná.<BR><B>Compliance skrze řízení</B>: dokumenty popisují skutečný stav, kontinuální proces PDCA, opatření odvozená z analýzy rizik, měřená účinnost, jasní vlastníci. Papírová bezpečnost vzniká hlavně šetřením na fázích CHECK a ACT. „Compliance je minimum, ne cíl“ – řízení z ní dělá vedlejší produkt dobré bezpečnosti; jeden systém řízení se společnou sadou opatření pokryje více regulací („implement once, comply many“).",
     "keyPoints": [
-      "Compliance = prokazatelné dodržování povinností a jejich doložení",
-      "Povinnosti právní, smluvní a dobrovolně převzaté",
-      "Papírová bezpečnost: dokumenty pro kontrolu, jednorázový projekt, opatření bez vazby na rizika",
-      "Řízení: skutečný stav, PDCA, opatření z analýzy rizik, měření, vlastníci",
-      "Šetří se na CHECK a ACT; compliance je minimum, ne cíl",
-      "Implement once, comply many"
+      "Compliance = prokazatelně dodržovat povinnosti a umět to doložit",
+      "Tři druhy povinností – právní, smluvní, dobrovolně převzaté – s příkladem každé",
+      "Papírová bezpečnost: dokumenty pro kontrolu, jednorázový projekt před auditem",
+      "Papírová bezpečnost: opatření bez vazby na rizika, neověřená účinnost, rozmazaná odpovědnost",
+      "Řízení: skutečný stav, PDCA, opatření z analýzy rizik, měření, jasní vlastníci",
+      "Šetření na CHECK a ACT plodí papírovou bezpečnost; compliance je minimum, ne cíl",
+      "Implement once, comply many – jeden systém řízení pro více regulací"
     ],
     "source": "Přednáška 4, slide 4, 8, 12–15"
   },
   {
     "name": "Popište vnitřní předpisy v řízení KB: k čemu slouží, jejich hierarchii, závaznost vůči různým skupinám a co musí splnit, aby skutečně platily.",
-    "answer": "Vnitřní předpis převádí zákon, vyhlášky, normy a smlouvy do konkrétního chování (kdo, co, kdy a jak): konkretizuje obecné povinnosti, přiděluje odpovědnosti a pravomoci, zavazuje zaměstnance a dokládá náležitou péči vůči regulátorovi i soudu. <B>Hierarchie</B>: bezpečnostní politika (PROČ a CO, schvaluje vrcholné vedení, stabilní) → směrnice/tematické politiky (závazná pravidla pro oblasti) → postupy a procedury (JAK, KDO, KDY) → pracovní instrukce, návody, formuláře, záznamy (důkazy o plnění). Čím níže, tím detailnější a častěji měněné. <B>Závaznost</B>: zaměstnanci – pracovní povinnost (§ 301 ZP), vynucení výtkou, výpovědí, okamžitým zrušením, náhradou škody; § 305 ZP: písemně, bez zpětné účinnosti, seznámení do 15 dnů, uchovává se 10 let; klíčové je prokazatelné seznámení. Vedení – péče řádného hospodáře, NIS2 čl. 20. Dodavatelé – předpis je nezavazuje, jen smlouva (smluvní pokuty, odstoupení). Externisté – smlouva, NDA, podmínky užívání. <B>Aby předpis platil</B>: schválen oprávněnou osobou, prokazatelné seznámení, srozumitelný a proveditelný, v souladu se zákonem, aktuální (přezkum min. 1× ročně, verzování), kontrolován a vymáhán – nevymáhaný předpis je horší než žádný. Mimořádný přezkum spouští nová regulace, závažný incident, audit, reorganizace, změna hrozeb.",
+    "answer": "<B>Účel</B>: vnitřní předpis převádí zákon, vyhlášky, normy a smlouvy do konkrétního chování (kdo, co, kdy a jak) – konkretizuje povinnosti, přiděluje odpovědnosti a pravomoci, zavazuje zaměstnance a dokládá náležitou péči vůči regulátorovi i soudu.<BR><B>Hierarchie</B>: bezpečnostní politika (PROČ a CO, schvaluje vrcholné vedení) → směrnice/tematické politiky (závazná pravidla pro oblasti) → postupy a procedury (JAK, KDO, KDY) → pracovní instrukce, formuláře a záznamy (důkazy o plnění). Čím níže, tím detailnější a častěji měněné.<BR><B>Závaznost</B>: zaměstnance zavazuje jako pracovní povinnost (§ 301, § 305 ZP – písemně, bez zpětné účinnosti, prokazatelné seznámení); vedení péče řádného hospodáře a NIS2 čl. 20; dodavatele předpis nezavazuje, jen smlouva; externisty smlouva, NDA a podmínky užívání.<BR><B>Aby platil</B>: schválen oprávněnou osobou, prokazatelné seznámení, srozumitelný a proveditelný, v souladu se zákonem, aktuální (přezkum min. 1× ročně, verzování), kontrolován a vymáhán – nevymáhaný předpis je horší než žádný. Mimořádný přezkum spouští nová regulace, závažný incident, výsledek auditu, reorganizace či změna hrozeb.",
     "keyPoints": [
-      "Účel: konkretizuje, přiděluje odpovědnosti, zavazuje, dokládá péči",
-      "Hierarchie: politika → směrnice → postupy → instrukce/záznamy",
-      "Zaměstnanci § 301/305 ZP – prokazatelné seznámení do 15 dnů",
-      "Dodavatele předpis nezavazuje, jen smlouva",
-      "Platnost: schválení, seznámení, soulad se zákonem, přezkum 1× ročně, vymáhání",
-      "Spouštěče mimořádného přezkumu"
+      "Účel: konkretizuje povinnosti, přiděluje odpovědnosti, zavazuje, dokládá náležitou péči",
+      "Hierarchie: politika (PROČ, CO) → směrnice → postupy (JAK, KDO, KDY) → instrukce a záznamy",
+      "Zaměstnance zavazuje § 301/305 ZP; podmínkou je prokazatelné seznámení",
+      "Vedení: péče řádného hospodáře a NIS2 čl. 20",
+      "Dodavatele předpis nezavazuje – jen smlouva",
+      "Platnost: schválení, srozumitelnost, soulad se zákonem, přezkum min. 1× ročně, vymáhání",
+      "Spouštěče mimořádného přezkumu: regulace, incident, audit, reorganizace, hrozby"
     ],
     "source": "Přednáška 4, slide 25–31"
   }

@@ -3,9 +3,9 @@
     "name": "PA015 - L1 Agentic loop, history, limits",
     "id": "PA015_L01",
     "dataset": "datasets/questions_PA015_L01.json",
-    "questionCount": 12,
+    "questionCount": 13,
     "multipleChoiceCount": 0,
-    "essayCount": 12,
+    "essayCount": 13,
     "group": "current"
   },
   {
@@ -21,9 +21,9 @@
     "name": "PA015 - L3 API, tools, MCP, harness",
     "id": "PA015_L03",
     "dataset": "datasets/questions_PA015_L03.json",
-    "questionCount": 12,
+    "questionCount": 13,
     "multipleChoiceCount": 0,
-    "essayCount": 12,
+    "essayCount": 13,
     "group": "current"
   },
   {
@@ -39,8 +39,8 @@
     "name": "PV017 - L1 Úvod do bezpečnosti, základní pojmy",
     "id": "PV017_L01",
     "dataset": "datasets/questions_PV017_L01.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 21,
+    "multipleChoiceCount": 19,
     "essayCount": 2,
     "group": "current"
   },
@@ -48,8 +48,8 @@
     "name": "PV017 - L2 ISMS, projekt, role a odpovědnosti",
     "id": "PV017_L02",
     "dataset": "datasets/questions_PV017_L02.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 17,
+    "multipleChoiceCount": 15,
     "essayCount": 2,
     "group": "current"
   },
@@ -57,8 +57,8 @@
     "name": "PV017 - L3 Přístup k regulaci kyberbezpečnosti",
     "id": "PV017_L03",
     "dataset": "datasets/questions_PV017_L03.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 19,
+    "multipleChoiceCount": 17,
     "essayCount": 2,
     "group": "current"
   },
@@ -81,11 +81,20 @@
     "group": "current"
   },
   {
+    "name": "PV017 - L6 Řízení rizik, dokumentace ISMS a bezpečnostní politika",
+    "id": "PV017_L06",
+    "dataset": "datasets/questions_PV017_L06.json",
+    "questionCount": 23,
+    "multipleChoiceCount": 21,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PV157 - L1 Úvod, pojmy, kryptografie a digitální podpis",
     "id": "PV157_L01",
     "dataset": "datasets/questions_PV157_L01.json",
-    "questionCount": 19,
-    "multipleChoiceCount": 17,
+    "questionCount": 14,
+    "multipleChoiceCount": 12,
     "essayCount": 2,
     "group": "current"
   },
@@ -93,8 +102,8 @@
     "name": "PV157 - L2 Autentizace tajnými informacemi",
     "id": "PV157_L02",
     "dataset": "datasets/questions_PV157_L02.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 18,
+    "multipleChoiceCount": 16,
     "essayCount": 2,
     "group": "current"
   },
@@ -102,8 +111,8 @@
     "name": "PV157 - L3 Autentizace tokeny",
     "id": "PV157_L03",
     "dataset": "datasets/questions_PV157_L03.json",
-    "questionCount": 21,
-    "multipleChoiceCount": 19,
+    "questionCount": 17,
+    "multipleChoiceCount": 15,
     "essayCount": 2,
     "group": "current"
   },
@@ -111,8 +120,17 @@
     "name": "PV157 - L4 Biometrická autentizace",
     "id": "PV157_L04",
     "dataset": "datasets/questions_PV157_L04.json",
-    "questionCount": 20,
-    "multipleChoiceCount": 18,
+    "questionCount": 15,
+    "multipleChoiceCount": 13,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV157 - L5 Autentizace dat a zpráv, eIDAS",
+    "id": "PV157_L05",
+    "dataset": "datasets/questions_PV157_L05.json",
+    "questionCount": 23,
+    "multipleChoiceCount": 21,
     "essayCount": 2,
     "group": "current"
   },
@@ -180,6 +198,24 @@
     "group": "current"
   },
   {
+    "name": "PA103 - L5 Design patterns I: Singleton, Composite, Iterator",
+    "id": "PA103_L05",
+    "dataset": "datasets/questions_PA103_L05.json",
+    "questionCount": 19,
+    "multipleChoiceCount": 17,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PA103 - L6 Design patterns II: Strategy, State, Adapter, Bridge, Decorator",
+    "id": "PA103_L06",
+    "dataset": "datasets/questions_PA103_L06.json",
+    "questionCount": 22,
+    "multipleChoiceCount": 20,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PV179 - L1 Web API a dependency injection",
     "id": "PV179_L01",
     "dataset": "datasets/questions_PV179_L01.json",
@@ -222,6 +258,15 @@
     "questionCount": 14,
     "multipleChoiceCount": 12,
     "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV179 - L6 Pragmatic architecture (guest lecture)",
+    "id": "PV179_L06",
+    "dataset": "datasets/questions_PV179_L06.json",
+    "questionCount": 14,
+    "multipleChoiceCount": 13,
+    "essayCount": 1,
     "group": "current"
   },
   {
@@ -270,6 +315,15 @@
     "group": "current"
   },
   {
+    "name": "PA191 - L6 Advanced TCP congestion and flow control",
+    "id": "PA191_L06",
+    "dataset": "datasets/questions_PA191_L06.json",
+    "questionCount": 23,
+    "multipleChoiceCount": 0,
+    "essayCount": 23,
+    "group": "current"
+  },
+  {
     "name": "PV021 - L1 Introduction, formal neuron, network activity",
     "id": "PV021_L01",
     "dataset": "datasets/questions_PV021_L01.json",
@@ -303,6 +357,15 @@
     "questionCount": 16,
     "multipleChoiceCount": 0,
     "essayCount": 16,
+    "group": "current"
+  },
+  {
+    "name": "PV021 - L5 Convolutional networks and applications",
+    "id": "PV021_L05",
+    "dataset": "datasets/questions_PV021_L05.json",
+    "questionCount": 12,
+    "multipleChoiceCount": 0,
+    "essayCount": 12,
     "group": "current"
   }
 ]

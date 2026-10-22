@@ -1,0 +1,239 @@
+[
+  {
+    "name": "Které přiřazení odpovědnosti k roli vystupující v bezpečnostních procedurách je správné?",
+    "answers": [
+      { "body": "Chief Security Officer (CSO) – odpovídá za fyzickou, informační i personální bezpečnost organizace", "right": true, "comment": "Slide 46: CSO má nejširší odpovědnost." },
+      { "body": "CISO – odpovídá za fyzickou a personální bezpečnost, informační bezpečnost řeší CSO", "right": false, "comment": "Slide 46: CISO odpovídá právě za informační bezpečnost; fyzickou a personální řeší CSO." },
+      { "body": "Bezpečnostní architekt – schvaluje rozpočet a akceptuje zbytková rizika", "right": false, "comment": "Slide 14: akceptaci rizik odsouhlasuje management organizace; architekt navrhuje bezpečnostní architekturu a technická opatření (přednáška 4, slide 34)." },
+      { "body": "Operátor/administrátor systému – schvaluje politiku informační bezpečnosti", "right": false, "comment": "Slide 49–50: politiku schvaluje vedení organizace, odpovědnost za ni má vrcholový management." }
+    ]
+  },
+  {
+    "name": "Bezpečnostní tým sestavil analýzu rizik tak, že ke každému serveru zvlášť vypsal hrozby. Výpadek proudu a povodeň vynechal, protože „to nejsou útoky“. Které výtky jsou podle přednášky (a ISO/IEC 27001, odst. 6.1.2) oprávněné?",
+    "answers": [
+      { "body": "K rizikům se má přistupovat na bázi scénářů, nikoli pouze na bázi jednotlivých aktiv.", "right": true, "comment": "Slide 5: požadavek ISO/IEC 27001, odst. 6.1.2." },
+      { "body": "Rizika je nutné zvažovat napříč celou chráněnou oblastí, ne jednotlivě vůči hrozbám jednotlivým aktivům.", "right": true, "comment": "Slide 5: požadavek ISO/IEC 27001, odst. 6.1.2." },
+      { "body": "Rizika mohou existovat nezávisle na naší vůli – výpadek energie či záplava do analýzy patří.", "right": true, "comment": "Slide 5: výpadek energie, záplava, zemětřesení či požár jsou výslovně uvedeny." },
+      { "body": "Výtka není oprávněná: ISO/IEC 27001 vyžaduje posuzovat rizika po jednotlivých aktivech.", "right": false, "comment": "Slide 5: norma naopak žádá přístup na bázi scénářů napříč chráněnou oblastí." },
+      { "body": "Výpadek proudu patří do plánu kontinuity činnosti, do analýzy rizik nepatří.", "right": false, "comment": "Slide 5: i rizika nezávislá na naší vůli se v analýze zohledňují." }
+    ]
+  },
+  {
+    "name": "Úroveň rizika se genericky vyjadřuje jako \\(\\text{úroveň rizika} = F(\\text{pravděpodobnost útoku}) \\times F'(\\text{dopad útoku})\\). Co z toho a ze zásad zvládání rizik plyne?",
+    "answers": [
+      { "body": "Velmi významné riziko odpovídá velkému dopadu i velké pravděpodobnosti relevantního útoku.", "right": true, "comment": "Slide 6: vymezení velmi významného rizika." },
+      { "body": "U nevýznamného rizika (malý dopad, malá pravděpodobnost) nejsou velké náklady na prevenci útoků ospravedlnitelné.", "right": true, "comment": "Slide 6–7: nevýznamné riziko neospravedlňuje drahá opatření." },
+      { "body": "Úroveň rizika se určí z dopadu útoku; pravděpodobnost se zohlední až při výběru opatření.", "right": false, "comment": "Slide 6: do úvahy se bere dopad i pravděpodobnost uplatnění hrozby." },
+      { "body": "Riziko lze zvládnout i bez ohodnocení – opatření se volí podle dostupného rozpočtu.", "right": false, "comment": "Slide 7: abychom riziko zvládli, musíme ho nejprve identifikovat, analyzovat a vyhodnotit." },
+      { "body": "V tabulce rizik aktiv tvoří řádky faktory (hrozba, zranitelnost, pravděpodobnost…) a sloupce aktiva.", "right": false, "comment": "Slide 7: obráceně – aktiva jsou řádky, faktory určující riziko sloupce." }
+    ]
+  },
+  {
+    "name": "Které dílčí procesy tvoří podle ISO/IEC 27005 ohodnocení rizik (Risk Assessment)?",
+    "answers": [
+      { "body": "Identifikace rizik", "right": true, "comment": "Slide 9: první podproces ohodnocení rizik." },
+      { "body": "Analýza rizik – určení velikosti rizik", "right": true, "comment": "Slide 9: druhý podproces ohodnocení rizik." },
+      { "body": "Vyhodnocení rizik – určení úrovní rizik porovnáním vůči stanoveným kritériím", "right": true, "comment": "Slide 9: třetí podproces ohodnocení rizik." },
+      { "body": "Zvládnutí rizik – výběr a implementace opatření", "right": false, "comment": "Slide 9: samostatný proces, který na ohodnocení navazuje." },
+      { "body": "Akceptace rizik – rozhodnutí o přijatelnosti rizika", "right": false, "comment": "Slide 9: samostatný proces po zvládnutí rizik." },
+      { "body": "Ustanovení kontextu – stanovení oblasti a kritérií", "right": false, "comment": "Slide 9: ustanovení kontextu ohodnocení předchází." }
+    ]
+  },
+  {
+    "name": "Proces řízení rizik podle ISO/IEC 27005 obsahuje dva rozhodovací body. Co platí o průběhu procesu?",
+    "answers": [
+      { "body": "Po vyhodnocení rizik se rozhoduje, zda se získala dostatečná informace pro volbu opatření; pokud ne, upraví se kontext (oblast, kritéria…).", "right": true, "comment": "Slide 10: rozhodovací bod 1." },
+      { "body": "Po zvládnutí rizik se rozhoduje, zda zbytková rizika mají akceptovatelnou úroveň.", "right": true, "comment": "Slide 10: rozhodovací bod 2." },
+      { "body": "Ohodnocení rizik a zvládání rizik jsou iterativní procesy.", "right": true, "comment": "Slide 10: při neuspokojivém výsledku se kroky opakují." },
+      { "body": "Informování o rizicích a monitorování probíhají jednou, na konci procesu po akceptaci.", "right": false, "comment": "Slide 10, 15: informování a monitorování provázejí všechny kroky procesu." },
+      { "body": "Rozhodovací bod po zvládnutí rizik posuzuje, zda je dostatek informací pro volbu opatření.", "right": false, "comment": "Slide 10: dostatečnost informací se posuzuje po vyhodnocení rizik (bod 1); po zvládnutí se posuzuje akceptovatelnost zbytkových rizik." }
+    ]
+  },
+  {
+    "name": "Co patří k cílům ustanovení kontextu a co je výstupem ohodnocení rizik?",
+    "answers": [
+      { "body": "Ustanovení kontextu: stanovení kritérií pro vyhodnocení dopadů útoků, úrovní rizik a akceptovatelnosti rizik.", "right": true, "comment": "Slide 11: cíle ustanovení kontextu (vedle účelu, oblasti, zdrojů a rolí)." },
+      { "body": "Výstup ohodnocení: prioritně řazený seznam ohodnocených rizik a prohlášení o aplikovatelnosti s vhodnými opatřeními.", "right": true, "comment": "Slide 12: výstupy ohodnocení rizik." },
+      { "body": "Ustanovení kontextu: výběr a implementace konkrétních bezpečnostních opatření.", "right": false, "comment": "Slide 9, 13: výběr a implementace opatření je zvládnutí rizik." },
+      { "body": "Výstupem ohodnocení je odsouhlasení soupisu akceptovatelných rizik vedením.", "right": false, "comment": "Slide 14: odsouhlasení managementem je akceptace rizik." },
+      { "body": "Kritéria akceptovatelnosti se stanoví až po vyhodnocení rizik podle zjištěných úrovní.", "right": false, "comment": "Slide 11: kritéria se stanoví v ustanovení kontextu, tedy před ohodnocením." }
+    ]
+  },
+  {
+    "name": "Firma řeší riziko povodně, která může zasáhnout její serverovnu. Které přiřazení postupu k cíli plánu zvládání rizik je správné?",
+    "answers": [
+      { "body": "Místo stavby protipovodňové hráze přemístit serverovnu na kopec – eliminace rizika", "right": true, "comment": "Slide 13: příklad eliminace rizika přímo ze slidu." },
+      { "body": "Uzavřít pojištění proti škodám z povodně – přenesení rizika na jinou organizaci", "right": true, "comment": "Slide 13: přenos smluvně nebo pojištěním, sdílení nákladů na škodní řízení." },
+      { "body": "Instalovat bariéry, které riziko sníží na akceptovatelnou úroveň – přenesení rizika", "right": false, "comment": "Slide 13: jde o snížení rizika implementací opatření, ne o přenos." },
+      { "body": "Pojištění – eliminace rizika, protože škodu uhradí pojišťovna", "right": false, "comment": "Slide 13: pojištění riziko neodstraní, jen přenese náklady škody na jinou organizaci." },
+      { "body": "Riziko neřešit a škody neevidovat – tolerované riziko", "right": false, "comment": "Slide 13–14: tolerované riziko je vědomé rozhodnutí po zvážení, s náklady zabudovanými do byznys modelu a se souhlasem managementu." }
+    ]
+  },
+  {
+    "name": "Co platí o akceptaci, informování a monitorování rizik?",
+    "answers": [
+      { "body": "Akceptace rizik je odsouhlasení plánu zvládání rizik a soupisu akceptovatelných rizik managementem organizace.", "right": true, "comment": "Slide 14: definice akceptace rizik." },
+      { "body": "Monitorování je nutné, protože rizika nejsou statická – mění se kontext, rizika i faktory ovlivňující jejich úroveň.", "right": true, "comment": "Slide 15: změny se odhalují při běžné činnosti organizace." },
+      { "body": "Výsledky řízení rizik se sdělují managementu; zaměstnanci se o nich dozvědí až z auditu.", "right": false, "comment": "Slide 15: výsledky se sdělují managementu i zaměstnancům." },
+      { "body": "Monitorování rizik se plánuje jako jednorázová kontrola před certifikačním auditem.", "right": false, "comment": "Slide 15: monitorování probíhá průběžně při běžné činnosti organizace." },
+      { "body": "Opatření se implementují dřív, než se o rizicích informuje, aby zaměstnanci nebyli zatěžováni.", "right": false, "comment": "Slide 15: na informování navazuje implementace zvolených opatření." }
+    ]
+  },
+  {
+    "name": "Tým chce identifikovat rizika nového procesu. Které postupy patří mezi nejpoužívanější metody analýzy rizik?",
+    "answers": [
+      { "body": "Brainstorming a rozhovory", "right": true, "comment": "Slide 16: uvedené metody analýzy rizik." },
+      { "body": "Kontrolní seznamy a diagramy příčin a následků", "right": true, "comment": "Slide 16: uvedené metody analýzy rizik." },
+      { "body": "Certifikační audit podle ISO/IEC 27001", "right": false, "comment": "Slide 36–38: audit ověřuje fungování ISMS, není metodou analýzy rizik." },
+      { "body": "Podpis deklarace politiky vrcholovým vedením", "right": false, "comment": "Slide 50: jde o krok tvorby politiky, ne o metodu analýzy rizik." },
+      { "body": "Penetrační test produkčního systému", "right": false, "comment": "Slide 36: penetrační test je reálné testování ISMS, mezi metodami analýzy rizik na slidu 16 není." }
+    ]
+  },
+  {
+    "name": "Které z následujících postojů k bezpečnosti jsou podle přednášky chybné?",
+    "answers": [
+      { "body": "„Musíme odstranit všechna rizika.“", "right": true, "comment": "Slide 23: typické chybné prohlášení; některá rizika se akceptují či přenášejí a nevýznamná neospravedlňují velké náklady (slide 7, 13)." },
+      { "body": "„Nasadíme firewall a antivir a jsme v bezpečí.“", "right": true, "comment": "Slide 23: typické chybné prohlášení – jediný nástroj bezpečnost nezajistí." },
+      { "body": "„Systém máme hotový, teď k němu musíme nějak dodělat zabezpečení.“", "right": true, "comment": "Slide 23: typické chybné prohlášení – bezpečnost se nedá doplnit dodatečně." },
+      { "body": "„Bezpečnostní opatření vybíráme a provozujeme na základě znalosti rizik.“", "right": false, "comment": "Slide 5: to je požadavek ISO/IEC 27001, postoj je správný." },
+      { "body": "„Rizika i po zvládnutí dále monitorujeme a přezkoumáváme.“", "right": false, "comment": "Slide 15: postoj je správný – rizika nejsou statická." },
+      { "body": "„Plán zvládání rizik a soupis akceptovatelných rizik předkládáme ke schválení vedení.“", "right": false, "comment": "Slide 14: postoj je správný – akceptaci rizik odsouhlasuje management organizace." }
+    ]
+  },
+  {
+    "name": "Co platí o roli dokumentace ISMS a požadavcích na ni?",
+    "answers": [
+      { "body": "Opakovatelné procesy odolné vůči ztrátě znalostí (např. po odchodu zaměstnance) musí být dokumentované.", "right": true, "comment": "Slide 25: opakovatelné procesy jsou konzistentnější a předvídatelnější." },
+      { "body": "Systém řízení dokumentace určuje mj. změnové řízení, skladování a likvidaci dokumentace.", "right": true, "comment": "Slide 27: požadavky na systém řízení dokumentace." },
+      { "body": "ISO 27001 požaduje dokumentaci u jednotlivých opatření, ISMS samotný dokumentovat nemusí.", "right": false, "comment": "Slide 25: norma požaduje dokumentaci každého opatření i ISMS." },
+      { "body": "Účinnost systému řízení nezávisí na archivu záznamů, rozhodují aktuální politiky.", "right": false, "comment": "Slide 25: účinnost závisí na dokumentaci procesů a na archivu záznamů demonstrujících nedostatky." },
+      { "body": "Tvorba dokumentace je nejméně náročná část projektu ISMS, většinu času zaberou technologie.", "right": false, "comment": "Slide 26: tvorba dokumentace je časově nejnáročnější část projektu." }
+    ]
+  },
+  {
+    "name": "Do které vrstvy čtyřvrstvé dokumentové základny ISMS (1. politiky, 2. procedury, 3. pracovní instrukce, 4. zprávy) patří dané dokumenty? Vyberte správná přiřazení.",
+    "answers": [
+      { "body": "Prohlášení o aplikovatelnosti, plán zvládání rizik – 1. vrstva (politiky)", "right": true, "comment": "Slide 29: příklady dokumentů 1. úrovně." },
+      { "body": "Správa uživatelských účtů a přidělování přístupových práv – 2. vrstva (procedury)", "right": true, "comment": "Slide 30: procedury vyžádané politikou řízení přístupu." },
+      { "body": "Manuál ISMS a popis jeho struktury – 3. vrstva (pracovní instrukce)", "right": false, "comment": "Slide 29: manuál ISMS je dokument 1. vrstvy." },
+      { "body": "Logy, zápisy o jednáních a formuláře – 2. vrstva (procedury)", "right": false, "comment": "Slide 32: zápisy, logy, formuláře a šablony patří do 4. vrstvy." },
+      { "body": "Výsledky auditů z fáze CHECK a záznamy o incidentech – 1. vrstva (politiky)", "right": false, "comment": "Slide 32: výsledky auditů jsou zprávy o tom, jak ISMS běžel (4. vrstva)." }
+    ]
+  },
+  {
+    "name": "Co platí o autorizaci a změnách dokumentů v jednotlivých vrstvách dokumentové základny ISMS?",
+    "answers": [
+      { "body": "Politiky autorizuje nejvyšší management (demonstrace jeho odpovědnosti); jsou to strategické, poměrně řídce měněné dokumenty.", "right": true, "comment": "Slide 29: autorizace a povaha politik." },
+      { "body": "Pracovní instrukce autorizují přímí nadřízení vlastníků procesů a CISO; mění se často, ale jen v mezích procedur.", "right": true, "comment": "Slide 31: autorizace a změny pracovních instrukcí." },
+      { "body": "Politiky se mění nejčastěji ze všech vrstev, protože reagují na každodenní provoz.", "right": false, "comment": "Slide 29, 31: politiky jsou poměrně stabilní; nejčastěji se mění pracovní instrukce." },
+      { "body": "Pracovní instrukce se smějí měnit i nad rámec procedur, pokud to vyžaduje provoz.", "right": false, "comment": "Slide 31: změny smějí probíhat jen v mezích procedur, které implementují." },
+      { "body": "Procedury autorizuje nejvyšší management sám, bez projednání s řídicím výborem informační bezpečnosti.", "right": false, "comment": "Slide 30: procedury autorizuje výkonný management a CSO, vždy po projednání s řídicím výborem." }
+    ]
+  },
+  {
+    "name": "Malá organizace vytváří dokumentaci ISMS poprvé a nemá zkušenosti. Co platí o možných přístupech?",
+    "answers": [
+      { "body": "Metoda pokusů a omylů vlastními silami je nejpomalejší, chybí znalost nejlepších postupů a hrozí selhání projektu.", "right": true, "comment": "Slide 33: kritika metody pokusů a omylů." },
+      { "body": "Postup podle návodů a dokumentového nástroje třetí strany je nejrychlejší, nákladově efektivní a usnadňuje PDCA.", "right": true, "comment": "Slide 35: přínosy použití prototypů a nástrojů třetí strany." },
+      { "body": "Externí konzultanti jsou nejlevnější varianta, protože odpadá vlastní práce.", "right": false, "comment": "Slide 34: kritikou spolupráce s konzultanty jsou právě vysoké náklady." },
+      { "body": "Metoda pokusů a omylů je nejrychlejší, protože odpadá studium standardů.", "right": false, "comment": "Slide 33: je nejpomalejší a chybí znalost nejlepších postupů." },
+      { "body": "S externími konzultanty se průběžné zlepšování (PDCA) řeší nejsnáze, protože know-how zůstane v organizaci.", "right": false, "comment": "Slide 34: obtížně řešitelné průběžné vylepšování ISMS je kritikou externí spolupráce." }
+    ]
+  },
+  {
+    "name": "Co platí o testování ISMS?",
+    "answers": [
+      { "body": "Testuje se, zda procedury řízení a opatření fungují, jak bylo zamýšleno; během roku se testuje každý rys ISMS.", "right": true, "comment": "Slide 36: účel a rozsah testování." },
+      { "body": "„Papírové“ testování je logické testování opatření a procedur podle znalosti zranitelností a hrozeb.", "right": true, "comment": "Slide 36: typy testů." },
+      { "body": "ISMS se testuje jednou, a to při certifikačním auditu, který prověří všechny jeho rysy.", "right": false, "comment": "Slide 36: testovat se má průběžně, během roku každý rys." },
+      { "body": "„Papírové“ testování znamená kontrolu, že je dokumentace kompletní, vytištěná a podepsaná vedením.", "right": false, "comment": "Slide 36: jde o logické testování opatření a procedur." },
+      { "body": "Plán zachování činnosti se netestuje, protože rozsáhlý scénářový test by narušil provoz.", "right": false, "comment": "Slide 36: rozsáhlé scénářově orientované testy prověřují právě plán zachování činnosti." }
+    ]
+  },
+  {
+    "name": "Co platí o bezpečnostním auditu ISMS?",
+    "answers": [
+      { "body": "Audit provádí role nezávislá na exekutivě; auditor nesmí být zároveň bezpečnostním správcem.", "right": true, "comment": "Slide 37–38: nezávislost a separace odpovědností." },
+      { "body": "Cílem je ověřit, zda jsou procedury definovány správně, a odhalit neošetřené bezpečnostní díry.", "right": true, "comment": "Slide 38: hlavní cíle auditu." },
+      { "body": "Kontrolní útvar nesmí výkon auditu zajišťovat outsourcingem, odpovědnost i výkon musí mít sám.", "right": false, "comment": "Slide 37: kontrolní útvar si může ponechat odpovědnost a výkon zajistit outsourcingem." },
+      { "body": "Pro hladký průběh auditu je vhodné oblast vyššího managementu auditorům nezpřístupnit.", "right": false, "comment": "Slide 39: auditorům je nutné zpřístupnit i oblast vyššího managementu." },
+      { "body": "Postup auditu si auditor nechá vysvětlit od auditovaných útvarů, protože systém znají nejlépe.", "right": false, "comment": "Slide 38: auditor musí audit vykonat bez spoléhání na radu „jak audit dělat“ od monitorovaných entit." }
+    ]
+  },
+  {
+    "name": "Co platí o hierarchii bezpečnostních politik a o vztahu politiky informační bezpečnosti (InfoSec) a politiky ISMS?",
+    "answers": [
+      { "body": "Bezpečnostní politiku organizace podporují specifické politiky – mj. politika InfoSec, ISMS a kontinuity činnosti.", "right": true, "comment": "Slide 42: hierarchie politik." },
+      { "body": "Politika InfoSec určuje, co proti čemu chránit; politika ISMS, jak navrhovat, provozovat a hodnotit procesy, které ji plní.", "right": true, "comment": "Slide 43: rozdíl mezi politikami." },
+      { "body": "Politika ISMS je podle ISO/IEC 27001 podřízena politice InfoSec a nesmí ji doplňovat.", "right": false, "comment": "Slide 43: norma vztah nestanovuje – mohou se doplňovat, nebo může být kterákoli podřízena té druhé." },
+      { "body": "Politiku InfoSec požaduje ISO/IEC 27001, kdežto politiku ISMS požaduje ISO/IEC 27002.", "right": false, "comment": "Slide 43: obráceně – politiku ISMS žádá ISO/IEC 27001, politiku InfoSec ISO/IEC 27002." }
+    ]
+  },
+  {
+    "name": "Čím se liší politika informační bezpečnosti organizace od systémové bezpečnostní politiky (bezpečnostní politiky IS)?",
+    "answers": [
+      { "body": "Politika InfoSec: koncepce na 5–10 let, nezávislá na konkrétních IT, definuje třídu útočníků.", "right": true, "comment": "Slide 44: vlastnosti politiky informační bezpečnosti." },
+      { "body": "Systémová politika: zabezpečení daného systému na 2–5 let, respektuje použité IT, obsahuje havarijní plán.", "right": true, "comment": "Slide 45: vlastnosti systémové bezpečnostní politiky." },
+      { "body": "Systémová bezpečnostní politika nemusí splňovat politiku informační bezpečnosti organizace.", "right": false, "comment": "Slide 45: systémová politika ji musí splňovat." },
+      { "body": "Politika informační bezpečnosti předepisuje konkrétní mechanismy implementace opatření v daném systému.", "right": false, "comment": "Slide 44–45: mechanismy definuje systémová politika; politika InfoSec je na IT nezávislá." },
+      { "body": "Třídu útočníků definuje až systémová politika, politika informační bezpečnosti ji neřeší.", "right": false, "comment": "Slide 44: třídu (sílu) útočníků definuje politika informační bezpečnosti." }
+    ]
+  },
+  {
+    "name": "Bezpečnostní politika ve výuce zakazuje opisování domácích úloh; bezpečný stav je, že nikdo nevlastní kopii úlohy jiného studenta. Studenti ukládají úlohy na školní počítač. Alice svůj soubor neoznačí jako chráněný proti čtení jinou osobou a Bob její úlohu opíše. Politika studentům neukládá povinnost své soubory chránit. Co platí?",
+    "answers": [
+      { "body": "Politiku porušil Bob, Alice ne – politika jí ochranu souborů neukládala.", "right": true, "comment": "Slide 48: politika zakazuje opisování; Bob opisoval a systém se dostal do jiného než bezpečného stavu." },
+      { "body": "Kdyby politika studentům předepisovala povinnost chránit úlohy před opsáním, porušila by ji i Alice.", "right": true, "comment": "Slide 48: porušení se posuzuje podle toho, co politika předepisuje." },
+      { "body": "Porušili ji oba, protože k nebezpečnému stavu přispěli oba.", "right": false, "comment": "Slide 48: Alice nijak nenarušila definovanou politiku – ochranu nepožadovala." },
+      { "body": "Alice ji porušila, Bob ne – soubor byl volně čitelný.", "right": false, "comment": "Slide 48: zakázané bylo opisování, které provedl Bob." },
+      { "body": "Bob ji neporušil, protože mu systém čtení souboru technicky umožnil.", "right": false, "comment": "Slide 48: rozhoduje, co politika zakazuje, ne co systém technicky dovolí." }
+    ]
+  },
+  {
+    "name": "Co platí o tvorbě politiky informační bezpečnosti a o její iniciální deklaraci?",
+    "answers": [
+      { "body": "Definice politik InfoSec a ISMS je 1. krok budování ISMS; finální verze odráží výsledek ohodnocení rizik.", "right": true, "comment": "Slide 49: postavení a vývoj politiky." },
+      { "body": "Deklarace má nejvýše několik stran A4, odpovídá na „Pro koho? Kde? Co? Proč?“ a podepisuje ji „šéf“ organizace.", "right": true, "comment": "Slide 50: iniciální deklarace politiky." },
+      { "body": "Odpovědnost za politiku nese správce IT, který ji píše; vrcholový management ji bere na vědomí.", "right": false, "comment": "Slide 50: odpovědnost za každou revizi má vrcholový management a musí existovat důkaz." },
+      { "body": "Oblast působnosti politiky se vymezí podle organizační struktury; související kritické funkce mimo ni se neřeší.", "right": false, "comment": "Slide 51: jednostranné vymezení mnohdy nestačí, musí zahrnout všechny související kritické funkce." },
+      { "body": "Schválená politika se dál nepřezkoumává, aby zůstala stabilní a zaměstnanci ji znali.", "right": false, "comment": "Slide 49: politika musí být pravidelně (např. ročně) přezkoumávaná a aktualizovaná." }
+    ]
+  },
+  {
+    "name": "Která tvrzení správně popisují, co má obsahovat metodologie hodnocení a zvládání rizik v ISMS?",
+    "answers": [
+      { "body": "Popisuje pravidla a škály, podle nichž se rizika hodnotí, včetně definice akceptovatelnosti rizika.", "right": true, "comment": "Slide 64; kritéria dopadů, úrovní a akceptovatelnosti rizik se stanoví v ustanovení kontextu (slide 11)." },
+      { "body": "Popisuje, jak se nakládá s neakceptovatelnými riziky, například výběrem opatření, přenosem, vyhnutím se riziku nebo akceptací.", "right": true, "comment": "Slide 64; možnosti zvládání rizik (slide 13) – vyhnutí se riziku odpovídá eliminaci." },
+      { "body": "Má být připravena dříve, než se spustí vlastní ohodnocování rizik, aby hodnotitelé postupovali konzistentně.", "right": true, "comment": "Slide 64; kontext a kritéria se ustanovují před ohodnocením rizik (slide 9, 11)." },
+      { "body": "Součástí metodologie zvládání rizik je seznam povinných technických konfigurací, například přesné parametry firewallu.", "right": false, "comment": "Slide 64; technická nastavení nejsou pravidla hodnocení ani způsoby nakládání s riziky – patří spíše do procedur a pracovních instrukcí (slide 30–31, odvozeno)." },
+      { "body": "Metodologie se stanovuje až po prvním kole hodnocení rizik, aby se pravidla a škály nastavily podle výsledků.", "right": false, "comment": "Slide 64; kritéria se stanoví v ustanovení kontextu, před ohodnocením (slide 9, 11)." },
+      { "body": "Metodologii lze nahradit vlastním úsudkem každého hodnotitele; sjednocení škál a kritérií není potřeba, pokud výsledky schválí vedení.", "right": false, "comment": "Slide 64; vyhodnocení rizik je porovnání vůči stanoveným, společným kritériím (slide 9, 11)." }
+    ]
+  },
+  {
+    "name": "Popište proces řízení rizik informační bezpečnosti podle ISO/IEC 27005: jednotlivé dílčí procesy a jejich cíle, iterativní povahu procesu a jeho rozhodovací body a čtyři cíle plánu zvládání rizik. Proč se rizika musí průběžně monitorovat?",
+    "answer": "<B>Ustanovení kontextu</B>: účel řízení rizik, spravovaná oblast a její hranice, zdroje, kritéria pro vyhodnocení dopadů, úrovní a akceptovatelnosti rizik, odpovědnostní role.<BR><B>Ohodnocení rizik</B> = <B>identifikace</B> + <B>analýza</B> (velikost rizik) + <B>vyhodnocení</B> (porovnání s kritérii). Výstup: prioritně řazený seznam rizik a prohlášení o aplikovatelnosti.<BR><B>Zvládnutí rizik</B> – výběr a implementace opatření. Plán zvládání rizik určí rizika, která se <B>eliminují</B> (serverovnu přemístit na kopec místo stavby hráze), <B>sníží</B> opatřeními na akceptovatelnou úroveň, <B>tolerují</B> (opatření se po zvážení odmítnou, náklady na škody jsou v byznys modelu) a <B>přenesou</B> smluvně či pojištěním.<BR><B>Akceptace</B> – management odsouhlasí plán zvládání a soupis akceptovatelných rizik. <B>Informování</B> – výsledky dostane management i zaměstnanci, pak následuje implementace opatření.<BR><B>Iterace</B>: rozhodovací bod 1 po vyhodnocení (je dost informací pro volbu opatření? jinak upravit kontext), bod 2 po zvládnutí (jsou zbytková rizika akceptovatelná? jinak další iterace). Informování a monitorování provázejí všechny kroky.<BR><B>Monitorování</B>: rizika nejsou statická – mění se kontext, rizika i faktory jejich úrovně; změny se odhalují při běžné činnosti organizace.",
+    "keyPoints": [
+      "Ustanovení kontextu: účel, oblast a hranice, zdroje, kritéria (dopady, úrovně, akceptovatelnost), role",
+      "Ohodnocení = identifikace + analýza + vyhodnocení; výstup: řazený seznam rizik a SoA",
+      "Plán zvládání: eliminovat, snížit opatřeními, tolerovat, přenést (smlouva, pojištění)",
+      "Akceptaci schvaluje management; informování managementu i zaměstnanců",
+      "Rozhodovací bod 1 (dost informací? jinak upravit kontext) a 2 (zbytková rizika akceptovatelná?)",
+      "Monitorování: rizika nejsou statická"
+    ],
+    "source": "PV017 L6, slide 8–15"
+  },
+  {
+    "name": "Výrobce chytrého průmyslového senzoru chce na přání zákazníka nahradit servisní zásah technika s notebookem vzdálenou aktualizací firmwaru (OTA): firmware se stahuje přes HTTPS z update serveru, zařízení komunikuje s cloudovou službou, bootloader musí umět nainstalovat nový obraz firmwaru a aktualizace probíhají bez fyzické přítomnosti technika. a) Jak se tím změnila útočná plocha a jaké útoky a selhání hrozí? b) Jaké otázky je nutné vyřešit v oblasti technologií, procesů, životního cyklu a odpovědnosti/compliance? c) Firmware je podepsaný, komunikace běží přes TLS a všechny funkční testy prošly, ale při review se zjistí, že bootloader umožní nahrát starší, stále platně podepsanou verzi se známou kritickou zranitelností. Produkt má jít zítra zákazníkovi. Jak byste postupovali z pohledu řízení rizik?",
+    "answer": "<B>a)</B> Dříve byl přístup k senzoru jen lokální (servisní notebook). Nově vzniká <B>vzdálené rozhraní</B>: update server → síť → senzor a komunikace s cloudem; „drobná“ funkce zásadně mění bezpečnost. Útoky a selhání: <B>kompromitovaný update server</B>, <B>podvržený firmware</B>, <B>downgrade na zranitelnou verzi</B>, <B>výpadek napájení během aktualizace</B>, <B>únik podpisového klíče</B>.<BR><B>b)</B> <B>Technologie</B>: kdo smí nahrát firmware, je aktualizace podepsaná, lze ji vrátit zpět? <B>Procesy</B>: kdo schvaluje aktualizace, jak testujeme a řešíme incidenty? <B>Životní cyklus</B>: jak dlouho budeme zařízení aktualizovat, co když je offline? <B>Odpovědnost a compliance</B>: musíme změnit analýzu rizik, dokumentaci nebo posouzení shody?<BR><B>c)</B> (Slide situaci jen předkládá k diskusi; zdůvodnění vychází z principů přednášky.) Podpis a TLS nebrání nahrání <B>starší platně podepsané</B> verze – jde přesně o downgrade. Úspěšné funkční testy neznamenají bezpečnost a „zabezpečení doděláme později“ je typické chybné prohlášení. Riziko je třeba <B>ohodnotit</B> (známá kritická zranitelnost, reálně proveditelný útok) a <B>zvládnout</B> před vydáním – zabránit nahrání starší verze, případně vydání odložit. Vydat produkt přesto by byla <B>akceptace rizika</B>, o které rozhoduje <B>management</B>, ne vývojáři, a musí být zdokumentována; aktualizuje se analýza rizik, dokumentace a případně posouzení shody.",
+    "keyPoints": [
+      "Nové vzdálené rozhraní (update server, síť, cloud) místo lokálního servisního přístupu",
+      "Útoky/selhání: kompromitovaný update server, podvržený firmware, downgrade, výpadek napájení při aktualizaci, únik podpisového klíče",
+      "Otázky: technologie (kdo smí, podpis, návrat), procesy (schvalování, testy, incidenty), životní cyklus (doba podpory, offline), compliance (analýza rizik, dokumentace, posouzení shody)",
+      "Podpis + TLS nezabrání downgradu na platně podepsanou zranitelnou verzi; funkční testy ≠ bezpečnost",
+      "Riziko ohodnotit a zvládnout před vydáním (zabránit nahrání starší verze), nebo formální akceptace managementem",
+      "Aktualizovat analýzu rizik a dokumentaci"
+    ],
+    "source": "PV017 L6, slide 58–62 (OTA případ); bod c) slide 62 nechává otevřený – odpověď je odvozena ze slidů 7, 13–15, 23 a 60–61"
+  }
+]

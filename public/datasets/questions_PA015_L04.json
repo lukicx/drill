@@ -1,158 +1,162 @@
 [
   {
-    "name": "A model that flags risky pull requests is tested on ten PRs that were not used in learning. It calls 4 of them risky, and 3 of those really had a bug; in total 5 of the ten PRs had a bug. Compute and explain its accuracy, precision and recall. Under which three conditions does the score on a test set say how the model will do on new data?",
-    "answer": "The model was tested on ten pull requests not used in learning, with known outcomes. It was right on 7 of 10: <B>accuracy</B> 70 % – the average of the verdicts (right = 1, wrong = 0). The errors were of two kinds: one false alarm and two missed bugs. <B>Precision</B>: of the 4 PRs it called risky, 3 had a bug – 75 %. <B>Recall</B>: of the 5 PRs with a bug, it found 3 – 60 %. The average says how the model will do on new data only if: (1) the <B>test set is kept apart from learning</B> (being right on a training row after fitting it shows nothing); (2) the <B>known outcomes are right</B>; (3) the <B>test set is like the data we care about</B> – usually a random split of one collection, so for pull requests of another project the 70 % may not hold. Every benchmark can be described with the same boxes: input, model (in its harness), output, reference, grader (program or person) giving a verdict, and the score as the average of verdicts.",
+    "name": "A model that flags risky pull requests is tested on ten PRs that were not used in learning. It calls 4 of them risky, and 3 of those really had a bug; in total 5 of the ten PRs had a bug. Compute its accuracy, precision and recall (give the formulas) and name the two kinds of error. Under which three conditions does the score on a test set say how the model will do on new data?",
+    "answer": "<B>Counts.</B> True positives (called risky, had a bug): \\(TP = 3\\). False alarms: \\(FP = 4 - 3 = 1\\). Missed bugs: \\(FN = 5 - 3 = 2\\). True negatives: \\(TN = 10 - 3 - 1 - 2 = 4\\).<BR><B>Metrics.</B> \\[\\text{accuracy} = \\frac{TP + TN}{\\text{all}} = \\frac{3 + 4}{10} = 70\\,\\%\\] – the average of the verdicts, with right = 1 and wrong = 0. \\[\\text{precision} = \\frac{TP}{TP + FP} = \\frac{3}{4} = 75\\,\\%,\\qquad \\text{recall} = \\frac{TP}{TP + FN} = \\frac{3}{5} = 60\\,\\%\\] Precision says how often an alarm is real; recall says how many of the real bugs are found. The errors are of two kinds: one false alarm and two missed bugs.<BR><B>Conditions.</B> The average predicts behaviour on new data only if (1) the <B>test set is kept apart from learning</B> – being right on a row the weights were fitted to shows nothing; (2) the <B>known outcomes are right</B>; (3) the <B>test set is like the data we care about</B> – usually one collection is split at random, so the test set resembles the training set; for pull requests of another project the 70 % may not hold.",
     "keyPoints": [
-      "Accuracy = share of right verdicts (7/10 = 70 %)",
-      "Precision = correct among predicted risky (3/4); recall = found among actual bugs (3/5)",
-      "Two error types: false alarms, missed bugs",
-      "Conditions: test set separate, labels correct, test set representative",
-      "Process: input → model+harness → output vs reference → grader → score"
+      "\\(TP = 3\\), \\(FP = 1\\), \\(FN = 2\\), \\(TN = 4\\)",
+      "Accuracy \\(= (TP + TN)/\\text{all} = 7/10 = 70\\,\\%\\)",
+      "Precision \\(= TP/(TP + FP) = 3/4\\); recall \\(= TP/(TP + FN) = 3/5\\)",
+      "Two kinds of error: false alarms and missed bugs",
+      "Conditions: test set kept apart, outcomes correct, test set like the target data"
     ],
-    "source": "Lecture 4, slides 2–4"
+    "source": "Lecture 4, slides 2–3"
   },
   {
-    "name": "What is a classical ML benchmark and why is building one hard? Use the ImageNet challenge as an example.",
-    "answer": "A benchmark is a published data set with labels, already split into a training and a test set; everybody trains on the same training set and reports the score on the same test set, so models from different teams can be compared on a <B>leaderboard</B>. The three conditions become assumptions about one shared test set (it played no role in building the model, its labels are correct, it looks like the data you care about). Building one is expensive: for the ImageNet challenge (1,000 classes, 1.28 M training images) candidate images came from image search engines queried in five languages, then Amazon Mechanical Turk workers marked which images showed the class; since single workers make mistakes, several workers judged every image and it was kept only with a convincing majority. The test labels were not published; the organisers checked 1,500 by hand and found 5 wrong. Even researchers labelling test images with five guesses were wrong on 13–15 %, and Karpathy reached 5.1 % after training on 500 images. Because this is so much work, a test set is built once and then used for about a decade.",
+    "name": "What is a classical ML benchmark, and why is building one hard? Illustrate with a large image-classification benchmark such as ImageNet.",
+    "answer": "A benchmark is a published data set with labels, already split into a training and a test set; everybody trains on the same training set and reports the score on the same test set, so models from different teams can be compared on a <B>leaderboard</B>. The conditions for a meaningful score become assumptions about one shared test set: it played no role in building the model, its labels are correct, and it looks like the data you care about. <B>Why it is hard</B> (ImageNet challenge: 1,000 classes, over a million training images): candidate images came from image search engines queried in several languages; crowd workers (Amazon Mechanical Turk) marked which images showed the class; because single workers make mistakes and do not always follow instructions, several workers judged each image and it was kept only with a convincing majority. The test labels were kept secret, and a hand check still found a few wrong ones. The task is hard for people too: researchers labelling test images made many mistakes and improved a lot only after first training on hundreds of labelled examples. Because this is so much work, a test set is built once and reused for about a decade – which leads to the later problems of reuse, label errors and saturation.",
     "keyPoints": [
-      "Shared split, published; leaderboard enables comparison",
-      "Assumptions: unseen, correctly labelled, representative test set",
-      "ImageNet: search engines, MTurk labelling with majority votes",
-      "Hidden test labels; hand-check found ~0.3 % errors",
-      "Expensive → built once, reused for years"
+      "Shared, published train/test split; a leaderboard compares teams",
+      "Assumptions: test set unseen, correctly labelled, representative",
+      "Labelling at scale: search-engine candidates, crowd workers, majority votes",
+      "Even careful labelling leaves errors; the task is hard for people too",
+      "Expensive → built once and reused for years"
     ],
     "source": "Lecture 4, slides 5–7"
   },
   {
-    "name": "Describe the experiment of Recht et al. that built new test sets for CIFAR-10 and ImageNet. What was expected, what was found, and what is the lesson?",
-    "answer": "For years every paper reported on the same test set and models were kept if they scored better on it – <B>adaptive overfitting</B> to the test set was suspected. Recht et al. repeated the original data collection to get new test images (2,000 for CIFAR-10; 10,000 for ImageNet, from similar years, labelled by MTurk workers as originally) and tested the old models. Every model dropped: 3–15 points on CIFAR-10 and 11–14 on ImageNet (e.g. ResNet-152 from 78.3 % to 67.0 %). If overfitting to the test set were the cause, the newest, most tuned models should lose most – but all models lost a similar amount and “the relative order of models is almost exactly preserved”. The authors conclude the drops are caused not by adaptivity but by the models’ inability to generalise to slightly harder images than in the original test sets. Lesson: a benchmark score is a property of the model <B>and</B> of one particular test set; the preserved ranking held for these image classifiers, which is not a general rule.",
+    "name": "Researchers repeated the original data collection of CIFAR-10 and ImageNet to get new test images, and re-tested models that had been developed on the old test sets. What hypothesis did this test, what was expected, what was found, and what is the lesson?",
+    "answer": "For years every paper reported on the same test set, and a model was kept if it scored better on it – so <B>adaptive overfitting</B> to the test set was suspected: is the progress real, or only progress on these test images? Recht et al. (2018–19) repeated the original collection to get new test images (a few thousand for CIFAR-10, 10,000 for ImageNet, from similar years, labelled by crowd workers as originally) and tested the old models. <B>Expected:</B> if the models had overfitted to the old test set, the newest, most tuned models should lose the most. <B>Found:</B> every model dropped (e.g. about 11–14 points on ImageNet; ResNet-152 from about 78 % to 67 %), but all by a similar amount, and “the relative order of models is almost exactly preserved”. The authors conclude that the drops come not from adaptivity but from the models’ inability to generalise to slightly “harder” images than those in the original test sets. <B>Lesson:</B> a benchmark score is a property of the model <B>and</B> of one particular test set; the preserved ranking held for these image classifiers and is not a general rule.",
     "keyPoints": [
       "Hypothesis: adaptive overfitting to a reused test set",
       "New test images collected the same way; old models re-tested",
-      "All models dropped (CIFAR-10 3–15, ImageNet 11–14 points)",
-      "Ranking preserved → not adaptivity, but poor generalisation to slightly harder images",
-      "Score belongs to model + test set; ranking stability not guaranteed elsewhere"
+      "All models dropped by a similar amount; ranking almost exactly preserved",
+      "Cause: not adaptivity but weaker generalisation to slightly harder images",
+      "A score belongs to model + test set; stable rankings are not guaranteed elsewhere"
     ],
     "source": "Lecture 4, slides 8–9"
   },
   {
     "name": "How common are label errors in widely used test sets, how were they measured, and why do they matter?",
-    "answer": "Northcutt et al. (NeurIPS 2021) searched ten widely used test sets. A trained classifier predicted a class for every test item, and items where it was confident of a different class than the given label were flagged; five Mechanical Turk workers then saw each flagged item, and it counted as an error if fewer than three agreed with the given label. Only flagged items were checked, so the numbers are <B>lower bounds</B>. In the five image test sets shown in the lecture: MNIST 0.15 %, CIFAR-10 0.54 %, CIFAR-100 5.85 %, ImageNet validation 5.83 %, QuickDraw about 10 %. Why it matters: a model that is right gets marked wrong and a model that learned the mistake gets marked right; rankings can change (on ImageNet with corrected labels, ResNet-18 outperforms ResNet-50 if the share of originally mislabelled test examples rises by just 6 %); and two models that differ by less than the label error rate cannot be reliably told apart by the benchmark.",
+    "answer": "Northcutt et al. (NeurIPS 2021) searched ten widely used test sets. A trained classifier predicted a class for every test item, and items where it was confident of a different class than the given label were flagged; five Mechanical Turk workers then saw each flagged item, and it counted as an error if fewer than three agreed with the given label. Only flagged items were checked, so the numbers are <B>lower bounds</B>. Even MNIST – ten classes of clean digits, used for over 20 years – has wrong test labels (about 0.15 %); CIFAR-100 and the ImageNet validation set have several percent (about 6 %), a large drawing data set about 10 %. Why it matters: a model that is right gets marked wrong and a model that learned the mistake gets marked right; rankings can change (e.g. on ImageNet with corrected labels, ResNet-18 outperforms ResNet-50 if the share of originally mislabelled test examples rises by just 6 %); and two models that differ by less than the label error rate cannot be reliably told apart by the benchmark.",
     "keyPoints": [
-      "Classifier flags confident disagreements; 5 MTurk workers verify",
-      "Counts are lower bounds",
-      "Even MNIST (0.15 %) has errors; ImageNet validation ~5.8 %",
-      "Right models penalised, mistaken ones rewarded; rankings can flip",
-      "Differences below the error rate are not meaningful"
+      "A classifier flags confident disagreements; crowd workers confirm errors",
+      "The counts are lower bounds (only flagged items were checked)",
+      "Even the cleanest, most used test sets have wrong labels; large ones several percent",
+      "Right models are penalised and mistaken ones rewarded; rankings can flip",
+      "Differences smaller than the label error rate are not meaningful"
     ],
     "source": "Lecture 4, slides 10–11"
   },
   {
-    "name": "Explain benchmark saturation and Goodhart’s law, with examples from image benchmarks.",
-    "answer": "<B>Saturation:</B> a benchmark gets “solved” and stops separating models. On the ImageNet challenge the winner’s error fell from 28.2 % (2010) to 2.3 % (2017), passing a trained person’s 5.1 % in 2015. MNIST took 14 years to reach near-human performance; ImageNet five; newer data sets now reach that milestone within a few years. Solving the benchmark does not mean the task is solved. <B>Goodhart’s law</B> (usually quoted as “When a measure becomes a target, it ceases to be a good measure”; originally about monetary policy) says that a score tells you something about ability only as long as nobody works on the score itself; once models are selected, tuned and advertised by it, it says less. Examples: models chosen by their score on one reused test set; a Baidu team in 2015 made about 200 submissions in half a year to the ImageNet test server (allowed: two per week) and was asked to stay away for a year; gains of tenths of a point reported on benchmarks that no longer separate models.",
+    "name": "Explain benchmark saturation and Goodhart’s law. Illustrate with at least one example of each.",
+    "answer": "<B>Saturation:</B> a benchmark gets “solved” and stops separating models. On the ImageNet challenge the winner’s error fell from about 28 % (2010) to about 2 % (2017), passing a trained person’s roughly 5 % in 2015. MNIST took over a decade to reach near-human performance, ImageNet about five years, and newer data sets now reach that milestone within a few years. Solving the benchmark does not mean the task is solved. <B>Goodhart’s law</B> (usually quoted as “When a measure becomes a target, it ceases to be a good measure”; originally about monetary policy) says that a score tells you something about ability only as long as nobody works on the score itself; once models are selected, tuned and advertised by it, it says less. Examples: models chosen by their score on one reused test set; a team in 2015 made about 200 submissions in half a year to the ImageNet test server (allowed: two per week) and was asked to stay away for a year; gains of tenths of a point reported on benchmarks that no longer separate models.",
     "keyPoints": [
-      "ImageNet winner error 28.2 % → 2.3 %; beat 5.1 % human in 2015",
-      "Time to human level shrinks (MNIST 14 years, ImageNet 5)",
+      "Saturation: the winners’ error falls below human level and the benchmark stops separating models",
+      "The time to human level keeps shrinking",
       "Solved benchmark ≠ solved task",
-      "Goodhart: measure as target loses meaning",
-      "Examples: test-set selection, Baidu’s excess submissions, tiny gains"
+      "Goodhart: when a measure becomes a target, it ceases to be a good measure",
+      "Examples: selection on one reused test set, excessive test-server submissions, gains of tenths of a point"
     ],
     "source": "Lecture 4, slides 12–14"
   },
   {
     "name": "Describe how the MMLU and SWE-bench benchmarks work in terms of input, output, reference, grader and score.",
-    "answer": "<B>MMLU</B> (2020) is an exam with four options per question: 14,079 test questions from 57 subjects, collected by students from practice exams online. Input: a question with four options; output: text from which a letter A–D is read; reference: the letter of the right option; grader: are the letters equal; score: share of right answers (GPT-3 43.9 %, guessing 25 %). <B>SWE-bench</B> (Jimenez et al., ICLR 2024) uses real GitHub issues: from about 90,000 pull requests in 12 popular Python repositories, scripts kept merged PRs that close an issue and change tests, and tasks that install and run with a test failing before and passing after the fix – 2,294 tasks. Input: the issue and the repository before the fix; output: a patch, usually written by an agent with tools; reference: the tests from the real fix – FAIL_TO_PASS (fail before, must pass) and PASS_TO_PASS (must keep passing); only the test files changed by the fix are run; grader: apply the patch and run the tests, resolved if all pass; score: share of tasks resolved (best model in Oct 2023: 1.96 %). The model sees neither the tests nor the fix. Variants: Lite (300) and Verified (500 human-filtered tasks, 46 % from Django).",
+    "answer": "<B>MMLU</B> (2020) is an exam with four options per question: thousands of test questions from dozens of subjects, collected by students from practice exams online. Input: a question with four options; output: text from which a letter A–D is read; reference: the letter of the right option; grader: are the letters equal; score: share of right answers (guessing gives 25 %). <B>SWE-bench</B> (Jimenez et al., ICLR 2024) uses real GitHub issues: from pull requests in a dozen popular Python repositories, scripts kept merged PRs that close an issue and change tests, and tasks that install and run with a test failing before and passing after the fix. Input: the issue and the repository before the fix; output: a patch, usually written by an agent with tools; reference: the tests from the real fix – FAIL_TO_PASS (fail before, must pass) and PASS_TO_PASS (must keep passing); only the test files changed by the fix are run; grader: apply the patch and run the tests, resolved if all pass; score: share of tasks resolved (at release the best model solved only a tiny share). The model sees neither the tests nor the fix. Variants: a smaller Lite subset and Verified (human-filtered tasks).",
     "keyPoints": [
       "MMLU: 4-option questions, letter compared to key, share correct",
       "SWE-bench: issue + repo in, patch out",
       "Reference = hidden tests: FAIL_TO_PASS and PASS_TO_PASS",
       "Resolved = all those tests pass; only changed test files run",
-      "Collected by scripts (2,294 tasks); Lite 300, Verified 500"
+      "Tasks collected automatically by scripts; Lite and Verified are smaller subsets"
     ],
     "source": "Lecture 4, slides 16–20"
   },
   {
-    "name": "How can a benchmark’s input be compromised for LLMs? Discuss contamination (the model has seen the items) and solutions leaked in the input, with evidence from MMLU and SWE-bench.",
-    "answer": "LLMs are trained on web text, and benchmarks are public together with their references. <B>MMLU:</B> Deng et al. hid one wrong option and asked the model to fill it in; ChatGPT reproduced the hidden option exactly in 52 % of cases and GPT-4 in 57 % – knowing wrong options word for word is strong evidence the model has read the test. <B>SWE-bench:</B> the same agent and model (OpenHands with Claude 3.7 Sonnet) solved 43.2 % of Verified but only 19.25 % of 1,319 new issues created since 2024 from 93 repositories (with the caveat that these are also different, unfiltered issues). Given only the issue text and repository name, models named the file to fix in up to 76 % of Verified tasks vs up to 53 % for other repositories – part of a Verified score is memory of twelve well-known code bases, and nobody knows how large a part. Separately, some tasks contain the solution in the issue itself (e.g. sympy #16669, where solving means copying three lines); one preprint found this in 32.67 % of tasks an early agent solved. Also, MNIST measures exactly its task, but LLM benchmarks have names much wider than their items: “75 % of SWE-bench Verified” means resolving 375 mostly small issues in twelve Python libraries.",
+    "name": "How can a benchmark’s input be compromised for LLMs? Discuss contamination (the model has seen the items) and solutions present in the input, with evidence from MMLU and SWE-bench. How can contamination be detected or reduced?",
+    "answer": "<B>Why:</B> LLMs are trained on web text, and benchmarks are public together with their references. <B>MMLU:</B> one test hides a wrong option of a question and asks the model to fill it in. Strong chat models reproduced the hidden option word for word in about half of the cases – knowing wrong options exactly is strong evidence that the model has read the test. <B>SWE-bench:</B> the same agent and model solved far fewer new issues (created since 2024, from 93 repositories) than Verified tasks – roughly 19 % instead of 43 % – with the caveat that the new issues are also different and unfiltered. Given only the issue text and the repository name, without any code, models named the file to fix in most Verified tasks, less often for other repositories: part of a Verified score is memory of twelve well-known code bases, and nobody knows how large a part. <B>Solution in the input:</B> some tasks contain the fix in the issue itself (e.g. an issue that proposes the exact method to add, so solving means copying three lines); one preprint found this in about a third of the tasks an early agent solved – a hint, not a firm rate. <B>What the items stand for:</B> MNIST measures exactly its task, but LLM benchmarks carry names much wider than their items: “75 % of SWE-bench Verified” means resolving about 375 mostly small issues in twelve Python libraries. <B>Detection and countermeasures:</B> fill-in probes for memorised items; testing on items created after the model was trained (live sets of new issues); keeping test items or labels private (ImageNet’s test labels, most SWE-bench Pro tasks); and, for your own decisions, measuring on tasks from your own repository.",
     "keyPoints": [
-      "Public benchmarks + web training → contamination",
-      "MMLU: hidden wrong options recited (52 % / 57 %)",
-      "SWE-bench: 43.2 % on Verified vs 19.25 % on new issues; file naming without code",
-      "Solution sometimes written in the issue",
-      "Benchmark names are wider than what the items measure"
+      "Public benchmarks + training on the web → contamination",
+      "Models recite hidden wrong options → they have read the test",
+      "The same agent solves far fewer new issues than well-known ones; files to fix guessed without code",
+      "Some tasks give the solution in the issue",
+      "Benchmark names are wider than what their items measure",
+      "Countermeasures: new items, private test sets, fill-in probes, your own tasks"
     ],
-    "source": "Lecture 4, slides 21–24"
+    "source": "Lecture 4, slides 7, 21–24, 36, 49 (countermeasures synthesised from these slides)"
   },
   {
-    "name": "Show with examples that a benchmark score depends not only on the model but also on how the test is run (prompt format, harness, environment).",
-    "answer": "<B>MMLU format:</B> Alzahrani et al. changed only how the same questions were asked of 11 open models – the order of options, their symbols (e.g. $ & # @ instead of A B C D) and how the model’s choice is determined (most probable letter vs most probable answer text). Models moved by up to 8 places in the ranking; shuffling alone moved them up to 5 (measured on three subjects). One reason: models prefer certain option letters. Unlike ImageNet, the ranking did not survive another way of asking the same questions. <B>Harness:</B> on SWE-bench Verified the same model (Claude 4 Sonnet) solved 64.9 % in bash-only mini-SWE-agent, 66.6 % in SWE-agent and 70.4 % in OpenHands – 5.5 points from the harness alone. So a leaderboard entry is a model in a harness; entries with different harnesses do not compare models. <B>Environment:</B> an agent ran <TT>git log --all</TT> inside the evaluation container, which still contained later commits, and could find the actual fix (issue #465; history was then removed). And the grader read printed test output, so a patch printing “PASSED &lt;test name&gt;” could count as solved – it is not known that a ranked model did this; the grader now also checks the exit code, though a way around that check has already been reported. The agent is rewarded for “tests pass”; solving the issue must be the only way to get there.",
+    "name": "Show that a benchmark score depends not only on the model but also on how the test is run. Give one example for the prompt format and one for the harness or the evaluation environment.",
+    "answer": "<B>Prompt format (MMLU):</B> a study changed only how the same questions were asked of 11 open models – the order of the options (shuffled, or the right answer always in one position), their symbols (e.g. $ &amp; # @ instead of A B C D) and how the model’s choice is read (most probable letter vs most probable answer text). Models moved by several places in the ranking (up to 8 of 11; shuffling alone up to 5). One reason: models prefer certain option letters. So a ranking can depend on the way of asking, not only on the model. <B>Harness (SWE-bench Verified):</B> the same model on the same 500 tasks solved between about 65 % and 70 % depending on the harness (bash-only, SWE-agent, OpenHands). A leaderboard entry is a model in a harness; entries with different harnesses do not compare models. <B>Environment:</B> an agent ran <TT>git log --all</TT> inside the evaluation container, which still held the commits made after the issue, and could find the actual fix (the later history was then removed). And the grader read printed test output, so a patch printing “PASSED &lt;test name&gt;” could count as solved – it is not known that a ranked model did this; the grader now also checks the exit code, though a way around that has already been reported. The agent is rewarded for “the tests pass”; solving the issue must be the only way to get there.",
     "keyPoints": [
-      "MMLU: option order/symbols/selection method → up to 8 ranking places",
-      "Models prefer certain letters",
-      "Same model, three harnesses: 64.9 / 66.6 / 70.4 %",
-      "Environment loopholes: an agent read future git history; the grader could be fooled by printed PASSED output",
-      "Compare models only within one harness and setup"
+      "Prompt format: option order, symbols and how the choice is read change the ranking",
+      "Models prefer certain option letters",
+      "Harness: the same model scores several points apart in different harnesses",
+      "Environment loopholes: future git history readable; grader fooled by printed PASSED",
+      "Compare models in one harness and setup; solving the task must be the only way to pass"
     ],
     "source": "Lecture 4, slides 25–27"
   },
   {
-    "name": "What can go wrong with the reference (answer key or tests) of a benchmark? Discuss MMLU errors, tests that are too strict and tests that are too weak in SWE-bench.",
-    "answer": "<B>MMLU:</B> people re-checked 5,700 questions and estimated that 6.49 % of all MMLU questions contain an error (Virology: 57 %) – unclear questions or options, no correct option, several correct options, or a wrong key (e.g. −47 = g + 24 keyed as −23 instead of −71). On corrected questions the model ranking changes. The cause: the key was copied from websites and never verified item by item. <B>Too strict tests (SWE-bench):</B> in scikit-learn #14501 the issue only asks whether an unused <TT>copy</TT> parameter is missing something, but the hidden test requires a DeprecationWarning with an exact message decided later by maintainers – other reasonable fixes fail. When building Verified, 93 developers reviewed 1,699 tasks: 38.3 % had underspecified issues and 61.1 % tests that may reject a valid solution; 68.3 % were removed (one objection sufficed). “Verified” means filtered, not rewritten. <B>Too weak tests:</B> in seaborn #2992 the hidden test never tries a value missing only in x, so a patch that does not fix the issue passes. Adding tests to 23 Lite tasks showed 170 of 599 previously passing patches were wrong, changing ranks of 18 of 44 agents on Lite and 11 of 45 on Verified; running all repository tests made 7.8 % of “solved” patches fail. Reviewers of Verified looked only for too strict tests, not too weak ones.",
+    "name": "What can go wrong with the reference (answer key or tests) of a benchmark? Discuss errors in the MMLU answer key, and tests that are too strict and too weak in SWE-bench.",
+    "answer": "<B>MMLU:</B> people re-checked a sample of questions (100 per subject) and estimated that a few percent of all questions contain an error, with some subjects far worse – unclear questions or options, no correct option, several correct options, or a wrong key (e.g. \\(-47 = g + 24\\) keyed as −23, although \\(g = -71\\)). On the corrected questions the model ranking changes. Cause: the key was copied from websites and never verified item by item. <B>Too strict tests (SWE-bench):</B> an issue only asks whether an unused <TT>copy</TT> parameter of a scikit-learn vectorizer is a mistake, but the hidden test requires a DeprecationWarning with an exact message decided later by the maintainers – other reasonable fixes (making the parameter work, removing it, warning in other words) fail. When SWE-bench Verified was built, developers reviewed a large sample of tasks (three reviewers per task): over a third had underspecified issues and well over half had tests that may reject a valid solution; about two thirds of the tasks were removed (one objection was enough). “Verified” means filtered, not rewritten. <B>Too weak tests:</B> for a seaborn issue about a value missing only in x, the hidden test only covers rows where both x and y are missing, so a patch that ignores missing x still passes. Adding tests to a few Lite tasks showed that over a quarter of the previously passing patches were wrong, and the ranks of many agents changed; running all repository tests instead of only the changed test files made several percent of “solved” patches fail. The Verified reviewers looked only for too strict tests, not for too weak ones.",
     "keyPoints": [
-      "MMLU: ~6.49 % erroneous items; unverified web-sourced key",
-      "Too strict: hidden test demands one exact solution not in the issue",
-      "Verified: 68.3 % of reviewed tasks removed; filtered, not fixed",
-      "Too weak: tests miss the issue’s case; 170/599 passing patches wrong",
-      "Rankings change with better references"
+      "MMLU: a few percent of items are wrong; the key was never verified",
+      "Too strict: a hidden test demands one exact solution the issue does not describe",
+      "Verified: about two thirds of tasks removed by reviewers; filtered, not fixed",
+      "Too weak: tests miss the issue’s case, so wrong patches pass",
+      "Better references change rankings"
     ],
     "source": "Lecture 4, slides 28–32"
   },
   {
-    "name": "“Resolved” on SWE-bench means the tests pass. Would maintainers actually merge such patches? Describe METR’s study and its findings.",
-    "answer": "METR gave 296 agent patches that pass the SWE-bench tests (from published runs, models of mid-2024 to late 2025, one attempt per task) and 47 original human patches (all merged in reality, as a control) to four active maintainers of scikit-learn, Sphinx and pytest, who reviewed them as pull requests without being told who wrote them. They would merge about <B>68 % of the human patches</B> – so a review is not an exact grader either – but only about <B>a third of the agent patches</B> (roughly half the human rate). Reasons for rejection: the patch does not really solve the issue or breaks other code and the tests did not catch it, or the code is poor in style and ignores project conventions, which tests do not check. A stated limit: the agent had one attempt and no feedback, whereas a human usually gets review feedback and tries again. Conclusion: “resolved” means these tests pass, not that a maintainer would take it. (This also shortens METR’s time horizon: for Claude Sonnet 4.5 about 50 minutes with test verdicts vs about 8 minutes with maintainer verdicts.)",
+    "name": "In a blind review study, maintainers of real open-source projects reviewed agent patches that pass the SWE-bench tests, mixed with the original human patches as a control. Describe the design, what they found, and what “resolved” therefore means.",
+    "answer": "METR, an independent evaluation lab, gave about 300 agent patches that pass the SWE-bench tests (from published runs, models of mid-2024 to late 2025, one attempt per task) and 47 original human patches (all merged in reality, as a control) to four active maintainers of scikit-learn, Sphinx and pytest, who reviewed them as pull requests without being told who wrote them. They would merge about <B>68 % of the human patches</B> – so a review is not an exact grader either – but only about <B>a third of the agent patches</B> (roughly half the human rate). Reasons for rejection: the patch does not really solve the issue or breaks other code and the tests did not catch it, or the code is poor in style and ignores project conventions, which tests do not check. A stated limit: the agent had one attempt and no feedback, whereas a human usually gets review feedback and tries again. Conclusion: “resolved” means these tests pass, not that a maintainer would take it. (This also shortens METR’s time horizon: for Claude Sonnet 4.5 about 50 minutes with test verdicts vs about 8 minutes with maintainer verdicts.)",
     "keyPoints": [
-      "296 test-passing agent patches + 47 human controls, blind review",
-      "Human patches ~68 % mergeable; agent patches ~one third",
-      "Rejections: not really fixed, breaks other code, poor style/conventions",
-      "Limit: one attempt, no feedback",
+      "Blind review of test-passing agent patches, with human patches as a control",
+      "Not all human patches were accepted → a review is not an exact grader either",
+      "Agent patches were accepted at roughly half the human rate",
+      "Rejections: not really fixed, breaks other code, poor style or conventions",
+      "Limit: one attempt, no review feedback",
       "Tests passing ≠ mergeable"
     ],
     "source": "Lecture 4, slides 33–34 (and 46)"
   },
   {
-    "name": "Why can two reported benchmark scores often not be compared directly? Discuss task subsets, cost, run-to-run variance, multiple attempts (pass@k, pass^k) and confidence ranges.",
-    "answer": "<B>Which tasks:</B> GPT-5’s “74.9 % on SWE-bench Verified” was measured on 477 of the 500 tasks (those running on OpenAI’s infrastructure); on all 500 it would lie between 71.4 % and 76.0 %, so it cannot be put next to a 500-task number. <B>Cost:</B> five models in one harness on the same 50 tasks cost between $5 and $1,351, the most expensive run was not the best, and the same score was reached for $403 and $1,331 – a score does not say what was spent. <B>Variance:</B> output is sampled, so each run is one draw; 10 runs of the same setting differed by 2.2–6.0 points, even at temperature 0 (computation is not exactly repeatable). <B>Attempts:</B> Devstral 2 on 500 tasks scores 63.5 % with one attempt (pass@1), 76.2 % if at least one of 5 attempts passes (pass@5 – a best case that needs someone to know which attempt is right), and 49.1 % if all 5 must pass (pass^5 – reliability). <B>Range:</B> with 500 tasks, 75 % has a 95 % range of about ±3.8 points (71.2–78.8 %), so 75 % vs 77 % cannot be ranked from two numbers alone. Yet only 16 % of 445 LLM benchmark papers report any uncertainty estimate.",
+    "name": "Why can two reported benchmark scores often not be compared directly? Discuss task subsets, cost, run-to-run variance, multiple attempts (pass@k, pass^k) and confidence ranges. Include two computations: (a) a vendor reports 74.9 % on 477 of a benchmark’s 500 tasks – what range does this imply for all 500 tasks? (b) a model solves 75 % of 500 tasks – roughly how wide is its 95 % range, and can it be ranked above a model with 77 %?",
+    "answer": "<B>Task subsets.</B> (a) \\(0.749 \\cdot 477 \\approx 357\\) tasks solved. On all 500 tasks the score lies between \\(357/500 = 71.4\\,\\%\\) (all 23 missing tasks fail) and \\((357 + 23)/500 = 76.0\\,\\%\\) (all of them solved). So a 477-task number cannot be put next to a 500-task number. (This was GPT-5’s announced SWE-bench Verified score; the note under it said so.)<BR><B>Cost.</B> Five models in one harness on the same 50 tasks cost from a few dollars to over a thousand – a factor of almost 300; the most expensive run was not the best, and the same score was reached by another model at about a third of the cost. A score does not say what was spent.<BR><B>Run-to-run variance.</B> Output is sampled, so each run is one draw of many possible scores; ten runs of the same setting differed by about 2–6 points, even at temperature 0, because the computation itself is not exactly repeatable.<BR><B>Attempts.</B> One model on 500 tasks: pass@1 (a single attempt) about 64 %, pass@5 (at least one of five attempts passes) about 76 %, pass^5 (all five pass) about 49 %. pass@k is a best case that needs someone to know which attempt is right – in your project nobody does; pass^k measures reliability.<BR><B>Confidence range.</B> (b) Treating the 500 tasks as a sample of all such tasks, the 95 % range is about \\[\\pm 1.96\\sqrt{\\frac{p(1-p)}{n}} = \\pm 1.96\\sqrt{\\frac{0.75 \\cdot 0.25}{500}} \\approx \\pm 0.038,\\] i.e. 75 % ± 3.8 points (71.2–78.8 %). The other model’s 77 % lies inside this range, so from the two numbers alone the models cannot be ranked (with per-task results one could compare task by task). Few benchmark papers report any uncertainty (about one in six).",
     "keyPoints": [
-      "Subset reporting (477 vs 500 tasks)",
-      "Same tasks cost $5–$1,351 (~300×); the same score cost $403 or $1,331",
-      "Run-to-run spread 2–6 points, even at T = 0",
-      "pass@1 vs pass@k (best case) vs pass^k (reliability)",
-      "Confidence range ±3.8 points on 500 tasks; few papers report uncertainty"
+      "Subset: \\(357/500 = 71.4\\,\\%\\) to \\(380/500 = 76.0\\,\\%\\) – not comparable with a 500-task score",
+      "Cost can differ by orders of magnitude for similar scores; the most expensive run is not the best",
+      "Repeated runs differ by several points, even at temperature 0",
+      "pass@k is a best case needing an oracle; pass^k measures reliability",
+      "95 % range on 500 tasks \\(\\approx \\pm 3.8\\) points, so 75 % vs 77 % is a tie",
+      "Uncertainty is rarely reported"
     ],
-    "source": "Lecture 4, slides 37–42"
+    "source": "Lecture 4, slides 37–42 (the range formula is general statistics; the slide gives only the result)"
   },
   {
     "name": "What is METR’s time horizon of a model, how is it measured, what trend does it show, and what are its limits?",
-    "answer": "METR measures not the share of solved tasks but <B>how long a task an agent can do</B>, in human time. It uses 170 tasks (software engineering, ML, security) that professionals also did; a task’s human time is the typical time of the professionals who solved it, from seconds to hours. A model is run on all tasks, a curve of success probability against human task time is fitted, and the <B>50 % time horizon</B> is where it crosses 50 % (Claude 3.7 Sonnet, Feb 2025: about 1 hour). It is the people’s time, not how long the model worked. The trend: the horizon doubled about every 7 months (207 days), faster for models since 2023 (131 days) – from seconds (GPT-2) to hours (GPT-5 3.6 h, Claude Opus 4.5 5.3 h). Limits: tasks are standalone with automatic checks, unlike real work; the human times are of people new to the code (maintainers were 5–18× faster); “solved” comes from a program – with maintainer verdicts the horizon of Claude Sonnet 4.5 shrank from about 50 to about 8 minutes; at 80 % success the horizon is 4–6× shorter; and ranges are wide (Opus 4.5: 5.3 h, 95 % range 2.8–12 h); METR itself calls measurements above 16 h unreliable.",
+    "answer": "METR measures not the share of solved tasks but <B>how long a task an agent can do</B>, in human time. It uses about 170 tasks (software engineering, machine learning, security) that professionals also did; a task’s human time is the typical time of the professionals who solved it, from seconds to many hours. A model is run on all tasks, a curve of success probability against human task time is fitted, and the <B>50 % time horizon</B> is where the curve crosses 50 % (e.g. about an hour for a strong early-2025 model). It is the people’s time – not how long the model worked, or how long it can work alone. <B>Trend:</B> the horizon grows exponentially (a straight line on a logarithmic axis), doubling at a roughly fixed pace \\(T_d\\) of about 7 months, faster for models since 2023: \\[H(t) \\approx H_0 \\cdot 2^{t / T_d}\\] From seconds for GPT-2 (2019) it reached hours for 2025 models. <B>Limits:</B> the tasks stand alone and have an automatic check, unlike most real work; the human times are of people new to the code (maintainers can be several times faster); “solved” comes from a program, and with maintainer verdicts instead of tests the horizon shrank drastically (in one measurement from about 50 to about 8 minutes); at 80 % success the horizon is several times shorter; each estimate has a wide range (e.g. 5.3 h with a 95 % range of 2.8–12 h); and METR itself calls measurements above 16 hours unreliable with its current tasks.",
     "keyPoints": [
-      "Tasks timed by human professionals; 50 % success point = horizon",
-      "Human time, not model working time",
-      "Doubling ~every 7 months (faster recently)",
-      "Limits: standalone auto-checked tasks; newcomer human times; test-based verdicts",
-      "80 % horizon much shorter; wide confidence ranges"
+      "Tasks timed by human professionals; horizon = task length at 50 % success",
+      "Human time, not the model’s working time",
+      "Exponential growth \\(H(t) \\approx H_0 \\cdot 2^{t/T_d}\\), doubling about every 7 months",
+      "Limits: standalone auto-checked tasks, newcomer human times, test-based verdicts",
+      "Higher required reliability (80 %) means a much shorter horizon; estimates have wide ranges"
     ],
-    "source": "Lecture 4, slides 43–46"
+    "source": "Lecture 4, slides 43–46 (the formula restates the doubling trend)"
   },
   {
-    "name": "You are shown a benchmark number for a model. Summarise how each box of the testing process can fail, and what you should do before trusting the number.",
-    "answer": "Every box can fail. <B>Input:</B> the model may have seen the items (hidden MMLU options recited; 43 % vs 19 % on new SWE-bench issues). <B>Model + harness:</B> another harness moves the same model by 5.5 points. <B>Output:</B> it is sampled; ten runs differ by 2–6 points. <B>Reference:</B> 6.49 % of MMLU questions are wrong; SWE-bench tests are too strict or too weak (68.3 % of tasks removed for Verified). <B>Grader:</B> tests passing is not correct – maintainers would merge about a third of such patches. <B>Score:</B> ±3.8 points on 500 tasks; 49, 64 or 76 % depending on how attempts are counted; $5 to $1,351 for the same tasks. On top, Goodhart’s law. What to do: (1) read the note under the number – which tasks, harness, attempts, runs, cost, who ran it; (2) open the tasks and check the source (a blog post is a hint until checked); (3) compare with the range – a 1–2 point lead on 500 tasks is a tie; (4) do not overcorrect – large changes (1.96 % → over 75 % on SWE-bench; seconds → hours horizon) are real; (5) measure on your own work – 10–20 tasks from your repository, in your harness, checked by your tests and review (only large differences show, about ±20 points, but they are your tasks). Trust a number as far as you can trace it to its tasks, harness and grader.",
+    "name": "You are shown a benchmark number for a model. For each box of the testing process (input, model + harness, output, reference, grader, score) give one way it can fail, then state what to do before trusting the number.",
+    "answer": "The process: an <B>input</B> goes to the <B>model in its harness</B>, which produces an <B>output</B>; a <B>grader</B> (a program or a person) compares it with the <B>reference</B> and gives a verdict; the <B>score</B> is the average of the verdicts.<BR><B>Input:</B> the model may have seen the items – e.g. it recites hidden wrong options of MMLU questions. <B>Model + harness:</B> the same model scores several points apart in another harness or with another prompt format. <B>Output:</B> it is sampled, so two runs of the same model give different scores. <B>Reference:</B> the answer key or the tests are wrong, too strict or too weak. <B>Grader:</B> “the tests pass” is not “correct” – maintainers would merge only part of the test-passing patches. <B>Score:</B> it has a range (on 500 tasks about \\(\\pm 3.8\\) points), depends on how attempts are counted, and hides the cost. On top of all this, Goodhart’s law: once a score is advertised, people work on the score itself.<BR><B>What to do:</B> (1) <B>read the note</B> under the number – which tasks, which harness, how many attempts and runs, what cost, who ran it; (2) <B>open the tasks and check the source</B> – a few tasks show what the benchmark really asks for, and a blog post is a hint until somebody has checked it; (3) <B>compare with the range</B> – a one- or two-point lead on 500 tasks is a tie; (4) <B>measure on your own work</B> – ten or twenty tasks from your repository, in your harness, checked by your tests and your review; this shows only large differences, but on your tasks. Do not overcorrect: changes as large as from about 2 % to over 75 % on SWE-bench are not noise. Trust a number as far as you can trace it to its tasks, harness and grader.",
     "keyPoints": [
-      "Input contamination; harness effects; sampled output",
-      "Wrong references; tests ≠ correctness; uncertain, attempt- and cost-dependent scores",
-      "Read the note; open the tasks; compare ranges",
-      "Don’t overcorrect – big trends are real",
-      "Measure on your own tasks, harness and review"
+      "Input: contamination",
+      "Model + harness and output: setup changes and sampling move the score",
+      "Reference and grader: wrong or weak keys; passing tests ≠ correct",
+      "Score: range, attempt counting and cost; Goodhart on top",
+      "Read the note, open the tasks, compare with the range",
+      "Measure on your own tasks; very large trends are real"
     ],
-    "source": "Lecture 4, slides 48–49"
+    "source": "Lecture 4, slides 4, 48–49"
   }
 ]

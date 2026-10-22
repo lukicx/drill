@@ -1,0 +1,550 @@
+[
+  {
+    "name": "How do analysis patterns differ from design patterns? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Analysis patterns capture functional requirements on the conceptual (problem-domain) model and can drive our questioning when clarifying requirements.",
+        "right": true,
+        "comment": "L5, slide 4"
+      },
+      {
+        "body": "Analysis patterns use high-level conceptual class models with terms of the problem domain rather than classes of a programming language.",
+        "right": true,
+        "comment": "L5, slide 4"
+      },
+      {
+        "body": "Design patterns serve maintainable decomposition of classes at the design level – attributes, methods and precise relationships.",
+        "right": true,
+        "comment": "L5, slide 4"
+      },
+      {
+        "body": "Design patterns capture the static and dynamic structure and collaboration among key participants in software design.",
+        "right": true,
+        "comment": "L5, slide 4"
+      },
+      {
+        "body": "Design patterns are mainly used to elicit functional requirements (use cases) from stakeholders.",
+        "right": false,
+        "comment": "L5, slide 4: That is the role of analysis patterns; design patterns work at the design level."
+      }
+    ],
+    "source": "L5, slide 4"
+  },
+  {
+    "name": "Which statements correctly describe what a design pattern is and why patterns help teams?",
+    "answers": [
+      {
+        "body": "A design pattern is a general reusable solution to a commonly occurring problem in software design.",
+        "right": true,
+        "comment": "L5, slide 5"
+      },
+      {
+        "body": "A pattern is a meta-model that has to be instantiated: we must consider compromises and consequences, make design decisions and combine it with other patterns.",
+        "right": true,
+        "comment": "L5, slide 5"
+      },
+      {
+        "body": "Patterns give a common vocabulary – saying “here we use Observer” tells others how the objects collaborate and which methods and associations are needed.",
+        "right": true,
+        "comment": "L5, slide 5: enhanced communication, faster design, improved culture."
+      },
+      {
+        "body": "A pattern is a finished design that can be copied into the system without further decisions.",
+        "right": false,
+        "comment": "L5, slide 5: A pattern is not a finished design."
+      },
+      {
+        "body": "Patterns remove the need to understand the problem, because each problem has exactly one matching pattern.",
+        "right": false,
+        "comment": "L5, slides 5-7: Patterns must be instantiated with decisions; applying a pattern to the wrong problem is a common mistake."
+      }
+    ],
+    "source": "L5, slide 5"
+  },
+  {
+    "name": "Which of the following are typical mistakes or problems when designers use design patterns?",
+    "answers": [
+      {
+        "body": "Believing that it is best to apply as many patterns as possible to the model.",
+        "right": true,
+        "comment": "L5, slide 7: wrong premise."
+      },
+      {
+        "body": "Applying a pattern to solve the wrong problem, or solving everything with the most recently learned pattern.",
+        "right": true,
+        "comment": "L5, slide 7"
+      },
+      {
+        "body": "Choosing between patterns by their class diagrams only, although many patterns have very similar visual structure.",
+        "right": true,
+        "comment": "L5, slide 7: e.g. Strategy and State look alike, so the designer has to understand all aspects of the patterns."
+      },
+      {
+        "body": "Knowing patterns only partially, without deep understanding.",
+        "right": true,
+        "comment": "L5, slide 6"
+      },
+      {
+        "body": "Reading the Consequences section of a pattern before deciding to use it.",
+        "right": false,
+        "comment": "L5, slide 9: Consequences are critical for evaluating design alternatives; reading them is good practice."
+      }
+    ],
+    "source": "L5, slides 6-7, 9"
+  },
+  {
+    "name": "Which statements about the essential elements of a pattern description are correct?",
+    "answers": [
+      {
+        "body": "The four essential elements are the pattern name, the problem statement, the solution and the consequences.",
+        "right": true,
+        "comment": "L5, slide 9"
+      },
+      {
+        "body": "The problem statement describes when to apply the pattern and explains the problem and its context.",
+        "right": true,
+        "comment": "L5, slide 9"
+      },
+      {
+        "body": "The solution describes the elements, relationships, responsibilities and collaborations, but not a specific concrete implementation.",
+        "right": true,
+        "comment": "L5, slide 9"
+      },
+      {
+        "body": "The consequences describe results and trade-offs, including the impact on flexibility, extensibility and portability.",
+        "right": true,
+        "comment": "L5, slide 9"
+      },
+      {
+        "body": "The solution element contains the exact source code that must be used in every application.",
+        "right": false,
+        "comment": "L5, slides 8-9: Sample code is a separate, illustrative part; the solution does not describe a concrete implementation."
+      }
+    ],
+    "source": "L5, slides 8-9"
+  },
+  {
+    "name": "GoF patterns are classified by purpose into creational, structural and behavioral. Which of the listed patterns are structural?",
+    "answers": [
+      {
+        "body": "Adapter",
+        "right": true,
+        "comment": "L5, slide 12"
+      },
+      {
+        "body": "Composite",
+        "right": true,
+        "comment": "L5, slide 12"
+      },
+      {
+        "body": "Decorator",
+        "right": true,
+        "comment": "L5, slide 12"
+      },
+      {
+        "body": "Proxy",
+        "right": true,
+        "comment": "L5, slide 12"
+      },
+      {
+        "body": "Iterator",
+        "right": false,
+        "comment": "L5, slide 13: behavioral – deals with dynamic interactions."
+      },
+      {
+        "body": "Builder",
+        "right": false,
+        "comment": "L5, slide 11: creational – deals with creating and configuring objects."
+      }
+    ],
+    "source": "L5, slides 10-14"
+  },
+  {
+    "name": "Which short characterizations of GoF patterns are correct?",
+    "answers": [
+      {
+        "body": "Builder – factory for building complex objects incrementally.",
+        "right": true,
+        "comment": "L5, slide 11"
+      },
+      {
+        "body": "Prototype – factory for instantiating new objects by cloning them from a prototype.",
+        "right": true,
+        "comment": "L5, slide 11"
+      },
+      {
+        "body": "Chain of Responsibility – a request is delegated to the responsible service provider.",
+        "right": true,
+        "comment": "L5, slide 13"
+      },
+      {
+        "body": "Flyweight – many fine-grained objects shared efficiently.",
+        "right": true,
+        "comment": "L5, slide 12"
+      },
+      {
+        "body": "Mediator – stores and recovers object state.",
+        "right": false,
+        "comment": "L5, slide 13: That is Memento; Mediator coordinates interactions between its associates."
+      },
+      {
+        "body": "Facade – extends an object transparently.",
+        "right": false,
+        "comment": "L5, slide 12: That is Decorator; Facade simplifies and aggregates the interface of a complex subsystem."
+      }
+    ],
+    "source": "L5, slides 11-14"
+  },
+  {
+    "name": "Patterns are also organized by scope. Which statements about class scope and object scope are correct?",
+    "answers": [
+      {
+        "body": "Class-scope patterns deal with relations between base classes and their subclasses (static semantics).",
+        "right": true,
+        "comment": "L5, slide 15"
+      },
+      {
+        "body": "Object-scope patterns deal with relationships between peer objects; reuse is achieved by varying object composition rather than by subclassing.",
+        "right": true,
+        "comment": "L5, slide 15"
+      },
+      {
+        "body": "Factory Method, Interpreter and Template Method have class scope.",
+        "right": true,
+        "comment": "L5, slide 15"
+      },
+      {
+        "body": "Adapter appears in both scopes – as a class adapter and as an object adapter.",
+        "right": true,
+        "comment": "L5, slide 15"
+      },
+      {
+        "body": "Singleton and Composite have class scope.",
+        "right": false,
+        "comment": "L5, slide 15: Both are listed under object scope."
+      }
+    ],
+    "source": "L5, slide 15"
+  },
+  {
+    "name": "A chemistry application models ChemStructure → Molecule → Residue → Atom, each containing 1..* objects of the next class. Every object in a running OO system must be reachable by a reference. Which statements are correct?",
+    "answers": [
+      {
+        "body": "Every class must be associated with another class, or there are only a few (often one) instances with well-known access points.",
+        "right": true,
+        "comment": "L5, slide 19"
+      },
+      {
+        "body": "Atoms are reachable from their residue, residues from their molecule, but nothing provides a reference to the (possibly multiple) chemical structures.",
+        "right": true,
+        "comment": "L5, slide 19"
+      },
+      {
+        "body": "Introducing a Singleton Model class with instance() that manages the chemical structures provides the missing well-known access point.",
+        "right": true,
+        "comment": "L5, slides 20, 23"
+      },
+      {
+        "body": "Each Atom should keep a global static list of all ChemStructure objects so that any atom can serve as the access point.",
+        "right": false,
+        "comment": "L5, slides 19-23: The access point is a dedicated sole instance (Singleton Model); scattering global state is criticized (slide 22)."
+      }
+    ],
+    "source": "L5, slides 19-23"
+  },
+  {
+    "name": "Which elements belong to a classic (lazy) Singleton implementation?",
+    "answers": [
+      {
+        "body": "A private static attribute uniqueInstance holding the sole instance.",
+        "right": true,
+        "comment": "L5, slide 20"
+      },
+      {
+        "body": "A public static (class) method instance() that creates the instance on the first call if it is null and then always returns it.",
+        "right": true,
+        "comment": "L5, slide 20"
+      },
+      {
+        "body": "A protected constructor, so that clients cannot create further instances with new.",
+        "right": true,
+        "comment": "L5, slide 20"
+      },
+      {
+        "body": "A public constructor that every client calls to obtain its own copy.",
+        "right": false,
+        "comment": "L5, slide 20: The constructor is protected; clients use instance()."
+      },
+      {
+        "body": "Making operation1() and operation2() static, so that no instance is ever created.",
+        "right": false,
+        "comment": "L5, slides 20-21: Operations are instance methods; static operations are less flexible (not virtual, hard to allow more instances)."
+      }
+    ],
+    "source": "L5, slides 20-21"
+  },
+  {
+    "name": "Which are consequences of the Singleton pattern that make it preferable to using only static (class) operations?",
+    "answers": [
+      {
+        "body": "Controlled access to the sole instance.",
+        "right": true,
+        "comment": "L5, slide 21"
+      },
+      {
+        "body": "The Singleton class may be subclassed and the application configured at run-time with an instance of the extended class.",
+        "right": true,
+        "comment": "L5, slide 21"
+      },
+      {
+        "body": "It permits a variable number of instances later, which is hard with purely static operations.",
+        "right": true,
+        "comment": "L5, slide 21"
+      },
+      {
+        "body": "Static functions are never virtual, so subclasses cannot override them polymorphically; Singleton instance methods can be overridden.",
+        "right": true,
+        "comment": "L5, slide 21"
+      },
+      {
+        "body": "Singleton makes unit tests fully independent of each other because it carries no state.",
+        "right": false,
+        "comment": "L5, slide 22: The opposite – singletons carry state for the application's lifetime, so tests may need ordering."
+      }
+    ],
+    "source": "L5, slides 21-22"
+  },
+  {
+    "name": "Why are Singletons sometimes considered anti-patterns?",
+    "answers": [
+      {
+        "body": "They introduce a global instance/state; making something global to avoid passing it around is a code smell.",
+        "right": true,
+        "comment": "L5, slide 22"
+      },
+      {
+        "body": "They violate the single responsibility principle because they control their own creation and life cycle.",
+        "right": true,
+        "comment": "L5, slide 22"
+      },
+      {
+        "body": "They are difficult to test, because they carry state for the lifetime of the application and tests may need to be ordered.",
+        "right": true,
+        "comment": "L5, slide 22"
+      },
+      {
+        "body": "They cause problems with concurrency; dependency injection and ORM of modern frameworks (e.g. Spring) are suggested instead.",
+        "right": true,
+        "comment": "L5, slide 22"
+      },
+      {
+        "body": "They cannot be accessed from more than one class.",
+        "right": false,
+        "comment": "L5, slide 20: A Singleton is accessible from anywhere through its well-known access point."
+      }
+    ],
+    "source": "L5, slide 22"
+  },
+  {
+    "name": "Which statements about the Composite pattern are correct?",
+    "answers": [
+      {
+        "body": "Component provides a generic interface (operation, add, remove, getChild) for any node of the tree and is usually not instantiated.",
+        "right": true,
+        "comment": "L5, slide 26"
+      },
+      {
+        "body": "A Composite implements operation() by forwarding it to all its children.",
+        "right": true,
+        "comment": "L5, slide 26"
+      },
+      {
+        "body": "It is applicable when clients should treat individual objects and compositions uniformly in part-whole hierarchies.",
+        "right": true,
+        "comment": "L5, slide 27"
+      },
+      {
+        "body": "It makes it easy to add new kinds of nodes (open-closed principle), but can make the design overly general – it is harder to restrict which components a composite may contain.",
+        "right": true,
+        "comment": "L5, slide 27"
+      },
+      {
+        "body": "Clients must always check whether a node is a leaf or a composite before calling operation().",
+        "right": false,
+        "comment": "L5, slide 27: Clients can ignore the difference and treat all objects uniformly."
+      }
+    ],
+    "source": "L5, slides 26-27"
+  },
+  {
+    "name": "A Composite hierarchy has two kinds of composites (Composite1, Composite2) and two kinds of leaves (Leaf1, Leaf2). Variant A introduces an abstract Composite superclass (with add, remove, getChild and the children association) for both composites and an abstract Leaf superclass for both leaves. Variant B lets each concrete class inherit directly from Component and implement the child management itself. Which statements are correct?",
+    "answers": [
+      {
+        "body": "For composites, variant A is strongly recommended; if the composites store children differently, subclasses can still override the behavior.",
+        "right": true,
+        "comment": "L5, slide 29"
+      },
+      {
+        "body": "For leaves, variant A is preferred even if the leaves share nothing now, because they may share something in the future (e.g. a new auto-propagating method).",
+        "right": true,
+        "comment": "L5, slide 30"
+      },
+      {
+        "body": "With a common Leaf supertype, a client can check whether a node is a leaf by checking whether the instance belongs to the Leaf type.",
+        "right": true,
+        "comment": "L5, slide 30"
+      },
+      {
+        "body": "Variant B is preferred because duplicating the child management in each composite keeps the classes independent.",
+        "right": false,
+        "comment": "L5, slides 29-30: The lecture recommends the variant with common supertypes; duplication is what the generalization removes (slide 25)."
+      }
+    ],
+    "source": "L5, slides 29-30"
+  },
+  {
+    "name": "Which statements about the Iterator pattern are correct?",
+    "answers": [
+      {
+        "body": "Aggregate declares createIterator(); ConcreteAggregate returns new ConcreteIterator(this), so the iterator obtains a link to its originating aggregate.",
+        "right": true,
+        "comment": "L5, slides 35-36"
+      },
+      {
+        "body": "The Iterator interface offers operations such as first(), next(), hasNext() and current().",
+        "right": true,
+        "comment": "L5, slide 35"
+      },
+      {
+        "body": "A typical traversal: the client calls createIterator(), then while hasNext() it calls current() and next(), and finally the iterator is destroyed.",
+        "right": true,
+        "comment": "L5, slide 36"
+      },
+      {
+        "body": "The Aggregate interface should additionally offer getItem() so that clients can access elements directly.",
+        "right": false,
+        "comment": "L5, slide 35: The aggregate has no getItem()-like method; access goes through the iterator."
+      },
+      {
+        "body": "Only one traversal of an aggregate can be pending at a time.",
+        "right": false,
+        "comment": "L5, slide 37: More than one traversal can be pending on an aggregate."
+      }
+    ],
+    "source": "L5, slides 35-37"
+  },
+  {
+    "name": "A Line class in a public transport system offers getWorkdays(): [Stop] and getWeekends(): [Stop]. It is redesigned so that Line (an aggregate) offers getIterator(dayType), which instantiates a TimetableIterator with subclasses WorkdayIterator and WeekendIterator. Which statements are correct?",
+    "answers": [
+      {
+        "body": "The redesign supports multiple variations of the traversal; a new kind of day needs a new iterator, not a change of Line – the open-closed principle.",
+        "right": true,
+        "comment": "L5, slide 40"
+      },
+      {
+        "body": "The redesign simplifies the Line interface – the single responsibility principle.",
+        "right": true,
+        "comment": "L5, slides 37, 40"
+      },
+      {
+        "body": "Iterators let clients access the stops without exposing Line's internal representation of its collection.",
+        "right": true,
+        "comment": "L5, slide 37"
+      },
+      {
+        "body": "Every aggregation in a model should get its own special iterator class, even when a standard collection would do.",
+        "right": false,
+        "comment": "L5, slide 41: Standard collections with their iterators can be used for most cases."
+      },
+      {
+        "body": "Each composite or aggregate class necessarily needs its own dedicated iterator class.",
+        "right": false,
+        "comment": "L5, slide 38: One iterator can be shared by multiple composites."
+      }
+    ],
+    "source": "L5, slides 37-41"
+  },
+  {
+    "name": "Which pairs of a Java core API element and the design pattern it exemplifies are correct?",
+    "answers": [
+      {
+        "body": "java.lang.Runtime#getRuntime() and java.awt.Desktop#getDesktop() – Singleton",
+        "right": true,
+        "comment": "L5, slide 24"
+      },
+      {
+        "body": "java.awt.Container#add(Component) – Composite",
+        "right": true,
+        "comment": "L5, slide 31"
+      },
+      {
+        "body": "java.util.Collection#iterator() and the for-each loop – Iterator",
+        "right": true,
+        "comment": "L5, slide 39"
+      },
+      {
+        "body": "java.awt.Container#add(Component) – Singleton",
+        "right": false,
+        "comment": "L5, slide 31: A container holding components is a Composite."
+      },
+      {
+        "body": "java.util.Collection#iterator() – Composite",
+        "right": false,
+        "comment": "L5, slide 39: It returns an Iterator."
+      }
+    ],
+    "source": "L5, slides 24, 31, 39"
+  },
+  {
+    "name": "In a chemistry model the sole Model instance manages ChemStructures. Which statements about combining patterns in such a model are correct?",
+    "answers": [
+      {
+        "body": "Patterns are often combined: the Model class can be both a Singleton and a composite node of the Composite tree.",
+        "right": true,
+        "comment": "L5, slide 28"
+      },
+      {
+        "body": "A composite operation such as setColor() can be applied by a group element to all its children.",
+        "right": true,
+        "comment": "L5, slide 28"
+      },
+      {
+        "body": "The composite classes can also play the aggregate role of Iterator, offering createIterator() to hide how the children are stored.",
+        "right": true,
+        "comment": "L5, slides 34, 38"
+      },
+      {
+        "body": "A class may play a role in only one pattern at a time.",
+        "right": false,
+        "comment": "L5, slides 28, 38: Classes such as Model play roles in several patterns (singleton, composite, iterator aggregate)."
+      }
+    ],
+    "source": "L5, slides 28, 34, 38"
+  },
+  {
+    "name": "Practical modeling: a chemistry application has the classes Model (a Singleton with instance() and loadChemStructure(File)), ChemStructure, Molecule, Residue and Atom. Each of the first four has its own nearly identical methods addX/removeX/getX(int) for the next level (ChemStructure manages molecules, Molecule residues, Residue atoms), and each level contains 1..* objects of the next. Redesign the model with the Composite pattern in a UML class diagram, add an operation setColor(Color) that colours a whole subtree, and explain which roles the classes play and what the redesign improves. Then explain how you would hide how the children are stored and allow different traversals.",
+    "answer": "The model is a tree of objects, so the classes can be generalized to a parent-child abstraction. Introduce an abstract &lt;&lt;composite-component&gt;&gt; ModelElement with add(ModelElement), remove(ModelElement), get(int): ModelElement and setColor(Color). &lt;&lt;composite-leaf&gt;&gt; Atom inherits from ModelElement and keeps its color attribute; setColor() sets it. &lt;&lt;composite-composite&gt;&gt; GroupElement inherits from ModelElement, holds the subElements association (1..* ModelElement, with superElement as the opposite end), implements add/remove/get and implements setColor() by applying it to all children. Molecule, Residue, ChemStructure and Model become subclasses of GroupElement; Model additionally stays a &lt;&lt;singleton&gt;&gt; with instance() and loadChemStructure(File) – patterns are often combined. Improvements: the duplicated addX/removeX/getX methods are replaced by unified methods, clients treat atoms and groups uniformly, and new kinds of nodes are easy to add (open-closed principle); the trade-off is a more general design that makes it harder to restrict which children a node may have (e.g. that a Residue contains only Atoms). To hide the representation of children and support various traversals, think of composite nodes as containers and apply Iterator: the composites (aggregates) offer createIterator(): Iterator, the subElements attribute can move to the individual subclasses so each can store children differently, and iterator classes such as ResidueIterator or ChemStructureIterator are instantiated by the composites; one iterator can be shared by several composites.",
+    "keyPoints": [
+      "Abstract component ModelElement with add, remove, get(int), setColor",
+      "Atom = leaf; GroupElement = composite with subElements 1..* and superElement",
+      "Molecule, Residue, ChemStructure, Model inherit from GroupElement; Model also Singleton",
+      "GroupElement.setColor applies setColor to all children",
+      "Benefits: no duplicated methods, uniform treatment, easy extension (OCP); cost: harder to restrict children",
+      "Iterator: composites as aggregates with createIterator(); iterators can be shared"
+    ],
+    "source": "L5, slides 23-28, 34, 38"
+  },
+  {
+    "name": "Practical modeling: a public transport company models a city plan. A CityPlan contains Lines; a Line has Stops and a LineNumber; ConstructionSigns can be attached either to a Line or to a Stop (exclusively). There are TramLines, BusLines and TrolleyBusLines. A first model (as typically produced by an unguided LLM) uses a separate dedicated association for every pair of classes. Explain why this model is weak when a new kind of element (for example another type of sign) must be added. Then redesign it with the Composite pattern so that every element of the plan can be highlighted with highlight(), and indicate which class is a candidate for another pattern.",
+    "answer": "The objects of the city plan form a tree: CityPlan → Line → Stop/LineNumber, with ConstructionSigns under a Line or a Stop. With a dedicated association for every pair (CityPlan–Line, Line–Stop, Line–LineNumber, Line or Stop–ConstructionSign with an {XOR} constraint), every new kind of element (e.g. another type of sign) requires new associations and new methods in the classes that contain it – the extensibility and maintainability of the model is weak. Composite redesign: an abstract CityPlanElement (component) with highlight(); an abstract Leaf and an abstract Composite inherit from it, the Composite holding the children association (* CityPlanElement) and implementing highlight() for all children. ConstructionSign and LineNumber are leaves (ConstructionSign placed under a Line or a Stop, LineNumber under a Line); CityPlan, Line and Stop are composites (Line under CityPlan, Stop under Line). The CityPlan is the root of the tree and therefore a candidate for the Singleton pattern. A new kind of element (e.g. another sign type) then becomes just another Leaf subclass. Trade-off: the generic children association no longer enforces which elements may be placed where, so these rules must be checked elsewhere.",
+    "keyPoints": [
+      "Model is a tree of objects; pairwise associations make every new element costly (weak extensibility)",
+      "CityPlanElement component with highlight()",
+      "Abstract Leaf and Composite; Composite holds children and propagates highlight()",
+      "Leaves: ConstructionSign (under Line or Stop), LineNumber (under Line); composites: CityPlan, Line, Stop",
+      "CityPlan = root, candidate for Singleton",
+      "New element = new leaf; placement rules no longer enforced by associations"
+    ],
+    "source": "L5, slides 26-27, 33"
+  }
+]

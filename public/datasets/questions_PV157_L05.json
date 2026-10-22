@@ -1,0 +1,656 @@
+[
+  {
+    "name": "Ověřovatel dostal podpis, ale ne podepsaný dokument. Která tvrzení o schématech s přílohou a s obnovou zprávy jsou správná?",
+    "answers": [
+      {
+        "body": "Čisté RSA (bez haše) podpis bez dokumentu neověří, protože každé schéma potřebuje podepsaná data.",
+        "right": false,
+        "comment": "Slide 5: čisté RSA je schéma s obnovou zprávy – podpis data „obsahuje“ a další data k ověření nejsou potřeba."
+      },
+      {
+        "body": "DSA podpis bez dokumentu ověří, protože DSA umí podepsanou zprávu z podpisu obnovit.",
+        "right": false,
+        "comment": "Slide 5: DSA (stejně jako ElGamal a Schnorr) je schéma s přílohou – pro ověření potřebuje i oddělená podepsaná data."
+      },
+      {
+        "body": "Podepíše-li se u RSA jen haš, z podpisu se získá haš, a ověřovatel tedy potřebuje i dokument (schéma s přílohou).",
+        "right": true,
+        "comment": "Slide 5: schéma s obnovou zprávy se jednoduše převede na schéma s přílohou podepsáním haše dat."
+      },
+      {
+        "body": "Podepsáním haše se schéma s přílohou převede na schéma s obnovou zprávy, které dokument nepotřebuje.",
+        "right": false,
+        "comment": "Slide 5: převod funguje opačně – z obnovy zprávy na schéma s přílohou."
+      },
+      {
+        "body": "U schématu s přílohou podpis ověří i bez dokumentu, pokud zná veřejný klíč podepisujícího.",
+        "right": false,
+        "comment": "Slide 5: ani se znalostí veřejného klíče to nejde – schéma s přílohou potřebuje k ověření i podepsaná data."
+      }
+    ]
+  },
+  {
+    "name": "Které údaje obsahuje certifikát veřejného klíče (např. podle X.509v3)?",
+    "answers": [
+      {
+        "body": "Identifikaci vydavatele i subjektu, sériové číslo v rámci vydavatele a dobu platnosti.",
+        "right": true,
+        "comment": "Slide 9–10: issuer, subject, serialNumber, validity (notBefore, notAfter)."
+      },
+      {
+        "body": "Veřejný klíč subjektu s identifikací algoritmu a podpis vydavatele.",
+        "right": true,
+        "comment": "Slide 9–10: subjectPublicKeyInfo (algID, bits), signatureAlgorithm a signature vydavatele."
+      },
+      {
+        "body": "Soukromý klíč subjektu, aby jej mohl použít na různých zařízeních.",
+        "right": false,
+        "comment": "Slide 8: certifikát je veřejný klíč uživatele podepsaný soukromým klíčem důvěryhodné třetí strany; soukromý klíč subjektu neobsahuje."
+      },
+      {
+        "body": "Seznam zneplatněných certifikátů (CRL) vydavatele.",
+        "right": false,
+        "comment": "Slide 12, 14: CRL uchovává a distribuuje adresářová služba, není součástí certifikátu."
+      },
+      {
+        "body": "Soukromý klíč vydavatele, aby mohl kdokoli podpis certifikátu ověřit.",
+        "right": false,
+        "comment": "Slide 6, 8: soukromý klíč vydavatele slouží jen k podpisu certifikátu a zůstává tajný; ověřuje se veřejným klíčem CA."
+      }
+    ]
+  },
+  {
+    "name": "Žadatel si doma vygeneroval pár klíčů a chce certifikát. Jak proces vydání pokračuje a kdo v PKI co dělá?",
+    "answers": [
+      {
+        "body": "Doma vygenerované klíče jsou přípustné; klíčová data může vygenerovat uživatel i poskytovatel certifikačních služeb.",
+        "right": true,
+        "comment": "Slide 15: generování klíčových dat – uživatelem pomocí dostupného SW, případně u poskytovatele (PCS)."
+      },
+      {
+        "body": "Žádost přijme a identitu prověří registrační autorita; ta je ale nepovinnou složkou PKI.",
+        "right": true,
+        "comment": "Slide 12–13: RA registruje žadatele a prověřuje identitu; je to nepovinná složka."
+      },
+      {
+        "body": "Po ověření údajů certifikační autorita certifikát podepíše, předá žadateli a zveřejní.",
+        "right": true,
+        "comment": "Slide 15: tvorba certifikátu – CA vytvoří data a podepíše je; certifikát je předán žadateli a zveřejněn."
+      },
+      {
+        "body": "Žadatel předá spolu s veřejným klíčem i soukromý klíč, aby jej CA mohla vložit do certifikátu.",
+        "right": false,
+        "comment": "Slide 8, 22: certifikát obsahuje veřejný klíč; soukromý klíč musí zůstat v tajnosti."
+      },
+      {
+        "body": "Veřejný adresář slouží k zálohování soukromých klíčů žadatelů pro případ jejich ztráty.",
+        "right": false,
+        "comment": "Slide 14: zálohování a archivace klíčů patří do privátního adresáře pod ochranou CA; veřejný distribuuje certifikáty a CRL."
+      }
+    ]
+  },
+  {
+    "name": "Firma A má certifikáty od certifikační autority CA1, firma B od nezávislé CA2. Jak lze dosáhnout, aby si firmy mohly navzájem ověřovat podpisy?",
+    "answers": [
+      {
+        "body": "CA1 a CA2 se vzájemně certifikují (křížové ověření, tzv. mesh PKI architektura).",
+        "right": true,
+        "comment": "Slide 16: křížové ověření CA na úrovni kořenových nebo primárních CA."
+      },
+      {
+        "body": "Obě CA se podřídí společné kořenové CA, která jim vydá certifikáty.",
+        "right": true,
+        "comment": "Slide 16: kořenová hierarchie – primární CA vydává certifikáty podřízeným CA."
+      },
+      {
+        "body": "Při nekompatibilních implementacích CA se autority propojí přes bránu.",
+        "right": true,
+        "comment": "Slide 16: ověření CA přes brány při nekompatibilních implementacích CA."
+      },
+      {
+        "body": "CA1 předá CA2 svůj soukromý klíč, aby mohla podepisovat i jejím jménem.",
+        "right": false,
+        "comment": "Slide 16, 22: řešením je vzájemné propojení CA; kdo má přístup k soukromému klíči, může vytvářet platné podpisy, klíč se nesdílí."
+      },
+      {
+        "body": "Firma A si stáhne certifikát firmy B z jejího webu; certifikát dokazuje svou pravost sám, bez ohledu na CA2.",
+        "right": false,
+        "comment": "Slide 23: certifikát má hodnotu jen díky podpisu důvěryhodné CA a otázkou zůstává integrita klíče CA."
+      }
+    ]
+  },
+  {
+    "name": "Firma posílá soubory partnerovi. Které dvojice požadavek → vhodná metoda jsou správné?",
+    "answers": [
+      {
+        "body": "Odhalit náhodné poškození souboru při přenosu, bez ochrany proti útočníkovi – stačí CRC.",
+        "right": true,
+        "comment": "Slide 18, 38: CRC slouží k detekci neúmyslných chyb, bez kryptografie zajišťuje jen integritu."
+      },
+      {
+        "body": "Partner má odhalit úmyslnou změnu a obě strany sdílejí tajný klíč – MAC.",
+        "right": true,
+        "comment": "Slide 39: u MAC sdílí původce a příjemce tajný klíč a MAC zajišťuje integritu dat."
+      },
+      {
+        "body": "Třetí strana (soud) má posoudit, že soubor vytvořila právě firma – digitální podpis, protože klíč MAC zná i příjemce.",
+        "right": true,
+        "comment": "Slide 2, 20: podpis vytvoří jen držitel soukromého klíče a zajišťuje nepopiratelnost původu; že MAC to kvůli sdílenému klíči nedokáže, je odvozeno."
+      },
+      {
+        "body": "Utajit obsah souboru před cizími – MAC, protože bez klíče nelze zprávu ověřit.",
+        "right": false,
+        "comment": "Slide 39: MAC slouží k zajištění integrity, ne důvěrnosti dat."
+      },
+      {
+        "body": "Chránit soubor proti úmyslné změně – CRC, protože útočník nezná použitý polynom.",
+        "right": false,
+        "comment": "Slide 38: kontrolní součet je snadné spočítat i podvrhnout, proti úmyslné modifikaci nechrání."
+      }
+    ]
+  },
+  {
+    "name": "Jak lze zkonstruovat autentizační kód zprávy (MAC)?",
+    "answers": [
+      {
+        "body": "Ze symetrické šifry v režimu CBC, kde každý blok závisí na všech předchozích; MAC je poslední hodnota.",
+        "right": true,
+        "comment": "Slide 40–41: MAC z libovolné symetrické šifry v CBC režimu, např. MAC založený na AES."
+      },
+      {
+        "body": "Z hašovací funkce s tajným klíčem, např. \\(\\mathrm{HMAC}(x) = h(k \\,\\|\\, p_1 \\,\\|\\, h(k \\,\\|\\, p_2 \\,\\|\\, x))\\).",
+        "right": true,
+        "comment": "Slide 40: MAC lze získat z hašovací funkce s tajným prefixem či sufixem; \\(k\\) je klíč, \\(p_1, p_2\\) doplnění."
+      },
+      {
+        "body": "Z hašovací funkce bez klíče: jako MAC stačí ke zprávě připojit \\(h(x)\\).",
+        "right": false,
+        "comment": "Slide 39: MAC je \\(h_k(x)\\) s tajným klíčem; samotné \\(h(x)\\) umí útočník po změně zprávy spočítat znovu."
+      },
+      {
+        "body": "Z blokové šifry v režimu, kde se každý blok šifruje nezávisle na ostatních, a jako MAC se vezme první zašifrovaný blok.",
+        "right": false,
+        "comment": "Slide 40: používá se CBC, aby výsledek závisel na všech datech; první blok závisí jen na začátku zprávy."
+      },
+      {
+        "body": "Odesílatel MAC spočítá svým soukromým klíčem a příjemce jej ověří odesílatelovým veřejným klíčem.",
+        "right": false,
+        "comment": "Slide 39: u MAC původce a příjemce sdílejí jeden tajný klíč; soukromý a veřejný klíč patří k podpisu."
+      }
+    ]
+  },
+  {
+    "name": "Alice chce Bobovi poslat smlouvu podepsanou a zašifrovanou. Jak má postupovat?",
+    "answers": [
+      {
+        "body": "Nejprve smlouvu podepíše a teprve pak ji zašifruje – jako u dopisu: podpis, potom obálka.",
+        "right": true,
+        "comment": "Slide 21: při kombinaci šifrování veřejným klíčem a podpisu se dokument nejprve podepíše, pak zašifruje."
+      },
+      {
+        "body": "Podepíše smlouvu jako celek (resp. její haš), ne každou část zvlášť.",
+        "right": true,
+        "comment": "Slide 21: není bezpečné rozdělit dokument na několik částí a ty podepsat separátně."
+      },
+      {
+        "body": "Má-li být prokazatelný okamžik podpisu, připojí časové razítko; podpis sám čas neprokazuje.",
+        "right": true,
+        "comment": "Slide 20, 77: digitální podpis nedává záruku o době vytvoření; časové razítko prokazuje existenci dat v okamžiku."
+      },
+      {
+        "body": "Nejprve smlouvu zašifruje a podepíše šifrový text, aby podpis neprozradil obsah.",
+        "right": false,
+        "comment": "Slide 21: správné pořadí je opačné – nejprve podpis, potom šifrování."
+      },
+      {
+        "body": "Bob podpis ověří veřejným klíčem, který mu e-mailem poslal neznámý odesílatel, i bez certifikátu.",
+        "right": false,
+        "comment": "Slide 22–23: je nutné zajistit integritu veřejného klíče (certifikátem), jinak lze dojít k nesprávným závěrům."
+      }
+    ]
+  },
+  {
+    "name": "Firma chce po odchodu zaměstnance neztratit přístup k jím zašifrovaným datům (key recovery). Jak má klíče řešit?",
+    "answers": [
+      {
+        "body": "Používat oddělené klíče pro šifrování a pro podpis, s rozdílným přístupem k nim.",
+        "right": true,
+        "comment": "Slide 24: obrana zaměstnavatele – rozdílný přístup k šifrovacímu a podepisovacímu klíči."
+      },
+      {
+        "body": "Umožnit obnovu šifrovacího klíče, podepisovací klíč ale ponechat jen zaměstnanci.",
+        "right": true,
+        "comment": "Slide 22, 24: obnova šifrovacího klíče řeší přístup k datům; podepisovací klíč musí zůstat tajný (rozdělení je odvozeno ze slide 24)."
+      },
+      {
+        "body": "Zálohovat u firmy i podepisovací klíč, aby mohla podepisovat i po odchodu zaměstnance.",
+        "right": false,
+        "comment": "Slide 22: každý, kdo má přístup k privátnímu klíči, může vytvářet platné podpisy – firma by mohla podepisovat za zaměstnance."
+      },
+      {
+        "body": "Použít jeden pár klíčů pro šifrování i podpis a ten celý zálohovat u firmy.",
+        "right": false,
+        "comment": "Slide 24: jedna dvojice klíčů pro šifrování i podpis není příliš vhodná kombinace."
+      },
+      {
+        "body": "Obnova klíčů není potřeba, protože data lze v nouzi dešifrovat veřejným klíčem.",
+        "right": false,
+        "comment": "Slide 28: dešifruje se soukromým exponentem \\(d\\); veřejným klíčem data dešifrovat nelze."
+      }
+    ]
+  },
+  {
+    "name": "Která tvrzení o algoritmu RSA a jeho bezpečnosti platí?",
+    "answers": [
+      {
+        "body": "Volí se prvočísla \\(p, q\\); \\(n = p \\cdot q\\), \\(\\varphi(n) = (p-1)(q-1)\\), \\(e\\) splňuje \\(\\gcd(e, \\varphi(n)) = 1\\) a \\(d = e^{-1} \\bmod \\varphi(n)\\).",
+        "right": true,
+        "comment": "Slide 28: volba parametrů RSA – \\(n\\) z prvočísel, \\(e\\) nesoudělné s \\(\\varphi(n)\\), \\(d\\) jako jeho inverze modulo \\(\\varphi(n)\\)."
+      },
+      {
+        "body": "Veřejný klíč je \\((n, e)\\); \\(p\\), \\(q\\) a \\(d\\) zůstávají neveřejné.",
+        "right": true,
+        "comment": "Slide 28: veřejný klíč \\(n, e\\), neveřejné parametry \\(p, q, d\\)."
+      },
+      {
+        "body": "Faktorizovat \\(n\\) lze i zkoušením dělitelů do \\(\\sqrt{n}\\); bezpečnost je jen výpočetní – pro čísla o tisících bitů to neumíme v rozumném čase.",
+        "right": true,
+        "comment": "Slide 30: výpočetní bezpečnost – faktorizace je možná, ale u velkých čísel ne v rozumném čase."
+      },
+      {
+        "body": "Kdo zná \\(n\\) a \\(e\\), spočítá \\(d\\) snadno, protože \\(\\varphi(n)\\) lze určit bez faktorizace \\(n\\).",
+        "right": false,
+        "comment": "Slide 28, 30: k výpočtu \\(\\varphi(n)\\) jsou potřeba \\(p\\) a \\(q\\); bezpečnost stojí na nesnadnosti faktorizace."
+      },
+      {
+        "body": "Rychlejší faktorizace by RSA neohrozila, protože soukromý klíč nejde odvodit ani ze známých \\(p\\) a \\(q\\).",
+        "right": false,
+        "comment": "Slide 28, 30: kdo zná \\(p\\) a \\(q\\), spočítá \\(\\varphi(n)\\) i \\(d\\); pokrok ve faktorizaci proto může umožnit odvodit soukromý klíč z veřejného."
+      }
+    ]
+  },
+  {
+    "name": "Alice používá (úmyslně příliš malé) RSA s \\(p = 61\\), \\(q = 53\\) a \\(e = 17\\). Která tvrzení jsou správná?",
+    "answers": [
+      {
+        "body": "\\(n = 3233\\) a \\(\\varphi(n) = 60 \\cdot 52 = 3120\\).",
+        "right": true,
+        "comment": "Slide 28: \\(n = 61 \\cdot 53 = 3233\\), \\(\\varphi(n) = (61-1)(53-1) = 3120\\)."
+      },
+      {
+        "body": "\\(d = 2753\\), protože \\(17 \\cdot 2753 = 46801 = 15 \\cdot 3120 + 1\\).",
+        "right": true,
+        "comment": "Slide 28: \\(d = e^{-1} \\bmod \\varphi(n)\\), tedy \\(e \\cdot d \\equiv 1 \\pmod{3120}\\)."
+      },
+      {
+        "body": "Podpis zprávy \\(m\\) je \\(s = m^{d} \\bmod n\\); ověřovatel spočítá \\(s^{e} \\bmod n\\) a výsledek porovná s \\(m\\).",
+        "right": true,
+        "comment": "Slide 29: podpis privátním exponentem, ověření veřejným; např. pro \\(m = 65\\) vyjde \\(s = 588\\) a \\(588^{17} \\bmod 3233 = 65\\)."
+      },
+      {
+        "body": "Alicin veřejný klíč je \\((n, d) = (3233, 2753)\\) a soukromým klíčem je \\(e = 17\\).",
+        "right": false,
+        "comment": "Slide 28–29: veřejný klíč je \\((n, e) = (3233, 17)\\); \\(d\\) je soukromý."
+      },
+      {
+        "body": "\\(\\varphi(n) = n - 1 = 3232\\), protože \\(\\varphi\\) počítá čísla menší než \\(n\\).",
+        "right": false,
+        "comment": "Slide 28: \\(n - 1\\) by platilo pro prvočíslo \\(n\\); pro \\(n = p \\cdot q\\) je \\(\\varphi(n) = (p-1)(q-1)\\)."
+      }
+    ]
+  },
+  {
+    "name": "Která tvrzení o kryptografických hašovacích funkcích a narozeninovém paradoxu platí?",
+    "answers": [
+      {
+        "body": "Vstup má libovolnou délku a výstup pevnou délku (typicky 256 bitů), takže funkce není prostá a kolize existují.",
+        "right": true,
+        "comment": "Slide 32: vstup libovolné délky, výstup pevné délky, funkce není prostá (vznikají kolize)."
+      },
+      {
+        "body": "Ve skupině 23 lidí mají dva stejné narozeniny s pravděpodobností nad 50 %; proto je libovolná kolize snazší než kolize s daným hašem.",
+        "right": true,
+        "comment": "Slide 34: narozeninový paradox – hledání libovolné kolize má větší šanci než hledání kolize se specifickou hodnotou."
+      },
+      {
+        "body": "Dobrá kryptografická hašovací funkce je prostá, takže dva různé vstupy nemohou dát stejný haš.",
+        "right": false,
+        "comment": "Slide 32–33: funkce není prostá; kolize existují, jen je nelze v rozumném čase najít."
+      },
+      {
+        "body": "Narozeninový paradox ukazuje, že najít vzor ke konkrétnímu haši je snazší než najít libovolnou kolizi.",
+        "right": false,
+        "comment": "Slide 34: je to obráceně – libovolná kolize je snazší."
+      },
+      {
+        "body": "Pravděpodobnost shody narozenin ve skupině 23 lidí je asi 23/365, tedy pro útok na haš zanedbatelná.",
+        "right": false,
+        "comment": "Slide 34: pravděpodobnost je více než 50 % – překvapivě vysoká, protože se porovnávají všechny dvojice."
+      }
+    ]
+  },
+  {
+    "name": "Proč je součet bajtů modulo 256 nevhodná hašovací funkce? Pro řetězec „ahoj“ platí \\(h(\\text{ahoj}) = (97 + 104 + 111 + 106) \\bmod 256 = 162\\).",
+    "answers": [
+      {
+        "body": "Řetězec „QQ“ (Q = 81) má stejný haš, protože \\(81 + 81 = 162\\) – kolizi lze sestrojit ručně.",
+        "right": true,
+        "comment": "Slide 35: funkce se snadno počítá, ale nemá vlastnost bezkoliznosti; \\(h(\\text{ahoj}) = h(\\text{QQ})\\)."
+      },
+      {
+        "body": "Přeskupení bajtů (např. „joha“) haš nezmění, takže záměna pořadí dat zůstane neodhalena.",
+        "right": true,
+        "comment": "Slide 35: součet nezávisí na pořadí – další snadno nalezitelná kolize (odvozeno)."
+      },
+      {
+        "body": "Funkce je nevhodná hlavně proto, že se počítá pomalu a pro velká data je nepoužitelná.",
+        "right": false,
+        "comment": "Slide 35: funkci je naopak jednoduché spočítat; problémem je chybějící bezkoliznost."
+      },
+      {
+        "body": "Změna jednoho znaku („ahok“, k = 107) haš nezmění, takže funkce chyby nedetekuje.",
+        "right": false,
+        "comment": "Slide 35: \\(419 \\bmod 256 = 163\\) – haš se změní, ale jen o 1, což ukazuje chybějící lavinový efekt (srov. slide 37, odvozeno)."
+      },
+      {
+        "body": "Kolize u této funkce vznikají mezi řetězci stejné délky; různě dlouhé řetězce kolidovat nemohou.",
+        "right": false,
+        "comment": "Slide 35: „QQ“ má dva znaky a „ahoj“ čtyři, a přesto mají stejný haš."
+      }
+    ]
+  },
+  {
+    "name": "Kterou hašovací funkci zvolit pro nový systém a proč?",
+    "answers": [
+      {
+        "body": "Funkci z rodiny SHA-2 (SHA-256, SHA-384, SHA-512) – ty se doporučuje používat především.",
+        "right": true,
+        "comment": "Slide 36: doporučuje se používat především funkce rodiny SHA-2 (FIPS 180-2)."
+      },
+      {
+        "body": "MD5 nevolit: má 128bitový výstup, známé slabiny a algoritmus pro hledání kolizí.",
+        "right": true,
+        "comment": "Slide 36: u MD5 byly nalezeny významné slabiny; 128 bitů se již nepovažuje za dostatečné."
+      },
+      {
+        "body": "SHA-3 (Keccak), protože jde o delší variantu SHA-2 se stejnou vnitřní konstrukcí a vyšší rychlostí.",
+        "right": false,
+        "comment": "Slide 36: SHA-3 je algoritmus na zcela novém principu, ne varianta SHA-2."
+      },
+      {
+        "body": "SHA-1, protože má 256bitový výstup a je nejnovějším doporučeným standardem NIST.",
+        "right": false,
+        "comment": "Slide 36: SHA-1 má výstup 160 bitů a doporučují se funkce SHA-2."
+      },
+      {
+        "body": "Funkci, u níž podobné vstupy dají podobné haše, aby šlo podobné dokumenty snadno porovnat.",
+        "right": false,
+        "comment": "Slide 37: u dobré hašovací funkce změna jednoho bitu vstupu vede k velké změně výstupu."
+      }
+    ]
+  },
+  {
+    "name": "Windows ověřuje digitální podpis spustitelného souboru (Authenticode). Co platný podpis zaručuje a kde jsou jeho meze?",
+    "answers": [
+      {
+        "body": "Že soubor pochází od uvedeného vydavatele a po podepsání nebyl změněn.",
+        "right": true,
+        "comment": "Slide 45: při bezchybné autentizaci víme, že data jsou z uvedeného zdroje a nebyla modifikována."
+      },
+      {
+        "body": "Když útočník podvodně získá certifikát na jméno vydavatele, kód jím podepsaný se spustí bez varování, dokud certifikát není revokován.",
+        "right": true,
+        "comment": "Slide 46–47: útočník získal od Verisignu certifikáty na jméno Microsoft; podepsaný kód šel spustit bez varování."
+      },
+      {
+        "body": "Že program je bezchybný a neobsahuje škodlivý kód, protože jej prověřila certifikační autorita.",
+        "right": false,
+        "comment": "Slide 45: autentizace dat neznamená, že data jsou správná nebo programy bezchybné či bezpečné."
+      },
+      {
+        "body": "Nepodepsaný nebo neplatně podepsaný soubor systém zablokuje a uživatel jej nemůže spustit.",
+        "right": false,
+        "comment": "Slide 43: je-li podpis neplatný nebo chybí, je interaktivně dotázán uživatel."
+      },
+      {
+        "body": "Že certifikát vydavatele nemohl být zneužit, protože certifikační autority mají pečlivé bezpečnostní předpisy.",
+        "right": false,
+        "comment": "Slide 46: 100% bezpečnost neexistuje – i pečlivé firmy vydaly útočníkovi certifikáty na cizí jméno."
+      }
+    ]
+  },
+  {
+    "name": "Jak funguje metoda „chaffing and winnowing“ (oddělení zrn od plev)?",
+    "answers": [
+      {
+        "body": "Využívá MAC k zajištění důvěrnosti: pro každý bit se pošlou dvě zprávy (s 0 a s 1), jedna se správným a jedna s nesprávným MAC.",
+        "right": true,
+        "comment": "Slide 48: zpráva se rozdělí na bity, pro každý bit dvě zprávy v náhodném pořadí."
+      },
+      {
+        "body": "Příjemce si ponechá zprávu se správným MAC; kdo nezná sdílený klíč, zprávy nerozliší.",
+        "right": true,
+        "comment": "Slide 48: příjemce druhou zprávu zahodí; bez tajného klíče nelze správný a nesprávný MAC odlišit."
+      },
+      {
+        "body": "Bity zprávy se zašifrují symetrickou šifrou se sdíleným klíčem a MAC se při tom nepoužívá.",
+        "right": false,
+        "comment": "Slide 48: princip stojí právě na MAC, ne na šifrování."
+      },
+      {
+        "body": "Správnou zprávu pozná každý pozorovatel, protože správný MAC je delší než nesprávný.",
+        "right": false,
+        "comment": "Slide 48: bez znalosti klíče nelze správný a nesprávný MAC odlišit."
+      },
+      {
+        "body": "Útočník, který zná použitý algoritmus MAC (ale ne klíč), zprávy snadno rozliší.",
+        "right": false,
+        "comment": "Slide 48: rozlišení vyžaduje znalost tajného sdíleného klíče, ne jen algoritmu."
+      }
+    ]
+  },
+  {
+    "name": "Úřad odmítne dokument zaslaný e-mailem jako důkaz jen proto, že je elektronický. Co platí podle nařízení eIDAS?",
+    "answers": [
+      {
+        "body": "Elektronickému dokumentu nelze upírat právní účinky ani jej odmítat jako důkaz jen kvůli elektronické podobě.",
+        "right": true,
+        "comment": "Slide 53: zákaz „diskriminace“ elektronického dokumentu."
+      },
+      {
+        "body": "Elektronickým dokumentem je jakýkoli obsah uchovávaný v elektronické podobě; na formu se nekladou požadavky.",
+        "right": true,
+        "comment": "Slide 52: definice elektronického dokumentu podle eIDAS."
+      },
+      {
+        "body": "Ani elektronický dokument nemá ultimátní sílu – lze jej zpochybnit, stejně jako listinný.",
+        "right": true,
+        "comment": "Slide 51: žádný dokument (elektronický ani papírový) nemá ultimátní sílu."
+      },
+      {
+        "body": "Úřad má pravdu: elektronický dokument je důkazem jen s kvalifikovaným podpisem.",
+        "right": false,
+        "comment": "Slide 53: účinky nesmějí být upírány pouze z důvodu elektronické podoby."
+      },
+      {
+        "body": "eIDAS se týká jen veřejného práva, soukromých vztahů a smluv se nedotýká.",
+        "right": false,
+        "comment": "Slide 56: eIDAS obecně dopadá do veřejného i soukromého práva."
+      }
+    ]
+  },
+  {
+    "name": "Které prostředky elektronické identifikace odpovídají kterým úrovním záruky podle eIDAS a co znamená jejich vzájemné uznávání?",
+    "answers": [
+      {
+        "body": "Jméno a heslo odpovídají úrovni nízké.",
+        "right": true,
+        "comment": "Slide 60: nízká úroveň – jméno, heslo."
+      },
+      {
+        "body": "Certifikát pro autentizaci uložený na elektronickém občanském průkazu odpovídá úrovni vysoké.",
+        "right": true,
+        "comment": "Slide 60: vysoká – certifikát pro autentizaci na elektronickém identifikačním průkazu či jiném zabezpečeném úložišti."
+      },
+      {
+        "body": "Certifikát pro autentizaci uložený jako soubor v počítači odpovídá úrovni vysoké.",
+        "right": false,
+        "comment": "Slide 60: certifikát pro autentizaci bez zabezpečeného úložiště odpovídá úrovni značné."
+      },
+      {
+        "body": "Občan s eID z jiného členského státu se může přihlásit k české službě bez přidělení české identity.",
+        "right": true,
+        "comment": "Slide 59: uznává se identita přidělená v „jeho“ státě, bez přidělení identity ve státě uznání."
+      },
+      {
+        "body": "eIDAS zavádí jednotnou evropskou elektronickou identitu, která národní identity nahrazuje.",
+        "right": false,
+        "comment": "Slide 59: nejde o jednotnou „evropskou elektronickou identitu“, ale o uznávání národních."
+      }
+    ]
+  },
+  {
+    "name": "Co umožní evropská peněženka digitální identity (eIDAS 2)?",
+    "answers": [
+      {
+        "body": "Selektivně sdílet údaje, např. prokázat jen „starší 18 let“ bez dalších osobních údajů.",
+        "right": true,
+        "comment": "Slide 64, 67: selektivní sdílení údajů online i offline, např. jen potvrzení „starší 18 let“."
+      },
+      {
+        "body": "Ukládat osobní identifikační údaje a elektronická potvrzení atributů (řidičák, diplom) a podepisovat kvalifikovaně.",
+        "right": true,
+        "comment": "Slide 64–65: PID, elektronická potvrzení atributů a kvalifikovaný el. podpis (pro FO zdarma)."
+      },
+      {
+        "body": "Přinutit všechny občany EU k používání digitální identity, protože peněženka bude povinná.",
+        "right": false,
+        "comment": "Slide 64–65: používání je dobrovolné a kdo peněženku nevyužívá, nesmí být znevýhodněn."
+      },
+      {
+        "body": "Spoléhajícím se stranám ověřovat údaje bez jakékoli registrace či uvedení účelu.",
+        "right": false,
+        "comment": "Slide 65: spoléhající se strany se registrují v členském státě usazení a uvádějí zamýšlené použití."
+      },
+      {
+        "body": "Nahradit národní elektronické identity jednotnou identitou vydanou orgánem EU.",
+        "right": false,
+        "comment": "Slide 59, 63: peněženku musí poskytnout členské státy; eIDAS nezavádí jednotnou evropskou identitu."
+      }
+    ]
+  },
+  {
+    "name": "Jaký elektronický podpis je podle českých pravidel (zákon o službách vytvářejících důvěru) potřeba v těchto situacích?",
+    "answers": [
+      {
+        "body": "Smlouva mezi firmou a úřadem: úřad ji podepíše kvalifikovaným podpisem, firma alespoň uznávaným.",
+        "right": true,
+        "comment": "Slide 73, 87: veřejnoprávní podepisující vždy kvalifikovaný podpis; soukromá osoba vůči němu uznávaný podpis."
+      },
+      {
+        "body": "Občan podává žádost úřadu: postačí zaručený podpis založený na kvalifikovaném certifikátu.",
+        "right": true,
+        "comment": "Slide 73: uznávaný podpis = kvalifikovaný podpis nebo zaručený podpis založený na kvalifikovaném certifikátu."
+      },
+      {
+        "body": "Smlouva mezi dvěma firmami mimo výkon veřejné moci: může být podepsána i prostým podpisem, např. jménem v e-mailu.",
+        "right": true,
+        "comment": "Slide 69, 73, 87: mimo výkon veřejné moci lze užít jakýkoli podpis; prostým podpisem může být i jméno napsané na klávesnici."
+      },
+      {
+        "body": "Uznávaný podpis je samostatná, čtvrtá úroveň podpisu podle eIDAS.",
+        "right": false,
+        "comment": "Slide 73: je to legislativní zkratka českého práva, ne samostatná úroveň podle eIDAS."
+      },
+      {
+        "body": "Úřad smí rozhodnutí podepsat zaručeným podpisem založeným na testovacím certifikátu.",
+        "right": false,
+        "comment": "Slide 71, 87: veřejnoprávní podepisující podepisuje vždy kvalifikovaným podpisem; zaručený podpis může stát i na testovacím certifikátu."
+      }
+    ]
+  },
+  {
+    "name": "Firemní informační systém automaticky vydává potvrzení o přijetí dokumentu. Kdy použít elektronickou pečeť a k čemu slouží časové razítko?",
+    "answers": [
+      {
+        "body": "Pečeť reprezentuje právnickou osobu a potvrzuje původ a neporušenost dokumentu, ne vůli konkrétní osoby.",
+        "right": true,
+        "comment": "Slide 75–76: pečeť reprezentuje PO, neidentifikuje fyzickou osobu a jejím cílem je potvrdit neporušenost a původ, ne vůli."
+      },
+      {
+        "body": "Pečetí se typicky opatřují automaticky generované výstupy, např. výpisy z veřejných rejstříků.",
+        "right": true,
+        "comment": "Slide 75–76: výpisy z rejstříků, automaticky generované odpovědi a výstupy informačních systémů."
+      },
+      {
+        "body": "Pečeť identifikuje jednatele, který systém spravuje, a nahrazuje jeho vlastnoruční podpis.",
+        "right": false,
+        "comment": "Slide 75–76: pečeť neidentifikuje konkrétní fyzickou osobu a nevyjadřuje vůli."
+      },
+      {
+        "body": "Pečeť existuje jen v kvalifikované podobě, nižší úrovně má pouze podpis.",
+        "right": false,
+        "comment": "Slide 75–76: pečeť má stejné úrovně jako podpis – prostá, zaručená, kvalifikovaná."
+      },
+      {
+        "body": "Časové razítko může pečeť nahradit, protože také prokazuje původ dokumentu.",
+        "right": false,
+        "comment": "Slide 77: razítko prokazuje existenci dat v daném okamžiku, ne jejich původ; s pečetí se kombinuje."
+      }
+    ]
+  },
+  {
+    "name": "Proč a jak se řeší dlouhodobá archivace elektronicky podepsaných dokumentů?",
+    "answers": [
+      {
+        "body": "Podpis má zůstat ověřitelný i po skončení technologické platnosti, proto se dokumenty v archivu zhruba po roce přerazítkovávají (řetěz důvěry).",
+        "right": true,
+        "comment": "Slide 79–80: dlouhodobá ověřitelnost bez ohledu na technologické změny; přerazítkování po cca roce."
+      },
+      {
+        "body": "eIDAS 2 zavádí (kvalifikovanou) službu elektronické archivace.",
+        "right": true,
+        "comment": "Slide 79: eIDAS 2 – nová (kvalifikovaná) služba elektronické archivace."
+      },
+      {
+        "body": "Kvalifikovaný podpis jednou ověřený zůstává ověřitelný navždy, archivace jej řešit nemusí.",
+        "right": false,
+        "comment": "Slide 79: archivace má zajistit ověřitelnost i po skončení technologické platnosti."
+      },
+      {
+        "body": "Přerazítkování se provádí jednou, při uložení dokumentu do archivu.",
+        "right": false,
+        "comment": "Slide 80: v archivu dochází k přerazítkování opakovaně, zhruba po roce."
+      },
+      {
+        "body": "Transakční protokol archivu se ukládá bez razítka, protože jde o interní záznam.",
+        "right": false,
+        "comment": "Slide 80: k protokolu ukládanému např. jednou denně se připojí kvalifikované razítko a podpis/pečeť."
+      }
+    ]
+  },
+  {
+    "name": "Firma vystavuje elektronické faktury automaticky ze svého informačního systému – soukromým odběratelům i úřadům – a musí je archivovat řadu let. Navrhněte, čím faktury opatřit (podpis, nebo pečeť, a jaké úrovně), zda a proč připojit časové razítko a jak zajistit jejich ověřitelnost po letech. Každou volbu zdůvodněte.",
+    "answer": "<B>Pečeť, ne podpis:</B> faktury vydává firma (právnická osoba) a generuje je systém bez projevu vůle konkrétního člověka. Elektronická pečeť reprezentuje právnickou osobu a potvrzuje původ a integritu dokumentu, ne vůli – typickým použitím jsou automaticky generované výstupy. Podpis by fakturu vázal na fyzickou osobu.<BR><B>Úroveň:</B> pečeť má stejné úrovně jako podpis (prostá, zaručená, kvalifikovaná) a úrovně mají odlišnou důkazní spolehlivost. Mezi soukromými subjekty lze užít jakoukoli úroveň a elektronické podobě nelze upírat účinky; vůči úřadům platí pro pečeť stejná pravidla jako pro podpis. Rozumná je kvalifikovaná pečeť (kvalifikovaný certifikát a kvalifikovaný prostředek) s nejvyšší důkazní hodnotou (volba je odvozená).<BR><B>Klíče a certifikát:</B> soukromý klíč pečeti v zabezpečeném prostředku, oddělený od šifrovacích klíčů; certifikát od kvalifikovaného poskytovatele zajistí ověřovatelům integritu veřejného klíče.<BR><B>Časové razítko:</B> podpis ani pečeť neprokazují okamžik vytvoření; kvalifikované časové razítko prokáže, že faktura v daném okamžiku existovala, a ve spojení s pečetí prodlužuje její ověřitelnost.<BR><B>Archivace:</B> po letech vyprší certifikáty a zastarají algoritmy; v archivu se proto dokumenty přibližně po roce přerazítkovávají (řetěz důvěry), případně se vede transakční protokol (např. denně opatřený kvalifikovaným razítkem a pečetí) nebo důvěryhodný repozitář. eIDAS 2 zavádí kvalifikovanou službu elektronické archivace.",
+    "keyPoints": [
+      "Pečeť: právnická osoba, automatický výstup, původ a integrita (ne vůle)",
+      "Úroveň: mezi soukromníky jakákoli, vůči úřadům pravidla jako u podpisu; kvalifikovaná = nejvyšší důkazní hodnota",
+      "Chráněný soukromý klíč pečeti a certifikát od kvalifikovaného poskytovatele",
+      "Časové razítko: prokazuje existenci v okamžiku, prodlužuje ověřitelnost",
+      "Archivace: přerazítkování zhruba po roce, transakční protokol, kvalifikovaná archivace (eIDAS 2)"
+    ],
+    "source": "Přednáška 5, slide 20, 22–24, 53, 70–71, 75–77, 79–80, 87; doporučení kvalifikované pečeti a oddělení klíčů pro tento scénář je odvozené"
+  },
+  {
+    "name": "Výrobce softwaru distribuuje aktualizace tisícům zákazníků přes internet. Navrhněte, jak si zákazník ověří, že aktualizace pochází od výrobce a nebyla změněna. Posuďte postupně: kontrolní součet CRC na webu, haš zveřejněný na stejném webu nebo sdělený jiným kanálem, MAC a digitální podpis s certifikátem. Co platný podpis zaručuje a co ne?",
+    "answer": "<B>CRC:</B> detekuje jen neúmyslné chyby přenosu; útočník, který podvrhne soubor, snadno spočítá i nový součet – proti úmyslné změně nechrání.<BR><B>Haš:</B> haš na stejném, napadnutelném webu útočník přepíše spolu se souborem (odvozeno). Smysl má haš získaný jiným, autentizovaným kanálem (telefon, vizitka), což je pro tisíce zákazníků nepraktické. Hašovací funkce musí být bezkolizní (SHA-2, ne MD5).<BR><B>MAC:</B> vyžaduje sdílený tajný klíč. S jedním klíčem pro všechny zákazníky by jej znal každý zákazník a mohl vytvořit „platnou“ aktualizaci; klíče pro každého zákazníka zvlášť by výrobce musel bezpečně distribuovat a spravovat. MAC navíc nedokáže třetí straně prokázat původ (odvozeno).<BR><B>Digitální podpis:</B> výrobce podepíše haš aktualizace svým soukromým klíčem a zákazník jej ověří veřejným klíčem; to zajistí integritu a původ a všichni zákazníci ověřují jediným veřejným klíčem. Integritu veřejného klíče zajistí certifikát od CA – tak funguje Authenticode: platný podpis → spuštění, neplatný či chybějící → dotaz uživatele. Soukromý klíč výrobce musí zůstat tajný.<BR><B>Meze:</B> platný podpis znamená, že data pocházejí z uvedeného zdroje a nebyla změněna, ne že jsou bezchybná či bezpečná. Bezpečnost stojí i na CA: útočník vydávající se za zaměstnance Microsoftu jednou získal certifikáty na jméno Microsoft a jím podepsaný kód se spouštěl bez varování, dokud nebyly certifikáty revokovány – proto je důležité zneplatnění certifikátů (CRL).",
+    "keyPoints": [
+      "CRC nechrání proti úmyslné změně",
+      "Haš jen přes jiný autentizovaný kanál; na stejném webu jej útočník přepíše",
+      "MAC: sdílený klíč je pro tisíce zákazníků nevhodný a nedokazuje původ třetí straně",
+      "Podpis + certifikát: integrita a původ, jeden veřejný klíč pro všechny zákazníky",
+      "Platný podpis ≠ bezpečný program; podvodně získaný certifikát → nutná revokace (CRL)"
+    ],
+    "source": "Přednáška 5, slide 12, 18–19, 22–23, 36, 38–39, 42–47; slabina haše na stejném webu a nevhodnost MAC pro mnoho příjemců jsou odvozené"
+  }
+]

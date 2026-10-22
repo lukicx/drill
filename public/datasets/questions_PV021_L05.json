@@ -1,0 +1,151 @@
+[
+  {
+    "name": "Where are multilayer perceptrons (MLPs) used, and how do they perform on MNIST? Describe the MNIST benchmark, the deep-MLP result of Ciresan et al. (2010), and LeNet-1 (1998) including how its output was interpreted with rejection and how its results compare with a dense MLP.",
+    "answer": "<b>MLP applications.</b> The MLP is the basic network used when it is unclear what topology is appropriate; it is often a component of large models, especially at the <i>head</i> of the network, interpreting features extracted by lower, more specialized layers. It was the most prominent NN architecture in the 80s and 90s (applications: ALVINN autonomous driving car, character/digit recognition, table data processing, …). Two-layer MLPs are usually not much better than non-neural models.<br><br><b>MNIST.</b> Database of labelled images of handwritten digits: 60 000 training and 10 000 testing examples, 28 × 28 pixels, digits centred to the centre of gravity of pixel values and normalized to a fixed size. A standard benchmark that allows comparing methods.<br><br><b>Ciresan et al. 2010.</b> A 6-layer MLP 784-2500-2000-1500-1000-500-10 trained on a GPU with plain on-line backpropagation reached a 0.35 % error rate; the ingredients were many hidden layers, many neurons per layer, numerous deformed training images and graphics cards to speed up learning.<br><br><b>LeNet-1 (LeCun et al. 1998)</b> – a famous learning convolutional network (256 input units, convolutional hidden layers H1 and H2 built from 5 × 5 kernels, 30 hidden units in H3, 10 output units). Output interpretation: the output neuron with the highest value identifies the digit; with rejection, if the two largest output values are too close together the input is rejected (no answer). Trained on 7291 samples, tested on 2007: test error 5 % without rejection, 1 % with rejection (12 % rejected); a dense MLP with 40 hidden neurons reached 1 % error only with 19.4 % rejected.",
+    "keyPoints": [
+      "MLP: default when topology unclear; head of large models; dominant in 80s–90s; 2-layer MLP ≈ non-neural models",
+      "MNIST: 60k train / 10k test, 28 × 28, centred and size-normalized, standard benchmark",
+      "Ciresan 2010: deep wide MLP + deformed images + GPU → 0.35 % error",
+      "LeNet-1: argmax output; reject if two largest outputs too close",
+      "LeNet-1: 5 % error, 1 % with 12 % rejected vs dense MLP 1 % with 19.4 % rejected"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 155–159 (slide 158 is the LeNet-1 figure)"
+  },
+  {
+    "name": "Explain the basic building blocks of a convolutional layer: local receptive field, stride length, feature map and weight sharing. Why do all neurons of a feature map share weights and biases, and why are several feature maps used in one layer?",
+    "answer": "<b>Local receptive field.</b> Every neuron of a convolutional layer is connected only to a field of k × k neurons (e.g. 5 × 5) in the lower layer – its receptive field. The neuron itself is “standard”: it computes a weighted sum of its inputs and applies an activation function.<br><b>Stride length.</b> The next neuron gets the receptive field slid over by some number of pixels (neurons), e.g. by one pixel to the right; the size of this slide is the stride length.<br><b>Feature map.</b> The group of all neurons obtained by sliding the receptive field over the input is a feature map; <b>all these neurons share weights and biases</b> (they apply the same filter, but to different inputs).<br><b>Why sharing.</b> Each feature map represents a property of the input that is supposed to be <b>spatially invariant</b> – the same feature (e.g. an edge) is detected in the same way wherever it occurs in the image. Sharing also drastically reduces the number of parameters, which (as the summary notes) allows very deep architectures.<br><b>Several feature maps.</b> One map detects one property; typically several feature maps are used in a single layer to detect several properties (e.g. 20 maps with 5 × 5 receptive fields).",
+    "keyPoints": [
+      "Neuron connected to a k × k receptive field; standard weighted sum + activation",
+      "Stride = size of the shift of the receptive field between neighbouring neurons",
+      "Feature map = all neurons from sliding the field; shared weights and bias",
+      "Each feature map detects a spatially invariant property",
+      "Several feature maps per layer for several properties; sharing enables deep networks"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 161–165, 184 (slides 161–162, 165–166 are figures)"
+  },
+  {
+    "name": "Practical: a simple convolutional network takes a 28 × 28 input image. Its convolutional layer has 3 feature maps with 5 × 5 receptive fields and stride 1; each feature map is followed by its own max-pooling map with 2 × 2 fields and stride 2; 10 output neurons are fully connected to all pooling neurons. Compute (a) the size of each feature map and of each pooling map, (b) the number of trainable parameters of the convolutional layer, and compare it with a dense layer of the same number of neurons fully connected to the input, (c) the number of parameters of the output layer. Which layer has no parameters, and how is the network trained?",
+    "answer": "<b>(a)</b> A k × k field with stride s on an n × n input gives (n − k)/s + 1 positions per dimension: (28 − 5)/1 + 1 = <b>24</b>, so the convolutional layer has 3 × 24 × 24 neurons. Max-pooling with 2 × 2 fields and stride 2 (disjoint fields) halves each dimension: <b>3 × 12 × 12</b>.<br><b>(b)</b> All neurons of a feature map share weights and bias: 5 · 5 = 25 weights + 1 bias = 26 per map, <b>78</b> for 3 maps. A dense layer with the same 3 · 24 · 24 = 1728 neurons, each connected to all 784 inputs, would need 784 · 1728 + 1728 = <b>1 356 480</b> parameters.<br><b>(c)</b> Each of the 10 output neurons receives input from each of the 3 · 12 · 12 = 432 pooling neurons: 10 · 432 = 4320 weights + 10 biases = <b>4330</b>.<br>The pooling layer has <b>no weights</b>: its neurons only compute a simple aggregate (max). The network is trained using backpropagation, which is easily adapted to convolutional networks (shared weights sum the gradient contributions of all their connections; max-pooling passes the gradient to the maximal input).",
+    "keyPoints": [
+      "Feature map size (28 − 5)/1 + 1 = 24 → 3 × 24 × 24",
+      "2 × 2 / stride 2 pooling → 3 × 12 × 12",
+      "Shared parameters: 3 · (25 + 1) = 78 vs 1 356 480 for a dense layer",
+      "Output layer: 10 · 432 + 10 = 4330 parameters",
+      "Pooling layers have no weights; training by backprop adapted to CNNs"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 161–164, 167, 177, 182–183. Slide 167's text says max-pooling with field 5 × 5 and stride 1, but its figure shows 3 × 24 × 24 → 3 × 12 × 12, which corresponds to 2 × 2 pooling with stride 2; the prompt therefore states the pooling explicitly. The size formula and parameter counts are derived, not slide text."
+  },
+  {
+    "name": "What does a pooling layer compute? Give the definitions (and formulas where available) of max-pooling, L2-pooling and average pooling, state how pooling maps relate to feature maps, and compute all three for one pooling neuron whose 2 × 2 receptive field contains the values 1, 3, 2, 0.",
+    "answer": "Neurons of a pooling layer are organized into pooling maps; all of them compute a <b>simple aggregate function</b> of their receptive field and have <b>disjoint inputs</b>; they have <b>no weights</b>. Pooling after convolution is usually applied to each feature map separately, i.e. a single pooling map after each feature map.<br>• <b>Max-pooling</b>: maximum of inputs, y<sub>j</sub> = max<sub>i ∈ j←</sub> y<sub>i</sub>.<br>• <b>L2-pooling</b>: square root of the sum of squares of the inputs.<br>• <b>Average pooling</b>: mean, y<sub>j</sub> = (Σ<sub>i ∈ j←</sub> y<sub>i</sub>) / |j←|.<br>(j← is the set of neurons with an arc to j.)<br><b>Example</b> (1, 3, 2, 0): max = <b>3</b>; L2 = √(1 + 9 + 4 + 0) = √14 ≈ <b>3.74</b>; average = 6 / 4 = <b>1.5</b>.",
+    "keyPoints": [
+      "Pooling neurons: aggregate function, disjoint inputs, no weights",
+      "One pooling map per feature map",
+      "Max: y_j = max over j← of y_i",
+      "L2: √(sum of squares); average: sum / |j←|",
+      "Example: max 3, L2 ≈ 3.74, average 1.5"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 164, 177, 179"
+  },
+  {
+    "name": "Give the formal definition of a convolutional network: its layers and layer types, and the notation used for neurons, potentials, outputs, weights, biases, adjacency and shared weights. Then define its activity (evaluation), the training set and the squared error function E.",
+    "answer": "<b>Architecture.</b> Neurons are organized in layers L<sub>0</sub>, L<sub>1</sub>, …, L<sub>n</sub> with connections (typically) only from L<sub>m</sub> to L<sub>m+1</sub>. Layer types: <b>input layer</b> L<sub>0</sub>; <b>dense layer</b> L<sub>m</sub> – each neuron connected with each neuron of L<sub>m−1</sub>; <b>convolutional layer</b> – neurons organized into disjoint feature maps, all neurons of a feature map share weights (but have different inputs); <b>pooling layer</b> – “neurons” organized into pooling maps, all computing a simple aggregate function (e.g. max) on disjoint inputs.<br><b>Notation.</b> X – input neurons, Y – output neurons, Z – all neurons (X, Y ⊆ Z); ξ<sub>j</sub> – inner potential and y<sub>j</sub> – output of neuron j after the computation stops; y<sub>0</sub> = 1 is the formal unit input; w<sub>ji</sub> – weight of the connection from i to j, w<sub>j0</sub> = −b<sub>j</sub> where b<sub>j</sub> is the bias; j← – all i with an arc from i to j; j→ – all i with an arc from j to i; <b>[ji]</b> – the set of all connections (pairs of neurons) sharing the weight w<sub>ji</sub>.<br><b>Activity.</b> Dense and convolutional neurons: ξ<sub>j</sub> = Σ<sub>i ∈ j←</sub> w<sub>ji</sub> y<sub>i</sub>, y<sub>j</sub> = σ<sub>j</sub>(ξ<sub>j</sub>) with an arbitrary differentiable activation σ<sub>j</sub>. Pooling neurons apply the pooling function (max: y<sub>j</sub> = max<sub>i ∈ j←</sub> y<sub>i</sub>; avg: Σ<sub>i ∈ j←</sub> y<sub>i</sub> / |j←|). The network is evaluated layer-wise as an MLP; y<sub>j</sub>(w, x) is the value of output j for weights w and input x.<br><b>Learning.</b> Training set T = {(x<sub>k</sub>, d<sub>k</sub>) | k = 1, …, p}, x<sub>k</sub> ∈ ℝ<sup>|X|</sup>, d<sub>k</sub> ∈ ℝ<sup>|Y|</sup>, d<sub>kj</sub> the desired output of neuron j for input x<sub>k</sub>. Squared error (for example): E(w) = Σ<sub>k=1</sub><sup>p</sup> E<sub>k</sub>(w), E<sub>k</sub>(w) = ½ Σ<sub>j ∈ Y</sub> (y<sub>j</sub>(w, x<sub>k</sub>) − d<sub>kj</sub>)².",
+    "keyPoints": [
+      "Layers L0…Ln, connections Lm → Lm+1; input, dense, convolutional, pooling layers",
+      "Conv: disjoint feature maps with shared weights; pooling: aggregate on disjoint inputs",
+      "Notation X, Y, Z, ξ_j, y_j, y_0 = 1, w_j0 = −b_j, j←, j→",
+      "[ji] = set of connections sharing weight w_ji",
+      "ξ_j = Σ w_ji y_i, y_j = σ_j(ξ_j); pooling by max/avg; layer-wise evaluation",
+      "E = Σ_k E_k, E_k = ½ Σ_j (y_j − d_kj)²"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 177–180"
+  },
+  {
+    "name": "Describe stochastic gradient descent with minibatches for training a convolutional network: the sequence of weight vectors, the initialization, the update rule, the role of the minibatch, the learning rate and an epoch.",
+    "answer": "The algorithm computes a sequence of weight vectors w(0), w(1), w(2), …<br>• Weights in w(0) are randomly initialized to values close to 0.<br>• In step t + 1 (t = 0, 1, 2, …): choose (randomly) a set of training examples T ⊆ {1, …, p} and compute w(t+1) = w(t) + Δw(t), where<br>&nbsp;&nbsp;Δw(t) = −ε(t) · (1/|T|) · Σ<sub>k ∈ T</sub> ∇E<sub>k</sub>(w(t)).<br>• T is a <b>minibatch</b> of a fixed size; the update uses the average gradient of the examples in the minibatch.<br>• 0 &lt; ε(t) ≤ 1 is the <b>learning rate</b> in step t + 1.<br>• ∇E<sub>k</sub>(w(t)) is the gradient of the error of example k – a vector of all partial derivatives ∂E<sub>k</sub>/∂w<sub>ji</sub>, computed by backpropagation.<br>• The random choice of minibatches is typically implemented by randomly shuffling all data and then choosing minibatches sequentially; an <b>epoch</b> is one round through all data.",
+    "keyPoints": [
+      "w(0) random, close to 0",
+      "w(t+1) = w(t) − ε(t) · (1/|T|) Σ_{k∈T} ∇E_k(w(t))",
+      "T = minibatch of fixed size; 0 &lt; ε(t) ≤ 1 learning rate",
+      "Gradient = all ∂E_k/∂w_ji, computed by backprop",
+      "Shuffle data, take minibatches sequentially; epoch = one pass over all data"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 181–182"
+  },
+  {
+    "name": "Derive backpropagation for convolutional networks. How is ∂E<sub>k</sub>/∂w<sub>ji</sub> obtained for a weight of a dense layer and for a shared weight of a convolutional layer? How are ∂E<sub>k</sub>/∂y<sub>j</sub> computed for output neurons, for neurons followed by dense or convolutional layers, and for neurons followed by a max-pooling layer? Justify the shared-weight formula.",
+    "answer": "<b>Step 1 – from weights to outputs.</b><br>• Dense layer (no shared weights): ∂E<sub>k</sub>/∂w<sub>ji</sub> = ∂E<sub>k</sub>/∂y<sub>j</sub> · σ′<sub>j</sub>(ξ<sub>j</sub>) · y<sub>i</sub>.<br>• Convolutional layer: ∂E<sub>k</sub>/∂w<sub>ji</sub> = Σ<sub>rℓ ∈ [ji]</sub> ∂E<sub>k</sub>/∂y<sub>r</sub> · σ′<sub>r</sub>(ξ<sub>r</sub>) · y<sub>ℓ</sub>, summing over all connections rℓ that share the weight w<sub>ji</sub>.<br><i>Justification:</i> the shared weight occurs in the inner potential ξ<sub>r</sub> = … + w<sub>ji</sub> y<sub>ℓ</sub> + … of every neuron r whose connection from ℓ belongs to [ji]; E<sub>k</sub> depends on w<sub>ji</sub> through all of them, so by the chain rule the derivative is the sum of the per-connection contributions ∂E<sub>k</sub>/∂y<sub>r</sub> · ∂y<sub>r</sub>/∂ξ<sub>r</sub> · ∂ξ<sub>r</sub>/∂w<sub>ji</sub> with ∂ξ<sub>r</sub>/∂w<sub>ji</sub> = y<sub>ℓ</sub>.<br>• Neurons of pooling layers have no weights.<br><b>Step 2 – derivatives w.r.t. outputs</b> (from the output layer downwards, as in an MLP):<br>• j ∈ Y: ∂E<sub>k</sub>/∂y<sub>j</sub> = y<sub>j</sub> − d<sub>kj</sub> (for the squared error; other error functions give a different derivative).<br>• j ∈ Z ∖ Y whose successors j→ form a dense or convolutional layer: ∂E<sub>k</sub>/∂y<sub>j</sub> = Σ<sub>r ∈ j→</sub> ∂E<sub>k</sub>/∂y<sub>r</sub> · σ′<sub>r</sub>(ξ<sub>r</sub>) · w<sub>rj</sub>.<br>• j ∈ Z ∖ Y whose successor is max-pooling: j→ = {i} for a single “max” neuron, and ∂E<sub>k</sub>/∂y<sub>j</sub> = ∂E<sub>k</sub>/∂y<sub>i</sub> if j = argmax<sub>r ∈ i←</sub> y<sub>r</sub>, otherwise 0 – the gradient flows only to the input that attained the maximum.",
+    "keyPoints": [
+      "Dense: ∂E_k/∂w_ji = ∂E_k/∂y_j · σ′_j(ξ_j) · y_i",
+      "Conv: sum over rℓ ∈ [ji] of ∂E_k/∂y_r · σ′_r(ξ_r) · y_ℓ (chain rule over all uses of the shared weight)",
+      "Pooling neurons have no weights",
+      "Output: ∂E_k/∂y_j = y_j − d_kj (squared error)",
+      "Hidden before dense/conv: Σ_{r∈j→} ∂E_k/∂y_r · σ′_r(ξ_r) · w_rj",
+      "Before max-pooling: gradient copied to the argmax input, 0 to the others"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 182–183 (the chain-rule justification of the shared-weight sum spells out the slide formula)"
+  },
+  {
+    "name": "Practical: (a) A one-dimensional convolutional layer with the shared kernel (w<sub>1</sub>, w<sub>2</sub>) = (0.5, −1), no bias and identity activation is applied with stride 1 to the input x = (1, 2, 3), giving two output neurons y<sub>1</sub>, y<sub>2</sub>. With desired outputs d = (−1, −1) and squared error E = ½ Σ (y<sub>j</sub> − d<sub>j</sub>)², compute y<sub>1</sub>, y<sub>2</sub>, ∂E/∂w<sub>1</sub> and ∂E/∂w<sub>2</sub>. (b) A max-pooling neuron i has inputs y = (0.2, 0.9, 0.5, 0.1) and the backpropagated derivative ∂E/∂y<sub>i</sub> = −0.3. Compute ∂E/∂y<sub>j</sub> for its four inputs.",
+    "answer": "<b>(a)</b> Forward: y<sub>1</sub> = 0.5 · 1 + (−1) · 2 = <b>−1.5</b>; y<sub>2</sub> = 0.5 · 2 + (−1) · 3 = <b>−2</b>. Output derivatives (squared error): ∂E/∂y<sub>1</sub> = y<sub>1</sub> − d<sub>1</sub> = −0.5, ∂E/∂y<sub>2</sub> = y<sub>2</sub> − d<sub>2</sub> = −1. With identity activation σ′ = 1. The weight w<sub>1</sub> is shared by the connections x<sub>1</sub> → y<sub>1</sub> and x<sub>2</sub> → y<sub>2</sub>, so ∂E/∂w<sub>1</sub> = Σ<sub>rℓ ∈ [w1]</sub> ∂E/∂y<sub>r</sub> · σ′ · y<sub>ℓ</sub> = (−0.5) · 1 + (−1) · 2 = <b>−2.5</b>. The weight w<sub>2</sub> is shared by x<sub>2</sub> → y<sub>1</sub> and x<sub>3</sub> → y<sub>2</sub>: ∂E/∂w<sub>2</sub> = (−0.5) · 2 + (−1) · 3 = <b>−4</b>. (Gradient descent would therefore increase both weights.)<br><b>(b)</b> Only the input attaining the maximum (0.9, the second one) receives the derivative: ∂E/∂y = (<b>0, −0.3, 0, 0</b>).",
+    "keyPoints": [
+      "y1 = −1.5, y2 = −2; ∂E/∂y = (−0.5, −1)",
+      "Shared weight: sum contributions over all connections using it",
+      "∂E/∂w1 = −0.5·1 + (−1)·2 = −2.5",
+      "∂E/∂w2 = −0.5·2 + (−1)·3 = −4",
+      "Max-pooling: (0, −0.3, 0, 0) – gradient only to the argmax"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 182–183; numeric example constructed to apply the slide formulas"
+  },
+  {
+    "name": "Describe the convolutional network that classifies MNIST with only 33 errors on the 10 000 test images: its architecture, activation and output functions, error function and training setup. Explain the purpose of each training technique used (minibatch SGD, L2 regularization, dropout, dataset expansion, committee voting).",
+    "answer": "<b>Architecture.</b> Two convolutional-pooling layers – the first with 20, the second with 40 feature maps – followed by two dense (MLP) layers of 1000 and 1000 neurons and 10 outputs. Feature maps and dense layers use <b>ReLU</b>, pooling is <b>max-pooling</b>, the output layer is <b>softmax</b>. Error function: <b>negative log-likelihood</b> (= cross-entropy).<br><b>Training.</b> SGD with minibatch size 10, learning rate 0.03; L2 regularization with “weight” λ = 0.1 plus dropout with probability ½; 40 epochs (every training example considered 40 times); expanded dataset: displacement by one pixel in an arbitrary direction; committee voting of 5 networks. Result: only 33 of the 10 000 test images misclassified.<br><b>Purposes</b> (from the earlier lectures): minibatch SGD – cheap, noisy gradient estimates and many updates per epoch; L2 regularization (weight decay) and dropout – regularization against overfitting (dropout trains a large ensemble of thinned networks); dataset expansion by small shifts – more training data and invariance to small displacements; committee voting – an ensemble of networks whose combined vote reduces errors of individual models; softmax + cross-entropy – probabilistic outputs and a well-behaved gradient for classification.",
+    "keyPoints": [
+      "2 conv-pool layers (20, 40 maps), dense 1000-1000, 10 outputs",
+      "ReLU, max-pooling, softmax output, negative log-likelihood = cross-entropy",
+      "SGD minibatch 10, learning rate 0.03, 40 epochs",
+      "L2 λ = 0.1 + dropout ½ against overfitting",
+      "Dataset expanded by 1-pixel shifts; committee of 5 networks",
+      "Only 33 / 10 000 test errors"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 169–170; the purposes of the techniques refer back to earlier lectures and are explanation, not slide text"
+  },
+  {
+    "name": "How did convolutional networks develop beyond MNIST? Describe ImageNet and the ILSVRC challenge (data and the top-5 criterion with its rationale), the GoogLeNet and ResNet results, the main application areas of CNNs, and the summary characteristics of convolutional networks.",
+    "answer": "<b>ImageNet</b>: about 16 million colour images in 20 thousand classes. <b>ILSVRC</b> (ImageNet Large-Scale Visual Recognition Challenge): classification over a subset of ImageNet, started in 2010 and assisted in a breakthrough in image recognition; training set 1.2 million images in 1000 classes, validation 50 000, test 150 000. Because many images contain more than one object, the model may output <b>five classes</b> and the correct label must be among them (<b>top-5 criterion</b>).<br><b>ILSVRC 2014</b>: GoogLeNet, a deep convolutional network with 22 layers, 93.33 % top-5 accuracy. <b>ILSVRC 2015</b>: ResNet, various depths, the winner with 152 layers; <b>skip connections implementing residual learning</b>; 3.57 % top-5 error.<br><b>Applications</b>: image classification (binary or many classes, 2D, 3D, … nD “images”, movies), image segmentation (partitioning pixels – U-Net, fully convolutional networks and many other variants), object detection (bounding-box prediction, R-CNN architectures).<br><b>Summary</b>: CNNs are nowadays the most used networks in image processing and in other areas whose input has local, spatially invariant properties (vision transformers are gradually taking over); they are typically trained by gradient descent and its modifications (e.g. Adam); thanks to weight sharing they allow (very) deep architectures; they are typically extended with further adjustments and tricks in their topologies.",
+    "keyPoints": [
+      "ImageNet ~16M images, 20k classes; ILSVRC 1.2M train, 1000 classes, from 2010",
+      "Top-5 criterion because images often contain several objects",
+      "GoogLeNet 2014: 22 layers, 93.33 % top-5; ResNet 2015: 152 layers, skip connections, 3.57 % top-5 error",
+      "Applications: classification, segmentation (U-Net), object detection (R-CNN)",
+      "Most used in image processing; trained by GD variants (Adam); weight sharing enables depth; vision transformers rising"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 171–175, 184 (slide 174 contains a ResNet figure)"
+  },
+  {
+    "name": "A team trains a CNN to detect cancer in whole-slide images (WSI) of tissue, annotated by pathologists. Describe how the input data are prepared and labelled, how the training data are augmented and sampled, which network is used and how it is adapted, and the training setup (error function, optimizer, learning-rate and stopping rules). Explain why these choices make sense.",
+    "answer": "<b>Data.</b> A WSI is far too large to be processed at once (e.g. 105 185 × 221 772 px), so it is cut into <b>patches of 512 × 512 px</b>. A patch is labelled positive <b>iff its inner square intersects the annotation</b>; the annotations by pathologists are <b>not pixel-level precise</b>. Dataset (Masaryk Memorial Cancer Institute): 785 WSI from 166 patients (698 for training, 87 for testing), cut into 7 878 675 training and 193 235 test patches.<br><b>Augmentation</b>: random vertical and horizontal flips, random colour perturbations. <b>Three-step sampling</b> of training data: 1. randomly select a label, 2. randomly select a slide containing at least one patch with that label, 3. randomly select a patch with the label from that slide (interpretation: this balances the classes and the contribution of individual slides).<br><b>Network.</b> <b>VGG16</b> (3 × 3 convolutions with stride 1 and padding 1, 2 × 2 max-pooling with stride 2), <b>pretrained on ImageNet</b> (off-the-shelf); the top fully connected part is removed and replaced by <b>global max-pooling and a single dense layer</b> with a <b>single logistic output</b> – the probability of cancer in the patch. Error E = <b>cross-entropy</b>.<br><b>Training</b>: RMSprop optimizer with forgetting hyperparameter ρ = 0.9, initial learning rate 5 · 10<sup>−5</sup>; if E on validation data does not improve for 3 consecutive epochs, the learning rate is halved; if ROC AUC on validation data does not improve for 5 consecutive epochs, training terminates; momentum with weight α = 0.9.<br><b>Why</b> (interpretation): patches make the huge images tractable; flips and colour perturbations add invariances the diagnosis should have; pretrained weights transfer generic visual features; a logistic output with cross-entropy suits binary classification; learning-rate halving and early stopping on validation data are standard schedule and regularization techniques.",
+    "keyPoints": [
+      "WSI too large → 512 × 512 patches; positive iff inner square intersects the (imprecise) annotation",
+      "785 WSI / 166 patients; ~7.9M training patches",
+      "Augmentation: flips, colour perturbations; 3-step sampling: label → slide → patch",
+      "VGG16 pretrained on ImageNet; top FC replaced by global max-pooling + single dense logistic output",
+      "Cross-entropy; RMSprop ρ = 0.9, lr 5·10⁻⁵, momentum 0.9",
+      "Halve lr after 3 epochs without validation-E improvement; stop after 5 epochs without ROC AUC improvement"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 185–190 (slides 185–187, 189 contain figures); the “why” paragraph is interpretation"
+  },
+  {
+    "name": "Practical: the patch classifier F predicts a patch I positive iff F(I) ≥ 0.75. On one WSI the confusion matrix is TP = 805, FN = 18, FP = 48, TN = 614; on all test WSIs it is TP = 24 796, FN = 4340, FP = 5345, TN = 158 754. Compute sensitivity, specificity, precision and accuracy for both. Then explain why patch-level metrics are not enough, how the FROC curve evaluates tumour detection, and what problems remained at the whole-slide level.",
+    "answer": "<b>Single WSI</b> (1485 patches): sensitivity = 805 / (805 + 18) = <b>0.978</b>; specificity = 614 / (614 + 48) = <b>0.927</b>; precision = 805 / (805 + 48) = <b>0.944</b>; accuracy = (805 + 614) / 1485 = <b>0.956</b>.<br><b>All test WSIs</b> (193 235 patches): sensitivity = 24 796 / 29 136 = <b>0.851</b>; specificity = 158 754 / 164 099 = <b>0.967</b>; precision = 24 796 / 30 141 = <b>0.823</b>; accuracy = 183 550 / 193 235 = <b>0.950</b>.<br><b>Why not enough.</b> These tile-based metrics answer “can we detect cancer in patches?”, not whether the cancer (a tumour, a slide) will be detected. <b>FROC</b> evaluates the detection of particular tumours: for a threshold t, <b>sensitivity</b> ≈ the proportion of tumours containing at least one patch I with F(I) ≥ t among all tumours in all slides, and <b>AvgFP</b> ≈ the average number of patches with F(I) ≥ t in each non-cancerous slide; varying t gives the curve (the reported area was about 0.94). <b>Remaining issues</b>: a WSI contains only cuts across tumours, so FROC is still limited; WSI-level evaluation needs huge numbers of WSIs (later results: about 0.98 AUC for WSI-level detection on thousands of WSIs); the system broke down on WSIs from a completely different scanner and hospital with slightly different colours – corrected by colour normalization, but more data from more hospitals is needed.",
+    "keyPoints": [
+      "Single WSI: sensitivity 0.978, specificity 0.927, precision 0.944, accuracy 0.956",
+      "All WSIs: sensitivity 0.851, specificity 0.967, precision 0.823, accuracy 0.950",
+      "Patch metrics do not show whether tumours/slides are detected",
+      "FROC: tumour sensitivity vs average false-positive patches per non-cancerous slide, parametrized by t",
+      "WSI-level evaluation needs many WSIs (~0.98 AUC later)",
+      "Domain shift (other scanner/hospital colours) → colour normalization, more data needed"
+    ],
+    "source": "PV021 L5 (inferred boundary), NN_2026_5.pdf, slides 192–195 (confusion matrices and FROC curve are figures on slides 192 and 194); sensitivity/specificity/precision/accuracy are standard definitions applied to the slide's matrices, not slide text"
+  }
+]
