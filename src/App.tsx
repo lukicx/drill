@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import { loadDatasets, loadQuestions } from './data'
 import Quiz from './Quiz'
 import type { DatasetInfo } from './types'
-import { bankOf, clearSession, createSession, historyKey, isDue, isWeak, pruneHistory, readHistory, readResults,
-  readSession, revisionOf } from './study'
+import { bankOf, clearSession, createSession, exportProgress, historyKey, importProgress, isDue, isWeak, pruneHistory,
+  readHistory, readResults, readSession, revisionOf } from './study'
 import type { History, StudySession, StudySource } from './study'
 import { getRouteHash, navigate, parseRoute, routeHash, subscribeRoute } from './navigation'
 
@@ -40,6 +40,8 @@ export default function App() {
   const results = readResults()
   const history = readHistory()
   const [error, setError] = useState<string | null>(null)
+  // Shown under the backup buttons, which sit at the bottom of the page.
+  const [backupMessage, setBackupMessage] = useState<{ text: string; failed: boolean } | null>(null)
   const [loading, setLoading] = useState(false)
   const [ready, setReady] = useState(false)
   const [shuffled, setShuffled] = useState(true)
@@ -103,6 +105,31 @@ export default function App() {
     finally { setLoading(false) }
   }
 
+  function downloadProgress() {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(exportProgress())], { type: 'application/json' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `drill-progress-${new Date().toISOString().slice(0, 10)}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
+  async function uploadProgress(input: HTMLInputElement) {
+    const file = input.files?.[0]
+    input.value = '' // lets the same file be picked again
+    if (!file) return
+    setBackupMessage(null)
+    let backup: unknown
+    try { backup = JSON.parse(await file.text()) } catch { backup = null }
+    if (!backup || (backup as { app?: unknown }).app !== 'drill') {
+      setBackupMessage({ text: 'This file is not a Drill progress backup.', failed: true }); return
+    }
+    if (!window.confirm('Replace the progress saved in this browser with the backup?')) return
+    setBackupMessage(importProgress(backup) ? { text: 'Progress imported.', failed: false }
+      : { text: 'The backup could not be imported. Storage may be full or blocked.', failed: true })
+    refreshSaved((n) => n + 1)
+  }
+
   function exit() {
     refreshSaved((n) => n + 1)
     setActive(null)
@@ -162,7 +189,15 @@ export default function App() {
       <div className="card-top"><strong>{c}</strong><span className="badge">{datasets.filter((ds) => courseOf(ds) === c).length} sets</span></div>
       <span className="muted">{COURSE_DESCRIPTIONS[c] ?? 'Lecture practice'}</span>
     </a></li>)}</ul>
-    <p className="local-note">Progress is saved in this browser on this device.</p>
+    <section className="backup" aria-label="Progress backup">
+      <p className="local-note">Progress is saved in this browser on this device. Export it now and then as a backup, or to move it to another device.</p>
+      <div className="actions">
+        <button type="button" onClick={downloadProgress}>Export progress</button>
+        <label className="button">Import progress<input type="file" accept="application/json,.json" className="visually-hidden"
+          onChange={(event) => uploadProgress(event.currentTarget)} /></label>
+      </div>
+      {backupMessage && <p className={backupMessage.failed ? 'error' : 'hint'} role={backupMessage.failed ? 'alert' : 'status'}>{backupMessage.text}</p>}
+    </section>
   </main>
 
   const items = datasets.filter((ds) => courseOf(ds) === course)

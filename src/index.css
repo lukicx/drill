@@ -122,6 +122,12 @@ select { font: inherit; color: var(--text); background: var(--bg); border: 1px s
 .model-answer .answers { padding-left: 0; margin-bottom: 8px; }
 .answer-first-toggle { display: flex; align-items: center; gap: 6px; font-size: .85rem; cursor: pointer; }
 .answer-first-toggle input { accent-color: var(--accent); }
+.backup { margin-top: 24px; }
+.backup .actions { margin-top: 8px; }
+label.button:hover { border-color: var(--accent); }
+label.button:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
+/* Hidden but still reachable by keyboard and screen readers. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 480px) {
   #root { padding-top: 16px; }
   .resume-card > button { width: 100%; }
@@ -129,7 +135,8 @@ select { font: inherit; color: var(--text); background: var(--bg); border: 1px s
   .quiz-header { flex-wrap: wrap; }
 }
 
-button {
+button, label.button {
+  display: inline-block;
   font: inherit;
   padding: 10px 16px;
   border: 1px solid var(--border);

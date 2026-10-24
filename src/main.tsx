@@ -10,6 +10,10 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
+// Ask the browser not to clear saved progress when space runs low. It may still say no;
+// Export progress on the main page is the backup.
+navigator.storage?.persist?.().catch(() => {})
+
 // Offline support (see public/sw.js). Skipped in dev, where a cached app would hide code changes.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {

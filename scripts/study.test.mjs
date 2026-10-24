@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
   saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
   nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory, suggestedAssessment,
-  readAnswerFirst, saveAnswerFirst } from '../src/study.ts'
+  readAnswerFirst, saveAnswerFirst, exportProgress, importProgress } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -176,4 +176,20 @@ test('answer-first preference is remembered and blocked storage reads as off', (
   globalThis.localStorage = { getItem() { throw new Error('Blocked') }, setItem() { throw new Error('Blocked') }, removeItem() { throw new Error('Blocked') } }
   assert.equal(readAnswerFirst(), false)
   assert.equal(saveAnswerFirst(true), false)
+})
+
+test('exported progress restores history and settings in an empty browser and rejects other files', () => {
+  recordHistory({ key: 'course_L01:0', datasetId: 'course_L01', question: mc }, 'correct')
+  saveAnswerFirst(true)
+  const backup = JSON.parse(JSON.stringify(exportProgress()))
+  const history = readHistory()
+  const values = new Map()
+  globalThis.localStorage = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: (key) => values.delete(key) }
+  assert.deepEqual(readHistory(), {})
+  assert.equal(importProgress(backup), true)
+  assert.deepEqual(readHistory(), history)
+  assert.equal(readAnswerFirst(), true)
+  assert.equal(importProgress({ app: 'other', version: 1, data: {} }), false)
+  assert.equal(importProgress(null), false)
+  assert.equal(importProgress({ app: 'drill', version: 1, data: [] }), false)
 })

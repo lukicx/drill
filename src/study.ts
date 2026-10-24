@@ -252,6 +252,31 @@ function write(key: string, value: unknown) {
   }
 }
 
+// Backup of all progress as one JSON file, so it can be restored or moved to another device.
+const BACKUP_KEYS = [SESSION_KEY, RESULTS_KEY, HISTORY_KEY, ANSWER_FIRST_KEY]
+export interface ProgressBackup { app: 'drill'; version: 1; exportedAt: number; data: Record<string, unknown> }
+
+export function exportProgress(): ProgressBackup {
+  const data: Record<string, unknown> = {}
+  for (const key of BACKUP_KEYS) {
+    try {
+      const raw = localStorage.getItem(key)
+      if (raw !== null) data[key] = JSON.parse(raw)
+    } catch { /* unreadable entry: leave it out */ }
+  }
+  return { app: 'drill', version: 1, exportedAt: Date.now(), data }
+}
+
+// Replaces the saved values found in the backup; keys missing from it stay as they are.
+// Contents are checked later by the readers, which drop invalid entries.
+export function importProgress(value: unknown): boolean {
+  const backup = value as ProgressBackup | null
+  if (!backup || typeof backup !== 'object' || backup.app !== 'drill' || backup.version !== 1
+    || !backup.data || typeof backup.data !== 'object' || Array.isArray(backup.data)) return false
+  return BACKUP_KEYS.filter((key) => key in backup.data && backup.data[key] !== null)
+    .every((key) => write(key, backup.data[key]))
+}
+
 // "Answer first": hide multiple-choice options until the learner has recalled an answer. Per device.
 export function readAnswerFirst() {
   try { return localStorage.getItem(ANSWER_FIRST_KEY) === 'true' } catch { return false }
