@@ -205,14 +205,17 @@ export default function App() {
         </div>
       </section>}
       {currentLectures.length > 0 && <><h2 className="section-title">Current lectures</h2>
-        {currentLectures.length > 1 && <p className="hint">Open a lecture, or tick Mix on two or more lectures to practice them together.</p>}
+        {currentLectures.length > 1 && <p className="hint">Open a lecture, mix all of them below, or tick Mix on two or more lectures to practice just those together.</p>}
         {lectureList(currentLectures, currentLectures.length > 1)}</>}
-      {currentLectures.length > 1 && <section className="practice-panel"><h2>Mix selected lectures</h2>
-        <p className="muted">{selected.length} selected · {selected.reduce((sum, ds) => sum + (ds.questionCount ?? 0), 0)} questions</p>
+      {currentLectures.length > 1 && <section className="practice-panel"><h2>Mix lectures</h2>
+        <p className="muted">Mixing topics makes you work out which idea applies, as in the exam. Quick mix picks due, missed and new questions first.</p>
         {orderControl('mixed-order')}
         {paused && <p className="hint">Starting a new session replaces your paused session.</p>}
-        <div className="actions"><button type="button" className="primary" disabled={loading || selected.length < 2} onClick={() => start(selected)}>{loading ? 'Loading questions…' : 'Practice selected lectures'}</button>
-          <button type="button" disabled={loading} onClick={() => setSelectedLectures(currentLectures.map((ds) => ds.id))}>Select all lectures</button></div>
+        <div className="actions">
+          <button type="button" className="primary" disabled={loading} onClick={() => start(currentLectures)}>{loading ? 'Loading questions…' : `All lectures (${currentLectures.reduce((sum, ds) => sum + (ds.questionCount ?? 0), 0)} questions)`}</button>
+          <button type="button" disabled={loading} onClick={() => start(currentLectures, true)}>Quick mix (10 questions)</button>
+          <button type="button" disabled={loading || selected.length < 2} onClick={() => start(selected)}>Practice selected ({selected.length} lectures · {selected.reduce((sum, ds) => sum + (ds.questionCount ?? 0), 0)} questions)</button>
+        </div>
       </section>}
       {items.some((ds) => ds.group === 'archive') && <section className="archive"><h2 className="section-title">Older practice sets</h2>
         <p className="hint">Additional revision material from earlier question banks.</p>{lectureList(items.filter((ds) => ds.group === 'archive'))}</section>}

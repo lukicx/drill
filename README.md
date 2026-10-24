@@ -11,7 +11,9 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - Choose a course and lecture to see its question count, format and last attempt.
 - Start the full lecture or a quick session of up to 10 questions. Choose shuffled
   order or the original lecture order (including answer choices).
-- On a course page, tick **Mix** on two or more current lectures to practice them together.
+- On a course page, **All lectures** mixes every current lecture in one round and **Quick mix**
+  takes 10 questions across them (due, missed and new first). Tick **Mix** on two or more
+  lectures to practice just those together.
 - Progress is saved automatically in this browser: question and answer order,
   selections, essay draft, model-answer visibility and recorded attempts.
   **Pause** returns to lecture selection; **Continue session** restores the round.
