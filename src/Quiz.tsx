@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { asHtml } from './math'
 import { checkSelection, clearSession, createSession, firstAttempts, getPersistenceFailed, nextQuestion,
-  questionCount, questionsToReview, recordAttempt, saveResult, saveSession, subscribePersistence } from './study'
+  questionCount, questionsToReview, readHistory, recordAttempt, recordHistory, saveResult, saveSession,
+  subscribePersistence } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
@@ -31,12 +32,17 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   function toggle(i: number) {
     setSession((s) => ({ ...s, selected: s.selected.includes(i) ? s.selected.filter((v) => v !== i) : [...s.selected, i] }))
   }
+  // A second try in the same round is practice only; it does not change the spaced-repetition history.
   function check() {
-    if (!session.selected.length) return
-    setSession((s) => recordAttempt(s, checkSelection(question, s.selected).ok ? 'correct' : 'wrong'))
+    if (!session.selected.length || session.attempts.length > session.index) return
+    const assessment: Assessment = checkSelection(question, session.selected).ok ? 'correct' : 'wrong'
+    if (!item.retry) recordHistory(item, assessment)
+    setSession((s) => recordAttempt(s, assessment))
   }
   function markEssay(assessment: Assessment) {
-    setSession((s) => s.revealed && !s.finished ? nextQuestion(recordAttempt(s, assessment)) : s)
+    if (!session.revealed || session.finished || session.attempts.length > session.index) return
+    if (!item.retry) recordHistory(item, assessment)
+    setSession((s) => nextQuestion(recordAttempt(s, assessment)))
   }
   const storageNotice = persistenceFailed && <p className="error" role="alert">Progress could not be saved in this browser. Keep this tab open to continue studying.</p>
 
@@ -60,7 +66,7 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       <div className="actions">
         {wrong.length > 0 && <button type="button" className="primary" onClick={() => setSession(createSession(sources, session.title, { review: wrong, shuffled: session.shuffled }))}>Review missed questions ({wrong.length})</button>}
         {remaining > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: unanswered, shuffled: session.shuffled }))}>Practice remaining ({remaining})</button>}
-        <button type="button" onClick={() => setSession(createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined }))}>Start again</button>
+        <button type="button" onClick={() => setSession(createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined, history: readHistory() }))}>Start again</button>
         <button type="button" onClick={onExit}>Back to lectures</button>
       </div>
       {wrong.length > 0 && <section className="results-review"><h2 className="section-title">What to review</h2>

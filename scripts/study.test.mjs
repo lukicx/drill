@@ -1,7 +1,8 @@
 import { test, beforeEach } from 'node:test'
 import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
-  saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts } from '../src/study.ts'
+  saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
+  nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -58,6 +59,34 @@ test('a missed question returns later in the round once and does not change the 
   saveResult(session)
   assert.deepEqual([readResults()[0].total, readResults()[0].answered, readResults()[0].correct], [8, 8, 7])
   assert.deepEqual(firstAttempts(session).map((a) => a.item.question.name), bank[0].questions.map((q) => q.name))
+})
+
+test('history moves questions through boxes only when they are due', () => {
+  const now = new Date(2026, 9, 24, 12).getTime()
+  const day = 24 * 60 * 60 * 1000
+  const midnight = new Date(2026, 9, 24).getTime()
+  let h = nextHistory(undefined, 'correct', now)
+  assert.deepEqual(h, { box: 1, due: midnight + day, last: 'correct' })
+  assert.deepEqual(nextHistory(h, 'correct', now), h) // answering early does not promote
+  h = nextHistory(h, 'correct', midnight + day + 1)
+  assert.deepEqual([h.box, h.due], [2, midnight + 4 * day])
+  assert.deepEqual(nextHistory(h, 'partial', now), { box: 1, due: midnight + day, last: 'partial' })
+  assert.equal(isDue(h, midnight + 4 * day), true)
+  assert.equal(isWeak(nextHistory(h, 'wrong', now)), true)
+})
+
+test('history survives reordering, is pruned for removed questions and drives quick practice order', () => {
+  const qs = Array.from({ length: 12 }, (_, i) => ({ ...mc, name: `Q${i}` }))
+  const item = (q) => ({ key: 'x', datasetId: 'L1', question: q })
+  recordHistory(item(qs[11]), 'wrong')
+  recordHistory(item(qs[10]), 'correct')
+  const history = readHistory()
+  assert.equal(historyKey(item(qs[11])), historyKey({ ...item(qs[11]), key: 'L1:0' }))
+  const quick = createSession([{ datasetId: 'L1', questions: qs }], 'Quick', { limit: 10, shuffled: false, history })
+  assert.equal(quick.round[0].question.name, 'Q11') // missed first
+  assert.equal(quick.round.some((entry) => entry.question.name === 'Q10'), false) // known last, cut off
+  pruneHistory([{ datasetId: 'L1', questions: qs.slice(0, 11) }])
+  assert.deepEqual(Object.keys(readHistory()), [historyKey(item(qs[10]))])
 })
 
 test('quick practice caps the round and lecture order does not change answers', () => {

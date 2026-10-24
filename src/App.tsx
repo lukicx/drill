@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import { loadDatasets, loadQuestions } from './data'
 import Quiz from './Quiz'
 import type { DatasetInfo } from './types'
-import { clearSession, createSession, readResults, readSession, revisionOf } from './study'
+import { clearSession, createSession, pruneHistory, readHistory, readResults, readSession, revisionOf } from './study'
 import type { StudySession, StudySource } from './study'
 import { getRouteHash, navigate, parseRoute, routeHash, subscribeRoute } from './navigation'
 
@@ -52,9 +52,10 @@ export default function App() {
     setLoading(true)
     try {
       const sources = await Promise.all(entries.map(async (ds) => ({ datasetId: ds.id, questions: await loadQuestions(ds.dataset) })))
+      pruneHistory(sources)
       const ds = entries[0]
       const title = entries.length === 1 ? ds.name : `${courseOf(ds)} - Mixed practice (${entries.length} lectures)`
-      const session = createSession(sources, title, { shuffled, limit: quick ? 10 : undefined })
+      const session = createSession(sources, title, { shuffled, limit: quick ? 10 : undefined, history: readHistory() })
       setActive({ session, sources })
       navigate(courseOf(ds), entries.length === 1 ? ds.id : null, true)
     } catch (e) { setError(e instanceof Error ? e.message : String(e)) }
@@ -163,7 +164,7 @@ export default function App() {
       <section className="practice-panel"><h2>Practice this lecture</h2>
         <p className="muted">Check each answer as you go. Pause whenever you need a break.</p>
         {orderControl('lecture-order')}
-        <p className="hint">{shuffled ? 'Questions and answer choices are shuffled.' : 'Questions and answer choices stay in their original order. Quick practice uses the first 10 questions.'}</p>
+        <p className="hint">{shuffled ? 'Questions and answer choices are shuffled.' : 'Questions and answer choices stay in their original order.'} Quick practice picks due, missed and new questions first.</p>
         {paused && <p className="hint">Starting a new session replaces your paused session.</p>}
         <div className="actions"><button type="button" className="primary" disabled={loading} onClick={() => start([current])}>{loading ? 'Loading questions…' : 'Start full lecture'}</button>
           <button type="button" disabled={loading} onClick={() => start([current], true)}>Quick practice ({Math.min(current.questionCount ?? 10, 10)} questions)</button></div>

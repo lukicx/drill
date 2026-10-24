@@ -30,6 +30,9 @@ export interface StudyResult {
 
 const SESSION_KEY = 'drill.session.v1'
 const RESULTS_KEY = 'drill.results.v1'
+const HISTORY_KEY = 'drill.history.v1'
+const DAY = 24 * 60 * 60 * 1000
+const BOX_DAYS = [1, 3, 7, 14, 30] // days until a question is due again, for boxes 1-5
 const RETRY_GAP = 4 // a missed question comes back after this many other questions
 
 export function shuffle<T>(items: T[]): T[] {
@@ -41,21 +44,85 @@ export function shuffle<T>(items: T[]): T[] {
   return result
 }
 
-// Avoid resuming old answers after a dataset changes.
-export function revisionOf(sources: StudySource[]): string {
-  const text = JSON.stringify(sources)
+function hashText(text: string): string {
   let hash = 2166136261
   for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619)
   return (hash >>> 0).toString(16)
 }
 
+// Avoid resuming old answers after a dataset changes.
+export function revisionOf(sources: StudySource[]): string { return hashText(JSON.stringify(sources)) }
+
+export function bankOf(sources: StudySource[]): StudyQuestion[] {
+  return sources.flatMap(({ datasetId, questions }) =>
+    questions.map((question, index) => ({ key: `${datasetId}:${index}`, datasetId, question })))
+}
+
+// Per-question history (Leitner boxes). Keyed by question text, so it survives reordering a set;
+// an edited question starts fresh.
+export interface QuestionHistory { box: number; due: number; last: Assessment }
+export type History = Record<string, QuestionHistory>
+
+export function historyKey(item: { datasetId: string; question: Question }) {
+  return `${item.datasetId}:${hashText(item.question.name)}`
+}
+
+export function readHistory(): History {
+  try {
+    const value = JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '{}')
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
+    return Object.fromEntries(Object.entries(value as Record<string, QuestionHistory>).filter(([, h]) => h
+      && Number.isInteger(h.box) && h.box >= 1 && h.box <= BOX_DAYS.length && Number.isFinite(h.due)
+      && ['correct', 'partial', 'wrong'].includes(h.last)))
+  } catch { return {} }
+}
+
+// Correct answers move a question up one box, but only once it is due (answering early does not
+// count as spaced recall). Anything else sends it back to box 1, due tomorrow.
+export function nextHistory(prev: QuestionHistory | undefined, assessment: Assessment, now = Date.now()): QuestionHistory {
+  const today = new Date(now).setHours(0, 0, 0, 0)
+  if (assessment !== 'correct') return { box: 1, due: today + DAY, last: assessment }
+  if (prev && prev.due > now) return { ...prev, last: 'correct' }
+  const box = Math.min((prev?.box ?? 0) + 1, BOX_DAYS.length)
+  return { box, due: today + BOX_DAYS[box - 1] * DAY, last: 'correct' }
+}
+
+export function recordHistory(item: StudyQuestion, assessment: Assessment) {
+  const history = readHistory()
+  history[historyKey(item)] = nextHistory(history[historyKey(item)], assessment)
+  return write(HISTORY_KEY, history)
+}
+
+// Drops entries of questions that were removed or edited in the loaded sets.
+export function pruneHistory(sources: StudySource[]) {
+  const history = readHistory()
+  const current = new Set(bankOf(sources).map(historyKey))
+  const loaded = sources.map((source) => `${source.datasetId}:`)
+  const stale = Object.keys(history).filter((key) => loaded.some((prefix) => key.startsWith(prefix)) && !current.has(key))
+  if (!stale.length) return true
+  stale.forEach((key) => delete history[key])
+  return write(HISTORY_KEY, history)
+}
+
+export const isDue = (h: QuestionHistory | undefined, now = Date.now()) => !!h && h.due <= now
+export const isWeak = (h: QuestionHistory | undefined) => !!h && h.last !== 'correct'
+
+// Quick practice order: due first, then missed, then never seen, then the rest.
+function priorityOf(h: QuestionHistory | undefined, now: number) {
+  return isDue(h, now) ? 0 : isWeak(h) ? 1 : !h ? 2 : 3
+}
+
 export function createSession(sources: StudySource[], title: string, options: {
-  shuffled?: boolean; limit?: number; review?: StudyQuestion[]
+  shuffled?: boolean; limit?: number; review?: StudyQuestion[]; history?: History
 } = {}): StudySession {
   const shuffled = options.shuffled ?? true
-  const bank = options.review ?? sources.flatMap(({ datasetId, questions }) =>
-    questions.map((question, index) => ({ key: `${datasetId}:${index}`, datasetId, question })))
-  const ordered = shuffled ? shuffle(bank) : [...bank]
+  const bank = options.review ?? bankOf(sources)
+  let ordered = shuffled ? shuffle(bank) : [...bank]
+  if (options.limit && options.history) {
+    const history = options.history, now = Date.now()
+    ordered = ordered.map((item) => ({ item, p: priorityOf(history[historyKey(item)], now) }))
+      .sort((a, b) => a.p - b.p).map(({ item }) => item)
+  }
   const round = ordered.slice(0, options.limit ?? ordered.length).map((item) => ({
     ...item, question: shuffled && item.question.answers
       ? { ...item.question, answers: shuffle(item.question.answers) } : item.question,

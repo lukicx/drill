@@ -24,6 +24,12 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - Results show answered/total coverage, including early exits, and expandable
   explanations for missed or partly recalled questions. Review these questions
   or practice the remaining ones.
+- Every answer is remembered per question (simple spaced repetition, Leitner boxes):
+  a correct answer moves the question up a box and it is due again after 1, 3, 7, 14
+  or 30 days; a missed or partly recalled one goes back to box 1, due tomorrow.
+  Answering before a question is due does not move it up. Quick practice picks due,
+  missed and new questions first. History is keyed by question text, so editing a
+  question resets it.
 - Course and lecture URLs use hash routes so direct links and browser navigation
   work on GitHub Pages. Older practice sets are grouped separately.
 
@@ -42,8 +48,9 @@ The worker is only registered in production builds, not in `npm run dev`.
 ## Checks
 
 Requires Node.js 22. Run `npm test`, `npm run lint`, and `npm run build`.
-Tests cover persistence, strict scoring, partial assessment, review rounds,
-quick/mixed practice, content revisions, corrupt storage and static-host routes.
+Tests cover persistence, strict scoring, partial assessment, review rounds, second tries,
+spaced-repetition history, quick/mixed practice, content revisions, corrupt storage and
+static-host routes.
 
 Live: https://lukicx.github.io/drill/
 
