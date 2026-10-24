@@ -31,6 +31,7 @@ export interface StudyResult {
 const SESSION_KEY = 'drill.session.v1'
 const RESULTS_KEY = 'drill.results.v1'
 const HISTORY_KEY = 'drill.history.v1'
+const ANSWER_FIRST_KEY = 'drill.answerFirst'
 const DAY = 24 * 60 * 60 * 1000
 const BOX_DAYS = [1, 3, 7, 14, 30] // days until a question is due again, for boxes 1-5
 const RETRY_GAP = 4 // a missed question comes back after this many other questions
@@ -242,6 +243,12 @@ function write(key: string, value: unknown) {
     return false
   }
 }
+
+// "Answer first": hide multiple-choice options until the learner has recalled an answer. Per device.
+export function readAnswerFirst() {
+  try { return localStorage.getItem(ANSWER_FIRST_KEY) === 'true' } catch { return false }
+}
+export function saveAnswerFirst(on: boolean) { return write(ANSWER_FIRST_KEY, on || null) }
 
 export function saveSession(session: StudySession) { return write(SESSION_KEY, { ...session, savedAt: Date.now() }) }
 export function clearSession() { return write(SESSION_KEY, null) }

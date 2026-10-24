@@ -19,8 +19,10 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
   **Pause** returns to lecture selection; **Continue session** restores the round.
 - There is one paused session per browser. Starting another replaces it.
   Data stays on the current device and is not synced to other browsers.
-- Multiple-choice scoring requires exactly the correct selections. Essays are
-  self-assessed as **Knew it**, **Partly**, or **Need practice**.
+- Multiple-choice scoring requires exactly the correct selections. The **Answer first**
+  switch in the quiz header (remembered per device, off by default) hides the options
+  until you have recalled an answer and press **Show options**.
+- Essays are self-assessed as **Knew it**, **Partly**, or **Need practice**.
 - A missed or partly recalled question comes back once, four questions later in the
   same round ("Second try"). The score counts first tries only.
 - Results show answered/total coverage, including early exits, and expandable

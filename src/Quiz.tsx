@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { asHtml } from './math'
 import { checkSelection, clearSession, createSession, firstAttempts, getPersistenceFailed, nextQuestion,
-  questionCount, questionsToReview, readHistory, recordAttempt, recordHistory, saveResult, saveSession,
-  subscribePersistence } from './study'
+  questionCount, questionsToReview, readAnswerFirst, readHistory, recordAttempt, recordHistory, saveAnswerFirst,
+  saveResult, saveSession, subscribePersistence } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
@@ -21,6 +21,11 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   const correct = first.filter((attempt) => attempt.assessment === 'correct').length
   const total = questionCount(session)
   const feedback = checkSelection(question, session.selected)
+  // Answer first: options stay hidden until "Show options" is pressed for this question.
+  const [answerFirst, setAnswerFirst] = useState(readAnswerFirst)
+  const [shownFor, setShownFor] = useState('')
+  const questionId = `${session.id}:${session.index}`
+  const hideOptions = answerFirst && !isEssay && !checked && shownFor !== questionId
 
   useEffect(() => {
     onSessionChange(session)
@@ -75,12 +80,12 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
           <summary><span dangerouslySetInnerHTML={asHtml(attempt.item.question.name)} /><span className="badge">{attempt.assessment === 'partial' ? 'Partly recalled' : 'Need practice'}</span></summary>
           <div className="review-content">
             {session.datasetIds.length > 1 && <p className="hint">{sourceTitles[attempt.item.datasetId]}</p>}
+            {attempt.draft && <><h3>Your answer</h3><p className="saved-draft">{attempt.draft}</p></>}
             {attempt.item.question.answers ? <ul className="review-answers">{attempt.item.question.answers.map((answer, i) => <li key={i}>
               <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? attempt.selected.includes(i) ? '✓ Your correct selection' : '✓ Correct answer you missed' : attempt.selected.includes(i) ? '✗ Your incorrect selection' : 'Not selected'}: </span>
               <span dangerouslySetInnerHTML={asHtml(answer.body)} />
               {answer.comment && <p className="hint" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
             </li>)}</ul> : <>
-              {attempt.draft && <><h3>Your answer</h3><p className="saved-draft">{attempt.draft}</p></>}
               {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={asHtml(point)} />)}</ul></> : null}
               <h3>Model answer</h3><div dangerouslySetInnerHTML={asHtml(attempt.item.question.answer ?? '')} />
               {attempt.item.question.source && <p className="hint">{attempt.item.question.source}</p>}
@@ -94,6 +99,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     <header className="quiz-header">
       <div><span>{session.title}</span><p className="session-progress">Question {session.index + 1} of {session.round.length} · {first.length} of {total} answered · {correct} correct</p></div>
       <div className="actions">
+        <label className="answer-first-toggle"><input type="checkbox" checked={answerFirst}
+          onChange={(event) => { setAnswerFirst(event.target.checked); saveAnswerFirst(event.target.checked) }} />Answer first</label>
         <button type="button" className="link" onClick={() => { saveSession(session); onExit() }}>Pause</button>
         <button type="button" className="link" onClick={() => setSession((s) => ({ ...s, finished: true }))}>End session</button>
       </div>
@@ -113,8 +120,16 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
         <details open><summary>Full model answer</summary><div className="model-answer-body" dangerouslySetInnerHTML={asHtml(question.answer ?? '')} /></details>
         {question.source && <p className="comment">{question.source}</p>}
       </section>}
-    </> : <p className="hint">One or more answers can be correct.</p>}
-    <ul className="answers">
+    </> : hideOptions ? <>
+      <p className="hint">Answer first: recall your answer, then compare it with the options.</p>
+      <label className="hint" htmlFor="mc-answer">Your answer (optional)</label>
+      <textarea id="mc-answer" className="essay-input" rows={4} value={session.draft}
+        onChange={(event) => setSession((s) => ({ ...s, draft: event.target.value }))} placeholder="Write or think through your answer…" />
+    </> : <>
+      {answerFirst && session.draft && <p className="saved-draft hint">Your answer: {session.draft}</p>}
+      <p className="hint">One or more answers can be correct.</p>
+    </>}
+    {!hideOptions && <ul className="answers">
       {answers.map((answer, i) => {
         const selected = session.selected.includes(i)
         const state = checked ? answer.right ? selected ? 'correct' : 'missed' : selected ? 'wrong' : '' : ''
@@ -125,13 +140,14 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
           {checked && answer.comment && <p className="comment" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
         </li>
       })}
-    </ul>
+    </ul>}
     <div className="actions action-bar">
       {isEssay ? <>
         <button type="button" className="primary" onClick={checked ? () => markEssay('correct') : () => setSession((s) => ({ ...s, revealed: true }))}>{checked ? '✓ Knew it' : 'Show model answer'}</button>
         {checked && <><button type="button" onClick={() => markEssay('partial')}>Partly</button>
           <button type="button" onClick={() => markEssay('wrong')}>Need practice</button></>}
       </>
+        : hideOptions ? <button type="button" className="primary" onClick={() => setShownFor(questionId)}>Show options</button>
         : <button type="button" className="primary" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
           {!checked ? 'Check answer' : session.index + 1 < session.round.length ? 'Next question' : 'See results'}
         </button>}

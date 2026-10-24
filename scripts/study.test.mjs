@@ -2,7 +2,8 @@ import { test, beforeEach } from 'node:test'
 import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
   saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
-  nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory } from '../src/study.ts'
+  nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory,
+  readAnswerFirst, saveAnswerFirst } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -152,4 +153,15 @@ test('review rounds include partial answers, exclude correct answers and keep th
   assert.equal(review.round[0].key, 'course_L01:1')
   assert.equal(review.revision, revisionOf(sources))
   assert.equal(sources[0].questions.length, 2)
+})
+
+test('answer-first preference is remembered and blocked storage reads as off', () => {
+  assert.equal(readAnswerFirst(), false)
+  saveAnswerFirst(true)
+  assert.equal(readAnswerFirst(), true)
+  saveAnswerFirst(false)
+  assert.equal(readAnswerFirst(), false)
+  globalThis.localStorage = { getItem() { throw new Error('Blocked') }, setItem() { throw new Error('Blocked') }, removeItem() { throw new Error('Blocked') } }
+  assert.equal(readAnswerFirst(), false)
+  assert.equal(saveAnswerFirst(true), false)
 })
