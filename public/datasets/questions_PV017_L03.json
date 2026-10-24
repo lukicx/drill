@@ -1,5 +1,6 @@
 [
   {
+    "id": "7103cb10",
     "name": "Co platí o vztahu pojmů CySec, InfoSec a ICT-Security podle přednášky?",
     "answers": [
       { "body": "ICT-Security (ISO 13335) chrání přímo technologie tvořící infrastrukturu; lze ji chápat jako podkategorii InfoSec.", "right": true, "comment": "Slide 10: vymezení ICT-Security." },
@@ -10,6 +11,7 @@
     ]
   },
   {
+    "id": "82191167",
     "name": "Které přiřazení předmětu ochrany a odpovědných orgánů ke kybernetické kriminalitě, bezpečnosti a obraně je správné?",
     "answers": [
       { "body": "Kybernetická kriminalita – ochrana před trestnou činností; gesce OČTŘ, státní zastupitelství a soudy", "right": true, "comment": "Slide 15, 17: kyberkriminalitu řeší orgány činné v trestním řízení." },
@@ -20,6 +22,7 @@
     ]
   },
   {
+    "id": "c8a32612",
     "name": "Které zařazení případů podle oblasti zájmu CSIRTů a orgánů činných v trestním řízení (OČTŘ) je správné?",
     "answers": [
       { "body": "Technická porucha disku způsobí výpadek služby – primární oblast zájmu CSIRTů (neúmyslný incident)", "right": true, "comment": "Slide 18: neúmyslné incidenty (nehody, poruchy, lidské chyby) jsou primárně zájmem CSIRTů." },
@@ -29,15 +32,17 @@
     ]
   },
   {
+    "id": "8f218d3b",
     "name": "Vynucené MFA nebo šifrování ve výchozím stavu jsou podle Lessigova modelu příkladem regulace pomocí:",
     "answers": [
-      { "body": "Architektury (kódu)", "right": true, "comment": "Slide 24: technické nastavení chování přímo vynucuje, bez hrozby sankce." },
+      { "body": "Architektury", "right": true, "comment": "Slide 24: architektura (kód) – technické nastavení chování přímo vynucuje, bez hrozby sankce." },
       { "body": "Trhu", "right": false, "comment": "Slide 24: trh působí cenou a poptávkou, např. kybernetické pojištění či cena certifikace." },
       { "body": "Sociálních norem", "right": false, "comment": "Slide 24: sociální normy jsou očekávání komunity, např. responsible disclosure, profesní etika." },
       { "body": "Práva", "right": false, "comment": "Slide 24: právo působí hrozbou sankce zpětně, např. „incident hlaste do 24 hodin, jinak pokuta“." }
     ]
   },
   {
+    "id": "20a7c0b4",
     "name": "Proč na kyberbezpečnost nestačí trh? Vyberte správná přiřazení situace k druhu selhání trhu.",
     "answers": [
       { "body": "Kupující nedokáže ověřit, zda je router bezpečný – informační asymetrie", "right": true, "comment": "Slide 25: kupující bezpečnost neumí ověřit." },
@@ -47,25 +52,28 @@
     ]
   },
   {
+    "id": "c7740c9c",
     "name": "Co platí o distributivních a nedistributivních právech podle přednášky?",
     "answers": [
       { "body": "Kybernetická bezpečnost je nedistributivní právo – nelze ji rozdělit a přiřadit jednotlivcům, musí být sdílena.", "right": true, "comment": "Slide 28: proto ji zajišťuje stát." },
       { "body": "Nedistributivní práva se konstruují omezováním distributivních, např. vlastnictví či soukromí.", "right": true, "comment": "Slide 28: nedistributivní práva sama o sobě neexistují." },
-      { "body": "Soukromí je nedistributivní právo; týká se všech občanů současně.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." },
+      { "body": "Soukromí je nedistributivní právo a týká se všech občanů současně.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." },
       { "body": "Kybernetickou bezpečnost lze rozdělit mezi jednotlivce, a proto ji stačí zajistit každému zvlášť.", "right": false, "comment": "Slide 28: bezpečnost nelze individualizovat." },
       { "body": "Distributivní a nedistributivní práva jsou na sobě nezávislá a navzájem se neomezují.", "right": false, "comment": "Slide 28: nedistributivní práva vznikají omezováním distributivních – hledá se rovnováha." }
     ]
   },
   {
+    "id": "298c4337",
     "name": "Co platí o přístupech k zajištění kybernetické bezpečnosti podle přednášky?",
     "answers": [
       { "body": "EU typicky volí odolnostní přístup (resilience-based), zaměřený na pravděpodobnost selhání.", "right": true, "comment": "Slide 29: odolnostní přístup je přiřazen EU." },
       { "body": "Informační přístup (vědět nebo najít) je typický pro USA a autokratické či diktátorské režimy.", "right": true, "comment": "Slide 29: informační přístup." },
-      { "body": "Odolnostní přístup staví na odstrašení útočníka hrozbou následků.", "right": false, "comment": "Slide 29: na následcích staví deterrence theory (odstrašení)." },
-      { "body": "Informační přístup je typický pro EU; směrnice NIS 2 vyžaduje hlášení incidentů.", "right": false, "comment": "Slide 29: EU přednáška řadí k odolnostnímu přístupu." }
+      { "body": "Odolnostní přístup staví na odstrašení útočníka hrozbou následků, nikoli na pravděpodobnosti selhání.", "right": false, "comment": "Slide 29: na následcích staví deterrence theory (odstrašení)." },
+      { "body": "Informační přístup je typický pro EU, kdežto USA volí odolnostní přístup.", "right": false, "comment": "Slide 29: přednáška řadí EU k odolnostnímu přístupu a USA k informačnímu." }
     ]
   },
   {
+    "id": "12bf5ed9",
     "name": "Co platí o performativních pravidlech v kyberbezpečnostní regulaci?",
     "answers": [
       { "body": "Zakládají kategorie subjektů, role odpovědných osob i pravomoci institucí.", "right": true, "comment": "Slide 30: podstatná část kyberbezpečnostní regulace je performativní." },
@@ -76,6 +84,7 @@
     ]
   },
   {
+    "id": "b904fffd",
     "name": "Proč regulace kyberbezpečnosti uplatňuje technologickou neutralitu a jakou to má cenu?",
     "answers": [
       { "body": "Legislativní cyklus trvá roky a technologický měsíce, takže ostré technické pravidlo by rychle zastaralo.", "right": true, "comment": "Slide 32: norma proto odkazuje na technické standardy, místo aby předepisovala." },
@@ -86,6 +95,7 @@
     ]
   },
   {
+    "id": "3e9e171f",
     "name": "Co platí o regulatorním mixu a regulatorní pyramidě?",
     "answers": [
       { "body": "Regulatorní pyramida znamená postupné stupňování zásahu: od poradenství přes nápravu k sankci.", "right": true, "comment": "Slide 33: chytrá regulace volí pořadí nástrojů." },
@@ -96,24 +106,29 @@
     ]
   },
   {
+    "id": "c7eeecb1",
     "name": "Co platí o rizikově orientovaném přístupu k regulaci?",
     "answers": [
       { "body": "Rozsah povinností se řídí dopadem selhání, místo stejné povinnosti pro všechny.", "right": true, "comment": "Slide 34: protiklad plošné regulace." },
       { "body": "Proporcionalita znamená, že zásah má být vhodný, potřebný a přiměřený.", "right": true, "comment": "Slide 34: definice proporcionality." },
+      { "body": "Předpokládá, že subjekt umí riziko identifikovat, hodnotit a doložit.", "right": true, "comment": "Slide 34: rizikově orientovaný přístup stojí na schopnosti riziko identifikovat, hodnotit a doložit." },
       { "body": "Proporcionalita znamená, že všechny subjekty nesou stejné náklady na compliance.", "right": false, "comment": "Slide 34: stejná povinnost pro všechny je znak plošné regulace." },
-      { "body": "Rizikově orientovaná regulace je bez nákladů.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéra vstupu, odliv kapacit." }
+      { "body": "Rizikově orientovaná regulace nemá náklady na compliance a nevytváří bariéry vstupu na trh.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéru vstupu i odliv kapacit." }
     ]
   },
   {
+    "id": "b3c63377",
     "name": "Jaké jsou podle přednášky meze compliance (na rozdíl od jejích přínosů)?",
     "answers": [
       { "body": "Splněný audit není důkazem odolnosti.", "right": true, "comment": "Slide 35: mez compliance." },
       { "body": "Předmětem kontroly je dokumentace, kdežto útok míří na systém.", "right": true, "comment": "Slide 35: mez compliance." },
+      { "body": "V přístupu panuje nejistota a povinnosti musí být škálovatelné.", "right": true, "comment": "Slide 35: třetí uvedená mez compliance – nejistota v přístupu, nutná škálovatelnost." },
       { "body": "Compliance stanoví minimální úroveň zabezpečení.", "right": false, "comment": "Slide 35: to je přínos compliance, ne její mez." },
       { "body": "Doložený postup rozhoduje o zavinění a náležité péči.", "right": false, "comment": "Slide 35: to je přínos compliance." }
     ]
   },
   {
+    "id": "eafb2354",
     "name": "Proč kyberbezpečnostní regulace míří na provozovatele, a ne na útočníka?",
     "answers": [
       { "body": "Jurisdikce končí na hranici, útok nikoli; vymahatelnost vůči pachateli v cizím státě je omezená.", "right": true, "comment": "Slide 36: limit teritoriality." },
@@ -123,16 +138,18 @@
     ]
   },
   {
+    "id": "9c1b90a3",
     "name": "Které výroky o vývoji unijní právní úpravy kyberbezpečnosti jsou správné?",
     "answers": [
       { "body": "Agentura ENISA má posilovat spolupráci relevantních orgánů, pomáhat při zvládání kyberincidentů a vzdělávat v kyberbezpečnosti.", "right": true, "comment": "Slide 37: úkoly ENISA." },
-      { "body": "Směrnice NIS byla prvním unijním předpisem takového rozsahu v kyberbezpečnosti; Cybersecurity Act i NIS 2 přišly až po ní.", "right": true, "comment": "Slide 38, 41: NIS (2016) předchází Cybersecurity Act (2019) a NIS 2 (2022)." },
-      { "body": "Směrnice NIS 2 předcházela směrnici NIS, která na ni později navázala.", "right": false, "comment": "Slide 38, 41: pořadí je opačné – NIS 2 navázala na NIS." },
-      { "body": "ENISA vznikla až na základě směrnice NIS 2 jako její dozorový orgán.", "right": false, "comment": "Slide 37: ENISA existovala dlouho před NIS i NIS 2." },
+      { "body": "Směrnice NIS byla prvním unijním předpisem takového rozsahu v kyberbezpečnosti, Cybersecurity Act i NIS 2 přišly až po ní.", "right": true, "comment": "Slide 38, 41: NIS (2016) předchází Cybersecurity Act (2019) a NIS 2 (2022)." },
+      { "body": "Směrnice NIS 2 předcházela směrnici NIS, která na ni později navázala a rozšířila okruh povinných subjektů.", "right": false, "comment": "Slide 38, 41: pořadí je opačné – NIS 2 navázala na NIS." },
+      { "body": "ENISA vznikla až na základě směrnice NIS 2 jako unijní dozorový orgán nad povinnými subjekty v členských státech.", "right": false, "comment": "Slide 37: ENISA existovala dlouho před NIS i NIS 2." },
       { "body": "Směrnice o evropských kritických infrastrukturách zavedla povinné hlášení incidentů digitálních služeb.", "right": false, "comment": "Slide 37: směrnice řešila určování a označování evropských KI a sektorů esenciálních pro fungování států." }
     ]
   },
   {
+    "id": "19503013",
     "name": "Členský stát zavádí směrnici NIS. Která přiřazení opatření k pilířům směrnice jsou správná?",
     "answers": [
       { "body": "Zřízení národního CERT týmu a národní autority – budování kapacit", "right": true, "comment": "Slide 39: pilíř I." },
@@ -142,6 +159,7 @@
     ]
   },
   {
+    "id": "89124f4",
     "name": "Které výroky o vývoji institucí kyberbezpečnosti v ČR jsou správné?",
     "answers": [
       { "body": "Vláda ustanovila NBÚ národní autoritou pro kybernetickou bezpečnost s úkolem vybudovat NCKB a zákonné ukotvení.", "right": true, "comment": "Slide 42: role NBÚ jako národní autority." },
@@ -151,6 +169,7 @@
     ]
   },
   {
+    "id": "59b0215e",
     "name": "Jaký druh právní odpovědnosti v kyberbezpečnosti se v dané situaci uplatní? Vyberte správná přiřazení.",
     "answers": [
       { "body": "Zaměstnanec poruší dohodu o mlčenlivosti (NDA) a vynese interní data – pracovněprávní odpovědnost", "right": true, "comment": "Slide 27: NDA, sledování uživatelů a vpuštění útočníka spadají pod pracovněprávní odpovědnost." },
@@ -160,28 +179,31 @@
     ]
   },
   {
-    "name": "Vysvětlete, proč na zajištění kyberbezpečnosti nestačí trh a proč je potřeba regulace. Zmiňte i Lessigovy způsoby regulace chování.",
-    "answer": "<B>Lessigovy způsoby regulace</B>: <B>právo</B> (hrozba sankce, působí zpětně – „incident hlaste do 24 hodin, jinak pokuta“), <B>sociální normy</B> (responsible disclosure, profesní etika, reputace), <B>trh</B> (kybernetické pojištění, cena certifikace, náklady incidentu) a <B>architektura/kód</B> (vynucené MFA, šifrování ve výchozím stavu, sandbox).<BR><B>Selhání trhu</B>: <B>negativní externality</B> – nezabezpečené zařízení škodí třetím osobám (botnet, DDoS) a náklady nese někdo jiný než ten, kdo ušetřil; <B>informační asymetrie</B> – kupující bezpečnost neumí ověřit; <B>kvaziveřejný statek</B> – motivace k černému pasažérství, nikdo neplatí za cizí přínos; <B>nesoulad motivací</B> – o zabezpečení rozhoduje ten, kdo nenese následky selhání.<BR><B>Závěr</B>: regulace má i ekonomické, nejen bezpečnostní odůvodnění. Kyberbezpečnost je navíc nedistributivní právo – nelze ji rozdělit mezi jednotlivce, musí být sdílena, a proto ji zajišťuje stát.",
+    "id": "6db1ba27",
+    "name": "Výrobce levných IoT kamer prodává zařízení s výchozím heslem „admin“ a bez bezpečnostních aktualizací. Kamery se masově stávají součástí botnetů, které útokem DDoS vyřazují weby bank. Kupující o slabém zabezpečení nevědí a výrobce škody z útoků nenese. a) Vysvětlete, proč tento problém nevyřeší sám trh – pojmenujte selhání trhu, která se v případu projevují. b) Pro každý ze čtyř Lessigových způsobů regulace chování navrhněte jeden konkrétní zásah proti tomuto problému. c) Proč tu musí hrát roli stát?",
+    "answer": "<B>a) Selhání trhu</B>: <B>negativní externalita</B> – škodu (DDoS na banky) nesou třetí osoby, ne výrobce ani kupující, který na zabezpečení „ušetřil“; <B>informační asymetrie</B> – kupující bezpečnost kamery neumí ověřit, a tak ji nemůže zohlednit v ceně; <B>nesoulad motivací</B> – o zabezpečení rozhoduje výrobce, který následky selhání nenese; <B>kvaziveřejný statek</B> – z bezpečnějšího internetu mají užitek všichni, nikdo nechce platit za cizí přínos (černé pasažérství).<BR><B>b) Lessigovy způsoby</B>: <B>právo</B> – povinnost unikátních hesel a bezpečnostních aktualizací po dobu podpory, se sankcí (hrozba sankce působí zpětně); <B>trh</B> – certifikace a označení bezpečných výrobků, podmínky kybernetického pojištění, požadavky ve veřejných zakázkách; <B>sociální normy</B> – responsible disclosure zranitelností, reputace výrobce v oboru, profesní etika vývojářů; <B>architektura (kód)</B> – unikátní heslo z výroby nebo vynucená změna při prvním spuštění, automatické aktualizace, vypnuté nepotřebné služby.<BR><B>c) Role státu</B>: kybernetická bezpečnost je nedistributivní právo – nelze ji rozdělit a přiřadit jednotlivcům, musí být sdílena; proto ji zajišťuje stát. Regulace má i ekonomické, nejen bezpečnostní odůvodnění.",
     "keyPoints": [
-      "Lessig: právo, sociální normy, trh, architektura (kód) – s příklady",
-      "Negativní externality (botnet, DDoS)",
-      "Informační asymetrie – kupující neumí ověřit bezpečnost",
-      "Kvaziveřejný statek – černí pasažéři",
-      "Nesoulad motivací – rozhoduje ten, kdo nenese následky",
+      "Negativní externalita – škodu z botnetu nesou třetí osoby",
+      "Informační asymetrie – kupující neumí bezpečnost ověřit",
+      "Nesoulad motivací – rozhoduje výrobce, který nenese následky; kvaziveřejný statek – černí pasažéři",
+      "Lessig: právo (povinnost + sankce), trh (certifikace, pojištění, zakázky)",
+      "Lessig: sociální normy (responsible disclosure, reputace), architektura (unikátní heslo, aktualizace)",
       "Bezpečnost jako nedistributivní právo – role státu"
     ],
-    "source": "Přednáška 3, slide 24–28"
+    "source": "Přednáška 3, slide 24–28; konkrétní zásahy pro IoT kamery jsou odvozené"
   },
   {
-    "name": "Popište principy přístupu k regulaci kybernetické bezpečnosti: performativní pravidla, technologickou neutralitu, regulatorní mix, rizikově orientovaný přístup a vztah compliance a bezpečnosti.",
-    "answer": "<B>Performativní pravidla</B>: právní pojem je nástroj, ne popis skutečnosti; definice se volí podle účelu regulace. Pravidla zakládají kategorie subjektů, role a pravomoci institucí; nelze je ověřit měřením, jen vyložit – výklad (i metodiky úřadu) je součástí bezpečnostní praxe; reguluje se cílový stav/dopad.<BR><B>Technologická neutralita</B>: legislativa trvá roky, technologie se mění za měsíce, proto norma odkazuje na technické standardy místo konkrétní technologie; cenou je právní nejistota – obsah povinnosti určí až praxe regulátora a auditora.<BR><B>Regulatorní mix</B>: command and control, ko-/samoregulace (normy, certifikace), ekonomické nástroje (pojištění, zakázky), podpůrné nástroje (hlášení, CSIRT); chytrá regulace volí pořadí nástrojů – regulatorní pyramida od poradenství přes nápravu k sankci.<BR><B>Rizikově orientovaný přístup</B>: rozsah povinností podle dopadu selhání místo plošné povinnosti; předpokládá schopnost riziko identifikovat, hodnotit a doložit; proporcionalita (vhodný, potřebný, přiměřený); regulace má náklady.<BR><B>Compliance vs. bezpečnost</B>: splněný audit není důkazem odolnosti a kontroluje se dokumentace, ne systém; přínosem je minimální úroveň zabezpečení, měřitelná povinnost jako základ odpovědnosti a doložený postup pro posouzení náležité péče.",
+    "id": "3ab4b7b8",
+    "name": "Ministerstvo připravuje novelu zákona o kybernetické bezpečnosti a v pracovní skupině zazní tři návrhy: (1) vyjmenovat v zákoně konkrétní povolené šifrovací algoritmy a typy firewallů; (2) uložit všem obcím od 200 obyvatel po krajská města stejné povinnosti, jaké mají banky; (3) za splnění povinností považovat úspěšný audit dokumentace. Posuďte každý návrh z pohledu principů přístupu k regulaci (technologická neutralita, rizikově orientovaný přístup a proporcionalita, compliance vs. bezpečnost), navrhněte lepší řešení a popište, jak by měl regulátor postupovat, když u povinného subjektu zjistí nedostatky.",
+    "answer": "<B>(1) Technologická neutralita</B>: legislativní cyklus trvá roky, technologický měsíce – výčet algoritmů a firewallů rychle zastará. Lepší je regulovat <B>cílový stav</B> (požadovaný dopad) a odkázat na technické normy; cenou je právní nejistota, obsah povinnosti dotvoří praxe regulátora, auditora a metodiky úřadu.<BR><B>(2) Rizikově orientovaný přístup</B>: plošná regulace dává všem stejnou povinnost, rizikově orientovaná řídí rozsah povinností <B>dopadem selhání</B>. Zásah má být <B>proporcionální</B> – vhodný, potřebný a přiměřený; malá obec by nesla náklady compliance i bez odpovídajícího přínosu. Lepší: kategorie subjektů a režimy povinností podle dopadu (zákon tyto kategorie sám zakládá – performativní pravidla).<BR><B>(3) Compliance vs. bezpečnost</B>: splněný audit není důkazem odolnosti – kontroluje se dokumentace, kdežto útok míří na systém. Compliance je přínosná jako minimální úroveň, měřitelná povinnost (základ odpovědnosti) a doložený postup pro posouzení náležité péče, ale nesmí být jediným měřítkem. Lepší: ověřovat i skutečné fungování opatření (testy, cvičení, metriky).<BR><B>Postup regulátora</B>: regulatorní pyramida – stupňovat zásah od poradenství přes nápravu k sankci; chytrá regulace kombinuje nástroje (command and control, ko-/samoregulace, ekonomické a podpůrné nástroje jako hlášení a CSIRT) a volí jejich pořadí.",
     "keyPoints": [
-      "Performativní pravidla – nelze měřit, jen vyložit; regulace cílového stavu",
-      "Technologická neutralita – odkaz na normy; cenou právní nejistota",
-      "Regulatorní mix a pyramida: poradenství → náprava → sankce",
-      "Rizikově orientovaný přístup, proporcionalita, náklady regulace",
-      "Compliance: minimum a doložitelnost, ale splněný audit ≠ odolnost"
+      "(1) Technologická neutralita: regulovat cílový stav, odkazovat na normy; cenou právní nejistota",
+      "(2) Rizikově orientovaný přístup: povinnosti podle dopadu selhání, ne plošně",
+      "(2) Proporcionalita: vhodný, potřebný, přiměřený; regulace má náklady",
+      "(3) Splněný audit ≠ odolnost; kontroluje se dokumentace, útok míří na systém",
+      "Přínos compliance: minimum, měřitelná povinnost, doložená náležitá péče",
+      "Regulatorní pyramida: poradenství → náprava → sankce; regulatorní mix"
     ],
-    "source": "Přednáška 3, slide 30–35"
+    "source": "Přednáška 3, slide 30–35; posouzení konkrétních návrhů je odvozené"
   }
 ]
