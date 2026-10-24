@@ -19,6 +19,8 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
   Data stays on the current device and is not synced to other browsers.
 - Multiple-choice scoring requires exactly the correct selections. Essays are
   self-assessed as **Knew it**, **Partly**, or **Need practice**.
+- A missed or partly recalled question comes back once, four questions later in the
+  same round ("Second try"). The score counts first tries only.
 - Results show answered/total coverage, including early exits, and expandable
   explanations for missed or partly recalled questions. Review these questions
   or practice the remaining ones.

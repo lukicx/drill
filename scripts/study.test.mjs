@@ -1,7 +1,7 @@
 import { test, beforeEach } from 'node:test'
 import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
-  saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed } from '../src/study.ts'
+  saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -34,9 +34,30 @@ test('attempts cannot be scored twice and unmarked questions cannot advance', ()
   assert.equal(next.index, 1)
   assert.equal(next.revealed, false)
   assert.deepEqual(next.selected, [])
-  const complete = nextQuestion(recordAttempt({ ...next, draft: 'Essay' }, 'partial'))
-  assert.equal(complete.finished, true)
+  let complete = nextQuestion(recordAttempt({ ...next, draft: 'Essay' }, 'partial'))
+  assert.equal(complete.finished, false) // both missed questions come back as second tries
+  while (!complete.finished) complete = nextQuestion(recordAttempt(complete, 'correct'))
+  assert.equal(complete.attempts.length, 4)
   assert.equal(questionsToReview(complete).length, 2)
+})
+
+test('a missed question returns later in the round once and does not change the score', () => {
+  const bank = [{ datasetId: 'large', questions: Array.from({ length: 8 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
+  let session = recordAttempt(createSession(bank, 'Retry', { shuffled: false }), 'wrong')
+  assert.equal(session.round.length, 9)
+  assert.equal(session.round[5].question.name, 'Q0')
+  assert.equal(session.round[5].retry, true)
+  while (session.index < 4) session = recordAttempt(nextQuestion(session), 'correct')
+  session = nextQuestion(session)
+  assert.equal(session.round[session.index].retry, true)
+  session = recordAttempt(session, 'wrong')
+  assert.equal(session.round.length, 9) // a second try is not repeated again
+  saveSession(session)
+  assert.equal(readSession().round[5].retry, true)
+  while (!session.finished) session = nextQuestion(session.attempts.length > session.index ? session : recordAttempt(session, 'correct'))
+  saveResult(session)
+  assert.deepEqual([readResults()[0].total, readResults()[0].answered, readResults()[0].correct], [8, 8, 7])
+  assert.deepEqual(firstAttempts(session).map((a) => a.item.question.name), bank[0].questions.map((q) => q.name))
 })
 
 test('quick practice caps the round and lecture order does not change answers', () => {

@@ -1,7 +1,8 @@
 import type { Question } from './types'
 
 export interface StudySource { datasetId: string; questions: Question[] }
-export interface StudyQuestion { key: string; datasetId: string; question: Question }
+// `retry` marks a missed question asked again later in the same round; it does not count for the score.
+export interface StudyQuestion { key: string; datasetId: string; question: Question; retry?: boolean }
 export type Assessment = 'correct' | 'partial' | 'wrong'
 export type StudyMode = 'full' | 'quick' | 'mixed' | 'review'
 export interface Attempt { item: StudyQuestion; assessment: Assessment; selected: number[]; draft: string }
@@ -29,6 +30,7 @@ export interface StudyResult {
 
 const SESSION_KEY = 'drill.session.v1'
 const RESULTS_KEY = 'drill.results.v1'
+const RETRY_GAP = 4 // a missed question comes back after this many other questions
 
 export function shuffle<T>(items: T[]): T[] {
   const result = [...items]
@@ -76,11 +78,29 @@ export function checkSelection(question: Question, selected: number[]) {
   return { ok: missed === 0 && incorrect === 0, missed, incorrect, correct }
 }
 
+// A missed question (first try only) is put back into the round a few questions later.
 export function recordAttempt(session: StudySession, assessment: Assessment): StudySession {
   if (session.finished || session.attempts.length > session.index) return session
-  return { ...session, revealed: true, attempts: [...session.attempts, {
-    item: session.round[session.index], assessment, selected: [...session.selected], draft: session.draft,
+  const item = session.round[session.index]
+  let round = session.round
+  if (assessment !== 'correct' && !item.retry) {
+    const question = session.shuffled && item.question.answers
+      ? { ...item.question, answers: shuffle(item.question.answers) } : item.question
+    const at = Math.min(session.index + 1 + RETRY_GAP, round.length)
+    round = [...round.slice(0, at), { ...item, question, retry: true }, ...round.slice(at)]
+  }
+  return { ...session, round, revealed: true, attempts: [...session.attempts, {
+    item, assessment, selected: [...session.selected], draft: session.draft,
   }] }
+}
+
+// Score and review lists count only the first try of each question.
+export function firstAttempts(session: StudySession): Attempt[] {
+  return session.attempts.filter((attempt) => !attempt.item.retry)
+}
+
+export function questionCount(session: StudySession) {
+  return session.round.filter((item) => !item.retry).length
 }
 
 export function nextQuestion(session: StudySession): StudySession {
@@ -90,7 +110,7 @@ export function nextQuestion(session: StudySession): StudySession {
 }
 
 export function questionsToReview(session: StudySession): StudyQuestion[] {
-  return session.attempts.filter((attempt) => attempt.assessment !== 'correct').map((attempt) => attempt.item)
+  return firstAttempts(session).filter((attempt) => attempt.assessment !== 'correct').map((attempt) => attempt.item)
 }
 
 function isQuestion(value: unknown): value is Question {
@@ -108,6 +128,7 @@ function isItem(value: unknown): value is StudyQuestion {
   if (!value || typeof value !== 'object') return false
   const item = value as StudyQuestion
   return typeof item.key === 'string' && typeof item.datasetId === 'string' && isQuestion(item.question)
+    && (item.retry === undefined || typeof item.retry === 'boolean')
 }
 
 function isSelection(value: unknown, question: Question): value is number[] {
@@ -171,12 +192,13 @@ export function readResults(): StudyResult[] {
 }
 
 export function saveResult(session: StudySession) {
-  if (!session.attempts.length) return true
+  const attempts = firstAttempts(session)
+  if (!attempts.length) return true
   const results = readResults().filter((result) => result.sessionId !== session.id)
   const result: StudyResult = {
-    sessionId: session.id, datasetIds: session.datasetIds, mode: session.mode, total: session.round.length,
-    answered: session.attempts.length, correct: session.attempts.filter((a) => a.assessment === 'correct').length,
-    partial: session.attempts.filter((a) => a.assessment === 'partial').length, completedAt: Date.now(),
+    sessionId: session.id, datasetIds: session.datasetIds, mode: session.mode, total: questionCount(session),
+    answered: attempts.length, correct: attempts.filter((a) => a.assessment === 'correct').length,
+    partial: attempts.filter((a) => a.assessment === 'partial').length, completedAt: Date.now(),
   }
   return write(RESULTS_KEY, [result, ...results].slice(0, 100))
 }

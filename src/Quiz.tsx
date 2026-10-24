@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { asHtml } from './math'
-import { checkSelection, clearSession, createSession, getPersistenceFailed, nextQuestion,
-  questionsToReview, recordAttempt, saveResult, saveSession, subscribePersistence } from './study'
+import { checkSelection, clearSession, createSession, firstAttempts, getPersistenceFailed, nextQuestion,
+  questionCount, questionsToReview, recordAttempt, saveResult, saveSession, subscribePersistence } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
@@ -11,11 +11,14 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   const [session, setSession] = useState(initial)
   const persistenceFailed = useSyncExternalStore(subscribePersistence, getPersistenceFailed)
   const heading = useRef<HTMLHeadingElement>(null)
-  const question = session.round[session.index].question
+  const item = session.round[session.index]
+  const question = item.question
   const answers = question.answers ?? []
   const isEssay = question.answers === undefined
   const checked = session.revealed
-  const correct = session.attempts.filter((attempt) => attempt.assessment === 'correct').length
+  const first = firstAttempts(session)
+  const correct = first.filter((attempt) => attempt.assessment === 'correct').length
+  const total = questionCount(session)
   const feedback = checkSelection(question, session.selected)
 
   useEffect(() => {
@@ -38,29 +41,31 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   const storageNotice = persistenceFailed && <p className="error" role="alert">Progress could not be saved in this browser. Keep this tab open to continue studying.</p>
 
   if (session.finished) {
-    const answered = session.attempts.length
+    const answered = first.length
     const percent = answered ? Math.round(correct / answered * 100) : 0
     const wrong = questionsToReview(session)
-    const partial = session.attempts.filter((attempt) => attempt.assessment === 'partial').length
-    const remaining = session.round.length - answered
+    const partial = first.filter((attempt) => attempt.assessment === 'partial').length
+    const unanswered = session.round.slice(session.attempts.length).filter((entry) => !entry.retry)
+    const remaining = unanswered.length
     return <main>
       <p className="eyebrow">{remaining ? 'Session ended early' : 'Session complete'}</p>
       <h1 ref={heading} tabIndex={-1}>{session.title}</h1>
       {storageNotice}
       <p className="score">{answered ? `${percent}% fully correct` : 'No answers recorded yet'}</p>
-      <p className="muted">{answered} of {session.round.length} answered{remaining ? ` · ${remaining} remaining` : ''}</p>
+      <p className="muted">{answered} of {total} answered{remaining ? ` · ${remaining} remaining` : ''}</p>
       <dl className="result-stats"><div><dt>Correct</dt><dd>{correct}</dd></div>
         <div><dt>Partly recalled</dt><dd>{partial}</dd></div><div><dt>Need practice</dt><dd>{answered - correct - partial}</dd></div></dl>
-      {session.round.some((item) => !item.question.answers) && <p className="hint">Essay results are self-assessed. Partly recalled answers stay in your review round.</p>}
+      {session.round.some((entry) => !entry.question.answers) && <p className="hint">Essay results are self-assessed. Partly recalled answers stay in your review round.</p>}
+      {first.length < session.attempts.length && <p className="hint">The score counts first tries only; second tries of missed questions are practice.</p>}
       <div className="actions">
         {wrong.length > 0 && <button type="button" className="primary" onClick={() => setSession(createSession(sources, session.title, { review: wrong, shuffled: session.shuffled }))}>Review missed questions ({wrong.length})</button>}
-        {remaining > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: session.round.slice(answered), shuffled: session.shuffled }))}>Practice remaining ({remaining})</button>}
+        {remaining > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: unanswered, shuffled: session.shuffled }))}>Practice remaining ({remaining})</button>}
         <button type="button" onClick={() => setSession(createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined }))}>Start again</button>
         <button type="button" onClick={onExit}>Back to lectures</button>
       </div>
       {wrong.length > 0 && <section className="results-review"><h2 className="section-title">What to review</h2>
         <p className="hint">Open a question to compare your answer and explanation.</p>
-        {session.attempts.filter((attempt) => attempt.assessment !== 'correct').map((attempt) => <details className="review-item" key={attempt.item.key}>
+        {first.filter((attempt) => attempt.assessment !== 'correct').map((attempt) => <details className="review-item" key={attempt.item.key}>
           <summary><span dangerouslySetInnerHTML={asHtml(attempt.item.question.name)} /><span className="badge">{attempt.assessment === 'partial' ? 'Partly recalled' : 'Need practice'}</span></summary>
           <div className="review-content">
             {session.datasetIds.length > 1 && <p className="hint">{sourceTitles[attempt.item.datasetId]}</p>}
@@ -81,7 +86,7 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   }
   return <main>
     <header className="quiz-header">
-      <div><span>{session.title}</span><p className="session-progress">Question {session.index + 1} of {session.round.length} · {session.attempts.length} answered · {correct} correct</p></div>
+      <div><span>{session.title}</span><p className="session-progress">Question {session.index + 1} of {session.round.length} · {first.length} of {total} answered · {correct} correct</p></div>
       <div className="actions">
         <button type="button" className="link" onClick={() => { saveSession(session); onExit() }}>Pause</button>
         <button type="button" className="link" onClick={() => setSession((s) => ({ ...s, finished: true }))}>End session</button>
@@ -89,7 +94,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     </header>
     {storageNotice}
     <progress className="progress-bar" max={session.round.length} value={session.attempts.length} aria-label="Questions answered" />
-    {session.datasetIds.length > 1 && <p className="eyebrow">{sourceTitles[session.round[session.index].datasetId]}</p>}
+    {session.datasetIds.length > 1 && <p className="eyebrow">{sourceTitles[item.datasetId]}</p>}
+    {item.retry && <p className="eyebrow">Second try – you missed this one earlier</p>}
     <h2 ref={heading} tabIndex={-1} className="question" dangerouslySetInnerHTML={asHtml(question.name)} />
     {isEssay ? <>
       <p className="hint">Essay question. Write or think through your answer, then compare.</p>
