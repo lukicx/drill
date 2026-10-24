@@ -1,5 +1,6 @@
 [
   {
+    "id": "f539df56",
     "name": "A router must perform two fundamental tasks. Name them, explain what each does and how they are connected, and state which one determines the router's overall performance.",
     "answer": "The two tasks are routing and packet forwarding. The routing process constructs a view of the network topology and computes the best paths, using information exchanged between neighbouring routers by routing protocols. The best paths are stored in a data structure called the forwarding table. The packet forwarding process moves a packet from an input interface (ingress) to the appropriate output interface (egress) according to the information in the forwarding table. The forwarding table is therefore the link between the two tasks: routing fills it and forwarding consults it. The performance of the forwarding process determines the overall performance of the router.",
     "keyPoints": [
@@ -12,6 +13,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 5"
   },
   {
+    "id": "f8071adc",
     "name": "Name the basic forwarding functions a router applies to every IP packet and explain why each is needed (cover at least header validation, TTL handling with checksum update, route lookup and fragmentation).",
     "answer": "IP header validation: every arriving IP packet is validated, e.g. the protocol version number is correct, the header length is valid and the checksum is correct. Packet lifetime control: the TTL field is decremented so that packets cannot circulate in routing loops forever; if the TTL is zero or negative the packet is discarded and an ICMP message is generated and sent to the original sender. Checksum recalculation: because the TTL value was modified, the header checksum must be updated. Route lookup: the destination address is used to search the forwarding table to determine the output port. Fragmentation: the router splits the packet into multiple fragments when the MTU of the outgoing link is smaller than the packet to be transmitted. Handling IP options: a packet may indicate that it needs special processing at the router.",
     "keyPoints": [
@@ -25,6 +27,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 6-7"
   },
   {
+    "id": "9cdedd6d",
     "name": "Why does a real router need more than basic forwarding? Name three complex forwarding functions and three routing-process functions and explain what each is for.",
     "answer": "Complex forwarding functions: (1) packet classification - to distinguish packets the router may need to examine not only the destination IP address but also other fields such as source address, destination port and source port; (2) packet translation - a router acting as a gateway to a NAT network must support network address translation; (3) traffic prioritization - a router may need to guarantee a certain quality of service to meet service level agreements. Routing-process functions: (1) routing protocols - the router implements different routing protocols (e.g. OSPF, BGP, RIP) and maintains peer relationships by sending and receiving route updates from adjacent routers; (2) system configuration - functions that let operators perform administrative tasks such as configuring interfaces, routing protocol keep-alives and rules for classifying packets; (3) router management - besides configuration, the router must be monitored for continuous operation, e.g. through SNMP support.",
     "keyPoints": [
@@ -38,6 +41,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 8-9"
   },
   {
+    "id": "bfa0e58f",
     "name": "Describe the main hardware elements of a router and the role of each: network interfaces, forwarding engine, queue manager, traffic manager, backplane and route control processor.",
     "answer": "A network interface contains many ports that provide connectivity to physical network links; a port is specific to a particular physical medium (Ethernet, Sonet, etc.). The forwarding engine decides to which network interface an incoming packet should be forwarded by consulting a forwarding table (address/route lookup). The queue manager provides buffers for temporary storage of packets when an outgoing link is overbooked; when these queues overflow because of congestion it selectively drops packets. The traffic manager prioritizes and regulates outgoing traffic according to the desired level of service. The backplane provides connectivity between the network interfaces, so packets from an incoming interface can be transferred to the outgoing interface. The route control processor implements and executes the routing protocols and maintains the routing table, which is updated whenever a route changes; the forwarding table is computed and updated from the routing table. It also runs the software that configures and manages the router and performs complex packet-by-packet operations such as error handling, e.g. sending an ICMP message to the origin when a destination address is not found in the forwarding table.",
     "keyPoints": [
@@ -51,6 +55,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 11-12"
   },
   {
+    "id": "8cae4790",
     "name": "Describe the architecture of a modular router built from cards: a route processor card, line cards with port cards, and a switch fabric card. Which elements sit on which card, where are the routing table and the forwarding tables, and how does a packet travel from arrival to departure?",
     "answer": "The route processor card holds the CPU with the route control processor, its memory and the routing table. Each line card carries port cards with input and output network interfaces (L2/L3), a forwarding engine with its own copy of the forwarding table, buffer memory, a queue manager and a traffic manager. A switch fabric card contains the backplane that interconnects the line cards. The forwarding tables on the line cards are filled from the routing table by the route control processor.<BR><BR>Packet path: <B>ingress processing</B> on the incoming line card – the packet enters the input network interface and the forwarding engine looks it up in the line card's forwarding table; the packet then crosses the backplane to the outgoing line card; <B>egress processing</B> there – queue manager, traffic manager and finally the output network interface. Buffer memory on each line card sits between the ingress and egress parts. Exceptional packets (e.g. errors) are handled by the route control processor.",
     "keyPoints": [
@@ -64,6 +69,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 10 (block diagram), with element roles from slides 11-12"
   },
   {
+    "id": "89d32dd",
     "name": "Compare address lookup under classful addressing with address lookup under CIDR. Why does CIDR require longest prefix matching and why is it harder?",
     "answer": "With classful addressing, forwarding is straightforward: routers need to examine only the network part of the destination address, and the forwarding table stores just a single entry for routing the packets destined to all hosts attached to a given network. With CIDR, lookup is more difficult for two reasons: (1) a destination IP address does not explicitly carry the netmask information, so the router cannot tell from the address alone how long its network part is; (2) the prefixes in the forwarding table against which the destination address must be matched can be of arbitrary lengths. The lookup therefore has to find the longest prefix in the table that matches the destination address.",
     "keyPoints": [
@@ -76,6 +82,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 13-14"
   },
   {
+    "id": "574ab065",
     "name": "Explain wire-speed forwarding and derive the maximum time allowed for a prefix lookup on 1 Gbps, 10 Gbps and 40 Gbps links, given that about 50 % of arriving packets are 40-byte TCP acknowledgements.",
     "answer": "The prefix lookup must be completed in the time it takes to forward a minimum-size packet, because roughly half of the arriving packets are 40-byte TCP acknowledgements; this is <B>wire-speed forwarding</B> (the lookup must not become the bottleneck).<BR>Packet size: \\(40\\cdot 8=320\\) bits. Time \\(=\\) size / rate:<BR>1 Gbps: \\(320/10^{9}=320\\cdot10^{-9}\\) s \\(=320\\) ns.<BR>10 Gbps: \\(320/(10\\cdot10^{9})=32\\) ns.<BR>40 Gbps: \\(320/(40\\cdot10^{9})=8\\) ns.<BR>Each tenfold (or fourfold) increase of link speed shortens the budget proportionally, which is why routers do high-performance computing: a packet has to be processed within microseconds, milliseconds at most.",
     "keyPoints": [
@@ -88,6 +95,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 15; closing remark from slide 55 (PDF page 57)"
   },
   {
+    "id": "6949274f",
     "name": "Besides lookup speed, which requirements must a longest-prefix-matching algorithm satisfy? Explain memory usage, scalability and updatability.",
     "answer": "Memory usage is the amount of memory consumed by the data structures of the algorithm; a memory-efficient algorithm can effectively use the fast but small cache memory. Scalability: algorithms are expected to scale both in speed and in memory as the size of the forwarding table increases. Updatability: route changes occur fairly frequently, at rates varying from a few prefixes per second to a few hundred prefixes per second, and these changes require the forwarding table data structure to be updated in the order of milliseconds or less.",
     "keyPoints": [
@@ -100,6 +108,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 16"
   },
   {
+    "id": "7bc49bd6",
     "name": "Why is the naive algorithm (linear search over the prefixes) unsuitable for longest prefix matching in large tables, and which other families of algorithms exist? Name at least three.",
     "answer": "The naive algorithm is a linear search of the prefixes for the best matching one. Its time complexity is O(N), where N is the number of prefixes in the forwarding table; it is useful only if there are very few prefixes, otherwise the search time degrades as N grows. Trie-based algorithms (the word 'trie' comes from 'retrieval', not from 'tree') have several variants: binary tries, multibit tries and compressed multibit tries. Other approaches are search-by-length algorithms, search-by-value approaches and hardware algorithms such as RAM-based lookup, ternary CAM-based lookup and multibit tries in hardware.",
     "keyPoints": [
@@ -113,6 +122,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 17, 19"
   },
   {
+    "id": "33f0f50d",
     "name": "Practical: a forwarding table holds the prefixes P1 = 0*, P2 = 00001*, P3 = 001*, P4 = 1*, P5 = 1000*, P6 = 1001*, P7 = 1010*, P8 = 1011*, P9 = 111*. Describe the binary trie that stores them and find the longest matching prefix for destination addresses starting with 00010, 00111, 10110, 11010 and 11101.",
     "answer": "In the binary trie each edge is labelled 0 (left) or 1 (right) and a node at depth k represents the k-bit string on the path from the root; nodes that correspond to a stored prefix are marked. P1 is the left child of the root and P4 the right child. Under P1 the path 0-0 leads to an unmarked node, whose child 1 is P3 (001) and whose 0-branch continues 000, 0000 down to P2 (00001). Under P4 the 0-branch (10) has children 100 and 101, whose leaves are P5 (1000), P6 (1001), P7 (1010) and P8 (1011); the 1-branch (11) has a single child, P9 (111). Lookup walks the address bits from the root and remembers the last marked node passed; when no further branch exists, that remembered prefix is the longest match. Results: 00010 - passes P1, then 00, 000, 0001 does not exist, so the answer is P1 (0*). 00111 - passes P1 and reaches P3 (001*), which has no children, so P3. 10110 - passes P4 and reaches leaf P8 (1011*), so P8. 11010 - passes P4, reaches node 11, there is no 0-branch, so P4 (1*). 11101 - passes P4 and reaches P9 (111*), so P9.",
     "keyPoints": [
@@ -126,6 +136,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 18 (figure: binary trie data structure example). The slide shows only the prefix list and the trie; the step-by-step lookup walk is derived from the figure."
   },
   {
+    "id": "ec4a2d42",
     "name": "Why is IP packet classification and filtering important for a network operator? Give at least three reasons.",
     "answer": "Three reasons are given (the list is open-ended). Providing preferential treatment for different types of traffic: to provide different service guarantees for different traffic types, an ISP might maintain different paths for the same source and destination addresses. Flexibility in accounting and billing: an ISP needs flexible accounting and billing based on the traffic type, since different traffic can be charged at different prices. Preventing malicious attacks: the ability to identify malicious packets and drop them at the point of entry.",
     "keyPoints": [
@@ -137,6 +148,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 20"
   },
   {
+    "id": "4eb6a4db",
     "name": "Explain how a packet classifier is defined: what is a rule, what does it specify, and how is an unambiguous result obtained when a packet matches several rules?",
     "answer": "The criteria for classification are expressed as rules or policies over the header fields of packets. The forwarding engine has to examine packet fields other than the destination address to identify the context of the packet and to perform the processing or actions required to satisfy user requirements. A collection of such rules is called a rule/policy database, a flow classifier or simply a classifier. Each rule specifies (1) a flow to which a packet may belong, defined by conditions that can be an exact match, prefix match, range match, regular expression match, etc., and (2) an action to be applied to packets belonging to the flow, such as permit, deny or encrypt. A packet may match more than one rule, so a cost is associated with each rule to make the match unambiguous: the goal is to find the least-cost rule that matches the packet's header. When the rules are placed in order of their cost, the goal becomes finding the earliest matching rule.",
     "keyPoints": [
@@ -150,6 +162,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 21"
   },
   {
+    "id": "92e704ca",
     "name": "Describe the naive packet classification algorithm and its trade-off, and name at least three families of more advanced classification algorithms.",
     "answer": "The naive algorithm stores the rules in a linked list in order of increasing cost. It is storage efficient but search-time inefficient, so it does not scale. More advanced families: two-dimensional solutions (hierarchical tries, set pruning tries, grid-of-tries); d-dimensional solutions; divide-and-conquer approaches (Lucent bit vector, aggregated bit vector, cross-producting, recursive flow classification); tuple space approaches; decision tree approaches (Hierarchical Intelligent Cuttings - HiCuts, HyperCuts); and hardware-based solutions using ternary content addressable memory (TCAM).",
     "keyPoints": [
@@ -163,6 +176,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 22"
   },
   {
+    "id": "5a204e33",
     "name": "What limitations of traditional networks motivate network softwarization, and which questions does softwarization try to answer?",
     "answer": "Network softwarization is a current trend in networking. Traditional networks are limited by complexity and difficult administration, heterogeneity of hardware vendors and protocols, and high costs for devices and specialized personnel. Computer networks have remained essentially the same since the 1980s. They are difficult to manage: it is unclear how to configure devices from different vendors, and devices can be highly optimized but also expensive, with some features or protocols usable only if all devices come from the same vendor. They are also difficult to update: how to implement a new routing protocol or update a router to get new features? Softwarization asks whether some tasks can be offloaded to machines: can the way of managing the network be unified, can all devices be configured simultaneously, can any software be run on networking hardware, and can the hardware take different roles when needed?",
     "keyPoints": [
@@ -176,6 +190,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 24, 27"
   },
   {
+    "id": "77c2341a",
     "name": "Describe the planes of a computer network and what each one does. Which planes are always present? Place a switch and a router, and a firewall, load balancer and IDS, in this picture: what do these devices have in common and why does that motivate softwarization?",
     "answer": "Data plane: forwards the packets and is managed by the control plane. Control plane: determines how packets are forwarded; it requires high stability and robustness. Application plane: intelligent applications, including QoS-based routing and traffic engineering, and network orchestration and provisioning. Management plane: device configuration and debugging. In many documents the application plane or the management plane may be omitted or merged into one; the data plane and the control plane are, however, always present. Typical devices: a <B>switch</B> forwards at L2 within one network and a <B>router</B> routes at L3 between networks; a <B>firewall</B> filters traffic (by IP/port), a <B>load balancer</B> distributes traffic by policy, an <B>IDS</B> alerts or drops suspicious traffic and an <B>access point</B> bridges wireless and wired devices. All are mainly data-plane devices with their own embedded control logic, each tied to one function – the starting point for asking whether the same hardware could take different roles when controlled by software.",
     "keyPoints": [
@@ -189,6 +204,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 24-26 (table of device functions merged here); the data-plane/control-logic remark is derived"
   },
   {
+    "id": "50a4fd1a",
     "name": "Define Software Defined Networking and explain its benefits.",
     "answer": "SDN aims to transform the network into a flexible and agile data plane, emphasizing open interfaces and programmability. It decouples the data plane and the control plane: the network elements become simple forwarding devices and the intelligence is gathered in the control plane. Benefits: lower operations costs - the equipment does not need to be replaced so often and there is no need for a specialist on every vendor or device; fewer points of failure - the network acts as one entity and debugging is potentially easier; automation - the network is operated by software while personnel supervise the process; centralized control - a global view of the network, faster and easier reconfigurations and vendor-agnostic communication interfaces.",
     "keyPoints": [
@@ -202,6 +218,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 29-30"
   },
   {
+    "id": "a64b4d84",
     "name": "Explain northbound and southbound communication in SDN and give example protocols for each.",
     "answer": "Northbound interfaces specify the communication standard between the control plane and the application plane. Northbound protocols include REST, RESTCONF and RPC/gRPC. Southbound interfaces define the communication standard between the control plane and the data plane. Southbound protocols include OpenFlow, ForCES, NETCONF, POF and OpenState. The control plane (the SDN controller) thus sits in the middle: applications talk to it over the northbound interface and it instructs forwarding devices over the southbound interface.",
     "keyPoints": [
@@ -214,6 +231,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 31; the controller's translating role is from slide 40"
   },
   {
+    "id": "c9096a21",
     "name": "What is OpenFlow? Describe the protocol, its data structures (table types), the OpenFlow pipeline and the two kinds of OpenFlow switches.",
     "answer": "OpenFlow was first introduced in the 2008 paper 'OpenFlow: Enabling Innovation in Campus Networks' and is currently the most widely used (southbound) communication protocol. It defines the messages a forwarding element (an OpenFlow switch) can exchange with the control plane, is standardized by the Open Networking Foundation (ONF) and enables fine-grained flow-level forwarding (QoS, bandwidth limitation, security, ...). Data structures: flow tables are the most common table type and offer simple match + action functionality; group tables allow more complex operations such as load balancing, which flow tables cannot express; meter tables are used for traffic shaping and QoS and limit packets/s or bytes/s. Counters hold statistics. The OpenFlow pipeline is the series of tables a packet traverses from ingress to egress. OpenFlow switches are networking devices supporting some version of the protocol (most support OpenFlow 1.0 and 1.3). Hardware switches are physical devices - expensive, high throughput, from various vendors; software switches are software services (see NFV) with high flexibility but low throughput compared with hardware ones.",
     "keyPoints": [
@@ -227,6 +245,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 32-33, 38"
   },
   {
+    "id": "b5c9b7e6",
     "name": "An OpenFlow switch holds two flow entries. Entry A: match src_ip = 192.168.20.0/24 and dst_ip = 192.168.10.100, priority 1, instruction Drop, no timeouts, cookie 10. Entry B: match dst_ip = 172.16.0.0/16, priority 10, instruction output to port 1, soft timeout 10 s, hard timeout 20 s, cookie 11. Explain what each component of a flow entry (match fields, priority, actions, timeouts, cookie, counters) means, interpret both entries, and say what happens to the packets 192.168.20.7 to 192.168.10.100 and 10.0.0.5 to 172.16.40.2. If entry B is installed at \\(t=0\\) s and matching packets arrive at \\(t=4\\), 12 and 19 s, when is it removed? What if only one packet arrives, at \\(t=2\\) s?",
     "answer": "<B>Components</B>: match fields – header fields that trigger the rule when they match; priority – higher-priority rules are checked first; actions – performed on the packet that triggered the rule; timeouts – a soft timeout deletes the rule if it is not triggered for n time units, a hard timeout deletes it after n time units regardless; cookie – a value used to identify a rule quickly (e.g. which application created it), not used in packet processing; counters – updated when a packet triggers the rule (per flow entry; table counters are per table).<BR><B>Entries</B>: A drops every packet from the 192.168.20.0/24 network whose destination is 192.168.10.100, and has no timeouts. B sends all packets for 172.16.0.0/16 to port 1 and is removed after 10 s without a match or after 20 s at the latest. The cookies 10 and 11 only identify the creating applications.<BR><B>Packets</B>: 192.168.20.7 to 192.168.10.100 matches A (source inside /24, exact destination) and is dropped. 10.0.0.5 to 172.16.40.2 matches B and leaves via port 1. B (priority 10) is examined before A (priority 1), but the matches cannot overlap because the destinations differ.<BR><B>Timing</B>: with packets at 4, 12 and 19 s the gaps are 4, 8 and 7 s (all below 10 s), so the soft timeout never fires and the hard timeout removes the rule at \\(t=20\\) s. With one packet at \\(t=2\\) s the rule is idle for 10 s after it and is removed by the soft timeout at \\(t=2+10=12\\) s, before the hard timeout.",
     "keyPoints": [
@@ -240,6 +259,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 34 and 37 (field semantics and example table); measuring the soft timeout from the last matching packet is the interpretation used for the timing scenarios"
   },
   {
+    "id": "d7441a8f",
     "name": "Why does OpenFlow need group tables and meter tables in addition to flow tables? Give a use case for each and say what a group entry and a meter entry contain.",
     "answer": "A flow table offers only simple <B>match + action</B>. Two jobs cannot be expressed that way.<BR><B>Group tables</B> allow more complex operations such as <B>load balancing</B>. A group entry has an identifier, a type, counters and a list of action buckets (each bucket may hold several actions). The type decides how buckets are used: <B>All</B> executes all buckets (e.g. replication), <B>Select</B> executes one bucket chosen by an algorithm such as a hash (load balancing), <B>Indirect</B> executes a single bucket (a shared action referenced by many flows), <B>Fast failover</B> executes the first active bucket (protection against link failure).<BR><B>Meter tables</B> serve <B>traffic shaping and QoS</B>, limiting packets or bytes per second. A meter entry has an identifier, an unordered list of meter bands (each specifying a rate and how to handle a packet exceeding it) and counters.",
     "keyPoints": [
@@ -252,6 +272,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 33 and 35-36; the use-case remarks (replication, shared action, link protection) are derived"
   },
   {
+    "id": "b60e2d",
     "name": "A packet arrives at an OpenFlow switch and no flow entry matches it. Which OpenFlow messages can be exchanged with the controller to handle this, in which direction do they travel, and what other message types keep the control channel working? Name the categories of messages by direction.",
     "answer": "Message types: <B>Handshake</B> – initial communication between switch and controller; <B>Table configuration</B> – reallocate hardware resources to tables; <B>Flow installation/modification/removal</B> – populate the flow, group and meter tables; <B>Packet-in/Packet-out</B> – exchange packets between the data plane and the control plane; <B>Statistics collection</B> – request statistics from switches; <B>Keep-alive</B> – make sure the control-plane-to-data-plane communication is active.<BR>For an unmatched packet the switch can pass it up in a <B>packet-in</B> (asynchronous, sent by the switch); the controller decides, installs a rule with a flow-modification message (controller-to-switch) so later packets of the flow are handled in the switch, and can return the waiting packet in a <B>packet-out</B> (this reactive scenario is derived).<BR>Direction categories: <B>Controller-to-Switch</B> (e.g. statistics requests, flow modification; in the OpenFlow specification also packet-out), <B>Asynchronous</B> (switch-initiated, e.g. packet-in; the slide groups packet-in/packet-out here), <B>Symmetric</B> (keep-alive).",
     "keyPoints": [
@@ -264,6 +285,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 39; the unmatched-packet scenario is derived from the message roles; the slide lists packet-out as asynchronous, but in the OpenFlow specification it is a controller-to-switch message"
   },
   {
+    "id": "afb4d3ba",
     "name": "What is the role of the SDN controller? Name at least three of its responsibilities and give two examples of SDN controllers (not switches).",
     "answer": "The SDN controller orchestrates the entire network. It offers a global view of the network to the application plane; translates high-level policies into low-level device-specific instructions (northbound-to-southbound translation); maintains the state of devices, links and hosts; and maintains logs and statistics. Examples: OpenDaylight (the baseline implementation) and ONOS, plus vendor-specific controllers. The slide also lists OpenvSwitch, but that is a software OpenFlow switch, not a controller.",
     "keyPoints": [
@@ -277,6 +299,7 @@
     "source": "PA191 L5, lecture05.pdf, slide 40 (the slide lists OpenvSwitch among the controller examples)"
   },
   {
+    "id": "2479dba8",
     "name": "Define Network Function Virtualization, give at least three examples of network functions, and explain at least three benefits of NFV.",
     "answer": "NFV is the decoupling of network functions from hardware appliances and running them as software components. Examples of network functions: firewall, load balancer, traffic limiter, routing, traffic monitoring, IDS. Benefits: reduced costs - services run on commercial-off-the-shelf (COTS) hardware, the hardware is abstracted away and resources are shared among multiple VNFs; scalability - when load increases new VNFs can be deployed in seconds, and if demand increases new COTS hardware can be deployed; automation - software orchestrates the overall processes of deployment, migration and termination; rapid innovation - CI/CD operation, and if a bug arises one falls back to the previous stable state.",
     "keyPoints": [
@@ -290,6 +313,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 42-43"
   },
   {
+    "id": "66f9680f",
     "name": "Explain how SDN and NFV relate to each other and how they are used together. Give examples of what their combination enables.",
     "answer": "SDN side: an SDN-enabled network is easier to manage, expand and debug; the SDN controller is a logically centralized component that controls the entire network; interaction with the data plane happens through well-defined interfaces. NFV side: NFV hides any hardware differences; network functions are easier to develop and maintain than with traditional approaches; NFV gives high flexibility in deploying, migrating and terminating services. The two complement each other. A service migration requires the creation of new communication paths and the allocation of network resources (bandwidth, latency limits, ...). Knowing the current state of the network, the operator can deploy services efficiently: avoid deploying a communication-intensive service in a congested part of the network, reroute traffic to avoid a congested link, or re-arrange communication paths to create bandwidth for a new service. In addition, the SDN can control VNFs, e.g. install new security rules or perform intelligent load balancing of requests.",
     "keyPoints": [
@@ -303,6 +327,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 44-45"
   },
   {
+    "id": "db0a7dfb",
     "name": "Describe the evolution of network management towards Intent-Based Networking. What is the main idea of IBN, what is an IBN system, and what are at least two example intents?",
     "answer": "Evolution: traditional networking uses manual, device-by-device configuration; the current trend, SDN, brings centralized, programmable control; the next step, IBN, is networks that understand and implement intent. The main idea of IBN is to move from 'how to configure' to 'what the network should do'. An IBN system allows users to specify intent. Intent can be formulated in natural language, so IBN benefits from language models such as BERT. The network automatically translates intent into configurations and policies - SDN provides the unified, centralized configuration for this. Continuous monitoring ensures that network behaviour matches the intent; feedback loops are another vital enabling concept. Example intents: reserve sufficient bandwidth for the communication of hosts A and B; any incoming traffic must pass intrusion detection before it is routed in the network; traffic found suspicious by the IDS is routed through a node performing deep packet inspection or redirected to a honeypot; our data cannot leave the EU, so do not route our communications through nodes outside the EU.",
     "keyPoints": [
@@ -316,6 +341,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 47-49 (PDF pages 47-51)"
   },
   {
+    "id": "4e70a918",
     "name": "Compare SDN and IBN and describe the four components of the IBN architecture.",
     "answer": "SDN provides the foundation for programmability; IBN adds a higher abstraction - understanding intent. SDN focuses on control/data plane separation, uses manual or scripted configuration and reactive monitoring. IBN focuses on business goals, uses automatic intent translation and continuous verification. IBN architecture: (1) Intent input - high-level goals from operators or applications; an intent parser converts human-readable intent into policies. (2) Translation - convert intent into policies and configurations; a policy engine defines and applies network rules. (3) Automation - apply the policies to network devices, with SDN and standardized interfaces as enablers. (4) Assurance - continuously verify that the intent is met; a feedback loop ensures the network remains aligned with business goals. All these components are currently the subject of research and development.",
     "keyPoints": [
@@ -329,6 +355,7 @@
     "source": "PA191 L5, lecture05.pdf, slides 50-51 (PDF pages 52-53)"
   },
   {
+    "id": "fa76adb6",
     "name": "Name at least three advantages and three challenges of Intent-Based Networking and summarize its expected future development.",
     "answer": "Advantages: IBN simplifies network management and reduces human error; enables faster deployment of network services; ensures continuous compliance with business policies; enhances agility and automation; and reduces operational cost and downtime. Challenges and limitations: the complexity of translating high-level intent accurately; the need for trustworthy automation and verification; integration with legacy systems and multi-vendor networks; standardization of intent languages and models; and data privacy and security in AI-driven decision-making. Summary: IBN abstracts network management from configuration to intent, is built on top of SDN and automation technologies, provides continuous alignment between business and network goals, and is still evolving as a central topic of AI-driven networking research. Future: standardized intent frameworks and APIs, collaboration with NFV, and fully autonomous networking (AN).",
     "keyPoints": [

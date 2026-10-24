@@ -1,5 +1,6 @@
 [
   {
+    "id": "6400e571",
     "name": "Explain hop-by-hop routing in a datagram network and how a weighted graph models the routing problem. What determines whether a path is optimal?",
     "answer": "Upper-layer data is carried in datagrams, which travel independently. Routing finds a path satisfying relevant constraints, but ordinary forwarding lets each router choose only the next hop toward the receiver. In a graph, routers are nodes, links are edges and weights represent communication cost. The metric can reflect hop count, delay or link usage, so optimality means minimizing the appropriate cost rather than necessarily using the fewest links. Topology is a static influence, while network load is dynamic.",
     "keyPoints": [
@@ -12,6 +13,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 4-6"
   },
   {
+    "id": "c876ada8",
     "name": "Bellman-Ford is the algorithm behind distance-vector routing and Dijkstra's algorithm the one behind link-state routing; both compute shortest paths. A path crosses three links with available bandwidths 20, 15 and 8 Mbit/s. What bandwidth can the path offer, and why is the bottleneck (minimum) used rather than the sum? How does selecting the widest path differ from selecting the shortest path?",
     "answer": "<B>Bottleneck</B>: \\(\\min\\{20,15,8\\}=8\\) Mbit/s, not the sum \\(20+15+8=43\\) Mbit/s. Every packet crosses every link in series, so the slowest link limits the whole path; bandwidth is a <B>non-additive (concave) metric</B>.<BR><B>Shortest path</B> (Bellman-Ford in distance-vector, Dijkstra in link-state routing) minimises an <B>additive</B> cost, the sum of link costs. <B>Widest path</B> instead maximises the minimum link bandwidth over the candidate paths, so the algorithms are adapted to compute a max-min value instead of a sum; centralised and distributed variants of both exist.",
     "keyPoints": [
@@ -24,6 +26,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 7-8; the explanation of why the minimum is used is derived"
   },
   {
+    "id": "a9fc354c",
     "name": "Describe RIP's distance-vector operation and explain why RIPv1 is a poor choice for a large, redundant network or variable-length subnetting.",
     "answer": "RIP uses hop count, exchanges information over UDP and sends periodic and triggered updates. Transfer between neighboring routers contributes one hop. Metric 16 means infinity, limiting reachable routes to at most 15 hops. DV convergence can be slow and create loops or count-to-infinity. RIPv1 lacks a subnet-mask field and assumes classful boundaries, preventing VLSM. These limitations suit small, stable networks better than large or redundant ones.",
     "keyPoints": [
@@ -36,6 +39,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 15, 17-18"
   },
   {
+    "id": "c8027e32",
     "name": "Three routers are in a line: A - B - C, using a distance-vector protocol with hop count, and C reaches network N through its own interface (A learns N via B at 2 hops, B at 1 hop). The link from C to N fails. Explain how B and A can end up counting upwards (count-to-infinity), and why RIP defines \"infinity\" as 16. Name two remedies.",
     "answer": "After the failure C no longer has a route to N, but B still holds N at 1 hop and A believes N is 2 hops via B. Before C's updated vector reaches B, B hears from A that N is reachable at 2 hops, so B concludes \"N is 3 hops away via A\" and advertises that. A then updates to 4 hops via B, B to 5, and so on: the two routers bounce the same invalid route back and forth, increasing the metric by 1 each exchange (a routing loop), until a limit is reached. A distance-vector router only sees neighbours' distances, not the path, so it cannot recognise that the route runs through itself.<BR>RIP bounds the process by defining <B>infinity = 16</B>: when the metric reaches 16 the route is treated as unreachable, which stops the counting after a few exchanges, at the price that networks with more than 15 hops are unusable.<BR>Remedies (general knowledge, not in the slides): <B>split horizon</B> (do not advertise a route back out of the interface it was learned from, optionally with poison reverse) and <B>hold-down timers</B>/triggered updates; link-state protocols avoid the problem by using a full topology map.",
     "keyPoints": [
@@ -48,6 +52,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 9 and 18 (count-to-infinity and infinity = 16 are named there); the worked mechanism and the remedies (split horizon, hold-down) are general knowledge, not slide content"
   },
   {
+    "id": "77195eaf",
     "name": "RIPv1 route entries carry only an address-family identifier, an IP address and a metric, and RIPv1 broadcasts its updates. Why did RIPv2 add a subnet mask, a next hop and a route tag to each entry, and why did it switch to multicast?",
     "answer": "<B>Subnet mask</B>: RIPv1 has no field saying anything about the network being addressed and assumes class A/B/C boundaries, so it cannot carry variable-length subnet masks (VLSM). Adding the mask lets routes be subnet-aware (classless).<BR><B>Next hop</B>: lets an entry name a router other than the advertising one, so traffic can be sent directly to the better router on the shared segment instead of through the advertiser.<BR><B>Route tag</B>: distinguishes internal from external routes (e.g. routes learned from another protocol).<BR><B>Multicast</B>: RIPv2 sends updates to 224.0.0.9 instead of broadcasting, so hosts and other devices that do not run RIP are not bothered (the reason is a standard rationale, not stated in the course text). The shared fields (command request/response, version, address family, destination, metric) stay, so the basic route-entry structure is unchanged.",
     "keyPoints": [
@@ -60,6 +65,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 16-20; the rationale for multicast and for the next hop is general knowledge"
   },
   {
+    "id": "dc3afa0",
     "name": "IGRP was developed to overcome the limits of RIPv1. Which limitations did it address, and why does an IGRP update carry the individual metric components (delay, bandwidth, reliability, load, hop count, path MTU) instead of one finished cost? What do the edition counter and the process identifier in the header contribute?",
     "answer": "IGRP was developed to overcome RIPv1's <B>hop-count limit and its hop-count-only metric</B>. It is still distance-vector, runs directly over IP, supports multiple paths for load balancing and external routes, but lacks VLSM.<BR>An update carries the <B>metric components</B> (delay, bandwidth, reliability, load, hop count and the smallest MTU on the path), not the composite cost; each receiving router computes the composite cost locally from its own coefficients, so the metric can be tuned, which makes it essential that all routers use the same coefficients.<BR>The <B>edition counter</B> lets routers recognise old updates; the <B>process identifier</B> separates IGRP instances; route counts and a checksum support update handling.",
     "keyPoints": [
@@ -72,6 +78,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 21-23, 26"
   },
   {
+    "id": "37f26aac",
     "name": "IGRP computes the cost of a link from transformed bandwidth \\(B\\), delay \\(D\\), reliability \\(R\\) and load \\(L\\) with coefficients \\(K_1\\)-\\(K_5\\): \\[C=\\begin{cases}\\left(K_1B+\\dfrac{K_2B}{256-L}+K_3D\\right)\\cdot\\dfrac{K_5}{R+K_4}, & K_5\\ne0\\\\[2mm] K_1B+\\dfrac{K_2B}{256-L}+K_3D, & K_5=0\\end{cases}\\] What does the default setting \\(K_1=K_3=1,\\ K_2=K_4=K_5=0\\) give, why must raw bandwidth and delay be transformed first, and what goes wrong if routers use different coefficients?",
     "answer": "<B>Default</B>: \\(K_2=0\\) removes the load term, and \\(K_5=0\\) selects the second branch, so the reliability factor is omitted (not multiplied by zero, which would make \\(C=0\\)): \\[C_{\\text{default}}=1\\cdot B+1\\cdot D=B+D.\\] All links are then treated as equally reliable and unloaded.<BR><B>Transformation</B>: bandwidth (kbit/s, Mbit/s) and delay (seconds, milliseconds) have different units and cannot be added meaningfully; they are mapped to comparable metric values first.<BR><B>Inconsistent coefficients</B>: updates carry components and every router computes \\(C\\) itself, so routers with different \\(K_i\\) get different link costs and therefore different views of the shortest paths, which can cause routing problems (e.g. loops or inconsistent forwarding).",
     "keyPoints": [
@@ -84,6 +91,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 24-26"
   },
   {
+    "id": "b87d5662",
     "name": "Explain what EIGRP improves over IGRP and how the RIP family (RIPv1, RIPv2, RIPng) differs from the IGRP/EIGRP family in metric, algorithm, convergence and VLSM support.",
     "answer": "EIGRP adds loop-free routing, reliable delivery and VLSM to IGRP. Both use composite metrics rather than RIP's hop count. The comparison associates EIGRP with diffusing computation and faster loop-free convergence, while RIP variants use Bellman-Ford and show slower convergence. RIPv1 lacks VLSM, RIPv2 supports it and RIPng is the IPv6 form. The comparison concerns IPv4 EIGRP; an IPv6 version of EIGRP exists as well.",
     "keyPoints": [
@@ -96,6 +104,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 27-28"
   },
   {
+    "id": "26f4e1f",
     "name": "Explain OSPF's route metric (including how a default interface cost follows from link bandwidth), its hierarchy, equal-cost paths and subnetting support. How are its messages transported?",
     "answer": "OSPF builds a link-state topology map and chooses paths by <B>cost</B>, not hop count. The interface cost is a number from 1 to 65535, by default derived from bandwidth: \\[\\text{cost}=\\frac{10^{8}}{\\text{bandwidth [bit/s]}},\\] e.g. a 100 Mbit/s link gets \\(10^8/10^8=1\\) and a 10 Mbit/s link \\(10^8/10^7=10\\); costs can also be set manually, and a lower value is preferred. <B>Areas</B> add hierarchy within an AS, which simplifies administration and reduces the messages exchanged among same-area routers. <B>ECMP</B> lets OSPF use several outgoing links of equal lowest cost for load balancing, and CIDR/VLSM is supported. Messages are carried directly in IP datagrams (<B>protocol 89</B>), delivered by multicast, and OSPF handles its own error detection and correction. Authentication exists up to OSPFv2; OSPFv3 (IPv6) relies on IPsec instead.",
     "keyPoints": [
@@ -109,6 +118,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 30-31"
   },
   {
+    "id": "6644281a",
     "name": "OSPF routers use five message types: Hello, Database Description, Link State Request, Link State Update and Link State Acknowledgement. What is the purpose of the Hello message, and how do the other four cooperate to synchronise link-state information between neighbours? Which two identifiers in the common header tell a receiver where the packet belongs?",
     "answer": "<B>Hello</B> discovers and maintains neighbour relationships (adjacencies) between routers. Once neighbours exist, the remaining messages synchronise the link-state database: <B>Database Description</B> summarises which link-state information a router holds, so the neighbour can see what it is missing; <B>Link State Request</B> asks for those missing or newer pieces; <B>Link State Update</B> carries the actual link-state information; and <B>Link State Acknowledgement</B> confirms receipt, because OSPF handles reliability itself over IP. The common header also carries version, type, length, checksum and authentication fields; the <B>router ID</B> identifies the sender and the <B>area ID</B> the routing area the packet belongs to.",
     "keyPoints": [
@@ -121,6 +131,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 31-32; the slides list the five types and header fields, the roles of the types are general knowledge"
   },
   {
+    "id": "4f9a0ca6",
     "name": "Compare IS-IS and OSPF in shared routing principles, encapsulation, address-family support, overload handling and scalability.",
     "answer": "Both use link-state databases, Dijkstra, hierarchical areas, Hello adjacencies and VLSM. IS-IS originated for OSI CLNS and was extended to IP as Integrated/Dual IS-IS. OSPF packets run in IP; IS-IS runs directly in link-layer frames. Address-family neutrality helped IS-IS adaptation to IPv6, while OSPF introduced v3. IS-IS allows overload declaration so an overloaded router can be avoided in path calculation. The lecture compares richer OSPF extensions with less-chatty IS-IS and greater scale, without implying either is immune to attacks.",
     "keyPoints": [
@@ -134,6 +145,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 33-34"
   },
   {
+    "id": "7c97632e",
     "name": "Explain BGP's path-vector view of the Internet, advertisement contents and why policy can matter more than shortest AS path.",
     "answer": "Path vectors advertise whole paths rather than only destination/distance, enabling loop detection and AS policies. BGP exchanges reachability among ASs; the architecture diagram groups internal networks into ASs linked externally. Peers use reliable TCP on port 179. Advertisements contain a CIDR destination prefix and path attributes such as AS path and next hop. Policy can restrict transit or forwarding, so a shorter AS path need not be acceptable. CIDR aggregation reduces exchanged detail. The path is at AS level, rather than ordinary router-hop count.",
     "keyPoints": [
@@ -147,6 +159,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 10, 36-38"
   },
   {
+    "id": "aa1925f6",
     "name": "Describe the life of a BGP session as a timeline of messages: how it starts, what keeps it alive, how routes are advertised and withdrawn, and how it ends or reports errors. How long does an advertised route stay valid?",
     "answer": "1. <B>OPEN</B> – initiates the session between two BGP routers; the peers introduce themselves, announce their capabilities and may include authentication information.<BR>2. <B>KEEPALIVE</B> – exchanged when there is no other traffic, so a router can tell a failed connection from a peer that simply has nothing to say.<BR>3. <B>UPDATE</B> – “push” of routing information from one router to another; it also <B>withdraws</B> a previously announced route. An advertised route stays valid <B>until it is explicitly withdrawn</B> (there are no periodic full re-advertisements).<BR>4. <B>NOTIFICATION</B> – reports an error (e.g. rejecting an OPEN or a problem with an UPDATE) and closes the session.<BR>Also: <B>ROUTE-REFRESH</B> asks the peer to re-advertise all routes with UPDATE messages; it was not in the original BGP-4 but added later.",
     "keyPoints": [
@@ -159,6 +172,7 @@
     "source": "PA191 L4, lecture04.pdf, slide 39; the ordering of the timeline is an interpretation"
   },
   {
+    "id": "fcdb850a",
     "name": "What problem does internal BGP solve? Explain the classic full-mesh arrangement of iBGP peers and the rule for forwarding eBGP-learned versus iBGP-learned routes.",
     "answer": "Internal routers need externally learned destinations available at border routers. iBGP distributes this reachability among BGP speakers inside the AS. In the classic arrangement all iBGP peers within the AS are fully meshed. A speaker announces eBGP-learned routes to iBGP peers but does not announce a route learned via one iBGP peer onward to another. Direct full-mesh peer relationships provide distribution despite that rule. This is the classic arrangement, not a claim that every possible iBGP deployment requires this topology.",
     "keyPoints": [
@@ -171,6 +185,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 40"
   },
   {
+    "id": "7cb958dc",
     "name": "Why can shortest-path routing overload a link while alternatives remain underused? Explain IP traffic engineering and why ECMP or rapid weight changes are insufficient.",
     "answer": "Many flows choose the same shortest path and can saturate it while longer paths retain capacity. ECMP uses equal-cost alternatives but does not generally expose useful longer paths. TE uses available paths and measured usage to direct traffic for better resource use, combining IGP extensions, monitoring and routing techniques. The presented IP TE scheme computes weights outside ordinary forwarding relatively infrequently: traffic-matrix determination is expensive and short-lived fluctuations should not repeatedly change weights. It is not intended to solve every surge lasting seconds/minutes.",
     "keyPoints": [
@@ -183,6 +198,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 42-44"
   },
   {
+    "id": "9ee06f1c",
     "name": "Trace the IP TE architectural control loop. What information is collected, how do weights reach routers and what objectives can weight determination pursue?",
     "answer": "Measurements estimate a traffic matrix, while topology/configuration describe the network. Weight determination uses these inputs, injects metrics for routers' outgoing links and disseminates them through normal OSPF/IS-IS flooding. Topology can be manually configured for small static networks; larger dynamic ones need automatic discovery and TE extensions describing maximum, reservable and unreserved bandwidth. Objectives include minimizing routing cost, maximum link utilization or average delay. The lecture names single/multi-commodity flow models but leaves detailed optimization outside its scope.",
     "keyPoints": [
@@ -196,6 +212,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 44-45, 51-52"
   },
   {
+    "id": "b80adf9f",
     "name": "Traffic engineering by link weights. Hosts U, V, W, X, Y, Z attach to routers A, F, H, E, G, K respectively. Links A-B, B-C, C-D, D-E, H-F, F-J, J-K and every host link have cost 1; the adjustable link costs are a on A-F, b on F-G, c on G-E and d on G-K. The goal is to spread the flows U-X, V-Y and W-Z over different links. Give the paths and costs of the three flows for (i) a = b = c = d = 1, (ii) only b = 7, (iii) a = c = 2, b = 7, d = 10. Then state the conclusion: why can setting (iii) still produce undesirable routes, considering W-X and U-Y?",
     "answer": "<B>(i) All costs 1</B>: U-X via A, F, G, E has cost 5 (the alternative through B, C, D costs 6); V-Y via F, G has cost 3; W-Z has equal-cost paths via F-G-K and F-J-K, both 5, so traffic tends to concentrate on link F-G.<BR><B>(ii) b = 7</B>: U-X takes A, B, C, D, E with cost 6 (via F-G it would cost 11); V-Y and W-Z both take F, J, K (V-Y cost 5, W-Z cost 5), so the congestion just moves to router J.<BR><B>(iii) a = c = 2, b = 7, d = 10</B>: U-X via B, C, D cost 6; V-Y via F, G cost 9 (via J, K, G it would cost 14); W-Z via H, F, J, K cost 5. The three flows are separated.<BR><B>Conclusion</B>: the minimum-cost path wins, not the path with fewest links, so a weight tuned for one flow reroutes others. W-X takes W, H, F, A, B, C, D, E, X with cost \\(1+1+2+4+1=9\\) instead of the shorter W, H, F, G, E, X with cost \\(1+1+7+2+1=12\\), so it travels over the long A-B-C-D-E chain. Raising a to 6 makes W-X choose F-G-E (cost 13 vs 12), but then U-Y prefers U, A, B, C, D, E, G, Y (cost \\(1+4+2+1=8\\)) over the shorter U, A, F, G, Y (cost \\(1+6+7+1=15\\)). One set of weights applies to all flows, so fixing selected pairs may harm others.",
     "keyPoints": [
@@ -209,6 +226,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 46-48; costs recomputed from the stated link costs (the cost of 13 for W-X after a = 6 and the cost comparisons for the alternative paths are derived)"
   },
   {
+    "id": "d27588dd",
     "name": "Compare SNMP polling and flow collection for a network-wide utilization view. Traffic varies over the day, with a midday peak: what does that imply for choosing the traffic volume used in TE?",
     "answer": "SNMP polling consolidates router measurements into a load view, but absolute load alone does not identify the flows to redistribute. NetFlow collects traffic information at key points and consolidates it with collectors; sFlow and ntop are also listed. Network traffic over a day is time-dependent (nonstationary), with larger activity around midday. A peak or representative fraction of the peak over a daily window can therefore guide TE demand instead of assuming one instant describes the whole day.",
     "keyPoints": [
@@ -221,6 +239,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 49-50"
   },
   {
+    "id": "a1e7d62c",
     "name": "Trace a packet through MPLS ingress, core and egress. Explain FEC classification, labels, LSP direction and forwarding-table mappings.",
     "answer": "Ingress analyzes the packet, assigns a Forwarding Equivalence Class based on destination, service, VPN or other criteria, and adds a label. It sends the packet on a Label Switched Path. LSPs are unidirectional, so bidirectional communication needs paths in both directions, which may differ. Core LSRs map incoming interface/label to outgoing interface/label and swap labels without a destination lookup for each packet. Egress removes the MPLS header and forwards the original IP packet. Bindings and forwarding state along the path must exist before use.",
     "keyPoints": [
@@ -234,6 +253,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 54-59"
   },
   {
+    "id": "127bc13f",
     "name": "At LSR3, (s1,label 16) maps to (s3,label 17), and (s2,label 17) maps to (s3,label 18). Trace both packets and explain what this shows about label meaning.",
     "answer": "A packet arriving on s1 with label 16 leaves on s3 with label 17; one arriving on s2 with label 17 leaves on s3 with label 18. LSR3 matches incoming interface/label and swaps the label. Incoming 17 on s2 does not mean the same thing as outgoing 17 on s3: labels have meaning in their local context rather than one globally fixed value for the entire path. The mappings provide distinct stream/LSP treatment without a core IP-destination lookup.",
     "keyPoints": [
@@ -246,6 +266,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 56-57, 63"
   },
   {
+    "id": "e1c86a89",
     "name": "Explain the MPLS shim fields and packet placement. Why can packets carry a label stack, and what does S tell a receiver?",
     "answer": "The shim is between the L2 header and IP packet. Each 32-bit entry has label value, traffic class, S/bottom-of-stack bit and TTL. The receiver examines the top label; S=1 marks the final entry, with S=0 for others. In the VPN example, the top label reaches the egress router and another identifies the VPN. In TE, the top reaches the tunnel endpoint and another identifies the destination. Combining TE and VPN may need three or more labels, separating different forwarding purposes.",
     "keyPoints": [
@@ -259,6 +280,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 60-61"
   },
   {
+    "id": "a8fe0c9c",
     "name": "Why must label bindings be distributed to every router on the path before an LSP can carry traffic, and which protocols can distribute them? What does it mean that a label only needs to agree between two adjacent routers?",
     "answer": "An LSR forwards by looking up (incoming interface, label) and swapping it for (outgoing interface, outgoing label). That forwarding state exists only if the LSRs on the path have <B>exchanged and installed bindings</B> between the FEC and labels; without it a labelled packet would find no entry and the LSP is unusable. The egress router (or each LSR, in turn) therefore has to tell its upstream neighbour which label to use for the FEC.<BR>A label is meaningful only between the two adjacent routers that agreed on it (local significance), so each hop negotiates its own label and no network-wide label assignment is needed. Labels can be distributed with LDP, RSVP-TE or label-capable extensions of BGP.",
     "keyPoints": [
@@ -270,6 +292,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 62-64"
   },
   {
+    "id": "4dc16d26",
     "name": "Describe LDP's role and its four main activities, and how it relates to the IGP. Compare its two label-distribution approaches: downstream-on-demand with ordered control, and downstream-unsolicited with independent control. When does an LSR advertise a binding in each?",
     "answer": "LDP distributes MPLS labels and relies on the IGP's route information for forwarding decisions (label control supplements, rather than replaces, IGP route knowledge). Its activities are <B>Discovery</B> (find adjacent LDP-capable LSRs), <B>Adjacency</B> (establish a control conversation and negotiate options), <B>Label Advertisement</B> (advertise and withdraw bindings) and <B>Notification</B> (report errors); it uses UDP for discovery and TCP for the conversation.<BR><B>Downstream-on-demand with ordered control</B>: an LSR gets a binding only after the upstream neighbour requests one, and, with ordered control, it advertises a binding only if it is the egress for the FEC or has already received a binding from its own downstream neighbour, so labels are set up from the egress backwards in an orderly chain.<BR><B>Downstream-unsolicited with independent control</B>: an LSR sends bindings without being asked, and with independent control it may advertise one as soon as it has learnt the route, without waiting for a downstream label. The first is more orderly (each LSP is complete when established), the second faster but can temporarily advertise labels before the whole path is ready (the trade-off is a derived comment).",
     "keyPoints": [
@@ -282,6 +305,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 62-65; the UDP/TCP detail and the ordered-versus-independent trade-off are partly derived"
   },
   {
+    "id": "71c7806e",
     "name": "Explain MPLS traffic engineering beyond shortest-path forwarding, including reservation, parallel paths and recovery.",
     "answer": "An LSP can follow a path other than the IGP-preferred one. Resources can be reserved at creation and adjusted as requirements change. Parallel LSPs between the same endpoints can distribute traffic according to a chosen algorithm. Recovery procedures can move traffic to alternates, with backup/standby paths established as required. Load-sharing and grooming decisions occur at LSP entry rather than independently at every hop.",
     "keyPoints": [
@@ -294,6 +318,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 55, 66"
   },
   {
+    "id": "b07db74d",
     "name": "Why generalize MPLS into GMPLS? Describe the switching resources controlled beyond labeled packets.",
     "answer": "MPLS controls label-based packet paths, but similar control is useful for other switching technologies. GMPLS covers packet switching, time-division multiplexed timeslots, optical wavelengths and whole fiber/port switching. Circuit cases require a dedicated end-to-end path and physical resource allocation. Packet switching remains included, so GMPLS encompasses MPLS's packet case.",
     "keyPoints": [
@@ -307,6 +332,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 67"
   },
   {
+    "id": "53691ae6",
     "name": "Define QoS-based routing and its three main objectives. What resource and flow requirements influence path choice?",
     "answer": "QoS routing chooses paths using network resource availability and flow requirements. Metrics can include bandwidth, link/path utilization, node resources, delay/latency and jitter. Its goals are to satisfy user requirements, use resources efficiently to improve throughput and degrade gracefully under congestion. A path minimizing ordinary cost alone need not meet required bandwidth or delay.",
     "keyPoints": [
@@ -319,6 +345,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 69-70"
   },
   {
+    "id": "544c6063",
     "name": "Explain QoS-routing challenges involving metrics/reservation, changing state, hierarchy, class fairness and coexistence with best effort.",
     "answer": "Suitable metrics must be measured and feasible paths computed. Path selection is linked to reserving bandwidth/buffers, making them unavailable to others. QoS state changes quickly and contains more information than basic topology, so advertising every change creates overhead. Thresholds suppress minor updates at an accuracy cost. Hierarchical aggregation also reduces information/computation while losing detail. Fair resource allocation between service classes avoids starving low-priority traffic, and QoS must coexist with best effort.",
     "keyPoints": [
@@ -332,6 +359,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 71-72"
   },
   {
+    "id": "926ed4b5",
     "name": "Compare source-based, hop-by-hop and hierarchical QoS routing. Explain how the hierarchy groups routers into higher-level logical nodes and discuss the information/scalability trade-offs.",
     "answer": "Source-based routing uses global state at the source to select a path and inform its routers, centralizing decisions but requiring complete state and high source computation. Hop-by-hop distributes decisions and computation with next-hop knowledge, fitting existing forwarding but risking loops under inconsistent state and still facing scale limits. Hierarchy groups physical routers and represents groups as higher-level logical nodes, integrating information at borders. Nodes keep detailed local information and aggregated remote information, improving scale at an accuracy cost.",
     "keyPoints": [
@@ -345,6 +373,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 73-77"
   },
   {
+    "id": "56475d2a",
     "name": "Describe PNNI's QoS routing, including state information, traffic classes, thresholds, hierarchy and its limitations.",
     "answer": "PNNI is hierarchical dynamic LS routing for ATM. It floods nodes/links/addresses and maintains resource metrics such as delay, available bandwidth and jitter grouped by traffic class. Thresholds determine whether changes warrant updates. Levels and logical nodes aggregate topology/reachability. The lecture lists lack of multicast, policy routing and alternate-routing control, plus the difficulty of efficiently distributing rapidly changing QoS state.",
     "keyPoints": [
@@ -357,6 +386,7 @@
     "source": "PA191 L4, lecture04.pdf, slides 78"
   },
   {
+    "id": "1d77c69",
     "name": "Explain the QOSPF extension of OSPF: its metrics, update strategy and widest-shortest path computation.",
     "answer": "QOSPF extends hierarchical LS OSPF for QoS plus best effort. The presented metrics are link bandwidth and propagation delay, added to LSAs. Significant changes trigger advertisements to reduce overhead. It precomputes destination paths; widest-shortest means minimum hop count with maximum available bandwidth among those paths. Slides associate widest-path Bellman-Ford with precomputation and widest-shortest Dijkstra with on-demand calculation. This adds resource-aware path selection rather than simply more periodic topology updates.",
     "keyPoints": [

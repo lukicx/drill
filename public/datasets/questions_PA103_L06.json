@@ -1,5 +1,6 @@
 [
   {
+    "id": "63ff2592",
     "name": "A <TT>Context</TT> class must support two versions of an algorithm. Two simple options are a parameter (<TT>compute(strategy)</TT>) or separate methods (<TT>computeWithStrategyA()</TT>, <TT>computeWithStrategyB()</TT>). A third option makes Context abstract with subclasses <TT>ContextImplA</TT> and <TT>ContextImplB</TT>. Which statements are correct?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "608b27df",
     "name": "Which statements about the structure and collaboration of the Strategy pattern are correct?",
     "answers": [
       {
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "61f6c06a",
     "name": "Which are applicability conditions or consequences of the Strategy pattern?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "7dc3848a",
     "name": "Atoms of a molecule \"shake\": their positions differ in each frame of a simulation. Two storage approaches exist: all positions in memory (an array), or a buffer holding only a window of frames loaded from a file on demand. Initially they are subclasses <TT>HugeMemAtom</TT> and <TT>BufferedAtom</TT> of <TT>Atom</TT>. Refactoring to Strategy (Atom with an <TT>AtomPositionStrategy</TT>: <TT>AllInMemStrategy</TT> or <TT>BufferedStrategy</TT>) is considered. Which statements are correct?",
     "answers": [
       {
@@ -120,6 +124,7 @@
     ]
   },
   {
+    "id": "d541ddbe",
     "name": "Which statements about the State pattern are correct?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "993e4f02",
     "name": "A <TT>Printer</TT> has the operation <TT>print(Document)</TT> and behaves differently when it is Ready, Printing or OutOfToner. Which statements about a design following the State pattern are correct?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "91ca3d55",
     "name": "How does the State pattern differ from the Strategy pattern?",
     "answers": [
       {
@@ -210,6 +217,7 @@
     ]
   },
   {
+    "id": "975cba32",
     "name": "In the shaking-molecule model, the storage of atom positions could switch between all-in-memory and buffered depending on available memory. There are clear states (enough memory, running out of memory) driving the behavior. Which statements about the decision between State and Strategy are correct?",
     "answers": [
       {
@@ -235,6 +243,7 @@
     ]
   },
   {
+    "id": "37eab648",
     "name": "Which statements about the Adapter pattern are correct?",
     "answers": [
       {
@@ -265,6 +274,7 @@
     ]
   },
   {
+    "id": "3f9ff296",
     "name": "<PRE>interface Shape { void display(int x, int y, int w, int h); }  // (x, y) top-left corner, w width, h height\nclass LegacyRectangle { void show(int x1, int y1, int x2, int y2) { ... } }  // two opposite corners</PRE>Drawing code uses <TT>Shape</TT>. The class <TT>LegacyRectangle</TT> may not be changed. We write an object adapter <TT>Rectangle implements Shape</TT>. Which statements are correct?",
     "answers": [
       {
@@ -295,6 +305,7 @@
     ]
   },
   {
+    "id": "6f423036",
     "name": "Compare the class adapter and the object adapter. Which statements are correct?",
     "answers": [
       {
@@ -325,6 +336,7 @@
     ]
   },
   {
+    "id": "b1ab07bf",
     "name": "Each TV model is programmed for each kind of remote controller (push-button, touch), so every new TV model or controller multiplies the classes. Which statements describe the Bridge solution?",
     "answers": [
       {
@@ -355,6 +367,7 @@
     ]
   },
   {
+    "id": "826982ba",
     "name": "Which are applicability conditions or consequences of the Bridge pattern?",
     "answers": [
       {
@@ -385,6 +398,7 @@
     ]
   },
   {
+    "id": "8659100d",
     "name": "<TT>java.io.InputStreamReader(InputStream)</TT> creates a character Reader from a binary InputStream and is described as a bridge from byte streams to character streams, although it could also be read as an adapter. The two patterns can lead to similar class diagrams. Which statements about choosing between them are correct?",
     "answers": [
       {
@@ -415,6 +429,7 @@
     ]
   },
   {
+    "id": "43c2ff3a",
     "name": "A pizza menu offers a base pizza and the toppings sausage, cheese and spinach in any combination. Modeling each combination as a subclass (<TT>PizzaWithSausage</TT>, <TT>PizzaWithCheese</TT>, <TT>PizzaWithSausageAndCheese</TT>, ...) quickly explodes. Which statements are correct?",
     "answers": [
       {
@@ -445,6 +460,7 @@
     ]
   },
   {
+    "id": "5deb66f9",
     "name": "Which statements about the structure of the Decorator pattern are correct?",
     "answers": [
       {
@@ -475,6 +491,7 @@
     ]
   },
   {
+    "id": "1ee7d261",
     "name": "Which are applicability conditions or consequences (including liabilities) of the Decorator pattern?",
     "answers": [
       {
@@ -505,6 +522,7 @@
     ]
   },
   {
+    "id": "13bb74d7",
     "name": "How is Decorator related to Adapter, Composite and Strategy?",
     "answers": [
       {
@@ -535,6 +553,7 @@
     ]
   },
   {
+    "id": "ad8f7762",
     "name": "In the shaking-molecule model a <TT>Residue</TT> references its atoms. The Strategy design gives <TT>Atom</TT> an exchangeable <TT>AtomPositionStrategy</TT> (<TT>AllInMemStrategy</TT>, <TT>BufferedStrategy</TT>). The Decorator design wraps a <TT>StaticAtom</TT> in exclusive decorators <TT>AllInMemAtom</TT> or <TT>BufferedAtom</TT> (derived from <TT>DynamicAtom</TT> with <TT>firstFrame()</TT>, <TT>nextFrame()</TT>, <TT>previousFrame()</TT>). Which statements are correct?",
     "answers": [
       {
@@ -565,6 +584,7 @@
     ]
   },
   {
+    "id": "d493e119",
     "name": "Which pairs of a Java core API element and the design pattern it exemplifies are correct?",
     "answers": [
       {
@@ -595,6 +615,7 @@
     ]
   },
   {
+    "id": "b2b2ef24",
     "name": "An online shop has an <TT>Order</TT>. Its <TT>computePrice()</TT> must use either a regular pricing policy or a sale pricing policy, chosen by the sales department. Its <TT>pay()</TT> and <TT>ship()</TT> behave differently while the order is New, Paid or Shipped, and the order itself updates its status. Model the problem in UML (a) with the Strategy pattern for pricing and (b) with the State pattern for the status. Show the classes, roles, key operations and who decides about the variant, and explain how the two patterns differ although their diagrams look similar. (The scenario is derived; the patterns are from the lecture.)",
     "answer": "<B>(a) Strategy.</B> &lt;&lt;context&gt;&gt; <TT>Order</TT> with <TT>computePrice()</TT> aggregates exactly one &lt;&lt;strategy&gt;&gt; <TT>PricingPolicy</TT> with <TT>price(items) : Money</TT>. <TT>RegularPricing</TT> and <TT>SalePricing</TT> implement it. The client that understands the policies (the sales department's code) creates one and passes it to the order, e.g. through the constructor or <TT>setPricingPolicy</TT>; <TT>computePrice()</TT> delegates to it. The strategy handles one specific task, receives the data it needs as parameters and does not store the order, so the interface can be somewhat more complex (limited access to the context). A new policy is a new class and Order stays unchanged (open-closed). <BR><B>(b) State.</B> &lt;&lt;context&gt;&gt; <TT>Order</TT> holds a state association to the &lt;&lt;state&gt;&gt; interface <TT>OrderState</TT> with <TT>pay()</TT> and <TT>ship()</TT>; <TT>NewOrder</TT>, <TT>PaidOrder</TT> and <TT>ShippedOrder</TT> implement it. Order delegates its requests to the current state and may pass itself to it. The order or the state itself decides the successor, e.g. <TT>NewOrder.pay()</TT> calls <TT>order.setState(new PaidOrder())</TT>. Clients talk only to Order. This replaces a large conditional on a status attribute and makes the transitions explicit. <BR><B>Difference.</B> A strategy is passed in from outside, handles one task, and neither stores the context nor replaces itself. States are created by the context (or by other states), may hold the context, may replace themselves, and provide the implementation of almost everything the context does. Prefer Strategy for a policy that a client chooses; prefer State when behavior follows the object's own life-cycle.",
     "keyPoints": [
@@ -607,6 +628,7 @@
     "source": "L6, slides 5-6, 13-15, 18; the order scenario is derived"
   },
   {
+    "id": "c1b0eeb6",
     "name": "Practical modeling: in a pizzeria system every pizza has <TT>getLabel()</TT> and <TT>getPrice()</TT>. The base pizza costs 100 and is labelled \"Pizza\"; cheese adds 20 and sausage adds 30 to the price and append their name to the label. Toppings can be combined freely and added to individual orders at run time. Draw a UML class diagram using the Decorator pattern, show the object structure of a pizza with cheese and sausage, and compute its label and price. Explain why the design is better than subclasses for each combination and name its liabilities.",
     "answer": "<B>Classes.</B> An abstract component <TT>Pizza</TT> (or a <TT>PizzaComponent</TT> interface) with <TT>getLabel()</TT> and <TT>getPrice()</TT>; a concrete component <TT>BasePizza</TT> (label \"Pizza\", price 100); an abstract decorator <TT>ToppingDecorator</TT> that inherits from the component and holds exactly one component (multiplicity 1), forwarding <TT>getLabel()</TT> and <TT>getPrice()</TT> to it; concrete decorators <TT>Cheese</TT> and <TT>Sausage</TT> that call the wrapped component and add their part (Cheese: price + 20, label + \", cheese\"; Sausage: price + 30, label + \", sausage\"). <BR><B>Objects.</B> <TT>aSausage</TT> references <TT>aCheese</TT>, which references <TT>aPizza</TT>. The price is \\(30 + (20 + 100) = 150\\), and the label is \"Pizza, cheese, sausage\" (the label order depends on the wrapping order). <BR><B>Benefits.</B> Responsibilities are attached to individual objects dynamically and can be withdrawn; one class per topping replaces a subclass for every combination (\\(2^n - 1\\) combinations for \\(n\\) toppings, e.g. \\(2^3 - 1 = 7\\)), so feature-laden classes high in the hierarchy are avoided and new toppings are added without touching existing classes. <BR><B>Liabilities.</B> A decorated pizza is not identical to the wrapped component object (identity checks fail), and the design creates lots of little objects.",
     "keyPoints": [
@@ -620,6 +642,7 @@
     "source": "L6, slides 33-36; prices are example data, the subclass count is derived"
   },
   {
+    "id": "acc7d877",
     "name": "A reporting module works with an interface <TT>Notifier</TT> that has <TT>send(recipient, text)</TT>. A vendor class <TT>SmsGateway</TT>, which you may not modify, offers <TT>transmit(phoneNumber, payload, priority)</TT>, and the vendor also ships subclasses such as <TT>BulkSmsGateway</TT>. Draw UML class diagrams of an object adapter and of a class adapter that make the gateway usable as a <TT>Notifier</TT>, sketch the code of <TT>send</TT> for the object adapter, and explain which variant you choose here and why. (The scenario is derived; the pattern is from the lecture.)",
     "answer": "<B>Object adapter.</B> <TT>SmsNotifier implements Notifier</TT> and holds an association to an <TT>SmsGateway</TT> (the adaptee). <PRE>void send(String recipient, String text) {\n  gateway.transmit(phoneOf(recipient), text, NORMAL);\n}</PRE>The adapter converts the interface (recipient and text to phone number, payload and a priority; the conversion and constant are assumptions) and re-sends the request to the adaptee. <BR><B>Class adapter.</B> <TT>SmsNotifierC</TT> inherits from both the target <TT>Notifier</TT> and the adaptee <TT>SmsGateway</TT> (multiple inheritance; in Java the target would be an interface) and implements <TT>send</TT> by calling the inherited <TT>transmit(...)</TT>. <BR><B>Choice.</B> Choose the object adapter. One adapter then works with <TT>SmsGateway</TT> and all its subclasses such as <TT>BulkSmsGateway</TT>, whereas a class adapter commits to one concrete adaptee class and would need a separate adapter for each subclass. The price is that overriding vendor behavior is harder: it would require subclassing the adaptee and referring to that subclass. A class adapter fits when we need to override some adaptee behavior and want a single object without pointer indirection. An adapter only converts the interface; it does not add responsibilities (that would be Decorator).",
     "keyPoints": [
@@ -632,6 +655,7 @@
     "source": "L6, slides 20-25; the SMS scenario is derived"
   },
   {
+    "id": "d823c616",
     "name": "A TV manufacturer programs every TV model separately for each kind of remote controller. Currently there are two TV models and two controller kinds (push-button and touch); a third TV model and a gesture controller are planned. The generic controller interface offers \"switch to channel X\", \"next channel\" and \"volume up\"; the TV's own remote-control interface may be lower-level. Model the problem with the Bridge pattern: draw a UML class diagram with the pattern roles, explain how the abstraction reaches the implementation, and count the concrete classes needed with and without Bridge after both extensions.",
     "answer": "<B>Roles.</B> The abstraction <TT>RemoteController</TT> offers the generic interface (<TT>switchToChannel(x)</TT>, <TT>nextChannel()</TT>, <TT>volumeUp()</TT>) and holds a reference <TT>imp</TT> to the implementor. The refined abstractions <TT>PushButtonController</TT>, <TT>TouchController</TT> and later <TT>GestureController</TT> extend the interface with their own operations (press button 1, swipe right, ...). The implementor interface <TT>TVImplementor</TT> is the TV's remote-control interface and may be lower-level than the abstraction's; the concrete implementors are <TT>TvModelX</TT>, <TT>TvModelY</TT> and later <TT>TvModelZ</TT>. <BR><B>Collaboration.</B> A controller operation such as <TT>nextChannel()</TT> is implemented by calling <TT>imp.operationImp()</TT> on the TV it is bound to, so the two hierarchies are connected only by this reference (the bridge) and can be extended independently; the binding to a TV can also be chosen or switched at run time. <BR><B>Count (derived).</B> Without Bridge every combination is a class: \\(2 \\times 2 = 4\\) now and \\(3 \\times 3 = 9\\) after the extensions, i.e. \\(m \\times n\\). With Bridge, only the two hierarchies grow: \\(2 + 2 = 4\\) now and \\(3 + 3 = 6\\) concrete classes afterwards, i.e. \\(m + n\\), plus the abstraction and implementor interfaces. Adding a TV model touches no controller class and vice versa.",
     "keyPoints": [

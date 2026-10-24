@@ -1,5 +1,6 @@
 [
   {
+    "id": "6546121",
     "name": "Jednoduchá webová aplikácia má tieto bloky: MVC Controller s View, Web API Controller, triedy služieb s aplikačnou logikou, DbContext a triedy entít. Do ktorej vrstvy ktorý blok patrí? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -31,6 +32,7 @@
     "source": "L1, slide 11 (PDF page 11)"
   },
   {
+    "id": "a977c63",
     "name": "Klient (napr. mobilná aplikácia) potrebuje z webu iba dáta, nie hotovú stránku. Čo platí o Web API oproti MVC controlleru, ktorý vracia View? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "L1, slide 11 (PDF page 11), L1, slide 12 (PDF page 12)"
   },
   {
+    "id": "70ff8fda",
     "name": "Úrovne REST podľa prednášky: Level 0 = 1 HTTP metóda a 1 URI, Level 1 = 1 metóda a n URI, Level 2 = viac metód a n URI, Level 3 = Level 2 + content negotiation a HATEOAS. Ktoré zaradenia API sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -88,6 +91,7 @@
     "source": "L1, slide 12 (PDF page 12)"
   },
   {
+    "id": "76f745f0",
     "name": "Chceš zmeniť iba e-mailovú adresu existujúceho zákazníka. PUT nahrádza celý zdroj, PATCH mení jeho časť. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -114,6 +118,7 @@
     "source": "L1, slide 13 (PDF page 13)"
   },
   {
+    "id": "edd8b619",
     "name": "Ktoré dvojice situácie a odpovede Web API sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -145,6 +150,7 @@
     "source": "L1, slide 14 (PDF page 14)"
   },
   {
+    "id": "933c85ae",
     "name": "Klient cez Web API zmení e-mail zákazníka a server odpovie, že operácia prebehla. Ktorá časť HTTP správy nesie ktorú informáciu? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -176,6 +182,7 @@
     "source": "L1, slides 11, 13, 14 (PDF pages 11, 13, 14)"
   },
   {
+    "id": "75f94c2f",
     "name": "Trieda Form si vo vnútri vytvára konkrétny UglyButton cez new a stará sa o jeho životnosť. Čo z tejto situácie vyplýva podľa princípu Dependency Inversion? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -207,6 +214,7 @@
     "source": "L1, slide 15 (PDF page 15), L1, slide 16 (PDF page 16)"
   },
   {
+    "id": "5bc387b7",
     "name": "Ako spolu súvisia Dependency Inversion, Inversion of Control a Dependency Injection? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -233,6 +241,7 @@
     "source": "L1, slide 18 (PDF page 18), L1, slide 19 (PDF page 19), L1, slide 20 (PDF page 20)"
   },
   {
+    "id": "f7b39d57",
     "name": "Porovnaj dva spôsoby odovzdania závislosti:<PRE>var form = new Form(button);               // A\nvar form = new Form { Button = button }; // B</PRE>Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -259,6 +268,7 @@
     "source": "L1, slide 21 (PDF page 21)"
   },
   {
+    "id": "c6b169f",
     "name": "Čo robí Dependency Injection kontajner? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -285,6 +295,7 @@
     "source": "L1, slide 22 (PDF page 22)"
   },
   {
+    "id": "96aea532",
     "name": "Služba OrderService používa IOrderRepository. Prečo pomáha Dependency Injection pri jej unit teste (xUnit, NSubstitute)? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -311,6 +322,7 @@
     "source": "L1, slide 5 (PDF page 5), L1, slide 16 (PDF page 16); odvodené"
   },
   {
+    "id": "792c9db4",
     "name": "Navrhni REST rozhranie na Level 2 pre zdroj „zákazník“ (vytvoriť, zobraziť, zmeniť iba e-mail, vymazať). Pre každú operáciu uveď HTTP metódu, URI, čo nesie požiadavka a aký úspešný status kód a telo vráti odpoveď. Potom stručne popíš, cez ktoré vrstvy jednoduchej webovej aplikácie takáto požiadavka prejde.",
     "answer": "<B>Rozhranie (Level 2: viac URI aj viac metód):</B><BR><TT>POST /customers</TT> – telo s dátami zákazníka; odpoveď 201 Created s novým zdrojom. <TT>GET /customers/{id}</TT> – bez tela; 200 OK s JSON zákazníka (neexistujúce id: 404 NotFound). <TT>PATCH /customers/{id}</TT> – telo iba s e-mailom, lebo sa mení časť zdroja; 200 OK (neplatná hodnota: 400 BadRequest). <TT>DELETE /customers/{id}</TT> – bez tela; úspešný status bez dát (napr. 200/204; presný kód slide neuvádza). PUT by sa použil, ak by klient posielal celého zákazníka na nahradenie.<BR><B>Cesta vrstvami:</B> Web API Controller v prezentačnej vrstve prijme požiadavku a odovzdá ju službe vo vrstve business logiky. Služba použije dátovú vrstvu (DbContext, entity), ktorá cez SQL pracuje s databázou. Controller vráti HTTP status a JSON/XML; na rozdiel od MVC vetvy tu nevzniká View ani HTML.",
     "keyPoints": [
@@ -323,6 +335,7 @@
     "source": "L1, slide 11 (PDF page 11)–L1, slide 14 (PDF page 14); konkrétny kód pre DELETE je odvodený (slide ho neuvádza)"
   },
   {
+    "id": "54da9fb4",
     "name": "Trieda OrderService má pole <TT>private readonly SqlOrderRepository repo = new SqlOrderRepository();</TT>. Navrhni úpravu podľa Dependency Inversion a Dependency Injection tak, aby sa dala testovať bez databázy. Uveď kód (rozhranie, konštruktor), kam sa konkrétna trieda vytvorí a čo urobí DI kontajner.",
     "answer": "Problém: vysokoúrovňová OrderService je pevne viazaná na konkrétny detail (SQL repozitár) a sama riadi jeho vytváranie a životnosť.<BR><B>Úprava:</B><PRE>public interface IOrderRepository { /* ... */ }\npublic class SqlOrderRepository : IOrderRepository { /* ... */ }\n\npublic class OrderService\n{\n    private readonly IOrderRepository repo;\n    public OrderService(IOrderRepository repo) { this.repo = repo; }\n}</PRE>OrderService aj SqlOrderRepository teraz závisia od abstrakcie IOrderRepository (Dependency Inversion). Závislosť dostane služba zvonku cez konštruktor (Constructor Injection, forma Creation Inversion v rámci IoC). Konkrétny SqlOrderRepository sa zviaže pri konfigurácii aplikácie; DI kontajner má nakonfigurované „IOrderRepository je SqlOrderRepository“ a pri vytváraní OrderService rekurzívne vyrieši aj ďalšie závislosti. V teste sa do konštruktora odovzdá náhradný objekt (napr. z NSubstitute), takže databáza netreba.",
     "keyPoints": [

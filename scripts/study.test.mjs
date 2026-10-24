@@ -209,3 +209,14 @@ test('midterm practice has no second tries, keeps its clock across a reload and 
   assert.equal(createSession(bank, 'Full').elapsed, undefined)
   assert.deepEqual([formatDuration(65000), formatDuration(3725000)], ['1:05', '1:02:05'])
 })
+
+test('history follows a question id across text edits and matches history recorded before ids', () => {
+  const before = { name: 'Old wording', answer: 'Model' }
+  const keyByText = historyKey({ datasetId: 'L1', question: before })
+  const withId = { ...before, id: keyByText.slice('L1:'.length) }
+  assert.equal(historyKey({ datasetId: 'L1', question: withId }), keyByText)
+  recordHistory({ key: 'L1:0', datasetId: 'L1', question: withId }, 'correct')
+  const edited = { ...withId, name: 'New wording' }
+  pruneHistory([{ datasetId: 'L1', questions: [edited] }])
+  assert.deepEqual(Object.keys(readHistory()), [keyByText])
+})

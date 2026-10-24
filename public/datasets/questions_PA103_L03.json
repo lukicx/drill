@@ -1,5 +1,6 @@
 [
   {
+    "id": "468f1b7e",
     "name": "A patient record stores <TT>weight = 72</TT>. Which statements about the Quantity pattern apply?",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 50–52"
   },
   {
+    "id": "e42d258a",
     "name": "A fleet system receives vehicle speeds in mph from an external GPS provider and must display them in km/h. Which concepts from the Observations and Measurements collection model this?",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 50 and 52"
   },
   {
+    "id": "9296b727",
     "name": "A hospital records height, weight and blood glucose of patients using the Measurement pattern. Which statements about its knowledge and operational levels are correct?",
     "answers": [
       {
@@ -83,6 +86,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 54–55"
   },
   {
+    "id": "8113d9ee",
     "name": "The Measurement pattern cannot record blood groups (A+, A−, 0, …). How does the Observation pattern extend it?",
     "answers": [
       {
@@ -109,6 +113,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 55–56"
   },
   {
+    "id": "8ba1d4d",
     "name": "A patient's body temperature can be measured in the mouth, in the armpit or rectally. What does the Protocol pattern add?",
     "answers": [
       {
@@ -135,6 +140,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 58"
   },
   {
+    "id": "e2238cc6",
     "name": "Diabetes has two subtypes, type I and type II, modelled with Subtyping Observation Concepts. What follows from observations about patient J. Smith?",
     "answers": [
       {
@@ -161,6 +167,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 59"
   },
   {
+    "id": "ad72af61",
     "name": "On 29 Feb 2013 a doctor records that patient J. Smith had chest pains six months ago, lasting a week. Why does the Dual Time Record pattern store two times?",
     "answers": [
       {
@@ -187,6 +194,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 63–64"
   },
   {
+    "id": "22e583b5",
     "name": "A medical system must (a) keep a wrongly entered observation because auditors need a complete audit trail, and (b) distinguish a suspected diagnosis from a confirmed one. Which further Observation patterns fit?",
     "answers": [
       {
@@ -213,6 +221,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 63"
   },
   {
+    "id": "a90d4567",
     "name": "An AI evaluation harness records, for model version v2 on task T: response latency 340 ms, and a judge verdict \"refused\" (allowed labels: refused / complied / partial) produced by an LLM-as-judge with judge prompt version 3. How do these map to Observation concepts?",
     "answers": [
       {
@@ -239,6 +248,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 62"
   },
   {
+    "id": "54ea9dce",
     "name": "An ad-hoc model stores <TT>accidentsPerYear</TT> as an integer attribute on Driver and adds classes DrivingPeriod, Vehicle and Year to record driving period, driven vehicle (tram, bus or trolleybus) and accidents. How does the Observation pattern simplify this without losing meaning?",
     "answers": [
       {
@@ -265,6 +275,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 53, 61 and 64"
   },
   {
+    "id": "985ce100",
     "name": "Which statements about the Proposed and Implemented Action pattern are correct?",
     "answers": [
       {
@@ -291,6 +302,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 67"
   },
   {
+    "id": "c7cb3a86",
     "name": "How are completion and abandonment distinguished in the Planning patterns?",
     "answers": [
       {
@@ -317,6 +329,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 68"
   },
   {
+    "id": "da93cbe9",
     "name": "What does the basic Plan pattern model, and what is its limitation?",
     "answers": [
       {
@@ -343,6 +356,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 69"
   },
   {
+    "id": "76bd1a7c",
     "name": "A transport planning model has an abstract Schedule with two subclasses: Proposed schedule (the timetable) and Vehicle on the way (how a schedule is actually carried out), and Completed route is a subclass of Vehicle on the way. Where should the particular Vehicle be linked?",
     "answers": [
       {
@@ -369,6 +383,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 70–71"
   },
   {
+    "id": "6ab77916",
     "name": "The management of a coffee-machine company wants: (a) sales broken down by region and product brand; (b) a profit figure calculated from revenue and cost measurements by a formula; (c) a \"normal\" interval between two quantities, with operations on such intervals. Which Corporate Finance patterns fit?",
     "answers": [
       {
@@ -400,6 +415,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 74–75"
   },
   {
+    "id": "e09d11ae",
     "name": "A coffee-machine company asks: Which coffee brands are most popular? Do preferences differ across countries and across customers' business sectors? Sometimes it looks at the whole company, sometimes only at, e.g., espresso sales to government customers in the Northeast region. Which statements about the Enterprise Segment pattern are correct?",
     "answers": [
       {
@@ -431,6 +447,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 75–77"
   },
   {
+    "id": "42dbf5d4",
     "name": "Why apply Enterprise Segment already during early domain analysis of a transport company (dimensions such as geographic location, vehicle type, event type and line)?",
     "answers": [
       {
@@ -457,6 +474,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 79–80"
   },
   {
+    "id": "b971dfa9",
     "name": "An LLM token budget is modelled as a single counter that is decremented on each use. What does the Account pattern keep that the counter loses?",
     "answers": [
       {
@@ -483,6 +501,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 83–84"
   },
   {
+    "id": "c1a5b84c",
     "name": "How does the Transaction pattern extend the Account pattern?",
     "answers": [
       {
@@ -509,6 +528,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 85–86"
   },
   {
+    "id": "73b38c60",
     "name": "Stops have user-friendly names for passengers (e.g. \"Botanická\") but internally each stop has a unique technical number (e.g. 581). When is the Identification Scheme pattern (Stop – Identifier – IdentificationScheme) justified?",
     "answers": [
       {
@@ -535,6 +555,7 @@
     "source": "public-transport.pdf, page 15"
   },
   {
+    "id": "cefedf99",
     "name": "Sketch a conceptual UML model that records both a numeric oil-level measurement of a car and the observation that the car's oil level is \"low\" (allowed values: over-full, OK, low). Mark which concepts belong to the knowledge level and which to the operational level.",
     "answer": "<B>Knowledge level.</B> PhenomenonType \"oil level\"; its Phenomena \"over-full\", \"OK\" and \"low\" (PhenomenonType 1 – 0..* Phenomenon).<BR><B>Operational level.</B> Observation, associated with the observed Car (1 – 0..*) and with one PhenomenonType (1 – 0..*). Two subclasses:<BR>• Measurement, linked to one Quantity (amount and unit), e.g. 3.2 l;<BR>• CategoryObservation, linked to one Phenomenon, here \"low\".<BR><B>Reading.</B> The concrete \"low\" result for this car is a CategoryObservation object; the list of allowed values is configuration on the knowledge level and changes rarely.",
     "keyPoints": [
@@ -547,6 +568,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 52 and 54–57 (Quantity, Measurement, Observation and the oil-level exercise); public-transport.pdf, pages 9–10. The 3.2 l value is invented for illustration."
   },
   {
+    "id": "12a5b463",
     "name": "A data table contains <TT>driver = Novák, accidents = 3</TT>. Remodel this value with the Observation patterns so it keeps its meaning: it counts accidents per year, for driver J. Novák, taken from police records, for accidents that occurred in 2025 and were recorded in January 2026. Name the concept for each piece of context.",
     "answer": "<B>Observation.</B> One Measurement object with amount 3.<BR><B>Context.</B><BR>• <I>What?</I> PhenomenonType \"accidents per year\" (knowledge level).<BR>• <I>Unit:</I> Quantity with amount 3 and unit \"count / year\".<BR>• <I>For whom?</I> The subject (Person in the pattern): driver J. Novák.<BR>• <I>How obtained?</I> Protocol \"police records\".<BR>• <I>When?</I> Dual Time Record: occurrence period 2025, recording time January 2026.<BR><B>Why.</B> A raw value such as accidents = 3 in a CRUD table loses all of this: 3 of what, measured how, and when. For data collection, analysis or data-driven automation this context is essential, not optional.",
     "keyPoints": [
@@ -559,6 +581,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 54, 58, 63 and 64 (summary example \"accidents = 3\" with PhenomenonType, Quantity, Person, Protocol and Dual Time Record)."
   },
   {
+    "id": "35d18b2a",
     "name": "Sketch the public-transport planning model so that a timetable can be compared with real trips. Show where Line, Vehicle, Time Reference and Location belong, how a completed trip is represented, and how the generic pattern handles an abandoned action.",
     "answer": "<B>Structure.</B> Abstract Schedule with subclasses Proposed schedule and Vehicle on the way; Completed route specialises Vehicle on the way. Schedule is linked to Time Reference and, only if several cities are operated, to Location.<BR><B>Line and Vehicle.</B> Line is linked to Proposed schedule, because a timetable is planned for a line, not a vehicle. Vehicle is linked to Vehicle on the way, the actual execution.<BR><B>Link plan–reality.</B> Proposed schedule 1 – 0..1 Vehicle on the way: a planned trip may never run, and execution is measured against an existing schedule. Vehicle on the way may have incomplete data, e.g. after an accident.<BR><B>Abandonment.</B> In the generic pattern, Abandoned Action is a final cessation that can happen before or after implementation starts; completion means the action was carried out according to plan.<BR><B>Why.</B> A single Trip record with <TT>status = planned | running | done</TT> hides the difference between plan and reality; separating them supports comparing timetables with actual trips and reporting delays and cancellations.",
     "keyPoints": [
@@ -572,6 +595,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 67–72 (Proposed/Implemented, Completed/Abandoned actions, transport schedule model and summary)."
   },
   {
+    "id": "5e6bbe93",
     "name": "A transport company must analyse accidents and delays by geographic location, vehicle type, kind of event and line (it operates lines 1–32). Sketch a model with the Enterprise Segment pattern and give one example segment.",
     "answer": "<B>Structure.</B> Abstract DimensionElement with a recursive association: parent 0..1, children 0..*, and the constraint \"the parent must be of the same subtype\". Subclasses (dimension roots): GeographicLocation, VehicleTypes, Events and Lines. EnterpriseSegment is associated with one element from each dimension (each element can belong to many segments).<BR><B>Dimension hierarchies.</B> Geographic: city → district. Vehicle types: tram, bus, trolleybus. Events: accidents vs. delays, with accidents further divided into incidents with a car or with a human. Lines: 1–32 (in a note).<BR><B>Example segment.</B> (district Centre, tram, accident with a car, line 9). Observations such as \"number of accidents per month\" are then recorded for a segment.<BR><B>Why.</B> New analytical questions become new dimension elements or segments (data), not new classes.",
     "keyPoints": [
@@ -584,6 +608,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 75–80 (Enterprise Segment pattern on slide 77, transport application on slide 79); public-transport.pdf, pages 11–12. The district names and the example segment are invented for illustration."
   },
   {
+    "id": "4ff5a119",
     "name": "Sketch a model for vehicles moving between depots and traffic. Requirements: know how many vehicles are in each depot after the day shift and how many were in traffic each day; keep the history of changes; record where each transfer comes from and goes to; vehicles must never appear or vanish.",
     "answer": "<B>Accounts.</B> Place «Account», with subclasses Depot and InTraffic. Each Place has 0..* OperatedVehicles «Entry» objects; each entry belongs to one Place and has a signed amount (Quantity) and a date.<BR><B>Transactions.</B> A Transaction (\"leaving the depot\" or \"returning from the line\") links exactly two entries: a withdrawal from the source and an equal addition to the destination, so \\[\\sum \\text{entries.amount} = 0.\\]<BR><B>Balances.</B> The number of vehicles in a place is derived, not stored blindly: \\[\\text{balance} = \\sum \\text{entries.amount}.\\]<BR><B>Example.</B> 5 trams leave Depot North in the morning: entry −5 on Depot North and entry +5 on InTraffic, linked by one Transaction.",
     "keyPoints": [

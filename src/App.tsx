@@ -216,7 +216,7 @@ export default function App() {
   const courseHistory = currentLectures.flatMap((ds) => historyOf(history, ds))
   const dueCount = courseHistory.filter((h) => isDue(h)).length
   const weakCount = courseHistory.filter(isWeak).length
-  const mcLectures = currentLectures.filter((ds) => ds.multipleChoiceCount)
+  const mcLectures = currentLectures.filter((ds) => ds.multipleChoiceCount && /^L\d/.test(lectureLabel(ds)))
   const examRange = mcLectures.slice(0, Math.min(examUpTo ?? mcLectures.length, mcLectures.length))
   const examPool = examRange.reduce((sum, ds) => sum + (ds.multipleChoiceCount ?? 0), 0)
   const examCount = examSize === 'all' ? examPool : Math.min(Number(examSize), examPool)

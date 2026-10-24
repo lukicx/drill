@@ -1,5 +1,6 @@
 [
   {
+    "id": "8ccf4cf4",
     "name": "Pri návrhu dátového modelu chceš s dátami pracovať efektívne aj bezpečne. Ktoré rozhodnutia slúžia danému cieľu? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "L2, slide 3 (PDF page 3)"
   },
   {
+    "id": "e92cfb4b",
     "name": "Tím píše vlastnú dátovú vrstvu: pre každú tabuľku vlastná trieda so Select, Insert, Update, Delete cez SqlConnection a SqlCommand. Ktoré tvrdenia o tomto prístupe sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -52,6 +54,7 @@
     "source": "L2, slide 5 (PDF page 5)"
   },
   {
+    "id": "bb0645be",
     "name": "Čo je ORM a aké sú jeho prínosy a nevýhody? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -78,6 +81,7 @@
     "source": "L2, slide 6 (PDF page 6)"
   },
   {
+    "id": "e8707e45",
     "name": "Začínaš nový projekt s Entity Framework Core. Ktoré tvrdenia o inštalácii a spôsobe práce sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -104,6 +108,7 @@
     "source": "L2, slide 7 (PDF page 7), L2, slide 8 (PDF page 8)"
   },
   {
+    "id": "c032bd3d",
     "name": "Ktoré súčasti Entity Framework Core zodpovedajú ktorým návrhovým vzorom? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -135,6 +140,7 @@
     "source": "L2, slide 9 (PDF page 9)"
   },
   {
+    "id": "576292f2",
     "name": "Pri Code First určuješ connectionString pre provider (pre MSSQL napr. Data Source, Initial Catalog, User ID, Password). Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -161,6 +167,7 @@
     "source": "L2, slide 10 (PDF page 10)"
   },
   {
+    "id": "c7f08ede",
     "name": "Ktoré vlastnosti EF Core podľa konvencie považuje za primárny kľúč a ako sa kľúč generuje? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -187,6 +194,7 @@
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
+    "id": "ea70a249",
     "name": "Entita Order má vlastnosti <TT>int CustomerId</TT> a <TT>Customer Customer</TT>; entita Customer má kľúč <TT>int Id</TT>. Ktoré tvrdenia o konvenciách vzťahov sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -218,6 +226,7 @@
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
+    "id": "95937270",
     "name": "Kontext obsahuje iba <TT>DbSet&lt;Order&gt;</TT>. Order má vlastnosť typu Customer a Customer nemá vlastný DbSet. Čo sa stane podľa konvencie objavovania typov? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -244,6 +253,7 @@
     "source": "L2, slide 11 (PDF page 11)"
   },
   {
+    "id": "79618e7a",
     "name": "Entita má vlastnosť <TT>Code</TT>, ktorá má byť primárnym kľúčom, vlastnosť <TT>Name</TT> povinná s najviac 20 znakmi a vlastnosť <TT>Note</TT>, ktorá sa do databázy ukladať nemá. Ktoré anotácie sa hodia? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -275,6 +285,7 @@
     "source": "L2, slide 12 (PDF page 12)"
   },
   {
+    "id": "f0888227",
     "name": "Čo sú migrácie v EF Core? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -301,6 +312,7 @@
     "source": "L2, slide 13 (PDF page 13)"
   },
   {
+    "id": "a4b175c1",
     "name": "Pridal si entite novú vlastnosť a chceš zmenu premietnuť do databázy cez Package Manager Console. Ktoré postupy sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -327,6 +339,7 @@
     "source": "L2, slide 14 (PDF page 14)"
   },
   {
+    "id": "5eaa4b61",
     "name": "Do databázy chceš pri jej vytváraní vložiť počiatočné dáta (seed). Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -353,6 +366,7 @@
     "source": "L2, slide 15 (PDF page 15)"
   },
   {
+    "id": "3859247c",
     "name": "Navrhni Code First model pre knihkupectvo: autor napísal viac kníh, kniha má povinný názov s najviac 100 znakmi a pomocnú vlastnosť, ktorá sa do databázy ukladať nemá. Napíš triedy entít a DbContext, a pre každú časť povedz, či ju zabezpečí konvencia, dátová anotácia, DbSet (Repository) alebo DbContext (Identity Map, Unit of Work).",
     "answer": "<PRE>public class Author\n{\n    public int Id { get; set; }                   // PK podľa konvencie\n    public string Name { get; set; }\n    public List&lt;Book&gt; Books { get; set; }        // navigation property, strana 1\n}\n\npublic class Book\n{\n    public int Id { get; set; }                   // PK podľa konvencie\n    [Required, MaxLength(100)]\n    public string Title { get; set; }             // anotácia\n    public int AuthorId { get; set; }             // FK podľa konvencie {A}Id\n    public Author Author { get; set; }            // navigation property, strana N\n    [NotMapped]\n    public string DisplayLabel { get; set; }      // do DB sa neuloží\n}\n\npublic class BookstoreContext : DbContext\n{\n    public DbSet&lt;Book&gt; Books { get; set; }\n}</PRE><B>Konvencie:</B> Id je primárny kľúč (číselný sa generuje automaticky), AuthorId s typom PK triedy Author je cudzí kľúč, navigation properties z oboch strán vytvoria vzťah 1 : N. Author nemá vlastný DbSet, no zahrnie sa automaticky (objavovanie typov). <B>Anotácie:</B> [Required] a [MaxLength(100)] obmedzujú názov, [NotMapped] vyradí pomocnú vlastnosť. <B>DbSet</B> Books je Repository s CRUD operáciami. <B>DbContext</B> vytvára entity pri načítaní, pri opakovanom načítaní toho istého riadku vráti rovnakú inštanciu (Identity Map) a sleduje zmeny, ktoré uloží do databázy (Unit of Work). Connection string a provider (napr. Microsoft.EntityFrameworkCore.SqlServer) sa zadajú pri konfigurácii kontextu.",
     "keyPoints": [
@@ -365,6 +379,7 @@
     "source": "L2, slide 9 (PDF page 9), L2, slide 11 (PDF page 11), L2, slide 12 (PDF page 12)"
   },
   {
+    "id": "6c10868f",
     "name": "Aplikácia beží v produkcii s dátami. Produktu pridávaš vlastnosť <TT>Price</TT> a zároveň chceš doplniť tabuľku kategórií počiatočnými hodnotami. Popíš krok za krokom, ako zmenu bezpečne zavedieš cez migrácie a prečo nestačí databázu zmazať a vytvoriť nanovo. Uveď aj, ako by sa zmena vrátila späť.",
     "answer": "<B>Prečo nie zmazanie:</B> pri novom vytvorení by sa stratili produkčné dáta; migrácie existujú práve na aktualizáciu schémy bez straty dát.<BR><B>Postup:</B> (1) Máš nainštalovaný Microsoft.EntityFrameworkCore.Tools a DAL ako startup project (DbContext má bezparametrický konštruktor). (2) Pridáš vlastnosť Price do entity a seed kategórií do metódy OnModelCreating v DbContexte. (3) V Package Manager Console spustíš <TT>add-migration AddPriceAndCategorySeed</TT> – vznikne migrácia obsahujúca zmenu schémy aj seed; ak treba, seed alebo SQL sa dá upraviť ručne. (4) Spustíš <TT>update-database</TT> (prípadne na konkrétnu verziu) a EF Core zmeny aplikuje na existujúcu databázu.<BR><B>Návrat:</B> každá migrácia nesie aj opis zmeny späť do predošlého obrazu modelu, takže update-database na staršiu verziu schému vráti.",
     "keyPoints": [

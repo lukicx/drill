@@ -54,6 +54,13 @@ for (const f of process.argv.slice(2)) {
   })
   const keys = (Array.isArray(data) ? data : []).map(q => q?.name?.trim())
   if (new Set(keys).size !== keys.length) warnings.push('duplicate question texts')
+  // Stable ids keep progress history when a question is edited. The old PV157 sets stay untouched.
+  const ids = (Array.isArray(data) ? data : []).map(q => q?.id)
+  if (ids.some(id => id !== undefined && (typeof id !== 'string' || !id.trim()))) errors.push('id must be a non-empty string')
+  if (new Set(ids.filter(Boolean)).size !== ids.filter(Boolean).length) errors.push('duplicate question ids')
+  if (ids.some(id => id === undefined) && !/questions_PV157(_midterm(_2011)?)?\.json$/.test(f)) {
+    errors.push(`${ids.filter(id => id === undefined).length} questions without id (run node scripts/add-question-ids.mjs ${f})`)
+  }
   const multi = (Array.isArray(data) ? data : []).filter(q => q.answers?.filter(a => a.right).length > 1).length
   const essays = (Array.isArray(data) ? data : []).filter(q => q.answers === undefined).length
   console.log(`${f}: ${data.length} questions, ${multi} multi-correct, ${essays} essay, ${errors.length} errors, ${warnings.length} warnings`)

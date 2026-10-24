@@ -1,5 +1,6 @@
 [
   {
+    "id": "6ba0bcae",
     "name": "A laptop joins an unfamiliar Wi-Fi network. Explain what must be configured before ordinary Internet use and why this requires several complementary protocols.",
     "answer": "First the laptop needs link-layer connectivity, then an IP address and prefix, a default gateway and DNS configuration. It can then resolve names and, when needed, discover local devices and services. Initially it may know only its interface, link-layer identifier and that the link works, so configuration must begin using link-layer or link-local communication and broadcast/multicast mechanisms. DHCP or IPv6 ND/SLAAC handles parts of address and route configuration, while DNS, mDNS and DNS-SD handle naming and service discovery. Zero configuration is the composition of these mechanisms rather than a single protocol; policy and trust are further parts of onboarding.",
     "keyPoints": [
@@ -11,6 +12,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 4-7, 59-60"
   },
   {
+    "id": "22957515",
     "name": "Describe DHCP's role in IPv4 configuration. What can a server supply, where might it run, and what does DHCP leave to other protocols?",
     "answer": "DHCP distributes host configuration: an IP address and subnet mask, allocation lease, default gateway, DNS servers and additional options such as NTP or other server information. In a home network it commonly runs on the router; an enterprise may use a dedicated server, possibly reached through a relay. DHCP uses UDP, with server port 67 and client port 68. Supplying a gateway or DNS resolver does not make DHCP a routing protocol or a name-resolution protocol: forwarding and DNS lookups are separate functions.",
     "keyPoints": [
@@ -23,6 +25,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 9-10, 19"
   },
   {
+    "id": "b36b9a67",
     "name": "Trace the initial DHCP DORA exchange when a client has no IP address and several servers may offer configuration. Explain the broadcast steps and ACK/NAK outcomes.",
     "answer": "The client broadcasts DHCPDISCOVER, typically from 0.0.0.0 to 255.255.255.255, because it knows neither its usable address nor the server. The message includes a client identifier or hardware address, a transaction identifier to match replies and requested parameters. One or more servers send DHCPOFFER proposals containing an address, lease and options. The client selects an offer and broadcasts DHCPREQUEST so the chosen server sees the selection and other servers learn their offers were declined. DHCPACK confirms the allocation, lease and options, after which the client installs them. DHCPNAK rejects an inappropriate or invalid requested configuration. An offer alone is not the final allocation, and the discovery broadcast is local rather than Internet-wide.",
     "keyPoints": [
@@ -35,6 +38,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 11-16"
   },
   {
+    "id": "58c9ba6e",
     "name": "Explain why DHCP addresses are leased rather than permanently assigned, and describe renewal and rebinding.",
     "answer": "A lease makes an allocation temporary so a server can reclaim addresses from clients that disappear and configuration changes can propagate over time. The client typically tries to renew around the middle of its lease. Successful renewal resets the lease period. If renewal with the original server fails, the client eventually enters a broader rebinding phase. Lease duration can be shorter on a dynamic public network than on a relatively stable home or enterprise network.",
     "keyPoints": [
@@ -47,6 +51,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 17, 19"
   },
   {
+    "id": "660b1f8b",
     "name": "A centralized DHCP server is in subnet B while a new client is in subnet A. Explain why ordinary routing is insufficient and trace the relay's role.",
     "answer": "The client's initial DHCP broadcast stays on its local subnet because routers normally do not forward IPv4 broadcasts. A DHCP relay receives that local message, forwards DHCP communication toward the remote server using IP communication and supplies information identifying the client-facing network. It also delivers the server's reply locally to the client. This lets one centralized DHCP service configure hosts on many routed subnets without placing a server on every link.",
     "keyPoints": [
@@ -59,6 +64,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 10, 18-19"
   },
   {
+    "id": "c0bb8249",
     "name": "Neighbor Discovery is part of ICMPv6. Name its five message types and say what each is used for. Then explain why ND does more than replace IPv4 ARP.",
     "answer": "The five ICMPv6 messages are Router Solicitation (RS), Router Advertisement (RA), Neighbor Solicitation (NS), Neighbor Advertisement (NA) and Redirect. NS and NA support address resolution, reachability checking and duplicate address detection; an unsolicited NA can announce a link-layer change. An RS requests configuration from a router, and an RA supplies prefixes, flags and other router information, either periodically or in response. Redirect lets a default gateway advise a host to choose a better next hop.<br>Beyond ARP's resolution of a neighbor's link-layer address, ND discovers routers and prefixes, supports autoconfiguration, detects duplicate IPv6 addresses and checks neighbor reachability or changed link-layer addresses.",
     "keyPoints": [
@@ -71,6 +77,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 21-22, 40"
   },
   {
+    "id": "54845113",
     "name": "Resolve the link-layer address of 2AC0:56:A319:15:022A:FFF:FE32:5ED1 using IPv6 ND. Derive the solicited-node multicast address and trace the NS/NA exchange.",
     "answer": "The solicited-node prefix FF02::1:FF00:0/104 fixes 104 bits, leaving \\(128-104=24\\) bits. Take the target's last 24 bits, 32:5ED1, and append them to the prefix. The resulting destination is FF02::1:FF32:5ED1. The requester sends an NS to that multicast group containing the IPv6 target and its own link-layer address. Nodes listen to solicited-node groups derived from their IPv6 addresses; more than one node can share the group, but the node with the exact target address answers. It sends an NA carrying its link-layer information back to the requester, after which the two nodes can exchange link-layer packets. This targets a small multicast group rather than broadcasting to all hosts.",
     "keyPoints": [
@@ -83,6 +90,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 23-25"
   },
   {
+    "id": "5b8aa7e2",
     "name": "In an IPv6 Neighbor Advertisement (NA), what do the Router (R), Solicited (S) and Override (O) flags mean, and in which situations are they set? When is an unsolicited NA sent, and to which address?",
     "answer": "An NA carries the IPv6 and link-layer addresses of the node that answers, plus three flags.<br><b>R (Router):</b> set when the sender is a router.<br><b>S (Solicited):</b> set when the NA answers a Neighbor Solicitation; an unsolicited NA does not set it.<br><b>O (Override):</b> set when the new information should override what receivers have previously cached, for example when the node's link-layer address has changed.<br>An unsolicited NA is sent when a node knows that its link-layer address has changed. It is sent to the all-nodes multicast address FF02::1, so that every node on the link can update its cache.",
     "keyPoints": [
@@ -95,6 +103,7 @@
     "source": "PA191 L3, lecture03.pdf, slide 24 (the example of O set after an address change is an interpretation of the slide's override and unsolicited-NA descriptions)"
   },
   {
+    "id": "ea74f26e",
     "name": "Describe Duplicate Address Detection for a tentative IPv6 address. Explain the NS source, destination and target, and the meaning of an NA response.",
     "answer": "Before assigning a generated tentative address, the host tests whether another node on the local link already uses it. It sends an NS whose target is the tentative address, whose IPv6 source is the unspecified address :: and whose destination is that target's solicited-node multicast address. A node already using the address can respond with an NA to all-nodes multicast, exposing the duplicate. If the uniqueness test passes, the address can be assigned; a conflict prevents treating it as unique. DAD is used during autoconfiguration, including the generated link-local address.",
     "keyPoints": [
@@ -107,6 +116,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 28, 33, 36"
   },
   {
+    "id": "f470d1e8",
     "name": "Explain Neighbor Unreachability Detection and the states of a neighbor-cache entry with the transitions between them, including how a stale entry becomes actively probed or removed.",
     "answer": "NUD tracks neighbors with which a node is communicating. A higher-layer protocol such as TCP may confirm that communication succeeds; otherwise ND performs its own checks. INCOMPLETE means address resolution is awaiting an NA or timeout. A solicited NA makes the entry REACHABLE; after its reachability timer expires it becomes STALE. Sending to a stale entry enters DELAY, giving the upper layer time to confirm reachability; if that time expires, PROBE actively sends unicast NS messages. Positive confirmation returns the entry to REACHABLE. If the solicitation retry limit is exceeded, the entry is removed; failed initial multicast resolution also removes an incomplete entry.",
     "keyPoints": [
@@ -119,6 +129,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 29-30"
   },
   {
+    "id": "5f53695",
     "name": "Compare stateful IPv6 autoconfiguration with stateless autoconfiguration. Explain how the two approaches can be combined.",
     "answer": "Stateful autoconfiguration uses DHCPv6 to supply configuration in a manner analogous to DHCP in IPv4. Stateless autoconfiguration forms an IPv6 address using local interface information together with a prefix advertised by a router, so a DHCP server need not allocate that address. These mechanisms can be combined: SLAAC can generate the address while a stateful mechanism supplies other parameters, such as DNS server information. Address configuration and obtaining supplementary configuration are separate tasks.",
     "keyPoints": [
@@ -130,6 +141,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 31-35"
   },
   {
+    "id": "76e1cd92",
     "name": "Trace the SLAAC procedure from a newly active interface to a global IPv6 address. Include link-local generation, uniqueness tests and router discovery.",
     "answer": "The host first generates a tentative link-local address, using the FE80 link-local prefix, intervening zero bits and a 64-bit interface identifier based on local information such as a MAC-derived or random identifier. It performs DAD and assigns the address only if the uniqueness test succeeds. This address supports communication on the local link but is not routed across the Internet. The host then waits for an RA or sends an RS to all-routers multicast FF02::2. Router information indicates how to proceed. For SLAAC, the host combines an advertised network prefix with its interface identifier to form a global address and checks uniqueness again. The flags of the RA can instead direct the host to stateful or combined configuration, so not every RA leads to pure SLAAC.",
     "keyPoints": [
@@ -143,6 +155,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 32-36"
   },
   {
+    "id": "165eda99",
     "name": "A host receives a Router Advertisement with M=0, O=1 and router lifetime 0. Interpret those fields. Name three options an RA may carry and say what each is for.",
     "answer": "M=0 does not instruct the host to use a stateful method (DHCPv6) for address configuration. O=1 tells the host to use a stateful method for information other than addresses, which can accompany stateless address configuration. A router lifetime of 0 means this router must not be used as a default router, even though its RA can still carry other information.<br>An RA may carry three ICMPv6 options: the <b>source link-layer address</b> of the router (when the router knows it), the <b>MTU</b> of the local network, and <b>prefix information</b> telling the hosts which prefix(es) to use on the local network.",
     "keyPoints": [
@@ -154,6 +167,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 38-39"
   },
   {
+    "id": "27446d3",
     "name": "Explain how mDNS resolves printer.local on an unmanaged local network, and which ordinary DNS concepts it preserves.",
     "answer": "Ordinary DNS assumes a namespace, configured resolver and administered records, which may be absent on an ad-hoc network. mDNS distributes a query for printer.local to interested hosts on a local multicast group instead of sending it to a central unicast DNS server. The printer owning the name can return A/AAAA address records. mDNS uses UDP port 5353, and .local belongs to link-local multicast DNS rather than ordinary global DNS delegation. It changes distribution while retaining DNS names, resource records, record types, TTLs, caching, queries and responses.",
     "keyPoints": [
@@ -166,6 +180,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 43-48"
   },
   {
+    "id": "9eb541c1",
     "name": "A printer is reachable by IP from two VLANs but appears in the nearby-device list only on one. Explain how mDNS scope can cause this and state its deployment trade-offs.",
     "answer": "mDNS is deliberately link-local: IPv4 uses multicast 224.0.0.251 and IPv6 uses FF02::FB. Routers do not normally forward these packets between subnets, so service discovery can succeed in the printer's VLAN and fail elsewhere even though routed IP connectivity works. This local scope enables simple deployment without a central server and works well on small unmanaged networks. It also limits service visibility across routers, and multicast can be problematic on large or unusual networks. Discovery failure therefore need not mean failure of IP reachability.",
     "keyPoints": [
@@ -178,6 +193,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 47, 57"
   },
   {
+    "id": "fe835255",
     "name": "Local web servers are to be discovered with DNS-SD over mDNS. A service instance called \"Alice's Web Server\" runs on host alice-laptop.local, port 8080. Trace the discovery from a service-type query to the application connection: which record types are queried (PTR, SRV, TXT, A/AAAA) and what does each give? Why is knowing a hostname alone insufficient, and why is an SRV record more useful than an IP address alone?",
     "answer": "A <b>service type</b> such as _http._tcp names the kind of service and its transport (others: _ssh._tcp, _ipp._tcp); an <b>instance name</b> such as Alice's Web Server identifies one particular service.<br><b>Trace:</b> (1) A PTR query for _http._tcp.local returns the instances of this service type, for example Alice's Web Server._http._tcp.local. (2) An SRV query for the chosen instance returns its target hostname and port (alice-laptop.local, 8080), with priority and weight. (3) TXT records supply key=value metadata about the service, for example txtvers=1, note=Second-floor printer, qtotal=1 for a printer; the keys depend on the service protocol, so TXT is metadata, not a general configuration language. (4) An A/AAAA query for alice-laptop.local returns the host's IPv4/IPv6 address. (5) The application connects to that address and port using the service's protocol. mDNS can carry these queries and records on the local link.<br>A hostname alone does not say which services exist on the host, their type, their port or their attributes. An SRV record maps an instance to host and port, so a service may use a non-default port or move to another host without changing its identity or type. DNS-SD only discovers and describes services; it does not itself establish the application connection.",
     "keyPoints": [
@@ -190,6 +206,7 @@
     "source": "PA191 L3, lecture03.pdf, slides 49-55, 60 (merged from the former separate service-type/instance question; TXT question merged in)"
   },
   {
+    "id": "8fd64cd9",
     "name": "A network speaker is switched on, used for a while and later unplugged on a local network that has no central service registry. Using mDNS/DNS-SD, explain how other hosts learn that it appeared, how repeated lookups avoid re-querying, and how its records disappear.",
     "answer": "The local devices themselves expose DNS records, so together they form a distributed, changing directory. <b>Appears:</b> when switched on, the speaker announces its records on the link, so other hosts learn about the new service without asking. <b>Used:</b> hosts cache the records for their TTL, so repeated lookups are answered from the cache instead of querying the link again. <b>Disappears:</b> if the speaker shuts down cleanly its records are withdrawn; if it is simply unplugged, the cached records expire when their TTL runs out.",
     "keyPoints": [

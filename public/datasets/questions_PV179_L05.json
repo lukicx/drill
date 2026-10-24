@@ -1,5 +1,6 @@
 [
   {
+    "id": "fbb0599c",
     "name": "Webová aplikácia má tieto bloky: Controller, View a Model; UI fasády; služby; Query objekty; repozitáre; ORM. Do ktorej vrstvy patria? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
+    "id": "c1288ed5",
     "name": "Controller potrebuje zoznam zákazníkov filtrovaný podľa krajiny a iný Controller vytvára nového zákazníka. Ako spolupracujú vrstvy? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
+    "id": "cfa8a4cf",
     "name": "Kde sa v architektúre z prednášky stretávajú SQL a Commit? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -83,6 +86,7 @@
     "source": "L5, slide 2 (PDF page 2)"
   },
   {
+    "id": "98cd2a9b",
     "name": "Entita Customer má heslo (hash) a interné príznaky. Zoznam zákazníkov potrebuje meno a e-mail a formulár úpravy iné polia. Prečo použiť DTO a ako sa vzťahujú k entitám? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -109,6 +113,7 @@
     "source": "L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7)"
   },
   {
+    "id": "1feb94bc",
     "name": "Ako sa DTO používajú a mapujú medzi prezentačnou vrstvou a entitami pri CRUD operáciách? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -140,6 +145,7 @@
     "source": "L5, slides 7-8 (PDF pages 7-8)"
   },
   {
+    "id": "322d2d2",
     "name": "Obrazovka „produkty“ má filter podľa cenového rozpätia, zoradenie podľa názvu a stránkovanie; rovnaký dotaz používa aj export. Čo prináša Query Object? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -166,6 +172,7 @@
     "source": "L5, slide 9 (PDF page 9), L5, slide 10 (PDF page 10)"
   },
   {
+    "id": "f6f7f11a",
     "name": "OrderService má 40 metód: vytvára objednávky, spravuje sklad, formátuje faktúry a posiela e-maily. Čo z toho vyplýva pre dekompozíciu do služieb? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -192,6 +199,7 @@
     "source": "L5, slide 11 (PDF page 11)"
   },
   {
+    "id": "85da21c8",
     "name": "Obrazovka „dokončiť objednávku“ potrebuje OrderService, StockService a PaymentService. Čo ponúkne fasáda? Vyber všetky správne tvrdenia.",
     "answers": [
       {
@@ -223,6 +231,7 @@
     "source": "L5, slide 12 (PDF page 12)"
   },
   {
+    "id": "ec346042",
     "name": "Používateľ otvorí stránku zákazníkov s filtrom „krajina = SK“ (druhá strana, 20 záznamov) a potom upraví e-mail jedného zákazníka. Popíš pre obe požiadavky, cez ktoré bloky prejdú (Controller, fasáda, služba, Query objekt, repozitár, Unit of Work, ORM, databáza), aké DTO sa prenášajú a kde prebieha mapovanie.",
     "answer": "<B>Zobrazenie zoznamu (Retrieve):</B> Controller prezentačnej vrstvy (alebo Web API) vytvorí FilterDto (krajina SK, strana 2, veľkosť 20, zoradenie) a zavolá UI fasádu. Fasáda použije službu, tá cez Query objekt zavolá ExecuteQuery. Query objekt zostaví Query v dátovej vrstve, ORM ju preloží na SQL a načíta entity z databázy. Entity sa namapujú na DTO a prezentačná vrstva dostane QueryResultDto s kolekciou DTO zákazníkov. Controller naplní Model a View vykreslí HTML (resp. Web API vráti status a JSON/XML).<BR><B>Úprava e-mailu (Update):</B> Prezentačná vrstva odošle DTO s upraveným e-mailom do fasády a služby; DTO sa namapuje na entitu a služba zmenu vykoná cez repozitár (CRUD). Zmeny sleduje Unit of Work a pri Commit ich ORM pošle do databázy ako SQL.<BR>Prezentačná vrstva tak pracuje len s DTO, nie s entitami.",
     "keyPoints": [
@@ -235,6 +244,7 @@
     "source": "L5, slide 2 (PDF page 2), L5, slide 5 (PDF page 5), L5, slide 7 (PDF page 7)–L5, slide 9 (PDF page 9)"
   },
   {
+    "id": "bcc7cd0b",
     "name": "E-shop potrebuje obrazovku „dokončiť objednávku“, ktorá využíva OrderService, StockService a PaymentService, a stránku „história objednávok“ s filtrom a stránkovaním. Navrhni business vrstvu: aké služby, fasády a Query objekty vytvoríš, aké DTO a mapovanie použiješ a čo odôvodníš princípmi z prednášky (Single responsibility, High Cohesion, Low Coupling).",
     "answer": "<B>Služby:</B> OrderService (objednávky), StockService (sklad), PaymentService (platby); každá drží súvisiacu logiku, majú jednu zodpovednosť, vysokú súdržnosť a nízku previazanosť, takže sa nemiešajú napr. platby so skladom.<BR><B>Fasáda:</B> jedna fasáda „CheckoutFacade“ s metódou „dokončiť objednávku“ kombinuje tri služby; prezentačná vrstva vidí jednoduché rozhranie a fasád je menej než služieb.<BR><B>Query objekt:</B> OrderHistoryQuery s FilterDto (zákazník, dátum, strana, zoradenie) a výsledkom QueryResultDto s DTO objednávok; dotaz je na jednom mieste, transparentný a bez duplicitného kódu, takže sa mení pohodlne.<BR><B>DTO a mapovanie:</B> samostatné DTO pre každý use case (napr. CheckoutDto, OrderListItemDto, OrderDetailDto), aby prezentačná vrstva nezávisela od entít; mapovanie DTO ↔ entita ide oboma smermi a jedna entita Order má viac DTO.",
     "keyPoints": [

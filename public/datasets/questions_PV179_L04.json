@@ -1,5 +1,6 @@
 [
   {
+    "id": "f4fdcb16",
     "name": "A colleague answers your question by pasting it into a chatbot and forwarding the reply unread. Which statements describe responsible use of AI output instead? Select all correct statements.",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "L4, slide 4 (PDF page 4)"
   },
   {
+    "id": "bb6ce657",
     "name": "You use AI to write a status report and a README. Which writing habits does the lecture support? Select all correct statements.",
     "answers": [
       {
@@ -52,6 +54,7 @@
     "source": "L4, slide 5 (PDF page 5)"
   },
   {
+    "id": "d754c609",
     "name": "A developer says: \"The model has seen far more code than any human, so its output is expert-level.\" How does the lecture frame the limits of AI? Select all correct statements.",
     "answers": [
       {
@@ -78,6 +81,7 @@
     "source": "L4, slide 6 (PDF page 6)"
   },
   {
+    "id": "d151e4f9",
     "name": "Two people ask AI to configure a home network: one knows 10-20% of the topic, the other 0%. Which statements fit the lecture? Select all correct statements.",
     "answers": [
       {
@@ -104,6 +108,7 @@
     "source": "L4, slide 7 (PDF page 7)"
   },
   {
+    "id": "88e4a715",
     "name": "AI generated a background job processor in minutes. The happy path works and the unit tests pass, but they wait with <TT>Task.Delay(200)</TT>. Which concerns should a reviewer raise? Select all correct statements.",
     "answers": [
       {
@@ -130,6 +135,7 @@
     "source": "L4, slide 8 (PDF page 8)"
   },
   {
+    "id": "e61ac2a1",
     "name": "A maintenance repository gets an AI-generated large code change for a low-value side feature. A different team uses AI on a leaf repository for experiments. Which statements apply? Select all correct statements.",
     "answers": [
       {
@@ -156,6 +162,7 @@
     "source": "L4, slide 8 (PDF page 8)"
   },
   {
+    "id": "a990314c",
     "name": "Pull requests made with AI flow into a large open-source repository. Which practices does the lecture combine with that? Select all correct statements.",
     "answers": [
       {
@@ -187,6 +194,7 @@
     "source": "L4, slide 12 (PDF page 12), L4, slide 14 (PDF page 14)"
   },
   {
+    "id": "90be75e2",
     "name": "One maintainer produces many pull requests by directing AI agents on the largest features and reviewing only lightly. What does this say about the human role? Select all correct statements.",
     "answers": [
       {
@@ -213,6 +221,7 @@
     "source": "L4, slide 15 (PDF page 15), L4, slide 16 (PDF page 16)"
   },
   {
+    "id": "627976bb",
     "name": "A product team ships changes every few days using AI agents and auto-merge for tests, infrastructure and some code, accepting occasional breakage. Which statements apply? Select all correct statements.",
     "answers": [
       {
@@ -239,6 +248,7 @@
     "source": "L4, slide 19 (PDF page 19)"
   },
   {
+    "id": "82fb06ea",
     "name": "You want an efficient workflow for using AI on code. Which advice does the lecture give? Select all correct statements.",
     "answers": [
       {
@@ -265,6 +275,7 @@
     "source": "L4, slide 10 (PDF page 10)"
   },
   {
+    "id": "1d0383ee",
     "name": "The AI makes the same kind of mistake again in your project. Which habits does the lecture suggest? Select all correct statements.",
     "answers": [
       {
@@ -291,6 +302,7 @@
     "source": "L4, slide 22 (PDF page 22), L4, slide 23 (PDF page 23)"
   },
   {
+    "id": "6d76ccdb",
     "name": "You use AI as a rubber duck to prepare a talk. Which statements fit the lecture? Select all correct statements.",
     "answers": [
       {
@@ -322,6 +334,7 @@
     "source": "L4, slide 24 (PDF page 24)"
   },
   {
+    "id": "71d425cd",
     "name": "Your team of five wants to introduce AI coding agents into a product that has a low-risk internal tooling module and a high-risk payment module with no easy rollback. Propose a policy: where and how much AI to allow, how changes are verified, who is responsible, and how the team reacts when the AI repeatedly makes the same mistake.",
     "answer": "<B>Where and how much:</B> Start with low-risk or leaf areas (internal tooling, tests, infrastructure scripts) where targeted supervision and even auto-merge for selected parts allow fast iteration. For the payment module use tight supervision, small changes and no auto-merge: breakage and missing rollback are unacceptable there (compare \"you can't do Azure this way\"). Avoid large, low-value AI changes in maintenance code.<BR><B>Rules for merging:</B> Humans review all merged changes, and every fix must come with a test that proves the fix matters (fails without it).<BR><B>Responsibility:</B> The author who forwards AI output answers for it and must be able to explain the code; no meat-proxy behaviour.<BR><B>Repeated mistakes:</B> Ask AI to review the mistake and to find where to put instructions so it is not repeated; keep instructions as simple Markdown in Git (KISS).",
     "keyPoints": [
@@ -333,6 +346,7 @@
     "source": "L4, slides 4, 8, 10, 12, 14, 19, 22, 23 (combined; policy structure is the answer's interpretation)"
   },
   {
+    "id": "1dc61d12",
     "name": "A junior colleague shows an AI-generated feature: 600 changed lines, all tests green, the demo works. Describe how you review it, which questions you put to the AI and to the colleague, and which signs would make you reject or shrink the change.",
     "answer": "<B>Value and risk first:</B> Is the feature worth a large change in this code base? A large change for a low-value side feature carries more risk than benefit, so shrink or reject it.<BR><B>Understand the code:</B> You need not read every line but must be able to deep dive: ask AI what the code does, where, how and why, and ask the colleague to explain it (not a pass-through of prompts).<BR><B>Look beyond the happy path:</B> check locking, cancellation support and graceful shutdown, and error handling that generated code tends to ignore.<BR><B>Test quality:</B> tests that rely on <TT>Task.Delay</TT>, are over-specific, or would also pass without the change do not prove anything; ask for a test that fails without the fix.<BR><B>Reject or shrink if:</B> the author cannot explain the code, only the happy path is covered, or the tests prove nothing.",
     "keyPoints": [

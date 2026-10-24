@@ -1,5 +1,6 @@
 [
   {
+    "id": "89c1e8c2",
     "name": "Admission clerks in a hospital say they always follow the official admission form, but the analyst suspects that daily practice differs. The new system must also exchange data with the existing laboratory system. Which elicitation techniques fit these two needs best?",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 3"
   },
   {
+    "id": "db494684",
     "name": "Three departments disagree about the requirements of a new booking system and a decision is needed soon. In addition, one key user cannot describe the screens she needs, and a manager has hidden concerns he does not voice in meetings. Which techniques fit?",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 3"
   },
   {
+    "id": "8e915fb1",
     "name": "A ticketing project needs to describe: (1) how a ticket moves between reserved, paid and cancelled; (2) the wish \"As a passenger I want to buy a ticket on my phone so that I avoid queues\", with conditions for acceptance; (3) which actors interact with the system and how. Which pairings of need and technique are correct?",
     "answers": [
       {
@@ -88,6 +91,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 4"
   },
   {
+    "id": "96ff8e87",
     "name": "How are use case modeling and domain modeling combined in this course?",
     "answers": [
       {
@@ -114,6 +118,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 5–6"
   },
   {
+    "id": "b8bc6805",
     "name": "The documentation of a transport company contains the nouns <I>driver</I>, <I>motorman</I> (used for the same person as driver), <I>licence number</I>, <I>tram</I>, <I>line</I>, <I>depot</I> and <I>depot address</I>. Which decisions follow the entity-identification method?",
     "answers": [
       {
@@ -145,6 +150,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 8"
   },
   {
+    "id": "691349fc",
     "name": "A first conceptual model links Driver and Vehicle. Drivers hold licences for some vehicle kinds, and they also drive particular vehicles. What should the analyst do next?",
     "answers": [
       {
@@ -171,6 +177,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 9–10"
   },
   {
+    "id": "9e8a7e73",
     "name": "Which statements reflect the course's view of domain models as living documentation?",
     "answers": [
       {
@@ -197,6 +204,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 11"
   },
   {
+    "id": "46950b73",
     "name": "Why use analysis patterns in domain modeling, even when an LLM can draft the model?",
     "answers": [
       {
@@ -223,6 +231,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 12–13 and 20"
   },
   {
+    "id": "45365a3c",
     "name": "An information system must (a) record who is responsible to whom between employees and organisational units, (b) store patients' blood pressure with units, and (c) track how goods and money move between warehouses and accounts. Which Fowler pattern collections match these concerns?",
     "answers": [
       {
@@ -254,6 +263,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 21"
   },
   {
+    "id": "7b1c547f",
     "name": "A city transport company asked an LLM for a data model. <B>Model A</B>: Depot employs 0..* Drivers, each Driver works at exactly 1 Depot (a fixed depot reference), and nothing is dated. <B>Model B</B>: Party, Accountability with an AccountabilityType and a TimePeriod. Three months later a new requirement arrives: \"From January a driver may be temporarily assigned to a second depot, and when an accident occurs we must know who was responsible for that driver at that moment.\" Which conclusions are correct?",
     "answers": [
       {
@@ -285,6 +295,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 14–16"
   },
   {
+    "id": "93320daa",
     "name": "A reviewer finds the following defects in an LLM-generated domain model. Which repairs match the defect?",
     "answers": [
       {
@@ -311,6 +322,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 17 and 26"
   },
   {
+    "id": "cf782885",
     "name": "An LLM generated a class Organization with a recursive association: <TT>parent</TT> with multiplicity 1 and <TT>children</TT> with multiplicity *. The brief says: \"Associated Coffee Makers is the top organisation; its departments are sales and purchasing; sales has Boston and London offices.\" How should you check the model, and what do you find?",
     "answers": [
       {
@@ -337,6 +349,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 18"
   },
   {
+    "id": "48bfd9c9",
     "name": "Class ConversionRatio has an association to class Number, with exactly one Number per ConversionRatio. Which UML notations express the same information?",
     "answers": [
       {
@@ -363,6 +376,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 22"
   },
   {
+    "id": "1aee7c6b",
     "name": "A system handles people and companies. When is the Party pattern justified, and how is it applied?",
     "answers": [
       {
@@ -389,6 +403,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 26–27"
   },
   {
+    "id": "ec8fcacd",
     "name": "Sales offices belong to divisions, divisions to regions and regions to an operating unit. Instead of a fixed chain of associations OperatingUnit–Region–Division–SalesOffice, the Organization Hierarchies pattern uses Organization with a recursive association (<TT>parent</TT> 0..1, <TT>subsidiary</TT> 0..*) and the subtypes OperatingUnit, Region, Division and SalesOffice. What makes this version more flexible?",
     "answers": [
       {
@@ -415,6 +430,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 28–31 and 33"
   },
   {
+    "id": "dceca4e0",
     "name": "In the flexible Organization Hierarchies model (Organization with recursive parent/subsidiary association and subtypes Division, SalesOffice, …), a Subdivision must now be inserted between Division and SalesOffice. What is expected?",
     "answers": [
       {
@@ -441,6 +457,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 29 and 32"
   },
   {
+    "id": "98c2eb75",
     "name": "A company has several parallel organisational hierarchies (e.g. sales and public relations), and their number may grow. Why model them with the Organization Structure pattern (an OrganizationStructure class with an OrganizationStructureType) instead of one more recursive association per hierarchy?",
     "answers": [
       {
@@ -467,6 +484,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 36–37"
   },
   {
+    "id": "e7d68215",
     "name": "Which statements about the Accountability pattern (Party, Accountability, AccountabilityType, TimePeriod) are correct?",
     "answers": [
       {
@@ -493,6 +511,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 39–41"
   },
   {
+    "id": "1dbd1090",
     "name": "In the Accountability Knowledge Level pattern, what does a ConnectionRule describe?",
     "answers": [
       {
@@ -519,6 +538,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 42–43"
   },
   {
+    "id": "93256628",
     "name": "During requirements analysis a new role (e.g. Inspector) is discovered. What does the separation of knowledge level and operational level give you?",
     "answers": [
       {
@@ -545,6 +565,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 44"
   },
   {
+    "id": "13e7b2de",
     "name": "How does the Accountability knowledge level relate to authorization?",
     "answers": [
       {
@@ -571,6 +592,7 @@
     "source": "02-03-Analysis-patterns.pdf, slide 45"
   },
   {
+    "id": "d05e69f5",
     "name": "Stakeholders are asked: \"What happens when the company adds a new role next year? Who configures authorization, and when?\" How does the answer affect the system boundary?",
     "answers": [
       {
@@ -597,6 +619,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 46 and 48"
   },
   {
+    "id": "16d1e53e",
     "name": "In a transport company, (1) the right to approve drivers' overtime belongs to the position \"depot manager\" and must not change when a new person takes the job, and (2) the knowledge level repeats the same connection rules for Driver, Technician and Dispatcher, which is getting hard to maintain. Which further Accountability patterns address these needs?",
     "answers": [
       {
@@ -623,6 +646,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 25 and 47–48"
   },
   {
+    "id": "4dc770ab",
     "name": "Sketch a conceptual UML class model for a public transport company. A dispatcher creates daily work schedules; a daily work schedule refers to a line, and each line has its line schedule. A daily work schedule is assigned to drivers. Drivers can be licensed for vehicles independently of which vehicle they currently drive; vehicles are buses, trams and trolleybuses. Then list the requirements questions you must ask before fixing the multiplicities and history of the driving relationship and of vehicle records.",
     "answer": "<B>Entities.</B> Dispatcher, DailyWorkSchedule, Line, LineSchedule, Driver and Vehicle, with Bus, Tram and TrolleyBus as subclasses of Vehicle.<BR><B>Associations.</B> Dispatcher –creates→ DailyWorkSchedule; DailyWorkSchedule – Line; Line – LineSchedule (keep the two schedule concepts distinct); DailyWorkSchedule – Driver. Between Driver and Vehicle draw two separate associations: <I>has licence</I> (many-to-many) and <I>drives</I>, whose multiplicity stays provisional.<BR><B>Questions about the driving relationship.</B> When is a driver assigned to a vehicle? Does the driver take the first free tram of the line, or does each driver have \"his\" vehicle shared with others in turns? How permanent is the assignment? What must be remembered about it, and who is responsible for that information?<BR><B>Questions about vehicle records.</B> Who manages vehicle records? What is the process of taking a vehicle out of service, and is it inside the system boundary? If a vehicle is put out of service, should its history be kept?<BR>Draw conceptual entities only: no methods, no database keys.",
     "keyPoints": [
@@ -636,6 +660,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 8–10 (entities, relationships and the transport conceptual model with its context and class questions); public-transport.pdf, pages 2–3."
   },
   {
+    "id": "edad5123",
     "name": "Model the following description with the Organization Hierarchies pattern: \"Dispatchers sit at headquarters. Technicians and drivers are located at their depot. Headquarters manages depots.\" First give the straightforward model with one association per relationship, then the pattern-based model, and say where the rules go.",
     "answer": "<B>Straightforward model.</B> Headquarter 1 – * Depot; Headquarter 1 – * Dispatcher; Depot 1 – * Technician; Depot 1 – * Driver. Each relationship is a separate association, so any new unit or level changes the schema (\"you get what you ask for\").<BR><B>Pattern-based model.</B> One abstract class OrganizationUnit with a recursive association: parent (0..1) and subsidiaries (*). Subclasses: Headquarter, Depot, HqEmployee (with subclass Dispatcher) and DepotEmployee (with subclasses Technician and Driver).<BR><B>Rules.</B> Constraints are attached to subclasses: the parent of an HqEmployee is a Headquarter; the parent of a DepotEmployee is a Depot; the parent of a Depot is a Headquarter.<BR><B>Trade-off.</B> The pattern version is more complex but flexible: a new kind of unit is a new subclass plus a rule, not new associations. The top unit needs a parent multiplicity of 0..1 so it can exist without a parent.",
     "keyPoints": [
@@ -648,6 +673,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 28–34 (Organization Hierarchies; transport example on slide 34). The slide 34 diagram shows parent multiplicity 1 at the top; the 0..1 remark follows the generic pattern on slide 30 and the silent-incompleteness example on slide 18."
   },
   {
+    "id": "85788fd0",
     "name": "Draw a UML class fragment and an object example for two simultaneous structures. In Sale, the Brno sales office reports to the Moravia division and the Prague sales office to the Bohemia division. In PublicRelations, both offices report to the Central operating unit. Use the Organization Structure pattern so that the offices are shared between the two structures.",
     "answer": "<B>Classes.</B> OrganizationStructureType; OrganizationStructure, each with one type and two Organization ends named parent and subsidiary; Organization with subclasses SalesOffice, Division and OperatingUnit.<BR><B>Objects.</B> Organizations Brno and Prague (SalesOffice), Moravia and Bohemia (Division), Central (OperatingUnit). Type objects Sale and PublicRelations.<BR><B>Links (four OrganizationStructure objects).</B><PRE>Sale:            parent = Moravia,  subsidiary = Brno\nSale:            parent = Bohemia,  subsidiary = Prague\nPublicRelations: parent = Central,  subsidiary = Brno\nPublicRelations: parent = Central,  subsidiary = Prague</PRE>Brno and Prague are the same objects in both structures. Rules per structure type (e.g. \"in Sale, a SalesOffice reports to a Division\") are attached to the type or the subclasses, rather than requiring one parent across both structures. Each structure object can also carry context such as a TimePeriod.",
     "keyPoints": [
@@ -660,6 +686,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 35–38 (Multiple Organization Hierarchies, Organization Structure and its exercise); public-transport.pdf, page 5."
   },
   {
+    "id": "a0b686cf",
     "name": "Extend a public transport responsibility model with Party, Accountability and a knowledge level. Requirements: a driver may be temporarily assigned to a second depot, and an accident investigation must find which assignments were valid at the accident time. Use this orientation for workplace assignment: the employee is the parent and the depot is the child; for work distribution the distributor is the parent and the worker the child. Show the knowledge-level party types, accountability types and the connection rules for Driver–Depot and Technician–Depot workplace assignment and for Dispatcher–Driver and DepotManager–Technician work distribution. Show one example of operational objects.",
     "answer": "<B>Operational level.</B> Party (with concrete parties such as driver Novák, Depot North, Depot South) and Accountability. Each Accountability has two Party ends (parent and child), one AccountabilityType and a TimePeriod.<BR><B>Knowledge level.</B> PartyType instances: Driver, Technician, Dispatcher, DepotManager, Depot. AccountabilityType instances: WorkplaceAssignment and WorkDistribution. Each Party has one PartyType. Each AccountabilityType has ConnectionRules with an allowed parent and an allowed child PartyType:<PRE>WorkplaceAssignment: (Driver, Depot), (Technician, Depot)\nWorkDistribution:    (Dispatcher, Driver), (DepotManager, Technician)</PRE><B>Temporary second depot.</B> Store it as another WorkplaceAssignment Accountability (Novák → Depot South) with its own TimePeriod, next to the permanent one (Novák → Depot North). Nothing is overwritten. To answer the accident question, select the accountabilities whose TimePeriod contains the accident time.<BR><B>Open questions.</B> Are the connection rules maintained by developers or configured by users through the UI (system boundary)? These rules also express authorization.",
     "keyPoints": [
@@ -673,6 +700,7 @@
     "source": "02-03-Analysis-patterns.pdf, slides 16 and 39–48 (temporary second-depot requirement, Accountability, Knowledge Level with the connection rules on slide 43, authorization and system boundary); public-transport.pdf, pages 6–8. The example parties are invented for illustration."
   },
   {
+    "id": "e16a9904",
     "name": "Test a model with instances. An LLM produced this model for a coffee-machine company: class Organization with a recursive association, <TT>parent</TT> multiplicity 1 and <TT>children</TT> multiplicity *. Requirements from the brief: (R1) Associated Coffee Makers is the top organisation; (R2) its departments are sales and purchasing; (R3) sales has offices in Boston and London. Build an object diagram for these requirements, say which requirement cannot be instantiated and why, and propose the fix.",
     "answer": "<B>Object diagram.</B> Objects: acm : Organization (Associated Coffee Makers), sales : Organization, purchasing : Organization, boston : Organization, london : Organization. Links: sales.parent = acm, purchasing.parent = acm, boston.parent = sales, london.parent = sales.<BR><B>Gap.</B> R1 cannot be instantiated: multiplicity 1 forces acm to have a parent, but by definition the top organisation has none. To satisfy the model you would have to invent an extra anonymous Organization above acm, which is wrong. R2 and R3 work.<BR><B>Fix.</B> Change parent to 0..1, so exactly one organisation (the root) may lack a parent.<BR><B>Lesson.</B> This is silent incompleteness: the model looks confident and raises no error. No pattern fixes it; only writing down requirements and trying to build instances reveals it.",
     "keyPoints": [

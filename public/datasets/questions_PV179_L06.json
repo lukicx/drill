@@ -1,5 +1,6 @@
 [
   {
+    "id": "cb4a77bc",
     "name": "The “journey of a young architect” plots the complexity of the architectures a developer builds against the developer's experience. Select all correct statements.",
     "answers": [
       {
@@ -26,6 +27,7 @@
     "source": "L6, slides 2-10"
   },
   {
+    "id": "9c6fc7f4",
     "name": "Complexity of the architecture is compared with complexity of the problem being solved. Select all combinations that the lecture presents as a good fit.",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "L6, slides 13-20"
   },
   {
+    "id": "84150a65",
     "name": "A team of eight shares one codebase. Select all observations that suggest the code needs MORE structure.",
     "answers": [
       {
@@ -88,6 +91,7 @@
     "source": "L6, slide 22"
   },
   {
+    "id": "21c44cec",
     "name": "Architecture decisions were presented along three dimensions: code structure, deployment and problem modeling. Select all correct statements about their goals.",
     "answers": [
       {
@@ -114,6 +118,7 @@
     "source": "L6, slides 20-21, 24, 35, 46"
   },
   {
+    "id": "ecb19734",
     "name": "Three-layer architecture and clean architecture were compared. Select all correct statements.",
     "answers": [
       {
@@ -140,6 +145,7 @@
     "source": "L6, slides 23-27"
   },
   {
+    "id": "251b0208",
     "name": "A clean-architecture use case AddTransactionUseCase(userId, amount, description, expiration) is handled by a handler that declares a transaction repository, a current-user provider and a mediator as dependencies; it loads the balance through a specification, throws an exception for a negative balance, creates the transaction, publishes a UserBalanceChanged notification and finally saves the transaction. Select all correct statements about what this illustrates.",
     "answers": [
       {
@@ -171,6 +177,7 @@
     "source": "L6, slides 28-34"
   },
   {
+    "id": "bc548ffa",
     "name": "Select all observations that indicate you need MORE separate applications (services) instead of one deployment.",
     "answers": [
       {
@@ -202,6 +209,7 @@
     "source": "L6, slide 36"
   },
   {
+    "id": "fd5a4466",
     "name": "Which statements about the modular monolith are correct? Select all correct statements.",
     "answers": [
       {
@@ -233,6 +241,7 @@
     "source": "L6, slides 37-41, 68"
   },
   {
+    "id": "ef1b867e",
     "name": "A module of a modular monolith may become a “satellite”. Select all correct statements.",
     "answers": [
       {
@@ -264,6 +273,7 @@
     "source": "L6, slides 42-44"
   },
   {
+    "id": "55e5d3f4",
     "name": "Select all observations that indicate you need MORE sophisticated domain modeling.",
     "answers": [
       {
@@ -295,6 +305,7 @@
     "source": "L6, slide 47"
   },
   {
+    "id": "765d01b8",
     "name": "Select all correct statements about Domain Driven Design (DDD) as presented in the lecture.",
     "answers": [
       {
@@ -326,6 +337,7 @@
     "source": "L6, slides 51-57"
   },
   {
+    "id": "aea88027",
     "name": "Select all DDD terms that are matched with a correct description.",
     "answers": [
       {
@@ -352,6 +364,7 @@
     "source": "L6, slides 49-52, 58"
   },
   {
+    "id": "4ad07f86",
     "name": "A startup does not know whether its project will end in a year or live for ten. Select all recommendations that match “start simple, upgrade on pain”.",
     "answers": [
       {
@@ -383,6 +396,7 @@
     "source": "L6, slides 37-38, 64-71"
   },
   {
+    "id": "58ed40e1",
     "name": "A startup with three developers builds an internal booking system. Today it is mostly CRUD with a few business rules, but nobody knows whether the product will be dropped within a year or grow for ten years. Recommend an architecture along the three dimensions (code structure, deployment, problem modeling) and name the signals that would make you add or remove architecture later.",
     "answer": "<B>Principle:</B> Fit the architecture to the problem and, because the future is unknown, “start simple, upgrade on pain”: start a little overkill with clear upgrade paths.<BR><B>Code structure and deployment:</B> Clean architecture (use cases that request dependencies through ports, adapters outside, persistence an afterthought) in a modular monolith (modules as if services, shared messages, hidden implementations) – not microservices. Add structure when merge conflicts concentrate in god files, ORM choices leak everywhere or onboarding is slow; remove it when trivial CRUD needs many layers/DTOs or tests are mostly mocks. Launch a satellite when a module becomes large, loaded with traffic or gets its own team.<BR><B>Modeling:</B> Start with use-case-oriented modeling; add DDD (always-valid aggregate roots, events between domains) when invariants keep breaking, features are described as tables/DTOs or teams use different terms for one concept; avoid heavy DDD for plain CRUD.",
     "keyPoints": [
@@ -396,6 +410,7 @@
     "source": "L6, slides 13-22, 27, 35-47, 53-57, 64-71; “use-case-oriented modeling first” is inferred from the complexity axis on slide 47 and from slide 70"
   },
   {
+    "id": "71b26c06",
     "name": "The booking system runs as a modular monolith. Its Notifications module (e-mail and SMS) has grown large and self-sufficient, handles most of the traffic and is now looked after by a dedicated team. Plan how to turn it into a satellite: which of these facts are indicators, which steps you take in which order, what makes the first satellite difficult, and how the earlier modular design helps.",
     "answer": "<B>Indicators:</B> All three facts from the scenario match: the module is large and self-sufficient, a large portion of traffic flows through it so more instances would help, and a team mainly handles it.<BR><B>Steps:</B> (1) Define the boundary of the module (which messages it receives and sends). (2) Move it into a separate application. (3) Redirect the messages that the rest of the system sends it from in-process to cross-application communication.<BR><B>Hard parts of the first satellite:</B> authentication between apps, messaging (choosing the right protocol, asynchronous execution) and data storage (its own data).<BR><B>Why the design helps:</B> modules were separate projects with shared message contracts and hidden implementations, so the boundary and the messages already exist and little code knows the internals; the “small village” (everyone knows everyone) would make this extraction painful.",
     "keyPoints": [

@@ -42,7 +42,7 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
   Answering before a question is due does not move it up. The course page offers
   **Due today** and **Missed questions** across all lectures, lecture cards show
   known / missed / new / due counts, and quick practice picks due, missed and new
-  questions first. History is keyed by question text, so editing a question resets it.
+  questions first. History is keyed by each question's stable `id`, so editing the text keeps it.
 - Course and lecture URLs use hash routes so direct links and browser navigation
   work on GitHub Pages. Older practice sets are grouped separately.
 
@@ -138,6 +138,11 @@ the score; partly recalled and missed answers are included in the review round.
 ```
 
 `keyPoints` and `source` are optional. Multiple-choice and essay questions can be mixed in one file.
+
+Every question also has a stable `"id"` (first field), which keys its progress history. Do not
+write ids by hand: `node scripts/add-question-ids.mjs public/datasets/questions_X.json` adds the
+missing ones. Keep an existing `id` when you edit a question; give a question a new id only when it
+asks something different, so its old history no longer applies.
 
 Check new files before adding them: `node scripts/validate-questions.mjs public/datasets/questions_X.json`
 

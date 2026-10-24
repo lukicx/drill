@@ -1,5 +1,6 @@
 [
   {
+    "id": "d742b738",
     "name": "How do analysis patterns differ from design patterns? Select all correct statements.",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "1d7db2c1",
     "name": "Which statements correctly describe what a design pattern is and why teams use patterns?",
     "answers": [
       {
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "b179abe4",
     "name": "Which of the following are typical mistakes or problems when designers use design patterns?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "d9b8758c",
     "name": "Which statements about the essential elements of a pattern description are correct?",
     "answers": [
       {
@@ -120,6 +124,7 @@
     ]
   },
   {
+    "id": "24139a62",
     "name": "GoF patterns are classified by purpose into creational, structural and behavioral. Which of the following are structural patterns?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "814920af",
     "name": "Which short characterizations of GoF patterns are correct?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "cd51cd69",
     "name": "Patterns are also organized by scope: class scope versus object scope. A team wants to reuse a collection of collaborating objects by changing how they are composed at run time rather than by creating a new subclass for each variant. Which statements are correct?",
     "answers": [
       {
@@ -205,6 +212,7 @@
     ]
   },
   {
+    "id": "380602c6",
     "name": "A chemistry application models a ChemStructure containing 1..* Molecules, each Molecule containing 1..* Residues, and each Residue containing 1..* Atoms. Atoms are reachable from their residue, residues from their molecule, and molecules from their chemical structure. Which statements are correct?",
     "answers": [
       {
@@ -230,6 +238,7 @@
     ]
   },
   {
+    "id": "1daf8af6",
     "name": "<PRE>public class Singleton {\n  private static Singleton uniqueInstance;\n  public static Singleton instance() {\n    if (uniqueInstance == null) { uniqueInstance = new Singleton(); }\n    return uniqueInstance;\n  }\n  public void operation1() { ... }\n}</PRE>Which statements about this lazy Singleton and its required elements are correct?",
     "answers": [
       {
@@ -255,6 +264,7 @@
     ]
   },
   {
+    "id": "9d455",
     "name": "Instead of a Singleton, one could simply put all operations into a class as static (class) operations. Which are advantages of the Singleton over this solution?",
     "answers": [
       {
@@ -285,6 +295,7 @@
     ]
   },
   {
+    "id": "1781d340",
     "name": "Why do some designers consider the Singleton an anti-pattern?",
     "answers": [
       {
@@ -315,6 +326,7 @@
     ]
   },
   {
+    "id": "37ceccb0",
     "name": "Which statements about the Composite pattern are correct?",
     "answers": [
       {
@@ -340,6 +352,7 @@
     ]
   },
   {
+    "id": "b52e578c",
     "name": "A Composite hierarchy has two kinds of composites (Composite1, Composite2) and two kinds of leaves (Leaf1, Leaf2). In variant A an abstract Composite superclass holds add, remove, getChild and the children association for both composites, and an abstract Leaf superclass is shared by both leaves. In variant B every concrete class inherits directly from Component and implements its child handling itself. Which statements are correct?",
     "answers": [
       {
@@ -370,6 +383,7 @@
     ]
   },
   {
+    "id": "f4ca3d03",
     "name": "Which statements about the Iterator pattern are correct?",
     "answers": [
       {
@@ -400,6 +414,7 @@
     ]
   },
   {
+    "id": "7016b3f0",
     "name": "A <TT>Line</TT> class in a public transport system offers <TT>getWorkdays() : [Stop]</TT> and <TT>getWeekends() : [Stop]</TT>. It is redesigned so that the aggregate Line offers <TT>getIterator(dayType)</TT>, which instantiates a <TT>TimetableIterator</TT> with the subclasses <TT>WorkdayIterator</TT> and <TT>WeekendIterator</TT>. Which statements are correct?",
     "answers": [
       {
@@ -430,6 +445,7 @@
     ]
   },
   {
+    "id": "d493e119",
     "name": "Which pairs of a Java core API element and the design pattern it exemplifies are correct?",
     "answers": [
       {
@@ -460,6 +476,7 @@
     ]
   },
   {
+    "id": "108639f5",
     "name": "In the chemistry model the sole <TT>Model</TT> instance manages ChemStructures, which contain Molecules, Residues and Atoms. Which statements about combining patterns in such a model are correct?",
     "answers": [
       {
@@ -485,6 +502,7 @@
     ]
   },
   {
+    "id": "5531027d",
     "name": "Practical modeling: a chemistry application has the classes Model (a Singleton with instance() and loadChemStructure(File)), ChemStructure, Molecule, Residue and Atom. Each of the first four has its own nearly identical methods addX/removeX/getX(int) for the next level (ChemStructure manages molecules, Molecule residues, Residue atoms), and each level contains 1..* objects of the next. Redesign the model with the Composite pattern in a UML class diagram, add an operation setColor(Color) that colours a whole subtree, and explain which roles the classes play and what the redesign improves. Then explain how you would hide how the children are stored and allow different traversals.",
     "answer": "The model is a tree of objects, so the classes can be generalized to a parent-child abstraction. Introduce an abstract &lt;&lt;composite-component&gt;&gt; ModelElement with add(ModelElement), remove(ModelElement), get(int): ModelElement and setColor(Color). &lt;&lt;composite-leaf&gt;&gt; Atom inherits from ModelElement and keeps its color attribute; setColor() sets it. &lt;&lt;composite-composite&gt;&gt; GroupElement inherits from ModelElement, holds the subElements association (1..* ModelElement, with superElement as the opposite end), implements add/remove/get and implements setColor() by applying it to all children. Molecule, Residue, ChemStructure and Model become subclasses of GroupElement; Model additionally stays a &lt;&lt;singleton&gt;&gt; with instance() and loadChemStructure(File) – patterns are often combined. Improvements: the duplicated addX/removeX/getX methods are replaced by unified methods, clients treat atoms and groups uniformly, and new kinds of nodes are easy to add (open-closed principle); the trade-off is a more general design that makes it harder to restrict which children a node may have (e.g. that a Residue contains only Atoms). To hide the representation of children and support various traversals, think of composite nodes as containers and apply Iterator: the composites (aggregates) offer createIterator(): Iterator, the subElements attribute can move to the individual subclasses so each can store children differently, and iterator classes such as ResidueIterator or ChemStructureIterator are instantiated by the composites; one iterator can be shared by several composites.",
     "keyPoints": [
@@ -498,6 +516,7 @@
     "source": "L5, slides 23-28, 34, 38"
   },
   {
+    "id": "8c791222",
     "name": "Practical modeling: a public transport company models a city plan. A CityPlan contains Lines; a Line has Stops and a LineNumber; ConstructionSigns can be attached either to a Line or to a Stop (exclusively). There are TramLines, BusLines and TrolleyBusLines. A first model uses a separate dedicated association for every pair of classes. Explain why this model is weak when a new kind of element (for example another type of sign) must be added. Then redesign it with the Composite pattern so that every element of the plan can be highlighted with highlight(), and state which single class of your redesigned model is a candidate for the Singleton pattern and why.",
     "answer": "The objects of the city plan form a tree: CityPlan → Line → Stop/LineNumber, with ConstructionSigns under a Line or a Stop. With a dedicated association for every pair (CityPlan–Line, Line–Stop, Line–LineNumber, Line or Stop–ConstructionSign with an {XOR} constraint), every new kind of element (e.g. another type of sign) requires new associations and new methods in the classes that contain it – the extensibility and maintainability of the model is weak. Composite redesign: an abstract CityPlanElement (component) with highlight(); an abstract Leaf and an abstract Composite inherit from it, the Composite holding the children association (* CityPlanElement) and implementing highlight() for all children. ConstructionSign and LineNumber are leaves (ConstructionSign placed under a Line or a Stop, LineNumber under a Line); CityPlan, Line and Stop are composites (Line under CityPlan, Stop under Line). The CityPlan is the root of the tree (there is one plan that clients must reach through a well-known access point), so it is the candidate for the Singleton pattern. A new kind of element (e.g. another sign type) then becomes just another Leaf subclass. Trade-off: the generic children association no longer enforces which elements may be placed where, so these rules must be checked elsewhere.",
     "keyPoints": [
@@ -511,6 +530,7 @@
     "source": "L5, slides 26-27, 33"
   },
   {
+    "id": "8f9aaeb",
     "name": "A music app stores songs in <TT>Playlist</TT> as an array and offers <TT>getSong(int i)</TT> and <TT>size()</TT>. Clients write index loops over this array. The team also wants to traverse a playlist in reverse order and to hide the way the songs are stored (array today, linked list later). Redesign the class model with the Iterator pattern: draw a UML class diagram with the pattern roles, describe a traversal as a sequence of calls, and explain which SOLID principles the redesign supports. (The scenario is derived; the pattern structure is from the lecture.)",
     "answer": "<B>Class diagram.</B> The playlist becomes the aggregate: interface <TT>&lt;&lt;aggregate&gt;&gt; Playlist</TT> with <TT>createIterator() : Iterator</TT>, and <TT>ConcretePlaylist</TT> (holding the songs in its array) which returns <TT>new ConcreteIterator(this)</TT>, so the iterator gets a link to its originating playlist. The interface <TT>&lt;&lt;iterator&gt;&gt; Iterator</TT> has <TT>first()</TT>, <TT>next()</TT>, <TT>hasNext() : boolean</TT> and <TT>current() : Song</TT>. <TT>ForwardIterator</TT> and <TT>ReverseIterator</TT> specialize it and are instantiated by the playlist. The aggregate has no <TT>getSong(i)</TT>-like method any more; elements are reached through the iterator. The client depends only on Playlist and Iterator, with <TT>Song</TT> as the item (0..* songs in the aggregate). <BR><B>Traversal.</B> The client calls <TT>createIterator()</TT>; the playlist creates the iterator with a reference to itself. Then the client loops: while <TT>hasNext()</TT> it calls <TT>current()</TT> (the iterator inspects the playlist) and <TT>next()</TT>. At the end the iterator is destroyed. Several iterators can be pending on one playlist at the same time. <BR><B>Principles.</B> Open-closed: a new traversal order is a new iterator subclass, and Playlist is unchanged. Single responsibility: iterators simplify the aggregate interface because traversal logic lives outside it. Hiding the representation means that replacing the array by a linked list changes only the iterator class and the playlist, not the clients. Standard library collections with their iterators suffice in many cases, so a custom iterator is only worth it for special traversals.",
     "keyPoints": [
@@ -523,6 +543,7 @@
     "source": "L5, slides 35-38, 40-41; scenario is derived"
   },
   {
+    "id": "38444d5",
     "name": "A small program needs a configuration registry that every part of the system reaches through one well-known access point and of which exactly one object may exist. Model it with the Singleton pattern: draw the UML class with its members, write the Java code of the access method and constructor, and explain what the pattern gives you compared with static operations. Then name two criticisms of the pattern and the alternative that the lecture suggests. (The registry scenario is derived; the pattern is from the lecture.)",
     "answer": "<B>Class.</B> Class <TT>ConfigRegistry</TT> (stereotype &lt;&lt;singleton&gt;&gt;) with the private static attribute <TT>uniqueInstance : ConfigRegistry</TT>, the public static (underlined) operation <TT>instance() : ConfigRegistry</TT>, a protected constructor, and ordinary instance operations such as <TT>get(key)</TT> and <TT>set(key, value)</TT>.<PRE>public class ConfigRegistry {\n  private static ConfigRegistry uniqueInstance;\n  protected ConfigRegistry() { }\n  public static ConfigRegistry instance() {\n    if (uniqueInstance == null) {\n      uniqueInstance = new ConfigRegistry();\n    }\n    return uniqueInstance;\n  }\n  public String get(String key) { ... }\n}</PRE>Clients write <TT>ConfigRegistry.instance().get(\"url\")</TT>; the first call creates the object, later calls reuse it. <BR><B>Versus static operations.</B> Access to the sole instance is controlled; the class may be subclassed and configured at run time with an instance of the extended class; the number of instances can later become variable; and instance methods can be overridden, while static functions are never virtual. <BR><B>Criticisms.</B> (1) It introduces global state, a code smell, and carries state for the whole application lifetime, which makes tests depend on each other and need an order. (2) It violates single responsibility, because it controls its own creation and life cycle, and it causes concurrency problems. <BR><B>Alternative.</B> Use dependency injection and ORM of modern frameworks (e.g. Spring) instead of a hand-written Singleton.",
     "keyPoints": [

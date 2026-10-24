@@ -62,13 +62,14 @@ export function bankOf(sources: StudySource[]): StudyQuestion[] {
     questions.map((question, index) => ({ key: `${datasetId}:${index}`, datasetId, question })))
 }
 
-// Per-question history (Leitner boxes). Keyed by question text, so it survives reordering a set;
-// an edited question starts fresh.
+// Per-question history (Leitner boxes). Keyed by the question's stable id, so it survives reordering
+// and edits of the text. Questions without an id fall back to a hash of their text; ids were created
+// from that same hash, so history recorded before ids existed still matches.
 export interface QuestionHistory { box: number; due: number; last: Assessment }
 export type History = Record<string, QuestionHistory>
 
 export function historyKey(item: { datasetId: string; question: Question }) {
-  return `${item.datasetId}:${hashText(item.question.name)}`
+  return `${item.datasetId}:${item.question.id ?? hashText(item.question.name)}`
 }
 
 export function readHistory(): History {

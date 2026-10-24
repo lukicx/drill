@@ -1,5 +1,6 @@
 [
   {
+    "id": "905c5565",
     "name": "Two UML diagrams describe the Composite pattern. Diagram X has boxes Component, Leaf and Composite with operations and generalization arrows. Diagram Y has underlined boxes :Client, two :Composite and six :Leaf, connected by plain lines. Which statements are correct?",
     "answers": [
       {
@@ -31,6 +32,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 4–6"
   },
   {
+    "id": "e6d351b6",
     "name": "In a Composite pattern, Leaf and Composite inherit from the abstract class Component, and Composite has an association <TT>children</TT> typed as Component. A Client calls Component operations. Which objects can a Composite hold as children?",
     "answers": [
       {
@@ -57,6 +59,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 5–6"
   },
   {
+    "id": "1824f4e0",
     "name": "A team let an LLM generate an application, and it passes all functional acceptance tests. Which conclusions about the remaining challenges are justified?",
     "answers": [
       {
@@ -83,6 +86,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 8"
   },
   {
+    "id": "61dc0440",
     "name": "Why does system decomposition help with both system complexity and changing requirements?",
     "answers": [
       {
@@ -109,6 +113,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 9 and 19"
   },
   {
+    "id": "c3452532",
     "name": "A company introduces AI coding agents. Which of its planned activities belong to process management in the sense of the course?",
     "answers": [
       {
@@ -135,6 +140,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 11"
   },
   {
+    "id": "4b3a01f5",
     "name": "A stakeholder-based quality model (presented with ISO/IEC 25010) distinguishes the customer's user experience, the developer's code quality and the manager's long-term view. Which statements fit this model?",
     "answers": [
       {
@@ -161,6 +167,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 13"
   },
   {
+    "id": "cb225fc8",
     "name": "A designer asks an LLM for a system that is highly secure, very fast and easy to port. What should the designer keep in mind?",
     "answers": [
       {
@@ -187,6 +194,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 14"
   },
   {
+    "id": "6d01500b",
     "name": "Which measures improve software quality according to the course?",
     "answers": [
       {
@@ -213,6 +221,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 15–16"
   },
   {
+    "id": "7d68c4f",
     "name": "Which description matches the mental model of structured (procedural) program execution?",
     "answers": [
       {
@@ -239,6 +248,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 18 and 22"
   },
   {
+    "id": "87d51099",
     "name": "What is a central modeling difficulty of structured decomposition?",
     "answers": [
       {
@@ -265,6 +275,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 20–21"
   },
   {
+    "id": "75cb7bb0",
     "name": "Which statements match the mental model of object-oriented program execution?",
     "answers": [
       {
@@ -291,6 +302,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 22"
   },
   {
+    "id": "944818cd",
     "name": "What makes an OO decomposition useful for controlling complexity?",
     "answers": [
       {
@@ -317,6 +329,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 23"
   },
   {
+    "id": "8c213d9b",
     "name": "A team uses several OO models (use case, class, interaction and state machine diagrams) and also AI agents. Which practices does the course recommend?",
     "answers": [
       {
@@ -343,6 +356,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 24"
   },
   {
+    "id": "2967a283",
     "name": "LLMs now write most of the code. Which conclusions about the skills a software engineer needs does the course draw?",
     "answers": [
       {
@@ -374,6 +388,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 25–26"
   },
   {
+    "id": "567e2aac",
     "name": "Which pairings of a pattern with its granularity level are correct?",
     "answers": [
       {
@@ -400,6 +415,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 27 and 32–34"
   },
   {
+    "id": "6f7a67fe",
     "name": "Which ideas behind Christopher Alexander's pattern language carry over to software patterns?",
     "answers": [
       {
@@ -426,6 +442,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 29–30"
   },
   {
+    "id": "b42526b1",
     "name": "What does responsible use of patterns require?",
     "answers": [
       {
@@ -452,6 +469,7 @@
     "source": "01-OO-Fundamentals.pdf, slide 31"
   },
   {
+    "id": "b6a1bf",
     "name": "Method <TT>foo()</TT> in class Person does too much; the same score calculation also appears in other methods:<PRE>public int foo() {\n    ...\n    int score = a*b + c;\n    score = score * 0.8 / Math.PI;\n    score *= factor;\n    ...\n    return score;\n}</PRE>What does the Extract Method refactoring contribute here?",
     "answers": [
       {
@@ -478,6 +496,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 32 and 34"
   },
   {
+    "id": "3b2a9d84",
     "name": "A class model is given in textual UML (PlantUML):<PRE>class Depot { name: String }\nclass Driver { name: String }\nclass Vehicle { number: String }\nDepot \"1\" -- \"0..*\" Driver : employs\nDepot \"1\" -- \"0..*\" Vehicle : houses</PRE>(a) Write an object diagram (drawn or textual) for: Depot North employs drivers Novák and Svoboda and houses tram 7021; Depot South has no drivers and no vehicles. (b) Explain how your diagram differs from the class diagram. (c) Would a Driver object with no link to any Depot be a valid instance of this model? Why?",
     "answer": "<B>(a) Object diagram.</B> Instances use underlined \"name : Class\" labels and concrete attribute values; links are plain lines without multiplicities:<PRE>object \"north : Depot\" as north\nnorth : name = \"North\"\nobject \"south : Depot\" as south\nsouth : name = \"South\"\nobject \"novak : Driver\" as novak\nnovak : name = \"Novák\"\nobject \"svoboda : Driver\" as svoboda\nsvoboda : name = \"Svoboda\"\nobject \"t7021 : Vehicle\" as t7021\nt7021 : number = \"7021\"\nnorth -- novak\nnorth -- svoboda\nnorth -- t7021</PRE><B>(b) Difference.</B> The class diagram describes types once, with attribute types and multiplicities (1, 0..*). The object diagram shows one particular situation: two Depot objects, two Driver objects and one Vehicle object, with attribute values and links. One class can have many objects (two Depots), and a class can have zero links in a given situation (Depot South), which 0..* allows.<BR><B>(c) Validity.</B> No. The multiplicity 1 at the Depot end of <I>employs</I> requires every Driver to be linked to exactly one Depot. A Driver without a depot violates the model; if the domain needs such drivers, the multiplicity must become 0..1.<BR>A textual notation like this can be read by both people and LLMs, so it can serve as a shared model.",
     "keyPoints": [
@@ -490,6 +509,7 @@
     "source": "01-OO-Fundamentals.pdf, slides 4–5 (textual UML as a shared artifact; class versus object diagram). The depot/driver model is a constructed exercise in the course's transport domain, not taken from a slide."
   },
   {
+    "id": "557fd951",
     "name": "Read an object diagram given as text. Class model: abstract ModelElement with setColor(Color); Atom and GroupElement inherit from it; GroupElement has association <TT>subElements</TT> to ModelElement with multiplicity 1..* at the ModelElement end. Instances and links:<PRE>g1 : GroupElement  --subElements-->  a1 : Atom\ng1 : GroupElement  --subElements-->  g2 : GroupElement\ng2 : GroupElement  --subElements-->  a2 : Atom\ng2 : GroupElement  --subElements-->  a3 : Atom\na3 : Atom          --subElements-->  a4 : Atom\ng3 : GroupElement  (no links)</PRE>(a) How many objects of each class are there? (b) Which link or object violates the class model, and why? (c) After removing the illegal link, which Atoms receive setColor when it is called on g1?",
     "answer": "<B>(a) Counts.</B> GroupElement: g1, g2, g3 (3 objects). Atom: a1, a2, a3, a4 (4 objects). No object of ModelElement itself exists, because it is abstract; each object belongs to one concrete class.<BR><B>(b) Violations.</B><BR>• The link a3 → a4 is illegal: subElements is defined only on GroupElement, so an Atom has no children.<BR>• g3 violates the multiplicity 1..*: every GroupElement must contain at least one sub-element.<BR>The links g1 → a1, g1 → g2, g2 → a2 and g2 → a3 are legal, because a subElements link can point to any ModelElement subtype, including a nested GroupElement.<BR><B>(c) Propagation.</B> GroupElement.setColor applies setColor to all children. From g1 the call reaches a1 and g2, and g2 forwards it to a2 and a3. So a1, a2 and a3 get the colour. a4 and g3 are not reachable from g1 (and need fixing anyway).",
     "keyPoints": [

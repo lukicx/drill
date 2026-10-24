@@ -8,6 +8,7 @@ export interface Answer {
 }
 
 export interface Question {
+  id?: string // stable key for progress history, kept when the text is edited (scripts/add-question-ids.mjs)
   name: string // question text, may contain HTML
   answers?: Answer[] // multiple-choice question
   answer?: string // essay question: model answer, may contain HTML

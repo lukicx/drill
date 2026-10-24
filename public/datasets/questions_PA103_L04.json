@@ -1,5 +1,6 @@
 [
   {
+    "id": "8042bd4f",
     "name": "A Person is modeled in three refinement steps. The conceptual model has a class <TT>people</TT> with <TT>name</TT>, <TT>date of birth</TT>, derived <TT>/age</TT>, <TT>income</TT> and a <TT>mother</TT> association to itself. The class design model has private attributes (<TT>ssn : Integer {id}</TT>, <TT>name : String</TT>, <TT>dateOfBirth : Date</TT>, <TT>income : Decimal</TT>, <TT>mother : Person</TT>), public getters/setters and <TT>getAge() : Integer</TT>. The C++ class model uses <TT>int</TT>, <TT>string</TT>, <TT>double</TT> and <TT>Person*</TT>. Which statements about the refinement are correct?",
     "answers": [
       {
@@ -25,6 +26,7 @@
     ]
   },
   {
+    "id": "5397d639",
     "name": "Company and Person are stored in a relational schema as tables <TT>Company(ico, name)</TT>, <TT>Person(id, name)</TT> and <TT>Job(job_id, company_ico, person_id, salary)</TT>. The same domain is modeled as OO classes. Which statements compare the two views correctly?",
     "answers": [
       {
@@ -50,6 +52,7 @@
     ]
   },
   {
+    "id": "ae66fc0d",
     "name": "The conceptual class diagram says a Company employs 0..* Persons and a Person works for 0..* Companies. In the relational world the M:N relationship is resolved by one associative table. Which statements about its OO implementation are correct?",
     "answers": [
       {
@@ -75,6 +78,7 @@
     ]
   },
   {
+    "id": "17b2b8ee",
     "name": "<TT>Company</TT> keeps its employees in an array <TT>employees : Person[]</TT>; <TT>Person</TT> has no link to its companies. A single public <TT>JobsMngr</TT> holds <TT>companies : Company[]</TT> and offers <TT>getEmployees(c)</TT> and <TT>getCompanies(p)</TT>. Which statements are correct?",
     "answers": [
       {
@@ -105,6 +109,7 @@
     ]
   },
   {
+    "id": "dfd2c55b",
     "name": "In a design, <TT>Company</TT> stores its employees and <TT>Person</TT> stores its companies, so the employment relation is represented in both directions. Which statements describe the trade-offs?",
     "answers": [
       {
@@ -130,6 +135,7 @@
     ]
   },
   {
+    "id": "9bc798f8",
     "name": "<TT>JobsMngr</TT> stores two maps, <TT>Map&lt;Company, Set&lt;Person&gt;&gt;</TT> and <TT>Map&lt;Person, Set&lt;Company&gt;&gt;</TT>, so employment queries work in both directions. Which assessments are correct?",
     "answers": [
       {
@@ -155,6 +161,7 @@
     ]
   },
   {
+    "id": "269c3f0f",
     "name": "A <TT>Job</TT> object references one <TT>Company</TT> and one <TT>Person</TT> and stores the salary. <TT>JobsMngr</TT> may keep a plain list of Jobs or maps from Company and Person to sets of Jobs. Which statements are correct?",
     "answers": [
       {
@@ -185,6 +192,7 @@
     ]
   },
   {
+    "id": "b4ebc443",
     "name": "A breeding application models cats by well-being, e.g. <TT>isPurring</TT> and lying in a lap. A veterinary application models cats by anatomy and diseases, e.g. a vaccination history. Which conclusions about abstraction are correct?",
     "answers": [
       {
@@ -215,6 +223,7 @@
     ]
   },
   {
+    "id": "731a0fa8",
     "name": "Which statements about objects and classes match the OO fundamentals summarized in the lecture?",
     "answers": [
       {
@@ -240,6 +249,7 @@
     ]
   },
   {
+    "id": "9ed3b5b7",
     "name": "Which aspects influence the abstraction that a single class represents?",
     "answers": [
       {
@@ -270,6 +280,7 @@
     ]
   },
   {
+    "id": "5720bc58",
     "name": "In a game, one animal transforms from a dragon into a prince during its lifetime. Which design reasoning is correct?",
     "answers": [
       {
@@ -295,6 +306,7 @@
     ]
   },
   {
+    "id": "aad1937f",
     "name": "Which statements apply the single-responsibility principle to employment between Company and Person, optionally with a separate Job class?",
     "answers": [
       {
@@ -320,6 +332,7 @@
     ]
   },
   {
+    "id": "716b8007",
     "name": "<TT>ResourceAllocator.allocate(int resourceType)</TT> contains a <TT>switch</TT> with a case for <TT>TIME_SLOT</TT> and one for <TT>SPACE_SLOT</TT>. More resource kinds are expected. Which statements about applying the open-closed principle are correct?",
     "answers": [
       {
@@ -350,6 +363,7 @@
     ]
   },
   {
+    "id": "59cebce",
     "name": "<TT>ClassB</TT> inherits from <TT>ClassA</TT> and overrides <TT>print()</TT> (<TT>ClassA.print()</TT> prints A, <TT>ClassB.print()</TT> prints B). The code <TT>ClassA object = new ClassB(); object.print();</TT> is executed with dynamic dispatch. Which statements are correct?",
     "answers": [
       {
@@ -375,6 +389,7 @@
     ]
   },
   {
+    "id": "6c055520",
     "name": "What does the Liskov substitution principle require of a subtype?",
     "answers": [
       {
@@ -400,6 +415,7 @@
     ]
   },
   {
+    "id": "fbe1fa95",
     "name": "<TT>Nest.setOwner(Animal a)</TT> accepts an Animal. <TT>Bird</TT> and <TT>Cat</TT> are subtypes of Animal, and Animal is a subtype of <TT>Creature</TT>. Following the lecture's substitutability rule (not a particular language's overriding syntax), which parameter types may <TT>BirdNest.setOwner</TT> accept?",
     "answers": [
       {
@@ -425,6 +441,7 @@
     ]
   },
   {
+    "id": "b328d64a",
     "name": "<TT>Nest.getOwner()</TT> promises to return an Animal. Bird and Cat are subtypes of Animal, and Animal is a subtype of Creature. Which declared return types of <TT>BirdNest.getOwner()</TT> preserve the lecture's covariance rule?",
     "answers": [
       {
@@ -450,6 +467,7 @@
     ]
   },
   {
+    "id": "c1bf1f52",
     "name": "A supertype operation may throw <TT>StorageError</TT>. Which exception behavior of the subtype operation follows the lecture's method-signature rule?",
     "answers": [
       {
@@ -475,6 +493,7 @@
     ]
   },
   {
+    "id": "a11ee782",
     "name": "<TT>Duck.quack()</TT> always returns a <TT>Quack</TT>. <TT>MechanicalDuck.quack()</TT> throws an error when its battery is absent. <TT>FemaleDuck</TT> adds <TT>layEgg()</TT> and leaves <TT>quack()</TT> unchanged. (History constraint: a subtype must not change state in ways the supertype does not allow.) Which assessments are correct?",
     "answers": [
       {
@@ -500,6 +519,7 @@
     ]
   },
   {
+    "id": "40bc600d",
     "name": "A base operation accepts every nonnegative amount, guarantees a valid receipt on success and preserves the invariant \"balance is nonnegative\". Which subtype changes are consistent with the lecture's behavioral rules?",
     "answers": [
       {
@@ -525,6 +545,7 @@
     ]
   },
   {
+    "id": "78c2c45d",
     "name": "A <TT>Provider</TT> offers many operations, but <TT>Client1</TT> needs only some of them and <TT>Client2</TT> needs others. Which statements express the interface segregation principle?",
     "answers": [
       {
@@ -550,6 +571,7 @@
     ]
   },
   {
+    "id": "caa6bb42",
     "name": "<TT>DispatchService</TT> uses <TT>SmsGatewayClient</TT>, a class of the infrastructure package, directly. Which changes establish dependency inversion?",
     "answers": [
       {
@@ -575,6 +597,7 @@
     ]
   },
   {
+    "id": "a721e562",
     "name": "<TT>ReportService</TT> builds a <TT>PdfExporter</TT> with <TT>new</TT> inside its method; spreadsheets have to be supported later and tests should avoid real file output. (Scenario derived from the lecture's DispatchService example.) Which statements about dependency inversion (DIP) and dependency injection (DI) are correct?",
     "answers": [
       {
@@ -600,6 +623,7 @@
     ]
   },
   {
+    "id": "80ba67cc",
     "name": "How does the lecture relate design patterns to the SOLID principles?",
     "answers": [
       {
@@ -625,6 +649,7 @@
     ]
   },
   {
+    "id": "c5d45877",
     "name": "A public-transport city plan contains lines, stops, line numbers and construction signs, which are nested (a sign hangs under a line or a stop). All elements must support <TT>highlight()</TT>. A first model uses a separate association for every pair of classes. Which statements describe the Composite solution?",
     "answers": [
       {
@@ -650,6 +675,7 @@
     ]
   },
   {
+    "id": "d28a502c",
     "name": "<TT>DailyWorkSchedule</TT> (context) holds one <TT>DailyShiftPlanner</TT> with <TT>getMorningShift</TT> and <TT>getAfternoonShift</TT>; subclasses <TT>WorkDayPlanner</TT> (prioritizes regularity) and <TT>VacationPlanner</TT> (reflects drivers' priorities) specialize it. Which interpretation is correct?",
     "answers": [
       {
@@ -675,6 +701,7 @@
     ]
   },
   {
+    "id": "46cfa798",
     "name": "<TT>DailyWorkSchedule</TT> (context) stores one <TT>CurrentDay</TT> state; <TT>WorkDay</TT> and <TT>VacationDay</TT> realize <TT>getShift(lineNo, numDriver)</TT>. The schedule's <TT>updateToday()</TT> logic calls <TT>setState(new WorkDay())</TT> on workdays and <TT>setState(new VacationDay())</TT> otherwise. Which statements are correct?",
     "answers": [
       {
@@ -700,6 +727,7 @@
     ]
   },
   {
+    "id": "254bcc9",
     "name": "In a public-transport timetable tool, <TT>TimetableConstructor</TT> is the Builder pattern's director and has the specializations <TT>TimetableGui</TT> (<TT>buildByClicking()</TT>) and <TT>TimetableJSON</TT> (<TT>buildFromJson(jsonFile)</TT>). It uses the builder <TT>TimetableBuilder</TT> (<TT>addLineNo(lineNo)</TT>, <TT>addWorkdayRec(time, stopName)</TT>, <TT>addWeekendRec(time, stopName)</TT>), which instantiates the product <TT>Timetable</TT> with lists of <TT>TimetableRec(time, stopName)</TT>. Which statements about the responsibilities are correct?",
     "answers": [
       {
@@ -725,6 +753,7 @@
     ]
   },
   {
+    "id": "b7c2ff94",
     "name": "Draw and explain a UML design for employment: a Person can work for several Companies, a Company can employ several Persons, and the salary is specific to each employment. Queries in both directions are frequent. Show relevant multiplicities, references, query operations, and where consistency is maintained. Compare your design with a simple one-way employee-list solution.",
     "answer": "<B>Design.</B> Introduce a class <TT>Job</TT> with the attribute <TT>salary</TT> and one reference to a <TT>Company</TT> and one to a <TT>Person</TT>. Each Job belongs to exactly one company and one person (multiplicity 1 at both ends), while a company and a person can take part in 0..* Jobs. A manager <TT>JobsMngr</TT> keeps <TT>Map&lt;Company, Set&lt;Job&gt;&gt;</TT> and <TT>Map&lt;Person, Set&lt;Job&gt;&gt;</TT> and offers <TT>getJobs(company)</TT> and <TT>getJobs(person)</TT>; the related persons or companies are read from the Jobs. <BR><B>Responsibilities.</B> Job owns the pair-specific data, Company and Person keep their own entity data, and the manager owns access and indexing. All updates go through the manager, so both indexes are changed together and describe the same Jobs. <BR><B>Comparison.</B> With only <TT>Company.employees</TT> a reverse query (\"which companies employ this person?\") has to scan all companies and their employee lists, and the salary has no natural place. The indexes make both queries cheap but add structures and consistency work; for a small workload the simple list can be preferable, so the requirements must justify the indexes. Do not invent lifetime ownership that the requirements do not state.",
     "keyPoints": [
@@ -737,6 +766,7 @@
     "source": "L4, slides 7-14 and 26-27"
   },
   {
+    "id": "1252dc9",
     "name": "Draw a UML package/class design that replaces <TT>DispatchService</TT>'s direct dependency on <TT>SmsGatewayClient</TT> with dependency inversion. Show interface ownership, source dependencies, runtime call direction, and construction. Explain how you would test dispatching and later switch to e-mail.",
     "answer": "Put <TT>DriverNotifier</TT> in the dispatching package, owned by the high-level client and exposing <TT>notify(driver, message)</TT>. <TT>DispatchService</TT> depends on this interface and receives a notifier through its constructor. Put <TT>SmsNotifier</TT> in the infrastructure package and show it realizing DriverNotifier; its technology-specific work can use <TT>SmsGatewayClient</TT>. At source level the infrastructure now depends on the dispatching abstraction, while runtime calls still go from DispatchService through the interface to the notifier implementation. A composition root constructs SmsNotifier and passes it to DispatchService; a DI container is an optional way to do this wiring. For a unit test, supply a fake DriverNotifier and inspect the requested notifications without a live SMS service. To use e-mail, supply an <TT>EmailNotifier</TT> implementing the same contract. DIP concerns dependency direction and interface ownership; DI concerns supplying objects. Merely putting an interface in infrastructure would leave dispatching dependent on that lower-level package.",
     "keyPoints": [
@@ -749,6 +779,7 @@
     "source": "L4, slides 39-41"
   },
   {
+    "id": "c7555a6b",
     "name": "A class <TT>ResourceAllocator</TT> has <TT>allocate(int resourceType)</TT> with a <TT>switch</TT> over <TT>TIME_SLOT</TT> and <TT>SPACE_SLOT</TT>, and new kinds of resources keep appearing. Draw a UML class diagram of a design that follows the open-closed principle, show what has to be written when a third kind <TT>EQUIPMENT</TT> is added, and name one risk of the design.",
     "answer": "<B>Design.</B> Make <TT>ResourceAllocator</TT> an abstract class (or interface) with the operation <TT>allocate()</TT>. Add the concrete subclasses <TT>TimeSlotAllocator</TT> and <TT>SpaceSlotAllocator</TT>, each realizing <TT>allocate()</TT> with the logic of its own switch branch; draw generalization arrows from both to ResourceAllocator. Clients depend only on the abstraction and receive the matching allocator for their resource kind. <BR><B>Extension.</B> For <TT>EQUIPMENT</TT> write one new class <TT>EquipmentAllocator</TT> with its own <TT>allocate()</TT>; no existing allocator or switch is edited (open for extension, closed for modification), apart from the single place that chooses which allocator a client receives. <BR><B>Risk / trade-off.</B> The number of classes grows, and the choice of the right allocator still has to be made somewhere (derived remark; the slide shows only the allocator hierarchy). Without the abstraction, each new kind would change the switch and risk breaking the existing branches.",
     "keyPoints": [
