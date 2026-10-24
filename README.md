@@ -27,9 +27,10 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - Every answer is remembered per question (simple spaced repetition, Leitner boxes):
   a correct answer moves the question up a box and it is due again after 1, 3, 7, 14
   or 30 days; a missed or partly recalled one goes back to box 1, due tomorrow.
-  Answering before a question is due does not move it up. Quick practice picks due,
-  missed and new questions first. History is keyed by question text, so editing a
-  question resets it.
+  Answering before a question is due does not move it up. The course page offers
+  **Due today** and **Missed questions** across all lectures, lecture cards show
+  known / missed / new / due counts, and quick practice picks due, missed and new
+  questions first. History is keyed by question text, so editing a question resets it.
 - Course and lecture URLs use hash routes so direct links and browser navigation
   work on GitHub Pages. Older practice sets are grouped separately.
 
