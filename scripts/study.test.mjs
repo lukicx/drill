@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
   saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
   nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory, suggestedAssessment,
-  readAnswerFirst, saveAnswerFirst, exportProgress, importProgress } from '../src/study.ts'
+  readAnswerFirst, saveAnswerFirst, exportProgress, importProgress, formatDuration } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -192,4 +192,20 @@ test('exported progress restores history and settings in an empty browser and re
   assert.equal(importProgress({ app: 'other', version: 1, data: {} }), false)
   assert.equal(importProgress(null), false)
   assert.equal(importProgress({ app: 'drill', version: 1, data: [] }), false)
+})
+
+test('midterm practice has no second tries, keeps its clock across a reload and stores the time', () => {
+  const bank = [{ datasetId: 'L1', questions: Array.from({ length: 8 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
+  let exam = createSession(bank, 'Test', { exam: true, limit: 5 })
+  assert.deepEqual([exam.mode, exam.round.length, exam.elapsed], ['exam', 5, 0])
+  exam = { ...nextQuestion(recordAttempt(exam, 'wrong')), elapsed: 65000 }
+  assert.equal(exam.round.length, 5) // a wrong answer does not come back
+  saveSession(exam)
+  assert.equal(readSession().elapsed, 65000)
+  saveSession({ ...exam, elapsed: -1 })
+  assert.equal(readSession(), null)
+  saveResult({ ...exam, finished: true })
+  assert.deepEqual([readResults()[0].mode, readResults()[0].elapsed], ['exam', 65000])
+  assert.equal(createSession(bank, 'Full').elapsed, undefined)
+  assert.deepEqual([formatDuration(65000), formatDuration(3725000)], ['1:05', '1:02:05'])
 })

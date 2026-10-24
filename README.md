@@ -14,6 +14,11 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - On a course page, **All lectures** mixes every current lecture in one round and **Quick mix**
   takes 10 questions across them (due, missed and new first). Tick **Mix** on two or more
   lectures to practice just those together.
+- **Midterm practice** (courses with multiple choice): choose a lecture range (L1–Ln) and
+  20, 30 or all questions. It is a test round: random multiple-choice questions, no feedback
+  or second tries until the end, **Skip** leaves a question blank (counts as wrong), and a
+  clock shows the time used (pauses excluded). Results show the time; the course page shows
+  the last test. The answers still count for spaced repetition.
 - Progress is saved automatically in this browser: question and answer order,
   selections, essay draft, model-answer visibility and recorded attempts.
   **Pause** returns to lecture selection; **Continue session** restores the round.

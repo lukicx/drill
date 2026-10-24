@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import { loadDatasets, loadQuestions } from './data'
 import Quiz from './Quiz'
 import type { DatasetInfo } from './types'
-import { bankOf, clearSession, createSession, exportProgress, historyKey, importProgress, isDue, isWeak, pruneHistory,
-  readHistory, readResults, readSession, revisionOf } from './study'
+import { bankOf, clearSession, createSession, exportProgress, formatDuration, historyKey, importProgress, isDue, isWeak,
+  pruneHistory, readHistory, readResults, readSession, revisionOf } from './study'
 import type { History, StudySession, StudySource } from './study'
 import { getRouteHash, navigate, parseRoute, routeHash, subscribeRoute } from './navigation'
 
@@ -14,6 +14,7 @@ const COURSE_DESCRIPTIONS: Record<string, string> = {
 }
 function courseOf(ds: DatasetInfo): string { return ds.course ?? ds.name.split(' - ')[0] }
 function lectureTitle(ds: DatasetInfo): string { return ds.name.replace(`${courseOf(ds)} - `, '') }
+function lectureLabel(ds: DatasetInfo): string { return lectureTitle(ds).split(' ')[0] } // "L3"
 function formatOf(ds: DatasetInfo): string {
   const parts: string[] = []
   if (ds.multipleChoiceCount) parts.push(`${ds.multipleChoiceCount} multiple choice`)
@@ -45,6 +46,9 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [ready, setReady] = useState(false)
   const [shuffled, setShuffled] = useState(true)
+  // Midterm practice: lectures L1 up to this many (null = all) and the number of questions.
+  const [examUpTo, setExamUpTo] = useState<number | null>(null)
+  const [examSize, setExamSize] = useState('30')
   const [selectedLectures, setSelectedLectures] = useState<string[]>([])
   const pageHeading = useRef<HTMLHeadingElement>(null)
   const hash = useSyncExternalStore(subscribeRoute, getRouteHash)
@@ -63,8 +67,9 @@ export default function App() {
   }, [])
   useEffect(() => { pageHeading.current?.focus() }, [hash])
 
-  // filter: 'due' = questions due for spaced review, 'weak' = questions missed or partly recalled last time
-  async function start(entries: DatasetInfo[], quick = false, filter?: 'due' | 'weak') {
+  // filter: 'due' = questions due for spaced review, 'weak' = questions missed or partly recalled last time.
+  // examSize: midterm practice with that many random multiple-choice questions.
+  async function start(entries: DatasetInfo[], quick = false, filter?: 'due' | 'weak', examSize?: number) {
     setError(null)
     setLoading(true)
     try {
@@ -72,11 +77,16 @@ export default function App() {
       pruneHistory(sources)
       const fresh = readHistory()
       const ds = entries[0]
-      const review = filter && bankOf(sources).filter((item) => (filter === 'due' ? isDue : isWeak)(fresh[historyKey(item)]))
+      const review = examSize ? bankOf(sources).filter((item) => item.question.answers)
+        : filter && bankOf(sources).filter((item) => (filter === 'due' ? isDue : isWeak)(fresh[historyKey(item)]))
       if (review && !review.length) { refreshSaved((n) => n + 1); throw new Error('Nothing to review right now.') }
-      const title = filter ? `${courseOf(ds)} - ${filter === 'due' ? 'Due today' : 'Missed questions'}`
+      const range = entries.length === 1 ? lectureLabel(ds) : `${lectureLabel(ds)}–${lectureLabel(entries[entries.length - 1])}`
+      const title = examSize ? `${courseOf(ds)} - Midterm practice (${range})`
+        : filter ? `${courseOf(ds)} - ${filter === 'due' ? 'Due today' : 'Missed questions'}`
         : entries.length === 1 ? ds.name : `${courseOf(ds)} - Mixed practice (${entries.length} lectures)`
-      const session = createSession(sources, title, { shuffled, limit: quick ? 10 : undefined, review: review || undefined, history: fresh })
+      const session = examSize
+        ? createSession(sources, title, { review: review || undefined, limit: examSize, exam: true })
+        : createSession(sources, title, { shuffled, limit: quick ? 10 : undefined, review: review || undefined, history: fresh })
       setActive({ session, sources })
       navigate(courseOf(ds), entries.length === 1 ? ds.id : null, true)
     } catch (e) { setError(e instanceof Error ? e.message : String(e)) }
@@ -153,7 +163,7 @@ export default function App() {
     if (paused?.datasetIds.length === 1 && paused.datasetIds[0] === ds.id) {
       return `Paused ${paused.mode === 'quick' ? 'quick practice' : 'session'} · ${paused.attempts.length}/${paused.round.length} answered`
     }
-    const result = results.find((r) => r.datasetIds.length === 1 && r.datasetIds[0] === ds.id && r.mode !== 'review')
+    const result = results.find((r) => r.datasetIds.length === 1 && r.datasetIds[0] === ds.id && r.mode !== 'review' && r.mode !== 'exam')
     if (!result) return 'Not practiced yet'
     const percent = Math.round(result.correct / result.answered * 100)
     return `${result.mode === 'quick' ? 'Last quick practice' : 'Last lecture attempt'}: ${percent}% · ${result.answered}/${result.total} answered`
@@ -206,6 +216,11 @@ export default function App() {
   const courseHistory = currentLectures.flatMap((ds) => historyOf(history, ds))
   const dueCount = courseHistory.filter((h) => isDue(h)).length
   const weakCount = courseHistory.filter(isWeak).length
+  const mcLectures = currentLectures.filter((ds) => ds.multipleChoiceCount)
+  const examRange = mcLectures.slice(0, Math.min(examUpTo ?? mcLectures.length, mcLectures.length))
+  const examPool = examRange.reduce((sum, ds) => sum + (ds.multipleChoiceCount ?? 0), 0)
+  const examCount = examSize === 'all' ? examPool : Math.min(Number(examSize), examPool)
+  const lastExam = results.find((r) => r.mode === 'exam' && r.datasetIds.every((id) => mcLectures.some((ds) => ds.id === id)))
   return <main>
     <nav className="breadcrumbs" aria-label="Breadcrumb"><a href="#/">All courses</a><span aria-hidden="true">/</span>
       {route.datasetId ? <><a href={routeHash(course)}>{course}</a><span aria-hidden="true">/</span><span>Lecture</span></> : <span>{course}</span>}
@@ -251,6 +266,23 @@ export default function App() {
           <button type="button" disabled={loading} onClick={() => start(currentLectures, true)}>Quick mix (10 questions)</button>
           <button type="button" disabled={loading || selected.length < 2} onClick={() => start(selected)}>Practice selected ({selected.length} lectures · {selected.reduce((sum, ds) => sum + (ds.questionCount ?? 0), 0)} questions)</button>
         </div>
+      </section>}
+      {mcLectures.length > 0 && <section className="practice-panel"><h2>Midterm practice</h2>
+        <p className="muted">Test conditions: multiple choice only, random questions, no feedback until the end, clock running. The answers still count for spaced repetition.</p>
+        {lastExam && <p className="card-progress">Last test: {Math.round(lastExam.correct / lastExam.answered * 100)}% · {lastExam.answered}/{lastExam.total} answered{lastExam.elapsed !== undefined ? ` · ${formatDuration(lastExam.elapsed)}` : ''}</p>}
+        <div className="order-control">
+          <label htmlFor="exam-range">Lectures</label>
+          <select id="exam-range" value={examRange.length} onChange={(event) => setExamUpTo(Number(event.target.value))}>
+            {mcLectures.map((ds, i) => <option key={ds.id} value={i + 1}>{i ? `${lectureLabel(mcLectures[0])}–${lectureLabel(ds)}` : lectureLabel(ds)}</option>)}
+          </select>
+          <label htmlFor="exam-size">Questions</label>
+          <select id="exam-size" value={examSize} onChange={(event) => setExamSize(event.target.value)}>
+            <option value="20">20</option><option value="30">30</option><option value="all">All ({examPool})</option>
+          </select>
+        </div>
+        {paused && <p className="hint">Starting a new session replaces your paused session.</p>}
+        <div className="actions"><button type="button" className="primary" disabled={loading || !examCount}
+          onClick={() => start(examRange, false, undefined, examCount)}>{loading ? 'Loading questions…' : `Start test (${examCount} questions)`}</button></div>
       </section>}
       {items.some((ds) => ds.group === 'archive') && <section className="archive"><h2 className="section-title">Older practice sets</h2>
         <p className="hint">Additional revision material from earlier question banks.</p>{lectureList(items.filter((ds) => ds.group === 'archive'))}</section>}

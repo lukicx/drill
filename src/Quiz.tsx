@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { asHtml } from './math'
-import { checkSelection, clearSession, createSession, firstAttempts, getPersistenceFailed, nextQuestion,
-  questionCount, questionsToReview, readAnswerFirst, readHistory, recordAttempt, recordHistory, saveAnswerFirst,
-  saveResult, saveSession, subscribePersistence, suggestedAssessment } from './study'
+import { bankOf, checkSelection, clearSession, createSession, firstAttempts, formatDuration, getPersistenceFailed,
+  nextQuestion, questionCount, questionsToReview, readAnswerFirst, readHistory, recordAttempt, recordHistory,
+  saveAnswerFirst, saveResult, saveSession, subscribePersistence, suggestedAssessment } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
@@ -28,7 +28,12 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   const [answerFirst, setAnswerFirst] = useState(readAnswerFirst)
   const [shownFor, setShownFor] = useState('')
   const questionId = `${session.id}:${session.index}`
-  const hideOptions = answerFirst && !isEssay && !checked && shownFor !== questionId
+  // Midterm practice: no feedback until the end. The clock counts time on screen; pauses are excluded.
+  const exam = session.mode === 'exam'
+  const hideOptions = answerFirst && !exam && !isEssay && !checked && shownFor !== questionId
+  const [segmentStart, setSegmentStart] = useState(Date.now)
+  const [now, setNow] = useState(Date.now)
+  const elapsed = (session.elapsed ?? 0) + Math.max(0, now - segmentStart)
 
   useEffect(() => {
     onSessionChange(session)
@@ -36,6 +41,29 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     else saveSession(session)
   }, [session, onSessionChange])
   useEffect(() => { heading.current?.focus() }, [session.id, session.index, session.finished])
+  useEffect(() => {
+    if (!exam || session.finished) return
+    const timer = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(timer)
+  }, [exam, session.finished])
+
+  // Returns the time since the last answer (or since the quiz opened) and starts a new segment.
+  function takeTime() {
+    const t = Date.now()
+    setSegmentStart(t)
+    setNow(t)
+    return exam ? t - segmentStart : 0
+  }
+  function addTime(s: StudySession, spent: number): StudySession {
+    return s.elapsed === undefined ? s : { ...s, elapsed: s.elapsed + spent }
+  }
+  function examNext() {
+    if (session.attempts.length > session.index) return
+    const assessment: Assessment = checkSelection(question, session.selected).ok ? 'correct' : 'wrong'
+    recordHistory(item, assessment)
+    const spent = takeTime()
+    setSession((s) => addTime(nextQuestion(recordAttempt(s, assessment)), spent))
+  }
 
   function toggle(i: number) {
     setSession((s) => ({ ...s, selected: s.selected.includes(i) ? s.selected.filter((v) => v !== i) : [...s.selected, i] }))
@@ -62,11 +90,11 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
     const unanswered = session.round.slice(session.attempts.length).filter((entry) => !entry.retry)
     const remaining = unanswered.length
     return <main>
-      <p className="eyebrow">{remaining ? 'Session ended early' : 'Session complete'}</p>
+      <p className="eyebrow">{exam ? remaining ? 'Test ended early' : 'Test complete' : remaining ? 'Session ended early' : 'Session complete'}</p>
       <h1 ref={heading} tabIndex={-1}>{session.title}</h1>
       {storageNotice}
       <p className="score">{answered ? `${percent}% fully correct` : 'No answers recorded yet'}</p>
-      <p className="muted">{answered} of {total} answered{remaining ? ` · ${remaining} remaining` : ''}</p>
+      <p className="muted">{answered} of {total} answered{remaining ? ` · ${remaining} remaining` : ''}{session.elapsed !== undefined ? ` · time ${formatDuration(session.elapsed)}` : ''}</p>
       <dl className="result-stats"><div><dt>Correct</dt><dd>{correct}</dd></div>
         <div><dt>Partly recalled</dt><dd>{partial}</dd></div><div><dt>Need practice</dt><dd>{answered - correct - partial}</dd></div></dl>
       {session.round.some((entry) => !entry.question.answers) && <p className="hint">Essay results are self-assessed. Partly recalled answers stay in your review round.</p>}
@@ -74,7 +102,9 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       <div className="actions">
         {wrong.length > 0 && <button type="button" className="primary" onClick={() => setSession(createSession(sources, session.title, { review: wrong, shuffled: session.shuffled }))}>Review missed questions ({wrong.length})</button>}
         {remaining > 0 && <button type="button" onClick={() => setSession(createSession(sources, session.title, { review: unanswered, shuffled: session.shuffled }))}>Practice remaining ({remaining})</button>}
-        <button type="button" onClick={() => setSession(createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined, history: readHistory() }))}>Start again</button>
+        <button type="button" onClick={() => { takeTime(); setSession(exam
+          ? createSession(sources, session.title, { review: bankOf(sources).filter((entry) => entry.question.answers), exam: true, limit: total })
+          : createSession(sources, session.title, { shuffled: session.shuffled, limit: session.mode === 'quick' ? 10 : undefined, history: readHistory() })) }}>{exam ? 'New test' : 'Start again'}</button>
         <button type="button" onClick={onExit}>Back to lectures</button>
       </div>
       {wrong.length > 0 && <section className="results-review"><h2 className="section-title">What to review</h2>
@@ -102,12 +132,14 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   }
   return <main>
     <header className="quiz-header">
-      <div><span>{session.title}</span><p className="session-progress">Question {session.index + 1} of {session.round.length} · {first.length} of {total} answered · {correct} correct</p></div>
+      <div><span>{session.title}</span><p className="session-progress">{exam
+        ? <>Question {session.index + 1} of {session.round.length} · <span aria-label="Time used">⏱ {formatDuration(elapsed)}</span></>
+        : `Question ${session.index + 1} of ${session.round.length} · ${first.length} of ${total} answered · ${correct} correct`}</p></div>
       <div className="actions">
-        <label className="answer-first-toggle"><input type="checkbox" checked={answerFirst}
-          onChange={(event) => { setAnswerFirst(event.target.checked); saveAnswerFirst(event.target.checked) }} />Answer first</label>
-        <button type="button" className="link" onClick={() => { saveSession(session); onExit() }}>Pause</button>
-        <button type="button" className="link" onClick={() => setSession((s) => ({ ...s, finished: true }))}>End session</button>
+        {!exam && <label className="answer-first-toggle"><input type="checkbox" checked={answerFirst}
+          onChange={(event) => { setAnswerFirst(event.target.checked); saveAnswerFirst(event.target.checked) }} />Answer first</label>}
+        <button type="button" className="link" onClick={() => { const spent = takeTime(); saveSession(addTime(session, spent)); onExit() }}>Pause</button>
+        <button type="button" className="link" onClick={() => { const spent = takeTime(); setSession((s) => addTime({ ...s, finished: true }, spent)) }}>{exam ? 'End test' : 'End session'}</button>
       </div>
     </header>
     {storageNotice}
@@ -135,8 +167,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       <textarea id="mc-answer" className="essay-input" rows={4} value={session.draft}
         onChange={(event) => setSession((s) => ({ ...s, draft: event.target.value }))} placeholder="Write or think through your answer…" />
     </> : <>
-      {answerFirst && session.draft && <p className="saved-draft hint">Your answer: {session.draft}</p>}
-      <p className="hint">One or more answers can be correct.</p>
+      {answerFirst && !exam && session.draft && <p className="saved-draft hint">Your answer: {session.draft}</p>}
+      <p className="hint">{exam ? 'Test mode: no feedback until the end. ' : ''}One or more answers can be correct.</p>
     </>}
     {!hideOptions && <ul className="answers">
       {answers.map((answer, i) => {
@@ -156,6 +188,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
           onClick={() => markEssay(mark)}>{label}{mark === suggestion ? ' (suggested)' : ''}</button>)
         : <button type="button" className="primary" onClick={() => setSession((s) => ({ ...s, revealed: true }))}>Show model answer</button>
         : hideOptions ? <button type="button" className="primary" onClick={() => setShownFor(questionId)}>Show options</button>
+        : exam ? <button type="button" className="primary" onClick={examNext}>
+          {!session.selected.length ? 'Skip question' : session.index + 1 < session.round.length ? 'Next question' : 'Finish test'}</button>
         : <button type="button" className="primary" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
           {!checked ? 'Check answer' : session.index + 1 < session.round.length ? 'Next question' : 'See results'}
         </button>}

@@ -4,7 +4,9 @@ export interface StudySource { datasetId: string; questions: Question[] }
 // `retry` marks a missed question asked again later in the same round; it does not count for the score.
 export interface StudyQuestion { key: string; datasetId: string; question: Question; retry?: boolean }
 export type Assessment = 'correct' | 'partial' | 'wrong'
-export type StudyMode = 'full' | 'quick' | 'mixed' | 'review'
+// 'exam' = midterm practice: no feedback until the end, no second tries, clock running.
+export type StudyMode = 'full' | 'quick' | 'mixed' | 'review' | 'exam'
+const MODES: StudyMode[] = ['full', 'quick', 'mixed', 'review', 'exam']
 export interface Attempt { item: StudyQuestion; assessment: Assessment; selected: number[]; draft: string }
 export interface StudySession {
   version: 1
@@ -22,10 +24,11 @@ export interface StudySession {
   attempts: Attempt[]
   finished: boolean
   savedAt: number
+  elapsed?: number // exam mode: milliseconds spent answering, pauses excluded
 }
 export interface StudyResult {
   sessionId: string; datasetIds: string[]; mode: StudyMode; total: number
-  correct: number; partial: number; answered: number; completedAt: number
+  correct: number; partial: number; answered: number; completedAt: number; elapsed?: number
 }
 
 const SESSION_KEY = 'drill.session.v1'
@@ -114,7 +117,7 @@ function priorityOf(h: QuestionHistory | undefined, now: number) {
 }
 
 export function createSession(sources: StudySource[], title: string, options: {
-  shuffled?: boolean; limit?: number; review?: StudyQuestion[]; history?: History
+  shuffled?: boolean; limit?: number; review?: StudyQuestion[]; history?: History; exam?: boolean
 } = {}): StudySession {
   const shuffled = options.shuffled ?? true
   const bank = options.review ?? bankOf(sources)
@@ -132,9 +135,9 @@ export function createSession(sources: StudySource[], title: string, options: {
   return {
     version: 1, id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
     title, datasetIds: sources.map((source) => source.datasetId), revision: revisionOf(sources),
-    mode: options.review ? 'review' : options.limit ? 'quick' : sources.length > 1 ? 'mixed' : 'full',
+    mode: options.exam ? 'exam' : options.review ? 'review' : options.limit ? 'quick' : sources.length > 1 ? 'mixed' : 'full',
     shuffled, round, index: 0, selected: [], revealed: false, draft: '',
-    attempts: [], finished: false, savedAt: Date.now(),
+    attempts: [], finished: false, savedAt: Date.now(), ...(options.exam ? { elapsed: 0 } : {}),
   }
 }
 
@@ -151,7 +154,7 @@ export function recordAttempt(session: StudySession, assessment: Assessment): St
   if (session.finished || session.attempts.length > session.index) return session
   const item = session.round[session.index]
   let round = session.round
-  if (assessment !== 'correct' && !item.retry) {
+  if (assessment !== 'correct' && !item.retry && session.mode !== 'exam') {
     const question = session.shuffled && item.question.answers
       ? { ...item.question, answers: shuffle(item.question.answers) } : item.question
     const at = Math.min(session.index + 1 + RETRY_GAP, round.length)
@@ -160,6 +163,12 @@ export function recordAttempt(session: StudySession, assessment: Assessment): St
   return { ...session, round, revealed: true, attempts: [...session.attempts, {
     item, assessment, selected: [...session.selected], draft: session.draft,
   }] }
+}
+
+// "4:05" for the exam clock; "1:02:05" past an hour.
+export function formatDuration(ms: number) {
+  const s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, sec = String(s % 60).padStart(2, '0')
+  return h ? `${h}:${String(m).padStart(2, '0')}:${sec}` : `${m}:${sec}`
 }
 
 // Essay mark suggested from ticked key points: all = correct, at least half = partial, else wrong.
@@ -218,7 +227,8 @@ export function readSession(): StudySession | null {
     if (!s || s.version !== 1 || s.finished !== false || typeof s.id !== 'string'
       || typeof s.title !== 'string' || typeof s.revision !== 'string'
       || !Array.isArray(s.datasetIds) || !s.datasetIds.length || !s.datasetIds.every((id) => typeof id === 'string')
-      || !['full', 'quick', 'mixed', 'review'].includes(s.mode) || typeof s.shuffled !== 'boolean'
+      || !MODES.includes(s.mode) || typeof s.shuffled !== 'boolean'
+      || (s.elapsed !== undefined && !(Number.isFinite(s.elapsed) && s.elapsed >= 0))
       || !Array.isArray(s.round) || !s.round.length || !s.round.every(isItem)
       || !Number.isInteger(s.index) || s.index < 0 || s.index >= s.round.length
       || typeof s.draft !== 'string' || typeof s.revealed !== 'boolean' || !Number.isFinite(s.savedAt)
@@ -291,7 +301,7 @@ export function readResults(): StudyResult[] {
     const value = JSON.parse(localStorage.getItem(RESULTS_KEY) ?? '[]')
     return Array.isArray(value) ? value.filter((r) => r && typeof r.sessionId === 'string'
       && Array.isArray(r.datasetIds) && r.datasetIds.every((id: unknown) => typeof id === 'string')
-      && ['full', 'quick', 'mixed', 'review'].includes(r.mode)
+      && MODES.includes(r.mode)
       && [r.total, r.correct, r.partial, r.answered, r.completedAt].every(Number.isFinite)
       && r.total > 0 && r.answered >= 0 && r.answered <= r.total
       && r.correct >= 0 && r.partial >= 0 && r.correct + r.partial <= r.answered) : []
@@ -306,6 +316,7 @@ export function saveResult(session: StudySession) {
     sessionId: session.id, datasetIds: session.datasetIds, mode: session.mode, total: questionCount(session),
     answered: attempts.length, correct: attempts.filter((a) => a.assessment === 'correct').length,
     partial: attempts.filter((a) => a.assessment === 'partial').length, completedAt: Date.now(),
+    ...(session.elapsed !== undefined ? { elapsed: session.elapsed } : {}),
   }
   return write(RESULTS_KEY, [result, ...results].slice(0, 100))
 }
