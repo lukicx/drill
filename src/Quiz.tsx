@@ -2,10 +2,11 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { asHtml } from './math'
 import { checkSelection, clearSession, createSession, firstAttempts, getPersistenceFailed, nextQuestion,
   questionCount, questionsToReview, readAnswerFirst, readHistory, recordAttempt, recordHistory, saveAnswerFirst,
-  saveResult, saveSession, subscribePersistence } from './study'
+  saveResult, saveSession, subscribePersistence, suggestedAssessment } from './study'
 import type { Assessment, StudySession, StudySource } from './study'
 
 const MARKS: Record<string, string> = { correct: '✓ correct', wrong: '✗ wrong', missed: '← missed' }
+const ESSAY_MARKS: [Assessment, string][] = [['correct', '✓ Knew it'], ['partial', 'Partly'], ['wrong', 'Need practice']]
 interface Props { initial: StudySession; sources: StudySource[]; onExit: () => void; onSessionChange: (session: StudySession) => void; sourceTitles: Record<string, string> }
 
 export default function Quiz({ initial, sources, onExit, onSessionChange, sourceTitles }: Props) {
@@ -21,6 +22,8 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
   const correct = first.filter((attempt) => attempt.assessment === 'correct').length
   const total = questionCount(session)
   const feedback = checkSelection(question, session.selected)
+  const keyPoints = question.keyPoints ?? []
+  const suggestion = isEssay && checked ? suggestedAssessment(session.selected.length, keyPoints.length) : null
   // Answer first: options stay hidden until "Show options" is pressed for this question.
   const [answerFirst, setAnswerFirst] = useState(readAnswerFirst)
   const [shownFor, setShownFor] = useState('')
@@ -86,7 +89,9 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
               <span dangerouslySetInnerHTML={asHtml(answer.body)} />
               {answer.comment && <p className="hint" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
             </li>)}</ul> : <>
-              {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={asHtml(point)} />)}</ul></> : null}
+              {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i}>
+                <span className={attempt.selected.includes(i) ? 'ok-text' : 'bad-text'}>{attempt.selected.includes(i) ? '✓ Covered' : '✗ Not covered'}: </span>
+                <span dangerouslySetInnerHTML={asHtml(point)} /></li>)}</ul></> : null}
               <h3>Model answer</h3><div dangerouslySetInnerHTML={asHtml(attempt.item.question.answer ?? '')} />
               {attempt.item.question.source && <p className="hint">{attempt.item.question.source}</p>}
             </>}
@@ -116,7 +121,11 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       <textarea id="essay-answer" className="essay-input" rows={6} value={session.draft}
         onChange={(event) => setSession((s) => ({ ...s, draft: event.target.value }))} placeholder="Write your answer here…" />
       {checked && <section className="model-answer">
-        {question.keyPoints && question.keyPoints.length > 0 && <><h3>Key points</h3><ul>{question.keyPoints.map((point, i) => <li key={i} dangerouslySetInnerHTML={asHtml(point)} />)}</ul></>}
+        {keyPoints.length > 0 && <><h3>Key points</h3>
+          <p className="hint">Tick the points your answer covered. The suggested mark follows from your ticks.</p>
+          <ul className="answers">{keyPoints.map((point, i) => <li key={`${session.index}:${i}`}><label>
+            <input type="checkbox" checked={session.selected.includes(i)} onChange={() => toggle(i)} />
+            <span dangerouslySetInnerHTML={asHtml(point)} /></label></li>)}</ul></>}
         <details open><summary>Full model answer</summary><div className="model-answer-body" dangerouslySetInnerHTML={asHtml(question.answer ?? '')} /></details>
         {question.source && <p className="comment">{question.source}</p>}
       </section>}
@@ -142,11 +151,10 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
       })}
     </ul>}
     <div className="actions action-bar">
-      {isEssay ? <>
-        <button type="button" className="primary" onClick={checked ? () => markEssay('correct') : () => setSession((s) => ({ ...s, revealed: true }))}>{checked ? '✓ Knew it' : 'Show model answer'}</button>
-        {checked && <><button type="button" onClick={() => markEssay('partial')}>Partly</button>
-          <button type="button" onClick={() => markEssay('wrong')}>Need practice</button></>}
-      </>
+      {isEssay ? checked
+        ? ESSAY_MARKS.map(([mark, label]) => <button key={mark} type="button" className={mark === (suggestion ?? 'correct') ? 'primary' : undefined}
+          onClick={() => markEssay(mark)}>{label}{mark === suggestion ? ' (suggested)' : ''}</button>)
+        : <button type="button" className="primary" onClick={() => setSession((s) => ({ ...s, revealed: true }))}>Show model answer</button>
         : hideOptions ? <button type="button" className="primary" onClick={() => setShownFor(questionId)}>Show options</button>
         : <button type="button" className="primary" disabled={!checked && session.selected.length === 0} onClick={checked ? () => setSession((s) => nextQuestion(s)) : check}>
           {!checked ? 'Check answer' : session.index + 1 < session.round.length ? 'Next question' : 'See results'}

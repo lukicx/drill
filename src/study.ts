@@ -162,6 +162,12 @@ export function recordAttempt(session: StudySession, assessment: Assessment): St
   }] }
 }
 
+// Essay mark suggested from ticked key points: all = correct, at least half = partial, else wrong.
+export function suggestedAssessment(ticked: number, total: number): Assessment | null {
+  if (total <= 0) return null
+  return ticked >= total ? 'correct' : ticked * 2 >= total ? 'partial' : 'wrong'
+}
+
 // Score and review lists count only the first try of each question.
 export function firstAttempts(session: StudySession): Attempt[] {
   return session.attempts.filter((attempt) => !attempt.item.retry)
@@ -199,8 +205,10 @@ function isItem(value: unknown): value is StudyQuestion {
     && (item.retry === undefined || typeof item.retry === 'boolean')
 }
 
+// For essays, `selected` holds the indexes of the key points the learner ticked as covered.
 function isSelection(value: unknown, question: Question): value is number[] {
-  return Array.isArray(value) && value.every((i) => Number.isInteger(i) && i >= 0 && i < (question.answers?.length ?? 0))
+  const size = question.answers?.length ?? question.keyPoints?.length ?? 0
+  return Array.isArray(value) && value.every((i) => Number.isInteger(i) && i >= 0 && i < size)
     && new Set(value).size === value.length
 }
 

@@ -22,7 +22,10 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - Multiple-choice scoring requires exactly the correct selections. The **Answer first**
   switch in the quiz header (remembered per device, off by default) hides the options
   until you have recalled an answer and press **Show options**.
-- Essays are self-assessed as **Knew it**, **Partly**, or **Need practice**.
+- Essays are self-assessed as **Knew it**, **Partly**, or **Need practice**. After the model
+  answer is shown, tick the key points your answer covered; the app suggests a mark (all
+  points = Knew it, at least half = Partly, else Need practice) and you can still pick another.
+  Results list each key point as covered or not.
 - A missed or partly recalled question comes back once, four questions later in the
   same round ("Second try"). The score counts first tries only.
 - Results show answered/total coverage, including early exits, and expandable

@@ -2,7 +2,7 @@ import { test, beforeEach } from 'node:test'
 import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
   saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
-  nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory,
+  nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory, suggestedAssessment,
   readAnswerFirst, saveAnswerFirst } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
@@ -153,6 +153,18 @@ test('review rounds include partial answers, exclude correct answers and keep th
   assert.equal(review.round[0].key, 'course_L01:1')
   assert.equal(review.revision, revisionOf(sources))
   assert.equal(sources[0].questions.length, 2)
+})
+
+test('essay key-point ticks suggest a mark and survive a reload', () => {
+  assert.deepEqual([3, 2, 1, 0].map((n) => suggestedAssessment(n, 3)), ['correct', 'partial', 'wrong', 'wrong'])
+  assert.equal(suggestedAssessment(2, 4), 'partial')
+  assert.equal(suggestedAssessment(0, 0), null)
+  const points = { name: 'Explain', answer: 'Model', keyPoints: ['A', 'B', 'C'] }
+  const session = { ...createSession([{ datasetId: 'L1', questions: [points] }], 'Essay'), revealed: true, selected: [0, 2] }
+  saveSession(session)
+  assert.deepEqual(readSession().selected, [0, 2])
+  saveSession({ ...session, selected: [3] })
+  assert.equal(readSession(), null)
 })
 
 test('answer-first preference is remembered and blocked storage reads as off', () => {
