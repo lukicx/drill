@@ -1,5 +1,6 @@
 [
   {
+    "id": "e015ef01",
     "name": "Které dvojice situace → pojem jsou správně (autentizace, identifikace, autorizace)?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "6027f479",
     "name": "Zákazník u pokladny vloží svou platební kartu do terminálu a zadá správný PIN. Co tím udělal?",
     "answers": [
       {
@@ -40,7 +42,7 @@
       {
         "body": "Autorizoval transakci (platbu).",
         "right": true,
-        "comment": "Slide 12: zadáním PINu uživatel transakci/platbu autorizoval."
+        "comment": "Slide 12: zadáním správného PINu uživatel (potenciálně) autorizoval transakci/platbu."
       },
       {
         "body": "Byl identifikován v režimu 1:n, aniž by předložil tvrzení o identitě.",
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "118b9495",
     "name": "Rozlišují se čtyři faktory autentizace uživatele: něco, co známe; něco, co máme; něco, co jsme; někde, kde jsme. Které kombinace spojují dva <B>různé</B> faktory?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "c2980edb",
     "name": "Kryptografii lze členit podle druhu klíčů, podle způsobu zpracování dat a podle druhu použitých operací. Která tvrzení jsou správná?",
     "answers": [
       {
@@ -113,13 +117,14 @@
         "comment": "Slide 21: substituce a permutace jsou druhy použitých operací, ne druhy klíčů."
       },
       {
-        "body": "Generátor náhodných čísel patří do asymetrické kryptografie; pracuje s prvočísly.",
+        "body": "Asymetrická kryptografie používá stejný klíč pro Alici i Boba.",
         "right": false,
-        "comment": "Slide 21: RND je uveden mezi kryptografií bez klíčů; prvočísla se jen používají při tvorbě asymetrických klíčů (slide 23)."
+        "comment": "Slide 23: stejný klíč pro Alici i Boba má symetrická kryptografie; asymetrická používá pár privátní a veřejný klíč."
       }
     ]
   },
   {
+    "id": "acf9afb0",
     "name": "Útočník chce podvrhnout dokument se stejným hašem jako jiný dokument. Které vlastnosti hašovací funkce tomu brání?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "90dca10f",
     "name": "Alice chce Bobovi poslat důvěrnou zprávu a zároveň ji podepsat. Které klíče se použijí?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "a1d09a93",
     "name": "Proč se v praxi kombinují symetrická a asymetrická kryptografie (hybridní kryptosystémy) a jak?",
     "answers": [
       {
@@ -210,6 +217,7 @@
     ]
   },
   {
+    "id": "892db9b0",
     "name": "Co vyplývá z Kerckhoffsova principu pro návrh šifrovacího systému?",
     "answers": [
       {
@@ -240,6 +248,7 @@
     ]
   },
   {
+    "id": "53135644",
     "name": "Prohledání (v průměru poloviny) prostoru 56bitových klíčů trvá při rychlosti \\(10^{6}\\) dešifrování za µs asi 10 hodin. Které odhady pro stejnou rychlost platí?",
     "answers": [
       {
@@ -265,6 +274,7 @@
     ]
   },
   {
+    "id": "93362bd5",
     "name": "Firma bude faktury odběratelům digitálně podepisovat. Které z jejích požadavků digitální podpis splní?",
     "answers": [
       {
@@ -295,6 +305,7 @@
     ]
   },
   {
+    "id": "1c7daefa",
     "name": "Jakou roli hraje certifikát veřejného klíče a certifikační autorita (CA)?",
     "answers": [
       {
@@ -325,6 +336,7 @@
     ]
   },
   {
+    "id": "2e9d5f",
     "name": "Ve kterých situacích jde o autentizaci pomocí digitálního podpisu a o jaký druh autentizace?",
     "answers": [
       {
@@ -348,13 +360,14 @@
         "comment": "Slide 36, 43: soukromým klíčem se nešifruje, ale podepisuje; podpis důvěrnost nezajišťuje."
       },
       {
-        "body": "Podpis prokáže, že u počítače seděl právě daný člověk, i když kartu použil někdo jiný.",
+        "body": "Platný podpis prokazuje, že kartu v tu chvíli fyzicky použil právě její držitel.",
         "right": false,
-        "comment": "Slide 38, 42: podpis dělá vždy přístroj; prokazuje jen schopnost použít tajná data, ne kdo fyzicky kartu použil (odvozeno)."
+        "comment": "Slide 38, 42: podpis dělá vždy přístroj; prokazuje jen schopnost použít tajná data (klíč na kartě), ne kdo kartu fyzicky použil (odvozeno)."
       }
     ]
   },
   {
+    "id": "81dcc90",
     "name": "Alice posílá Bobovi důvěrnou zprávu, kterou chce zároveň podepsat; oba používají hybridní kryptosystém. Popište krok za krokem, který klíč (a čí) se kde použije u Alice a u Boba, a vysvětlete, co se může pokazit, když Alice nemá Bobův certifikát nebo mu nemůže důvěřovat.",
     "answer": "<B>Podpis (Alice):</B> spočítá haš zprávy a ten podepíše svým <B>soukromým</B> klíčem – podepisuje se haš, protože asymetrické algoritmy jsou relativně pomalé. Podpis zajistí integritu a prokázání původu, ne důvěrnost.<BR><B>Šifrování (Alice):</B> vygeneruje náhodný symetrický klíč, jím zašifruje zprávu i s podpisem a symetrický klíč zašifruje <B>Bobovým veřejným</B> klíčem. Nejprve se podepisuje, potom šifruje.<BR><B>Bob:</B> svým <B>soukromým</B> klíčem dešifruje symetrický klíč a jím zprávu; spočítá haš a podpis ověří <B>Aliciným veřejným</B> klíčem. Pro šifrování a pro podpis nemusí jít o stejný pár klíčů.<BR><B>Chybějící nebo nedůvěryhodný certifikát:</B> spojení veřejného klíče s označením entity je kritické („S kým komunikuji?“). Podstrčí-li Eva Alici svůj veřejný klíč jako Bobův, Alice zašifruje symetrický klíč pro Evu a Eva zprávu přečte. Má-li Bob podvržený „Alicin“ veřejný klíč, ověří podpis vytvořený Evou a mylně jej přičte Alici. Brání tomu certifikát – podpis certifikační autority, který nerozdělitelně spojuje klíč s entitou; CA ověřuje, komu klíč patří, jak byla prokázána identita a zda má držitel odpovídající soukromý klíč. Certifikát pomůže jen tehdy, důvěřuje-li Alice podpisu dané CA.",
     "keyPoints": [
@@ -368,6 +381,7 @@
     "source": "Přednáška 1, slide 23, 25–26, 34–38, 41; pořadí „nejprve podpis, pak šifrování“ podle přednášky 5, slide 21; scénář s podstrčeným klíčem je odvozený"
   },
   {
+    "id": "ddb8832",
     "name": "Výrobce přístupového systému tvrdí: „Používáme vlastní utajený šifrovací algoritmus se 40bitovým klíčem a uživatel se ověřuje jen čtyřmístným PINem; je to bezpečné, protože náš algoritmus nikdo nezná.“ Posuďte toto tvrzení, odhadněte dobu útoku hrubou silou na klíč (při \\(10^{6}\\) dešifrování za µs prohledá útočník polovinu prostoru 32bitových klíčů za 2,15 ms) a navrhněte lepší řešení.",
     "answer": "<B>Utajení algoritmu:</B> podle Kerckhoffsova principu má být algoritmus všem znám a všemi kontrolován jako správný, tajný má být jen klíč. Spoléhat na utajení proprietárního algoritmu je velmi diskutabilní: algoritmy často vycházejí z veřejně známých šifer a bez veřejné verifikace se jejich (ne)kvalita těžko posoudí. Ani u utajeného algoritmu se nesmí zanedbat odolnost klíče proti útoku hrubou silou.<BR><B>Délka klíče:</B> 40 bitů je o 8 bitů víc než 32, tedy \\(2^{8} = 256\\)krát více klíčů: \\(256 \\cdot 2{,}15\\ \\text{ms} \\approx 0{,}55\\ \\text{s}\\). Klíč tedy padne prakticky okamžitě. Pro srovnání: u 128bitového klíče by to při stejné rychlosti trvalo řádově \\(5{,}4 \\cdot 10^{18}\\) let.<BR><B>PIN:</B> čtyřmístný PIN je jediný faktor („něco, co známe“) s malým prostorem hodnot; obstojí jen s omezením počtu pokusů a ve spojení s předmětem (kartou).<BR><B>Lepší řešení:</B> veřejně prověřený algoritmus s klíčem alespoň 128 bitů, ochrana klíče místo utajení algoritmu a autentizace dvěma různými faktory (karta + PIN) s omezeným počtem pokusů.",
     "keyPoints": [

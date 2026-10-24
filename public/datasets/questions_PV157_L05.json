@@ -1,5 +1,6 @@
 [
   {
+    "id": "d3cad916",
     "name": "Ověřovatel dostal podpis, ale ne podepsaný dokument. Která tvrzení o schématech s přílohou a s obnovou zprávy jsou správná?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "eee474f3",
     "name": "Které údaje obsahuje certifikát veřejného klíče (např. podle X.509v3)?",
     "answers": [
       {
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "644e206c",
     "name": "Žadatel si doma vygeneroval pár klíčů a chce certifikát. Jak proces vydání pokračuje a kdo v PKI co dělá?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "736abfd0",
     "name": "Firma A má certifikáty od certifikační autority CA1, firma B od nezávislé CA2. Jak lze dosáhnout, aby si firmy mohly navzájem ověřovat podpisy?",
     "answers": [
       {
@@ -120,6 +124,7 @@
     ]
   },
   {
+    "id": "cbc6ae3e",
     "name": "Firma posílá soubory partnerovi. Které dvojice požadavek → vhodná metoda jsou správné?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "92e74038",
     "name": "Jak lze zkonstruovat autentizační kód zprávy (MAC)?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "d7d00599",
     "name": "Alice chce Bobovi poslat smlouvu podepsanou a zašifrovanou. Jak má postupovat?",
     "answers": [
       {
@@ -210,6 +217,7 @@
     ]
   },
   {
+    "id": "d7134b2f",
     "name": "Firma chce po odchodu zaměstnance neztratit přístup k jím zašifrovaným datům (key recovery). Jak má klíče řešit?",
     "answers": [
       {
@@ -233,13 +241,14 @@
         "comment": "Slide 24: jedna dvojice klíčů pro šifrování i podpis není příliš vhodná kombinace."
       },
       {
-        "body": "Obnova klíčů není potřeba.",
+        "body": "Obnova klíčů není potřeba – firma data dešifruje veřejným klíčem zaměstnance.",
         "right": false,
         "comment": "Slide 28: dešifruje se soukromým exponentem \\(d\\); veřejným klíčem data dešifrovat nelze."
       }
     ]
   },
   {
+    "id": "2fa3c5f5",
     "name": "Která tvrzení o algoritmu RSA a jeho bezpečnosti platí?",
     "answers": [
       {
@@ -270,6 +279,7 @@
     ]
   },
   {
+    "id": "1a4ef424",
     "name": "Alice používá (úmyslně příliš malé) RSA s \\(p = 61\\), \\(q = 53\\) a \\(e = 17\\). Která tvrzení jsou správná?",
     "answers": [
       {
@@ -300,6 +310,7 @@
     ]
   },
   {
+    "id": "9e36270",
     "name": "Která tvrzení o kryptografických hašovacích funkcích a narozeninovém paradoxu platí?",
     "answers": [
       {
@@ -330,6 +341,7 @@
     ]
   },
   {
+    "id": "1b0a7358",
     "name": "Proč je součet bajtů modulo 256 nevhodná hašovací funkce? Pro řetězec „ahoj“ platí \\(h(\\text{ahoj}) = (97 + 104 + 111 + 106) \\bmod 256 = 162\\).",
     "answers": [
       {
@@ -360,6 +372,7 @@
     ]
   },
   {
+    "id": "859d5a19",
     "name": "Kterou hašovací funkci zvolit pro nový systém a proč?",
     "answers": [
       {
@@ -390,6 +403,7 @@
     ]
   },
   {
+    "id": "8bc76377",
     "name": "Windows ověřuje digitální podpis spustitelného souboru (Authenticode). Co platný podpis zaručuje a kde jsou jeho meze?",
     "answers": [
       {
@@ -420,6 +434,7 @@
     ]
   },
   {
+    "id": "e4df3b40",
     "name": "Jak funguje metoda „chaffing and winnowing“ (oddělení zrn od plev)?",
     "answers": [
       {
@@ -450,6 +465,7 @@
     ]
   },
   {
+    "id": "6ec16e82",
     "name": "Úřad odmítne dokument zaslaný e-mailem jako důkaz jen proto, že je elektronický. Co platí podle nařízení eIDAS?",
     "answers": [
       {
@@ -480,6 +496,7 @@
     ]
   },
   {
+    "id": "66dbe70d",
     "name": "Které prostředky elektronické identifikace odpovídají kterým úrovním záruky podle eIDAS a co znamená jejich vzájemné uznávání?",
     "answers": [
       {
@@ -510,6 +527,7 @@
     ]
   },
   {
+    "id": "eebd5e2a",
     "name": "Co umožní evropská peněženka digitální identity (eIDAS 2)?",
     "answers": [
       {
@@ -533,13 +551,14 @@
         "comment": "Slide 65: spoléhající se strany se registrují v členském státě usazení a uvádějí zamýšlené použití."
       },
       {
-        "body": "Nahradit národní elektronické identity jednotnou identitou vydanou orgánem EU.",
+        "body": "Peněženka je jen vnitrostátní nástroj jako aplikace eDoklady, v jiných státech EU ji použít nelze.",
         "right": false,
-        "comment": "Slide 59, 63: peněženku musí poskytnout členské státy; eIDAS nezavádí jednotnou evropskou identitu."
+        "comment": "Slide 56, 66: jen vnitrostátní použití mají eDoklady, které má do budoucna nahradit evropská peněženka; eIDAS je právní rámec pro přeshraniční komunikaci."
       }
     ]
   },
   {
+    "id": "663b1208",
     "name": "Jaký elektronický podpis je podle českých pravidel (zákon o službách vytvářejících důvěru) potřeba v těchto situacích?",
     "answers": [
       {
@@ -570,6 +589,7 @@
     ]
   },
   {
+    "id": "3e60e4e",
     "name": "Firemní informační systém automaticky vydává potvrzení o přijetí dokumentu. Kdy použít elektronickou pečeť a k čemu slouží časové razítko?",
     "answers": [
       {
@@ -600,6 +620,7 @@
     ]
   },
   {
+    "id": "acfe5b68",
     "name": "Proč a jak se řeší dlouhodobá archivace elektronicky podepsaných dokumentů?",
     "answers": [
       {
@@ -630,6 +651,7 @@
     ]
   },
   {
+    "id": "6ab0fe5b",
     "name": "Firma vystavuje elektronické faktury automaticky ze svého informačního systému – soukromým odběratelům i úřadům – a musí je archivovat řadu let. Navrhněte, čím faktury opatřit (podpis, nebo pečeť, a jaké úrovně), zda a proč připojit časové razítko a jak zajistit jejich ověřitelnost po letech. Každou volbu zdůvodněte.",
     "answer": "<B>Pečeť, ne podpis:</B> faktury vydává firma (právnická osoba) a generuje je systém bez projevu vůle konkrétního člověka. Elektronická pečeť reprezentuje právnickou osobu a potvrzuje původ a integritu dokumentu, ne vůli – typickým použitím jsou automaticky generované výstupy. Podpis by fakturu vázal na fyzickou osobu.<BR><B>Úroveň:</B> pečeť má stejné úrovně jako podpis (prostá, zaručená, kvalifikovaná) a úrovně mají odlišnou důkazní spolehlivost. Mezi soukromými subjekty lze užít jakoukoli úroveň a elektronické podobě nelze upírat účinky; vůči úřadům platí pro pečeť stejná pravidla jako pro podpis. Rozumná je kvalifikovaná pečeť (kvalifikovaný certifikát a kvalifikovaný prostředek) s nejvyšší důkazní hodnotou (volba je odvozená).<BR><B>Klíče a certifikát:</B> soukromý klíč pečeti v zabezpečeném prostředku, oddělený od šifrovacích klíčů; certifikát od kvalifikovaného poskytovatele zajistí ověřovatelům integritu veřejného klíče.<BR><B>Časové razítko:</B> podpis ani pečeť neprokazují okamžik vytvoření; kvalifikované časové razítko prokáže, že faktura v daném okamžiku existovala, a ve spojení s pečetí prodlužuje její ověřitelnost.<BR><B>Archivace:</B> po letech vyprší certifikáty a zastarají algoritmy; v archivu se proto dokumenty přibližně po roce přerazítkovávají (řetěz důvěry), případně se vede transakční protokol (např. denně opatřený kvalifikovaným razítkem a pečetí) nebo důvěryhodný repozitář. eIDAS 2 zavádí kvalifikovanou službu elektronické archivace.",
     "keyPoints": [
@@ -642,6 +664,7 @@
     "source": "Přednáška 5, slide 20, 22–24, 53, 70–71, 75–77, 79–80, 87; doporučení kvalifikované pečeti a oddělení klíčů pro tento scénář je odvozené"
   },
   {
+    "id": "73505c0b",
     "name": "Výrobce softwaru distribuuje aktualizace tisícům zákazníků přes internet. Navrhněte, jak si zákazník ověří, že aktualizace pochází od výrobce a nebyla změněna. Posuďte postupně: kontrolní součet CRC na webu, haš zveřejněný na stejném webu nebo sdělený jiným kanálem, MAC a digitální podpis s certifikátem. Co platný podpis zaručuje a co ne?",
     "answer": "<B>CRC:</B> detekuje jen neúmyslné chyby přenosu; útočník, který podvrhne soubor, snadno spočítá i nový součet – proti úmyslné změně nechrání.<BR><B>Haš:</B> haš na stejném, napadnutelném webu útočník přepíše spolu se souborem (odvozeno). Smysl má haš získaný jiným, autentizovaným kanálem (telefon, vizitka), což je pro tisíce zákazníků nepraktické. Hašovací funkce musí být bezkolizní (SHA-2, ne MD5).<BR><B>MAC:</B> vyžaduje sdílený tajný klíč. S jedním klíčem pro všechny zákazníky by jej znal každý zákazník a mohl vytvořit „platnou“ aktualizaci; klíče pro každého zákazníka zvlášť by výrobce musel bezpečně distribuovat a spravovat. MAC navíc nedokáže třetí straně prokázat původ (odvozeno).<BR><B>Digitální podpis:</B> výrobce podepíše haš aktualizace svým soukromým klíčem a zákazník jej ověří veřejným klíčem; to zajistí integritu a původ a všichni zákazníci ověřují jediným veřejným klíčem. Integritu veřejného klíče zajistí certifikát od CA – tak funguje Authenticode: platný podpis → spuštění, neplatný či chybějící → dotaz uživatele. Soukromý klíč výrobce musí zůstat tajný.<BR><B>Meze:</B> platný podpis znamená, že data pocházejí z uvedeného zdroje a nebyla změněna, ne že jsou bezchybná či bezpečná. Bezpečnost stojí i na CA: útočník vydávající se za zaměstnance Microsoftu jednou získal certifikáty na jméno Microsoft a jím podepsaný kód se spouštěl bez varování, dokud nebyly certifikáty revokovány – proto je důležité zneplatnění certifikátů (CRL).",
     "keyPoints": [

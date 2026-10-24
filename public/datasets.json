@@ -90,6 +90,15 @@
     "group": "current"
   },
   {
+    "name": "PV017 - Midterm mock test (L1–L6)",
+    "id": "PV017_mock1",
+    "dataset": "datasets/questions_PV017_mock1.json",
+    "group": "current",
+    "questionCount": 30,
+    "multipleChoiceCount": 30,
+    "essayCount": 0
+  },
+  {
     "name": "PV157 - L1 Úvod, pojmy, kryptografie a digitální podpis",
     "id": "PV157_L01",
     "dataset": "datasets/questions_PV157_L01.json",
@@ -133,6 +142,15 @@
     "multipleChoiceCount": 21,
     "essayCount": 2,
     "group": "current"
+  },
+  {
+    "name": "PV157 - Midterm mock test (L1–L5)",
+    "id": "PV157_mock1",
+    "dataset": "datasets/questions_PV157_mock1.json",
+    "group": "current",
+    "questionCount": 30,
+    "multipleChoiceCount": 30,
+    "essayCount": 0
   },
   {
     "name": "PV157 - All",

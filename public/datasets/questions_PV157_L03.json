@@ -1,5 +1,6 @@
 [
   {
+    "id": "6dd601ec",
     "name": "Výrobce vstupních karet díky velké sérii výrazně zlevnil výrobu jednoho kusu. Co z dilematu „cena výroby versus cena padělání“ plyne?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "5a1efdb5",
     "name": "Proč jsou karty s magnetickým proužkem považovány za slabý token?",
     "answers": [
       {
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "671e801e",
     "name": "Jak se dělí čipové karty podle toho, co umí, a podle rozhraní?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "4a2f88bf",
     "name": "Jaká specifická rizika a omezení mají bezkontaktní karty?",
     "answers": [
       {
@@ -120,6 +124,7 @@
     ]
   },
   {
+    "id": "31f42538",
     "name": "Na čipové kartě je kořenový adresář, v něm adresář aplikace a v něm soubor s PINem. Která tvrzení o struktuře dat a přístupu k nim platí?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "3ce9b1f1",
     "name": "Uživatel několikrát za sebou zadal špatný PIN k SIM kartě a karta PIN zablokovala. Co platí?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "782ea230",
     "name": "Proč je výhodné vytvářet digitální podpis přímo na čipové kartě?",
     "answers": [
       {
@@ -205,6 +212,7 @@
     ]
   },
   {
+    "id": "1979bcec",
     "name": "Pouzdro platebního terminálu má (a) pečeť, která se při otevření viditelně poruší, (b) spínač, který otevření automaticky zaznamená, (c) obvod, který při otevření smaže klíče. Která přiřazení jsou správná?",
     "answers": [
       {
@@ -235,6 +243,7 @@
     ]
   },
   {
+    "id": "1a0eeabc",
     "name": "Útočníky lze dělit podle znalostí, vybavení a financí (klasifikace IBM). Která přiřazení jsou správná?",
     "answers": [
       {
@@ -260,6 +269,7 @@
     ]
   },
   {
+    "id": "f9619be7",
     "name": "Které útoky na čipové karty jsou zařazeny správně?",
     "answers": [
       {
@@ -290,6 +300,7 @@
     ]
   },
   {
+    "id": "a1780515",
     "name": "Na čem je založena časová analýza čipové karty a jak se proti ní bránit?",
     "answers": [
       {
@@ -320,6 +331,7 @@
     ]
   },
   {
+    "id": "9c32ad0",
     "name": "Karta ověřuje PIN a udržuje čítač zbývajících pokusů. Útočník sleduje spotřebu proudu, a jakmile pozná chybný PIN, přeruší napájení dřív, než se čítač zapíše. Která implementace tomuto útoku (SPA) odolá?",
     "answers": [
       {
@@ -345,6 +357,7 @@
     ]
   },
   {
+    "id": "6b0e4585",
     "name": "Která tvrzení o indukci chyb a o útocích přes aplikační rozhraní (API) karty platí?",
     "answers": [
       {
@@ -375,6 +388,7 @@
     ]
   },
   {
+    "id": "666ff020",
     "name": "Banka dává klientům autentizační kalkulátor. Které vlastnosti mají kalkulátory s výzvou-odpovědí a tokeny založené na hodinách?",
     "answers": [
       {
@@ -405,6 +419,7 @@
     ]
   },
   {
+    "id": "85cc9411",
     "name": "Čím se FIDO token (U2F, WebAuthn) liší od tokenu, z jehož displeje uživatel opisuje jednorázový kód?",
     "answers": [
       {
@@ -435,6 +450,7 @@
     ]
   },
   {
+    "id": "44589493",
     "name": "Navrhněte ochranu čipové karty, která podepisuje platby, a jejího platebního terminálu proti útočníkovi třídy 2 podle IBM (zasvěcený insider se specializovanými znalostmi). Ke každému opatření uveďte, proti jakému útoku chrání: umístění klíče, odolnost terminálu vůči narušení, správa PINu a čítače pokusů, ochrana proti časové a výkonové analýze, indukci chyb a útokům přes API.",
     "answer": "<B>Výchozí bod:</B> útočník třídy 2 má značné specializované vzdělání a zkušenosti; žádné řešení není neprolomitelné, cílem je zvýšit cenu útoku.<BR><B>Klíč na kartě:</B> podpis se vytváří přímo na kartě, soukromý klíč kartu neopouští; asymetrické operace provádí koprocesor.<BR><B>Terminál:</B> odolnost vůči narušení ve třech úrovních – zjistitelnost (pečeti, stopy po otevření), detekce (automatické zjištění pokusu, např. spínače) a odpověď (automatické smazání klíčů). Invazivní útoky (preparace čipu, mikrosondy) tak zanechají viditelné stopy a zdraží se.<BR><B>PIN a čítač:</B> PIN v samostatném EF s přístupovými právy; omezený počet pokusů a pak blokace; odblokování jen odblokovacím PINem (PUK), jehož pokusy jsou také omezeny; změna PINu vyžaduje starý i nový PIN. Ověření v pořadí „sniž čítač – ověř – [zvyš čítač]“, aby útočník nemohl po rozpoznání chybného PINu (SPA) přerušit napájení před zápisem čítače.<BR><B>Časová analýza:</B> délka výpočtu nezávislá na vstupu a tajných datech, i za cenu ztráty optimalizací (CRT u RSA); ověřit, že obrana neotevírá jiný typ útoku.<BR><B>Výkonová analýza:</B> operace s tajnými daty nemají mít rozpoznatelné rozdíly ve spotřebě (odvozeno: vyrovnaný průběh operací).<BR><B>Indukce chyb:</B> hlídat napájecí napětí, hodinový a reset signál, teplotu a elektrické pole a při anomálii operaci přerušit; kritické kontroly (PIN, přístupová práva) zdvojit (odvozeno).<BR><B>API:</B> co nejmenší a prověřené rozhraní – chyby v rozsáhlém, maximálně optimalizovaném API mohou umožnit neautorizovaný přístup k datům.",
     "keyPoints": [
@@ -448,6 +464,7 @@
     "source": "Přednáška 3, slide 18, 21, 24–27, 30, 32–35; konkrétní obrany proti výkonové analýze a indukci chyb (vyrovnaná spotřeba, hlídání podmínek, zdvojené kontroly) jsou odvozené"
   },
   {
+    "id": "d9c6e752",
     "name": "Banka vybírá prostředek pro autorizaci internetových plateb: kartu s magnetickým proužkem, autentizační kalkulátor s výzvou-odpovědí, do kterého klient opisuje údaje platby, token založený na hodinách, nebo FIDO token. Porovnejte varianty z hlediska bezpečnosti, odolnosti proti kopírování a použitelnosti a doporučte řešení.",
     "answer": "<B>Magnetický proužek:</B> poměrně snadno se kopíruje (falešné čtečky a bankomaty), hologramy se těžko kontrolují, podvody s PINy jsou běžné – pro autorizaci plateb nevhodný.<BR><B>Kalkulátor s výzvou-odpovědí:</B> odpověď je funkcí tajného klíče a výzvy, takže odposlechnutá odpověď útočníkovi moc nedá. Zadá-li klient do kalkulátoru částku a účet příjemce, kód autentizuje i data transakce – podvržená platba by měla jiný kód (odvozeno). Slabinou je použitelnost: nutnost přepisovat řadu údajů (odstrašující případ z ČR); přívětivější je autentizace biometrikou a snímání flicker kódu z obrazovky.<BR><B>Token s hodinami:</B> hodnota je jedinečná pro přístroj a platná jen v časovém rámci, server ji umí spočítat; je nutné řešit ztrátu synchronizace (offset na serveru). Kód není vázán na konkrétní platbu (odvozeno).<BR><B>FIDO:</B> standardní asymetrická kryptografie, dedikované klíče pro aplikace, svázání klíčů s URL a kanálem TLS, podpora prohlížečů (WebAuthn), zařízením může být i telefon; perspektivní, ale se složitostí přicházejí obvyklé problémy.<BR><B>Obecně:</B> ztráta tokenu se rychle zjistí a token se těžko kopíruje, ale bez něj není uživatel rozeznán, může se porouchat a ke kontrole bývá třeba čtečka; levná výroba v sérii nesmí snížit cenu padělání. Token je vhodné kombinovat s PINem (dva faktory).<BR><B>Doporučení (odvozené):</B> pro autorizaci plateb zařízení, které do odpovědi zahrne údaje transakce, s co nejmenším přepisováním (flicker kód); pro přihlášení FIDO; magnetický proužek ne.",
     "keyPoints": [

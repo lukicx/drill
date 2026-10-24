@@ -1,5 +1,6 @@
 [
   {
+    "id": "18e66170",
     "name": "Biometrický systém na letišti porovná obličej cestujícího s fotografií v jeho pasu; policejní systém hledá obličej zachycený kamerou v databázi hledaných osob. Která tvrzení platí?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "62812101",
     "name": "Systém hlásí, že aktuální otisk prstu se s registračním vzorkem shoduje bit po bitu na 100 %. Jak to vyhodnotit?",
     "answers": [
       {
@@ -55,6 +57,7 @@
     ]
   },
   {
+    "id": "444b8833",
     "name": "Systém porovnává skóre shody s prahem: skóre nad prahem je přijato. Správce práh zvýší (systém přijme jen bližší shodu). Co se stane?",
     "answers": [
       {
@@ -85,6 +88,7 @@
     ]
   },
   {
+    "id": "2ec5a422",
     "name": "Které případy jsou správně přiřazeny k typu chyby biometrického systému?",
     "answers": [
       {
@@ -115,6 +119,7 @@
     ]
   },
   {
+    "id": "6570cbe8",
     "name": "Dva výrobci uvádějí pro své snímače otisků FAR 0,1 % a 0,01 %. Proč z toho nelze přímo usoudit, že druhý snímač je lepší?",
     "answers": [
       {
@@ -140,6 +145,7 @@
     ]
   },
   {
+    "id": "1a8ce7c6",
     "name": "Biometriky jsou automatizované metody ověření identity na základě měřitelných fyziologických nebo behaviorálních vlastností člověka. Jak se jednotlivé charakteristiky zařazují?",
     "answers": [
       {
@@ -170,6 +176,7 @@
     ]
   },
   {
+    "id": "1227a7f8",
     "name": "Pro které použití se hodí které biometrické technologie?",
     "answers": [
       {
@@ -200,6 +207,7 @@
     ]
   },
   {
+    "id": "ff7bd800",
     "name": "Proč je ověření mluvčího (hlasu) dnes méně spolehlivé, než se dříve předpokládalo?",
     "answers": [
       {
@@ -225,6 +233,7 @@
     ]
   },
   {
+    "id": "bcd109d",
     "name": "Kterými vlastnostmi se komerční (IT) biometrický systém, např. snímač otisků v notebooku, liší od forenzního systému policie?",
     "answers": [
       {
@@ -255,6 +264,7 @@
     ]
   },
   {
+    "id": "39e8cf3a",
     "name": "Výrobce přidává do snímače otisků testování živosti. Co lze očekávat?",
     "answers": [
       {
@@ -285,6 +295,7 @@
     ]
   },
   {
+    "id": "d9535c95",
     "name": "Proč může být nasazení biometrik problematické, i když je samotná technologie přesná?",
     "answers": [
       {
@@ -315,6 +326,7 @@
     ]
   },
   {
+    "id": "ef0f6480",
     "name": "Návrh: soukromý podpisový klíč se nebude ukládat, ale při každém použití se vygeneruje přímo z otisku prstu. Jak jej hodnotit a jakou roli mají biometriky hrát?",
     "answers": [
       {
@@ -345,6 +357,7 @@
     ]
   },
   {
+    "id": "3a1f6c85",
     "name": "Kurýr vás nechá podepsat převzetí zásilky prstem na svém tabletu („biometrický podpis“). Proč je to z bezpečnostního hlediska problematické?",
     "answers": [
       {
@@ -375,6 +388,7 @@
     ]
   },
   {
+    "id": "da9504d4",
     "name": "Navrhněte biometrickou autentizaci pro dvě aplikace: (a) vstup do bankovního trezoru, (b) odemykání osobního telefonu. Pro každou zvolte technologii a nastavení prahu, zdůvodněte volbu pomocí FAR a FRR a uveďte, čím biometriku doplnit.",
     "answer": "<B>Práh a chyby:</B> systém přijme skóre shody nad prahem; rozdělení skóre útočníků a oprávněných uživatelů se překrývají, takže vyšší práh snižuje FAR (nesprávná přijetí) a zvyšuje FRR (nesprávná odmítnutí). Vysoké FAR – použitelné jen pro aplikace s nízkou úrovní bezpečnosti; vysoké FRR – nespokojení uživatelé.<BR><B>(a) Trezor:</B> prioritou je nízké FAR, vyšší FRR je přijatelné (málo trénovaných a motivovaných uživatelů). Vhodná je duhovka – velmi přesná, FAR téměř nulové při FRR kolem 3 %; sítnice je také velmi přesná, ale nepříjemná a s relativně vysokým FRR. Vysoký práh, testování živosti (počítat s dražším a větším snímačem a více odmítnutími), kontrolované prostředí a biometrika jako doplněk ke kartě a PINu.<BR><B>(b) Telefon:</B> prioritou je pohodlí a nízké FRR; otisk prstu má přijatelnou cenu i velikost (FAR kolem 0,1 % při FRR 2–20 %), obličej se výrazně zlepšil, ale je citlivý na osvětlení a změny vzhledu. Nižší práh a záložní PIN či heslo; i výrobci běžných zařízení upozorňují, že biometrika v nich slouží pohodlí, ne ochraně citlivých dat.<BR><B>Obecně:</B> čísla FAR a FRR je nutné posuzovat s detaily testování (snímač, prostředí, nastavení, uživatelé); biometriky nejsou tajné a nikdy nejsou 100% bezchybné, proto je výhodné použít je jako doplňkovou metodu.",
     "keyPoints": [
@@ -387,16 +401,17 @@
     "source": "Přednáška 4, slide 10, 20, 33, 41–43, 49, 54–55, 70; konkrétní volba technologií a prahů pro obě aplikace je odvozená"
   },
   {
-    "name": "Úředník podepisuje dokumenty; soukromý klíč má na čipové kartě, kterou odemyká PINem ve svém počítači. Vysvětlete, kdo ve skutečnosti podpis vytváří a kde jsou slabá místa. Posuďte dva návrhy: (1) nahradit PIN otiskem prstu ověřovaným kartou, (2) klíč neukládat a při každém podpisu jej generovat z otisku prstu.",
-    "answer": "<B>Kdo podepisuje:</B> v teorii platí tajný klíč + dokument = podpis; v realitě nepodepisuje člověk, ale počítač (karta) – v řetězci uživatel – počítač – data stojí podpis na omezeném přístupu k privátnímu klíči.<BR><B>Slabá místa:</B> klíč je blokován PINem a kartou, ale při vytváření podpisu může trojský kůň nebo administrátor získat ke klíči přístup, případně podstrčit k podpisu jiný dokument (odvozeno: uživatel nevidí, co karta skutečně podepisuje). PIN lze odpozorovat. Ověřovatel potřebuje veřejný klíč z důvěryhodného certifikátu.<BR><B>Návrh (1):</B> rozumný směr – biometriky mohou výhodně chránit přístup k tajnému klíči, nejlépe ještě spolu s tajnou informací (otisk + PIN). Je nutné důvěryhodné vstupní zařízení (živost), počítat s FAR a FRR a s tím, že otisk není tajný a jeho podvrh není obtížné vyrobit. Biometrika autentizuje uživatele vůči kartě, ne data; problém trojského koně v počítači tím nezmizí.<BR><B>Návrh (2):</B> víceméně nesmyslný – biometriky nejsou tajné, prostor možných klíčů je omezený, biometrická data nejsou nikdy 100% shodná, není jasné, co bude tajné a kam to uložit, a při prozrazení klíče, nevratné změně otisku nebo změně snímací technologie nelze klíč vyměnit.<BR><B>Závěr:</B> biometrika jako doplněk ke kartě a PINu; její použití samo bezpečnost automaticky nezvyšuje.",
+    "id": "113f33df",
+    "name": "Úředník podepisuje dokumenty; soukromý klíč má na čipové kartě, kterou odemyká PINem ve svém počítači. Vysvětlete, kdo ve skutečnosti podpis vytváří a kde jsou slabá místa. Posuďte dva návrhy: (1) nahradit PIN otiskem prstu ověřovaným kartou, (2) podepisovat na úřadem spravovaném tabletu v důvěryhodné aplikaci, která zobrazí podepisovaný dokument: úředník se na tabletu podepíše rukou a jeho ruční podpis i s částí charakteristik dynamiky psaní se digitálně podepíše jeho privátním klíčem společně s dokumentem.",
+    "answer": "<B>Kdo podepisuje:</B> v teorii platí tajný klíč + dokument = podpis; v realitě nepodepisuje člověk, ale počítač (karta) – v řetězci uživatel – počítač – data stojí podpis na omezeném přístupu k privátnímu klíči.<BR><B>Slabá místa:</B> klíč je blokován PINem a kartou, ale při vytváření podpisu může trojský kůň nebo administrátor získat ke klíči přístup, případně podstrčit k podpisu jiný dokument (odvozeno: uživatel nevidí, co karta skutečně podepisuje). PIN lze odpozorovat. Ověřovatel potřebuje veřejný klíč z důvěryhodného certifikátu.<BR><B>Návrh (1):</B> rozumný směr – biometriky mohou výhodně chránit přístup k tajnému klíči, nejlépe ještě spolu s tajnou informací (otisk + PIN). Je nutné důvěryhodné vstupní zařízení (živost), počítat s FAR a FRR a s tím, že otisk není tajný a jeho podvrh není obtížné vyrobit. Biometrika autentizuje uživatele vůči kartě, ne data; problém trojského koně v počítači tím nezmizí.<BR><B>Návrh (2):</B> první, rozumnější varianta tzv. biometrického podpisu. Přínos: důvěryhodná aplikace zobrazuje podepisovaný dokument, takže úředník vidí, co podepisuje – to pomáhá proti podstrčenému dokumentu, ovšem jen pokud jsou aplikace i tablet opravdu důvěryhodné (odvozeno). Ruční podpis s dynamikou je k dokumentu připojen a chráněn digitálním podpisem, slouží ale jen jako doplňkový důkaz, ne jako spolehlivá autentizace: přesnost dynamiky podpisu je malá (FAR i FRR až několik desítek procent). Rizika: biometrická data jsou citlivá a nejsou tajná a stávají se součástí podepsaných dat (odvozeno: ochrana soukromí); bezpečnost dál stojí na ochraně privátního klíče. Na cizím tabletu, kde úředník neví, co se děje s jeho biometrickými daty a jakým klíčem (a zda vůbec) podpis vznikl, by šlo o druhou, problematickou variantu.<BR><B>Závěr:</B> biometrika jako doplněk ke kartě a PINu; její použití samo bezpečnost automaticky nezvyšuje.",
     "keyPoints": [
       "Podepisuje počítač či karta, ne člověk; podpis stojí na omezeném přístupu ke klíči",
-      "Slabé místo: trojský kůň nebo administrátor při vytváření podpisu",
+      "Slabé místo: trojský kůň nebo administrátor při vytváření podpisu, podstrčený dokument",
       "Návrh 1: biometrika chrání přístup ke klíči, nejlépe spolu s PINem; živost, FAR/FRR, podvrhy",
       "Biometrika autentizuje uživatele, ne data; problém kompromitovaného počítače trvá",
-      "Návrh 2: biometriky nejsou tajné, omezený prostor klíčů, klíč nelze vyměnit",
-      "Biometrika jako doplněk, ne automatické zvýšení bezpečnosti"
+      "Návrh 2: důvěryhodná aplikace ukazuje, co se podepisuje; ruční podpis s dynamikou je jen doplňkový důkaz (malá přesnost)",
+      "Návrh 2: citlivá, netajná biometrická data v podepsaných datech; bezpečnost dál stojí na privátním klíči"
     ],
-    "source": "Přednáška 4, slide 7, 54, 62–68, 70; podstrčení jiného dokumentu k podpisu je odvozené"
+    "source": "Přednáška 4, slide 37, 54, 62–66, 68–70; podstrčení jiného dokumentu, ochrana důvěryhodným zobrazením a dopad na soukromí jsou odvozené"
   }
 ]

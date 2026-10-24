@@ -1,5 +1,6 @@
 [
   {
+    "id": "cf749d1f",
     "name": "Autentizaci entit tajnými informacemi lze obecně (nejen pro lidi) rozdělit do tří skupin. Které příklady jsou zařazeny správně?",
     "answers": [
       {
@@ -30,6 +31,7 @@
     ]
   },
   {
+    "id": "78094977",
     "name": "Banka navrhuje autentizaci klientů tajnou informací. Které z návrhů porušují požadavky na bezpečnou autentizaci tajnou informací?",
     "answers": [
       {
@@ -60,6 +62,7 @@
     ]
   },
   {
+    "id": "9470c61",
     "name": "Porovnejte dvě varianty přihlášení po síti: (a) klient pošle místo hesla jeho haš, (b) protokol výzva-odpověď. Která tvrzení platí?",
     "answers": [
       {
@@ -90,6 +93,7 @@
     ]
   },
   {
+    "id": "c68e5b63",
     "name": "Hesla se dělí na skupinová, unikátní, neunikátní a jednorázová. Která tvrzení o nich jsou správná?",
     "answers": [
       {
@@ -120,6 +124,7 @@
     ]
   },
   {
+    "id": "a6ca6159",
     "name": "Útočník získal kopii tabulky hesel ze serveru. Co platí podle toho, jak byla hesla uložena?",
     "answers": [
       {
@@ -150,6 +155,7 @@
     ]
   },
   {
+    "id": "e993e169",
     "name": "Proč se pro hašování hesel volí záměrně pomalá funkce a k čemu slouží pepř?",
     "answers": [
       {
@@ -180,6 +186,7 @@
     ]
   },
   {
+    "id": "9405fb0b",
     "name": "O jaký druh útoku na hesla jde v jednotlivých scénářích?",
     "answers": [
       {
@@ -210,6 +217,7 @@
     ]
   },
   {
+    "id": "fac1a279",
     "name": "Úspěšnost útoku hrubou silou na heslo lze odhadnout modelem \\[P \\approx \\frac{T \\cdot G}{A^{L}},\\]kde \\(T\\) je doba platnosti hesla, \\(G\\) počet odhadů za jednotku času, \\(A\\) velikost abecedy a \\(L\\) délka hesla. Která tvrzení z modelu plynou?",
     "answers": [
       {
@@ -235,6 +243,7 @@
     ]
   },
   {
+    "id": "46d1f155",
     "name": "Experiment J. Yana a kol. porovnával skupiny studentů: bez školení, s pravidlem „alespoň 8 znaků a jeden nealfabetický znak“, s náhodně generovaným heslem a s heslem odvozeným z delší fráze. Které závěry z něj plynou pro politiku hesel?",
     "answers": [
       {
@@ -260,6 +269,7 @@
     ]
   },
   {
+    "id": "e99c60d4",
     "name": "Firma vynucuje změnu hesla každých 30 dní. Co lze očekávat a co je lepší investicí?",
     "answers": [
       {
@@ -290,6 +300,7 @@
     ]
   },
   {
+    "id": "ef75591c",
     "name": "Uživatel chce hesla ukládat ve vzdáleném (cloudovém) správci hesel. Jaké bezpečnostní požadavky má takový správce splňovat?",
     "answers": [
       {
@@ -320,6 +331,7 @@
     ]
   },
   {
+    "id": "96b8e4eb",
     "name": "Aplikace potřebuje šifrovací klíč, který odvodí z hesla uživatele funkcí jako PBKDF2. Která tvrzení platí?",
     "answers": [
       {
@@ -350,6 +362,7 @@
     ]
   },
   {
+    "id": "aa9d986f",
     "name": "Jak fungují mechanismy jednorázových hesel (OTP)?",
     "answers": [
       {
@@ -380,6 +393,7 @@
     ]
   },
   {
+    "id": "25ca0ff7",
     "name": "Proč se u platebních karet používá krátký čtyřmístný PIN, přestože by se dal snadno uhodnout hrubou silou?",
     "answers": [
       {
@@ -393,7 +407,7 @@
         "comment": "Slide 50: zabavení karty při několika (3) nesprávných PINech, re-aktivace záložním PINem."
       },
       {
-        "body": "Při náhodném PINu z rozsahu 1000–9999 a třech pokusech je šance na uhodnutí asi 1 : 3000.",
+        "body": "Při náhodném PINu z rozsahu 1000–9999 a třech pokusech je šance na uhodnutí asi 1/3000.",
         "right": true,
         "comment": "Slide 57: dobrý systém by měl mít 1/3000 – 9000 možných PINů a 3 pokusy dávají 3/9000."
       },
@@ -410,6 +424,7 @@
     ]
   },
   {
+    "id": "721bc917",
     "name": "Které z uvedených vlastností jsou nevýhodami hesel (tajných informací)?",
     "answers": [
       {
@@ -440,6 +455,7 @@
     ]
   },
   {
+    "id": "4624a2c2",
     "name": "Služba umožňuje obnovu zapomenutého hesla zodpovězením bezpečnostních otázek zadaných při registraci. Jaké problémy tato metoda má?",
     "answers": [
       {
@@ -458,9 +474,9 @@
         "comment": "Slide 49: osobní odpovědi mají naopak malou entropii a jsou uhodnutelné (srov. slide 5: ne jméno psa, datum narození…)."
       },
       {
-        "body": "Odpověď lze snadno resetovat e-mailem, proto se otázky používají jako druhý faktor.",
+        "body": "Odpověď na bezpečnostní otázku je druhý faktor, nezávislý na hesle.",
         "right": false,
-        "comment": "Slide 22, 49: bezpečnostní otázky jsou mechanismus obnovy, ne druhý faktor – jsou to další „něco, co známe“; reset e-mailem jen přesouvá bezpečnost na záložní systém, který bývá chráněn slaběji (odvozeno)."
+        "comment": "Slide 2, 49: odpověď je stejně jako heslo „něco, co známe“, jde tedy o týž faktor; navíc slouží k obnově přístupu, kde bývá autentizace slabší než u cílového systému (slide 22)."
       },
       {
         "body": "Otázky jsou bezpečné. Ověřují se principem výzva-odpověď jako kryptografické protokoly.",
@@ -470,18 +486,21 @@
     ]
   },
   {
-    "name": "Online službě unikla tabulka hesel všech uživatelů. Porovnejte riziko pro uživatele ve čtyřech variantách uložení: (a) hesla v otevřeném tvaru, (b) šifrovaná hesla, jejichž klíč je na stejném serveru, (c) rychlé hašování bez soli, (d) pomalé hašování se solí, případně s pepřem. Co musí útočník v každé variantě udělat a jak riziko ovlivňuje volba hesla uživatelem?",
-    "answer": "<B>(a) Otevřený tvar:</B> útočník má všechna hesla okamžitě a může je zkusit i u jiných služeb (heslo konkrétního uživatele z jednoho systému pro jiný). Proto „raději NE“.<BR><B>(b) Šifrovaná hesla:</B> ochrana souboru se změnila na ochranu klíče, který musí být autentizačnímu systému přístupný (disk, paměť); při průniku na server jej útočník pravděpodobně získá také a dešifruje vše – „moc jsme si nepomohli“.<BR><B>(c) Rychlý haš bez soli:</B> díky jednosměrnosti útočník heslo nezíská přímo, musí hádat offline (slovník, permutace, údaje o uživateli, hrubá síla, rainbow tables, paralelizace). Rychlá funkce dovolí obrovské množství pokusů – např. u NTLM padne osmiznakové heslo z malých písmen řádově za dny. Stejná hesla mají stejné haše, takže jedno uhodnutí odhalí všechny uživatele se stejným heslem a předpočítané tabulky platí pro celou tabulku (odvozeno).<BR><B>(d) Pomalý haš se solí:</B> každý pokus je drahý. Sůl je uložena v tabulce, útočník ji tedy zná, ale musí hádat každý účet zvlášť a stejná hesla mají různé haše (předpočítané tabulky ztrácejí smysl – odvozeno). Pepř (tajnou sůl) útočník bez dalšího průniku nezná, což útok dále zpomalí; memory-hard funkce ztěžují útok na dedikovaném HW.<BR><B>Vliv uživatele:</B> žádný způsob uložení nezachrání slabé nebo slovníkové heslo – uhodne se i ve variantě (d). Odolnost určuje velikost abecedy a délka hesla (\\(A^{L}\\) ve jmenovateli odhadu úspěšnosti). Pomáhají hesla z frází, blacklist při volbě hesla a jiné heslo pro každou službu; po úniku je třeba hesla změnit.",
+    "id": "f993269e",
+    "name": "Služba ukládala hesla rychlým hašem bez soli (NTLM) a její databáze unikla. Útočníkovi na běžném počítači trvá prohledat hrubou silou všechna hesla dané délky a abecedy: 8 malých písmen (abeceda 26 znaků) 3,26 dne; 8 znaků z 62 (a–z, A–Z, číslice) 9,6 roku; 10 znaků z 62 asi 42 000 let. Uživatelé: Anna má heslo „kocicka1“, Boris náhodné heslo z 8 malých písmen, Cyril náhodné heslo z 10 znaků z 62. (a) Odhadněte, čí heslo útočník zjistí, jakým útokem a jak rychle. (b) Navrhněte nové uložení hesel (funkce, sůl, pepř) a vysvětlete, co každé opatření útočníkovi zkomplikuje; spočítejte, jak dlouho by trvalo prohledat Borisův prostor hesel, kdyby nová funkce byla \\(10\\,000\\)krát pomalejší. (c) Co mají uživatelé po úniku udělat?",
+    "answer": "<B>(a) Anna:</B> „kocicka1“ je slovo s připojenou číslicí – padne slovníkovým nebo permutačním útokem (slova s několika číslicemi a typickými náhradami) prakticky okamžitě; doba hrubé síly pro ni nehraje roli. <B>Boris:</B> prostor \\(26^{8}\\) hesel útočník prohledá nejvýše za 3,26 dne – heslo padne. <B>Cyril:</B> \\(62^{10}\\) hesel by trvalo asi 42 000 let – hrubou silou na běžném počítači heslo nezjistí (pokud jej nezná odjinud). Protože chybí sůl, mají stejná hesla stejné haše: kdo má stejné heslo jako Anna, padne současně s ní, a útočník může pro celou databázi použít předpočítané tabulky (rainbow tables) (odvozeno).<BR><B>(b) Nové uložení:</B> ne šifrování – klíč by musel být autentizačnímu systému přístupný a s ním by útočník získal všechna hesla. Místo toho haš: <B>pomalá funkce</B> (mnoho iterací jako PBKDF2, případně memory-hard funkce jako Argon2) – jedno přihlášení nezdrží, ale každý pokus útočníka je dražší. Při 10 000× pomalejší funkci:\\[3{,}26\\ \\text{dne} \\cdot 10\\,000 = 32\\,600\\ \\text{dní} \\approx 89\\ \\text{let}\\]pro Borisův prostor hesel. <B>Sůl</B> (náhodná, uložená v tabulce jako userid, sůl, f(sůl, heslo)): stejná hesla mají různé haše, útočník musí hádat každý účet zvlášť a předpočítané tabulky ztrácejí smysl (odvozeno). <B>Pepř</B> (tajná sůl, která v uniklé tabulce není): útočník ji nezná, což útok dále zpomalí. <B>Blacklist</B> při volbě hesla by heslo typu „kocicka1“ vůbec nepřijal – pomalá funkce sama slabé heslo nezachrání.<BR><B>(c) Uživatelé:</B> změnit heslo v této službě i všude, kde použili stejné heslo (útočník zkouší heslo konkrétního uživatele i v jiných systémech); ověřit, zda je heslo mezi uniklými (např. haveibeenpwned); dál používat pro každou službu jiné heslo, např. ve správci hesel.",
     "keyPoints": [
-      "Otevřený tvar: okamžitý únik všech hesel, riziko i pro jiné služby",
-      "Šifrování: útočník získá i klíč dostupný systému a dešifruje vše",
-      "Rychlý haš bez soli: offline hádání ve velkém, stejná hesla = stejné haše",
-      "Pomalý haš se solí: drahý pokus, každý účet zvlášť; pepř útok dál zpomalí",
-      "Slabé heslo padne v každé variantě; pomáhá délka, fráze, blacklist, jiné heslo pro každou službu"
+      "Anna: slovo s číslicí padne slovníkovým či permutačním útokem prakticky okamžitě",
+      "Boris: 8 malých písmen nejvýše 3,26 dne; Cyril: 10 znaků z 62 asi 42 000 let",
+      "Bez soli mají stejná hesla stejné haše a lze použít předpočítané tabulky",
+      "Pomalá (příp. memory-hard) funkce: 10 000× pomalejší → Borisův prostor asi 89 let",
+      "Sůl v tabulce: každý účet zvlášť; pepř útočník nezná; blacklist odmítne slabá hesla",
+      "Po úniku změnit heslo i ve všech službách se stejným heslem"
     ],
-    "source": "Přednáška 2, slide 11–13, 20–21, 23–24, 37–39, 44; dopad soli na předpočítané tabulky a na stejná hesla napříč účty je odvozený"
+    "source": "Přednáška 2, slide 12–13, 20–21, 24, 34, 37, 39, 44; časy hrubé síly jsou ze slide 24 (NTLM, běžný počítač); výpočet pro 10 000× pomalejší funkci a dopad soli na předpočítané tabulky jsou odvozené"
   },
   {
+    "id": "e1591860",
     "name": "Útočník chce získat přístup k e-mailovému účtu konkrétní manažerky. Popište alespoň čtyři různé cesty, kudy může heslo získat nebo ověření obejít (kde útok probíhá a proč bývá úspěšný), a ke každé navrhněte obranu. Jak lze zneužití účtu odhalit?",
     "answer": "<B>Cílené online hádání</B> na přihlašovací stránce s využitím údajů o oběti (jména, data, instituce). Obrana: omezení počtu pokusů za jednotku času, heslo z delší fráze, blacklist slabých hesel.<BR><B>Únik databáze hesel</B> – ze serveru, zálohy, staré kopie, paměti či záznamů – a následný offline útok; případně stejné heslo použité v jiné, napadené službě. Obrana: pomalý haš se solí na straně služby; u uživatelky jiné heslo pro každou službu, ideálně správce hesel.<BR><B>Krádež hesla</B> – odpozorování při zadávání, malware, sociální inženýrství, kamery, odposlech přenosu. Obrana: neposílat heslo v čisté podobě (protokol výzva-odpověď), jednorázová hesla, ochrana klientského zařízení.<BR><B>Zneužití obnovy hesla</B> – záložní systémy (záložní e-mail, bezpečnostní otázky s malou entropií) bývají chráněny slaběji než cílový účet. Obrana: obnova přes dříve evidované zařízení, žádné snadno uhodnutelné otázky.<BR><B>Neoddělený druhý kanál</B> – SMS s jednorázovým heslem de facto oddělený kanál není. Obrana: generátor jednorázových hesel (HOTP/TOTP) nebo jiný token.<BR><B>Detekce:</B> informace o posledním přístupu zobrazená po přihlášení, nesmazatelné záznamy o přístupech a kontrola, zda se heslo neobjevilo v uniklých databázích (např. haveibeenpwned).",
     "keyPoints": [
