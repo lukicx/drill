@@ -175,14 +175,14 @@
     ]
   },
   {
-    "id": "1eaa1ac",
-    "name": "V pondělí v 10:00 manažer KB vyhodnotí detekovaný incident jako významný; unikly při něm i osobní údaje zákazníků. Lhůty počítejte od tohoto okamžiku. Co platí podle lhůt NIS2 čl. 23 (transponováno do ZoKB) a GDPR čl. 33?",
+    "id": "1f2d71a9",
+    "name": "Ve vnitřním předpisu podniku stojí jen věta „incidenty se hlásí podle zákona“. V sobotu v noci monitoring zachytí útok, který může být významný, a při kterém možná unikly osobní údaje zákazníků. Manažer KB je na dovolené a nikdo neví, kdo o hlášení rozhoduje ani na koho se obrátit. Co z toho plyne?",
     "answers": [
-      { "body": "Včasné varování je třeba podat nejpozději v úterý v 10:00.", "right": true, "comment": "Přednáška 4, slide 23: včasné varování do 24 h – pondělí 10:00 + 24 h = úterý 10:00." },
-      { "body": "Porušení zabezpečení osobních údajů se ÚOOÚ oznámí nejpozději ve čtvrtek v 10:00.", "right": true, "comment": "Přednáška 4, slide 23: GDPR čl. 33 – 72 h; pondělí 10:00 + 72 h = čtvrtek 10:00." },
-      { "body": "Závěrečnou zprávu je třeba podat do čtvrtka 10:00, tedy do 72 hodin.", "right": false, "comment": "Přednáška 4, slide 23: za 72 h se podává oznámení incidentu; závěrečná zpráva má lhůtu 1 měsíc." },
-      { "body": "Oznámení ÚOOÚ odpadá – incident se už hlásí podle ZoKB.", "right": false, "comment": "Přednáška 4, slide 23: jde o souběh povinností; hlášení podle GDPR se podává vedle hlášení podle ZoKB." },
-      { "body": "Včasné varování stačí podat spolu s oznámením incidentu ve čtvrtek v 10:00.", "right": false, "comment": "Přednáška 4, slide 23: včasné varování (24 h) předchází oznámení incidentu (72 h)." }
+      { "body": "Řízení mělo předem určit, kdo incident vyhodnocuje a kdo rozhoduje o hlášení, a to i se zástupcem.", "right": true, "comment": "Přednáška 4, slide 23: řízení musí předem určit, kdo vyhodnocuje a kdo rozhoduje o hlášení, a zajistit zastupitelnost kontaktů." },
+      { "body": "V ilustrativní matici RACI za rozhodnutí o hlášení incidentu odpovídá (A) manažer KB, vedení je jen informováno (I).", "right": true, "comment": "Přednáška 4, slide 37: u činnosti „Rozhodnutí o hlášení incidentu“ je manažer KB v roli A, vedení I a IT provoz C; odpovědnost je tedy zjistitelná předem." },
+      { "body": "Kromě hlášení podle ZoKB je třeba posoudit i oznámení ÚOOÚ podle GDPR, pokud unikly osobní údaje.", "right": true, "comment": "Přednáška 4, slide 23: souběh povinností – vedle NIS2 také GDPR čl. 33 (72 h ÚOOÚ), případně DORA, sektorové předpisy a smluvní povinnosti." },
+      { "body": "Rozhodnutí o hlášení musí vždy schválit IT provoz, tedy role, která incident technicky řeší.", "right": false, "comment": "Přednáška 4, slide 37: IT provoz je u rozhodnutí o hlášení jen konzultován (C); rozhoduje role určená řízením KB." },
+      { "body": "Kontakty na NÚKIB a CSIRT i zástupce pro rozhodnutí stačí zjistit až při podání hlášení, předem se určovat nemusí.", "right": false, "comment": "Přednáška 4, slide 23: kontakty na NÚKIB / CSIRT a jejich zastupitelnost se mají určit předem, protože lhůta 24 h na včasné varování běží." }
     ]
   },
   {
@@ -284,14 +284,14 @@
     ]
   },
   {
-    "id": "7567b3ff",
-    "name": "Riziko „nedostupnost sítě“ má pravděpodobnost \\(P = 3\\) a dopad \\(D = 4\\) (obojí na škále 1–4), úroveň rizika je \\(R = P \\times D\\). Rozhodovací hranice: \\(R\\) 1–3 akceptovat, 4–7 posoudit, 8–16 řešit. Záložní trasa sníží pravděpodobnost na \\(P = 1\\), dopad zůstane \\(D = 4\\). Co platí?",
+    "id": "66604ec8",
+    "name": "Po zavedení záložního režimu zůstává u rizika „výpadek dodavatele cloudu“ zbytkové riziko, které organizace nechce dále snižovat. Analytik navrhuje, aby se riziko „akceptovalo tím, že se nechá být“. Jak se má zbytkové riziko správně akceptovat?",
     "answers": [
-      { "body": "Před zavedením opatření je \\(R = 12\\) a riziko spadá do pásma „řešit“.", "right": true, "comment": "Přednáška 2, slide 28: \\(3 \\times 4 = 12\\), pásmo 8–16 = řešit; Přednáška 6, slide 6: úroveň = F(pravděpodobnost) × F´(dopad)." },
-      { "body": "Zbytkové riziko je \\(R = 4\\) – patří do pásma „posoudit“, ne do automatické akceptace.", "right": true, "comment": "Přednáška 2, slide 28: \\(1 \\times 4 = 4\\), pásmo 4–7 = posoudit; o akceptaci se musí formálně rozhodnout." },
-      { "body": "Zbytkové riziko je \\(R = 3\\), takže se akceptuje bez dalšího rozhodnutí.", "right": false, "comment": "Přednáška 2, slide 28: dopad zůstává 4, takže \\(R = 1 \\times 4 = 4\\), ne 3; pásmo „posoudit“." },
-      { "body": "O akceptaci zbytkového rizika rozhodne vedoucí IT provozu, který trasu zavedl.", "right": false, "comment": "Přednáška 4, slides 20 a 37: o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení (A/R); IT provoz je informován." },
-      { "body": "Jakmile \\(R\\) klesne pod 8, riziko se z registru rizik vyřadí.", "right": false, "comment": "Přednáška 6, slide 15: rizika nejsou statická a dál se monitorují a přezkoumávají; Přednáška 2, slide 30: akceptace má datum přezkumu." }
+      { "body": "O přijatelnosti zbytkového rizika rozhoduje vedení; analýzu k tomu připravuje manažer KB s garanty aktiv.", "right": true, "comment": "Přednáška 4, slide 20: akceptace je vědomé rozhodnutí vedení, analýzu připravuje manažer KB s garanty aktiv, o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení." },
+      { "body": "Akceptační záznam má obsahovat vlastníka rizika, odůvodnění, zbytkové skóre, podmínky, platnost a datum přezkumu.", "right": true, "comment": "Přednáška 2, slide 30: akceptační záznam – vlastník, odůvodnění, zbytkové skóre, podmínky, platnost, datum přezkumu." },
+      { "body": "Akceptace je formální rozhodnutí oprávněné role, nikoli pouhá nečinnost; riziko, o kterém nikdo nerozhodl, akceptované není.", "right": true, "comment": "Přednáška 2, slide 30: akceptace není nečinnost, je to formální rozhodnutí oprávněné role." },
+      { "body": "Stačí riziko zapsat do registru rizik; pokud do konce roku nikdo nic nenamítne, považuje se za akceptované.", "right": false, "comment": "Přednáška 2, slide 30: mlčení ani zápis do registru není akceptace – vyžaduje formální rozhodnutí oprávněné role se záznamem." },
+      { "body": "Akceptace platí trvale, proto se v záznamu neuvádí platnost ani datum přezkumu.", "right": false, "comment": "Přednáška 2, slide 30: záznam obsahuje platnost a datum přezkumu, akceptace se tedy po čase znovu posuzuje." }
     ]
   },
   {
