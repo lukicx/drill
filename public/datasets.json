@@ -153,6 +153,15 @@
     "group": "current"
   },
   {
+    "name": "PV157 - L6 Kontext, poloha a autentizace počítačů (ssh)",
+    "id": "PV157_L06",
+    "dataset": "datasets/questions_PV157_L06.json",
+    "questionCount": 17,
+    "multipleChoiceCount": 15,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PV157 - Midterm mock test (L1–L5)",
     "id": "PV157_mock1",
     "dataset": "datasets/questions_PV157_mock1.json",

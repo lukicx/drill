@@ -1,0 +1,184 @@
+[
+  {
+    "id": "e3c4ba6f",
+    "name": "Přihlášení do firemní aplikace se povolí jen z budovy firmy a po zadání PINu. Které metody autentizace se tu podle přednášky uplatňují?",
+    "answers": [
+      { "body":"Něco, co známe – PIN", "right":true, "comment":"Slide 3: PIN a heslo patří do kategorie „něco, co známe“." },
+      { "body":"Někde, kde jsme – poloha, ze které se uživatel hlásí", "right":true, "comment":"Slide 3: čtvrtá metoda autentizace je „někde, kde jsme“." },
+      { "body":"Něco, co jsme – biometrický znak uživatele", "right":false, "comment":"Slide 3: biometriky jsou „něco, co jsme“; v zadání se žádná nepoužívá." },
+      { "body":"Něco, co máme – čipová karta nebo klíč", "right":false, "comment":"Slide 3: karta či klíč jsou „něco, co máme“; v zadání se žádný předmět nepoužívá." }
+    ]
+  },
+  {
+    "id": "a249852",
+    "name": "Počítač (mobil) dnes vnímá své okolí i uživatele. Co z toho podle přednášky plyne pro řízení bezpečnostní politiky?",
+    "answers": [
+      { "body":"Počítač vnímá okolí pomocí senzorů prostředí, např. obrazu, zvuku, polohy a pohybu.", "right":true, "comment":"Slide 5: senzory prostředí." },
+      { "body":"Počítač umí sledovat uživatele, např. aktivitu orgánů jako mozku nebo srdce.", "right":true, "comment":"Slide 5: počítač dnes umí vnímat uživatele." },
+      { "body":"Nástroje politiky jsou flexibilnější: mantinely dává poskytovatel služby, přesné nastavení provádí uživatel.", "right":true, "comment":"Slide 5: dělba mezi poskytovatelem a uživatelem." },
+      { "body":"Politiku nastavuje poskytovatel služby a uživatel do ní nezasahuje, přesné nastavení mu nepřísluší.", "right":false, "comment":"Slide 5: přesné nastavení je na uživateli." },
+      { "body":"Senzory slouží k ověření přítomnosti uživatele, ale nemohou měnit způsob autentizace.", "right":false, "comment":"Slide 5–6: kontext umožňuje pravděpodobnostní a kontinuální autentizaci." }
+    ]
+  },
+  {
+    "id": "f32ddb5d",
+    "name": "Které vlastnosti má podle přednášky pravděpodobnostní (progresivní) autentizace?",
+    "answers": [
+      { "body":"Je multimodální: kombinuje tajné informace, přítomnost „správných“ objektů, biometriky a chování uživatele (dlouhodobé i okamžité).", "right":true, "comment":"Slide 6: první bod." },
+      { "body":"Probíhá kontinuálně, nejen jednorázově při přihlášení.", "right":true, "comment":"Slide 6: druhý bod." },
+      { "body":"Pracuje s víceúrovňovou bezpečností, nejen s rozhodnutím ano/ne.", "right":true, "comment":"Slide 6: čtvrtý bod." },
+      { "body":"Vyhodnocuje se jednorázově při přihlášení a jejím výsledkem je ano nebo ne.", "right":false, "comment":"Slide 6: je kontinuální a víceúrovňová." },
+      { "body":"Funguje na jednom zařízení, které uživatel právě používá.", "right":false, "comment":"Slide 6: má fungovat napříč více zařízeními." }
+    ]
+  },
+  {
+    "id": "3fe5b8ba",
+    "name": "Která myšlenka odpovídá akademické práci „Sound-Proof: Usable Two-Factor Authentication Based on Ambient Sound“ uvedené v přednášce?",
+    "answers": [
+      { "body":"Druhý faktor autentizace se opírá o okolní zvuk, který porovnávají zařízení uživatele.", "right":true, "comment":"Slide 7: název práce (ETH Zürich, USENIX Security 2015)." },
+      { "body":"Druhým faktorem je biometrické ověření hlasu uživatele zaznamenaného mikrofonem.", "right":false, "comment":"Slide 7: práce používá okolní zvuk, ne hlas uživatele." },
+      { "body":"Cílem je zřídit zabezpečený kanál mezi bezdrátovými zařízeními bez předchozí znalosti.", "right":false, "comment":"Slide 7: to je téma práce vBox." },
+      { "body":"Cílem je rozhodovat, kdy se uživatel na mobilním telefonu musí autentizovat.", "right":false, "comment":"Slide 7: to je téma práce Progressive Authentication." }
+    ]
+  },
+  {
+    "id": "754e59b5",
+    "name": "Které výzvy nových kontextových technologií autentizace přednáška uvádí?",
+    "answers": [
+      { "body":"Průkaznost jevů a charakteristik bude pravděpodobnostní, často i s pravděpodobností nižší než 95 %.", "right":true, "comment":"Slide 8: první bod." },
+      { "body":"Roste význam ochrany osobních údajů: nositelé senzorů, uzly pozorovaných subjektů a větší role kontextových informací.", "right":true, "comment":"Slide 8: druhý bod." },
+      { "body":"Senzory budou stále častěji součástí osob a budou se zmenšovat (centi → mili → nano).", "right":true, "comment":"Slide 8: třetí bod." },
+      { "body":"Průkaznost bude prakticky jistá, protože více senzorů dá pravděpodobnost nad 99 % a záložní postup není třeba.", "right":false, "comment":"Slide 8: průkaznost bude pravděpodobnostní, i pod 95 %." },
+      { "body":"Ochrana osobních údajů ztrácí význam, data ze senzorů jsou anonymní a nelze je přiřadit osobám.", "right":false, "comment":"Slide 8: význam ochrany osobních údajů roste." }
+    ]
+  },
+  {
+    "id": "2891aa1c",
+    "name": "Systém má autentizovat zařízení v rozsáhlé síti senzorů a mobilních uzlů. Které potíže uvádí přednáška?",
+    "answers": [
+      { "body":"Chování sítě může být v různých částech různé, proměnné v čase a obtížně předvídatelné; entita může „spát“ a za okamžik pracovat.", "right":true, "comment":"Slide 9: zdánlivě triviální výzvy." },
+      { "body":"Identita bývá nejasná a skutečný zdroj informace nebo spouštěč akce je obtížně určitelný.", "right":true, "comment":"Slide 10: netriviální výzvy." },
+      { "body":"Chování sítě je ve všech částech stejné a v čase stabilní, takže se snadno předvídá.", "right":false, "comment":"Slide 9: je různé, proměnné a obtížně předvídatelné." },
+      { "body":"Rozlišit „dobré“ a „zlé“ entity je snadné, obtížné je rozlišení až u vlastníků zařízení.", "right":false, "comment":"Slide 10: rozlišení je obtížné i pro jejich majitele." }
+    ]
+  },
+  {
+    "id": "a2794aef",
+    "name": "Které přiřazení způsobu určení polohy zařízení do kategorie podle přednášky je správné?",
+    "answers": [
+      { "body":"Poloha z GPS přijímače – absolutní", "right":true, "comment":"Slide 11: absolutní – GPS." },
+      { "body":"Zařízení je v blízkosti jiného zařízení uživatele – relativní-fyzická", "right":true, "comment":"Slide 11: relativní-fyzická je blízkost jinému zařízení." },
+      { "body":"Zařízení je rozpoznáno přes síťové prvky a jejich identifikátory – relativní-síťová", "right":true, "comment":"Slide 11: relativní-síťová." },
+      { "body":"Poloha určená z fotografie okolí nahrané uživatelem – relativní-síťová", "right":false, "comment":"Slide 11: fotografie patří do absolutní polohy bez GPS." },
+      { "body":"Potvrzení akce na druhém zařízení uživatele – absolutní bez GPS", "right":false, "comment":"Slide 11: je to volná logická vazba různé povahy." }
+    ]
+  },
+  {
+    "id": "2cd5886d",
+    "name": "Které tvrzení o autentizaci počítače podle (síťové) adresy je správné?",
+    "answers": [
+      { "body":"MAC adresy nejsou tajné (viz protokol ARP) a MAC adresu síťové karty lze snadno změnit.", "right":true, "comment":"Slide 15–16: slabiny autentizace podle MAC." },
+      { "body":"Při IP spoofingu útočník uvede nesprávnou zdrojovou adresu odesilatele.", "right":true, "comment":"Slide 15: IP spoofing." },
+      { "body":"MAC adresu síťové karty nelze po výrobě změnit, proto je spolehlivým identifikátorem.", "right":false, "comment":"Slide 15–16: lze ji jednoduše změnit (nastavení v systému)." },
+      { "body":"Paketové filtry firewallu rozhodují podle MAC adresy a obsahu aplikačních dat.", "right":false, "comment":"Slide 14: filtry pracují podle IP adresy a čísla portu odesilatele a příjemce." }
+    ]
+  },
+  {
+    "id": "3bcb5533",
+    "name": "Firewall automaticky zablokuje přístup z domény, ze které přišly datagramy útočící na server. Útočník začne posílat datagramy s podvrženou zdrojovou adresou důležitého obchodního partnera. Co z toho plyne?",
+    "answers": [
+      { "body":"Firewall může zablokovat legitimního partnera, jehož adresa byla podvržena, takže útočník způsobí odepření služby.", "right":true, "comment":"Slide 15: upozornění na automatickou reakci na útoky s nesprávnou zdrojovou adresou; důsledek odepření služby je odvozený." },
+      { "body":"Automatická reakce na útoky s nesprávnou zdrojovou adresou je riziková a přednáška na ni zvlášť upozorňuje.", "right":true, "comment":"Slide 15: tři vykřičníky u této věty." },
+      { "body":"Zdrojovou adresu nelze v datagramu podvrhnout, takže bude zablokována skutečná adresa útočníka.", "right":false, "comment":"Slide 15: IP spoofing je možný." },
+      { "body":"Riziko zmizí, pokud firewall filtruje podle MAC adresy, kterou nelze změnit.", "right":false, "comment":"Slide 15–16: i MAC adresu lze jednoduše změnit." }
+    ]
+  },
+  {
+    "id": "75be064d",
+    "name": "Unixový uživatel má v domovském adresáři soubor .rhosts s řádky „queen.math.muni.cz“ a „krusty.math.muni.cz matyas“. Co platí?",
+    "answers": [
+      { "body":"Soubor umožňuje přihlášení (rlogin, rsh, rexec) z uvedených strojů bez zadání hesla; nahrazuje autentizaci heslem.", "right":true, "comment":"Slide 17." },
+      { "body":"Uvedeným strojům se důvěřuje, že správně uvedou uživatelské jméno; útok je možný přes nesprávný login, DNS, routing či IP spoofing.", "right":true, "comment":"Slide 17: důvěra a možné útoky." },
+      { "body":"Soubor .rhosts nastavuje správce globálně pro celý stroj a uživatelé ho ve svém domovském adresáři nemají.", "right":false, "comment":"Slide 17: .rhosts nastavuje uživatel; globální je /etc/hosts.equiv." },
+      { "body":"Přihlášení se ověřuje šifrovaným protokolem s RSA klíčem stroje, takže podvržení adresy ani jména stroje nehrozí.", "right":false, "comment":"Slide 17: je to autentizace podle adresy bez kryptografie; hrozí spoofing." }
+    ]
+  },
+  {
+    "id": "860de834",
+    "name": "Server potřebuje ukládat tajný klíč, kterým se autentizuje. Co platí o uložení v čisté podobě a chráněné heslem?",
+    "answers": [
+      { "body":"Klíč v čisté podobě je počítači snadno dostupný, ale přístup k němu mají i uživatelé s dostatečnými právy (hackeři).", "right":true, "comment":"Slide 18." },
+      { "body":"U klíče chráněného heslem se při startu programu musí heslo ručně zadat; slabé heslo znamená slabou ochranu.", "right":true, "comment":"Slide 18." },
+      { "body":"Klíč chráněný heslem je v paměti po dobu zadání hesla a poté se z ní odstraní, takže jej nelze získat.", "right":false, "comment":"Slide 18: po celou dobu používání jsou tajné informace v paměti." },
+      { "body":"Klíč v čisté podobě je v bezpečí, pokud ho na disk uloží správce systému s oprávněním root.", "right":false, "comment":"Slide 18: přístup mají i uživatelé s dostatečnými právy." }
+    ]
+  },
+  {
+    "id": "470e9679",
+    "name": "Uživatel vytvoří pár klíčů pro ssh příkazem ssh-keygen a chce se bez hesla přihlašovat na server. Které tvrzení je správné?",
+    "answers": [
+      { "body":"Soukromý klíč zůstává uživateli (např. ~/.ssh/id_rsa) a veřejný klíč (soubor .pub) se předává serveru.", "right":true, "comment":"Slide 21, 24." },
+      { "body":"Při generování lze zadat passphrase pro ochranu soukromého klíče a vypíše se otisk (fingerprint) klíče.", "right":true, "comment":"Slide 21: ukázka výpisu ssh-keygen." },
+      { "body":"Na server se do souboru authorized_keys nahrává soukromý klíč uživatele z notebooku.", "right":false, "comment":"Slide 24: authorized_keys obsahuje veřejné klíče." },
+      { "body":"ssh autentizuje klienta heslem uživatele a klíče slouží při spojení k autentizaci serveru.", "right":false, "comment":"Slide 19: klienta lze autentizovat i RSA/DSA/ECDSA klíčem uživatele nebo počítače, Kerberem apod." }
+    ]
+  },
+  {
+    "id": "5caee4d8",
+    "name": "Které kroky navázání spojení ssh odpovídají schématu z přednášky?",
+    "answers": [
+      { "body":"Nejdřív si klient a server vymění identifikaci verze protokolu.", "right":true, "comment":"Slide 20: první výměna." },
+      { "body":"Server pošle veřejný host key (případně server key) a nabízené šifrovací algoritmy.", "right":true, "comment":"Slide 20." },
+      { "body":"Klient pošle klíč relace zašifrovaný (RSA) a algoritmus zvolený pro relaci.", "right":true, "comment":"Slide 20." },
+      { "body":"Autentizace klienta proběhne před výměnou klíče relace na nešifrovaném kanále.", "right":false, "comment":"Slide 20: autentizace klienta následuje po výměně klíče, v šifrovaném kanálu." },
+      { "body":"Klíč relace volí server a posílá jej zašifrovaný veřejným klíčem klienta.", "right":false, "comment":"Slide 20: klíč relace posílá klient zašifrovaný RSA klíčem serveru." }
+    ]
+  },
+  {
+    "id": "15e0b410",
+    "name": "Klient ssh při prvním připojení k serveru ws24 vypíše otisk klíče a zeptá se, zda pokračovat. Po měsíci vypíše „REMOTE HOST IDENTIFICATION HAS CHANGED“. Co platí?",
+    "answers": [
+      { "body":"Soubor known_hosts uchovává veřejné klíče serverů, aby klient ověřil integritu klíče serveru.", "right":true, "comment":"Slide 22." },
+      { "body":"Při prvním připojení klient nemá klíč serveru k ověření, takže otisk musí uživatel potvrdit.", "right":true, "comment":"Slide 23." },
+      { "body":"Varování o změně klíče serveru může znamenat útok man-in-the-middle, ale i legitimní změnu host key.", "right":true, "comment":"Slide 23: text varování." },
+      { "body":"Při změně klíče serveru ssh klíč tiše přepíše v known_hosts a spojení pokračuje.", "right":false, "comment":"Slide 23: při striktní kontrole ověření selže." },
+      { "body":"Otisk při prvním připojení není třeba ověřovat, ssh ho ověří samo přes DNS.", "right":false, "comment":"Slide 23: ověření otisku je na uživateli." }
+    ]
+  },
+  {
+    "id": "e01b4d5a",
+    "name": "Co platí o souboru authorized_keys a programu ssh-agent?",
+    "answers": [
+      { "body":"Soubor authorized_keys na serveru obsahuje veřejné klíče uživatele; je to obdoba .rhosts, ale pro silnou autentizaci.", "right":true, "comment":"Slide 24." },
+      { "body":"ssh-agent uloží klíč do paměti, passphrase se zadává jen jednou a další požadavky na autentizaci řeší agent.", "right":true, "comment":"Slide 24." },
+      { "body":"Soubor authorized_keys obsahuje soukromé klíče uživatelů, které server používá při přihlášení.", "right":false, "comment":"Slide 24: obsahuje veřejné klíče." },
+      { "body":"ssh-agent ukládá passphrase v čistém textu na disk, aby se klíč nemusel dešifrovat.", "right":false, "comment":"Slide 24: agent drží klíč v paměti." }
+    ]
+  },
+  {
+    "id": "e3a85d5c",
+    "name": "Banka navrhuje autentizaci v mobilní aplikaci, která kromě PINu využívá kontext (poloha, okolní zařízení uživatele, způsob používání telefonu). Navrhněte pravděpodobnostní kontinuální autentizaci: které důkazy kombinovat, jak využít více úrovní bezpečnosti a jaká rizika a výzvy je třeba vyřešit.",
+    "answer": "<B>Důkazy (multimodálnost):</B> tajná informace (PIN), přítomnost „správných“ objektů (spárované zařízení uživatele), biometrika, chování uživatele (dlouhodobé návyky i okamžité chování) a poloha – absolutní (GPS), relativní-fyzická (blízkost jiného zařízení uživatele) nebo relativní-síťová (síťové prvky a identifikátory). Poloha a okolní zvuk mohou sloužit i jako druhý faktor (např. přístup Sound-Proof).<BR><B>Kontinuálně a napříč zařízeními:</B> skóre důvěry se průběžně aktualizuje a využívá více zařízení (např. potvrzení akce na druhém zařízení uživatele).<BR><B>Víceúrovňová bezpečnost:</B> místo ano/ne se odvozují úrovně: zůstatek lze zobrazit při nízké důvěře, malou platbu povolit při střední, velký převod vyžaduje vysokou důvěru nebo dodatečný faktor (odvozeno). Mantinely nastavuje banka (poskytovatel služby), doladit je může uživatel.<BR><B>Rizika a výzvy:</B> průkaznost je pravděpodobnostní, často pod 95 %, takže počítat s chybami a mít záložní postup; ochrana osobních údajů (senzory a kontext zachycují pohyb a zvyky uživatele); chování se v čase mění a chybí počáteční data pro naučení; identita zdroje informace bývá nejasná a rozlišit „dobrého“ a „zlého“ je těžké i pro majitele; polohu lze podvrhnout.",
+    "keyPoints": [
+      "Více druhů důkazů: tajemství, objekty, biometrika, chování a poloha",
+      "Kontinuální vyhodnocení a více zařízení, víceúrovňová bezpečnost místo ano/ne",
+      "Poloha: absolutní, relativní-fyzická a relativní-síťová",
+      "Průkaznost je pravděpodobnostní (i pod 95 %), nutný záložní postup",
+      "Ochrana osobních údajů a nejasná identita zdroje jsou hlavní výzvy"
+    ],
+    "source": "PV157 L6, PV157_2026_L06_ContextLocation_Computers_final.pdf, slide 3–11 (PDF pages); konkrétní bankovní úrovně důvěry jsou odvozené"
+  },
+  {
+    "id": "1860b49",
+    "name": "Správce chce, aby se mohl z notebooku přihlašovat na unixový server bez hesla a bezpečněji než pomocí souboru .rhosts. Navrhněte postup s ssh, vysvětlete, jak klient ověří server a jak server klienta, jaká rizika zbývají (první připojení, změna klíče serveru, uložení klíče) a proč je .rhosts slabší.",
+    "answer": "<B>Postup:</B> na notebooku vygeneruje pár klíčů příkazem ssh-keygen (soukromý např. ~/.ssh/id_rsa, veřejný .pub) a soukromý klíč chrání passphrase. Veřejný klíč přidá do souboru ~/.ssh/authorized_keys na serveru. Ssh-agent drží odemčený klíč v paměti, takže passphrase zadá jen jednou.<BR><B>Ověření serveru:</B> server má vlastní klíče; klient je ověřuje podle souboru known_hosts. Při prvním připojení klíč serveru nezná a zobrazí otisk, který musí správce ověřit jinou cestou, jinak hrozí man-in-the-middle (odvozeno). Při změně klíče ssh vypíše varování a při striktní kontrole spojení odmítne – může jít o útok, ale i o legitimní výměnu klíče.<BR><B>Ověření klienta:</B> server zná veřejný klíč v authorized_keys a klient prokáže vlastnictví soukromého klíče; heslo se po síti nepřenáší.<BR><B>Zbývající rizika:</B> klíč v paměti agenta (tajné informace jsou po dobu použití v paměti) a slabá passphrase; klíč v čisté podobě by mohl číst kdokoli s dostatečnými právy.<BR><B>Proč je .rhosts slabší:</B> autentizuje podle adresy a jména stroje; MAC i IP adresu lze změnit či podvrhnout, útok je možný i přes DNS nebo routing a server věří, že stroj správně uvede uživatelské jméno. Ssh s klíči používá kryptografii.",
+    "keyPoints": [
+      "ssh-keygen, veřejný klíč do authorized_keys, soukromý u uživatele a chráněný passphrase",
+      "ssh-agent: passphrase jednou, klíč v paměti",
+      "Server se ověřuje klíčem uloženým v known_hosts; první připojení vyžaduje ověření otisku, změna klíče vyvolá varování",
+      "Klient prokazuje soukromý klíč, heslo se nepřenáší",
+      ".rhosts autentizuje podle adresy; IP/MAC spoofing, DNS a routing útoky"
+    ],
+    "source": "PV157 L6, PV157_2026_L06_ContextLocation_Computers_final.pdf, slide 14–24 (PDF pages); riziko prvního připojení je odvozené"
+  }
+]
