@@ -90,6 +90,15 @@
     "group": "current"
   },
   {
+    "name": "PV017 - L7 Standardy informační bezpečnosti, ISO/IEC 27000, Common Criteria, FIPS 140",
+    "id": "PV017_L07",
+    "dataset": "datasets/questions_PV017_L07.json",
+    "questionCount": 26,
+    "multipleChoiceCount": 24,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PV017 - Midterm mock test (L1–L6)",
     "id": "PV017_mock1",
     "dataset": "datasets/questions_PV017_mock1.json",
