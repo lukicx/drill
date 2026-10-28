@@ -3,43 +3,43 @@
     "id": "f7e0ce51",
     "name": "Skupina výrobců a uživatelů si společně odsouhlasila technickou specifikaci komunikačního protokolu a začala ji používat. Jiný předpis stejné oblasti schválila uznávaná instituce pověřená touto činností. Co platí o těchto dvou typech standardů a o jejich závaznosti?",
     "answers": [
-      { "body":"První je de facto standard – vznikl konsensem komunity, která odsouhlasila, že odpovídá stanoveným cílům.", "right":true, "comment":"Část 1, slide 5: de facto standard je standard vypracovaný v rámci komunity, která předem odsouhlasí jeho soulad s cíli." },
-      { "body":"Druhý je de iure standard – úmluva schválená uznávanou institucí, legislativou nebo rozhodnutím státních orgánů.", "right":true, "comment":"Část 1, slide 5: definice de iure standardu („standard podle práva“)." },
-      { "body":"Právní předpis může stanovit povinné vyhovění standardu; teprve tím se standard stává závazným.", "right":true, "comment":"Část 1, slide 6: žádný standard sám o sobě nemá charakter právního předpisu, předpis ale může vyhovění nařídit." },
+      { "body":"Při střetu obou typů se obvykle dává přednost de facto standardu, který vznikl v praxi, před de iure.", "right":false, "comment":"Část 1, slide 6: obvykle se dává přednost de iure standardům." },
       { "body":"Standard je závazný sám o sobě, jakmile ho publikuje uznávaná instituce, a žádný právní předpis k tomu není třeba.", "right":false, "comment":"Část 1, slide 6: sám o sobě není právním předpisem ani standard uznávané instituce." },
-      { "body":"Při střetu obou typů se obvykle dává přednost de facto standardu, který vznikl v praxi, před de iure.", "right":false, "comment":"Část 1, slide 6: obvykle se dává přednost de iure standardům." }
+      { "body":"Druhý je de iure standard – úmluva schválená uznávanou institucí, legislativou nebo rozhodnutím státních orgánů.", "right":true, "comment":"Část 1, slide 5: definice de iure standardu („standard podle práva“)." },
+      { "body":"První je de facto standard – vznikl konsensem komunity, která odsouhlasila, že odpovídá stanoveným cílům.", "right":true, "comment":"Část 1, slide 5: de facto standard je standard vypracovaný v rámci komunity, která předem odsouhlasí jeho soulad s cíli." },
+      { "body":"Právní předpis může stanovit povinné vyhovění standardu; teprve tím se standard stává závazným.", "right":true, "comment":"Část 1, slide 6: žádný standard sám o sobě nemá charakter právního předpisu, předpis ale může vyhovění nařídit." }
     ]
   },
   {
     "id": "138ea115",
     "name": "Dodavatel cloudové služby tvrdí, že jeho proces vyhovuje standardu, a zákazník žádá důkaz. Co platí o vyhovění standardu a certifikaci?",
     "answers": [
-      { "body":"Certifikaci provádí neutrální důvěryhodná třetí strana, která ověří platnost prohlášení o vyhovění a vydá certifikát.", "right":true, "comment":"Část 1, slide 7: definice certifikace." },
-      { "body":"Vyhovění standardu může předepsat zákon či smlouva, i když se žádný certifikát nevydává.", "right":true, "comment":"Část 1, slide 7: požadavek vyhovění může být předepsaný zákonem, smlouvou apod." },
       { "body":"Standardy definující algoritmus se certifikují snadno, u návodů, jak budovat systém, se certifikace obvykle nepožaduje.", "right":true, "comment":"Část 1, slide 7: návody jsou spíše radou a certifikace se obvykle nepožaduje." },
+      { "body":"Vyhovění standardu může předepsat zákon či smlouva, i když se žádný certifikát nevydává.", "right":true, "comment":"Část 1, slide 7: požadavek vyhovění může být předepsaný zákonem, smlouvou apod." },
+      { "body":"Vyhovění standardu nelze vyžadovat zákonem ani smlouvou, zákazník je může nanejvýš doporučit.", "right":false, "comment":"Část 1, slide 7: požadavek vyhovění může být předepsán zákonem." },
       { "body":"Prohlášení výrobce o vyhovění má stejnou váhu jako certifikát třetí strany, pokud ho podepíše vedení firmy.", "right":false, "comment":"Část 1, slide 7: certifikát potvrzuje nezávislá třetí strana; vlastní prohlášení je jen deklarace." },
-      { "body":"Vyhovění standardu nelze vyžadovat zákonem ani smlouvou, zákazník je může nanejvýš doporučit.", "right":false, "comment":"Část 1, slide 7: požadavek vyhovění může být předepsán zákonem." }
+      { "body":"Certifikaci provádí neutrální důvěryhodná třetí strana, která ověří platnost prohlášení o vyhovění a vydá certifikát.", "right":true, "comment":"Část 1, slide 7: definice certifikace." }
     ]
   },
   {
     "id": "19144c4c",
     "name": "Které tvrzení o standardech vzniklých v praxi a firemních standardech je správné?",
     "answers": [
-      { "body":"O vydání RFC rozhoduje IAB; vývoj a posuzování RFC deleguje na technickou komisi IETF.", "right":true, "comment":"Část 1, slide 9: konečné rozhodnutí o vydání dělá IAB, odpovědnost za vývoj a posuzování delegovala na IETF." },
-      { "body":"OWASP je otevřená komunita, jejíž standardy se týkají vývoje, testování a hodnocení zabezpečení webových aplikací.", "right":true, "comment":"Část 1, slide 9: OWASP uvedený jako příklad oblasti de facto standardů." },
-      { "body":"Silný výrobce, který nahradí nezávislé standardy vlastními proprietárními, může zákazníky vázat na svou funkcionalitu.", "right":true, "comment":"Část 1, slide 10: proprietární standardy jsou nástrojem „udržení trhu“; příkladem je PKCS od RSA Labs." },
       { "body":"O přijetí RFC rozhoduje IETF; IAB manažersky řídí provoz internetu a do vydávání RFC nezasahuje.", "right":false, "comment":"Část 1, slide 9: konečné rozhodnutí o vydání RFC dělá IAB." },
-      { "body":"Proprietární standardy jsou de iure standardy potvrzené státem a zákazníky na výrobce nevážou.", "right":false, "comment":"Část 1, slide 10: jde o kategorii de facto standardů, obvykle standardů patentovaných technik." }
+      { "body":"Silný výrobce, který nahradí nezávislé standardy vlastními proprietárními, může zákazníky vázat na svou funkcionalitu.", "right":true, "comment":"Část 1, slide 10: proprietární standardy jsou nástrojem „udržení trhu“; příkladem je PKCS od RSA Labs." },
+      { "body":"Proprietární standardy jsou de iure standardy potvrzené státem a zákazníky na výrobce nevážou.", "right":false, "comment":"Část 1, slide 10: jde o kategorii de facto standardů, obvykle standardů patentovaných technik." },
+      { "body":"O vydání RFC rozhoduje IAB; vývoj a posuzování RFC deleguje na technickou komisi IETF.", "right":true, "comment":"Část 1, slide 9: konečné rozhodnutí o vydání dělá IAB, odpovědnost za vývoj a posuzování delegovala na IETF." },
+      { "body":"OWASP je otevřená komunita, jejíž standardy se týkají vývoje, testování a hodnocení zabezpečení webových aplikací.", "right":true, "comment":"Část 1, slide 9: OWASP uvedený jako příklad oblasti de facto standardů." }
     ]
   },
   {
     "id": "80953a93",
     "name": "Organizace chce navrhnout ISMS a získat certifikát. Co platí o normách ISO/IEC 27001 a ISO/IEC 27002?",
     "answers": [
-      { "body":"ISO/IEC 27001 formuluje požadavky slovy must a shall; ISMS jim musí vyhovět, pokud chce normě vyhovět.", "right":true, "comment":"Část 1, slide 13: 27001 je detailním popisem požadavků, které ISMS musí splnit." },
-      { "body":"ISO/IEC 27002 uvádí doporučení slovy may a should, jak opatření navrhovat, implementovat a udržovat.", "right":true, "comment":"Část 1, slide 14: 27002 je kodex doporučení." },
-      { "body":"Certifikovat lze ISMS na vyhovění ISO/IEC 27001; u ISO/IEC 27002 se vyhovění obvykle jen deklaruje.", "right":true, "comment":"Část 1, slide 13–14: certifikace vyhovění 27002 se nedělá." },
       { "body":"Certifikát se vydává na vyhovění ISO/IEC 27002, zatímco 27001 slouží jen jako nezávazný návod.", "right":false, "comment":"Část 1, slide 13–14: je to obráceně – požadavky a certifikace jsou v 27001." },
+      { "body":"ISO/IEC 27002 uvádí doporučení slovy may a should, jak opatření navrhovat, implementovat a udržovat.", "right":true, "comment":"Část 1, slide 14: 27002 je kodex doporučení." },
+      { "body":"ISO/IEC 27001 formuluje požadavky slovy must a shall; ISMS jim musí vyhovět, pokud chce normě vyhovět.", "right":true, "comment":"Část 1, slide 13: 27001 je detailním popisem požadavků, které ISMS musí splnit." },
+      { "body":"Certifikovat lze ISMS na vyhovění ISO/IEC 27001; u ISO/IEC 27002 se vyhovění obvykle jen deklaruje.", "right":true, "comment":"Část 1, slide 13–14: certifikace vyhovění 27002 se nedělá." },
       { "body":"ISO/IEC 27001 je určena jen velkým komerčním organizacím a závisí na použité technologii.", "right":false, "comment":"Část 1, slide 13: norma je nezávislá na technologii a určená organizacím všech typů a velikostí." }
     ]
   },
@@ -47,9 +47,9 @@
     "id": "54b6415e",
     "name": "Při zavádění ISMS zvolila organizace na základě analýzy rizik opatření ze seznamu v dodatku ISO/IEC 27001. Chce přidat i opatření, která v seznamu nejsou. Co je správně?",
     "answers": [
-      { "body":"Zvolená opatření musí porovnat s dodatkem 27001, aby měla jistotu, že na nic nezapomněla.", "right":true, "comment":"Část 1, slide 15: porovnání je povinným požadavkem 27001." },
       { "body":"Seznam cílů a opatření v dodatku není vyčerpávající; podle potřeby lze přidat další.", "right":true, "comment":"Část 1, slide 15: seznam není chápán jako úplný." },
       { "body":"Opatření mimo dodatek jsou zakázána a ISMS by přestal vyhovovat 27001.", "right":false, "comment":"Část 1, slide 15: doplňování dalších cílů a opatření je přípustné." },
+      { "body":"Zvolená opatření musí porovnat s dodatkem 27001, aby měla jistotu, že na nic nezapomněla.", "right":true, "comment":"Část 1, slide 15: porovnání je povinným požadavkem 27001." },
       { "body":"Porovnání s dodatkem je nepovinné, pokud organizace používá ISO/IEC 27002.", "right":false, "comment":"Část 1, slide 15: porovnání je povinné; 27002 je zdroj návodů, nenahrazuje kontrolu." }
     ]
   },
@@ -57,30 +57,30 @@
     "id": "cc8cec4",
     "name": "Která dvojice „oblast – norma řady ISO/IEC 27000“ je správná, pokud jde o jádro řady (implementace, měření, rizika, audit)?",
     "answers": [
-      { "body":"Řízení rizik informační bezpečnosti – ISO/IEC 27005", "right":true, "comment":"Část 1, slide 16: 27005 pojednává o principech řízení rizik, bez předepsání konkrétních metod." },
       { "body":"Rady k implementaci ISMS – ISO/IEC 27004", "right":false, "comment":"Část 1, slide 16: 27004 se týká měření (metrik); implementační rady jsou v 27003." },
+      { "body":"Metriky a měření bezpečnosti – ISO/IEC 27003", "right":false, "comment":"Část 1, slide 16: 27003 jsou implementační rady; metriky řeší 27004." },
       { "body":"Požadavky na orgány provádějící audit a certifikaci ISMS – ISO/IEC 27007", "right":false, "comment":"Část 1, slide 17: požadavky na certifikační orgány řeší 27006; 27007 jsou směrnice pro audit systému řízení." },
-      { "body":"Metriky a měření bezpečnosti – ISO/IEC 27003", "right":false, "comment":"Část 1, slide 16: 27003 jsou implementační rady; metriky řeší 27004." }
+      { "body":"Řízení rizik informační bezpečnosti – ISO/IEC 27005", "right":true, "comment":"Část 1, slide 16: 27005 pojednává o principech řízení rizik, bez předepsání konkrétních metod." }
     ]
   },
   {
     "id": "3a7b8a1a",
     "name": "Která dvojice „oblast – norma řady ISO/IEC 27000“ je správná, pokud jde o specializované oblasti (cloud, incidenty, kontinuita, úložiště)?",
     "answers": [
-      { "body":"Ochrana osobních údajů ve veřejném cloudu – ISO/IEC 27018", "right":true, "comment":"Část 1, slide 18: 27018 se týká ochrany PII ve veřejných cloudových službách." },
       { "body":"Řízení incidentů informační bezpečnosti – ISO/IEC 27035", "right":true, "comment":"Část 1, slide 20: 27035 řeší principy a plánování reakce na incidenty." },
-      { "body":"Bezpečnost uložených dat (storage) – ISO/IEC 27017", "right":false, "comment":"Část 1, slide 18, 20: 27017 jsou opatření pro cloud; bezpečnost úložišť řeší 27040." },
       { "body":"Detekce a prevence průniků (IDPS) – ISO/IEC 27031", "right":false, "comment":"Část 1, slide 20: IDPS řeší 27039; 27031 je připravenost ICT na kontinuitu činnosti." },
-      { "body":"Připravenost ICT na kontinuitu činnosti – ISO/IEC 27037", "right":false, "comment":"Část 1, slide 20: 27037 se týká digitálních důkazů; kontinuitu řeší 27031." }
+      { "body":"Připravenost ICT na kontinuitu činnosti – ISO/IEC 27037", "right":false, "comment":"Část 1, slide 20: 27037 se týká digitálních důkazů; kontinuitu řeší 27031." },
+      { "body":"Ochrana osobních údajů ve veřejném cloudu – ISO/IEC 27018", "right":true, "comment":"Část 1, slide 18: 27018 se týká ochrany PII ve veřejných cloudových službách." },
+      { "body":"Bezpečnost uložených dat (storage) – ISO/IEC 27017", "right":false, "comment":"Část 1, slide 18, 20: 27017 jsou opatření pro cloud; bezpečnost úložišť řeší 27040." }
     ]
   },
   {
     "id": "e4abe0f5",
     "name": "Které tvrzení o publikacích NIST je správné?",
     "answers": [
-      { "body":"Řada SP 800 je hlavním způsobem zveřejňování pokynů a referenčních materiálů NISTu o kybernetické a informační bezpečnosti.", "right":true, "comment":"Část 1, slide 24: popis řady SP 800." },
       { "body":"Řada SP 1800 doplňuje SP 800 praktickými příručkami k zavádění standardizovaných přístupů ke kyberbezpečnosti.", "right":true, "comment":"Část 1, slide 24: NIST Cybersecurity Practice Guides." },
       { "body":"Řada SP 1800 nahrazuje řadu SP 800, která už nevychází a její pokyny byly převedeny do příruček 1800.", "right":false, "comment":"Část 1, slide 24: SP 1800 řadu SP 800 doplňuje; SP 800 vychází od roku 1990 dosud." },
+      { "body":"Řada SP 800 je hlavním způsobem zveřejňování pokynů a referenčních materiálů NISTu o kybernetické a informační bezpečnosti.", "right":true, "comment":"Část 1, slide 24: popis řady SP 800." },
       { "body":"Řada SP 500 se věnuje výhradně kryptografickým algoritmům a jejich schvalování.", "right":false, "comment":"Část 1, slide 24: jde o obecnou řadu o informačních technologiích." }
     ]
   },
@@ -88,30 +88,30 @@
     "id": "e3188c65",
     "name": "Organizace potřebuje katalog bezpečnostních a privacy opatření pro informační systémy a organizace. Která publikace NIST z přednášky je k tomu určena?",
     "answers": [
+      { "body":"NIST SP 800-184", "right":false, "comment":"Část 1, slide 25: 800-184 je průvodce obnovou po kybernetických událostech." },
       { "body":"NIST SP 800-53 Rev. 5", "right":true, "comment":"Část 1, slide 25: Security and Privacy Controls for Information Systems and Organizations." },
-      { "body":"NIST SP 800-30 Rev. 1", "right":false, "comment":"Část 1, slide 25: 800-30 je průvodce prováděním analýzy rizik." },
       { "body":"NIST SP 800-94", "right":false, "comment":"Část 1, slide 25: 800-94 se týká systémů detekce a prevence průniků (IDPS)." },
-      { "body":"NIST SP 800-184", "right":false, "comment":"Část 1, slide 25: 800-184 je průvodce obnovou po kybernetických událostech." }
+      { "body":"NIST SP 800-30 Rev. 1", "right":false, "comment":"Část 1, slide 25: 800-30 je průvodce prováděním analýzy rizik." }
     ]
   },
   {
     "id": "26227059",
     "name": "Organizace zavádí ISMS podle ISO/IEC 27001 a připravuje se na certifikaci. Co platí o výběru opatření?",
     "answers": [
-      { "body":"ISO/IEC 27001 obsahuje seznam opatření podle 27002 jako menu, z něhož si organizace potřebná opatření vybírá.", "right":true, "comment":"Část 1, slide 27: metafora menu." },
-      { "body":"Výběr opatření z menu musí vždy vycházet z výsledků analýzy rizik.", "right":true, "comment":"Část 1, slide 27: výběr musí vycházet z analýzy rizik." },
       { "body":"Organizace musí zavést všechna opatření z 27002 bez ohledu na výsledky analýzy rizik.", "right":false, "comment":"Část 1, slide 27: opatření se vybírají podle rizik, ne všechna." },
+      { "body":"Výběr opatření z menu musí vždy vycházet z výsledků analýzy rizik.", "right":true, "comment":"Část 1, slide 27: výběr musí vycházet z analýzy rizik." },
+      { "body":"Seznam opatření se používá až při certifikačním auditu, při návrhu ISMS ne.", "right":false, "comment":"Část 1, slide 27: seznam slouží jako nabídka při výběru opatření již při návrhu." },
       { "body":"Škálu opatření nelze oproti 27002 nikdy rozšířit.", "right":false, "comment":"Část 1, slide 27: škála opatření může být přiměřeně rozšířena." },
-      { "body":"Seznam opatření se používá až při certifikačním auditu, při návrhu ISMS ne.", "right":false, "comment":"Část 1, slide 27: seznam slouží jako nabídka při výběru opatření již při návrhu." }
+      { "body":"ISO/IEC 27001 obsahuje seznam opatření podle 27002 jako menu, z něhož si organizace potřebná opatření vybírá.", "right":true, "comment":"Část 1, slide 27: metafora menu." }
     ]
   },
   {
     "id": "155ef5d",
     "name": "Které z uvedených kroků rámcového průběhu certifikace ISO/IEC 27001 se podle přednášky dělají před implementací bezpečnostních opatření?",
     "answers": [
+      { "body":"Školení zvyšující bezpečnostní povědomí zaměstnanců celé organizace", "right":false, "comment":"Část 1, slide 28: školení následuje až po implementaci opatření." },
       { "body":"Příprava: podpora managementu a gap analýza stávajícího stavu", "right":true, "comment":"Část 1, slide 28: příprava je první krok." },
       { "body":"Analýza rizik, z níž vzniknou Prohlášení o použitelnosti (SoA) a plán ošetření rizik (RTP)", "right":true, "comment":"Část 1, slide 28: analýza rizik předchází implementaci opatření." },
-      { "body":"Školení zvyšující bezpečnostní povědomí zaměstnanců celé organizace", "right":false, "comment":"Část 1, slide 28: školení následuje až po implementaci opatření." },
       { "body":"Pravidelný interní audit fungování zavedeného ISMS", "right":false, "comment":"Část 1, slide 28: interní audit je součástí měření, monitorování a kontroly po zavedení opatření." },
       { "body":"Registrační (certifikační) audit provedený externím auditorem", "right":false, "comment":"Část 1, slide 28: je posledním krokem celého postupu." }
     ]
@@ -120,19 +120,19 @@
     "id": "5005c270",
     "name": "Startup vyvíjí síťové zařízení a zvažuje certifikaci produktu. Které úvahy odpovídají přednášce?",
     "answers": [
-      { "body":"Certifikace může zvýšit důvěru zákazníků a partnerů a pomoci splnit zákonné či regulatorní požadavky.", "right":true, "comment":"Část 2, slide 3: tržní důvěra a compliance patří mezi výhody." },
-      { "body":"Při změně produktu nebo standardu je nutná nová certifikace, což zvyšuje režii.", "right":true, "comment":"Část 2, slide 4: maintenance overhead – re-certification." },
       { "body":"Certifikace zaručuje, že produkt nemá zranitelnosti, a odpadají tak náklady na další testování.", "right":false, "comment":"Část 2, slide 6–7: příklady selhání navzdory certifikacím; slide 4: certifikace stojí čas i peníze." },
-      { "body":"Certifikace je rychlá a levná, testuje se dokumentace výrobce a produkt samotný ne.", "right":false, "comment":"Část 2, slide 4: nevýhodou jsou náklady a zdlouhavé testování a revize." }
+      { "body":"Certifikace je rychlá a levná, testuje se dokumentace výrobce a produkt samotný ne.", "right":false, "comment":"Část 2, slide 4: nevýhodou jsou náklady a zdlouhavé testování a revize." },
+      { "body":"Certifikace může zvýšit důvěru zákazníků a partnerů a pomoci splnit zákonné či regulatorní požadavky.", "right":true, "comment":"Část 2, slide 3: tržní důvěra a compliance patří mezi výhody." },
+      { "body":"Při změně produktu nebo standardu je nutná nová certifikace, což zvyšuje režii.", "right":true, "comment":"Část 2, slide 4: maintenance overhead – re-certification." }
     ]
   },
   {
     "id": "c5d153a1",
     "name": "Které tvrzení o vývoji kritérií hodnocení bezpečnosti je správné?",
     "answers": [
+      { "body":"Kanadský CTCPEC rozdělil kritéria na třídy D až A1 podle míry matematického formalismu.", "right":false, "comment":"Část 2, slide 8–9: třídy D–A1 má Orange Book; CTCPEC dělí funkčnost na důvěrnost, integritu, zodpovědnost a dostupnost." },
       { "body":"Americká Orange Book (TCSEC, 1985) měla třídy od D (žádná bezpečnost) po A1 (nejvyšší, s matematickým formalismem).", "right":true, "comment":"Část 2, slide 8." },
       { "body":"Evropský ITSEC oddělil funkčnost od záruk a doplnil metodologii ITSEM.", "right":true, "comment":"Část 2, slide 9." },
-      { "body":"Kanadský CTCPEC rozdělil kritéria na třídy D až A1 podle míry matematického formalismu.", "right":false, "comment":"Část 2, slide 8–9: třídy D–A1 má Orange Book; CTCPEC dělí funkčnost na důvěrnost, integritu, zodpovědnost a dostupnost." },
       { "body":"Americká Federal Criteria se stala základem Společných kritérií a dále se vyvíjí.", "right":false, "comment":"Část 2, slide 9: její vývoj byl zastaven." }
     ]
   },
@@ -140,10 +140,10 @@
     "id": "f60c448",
     "name": "Laboratoř získala oficiální pověření k hodnocení bezpečnosti produktů. Poté ověří shodu deklarovaných vlastností produktu s kritérii a na základě hodnocení vznikne osvědčení. Které přiřazení pojmů je správné?",
     "answers": [
-      { "body":"Ověření shody deklarovaných vlastností podle kritérií je hodnocení (evaluace).", "right":true, "comment":"Část 2, slide 10." },
-      { "body":"Vydání osvědčení na základě provedeného hodnocení je certifikace.", "right":true, "comment":"Část 2, slide 10." },
       { "body":"Oficiální pověření laboratoře k této činnosti je validace.", "right":false, "comment":"Část 2, slide 10: pověření je akreditace; validace je v americké terminologii „hodnocení“." },
-      { "body":"Ověření shody deklarovaných vlastností podle kritérií je akreditace.", "right":false, "comment":"Část 2, slide 10: akreditace je oficiální souhlas s prováděním činnosti." }
+      { "body":"Ověření shody deklarovaných vlastností podle kritérií je akreditace.", "right":false, "comment":"Část 2, slide 10: akreditace je oficiální souhlas s prováděním činnosti." },
+      { "body":"Ověření shody deklarovaných vlastností podle kritérií je hodnocení (evaluace).", "right":true, "comment":"Část 2, slide 10." },
+      { "body":"Vydání osvědčení na základě provedeného hodnocení je certifikace.", "right":true, "comment":"Část 2, slide 10." }
     ]
   },
   {
@@ -151,9 +151,9 @@
     "name": "Německý úřad vydal pro šifrovaná USB paměťová média dokument s požadavky platnými pro celou kategorii takových zařízení. Výrobce X předložil k hodnocení svůj konkrétní disk a popis jeho bezpečnostních cílů. Které přiřazení pojmů Společných kritérií je správné?",
     "answers": [
       { "body":"Konkrétní disk výrobce X, který se hodnotí, je předmět hodnocení (TOE).", "right":true, "comment":"Část 2, slide 11." },
-      { "body":"Popis bezpečnostních cílů a funkcí právě tohoto disku je specifikace bezpečnosti (Security Target, ST).", "right":true, "comment":"Část 2, slide 11–12: ST je teoretický koncept či cíl vázaný na konkrétní produkt." },
-      { "body":"Dokument s implementačně nezávislými požadavky pro celou kategorii disků je profil bezpečnosti (Protection Profile, PP).", "right":true, "comment":"Část 2, slide 11, 14." },
       { "body":"PP je dokument jednoho výrobce vztažený ke konkrétnímu produktu tohoto výrobce.", "right":false, "comment":"Část 2, slide 11: PP je implementačně nezávislý a platí pro skupinu TOE." },
+      { "body":"Dokument s implementačně nezávislými požadavky pro celou kategorii disků je profil bezpečnosti (Protection Profile, PP).", "right":true, "comment":"Část 2, slide 11, 14." },
+      { "body":"Popis bezpečnostních cílů a funkcí právě tohoto disku je specifikace bezpečnosti (Security Target, ST).", "right":true, "comment":"Část 2, slide 11–12: ST je teoretický koncept či cíl vázaný na konkrétní produkt." },
       { "body":"Hodnocení ověřuje, zda ST odpovídá profilu PP, a samotný produkt se při něm nezkoumá.", "right":false, "comment":"Část 2, slide 12: hodnocení TOE zkoumá, zda realita (produkt) odpovídá teorii (ST)." }
     ]
   },
@@ -161,60 +161,60 @@
     "id": "e8e01f34",
     "name": "Profil ochrany pro USB paměťová média (BSI-PP-0025) vychází z útočníka S2, který nemá autentizační atribut, ale snadno získá zařízení. Zná čtyři hrozby: logický přístup k datům, fyzický přístup k paměti, změnu autentizačního atributu a poruchu. Které přiřazení scénáře k hrozbě je správné?",
     "answers": [
-      { "body":"S2 připojí disk do USB portu počítače a zkusí číst chráněná data – logický přístup.", "right":true, "comment":"Část 2, slide 17: T.logZugriff." },
-      { "body":"S2 vyjme paměťový čip a vloží ho do jiného USB média, aby jej logicky četl – fyzický přístup.", "right":true, "comment":"Část 2, slide 17: T.phyZugriff." },
       { "body":"Výpadek napájení zanechá data nešifrovaná nebo poškodí souborový systém – porucha.", "right":true, "comment":"Část 2, slide 18: T.Störung." },
+      { "body":"S2 vyjme paměťový čip a vloží ho do jiného USB média, aby jej logicky četl – fyzický přístup.", "right":true, "comment":"Část 2, slide 17: T.phyZugriff." },
       { "body":"S2 nastaví disku nový autentizační atribut, aby oprávněný uživatel přišel o data – fyzický přístup.", "right":false, "comment":"Část 2, slide 18: jde o hrozbu T.AuthÄndern (změna autentizačního atributu)." },
-      { "body":"Chyba operačního systému zastaví činnost disku – změna autentizačního atributu.", "right":false, "comment":"Část 2, slide 18: takový scénář je hrozba T.Störung." }
+      { "body":"Chyba operačního systému zastaví činnost disku – změna autentizačního atributu.", "right":false, "comment":"Část 2, slide 18: takový scénář je hrozba T.Störung." },
+      { "body":"S2 připojí disk do USB portu počítače a zkusí číst chráněná data – logický přístup.", "right":true, "comment":"Část 2, slide 17: T.logZugriff." }
     ]
   },
   {
     "id": "2a0b1d8a",
     "name": "Která tvrzení o funkčnosti (functionality) a záruce (assurance) ve Společných kritériích jsou správná?",
     "answers": [
-      { "body":"Třídy FIA (identifikace a autentizace) a FCS (kryptografická podpora) patří mezi funkční třídy.", "right":true, "comment":"Část 2, slide 22." },
+      { "body":"Funkčnost určuje, jak důvěryhodné hodnocení bylo; záruka určuje pravidla přístupu ke zdrojům TOE.", "right":false, "comment":"Část 2, slide 20: je to obráceně." },
       { "body":"Třídy AVA (hodnocení zranitelností) a ALC (podpora životního cyklu) patří mezi třídy záruky.", "right":true, "comment":"Část 2, slide 23." },
-      { "body":"Třídy ADV (vývoj) a ATE (testy) patří mezi funkční třídy.", "right":false, "comment":"Část 2, slide 23: obě jsou třídami záruky." },
-      { "body":"Funkčnost určuje, jak důvěryhodné hodnocení bylo; záruka určuje pravidla přístupu ke zdrojům TOE.", "right":false, "comment":"Část 2, slide 20: je to obráceně." }
+      { "body":"Třídy FIA (identifikace a autentizace) a FCS (kryptografická podpora) patří mezi funkční třídy.", "right":true, "comment":"Část 2, slide 22." },
+      { "body":"Třídy ADV (vývoj) a ATE (testy) patří mezi funkční třídy.", "right":false, "comment":"Část 2, slide 23: obě jsou třídami záruky." }
     ]
   },
   {
     "id": "445f5061",
     "name": "Čí pohled na záruku (assurance) vyjadřuje daná otázka?",
     "answers": [
-      { "body":"„Jaké vstupy a součinnost bude muset poskytnout můj tým pro hodnocení?“ – vývojář", "right":true, "comment":"Část 2, slide 25." },
-      { "body":"„Na jaké předpoklady se mohu spolehnout při přípravě svých činností?“ – provozovatel", "right":true, "comment":"Část 2, slide 25." },
+      { "body":"„Jakou úroveň záruky dostanu, že bezpečnost je v produktu realizována?“ – hodnotitel", "right":false, "comment":"Část 2, slide 25: to je pohled zákazníka." },
       { "body":"„Dostal jsem požadované vstupy a prošly testy v pořádku, takže tvrzení platí?“ – zákazník", "right":false, "comment":"Část 2, slide 25: to je pohled hodnotitele; zákazník se ptá na úroveň záruky." },
-      { "body":"„Jakou úroveň záruky dostanu, že bezpečnost je v produktu realizována?“ – hodnotitel", "right":false, "comment":"Část 2, slide 25: to je pohled zákazníka." }
+      { "body":"„Na jaké předpoklady se mohu spolehnout při přípravě svých činností?“ – provozovatel", "right":true, "comment":"Část 2, slide 25." },
+      { "body":"„Jaké vstupy a součinnost bude muset poskytnout můj tým pro hodnocení?“ – vývojář", "right":true, "comment":"Část 2, slide 25." }
     ]
   },
   {
     "id": "ce5c83eb",
     "name": "Co vyjadřuje sedm hodnoticích úrovní záruky (EAL1–EAL7) Společných kritérií?",
     "answers": [
-      { "body":"Hierarchii záruky: vyšší úroveň klade větší důraz na rozsah, hloubku a důslednost hodnocení.", "right":true, "comment":"Část 2, slide 24, 26." },
       { "body":"Počet bezpečnostních funkcí, které musí produkt nabízet; vyšší EAL znamená, že produkt má víc funkcí.", "right":false, "comment":"Část 2, slide 20, 24: EAL se týká záruky, tedy míry hodnocení, ne množství funkcí." },
-      { "body":"Garanci, že produkt s daným EAL nemá zranitelnosti a lze jej bez obav nasadit.", "right":false, "comment":"Část 2, slide 24, 31: záruka je důvěra získaná hodnocením, ne důkaz neexistence chyb." },
-      { "body":"Úroveň, kterou produkt získá automaticky podle toho, kolik firma zaplatí za certifikaci a hodnocení.", "right":false, "comment":"Část 2, slide 24: záruka vzniká aktivním zkoumáním expertními hodnotiteli." }
+      { "body":"Úroveň, kterou produkt získá automaticky podle toho, kolik firma zaplatí za certifikaci a hodnocení.", "right":false, "comment":"Část 2, slide 24: záruka vzniká aktivním zkoumáním expertními hodnotiteli." },
+      { "body":"Hierarchii záruky: vyšší úroveň klade větší důraz na rozsah, hloubku a důslednost hodnocení.", "right":true, "comment":"Část 2, slide 24, 26." },
+      { "body":"Garanci, že produkt s daným EAL nemá zranitelnosti a lze jej bez obav nasadit.", "right":false, "comment":"Část 2, slide 24, 31: záruka je důvěra získaná hodnocením, ne důkaz neexistence chyb." }
     ]
   },
   {
     "id": "ba4bcab0",
     "name": "Firma zvažuje nasazení Windows 2000, které získalo certifikaci Common Criteria EAL4 s profilem CAPP. Co z přednášky plyne pro její úvahu?",
     "answers": [
-      { "body":"Profil CAPP předpokládá nehostilou, dobře spravovanou komunitu a chrání jen proti náhodným pokusům o narušení.", "right":true, "comment":"Část 2, slide 30." },
       { "body":"Podle A.PEER je TOE vhodný do sítě jen tehdy, když celá síť běží pod jednou správou a stejnou politikou.", "right":true, "comment":"Část 2, slide 29." },
       { "body":"Certifikace platila pro konfiguraci se SP3 a jednou záplatou a byla rozšířena o ALC_FLR.3 (systematické odstraňování chyb).", "right":true, "comment":"Část 2, slide 28." },
       { "body":"EAL4 s profilem CAPP zaručuje, že systém odolá odhodlaným a dobře financovaným útočníkům i v síti.", "right":false, "comment":"Část 2, slide 30: CAPP s takovými útočníky nepočítá." },
-      { "body":"Podle J. S. Shapira EAL4 vypovídá především o kvalitě samotného softwaru, nikoli o papírování kolem procesu.", "right":false, "comment":"Část 2, slide 31: Shapiro tvrdí opak – hodně papírování, nic o kvalitě softwaru." }
+      { "body":"Podle J. S. Shapira EAL4 vypovídá především o kvalitě samotného softwaru, nikoli o papírování kolem procesu.", "right":false, "comment":"Část 2, slide 31: Shapiro tvrdí opak – hodně papírování, nic o kvalitě softwaru." },
+      { "body":"Profil CAPP předpokládá nehostilou, dobře spravovanou komunitu a chrání jen proti náhodným pokusům o narušení.", "right":true, "comment":"Část 2, slide 30." }
     ]
   },
   {
     "id": "9c66eff8",
     "name": "Která tvrzení o úrovních FIPS 140-3 jsou správná?",
     "answers": [
-      { "body":"Úroveň 3 vyžaduje autentizaci založenou na identitě a odolnost proti fyzickému zásahu (nulování klíčů při narušení krytu); typicky HSM.", "right":true, "comment":"Část 2, slide 37." },
       { "body":"Úroveň 1 vyžaduje plombu proti neoprávněné manipulaci a autentizaci založenou na rolích uživatelů modulu.", "right":false, "comment":"Část 2, slide 37: to je úroveň 2; úroveň 1 je čistě softwarový modul bez fyzické ochrany." },
+      { "body":"Úroveň 3 vyžaduje autentizaci založenou na identitě a odolnost proti fyzickému zásahu (nulování klíčů při narušení krytu); typicky HSM.", "right":true, "comment":"Část 2, slide 37." },
       { "body":"Úroveň 2 vyžaduje nulování klíčů při výkyvech napětí nebo teploty mimo stanovený rozsah provozu modulu.", "right":false, "comment":"Část 2, slide 37: to je úroveň 4." },
       { "body":"Úroveň 4 je určena pro čistě softwarové moduly (např. OpenSSL) bez fyzické ochrany a bez požadavků na prostředí.", "right":false, "comment":"Část 2, slide 37: to popisuje úroveň 1." }
     ]
@@ -224,8 +224,8 @@
     "name": "Jak spolu souvisí FIPS 140 a Common Criteria?",
     "answers": [
       { "body":"FIPS 140 hodnotí kryptografický modul („motor“), Common Criteria celý IT produkt („auto“).", "right":true, "comment":"Část 2, slide 36." },
-      { "body":"Profil CC může stanovit, že systém s kryptografií pro bezpečnostní funkce musí použít modul validovaný dle FIPS 140.", "right":true, "comment":"Část 2, slide 36." },
       { "body":"Certifikát CC nahrazuje validaci FIPS 140 u produktů s kryptografií, takže druhé hodnocení se nevyžaduje.", "right":false, "comment":"Část 2, slide 36: jde o komplementární hodnocení." },
+      { "body":"Profil CC může stanovit, že systém s kryptografií pro bezpečnostní funkce musí použít modul validovaný dle FIPS 140.", "right":true, "comment":"Část 2, slide 36." },
       { "body":"FIPS 140 hodnotí celý produkt, např. operační systém, CC hodnotí kryptografické algoritmy.", "right":false, "comment":"Část 2, slide 36: je to obráceně." }
     ]
   },
@@ -233,20 +233,20 @@
     "id": "7c4a0dfe",
     "name": "Zranitelnost CVE-2017-15361 (RoCA) umožnila prakticky faktorizovat určité RSA klíče a postihla i certifikované produkty. Jaké závěry z analýz nástrojem sec-certs přednáška uvádí?",
     "answers": [
-      { "body":"Zranitelnost v kryptografii se z produktů s velkým dosahem šíří na většinu závislých produktů (asi 70 %).", "right":true, "comment":"Část 2, slide 45." },
-      { "body":"RoCA nebyla výjimkou – zasáhla více než 50 certifikovaných produktů.", "right":true, "comment":"Část 2, slide 45." },
+      { "body":"Certifikace Common Criteria zajistila, že se RoCA netýkala certifikovaných produktů.", "right":false, "comment":"Část 2, slide 34, 45: RoCA postihla více než 50 certifikovaných produktů." },
       { "body":"Nejpoužívanější produkty jsou aplikační software bez kryptografie, proto jejich zranitelnosti zasahují málo karet.", "right":false, "comment":"Část 2, slide 45: jde o mikrokontroléry, typicky s kryptografickou funkcionalitou, v 16 % aktivních čipových karet." },
-      { "body":"Certifikace Common Criteria zajistila, že se RoCA netýkala certifikovaných produktů.", "right":false, "comment":"Část 2, slide 34, 45: RoCA postihla více než 50 certifikovaných produktů." }
+      { "body":"Zranitelnost v kryptografii se z produktů s velkým dosahem šíří na většinu závislých produktů (asi 70 %).", "right":true, "comment":"Část 2, slide 45." },
+      { "body":"RoCA nebyla výjimkou – zasáhla více než 50 certifikovaných produktů.", "right":true, "comment":"Část 2, slide 45." }
     ]
   },
   {
     "id": "32d13799",
     "name": "Dodavatel v nabídce uvádí „Common Criteria certified“. Co by si měl zákazník podle přednášky uvědomit?",
     "answers": [
-      { "body":"Certifikace platí jen pro přesně danou konfiguraci hardwaru i softwaru.", "right":true, "comment":"Část 2, slide 47." },
-      { "body":"„CC certified“ není totéž co „CC ready“; je třeba zjistit detaily TOE, dosažené EAL, shodu s PP a použitou laboratoř.", "right":true, "comment":"Část 2, slide 47." },
+      { "body":"Certifikát platí pro libovolnou konfiguraci produktu stejné řady od téhož výrobce.", "right":false, "comment":"Část 2, slide 47: platí jen pro přesně danou konfiguraci." },
       { "body":"Hodnocení stojí řádově desítky tisíc dolarů a trvá několik týdnů, takže se vyplatí i drobným výrobcům.", "right":false, "comment":"Část 2, slide 47: hodnocení není levné ani rychlé (>100 tis. USD, >3 měsíce)." },
-      { "body":"Certifikát platí pro libovolnou konfiguraci produktu stejné řady od téhož výrobce.", "right":false, "comment":"Část 2, slide 47: platí jen pro přesně danou konfiguraci." }
+      { "body":"„CC certified“ není totéž co „CC ready“; je třeba zjistit detaily TOE, dosažené EAL, shodu s PP a použitou laboratoř.", "right":true, "comment":"Část 2, slide 47." },
+      { "body":"Certifikace platí jen pro přesně danou konfiguraci hardwaru i softwaru.", "right":true, "comment":"Část 2, slide 47." }
     ]
   },
   {

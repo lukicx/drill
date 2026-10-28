@@ -4,6 +4,16 @@
     "name": "Které dvojice situace → pojem jsou správně (autentizace, identifikace, autorizace)?",
     "answers": [
       {
+        "body": "Ověřením hesla je přidělení práv hotové – autentizace a autorizace jsou dva názvy téhož kroku.",
+        "right": false,
+        "comment": "Slide 8: autentizace (ověření identity) a autorizace (udělení práv) jsou různé pojmy; řízení přístupu obvykle následuje až po autentizaci."
+      },
+      {
+        "body": "Zaměstnanec přiloží kartu se jménem a systém ověří, že karta patří jemu – identifikace (1:n).",
+        "right": false,
+        "comment": "Slide 9: kdo předkládá tvrzení o identitě (kartu se jménem), je ověřován 1:1 – jde o verifikaci, ne o identifikaci."
+      },
+      {
         "body": "Uživatel zadá své uživatelské jméno a heslo a systém ověří, že heslo k tomuto jménu patří – autentizace (verifikace 1:1).",
         "right": true,
         "comment": "Slide 8–9: subjekt předkládá tvrzení o své identitě (jméno) a systém jej ověřuje – srovnání 1:1."
@@ -17,16 +27,6 @@
         "body": "Přihlášenému uživateli systém povolí číst složku „Mzdy“, ale ne do ní zapisovat – autentizace.",
         "right": false,
         "comment": "Slide 8: udělení práv a určení povolených aktivit je autorizace; autentizace jen ověřuje identitu."
-      },
-      {
-        "body": "Zaměstnanec přiloží kartu se jménem a systém ověří, že karta patří jemu – identifikace (1:n).",
-        "right": false,
-        "comment": "Slide 9: kdo předkládá tvrzení o identitě (kartu se jménem), je ověřován 1:1 – jde o verifikaci, ne o identifikaci."
-      },
-      {
-        "body": "Ověřením hesla je přidělení práv hotové – autentizace a autorizace jsou dva názvy téhož kroku.",
-        "right": false,
-        "comment": "Slide 8: autentizace (ověření identity) a autorizace (udělení práv) jsou různé pojmy; řízení přístupu obvykle následuje až po autentizaci."
       }
     ]
   },
@@ -34,11 +34,6 @@
     "id": "6027f479",
     "name": "Zákazník u pokladny vloží svou platební kartu do terminálu a zadá správný PIN. Co tím udělal?",
     "answers": [
-      {
-        "body": "Autentizoval se vůči kartě – prokázal znalost PINu, který karta ověřuje.",
-        "right": true,
-        "comment": "Slide 12: zadáním správného PINu se uživatel autentizoval vůči kartě."
-      },
       {
         "body": "Autorizoval transakci (platbu).",
         "right": true,
@@ -50,14 +45,19 @@
         "comment": "Slide 9, 12: kartou uživatel tvrzení o identitě předkládá, jde tedy o verifikaci 1:1."
       },
       {
+        "body": "Použil dva různé faktory: kartu („něco, co má“) a PIN („něco, co zná“).",
+        "right": true,
+        "comment": "Slide 9: karta a PIN patří ke dvěma různým metodám autentizace."
+      },
+      {
         "body": "Prokázal se „něčím, co je“ (biometrikou).",
         "right": false,
         "comment": "Slide 9: PIN je „něco, co známe“ a karta „něco, co máme“; biometrika se zde nepoužila."
       },
       {
-        "body": "Použil dva různé faktory: kartu („něco, co má“) a PIN („něco, co zná“).",
+        "body": "Autentizoval se vůči kartě – prokázal znalost PINu, který karta ověřuje.",
         "right": true,
-        "comment": "Slide 9: karta a PIN patří ke dvěma různým metodám autentizace."
+        "comment": "Slide 12: zadáním správného PINu se uživatel autentizoval vůči kartě."
       }
     ]
   },
@@ -66,14 +66,14 @@
     "name": "Rozlišují se čtyři faktory autentizace uživatele: něco, co známe; něco, co máme; něco, co jsme; někde, kde jsme. Které kombinace spojují dva <B>různé</B> faktory?",
     "answers": [
       {
+        "body": "Dvě různá hesla zadaná za sebou.",
+        "right": false,
+        "comment": "Slide 9: obě hesla jsou „něco, co známe“, takže jde stále o jediný faktor."
+      },
+      {
         "body": "Čipová karta a PIN.",
         "right": true,
         "comment": "Slide 9: karta je „něco, co máme“, PIN „něco, co známe“ – dva různé faktory."
-      },
-      {
-        "body": "Heslo a odpověď na bezpečnostní otázku („jméno prvního psa“).",
-        "right": false,
-        "comment": "Slide 9: obojí je „něco, co známe“ – jde o dva údaje téhož faktoru, ne o dva faktory (odvozeno z dělení faktorů)."
       },
       {
         "body": "Otisk prstu a čipová karta.",
@@ -81,9 +81,9 @@
         "comment": "Slide 9: biometrika je „něco, co jsme“, karta „něco, co máme“."
       },
       {
-        "body": "Dvě různá hesla zadaná za sebou.",
+        "body": "Heslo a odpověď na bezpečnostní otázku („jméno prvního psa“).",
         "right": false,
-        "comment": "Slide 9: obě hesla jsou „něco, co známe“, takže jde stále o jediný faktor."
+        "comment": "Slide 9: obojí je „něco, co známe“ – jde o dva údaje téhož faktoru, ne o dva faktory (odvozeno z dělení faktorů)."
       },
       {
         "body": "Heslo a přístup povolený jen z terminálu uvnitř budovy.",
@@ -97,21 +97,6 @@
     "name": "Kryptografii lze členit podle druhu klíčů, podle způsobu zpracování dat a podle druhu použitých operací. Která tvrzení jsou správná?",
     "answers": [
       {
-        "body": "Hašovací funkce a generátory náhodných čísel patří do kryptografie bez klíčů.",
-        "right": true,
-        "comment": "Slide 21: podle druhu klíčů se rozlišuje symetrická, asymetrická a kryptografie bez klíčů (hašovací funkce, RND)."
-      },
-      {
-        "body": "Symetrická (konvenční) kryptografie používá klíč sdílený oběma stranami.",
-        "right": true,
-        "comment": "Slide 21, 23: symetrická = konvenční = sdílené klíče, Alice i Bob mají stejný klíč."
-      },
-      {
-        "body": "Proudová šifra je zvláštním případem asymetrické kryptografie.",
-        "right": false,
-        "comment": "Slide 21: dělení na blokové a proudové je podle způsobu zpracování dat – jiná dimenze než druh klíčů."
-      },
-      {
         "body": "Substituce a permutace jsou dva druhy klíčů.",
         "right": false,
         "comment": "Slide 21: substituce a permutace jsou druhy použitých operací, ne druhy klíčů."
@@ -120,6 +105,21 @@
         "body": "Asymetrická kryptografie používá stejný klíč pro Alici i Boba.",
         "right": false,
         "comment": "Slide 23: stejný klíč pro Alici i Boba má symetrická kryptografie; asymetrická používá pár privátní a veřejný klíč."
+      },
+      {
+        "body": "Proudová šifra je zvláštním případem asymetrické kryptografie.",
+        "right": false,
+        "comment": "Slide 21: dělení na blokové a proudové je podle způsobu zpracování dat – jiná dimenze než druh klíčů."
+      },
+      {
+        "body": "Symetrická (konvenční) kryptografie používá klíč sdílený oběma stranami.",
+        "right": true,
+        "comment": "Slide 21, 23: symetrická = konvenční = sdílené klíče, Alice i Bob mají stejný klíč."
+      },
+      {
+        "body": "Hašovací funkce a generátory náhodných čísel patří do kryptografie bez klíčů.",
+        "right": true,
+        "comment": "Slide 21: podle druhu klíčů se rozlišuje symetrická, asymetrická a kryptografie bez klíčů (hašovací funkce, RND)."
       }
     ]
   },
@@ -127,16 +127,6 @@
     "id": "acf9afb0",
     "name": "Útočník chce podvrhnout dokument se stejným hašem jako jiný dokument. Které vlastnosti hašovací funkce tomu brání?",
     "answers": [
-      {
-        "body": "Má-li útočník konkrétní již podepsaný dokument a hledá k němu jiný se stejným hašem, brání mu slabá bezkoliznost.",
-        "right": true,
-        "comment": "Slide 22: slabá bezkoliznost se týká kolize pro daný vstup."
-      },
-      {
-        "body": "Může-li si útočník sám připravit dvojici dokumentů (neškodný a škodlivý) se stejným hašem, brání mu silná bezkoliznost.",
-        "right": true,
-        "comment": "Slide 22: silná bezkoliznost znamená, že nelze najít libovolnou dvojici vstupů se stejným hašem."
-      },
       {
         "body": "Slabá bezkoliznost znamená, že k danému dokumentu jiný dokument se stejným hašem matematicky neexistuje.",
         "right": false,
@@ -148,9 +138,19 @@
         "comment": "Slide 22: je to naopak – kdo umí k danému vstupu najít kolizi, našel i libovolnou dvojici, takže silná bezkoliznost implikuje slabou (odvozeno)."
       },
       {
+        "body": "Má-li útočník konkrétní již podepsaný dokument a hledá k němu jiný se stejným hašem, brání mu slabá bezkoliznost.",
+        "right": true,
+        "comment": "Slide 22: slabá bezkoliznost se týká kolize pro daný vstup."
+      },
+      {
         "body": "Proti oběma podvrhům chrání hlavně to, že z haše nelze zpětně zjistit původní dokument.",
         "right": false,
         "comment": "Slide 22: nemožnost zjistit vstup z haše je jednosměrnost, ne bezkoliznost."
+      },
+      {
+        "body": "Může-li si útočník sám připravit dvojici dokumentů (neškodný a škodlivý) se stejným hašem, brání mu silná bezkoliznost.",
+        "right": true,
+        "comment": "Slide 22: silná bezkoliznost znamená, že nelze najít libovolnou dvojici vstupů se stejným hašem."
       }
     ]
   },
@@ -159,14 +159,14 @@
     "name": "Alice chce Bobovi poslat důvěrnou zprávu a zároveň ji podepsat. Které klíče se použijí?",
     "answers": [
       {
-        "body": "Zprávu pro Boba zašifruje Bobovým veřejným klíčem; dešifrovat ji umí jen Bob svým privátním klíčem.",
-        "right": true,
-        "comment": "Slide 23, 25, 37: veřejný klíč slouží k šifrování, privátní k dešifrování."
-      },
-      {
         "body": "Podpis vytvoří svým privátním klíčem a Bob jej ověří Aliciným veřejným klíčem.",
         "right": true,
         "comment": "Slide 23, 37: privátní klíč slouží k tvorbě podpisu, veřejný k jeho ověření."
+      },
+      {
+        "body": "Alice by měla pro šifrování i podpis použít stejný pár klíčů, aby Bob podpis ověřil.",
+        "right": false,
+        "comment": "Slide 37: pro šifrování a podpis nemusí jít o stejný pár klíčů."
       },
       {
         "body": "Zprávu zašifruje svým privátním klíčem, aby ji Bob dešifroval jejím veřejným klíčem.",
@@ -174,14 +174,14 @@
         "comment": "Slide 43: privátním klíčem se nešifruje, ale podepisuje; Alicin veřejný klíč zná každý, takže by zprávu přečetl kdokoli."
       },
       {
+        "body": "Zprávu pro Boba zašifruje Bobovým veřejným klíčem; dešifrovat ji umí jen Bob svým privátním klíčem.",
+        "right": true,
+        "comment": "Slide 23, 25, 37: veřejný klíč slouží k šifrování, privátní k dešifrování."
+      },
+      {
         "body": "Bob zprávu dešifruje Aliciným veřejným klíčem.",
         "right": false,
         "comment": "Slide 25: dešifruje se privátním klíčem adresáta (Boba), ne veřejným klíčem odesílatele."
-      },
-      {
-        "body": "Alice by měla pro šifrování i podpis použít stejný pár klíčů, aby Bob podpis ověřil.",
-        "right": false,
-        "comment": "Slide 37: pro šifrování a podpis nemusí jít o stejný pár klíčů."
       }
     ]
   },
@@ -200,11 +200,6 @@
         "comment": "Slide 26: šifrování v hybridním systému – RNG klíče, jím se zašifrují data, klíč pak veřejným klíčem adresáta."
       },
       {
-        "body": "Při podpisu se soukromým klíčem odesílatele podepisuje jen haš dat.",
-        "right": true,
-        "comment": "Slide 26, 36: podpis – vytvořím haš dat a až ten podepíši svým soukromým klíčem."
-      },
-      {
         "body": "Symetrické algoritmy jsou pomalejší, proto se jimi šifruje jen krátký klíč.",
         "right": false,
         "comment": "Slide 26: pomalejší jsou asymetrické algoritmy; symetrickou šifrou se šifrují data."
@@ -213,6 +208,11 @@
         "body": "Symetrická kryptografie se hodí pro autentizaci; klíč znají obě komunikující strany.",
         "right": false,
         "comment": "Slide 26: symetrické algoritmy jsou naopak obtížněji využitelné v situacích vyžadujících autentizaci."
+      },
+      {
+        "body": "Při podpisu se soukromým klíčem odesílatele podepisuje jen haš dat.",
+        "right": true,
+        "comment": "Slide 26, 36: podpis – vytvořím haš dat a až ten podepíši svým soukromým klíčem."
       }
     ]
   },
@@ -220,11 +220,6 @@
     "id": "892db9b0",
     "name": "Co vyplývá z Kerckhoffsova principu pro návrh šifrovacího systému?",
     "answers": [
-      {
-        "body": "Bezpečnost má záviset jen na utajení klíče; algoritmus může být veřejný a všemi prověřený.",
-        "right": true,
-        "comment": "Slide 31: algoritmus je všem znám a všemi kontrolován jako správný, tajná informace (klíč) musí být chráněna před nepovolanými osobami."
-      },
       {
         "body": "Veřejně známý algoritmus je slabinou, kterou je třeba vyvážit delším klíčem.",
         "right": false,
@@ -239,6 +234,11 @@
         "body": "U utajeného (proprietárního) algoritmu lze délku klíče zanedbat, útočník algoritmus nezná.",
         "right": false,
         "comment": "Slide 32: ani u proprietárního algoritmu se nemá zanedbat odolnost klíče vůči útoku hrubou silou."
+      },
+      {
+        "body": "Bezpečnost má záviset jen na utajení klíče; algoritmus může být veřejný a všemi prověřený.",
+        "right": true,
+        "comment": "Slide 31: algoritmus je všem znám a všemi kontrolován jako správný, tajná informace (klíč) musí být chráněna před nepovolanými osobami."
       },
       {
         "body": "Klíč může být veřejný, pokud je algoritmus dostatečně složitý a dobře utajený.",
@@ -257,14 +257,14 @@
         "comment": "Slide 30: počet klíčů je \\(2^{n}\\), takže jeden bit navíc čas zdvojnásobí."
       },
       {
-        "body": "64bitový klíč: asi \\(2^{8} \\cdot 10\\) hodin, tj. zhruba 107 dní.",
-        "right": true,
-        "comment": "Slide 30: o 8 bitů delší klíč znamená \\(2^{8} = 256\\)krát více klíčů; 2560 hodin je asi 107 dní (odvozeno z tabulky)."
-      },
-      {
         "body": "112bitový klíč: asi 20 hodin; má totiž dvakrát více bitů.",
         "right": false,
         "comment": "Slide 30: o 56 bitů delší klíč znamená \\(2^{56}\\)krát více klíčů, ne dvojnásobek; čas roste exponenciálně, ne lineárně."
+      },
+      {
+        "body": "64bitový klíč: asi \\(2^{8} \\cdot 10\\) hodin, tj. zhruba 107 dní.",
+        "right": true,
+        "comment": "Slide 30: o 8 bitů delší klíč znamená \\(2^{8} = 256\\)krát více klíčů; 2560 hodin je asi 107 dní (odvozeno z tabulky)."
       },
       {
         "body": "Zdvojnásobení rychlosti útočníka vyrovná prodloužení klíče o 8 bitů.",
@@ -278,14 +278,9 @@
     "name": "Firma bude faktury odběratelům digitálně podepisovat. Které z jejích požadavků digitální podpis splní?",
     "answers": [
       {
-        "body": "Odběratel pozná, že faktura nebyla po podepsání změněna.",
-        "right": true,
-        "comment": "Slide 34: podpis musí zajistit autentizaci dat, jejíž součástí je integrita."
-      },
-      {
-        "body": "Odběratel pozná, že fakturu skutečně vystavila tato firma.",
-        "right": true,
-        "comment": "Slide 34: autentizace dat zahrnuje i prokázání původu dat."
+        "body": "Podpis zaručí, že částka na faktuře je věcně správná.",
+        "right": false,
+        "comment": "Slide 34: podpis prokazuje integritu a původ, ne věcnou správnost obsahu (srov. přednáška 5, slide 45: autentizace dat neznamená, že data jsou správná)."
       },
       {
         "body": "Obsah faktury zůstane utajen před každým, kdo ji po cestě zachytí.",
@@ -293,14 +288,19 @@
         "comment": "Slide 36: digitální podpis nezajišťuje důvěrnost – na to je šifrování."
       },
       {
+        "body": "Odběratel pozná, že fakturu skutečně vystavila tato firma.",
+        "right": true,
+        "comment": "Slide 34: autentizace dat zahrnuje i prokázání původu dat."
+      },
+      {
         "body": "Podpis ověří i auditor (třetí strana), nejen odběratel.",
         "right": true,
         "comment": "Slide 34: podpis by měl být ověřitelný i třetími stranami."
       },
       {
-        "body": "Podpis zaručí, že částka na faktuře je věcně správná.",
-        "right": false,
-        "comment": "Slide 34: podpis prokazuje integritu a původ, ne věcnou správnost obsahu (srov. přednáška 5, slide 45: autentizace dat neznamená, že data jsou správná)."
+        "body": "Odběratel pozná, že faktura nebyla po podepsání změněna.",
+        "right": true,
+        "comment": "Slide 34: podpis musí zajistit autentizaci dat, jejíž součástí je integrita."
       }
     ]
   },
@@ -309,19 +309,9 @@
     "name": "Jakou roli hraje certifikát veřejného klíče a certifikační autorita (CA)?",
     "answers": [
       {
-        "body": "Certifikát je digitální podpis, který nerozdělitelně spojuje veřejný klíč s označením entity.",
-        "right": true,
-        "comment": "Slide 38: certifikát veřejného klíče spojí nerozdělitelně klíč s označením entity."
-      },
-      {
         "body": "CA potvrzuje platnost veřejného klíče: komu patří, jak byla prokázána identita a zda má držitel odpovídající soukromý klíč.",
         "right": true,
         "comment": "Slide 41: CA potvrdí platnost veřejného klíče podle certifikační politiky."
-      },
-      {
-        "body": "Certifikát obsahuje soukromý klíč držitele, který je chráněn podpisem certifikační autority.",
-        "right": false,
-        "comment": "Slide 38–39: certifikát spojuje s entitou veřejný klíč; soukromý klíč CA slouží jen k podpisu certifikátu."
       },
       {
         "body": "CA šifruje zprávy mezi uživateli svým klíčem, aby je kromě adresáta nikdo nepřečetl.",
@@ -329,9 +319,19 @@
         "comment": "Slide 41: CA potvrzuje platnost klíčů, komunikaci uživatelů nešifruje."
       },
       {
+        "body": "Certifikát je digitální podpis, který nerozdělitelně spojuje veřejný klíč s označením entity.",
+        "right": true,
+        "comment": "Slide 38: certifikát veřejného klíče spojí nerozdělitelně klíč s označením entity."
+      },
+      {
         "body": "Spojení klíče s entitou není kritické; matematicky platný podpis lze ověřit i bez něj.",
         "right": false,
         "comment": "Slide 38: spojení veřejného klíče s označením entity je kritické – „S kým komunikuji?“."
+      },
+      {
+        "body": "Certifikát obsahuje soukromý klíč držitele, který je chráněn podpisem certifikační autority.",
+        "right": false,
+        "comment": "Slide 38–39: certifikát spojuje s entitou veřejný klíč; soukromý klíč CA slouží jen k podpisu certifikátu."
       }
     ]
   },
@@ -339,16 +339,6 @@
     "id": "2e9d5f",
     "name": "Ve kterých situacích jde o autentizaci pomocí digitálního podpisu a o jaký druh autentizace?",
     "answers": [
-      {
-        "body": "Server pošle čipové kartě náhodnou výzvu a karta ji podepíše – autentizace karty (tokenu).",
-        "right": true,
-        "comment": "Slide 42: autentizace počítačů/tokenů = schopnost aplikovat tajná data, výzva-odpověď."
-      },
-      {
-        "body": "Uživatel odemkne kartu PINem, a tím spustí podpis – autentizace osoby.",
-        "right": true,
-        "comment": "Slide 42: autentizace osob = schopnost spustit aplikaci tajných dat na počítači/tokenu."
-      },
       {
         "body": "Odesílatel podepíše e-mail se smlouvou a příjemce podpis ověří – autentizace dat.",
         "right": true,
@@ -360,9 +350,19 @@
         "comment": "Slide 36, 43: soukromým klíčem se nešifruje, ale podepisuje; podpis důvěrnost nezajišťuje."
       },
       {
+        "body": "Server pošle čipové kartě náhodnou výzvu a karta ji podepíše – autentizace karty (tokenu).",
+        "right": true,
+        "comment": "Slide 42: autentizace počítačů/tokenů = schopnost aplikovat tajná data, výzva-odpověď."
+      },
+      {
         "body": "Platný podpis prokazuje, že kartu v tu chvíli fyzicky použil právě její držitel.",
         "right": false,
         "comment": "Slide 38, 42: podpis dělá vždy přístroj; prokazuje jen schopnost použít tajná data (klíč na kartě), ne kdo kartu fyzicky použil (odvozeno)."
+      },
+      {
+        "body": "Uživatel odemkne kartu PINem, a tím spustí podpis – autentizace osoby.",
+        "right": true,
+        "comment": "Slide 42: autentizace osob = schopnost spustit aplikaci tajných dat na počítači/tokenu."
       }
     ]
   },

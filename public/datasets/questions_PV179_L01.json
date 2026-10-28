@@ -4,14 +4,14 @@
     "name": "Jednoduchá webová aplikácia má tieto bloky: MVC Controller s View, Web API Controller, triedy služieb s aplikačnou logikou, DbContext a triedy entít. Do ktorej vrstvy ktorý blok patrí? Vyber všetky správne tvrdenia.",
     "answers": [
       {
+        "body": "Web API Controller patrí do vrstvy business logiky, lebo spracúva požiadavku podľa aplikačných pravidiel.",
+        "right": false,
+        "comment": "L1, slide 11 (PDF page 11): Web API Controller je súčasť prezentačnej vrstvy (vetva vracajúca JSON/XML)."
+      },
+      {
         "body": "Controllery a View patria do prezentačnej vrstvy, lebo prijímajú požiadavky a pripravujú odpoveď (HTML alebo JSON/XML).",
         "right": true,
         "comment": "L1, slide 11 (PDF page 11): Prezentačná vrstva obsahuje HTML vetvu (Controller + View) aj Web API vetvu."
-      },
-      {
-        "body": "DbContext a entity patria do dátovej vrstvy, lebo komunikujú s databázou cez SQL.",
-        "right": true,
-        "comment": "L1, slide 11 (PDF page 11): DbContext s entitami tvorí dátovú vrstvu nad databázou."
       },
       {
         "body": "Služby patria do vrstvy business logiky, lebo držia aplikačné pravidlá.",
@@ -24,9 +24,9 @@
         "comment": "L1, slide 11 (PDF page 11): DbContext s entitami je dátová vrstva; pravidlá aplikácie držia služby."
       },
       {
-        "body": "Web API Controller patrí do vrstvy business logiky, lebo spracúva požiadavku podľa aplikačných pravidiel.",
-        "right": false,
-        "comment": "L1, slide 11 (PDF page 11): Web API Controller je súčasť prezentačnej vrstvy (vetva vracajúca JSON/XML)."
+        "body": "DbContext a entity patria do dátovej vrstvy, lebo komunikujú s databázou cez SQL.",
+        "right": true,
+        "comment": "L1, slide 11 (PDF page 11): DbContext s entitami tvorí dátovú vrstvu nad databázou."
       }
     ],
     "source": "L1, slide 11 (PDF page 11)"
@@ -36,24 +36,24 @@
     "name": "Klient (napr. mobilná aplikácia) potrebuje z webu iba dáta, nie hotovú stránku. Čo platí o Web API oproti MVC controlleru, ktorý vracia View? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Web API je jednoúčelová HTTP služba, ktorá namiesto HTML vracia HTTP status kód a dáta (JSON/XML).",
-        "right": true,
-        "comment": "L1, slide 11 (PDF page 11): Web API vetva vracia HttpStatusCode + JSON/XML, kým vetva s View vracia HTML."
-      },
-      {
-        "body": "Web API sa konfiguruje jednoducho a stavia na REST architektúre.",
-        "right": true,
-        "comment": "L1, slide 12 (PDF page 12): Jednoduchá konfigurácia a REST sú uvedené ako charakteristika Web API."
-      },
-      {
         "body": "Web API vykresľuje HTML stránku na serveri a klient ju zobrazí, podobne ako pri View.",
         "right": false,
         "comment": "L1, slide 11 (PDF page 11): Vykresľovanie HTML patrí do vetvy Controller + View; Web API posiela dáta."
       },
       {
+        "body": "Web API je jednoúčelová HTTP služba, ktorá namiesto HTML vracia HTTP status kód a dáta (JSON/XML).",
+        "right": true,
+        "comment": "L1, slide 11 (PDF page 11): Web API vetva vracia HttpStatusCode + JSON/XML, kým vetva s View vracia HTML."
+      },
+      {
         "body": "Web API komunikuje cez jeden spoločný kanál bez URI a klient rozlišuje operácie podľa tela správy.",
         "right": false,
         "comment": "L1, slide 12 (PDF page 12): Úrovne REST sa definujú práve počtom URI a HTTP metód."
+      },
+      {
+        "body": "Web API sa konfiguruje jednoducho a stavia na REST architektúre.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Jednoduchá konfigurácia a REST sú uvedené ako charakteristika Web API."
       }
     ],
     "source": "L1, slide 11 (PDF page 11), L1, slide 12 (PDF page 12)"
@@ -63,19 +63,19 @@
     "name": "Úrovne REST podľa prednášky: Level 0 = 1 HTTP metóda a 1 URI, Level 1 = 1 metóda a n URI, Level 2 = viac metód a n URI, Level 3 = Level 2 + content negotiation a HATEOAS. Ktoré zaradenia API sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "API, ktoré všetko rieši cez POST na jedinú adresu /api, je na Level 0.",
-        "right": true,
-        "comment": "L1, slide 12 (PDF page 12): Jedna metóda a jedna URI zodpovedá Level 0."
-      },
-      {
         "body": "API s adresami /customers a /orders, ale s používaním iba POST, je na Level 1.",
         "right": true,
         "comment": "L1, slide 12 (PDF page 12): Viac URI pri jednej HTTP metóde je Level 1."
       },
       {
-        "body": "Level 3 zahŕňa všetko z Level 2 a pridáva content negotiation a HATEOAS.",
+        "body": "API prejde na Level 1 v momente, keď začne na jednej URI používať viac HTTP metód.",
+        "right": false,
+        "comment": "L1, slide 12 (PDF page 12): Level 1 znamená viac URI pri jednej metóde; viac metód prináša až Level 2."
+      },
+      {
+        "body": "API, ktoré všetko rieši cez POST na jedinú adresu /api, je na Level 0.",
         "right": true,
-        "comment": "L1, slide 12 (PDF page 12): Level 3 = Level 2 + content negotiation a HATEOAS."
+        "comment": "L1, slide 12 (PDF page 12): Jedna metóda a jedna URI zodpovedá Level 0."
       },
       {
         "body": "API s viacerými URI a metódami GET, POST, PUT, DELETE bez HATEOAS je na Level 3.",
@@ -83,9 +83,9 @@
         "comment": "L1, slide 12 (PDF page 12): Viac metód a n URI je Level 2; Level 3 pridáva content negotiation a HATEOAS."
       },
       {
-        "body": "API prejde na Level 1 v momente, keď začne na jednej URI používať viac HTTP metód.",
-        "right": false,
-        "comment": "L1, slide 12 (PDF page 12): Level 1 znamená viac URI pri jednej metóde; viac metód prináša až Level 2."
+        "body": "Level 3 zahŕňa všetko z Level 2 a pridáva content negotiation a HATEOAS.",
+        "right": true,
+        "comment": "L1, slide 12 (PDF page 12): Level 3 = Level 2 + content negotiation a HATEOAS."
       }
     ],
     "source": "L1, slide 12 (PDF page 12)"
@@ -95,16 +95,6 @@
     "name": "Chceš zmeniť iba e-mailovú adresu existujúceho zákazníka. PUT nahrádza celý zdroj, PATCH mení jeho časť. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "PATCH sa hodí, lebo mení iba časť zdroja a ostatné vlastnosti zákazníka zostanú.",
-        "right": true,
-        "comment": "L1, slide 13 (PDF page 13): PATCH = update (čiastočná zmena)."
-      },
-      {
-        "body": "PUT je tiež možný, ak klient pošle kompletnú reprezentáciu zákazníka s novým e-mailom, ktorá nahradí pôvodnú.",
-        "right": true,
-        "comment": "L1, slide 13 (PDF page 13): PUT = replace; nahrádza zdroj celý."
-      },
-      {
         "body": "POST na URI zákazníka je štandardná metóda na nahradenie existujúceho zdroja novou verziou.",
         "right": false,
         "comment": "L1, slide 13 (PDF page 13): POST = create; nahrádzanie je PUT."
@@ -113,6 +103,16 @@
         "body": "GET sa hodí, ak sa nový e-mail pošle v URI, lebo GET aj zmenu uloží.",
         "right": false,
         "comment": "L1, slide 13 (PDF page 13): GET = read; slúži na čítanie, nie na zmenu dát."
+      },
+      {
+        "body": "PUT je tiež možný, ak klient pošle kompletnú reprezentáciu zákazníka s novým e-mailom, ktorá nahradí pôvodnú.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): PUT = replace; nahrádza zdroj celý."
+      },
+      {
+        "body": "PATCH sa hodí, lebo mení iba časť zdroja a ostatné vlastnosti zákazníka zostanú.",
+        "right": true,
+        "comment": "L1, slide 13 (PDF page 13): PATCH = update (čiastočná zmena)."
       }
     ],
     "source": "L1, slide 13 (PDF page 13)"
@@ -127,16 +127,6 @@
         "comment": "L1, slide 14 (PDF page 14): 400 BadRequest je kód pre chybnú požiadavku."
       },
       {
-        "body": "POST úspešne vytvoril nový zdroj: 201 Created.",
-        "right": true,
-        "comment": "L1, slide 14 (PDF page 14): 201 Created oznamuje úspešné vytvorenie."
-      },
-      {
-        "body": "GET žiada zákazníka s id, ktoré v databáze neexistuje: 404 NotFound.",
-        "right": true,
-        "comment": "L1, slide 14 (PDF page 14): 404 NotFound je kód pre zdroj, ktorý neexistuje."
-      },
-      {
         "body": "Klient pošle POST s neplatným telom: 404 NotFound, lebo telo nezodpovedá žiadnemu zdroju.",
         "right": false,
         "comment": "L1, slide 14 (PDF page 14): 404 hovorí o neexistujúcom zdroji pri danej URI; chybné telo je 400."
@@ -145,6 +135,16 @@
         "body": "GET na zdroj, ku ktorému má klient zakázaný prístup, skončí ako 400 BadRequest.",
         "right": false,
         "comment": "L1, slide 14 (PDF page 14): Zakázaný prístup je 403 Forbidden; 400 BadRequest je chybná požiadavka."
+      },
+      {
+        "body": "GET žiada zákazníka s id, ktoré v databáze neexistuje: 404 NotFound.",
+        "right": true,
+        "comment": "L1, slide 14 (PDF page 14): 404 NotFound je kód pre zdroj, ktorý neexistuje."
+      },
+      {
+        "body": "POST úspešne vytvoril nový zdroj: 201 Created.",
+        "right": true,
+        "comment": "L1, slide 14 (PDF page 14): 201 Created oznamuje úspešné vytvorenie."
       }
     ],
     "source": "L1, slide 14 (PDF page 14)"
@@ -159,16 +159,6 @@
         "comment": "L1, slide 13 (PDF page 13): Požiadavka má tri časti: request method, URI a body."
       },
       {
-        "body": "O výsledku operácie hovorí status kód odpovede (napr. 200 OK), ktorý je vždy súčasťou odpovede.",
-        "right": true,
-        "comment": "L1, slide 14 (PDF page 14): Odpoveď obsahuje status code a response body."
-      },
-      {
-        "body": "Dáta pre klienta, napr. aktualizovaného zákazníka v JSON-e, nesie telo odpovede.",
-        "right": true,
-        "comment": "L1, slide 11 (PDF page 11): Web API odpoveď nesie JSON/XML spolu so statusom."
-      },
-      {
         "body": "Výsledok operácie nesie metóda požiadavky, napr. PATCH označí zmenu za úspešnú.",
         "right": false,
         "comment": "L1, slide 13 (PDF page 13): Metóda hovorí, akú operáciu klient žiada; výsledok je v status kóde odpovede (slide 14)."
@@ -177,6 +167,16 @@
         "body": "Status kód posiela klient v požiadavke, aby server vedel, či má operáciu zopakovať.",
         "right": false,
         "comment": "L1, slide 14 (PDF page 14): Status kód patrí do odpovede, nie do požiadavky."
+      },
+      {
+        "body": "O výsledku operácie hovorí status kód odpovede (napr. 200 OK), ktorý je vždy súčasťou odpovede.",
+        "right": true,
+        "comment": "L1, slide 14 (PDF page 14): Odpoveď obsahuje status code a response body."
+      },
+      {
+        "body": "Dáta pre klienta, napr. aktualizovaného zákazníka v JSON-e, nesie telo odpovede.",
+        "right": true,
+        "comment": "L1, slide 11 (PDF page 11): Web API odpoveď nesie JSON/XML spolu so statusom."
       }
     ],
     "source": "L1, slides 11, 13, 14 (PDF pages 11, 13, 14)"
@@ -186,19 +186,9 @@
     "name": "Trieda Form si vo vnútri vytvára konkrétny UglyButton cez new a stará sa o jeho životnosť. Čo z tejto situácie vyplýva podľa princípu Dependency Inversion? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "High-level Form by mal závisieť od abstrakcie IButton, na ktorú sa viažu aj konkrétne tlačidlá.",
-        "right": true,
-        "comment": "L1, slide 15 (PDF page 15): High-level aj low-level moduly majú závisieť od abstrakcií."
-      },
-      {
         "body": "Form by mal low-level objekt dostať zvonku, nie ho sám vytvárať cez new a riadiť jeho životnosť.",
         "right": true,
         "comment": "L1, slide 16 (PDF page 16): Závislosti sa majú odovzdať zvonku."
-      },
-      {
-        "body": "Vďaka tomu možno do Formu odovzdať ľubovoľnú implementáciu IButton, napr. ClassicButton alebo CoolButton.",
-        "right": true,
-        "comment": "L1, slide 17 (PDF page 17): Form ukazuje na IButton a konkrétne tlačidlá ho implementujú."
       },
       {
         "body": "Low-level tlačidlá majú určovať svoje rozhranie a Form sa im má prispôsobiť ako detail.",
@@ -206,9 +196,19 @@
         "comment": "L1, slide 15 (PDF page 15): Detaily majú závisieť od abstrakcií, nie naopak."
       },
       {
+        "body": "Vďaka tomu možno do Formu odovzdať ľubovoľnú implementáciu IButton, napr. ClassicButton alebo CoolButton.",
+        "right": true,
+        "comment": "L1, slide 17 (PDF page 17): Form ukazuje na IButton a konkrétne tlačidlá ho implementujú."
+      },
+      {
         "body": "Rozhranie IButton sa má odvodiť z UglyButton po jeho dokončení, aby kopírovalo hotový detail.",
         "right": false,
         "comment": "L1, slide 15 (PDF page 15): Abstrakcie nemajú závisieť od detailov."
+      },
+      {
+        "body": "High-level Form by mal závisieť od abstrakcie IButton, na ktorú sa viažu aj konkrétne tlačidlá.",
+        "right": true,
+        "comment": "L1, slide 15 (PDF page 15): High-level aj low-level moduly majú závisieť od abstrakcií."
       }
     ],
     "source": "L1, slide 15 (PDF page 15), L1, slide 16 (PDF page 16)"
@@ -218,6 +218,16 @@
     "name": "Ako spolu súvisia Dependency Inversion, Inversion of Control a Dependency Injection? Vyber všetky správne tvrdenia.",
     "answers": [
       {
+        "body": "Factory a Service Locator patria do Flow Inversion, kým Creation Inversion tvorí Dependency Injection.",
+        "right": false,
+        "comment": "L1, slide 19 (PDF page 19): Factory, Service Locator aj DI sú uvedené ako Creation Inversion."
+      },
+      {
+        "body": "Dependency Injection je iný názov princípu Dependency Inversion a IoC je knižnica na jeho vynútenie.",
+        "right": false,
+        "comment": "L1, slide 18 (PDF page 18): Dependency Inversion je princíp, IoC pattern a DI konkrétna technika."
+      },
+      {
         "body": "Inversion of Control je pattern, ktorým sa dá Dependency Inversion implementovať; rieši, AKO sa inštancia nižšieho modulu odovzdá vyššiemu.",
         "right": true,
         "comment": "L1, slide 18 (PDF page 18): IoC rieši spôsob odovzdania inštancie."
@@ -226,16 +236,6 @@
         "body": "Dependency Injection je jedna z foriem Creation Inversion, spolu s Factory a Service Locator.",
         "right": true,
         "comment": "L1, slide 19 (PDF page 19): Creation Inversion zahŕňa Factory, Service Locator aj DI."
-      },
-      {
-        "body": "Dependency Injection je iný názov princípu Dependency Inversion a IoC je knižnica na jeho vynútenie.",
-        "right": false,
-        "comment": "L1, slide 18 (PDF page 18): Dependency Inversion je princíp, IoC pattern a DI konkrétna technika."
-      },
-      {
-        "body": "Factory a Service Locator patria do Flow Inversion, kým Creation Inversion tvorí Dependency Injection.",
-        "right": false,
-        "comment": "L1, slide 19 (PDF page 19): Factory, Service Locator aj DI sú uvedené ako Creation Inversion."
       }
     ],
     "source": "L1, slide 18 (PDF page 18), L1, slide 19 (PDF page 19), L1, slide 20 (PDF page 20)"
@@ -250,14 +250,14 @@
         "comment": "L1, slide 21 (PDF page 21): Konštruktor s parametrom IButton ukladá závislosť do poľa."
       },
       {
-        "body": "B je Setter Injection: závislosť sa nastaví cez property po vytvorení objektu.",
-        "right": true,
-        "comment": "L1, slide 21 (PDF page 21): Setter variant používa inicializáciu property Button."
-      },
-      {
         "body": "B je Constructor Injection: závislosť sa odovzdá pri vytváraní objektu cez kľúčové slovo new.",
         "right": false,
         "comment": "L1, slide 21 (PDF page 21): Rozhoduje, kde sa závislosť odovzdá, nie použitie new."
+      },
+      {
+        "body": "B je Setter Injection: závislosť sa nastaví cez property po vytvorení objektu.",
+        "right": true,
+        "comment": "L1, slide 21 (PDF page 21): Setter variant používa inicializáciu property Button."
       },
       {
         "body": "A je Service Locator: Form si závislosť sám vyžiada od centrálneho registra.",
@@ -272,6 +272,11 @@
     "name": "Čo robí Dependency Injection kontajner? Vyber všetky správne tvrdenia.",
     "answers": [
       {
+        "body": "Nahrádza Dependency Inversion: triedy môžu ďalej závisieť od konkrétnych tried, kontajner to skryje.",
+        "right": false,
+        "comment": "L1, slide 15 (PDF page 15): Kontajner je realizácia DI; princíp závislosti od abstrakcií zostáva."
+      },
+      {
         "body": "Umožňuje nakonfigurovať závislosti modulu (napr. IButton je UglyButton).",
         "right": true,
         "comment": "L1, slide 22 (PDF page 22): Kontajner umožňuje konfigurovať závislosti pre modul."
@@ -285,11 +290,6 @@
         "body": "Z konkrétnych tried automaticky vygeneruje rozhrania, ktoré potom vkladá do modulov.",
         "right": false,
         "comment": "L1, slide 22 (PDF page 22): Kontajner abstrakcie nevytvára, iba spája nakonfigurované implementácie."
-      },
-      {
-        "body": "Nahrádza Dependency Inversion: triedy môžu ďalej závisieť od konkrétnych tried, kontajner to skryje.",
-        "right": false,
-        "comment": "L1, slide 15 (PDF page 15): Kontajner je realizácia DI; princíp závislosti od abstrakcií zostáva."
       }
     ],
     "source": "L1, slide 22 (PDF page 22)"
@@ -299,11 +299,6 @@
     "name": "Služba OrderService používa IOrderRepository. Prečo pomáha Dependency Injection pri jej unit teste (xUnit, NSubstitute)? Vyber všetky správne tvrdenia.",
     "answers": [
       {
-        "body": "Do služby možno namiesto skutočného repozitára odovzdať náhradný objekt s rovnakým rozhraním, takže test nepotrebuje databázu.",
-        "right": true,
-        "comment": "L1, slide 16 (PDF page 16) (odvodené): Závislosť je zvonku a typovaná abstrakciou, takže ju možno vymeniť."
-      },
-      {
         "body": "Kód služby sa pri teste nemení, lebo závisí od rozhrania, nie od konkrétnej triedy.",
         "right": true,
         "comment": "L1, slide 15 (PDF page 15) (odvodené): Závislosť od abstrakcie umožňuje zámenu implementácie bez zásahu do služby."
@@ -312,6 +307,11 @@
         "body": "NSubstitute vie nahradiť aj objekt vytvorený cez new priamo v tele služby, bez zmeny jej kódu.",
         "right": false,
         "comment": "L1, slide 16 (PDF page 16) (odvodené): Objekt vytvorený cez new zvnútra nemožno zvonku vymeniť."
+      },
+      {
+        "body": "Do služby možno namiesto skutočného repozitára odovzdať náhradný objekt s rovnakým rozhraním, takže test nepotrebuje databázu.",
+        "right": true,
+        "comment": "L1, slide 16 (PDF page 16) (odvodené): Závislosť je zvonku a typovaná abstrakciou, takže ju možno vymeniť."
       },
       {
         "body": "Test so skutočným repozitárom je rýchlejší, lebo DI optimalizuje databázové dotazy.",

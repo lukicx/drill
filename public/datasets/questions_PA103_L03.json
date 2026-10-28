@@ -4,9 +4,9 @@
     "name": "A patient record stores <TT>weight = 72</TT>. Which statements about the Quantity pattern apply?",
     "answers": [
       {
-        "body": "A Quantity object combines the amount with an explicit unit, so 72 kg cannot be confused with 72 lb.",
-        "right": true,
-        "comment": "L3, slide 52: Modelling numbers together with their units as objects answers \"what does the weight value mean?\""
+        "body": "Every numeric attribute in a model should be replaced by Quantity, whatever the context.",
+        "right": false,
+        "comment": "L3, slide 52: Use Quantity and units only if there is a good reason."
       },
       {
         "body": "Data from external sources or the need for automated recalculation are good reasons to use Quantity.",
@@ -19,9 +19,9 @@
         "comment": "L3, slides 51–52: If the unit lives in a comment or variable name, the boundary between components can produce a new Mars Climate Orbiter failure."
       },
       {
-        "body": "Every numeric attribute in a model should be replaced by Quantity, whatever the context.",
-        "right": false,
-        "comment": "L3, slide 52: Use Quantity and units only if there is a good reason."
+        "body": "A Quantity object combines the amount with an explicit unit, so 72 kg cannot be confused with 72 lb.",
+        "right": true,
+        "comment": "L3, slide 52: Modelling numbers together with their units as objects answers \"what does the weight value mean?\""
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 50–52"
@@ -31,19 +31,14 @@
     "name": "A fleet system receives vehicle speeds in mph from an external GPS provider and must display them in km/h. Which concepts from the Observations and Measurements collection model this?",
     "answers": [
       {
-        "body": "A Quantity holding the amount and its unit.",
-        "right": true,
-        "comment": "L3, slides 50 and 52: Quantity represents values and their units."
-      },
-      {
         "body": "A Conversion Ratio between the mph and km/h units.",
         "right": true,
         "comment": "L3, slide 50: Conversion Ratio records conversion ratios between units."
       },
       {
-        "body": "A Compound Unit for km/h, built from kilometre and hour.",
-        "right": true,
-        "comment": "L3, slide 50: Compound Units cover units such as km/h."
+        "body": "A Dual Time Record to keep both the mph and the km/h value.",
+        "right": false,
+        "comment": "L3, slide 63: Dual Time Record separates occurrence and recording time; it has nothing to do with units."
       },
       {
         "body": "A Protocol to convert the mph values into km/h values.",
@@ -51,9 +46,14 @@
         "comment": "L3, slides 50 and 58: Protocol records the method by which an observation was made, not unit conversion."
       },
       {
-        "body": "A Dual Time Record to keep both the mph and the km/h value.",
-        "right": false,
-        "comment": "L3, slide 63: Dual Time Record separates occurrence and recording time; it has nothing to do with units."
+        "body": "A Compound Unit for km/h, built from kilometre and hour.",
+        "right": true,
+        "comment": "L3, slide 50: Compound Units cover units such as km/h."
+      },
+      {
+        "body": "A Quantity holding the amount and its unit.",
+        "right": true,
+        "comment": "L3, slides 50 and 52: Quantity represents values and their units."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 50 and 52"
@@ -62,11 +62,6 @@
     "id": "9296b727",
     "name": "A hospital records height, weight and blood glucose of patients using the Measurement pattern. Which statements about its knowledge and operational levels are correct?",
     "answers": [
-      {
-        "body": "PhenomenonType (e.g. \"blood glucose level\") belongs to the knowledge level and says what can be measured.",
-        "right": true,
-        "comment": "L3, slide 54: PhenomenonType lists the things to be measured; it is on the knowledge level."
-      },
       {
         "body": "Each Measurement is a concrete value for one patient and belongs to the operational level.",
         "right": true,
@@ -81,6 +76,11 @@
         "body": "The knowledge level changes more often than the operational records, as new measurement types appear daily.",
         "right": false,
         "comment": "L3, slide 55: The knowledge level is configuration that changes much less frequently."
+      },
+      {
+        "body": "PhenomenonType (e.g. \"blood glucose level\") belongs to the knowledge level and says what can be measured.",
+        "right": true,
+        "comment": "L3, slide 54: PhenomenonType lists the things to be measured; it is on the knowledge level."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 54–55"
@@ -90,14 +90,9 @@
     "name": "The Measurement pattern cannot record blood groups (A+, A−, 0, …). How does the Observation pattern extend it?",
     "answers": [
       {
-        "body": "Observation becomes a common supertype of Measurement and CategoryObservation.",
-        "right": true,
-        "comment": "L3, slide 56: Both kinds of operational record specialise Observation."
-      },
-      {
-        "body": "Phenomenon is a possible value of a PhenomenonType, e.g. A+ for \"blood group\".",
-        "right": true,
-        "comment": "L3, slide 56: Phenomenon represents the allowed values of a PhenomenonType."
+        "body": "Categorical values can already be stored by the Measurement pattern if the amount is set to 0 or 1.",
+        "right": false,
+        "comment": "L3, slide 55: The slide names categorical data as exactly what the Measurement model cannot record."
       },
       {
         "body": "A CategoryObservation links to a Quantity whose unit holds the category label.",
@@ -105,9 +100,14 @@
         "comment": "L3, slide 56: CategoryObservation refers to a Phenomenon instead of a Quantity."
       },
       {
-        "body": "Categorical values can already be stored by the Measurement pattern if the amount is set to 0 or 1.",
-        "right": false,
-        "comment": "L3, slide 55: The slide names categorical data as exactly what the Measurement model cannot record."
+        "body": "Phenomenon is a possible value of a PhenomenonType, e.g. A+ for \"blood group\".",
+        "right": true,
+        "comment": "L3, slide 56: Phenomenon represents the allowed values of a PhenomenonType."
+      },
+      {
+        "body": "Observation becomes a common supertype of Measurement and CategoryObservation.",
+        "right": true,
+        "comment": "L3, slide 56: Both kinds of operational record specialise Observation."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 55–56"
@@ -117,14 +117,14 @@
     "name": "A patient's body temperature can be measured in the mouth, in the armpit or rectally. What does the Protocol pattern add?",
     "answers": [
       {
+        "body": "It is the observed value itself, numeric or categorical.",
+        "right": false,
+        "comment": "L3, slides 56 and 58: Values are given by Quantity or Phenomenon; Protocol explains how they were obtained."
+      },
+      {
         "body": "It records the method by which the observation was made.",
         "right": true,
         "comment": "L3, slide 58: Protocol is the method by which an observation was made."
-      },
-      {
-        "body": "It distinguishes a temperature taken in the mouth from one taken in the armpit.",
-        "right": true,
-        "comment": "L3, slide 58: Different measuring sites are the motivating example of different observation methods."
       },
       {
         "body": "It replaces PhenomenonType, which says what is observed.",
@@ -132,9 +132,9 @@
         "comment": "L3, slide 58: Protocol (how) and PhenomenonType (what) remain distinct concepts."
       },
       {
-        "body": "It is the observed value itself, numeric or categorical.",
-        "right": false,
-        "comment": "L3, slides 56 and 58: Values are given by Quantity or Phenomenon; Protocol explains how they were obtained."
+        "body": "It distinguishes a temperature taken in the mouth from one taken in the armpit.",
+        "right": true,
+        "comment": "L3, slide 58: Different measuring sites are the motivating example of different observation methods."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slide 58"
@@ -144,9 +144,9 @@
     "name": "Diabetes has two subtypes, type I and type II, modelled with Subtyping Observation Concepts. What follows from observations about patient J. Smith?",
     "answers": [
       {
-        "body": "Presence of type I diabetes implies that diabetes is present.",
-        "right": true,
-        "comment": "L3, slide 59: An observation of a subtype's presence means all supertypes are present."
+        "body": "Absence of type I diabetes implies that diabetes is present.",
+        "right": false,
+        "comment": "L3, slide 59: Nothing follows about the supertype from a subtype's absence."
       },
       {
         "body": "Absence of type I diabetes implies that diabetes is absent.",
@@ -159,9 +159,9 @@
         "comment": "L3, slide 59: The implication runs from subtype to supertype only; the patient may have type II."
       },
       {
-        "body": "Absence of type I diabetes implies that diabetes is present.",
-        "right": false,
-        "comment": "L3, slide 59: Nothing follows about the supertype from a subtype's absence."
+        "body": "Presence of type I diabetes implies that diabetes is present.",
+        "right": true,
+        "comment": "L3, slide 59: An observation of a subtype's presence means all supertypes are present."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slide 59"
@@ -176,6 +176,11 @@
         "comment": "L3, slide 63: Dual Time Record keeps different occurring and recording times or periods."
       },
       {
+        "body": "The second time records when the observation was deleted.",
+        "right": false,
+        "comment": "L3, slide 63: Deletion is not part of Dual Time Record; Reject Observation instead keeps observations from being deleted."
+      },
+      {
         "body": "The pain has an occurrence period of one week and a separate, later recording date.",
         "right": true,
         "comment": "L3, slide 63: The chest-pain example separates the week of pain from the day it was written down."
@@ -184,11 +189,6 @@
         "body": "For observations, the recording time can be taken as the occurrence time.",
         "right": false,
         "comment": "L3, slides 63–64: The example shows they differ; \"when it happened vs. when it was recorded\" is context the pattern keeps."
-      },
-      {
-        "body": "The second time records when the observation was deleted.",
-        "right": false,
-        "comment": "L3, slide 63: Deletion is not part of Dual Time Record; Reject Observation instead keeps observations from being deleted."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 63–64"
@@ -203,11 +203,6 @@
         "comment": "L3, slide 63: Observations cannot be deleted if a full audit trail is needed; Reject Observation handles this. The \"mark instead of delete\" wording is an interpretation."
       },
       {
-        "body": "(b) Hypothesis versus Active Observation: subtypes expressing different levels of assurance.",
-        "right": true,
-        "comment": "L3, slide 63: Hypothesis, Projection and Active Observation are subtypes for different levels of assurance."
-      },
-      {
         "body": "(a) Dual Time Record, which stores when the observation was deleted.",
         "right": false,
         "comment": "L3, slide 63: Dual Time Record separates occurrence and recording time; it does not handle deletion."
@@ -216,6 +211,11 @@
         "body": "(b) Protocol, which states how sure the doctor is about the diagnosis.",
         "right": false,
         "comment": "L3, slide 58: Protocol is the method of observation; assurance is expressed by observation subtypes."
+      },
+      {
+        "body": "(b) Hypothesis versus Active Observation: subtypes expressing different levels of assurance.",
+        "right": true,
+        "comment": "L3, slide 63: Hypothesis, Projection and Active Observation are subtypes for different levels of assurance."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slide 63"
@@ -225,14 +225,9 @@
     "name": "An AI evaluation harness records, for model version v2 on task T: response latency 340 ms, and a judge verdict \"refused\" (allowed labels: refused / complied / partial) produced by an LLM-as-judge with judge prompt version 3. How do these map to Observation concepts?",
     "answers": [
       {
-        "body": "\"Response latency\" is a PhenomenonType; 340 ms is a Measurement with a Quantity.",
-        "right": true,
-        "comment": "L3, slide 62: The metric definition is the PhenomenonType; one numeric result with its unit is Measurement + Quantity."
-      },
-      {
-        "body": "The LLM-as-judge with its judge model and prompt version is the Protocol.",
-        "right": true,
-        "comment": "L3, slide 62: Protocol is how the value was obtained, e.g. LLM-as-judge with judge model and prompt version."
+        "body": "Model version v2 is unsuitable as the observed subject.",
+        "right": false,
+        "comment": "L3, slide 62: The subject (Person in the pattern) can be a model version or a model + task pair."
       },
       {
         "body": "refused, complied and partial are three Measurements of the run.",
@@ -240,9 +235,14 @@
         "comment": "L3, slide 62: The allowed labels are Phenomena; the single verdict for this run is one CategoryObservation."
       },
       {
-        "body": "Model version v2 is unsuitable as the observed subject.",
-        "right": false,
-        "comment": "L3, slide 62: The subject (Person in the pattern) can be a model version or a model + task pair."
+        "body": "The LLM-as-judge with its judge model and prompt version is the Protocol.",
+        "right": true,
+        "comment": "L3, slide 62: Protocol is how the value was obtained, e.g. LLM-as-judge with judge model and prompt version."
+      },
+      {
+        "body": "\"Response latency\" is a PhenomenonType; 340 ms is a Measurement with a Quantity.",
+        "right": true,
+        "comment": "L3, slide 62: The metric definition is the PhenomenonType; one numeric result with its unit is Measurement + Quantity."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slide 62"
@@ -252,9 +252,9 @@
     "name": "An ad-hoc model stores <TT>accidentsPerYear</TT> as an integer attribute on Driver and adds classes DrivingPeriod, Vehicle and Year to record driving period, driven vehicle (tram, bus or trolleybus) and accidents. How does the Observation pattern simplify this without losing meaning?",
     "answers": [
       {
-        "body": "Driving period, driven vehicle and accidents per year become PhenomenonTypes; tram, bus and trolleybus are Phenomena of \"driven vehicle\".",
-        "right": true,
-        "comment": "L3, slide 61: These items are captured as notes on PhenomenonType and Phenomenon instead of separate classes."
+        "body": "Every noun in the requirement becomes its own class, which makes the model more precise and easier to change.",
+        "right": false,
+        "comment": "L3, slides 53 and 61: That is the ad-hoc approach whose abstraction and complexity problems the pattern addresses."
       },
       {
         "body": "Only key context (e.g. the Driver) is linked to Observation; details irrelevant to domain understanding are kept in free-text notes.",
@@ -262,9 +262,9 @@
         "comment": "L3, slide 61: The pattern balances a fixed static model against flexible free-text documentation."
       },
       {
-        "body": "Every noun in the requirement becomes its own class, which makes the model more precise and easier to change.",
-        "right": false,
-        "comment": "L3, slides 53 and 61: That is the ad-hoc approach whose abstraction and complexity problems the pattern addresses."
+        "body": "Driving period, driven vehicle and accidents per year become PhenomenonTypes; tram, bus and trolleybus are Phenomena of \"driven vehicle\".",
+        "right": true,
+        "comment": "L3, slide 61: These items are captured as notes on PhenomenonType and Phenomenon instead of separate classes."
       },
       {
         "body": "Keeping accidentsPerYear as an integer attribute on Driver is the simplest model that still records unit, source and recording time.",
@@ -284,14 +284,14 @@
         "comment": "L3, slide 67: A proposed action exists in a plan and can be given a time reference, parties and a location."
       },
       {
-        "body": "The link between a proposed and an implemented action is optional in both directions.",
-        "right": true,
-        "comment": "L3, slide 67: Plans may never be carried out, and many actions occur without prior planning."
-      },
-      {
         "body": "An action becomes implemented once it has been completed according to plan.",
         "right": false,
         "comment": "L3, slides 67–68: An action is implemented as soon as it has begun; completion is a later state."
+      },
+      {
+        "body": "The link between a proposed and an implemented action is optional in both directions.",
+        "right": true,
+        "comment": "L3, slide 67: Plans may never be carried out, and many actions occur without prior planning."
       },
       {
         "body": "Each implemented action has to originate from a recorded proposal in some plan.",
@@ -311,14 +311,14 @@
         "comment": "L3, slide 68: This is the definition of completion."
       },
       {
-        "body": "Abandonment is a complete and final cessation, possible before or after implementation begins.",
-        "right": true,
-        "comment": "L3, slide 68: Abandoning a proposed action means deciding not to begin it at all."
-      },
-      {
         "body": "An action can be abandoned once it has started, but not before.",
         "right": false,
         "comment": "L3, slide 68: Abandonment can occur before the action begins."
+      },
+      {
+        "body": "Abandonment is a complete and final cessation, possible before or after implementation begins.",
+        "right": true,
+        "comment": "L3, slide 68: Abandoning a proposed action means deciding not to begin it at all."
       },
       {
         "body": "A suspended action that will resume later counts as abandoned.",
@@ -333,6 +333,11 @@
     "name": "What does the basic Plan pattern model, and what is its limitation?",
     "answers": [
       {
+        "body": "The basic Plan model already covers resource allocation and suspension of actions.",
+        "right": false,
+        "comment": "L3, slides 66 and 69: Resource Allocation and Suspension are separate patterns; the basic plan is only the starting point."
+      },
+      {
         "body": "A Plan is a collection of Proposed Actions linked in some sequence (dependent and consequent actions).",
         "right": true,
         "comment": "L3, slide 69: In its simplest sense a plan is a collection of proposed actions linked in some sequence."
@@ -346,11 +351,6 @@
         "body": "A Plan consists of actions that have already been completed, recorded in sequence.",
         "right": false,
         "comment": "L3, slide 69: A plan consists of proposed actions, not completed ones."
-      },
-      {
-        "body": "The basic Plan model already covers resource allocation and suspension of actions.",
-        "right": false,
-        "comment": "L3, slides 66 and 69: Resource Allocation and Suspension are separate patterns; the basic plan is only the starting point."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slide 69"
@@ -359,6 +359,11 @@
     "id": "76bd1a7c",
     "name": "A transport planning model has an abstract Schedule with two subclasses: Proposed schedule (the timetable) and Vehicle on the way (how a schedule is actually carried out), and Completed route is a subclass of Vehicle on the way. Where should the particular Vehicle be linked?",
     "answers": [
+      {
+        "body": "To Completed route alone, so running trips have no vehicle.",
+        "right": false,
+        "comment": "L3, slide 71: The association is on Vehicle on the way, so running and completed trips both know their vehicle."
+      },
       {
         "body": "To Vehicle on the way, the implemented schedule.",
         "right": true,
@@ -373,11 +378,6 @@
         "body": "To Line, which does not record actual execution.",
         "right": false,
         "comment": "L3, slide 71: Vehicle on the way records execution and refers to the vehicle."
-      },
-      {
-        "body": "To Completed route alone, so running trips have no vehicle.",
-        "right": false,
-        "comment": "L3, slide 71: The association is on Vehicle on the way, so running and completed trips both know their vehicle."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 70–71"
@@ -386,16 +386,6 @@
     "id": "6ab77916",
     "name": "The management of a coffee-machine company wants: (a) sales broken down by region and product brand; (b) a profit figure calculated from revenue and cost measurements by a formula; (c) a \"normal\" interval between two quantities, with operations on such intervals. Which Corporate Finance patterns fit?",
     "answers": [
-      {
-        "body": "(a) Enterprise Segment.",
-        "right": true,
-        "comment": "L3, slide 74: Enterprise Segment divides the enterprise by dimensions such as geography or product range."
-      },
-      {
-        "body": "(b) Measurement Protocol.",
-        "right": true,
-        "comment": "L3, slide 74: Measurement Protocol calculates measurements from other measurements using formulas that are model instances."
-      },
       {
         "body": "(c) Range.",
         "right": true,
@@ -407,9 +397,19 @@
         "comment": "L3, slides 50 and 74: Conversion Ratio converts between units; it does not compute values from other measurements."
       },
       {
+        "body": "(a) Enterprise Segment.",
+        "right": true,
+        "comment": "L3, slide 74: Enterprise Segment divides the enterprise by dimensions such as geography or product range."
+      },
+      {
         "body": "(a) Account.",
         "right": false,
         "comment": "L3, slides 74 and 83: Account records changes of one value; slicing analyses by dimensions is Enterprise Segment."
+      },
+      {
+        "body": "(b) Measurement Protocol.",
+        "right": true,
+        "comment": "L3, slide 74: Measurement Protocol calculates measurements from other measurements using formulas that are model instances."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 74–75"
@@ -418,11 +418,6 @@
     "id": "e09d11ae",
     "name": "A coffee-machine company asks: Which coffee brands are most popular? Do preferences differ across countries and across customers' business sectors? Sometimes it looks at the whole company, sometimes only at, e.g., espresso sales to government customers in the Northeast region. Which statements about the Enterprise Segment pattern are correct?",
     "answers": [
-      {
-        "body": "An EnterpriseSegment is identified by one element from each dimension, e.g. product, geography and industry sector.",
-        "right": true,
-        "comment": "L3, slides 76–77: EnterpriseSegment links to a geographic, an industry and a product dimension element."
-      },
       {
         "body": "DimensionElement has a recursive parent association (0..1) with the constraint that the parent is of the same subtype.",
         "right": true,
@@ -434,14 +429,19 @@
         "comment": "L3, slide 76: A segment is an analytical slice such as \"espresso to government in the Northeast\", not a legal unit."
       },
       {
-        "body": "Each region and brand is modelled as its own class so that analytical queries are type-safe.",
-        "right": false,
-        "comment": "L3, slide 77: Regions and brands are DimensionElement instances in hierarchies; only the dimension roots are subclasses."
+        "body": "An EnterpriseSegment is identified by one element from each dimension, e.g. product, geography and industry sector.",
+        "right": true,
+        "comment": "L3, slides 76–77: EnterpriseSegment links to a geographic, an industry and a product dimension element."
       },
       {
         "body": "An EnterpriseSegment is itself the measured sales value for a region and product.",
         "right": false,
         "comment": "L3, slides 74 and 76: The segment says which part of the business is observed; the value is a measurement about it."
+      },
+      {
+        "body": "Each region and brand is modelled as its own class so that analytical queries are type-safe.",
+        "right": false,
+        "comment": "L3, slide 77: Regions and brands are DimensionElement instances in hierarchies; only the dimension roots are subclasses."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 75–77"
@@ -456,11 +456,6 @@
         "comment": "L3, slide 80: Analytical and managerial functions will be requested, and they are very difficult to conceptualise early; the pattern offers a straightforward approach."
       },
       {
-        "body": "It raises the question of which dimensions the business wants to analyse, e.g. accidents versus delays per line.",
-        "right": true,
-        "comment": "L3, slide 79: The transport application uses GeographicLocation, VehicleTypes, Events and Lines as dimensions."
-      },
-      {
         "body": "It ensures that management will not request further analytical functions once the dimensions have been modelled.",
         "right": false,
         "comment": "L3, slide 80: The pattern is an approach to conceptualising analyses, not a guarantee against new requirements."
@@ -469,6 +464,11 @@
         "body": "It becomes useful after the reports are implemented, when the existing data can be sliced by dimension.",
         "right": false,
         "comment": "L3, slide 80: The point is to conceptualise analytical needs early, before the system is built."
+      },
+      {
+        "body": "It raises the question of which dimensions the business wants to analyse, e.g. accidents versus delays per line.",
+        "right": true,
+        "comment": "L3, slide 79: The transport application uses GeographicLocation, VehicleTypes, Events and Lines as dimensions."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 79–80"
@@ -478,6 +478,11 @@
     "name": "An LLM token budget is modelled as a single counter that is decremented on each use. What does the Account pattern keep that the counter loses?",
     "answers": [
       {
+        "body": "Nothing: storing the current balance is enough to rebuild the history of deposits and withdrawals.",
+        "right": false,
+        "comment": "L3, slide 83: To record a history of changes to a value, use an account; a current value alone loses the changes."
+      },
+      {
         "body": "Each change is an Entry, and the balance is derived from them: \\(\\text{balance} = \\sum \\text{entries.amount}\\).",
         "right": true,
         "comment": "L3, slide 83: Entries record every change to the account; the constraint on the slide is \\(\\text{balance} = \\sum \\text{entries.amount}\\)."
@@ -486,11 +491,6 @@
         "body": "When consumption happened and in what amount, because every entry carries its own amount and time.",
         "right": true,
         "comment": "L3, slide 83: A decrementing counter cannot answer when token consumption began and in what amount."
-      },
-      {
-        "body": "Nothing: storing the current balance is enough to rebuild the history of deposits and withdrawals.",
-        "right": false,
-        "comment": "L3, slide 83: To record a history of changes to a value, use an account; a current value alone loses the changes."
       },
       {
         "body": "Entries are unsigned, so a separate flag is needed for deposits and withdrawals.",
@@ -505,9 +505,9 @@
     "name": "How does the Transaction pattern extend the Account pattern?",
     "answers": [
       {
-        "body": "A Transaction links the entries of one movement, e.g. a withdrawal from a bank account and a deposit into a wallet.",
-        "right": true,
-        "comment": "L3, slide 85: Transactions record where items come from and where they go."
+        "body": "It keeps the final balance of each account and discards the individual transfers.",
+        "right": false,
+        "comment": "L3, slides 85–86: Transactions connect entries and retain the context of every transfer, e.g. which tool call consumed a token budget."
       },
       {
         "body": "For a two-entry transaction the signed amounts cancel out: \\(\\sum \\text{entries.amount} = 0\\).",
@@ -520,9 +520,9 @@
         "comment": "L3, slide 85: The conservation principle says items can only move between accounts, which makes leaks easy to find."
       },
       {
-        "body": "It keeps the final balance of each account and discards the individual transfers.",
-        "right": false,
-        "comment": "L3, slides 85–86: Transactions connect entries and retain the context of every transfer, e.g. which tool call consumed a token budget."
+        "body": "A Transaction links the entries of one movement, e.g. a withdrawal from a bank account and a deposit into a wallet.",
+        "right": true,
+        "comment": "L3, slide 85: Transactions record where items come from and where they go."
       }
     ],
     "source": "02-03-Analysis-patterns.pdf, slides 85–86"
@@ -532,16 +532,6 @@
     "name": "Stops have user-friendly names for passengers (e.g. \"Botanická\") but internally each stop has a unique technical number (e.g. 581). When is the Identification Scheme pattern (Stop – Identifier – IdentificationScheme) justified?",
     "answers": [
       {
-        "body": "When there are several identification schemes, or the schemes are not yet known.",
-        "right": true,
-        "comment": "Public-transport supplement, page 15: The note calls the pattern overkill unless there are more schemes or the schemes are not currently known."
-      },
-      {
-        "body": "A Stop can then have several Identifiers, each interpreted within one IdentificationScheme.",
-        "right": true,
-        "comment": "Public-transport supplement, page 15: Stop has 1..* Identifiers, and each Identifier belongs to one IdentificationScheme (street name, technical number)."
-      },
-      {
         "body": "It is needed even if a stop has just one name and one number, to keep the model uniform.",
         "right": false,
         "comment": "Public-transport supplement, page 15: In that case a Stop with name and number attributes could be used instead."
@@ -550,6 +540,16 @@
         "body": "Changing a stop's displayed name requires creating a new Stop object with a new Identifier.",
         "right": false,
         "comment": "Public-transport supplement, page 15: Identifiers are attached to the stop, so a name is one identifier of the same Stop, not the stop itself (interpretation)."
+      },
+      {
+        "body": "A Stop can then have several Identifiers, each interpreted within one IdentificationScheme.",
+        "right": true,
+        "comment": "Public-transport supplement, page 15: Stop has 1..* Identifiers, and each Identifier belongs to one IdentificationScheme (street name, technical number)."
+      },
+      {
+        "body": "When there are several identification schemes, or the schemes are not yet known.",
+        "right": true,
+        "comment": "Public-transport supplement, page 15: The note calls the pattern overkill unless there are more schemes or the schemes are not currently known."
       }
     ],
     "source": "public-transport.pdf, page 15"

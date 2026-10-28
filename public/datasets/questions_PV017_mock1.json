@@ -3,65 +3,65 @@
     "id": "f270c9ee",
     "name": "V nemocnici během roku nastalo několik událostí. Která přiřazení události k primárně narušené vlastnosti informační bezpečnosti jsou správná?",
     "answers": [
+      { "body": "Sestra omylem pošle výsledky pacienta na cizí e-mail – narušení integrity", "right": false, "comment": "Přednáška 1, slide 21: zpřístupnění neoprávněné osobě, i neúmyslné, je narušení důvěrnosti, data se nezměnila." },
       { "body": "Útočník v databázi změní předepsané dávky léků – narušení integrity", "right": true, "comment": "Přednáška 1, slide 22: neautorizovaná změna dat je narušení integrity; Přednáška 2, slide 27 uvádí špatnou medikaci jako dopad na integritu." },
       { "body": "Ransomware zašifruje servery a lékaři dva dny nevidí dokumentaci – narušení dostupnosti", "right": true, "comment": "Přednáška 1, slide 23: informace nedostupné oprávněným subjektům v okamžiku potřeby znamenají ztrátu dostupnosti." },
-      { "body": "Sestra omylem pošle výsledky pacienta na cizí e-mail – narušení integrity", "right": false, "comment": "Přednáška 1, slide 21: zpřístupnění neoprávněné osobě, i neúmyslné, je narušení důvěrnosti, data se nezměnila." },
-      { "body": "Zahlcení objednávkového portálu požadavky (DoS) – narušení důvěrnosti", "right": false, "comment": "Přednáška 1, slide 23: DoS brání oprávněným uživatelům ve využití služby, jde o dostupnost, nic se neprozradí." },
-      { "body": "Z logů nelze zjistit, kdo změnil nastavení serveru – narušení dostupnosti", "right": false, "comment": "Přednáška 1, slide 20: chybí zodpovědnost/prokazatelnost (accountability) – akci nelze sledovat k entitě, která ji provedla." }
+      { "body": "Z logů nelze zjistit, kdo změnil nastavení serveru – narušení dostupnosti", "right": false, "comment": "Přednáška 1, slide 20: chybí zodpovědnost/prokazatelnost (accountability) – akci nelze sledovat k entitě, která ji provedla." },
+      { "body": "Zahlcení objednávkového portálu požadavky (DoS) – narušení důvěrnosti", "right": false, "comment": "Přednáška 1, slide 23: DoS brání oprávněným uživatelům ve využití služby, jde o dostupnost, nic se neprozradí." }
     ]
   },
   {
     "id": "62fab983",
     "name": "Bezpečnostní tým modeluje hrozby pro firemní systémy pomocí STRIDE. Která přiřazení situace ke kategorii STRIDE jsou správná?",
     "answers": [
-      { "body": "Zaměstnanec si v personálním systému neoprávněně zvýší plat – Tampering", "right": true, "comment": "Přednáška 1, slides 47-48: Tampering je neoprávněná změna dat, např. změna vlastních údajů v aplikaci." },
       { "body": "Běžný uživatel zneužije chybu v ovladači a získá práva administrátora – Elevation of Privilege", "right": true, "comment": "Přednáška 1, slide 47: získání vyšších oprávnění, než má uživatel přidělena, je Elevation of Privilege." },
-      { "body": "Zákazník popírá odeslání objednávky a e-shop nemá záznam, který by ji prokázal – Repudiation", "right": true, "comment": "Přednáška 1, slide 48: Repudiation je situace, kdy nelze prokázat, kdo akci provedl (obdoba „nelze zjistit, kdo poslal příkaz“)." },
       { "body": "Útočník se přihlásí ukradeným heslem kolegy a vystupuje jako on – Tampering", "right": false, "comment": "Přednáška 1, slide 48: vystupování pod cizí identitou je Spoofing, nikoli změna dat." },
-      { "body": "Útočník zahltí e-shop požadavky, takže zákazníci nemohou nakupovat – Information Disclosure", "right": false, "comment": "Přednáška 1, slides 47-48: znepřístupnění služby je Denial of Service; k úniku informací nedochází." }
+      { "body": "Zaměstnanec si v personálním systému neoprávněně zvýší plat – Tampering", "right": true, "comment": "Přednáška 1, slides 47-48: Tampering je neoprávněná změna dat, např. změna vlastních údajů v aplikaci." },
+      { "body": "Útočník zahltí e-shop požadavky, takže zákazníci nemohou nakupovat – Information Disclosure", "right": false, "comment": "Přednáška 1, slides 47-48: znepřístupnění služby je Denial of Service; k úniku informací nedochází." },
+      { "body": "Zákazník popírá odeslání objednávky a e-shop nemá záznam, který by ji prokázal – Repudiation", "right": true, "comment": "Přednáška 1, slide 48: Repudiation je situace, kdy nelze prokázat, kdo akci provedl (obdoba „nelze zjistit, kdo poslal příkaz“)." }
     ]
   },
   {
     "id": "5c9f85f7",
     "name": "Která přiřazení opatření k principu návrhu bezpečnostních opatření jsou správná?",
     "answers": [
-      { "body": "Nové cloudové úložiště je neveřejné a přístup se musí výslovně povolit – bezpečný výchozí stav (Fail-safe Defaults)", "right": true, "comment": "Přednáška 1, slide 71: pokud subjekt nemá přístup výslovně udělen, má být odepřen." },
+      { "body": "Platbu nad 100 000 Kč musí potvrdit dva různí pracovníci – nejmenší práva (Least Privilege)", "right": false, "comment": "Přednáška 1, slide 73: dva nezávislí schvalovatelé znamenají více podmínek pro udělení oprávnění, tedy oddělení oprávnění (Separation of Privileges); nejmenší práva (slide 71) znamenají jen nezbytná práva." },
+      { "body": "Dvě aplikace s různě citlivými daty nemají sdílet stejný přístupový mechanismus – ekonomika mechanismu (Economy of Mechanism)", "right": false, "comment": "Přednáška 1, slide 75: nesdílení mechanismů přístupu je princip nejmenšího společného mechanismu (Least Common Mechanism)." },
       { "body": "Šifrovací algoritmus je veřejně známý a tajný zůstává jen klíč – otevřený design (Open Design)", "right": true, "comment": "Přednáška 1, slide 74: bezpečnost mechanismu nemá záviset na utajení návrhu, což je důležité zejména pro kryptografii." },
       { "body": "Aplikace ověřuje oprávnění při každém otevření dokumentu, ne jen při přihlášení – úplné zprostředkování (Complete Mediation)", "right": true, "comment": "Přednáška 1, slide 75: všechny přístupy k objektům se mají kontrolovat, ne spoléhat na dřívější (uložené) rozhodnutí." },
-      { "body": "Platbu nad 100 000 Kč musí potvrdit dva různí pracovníci – nejmenší práva (Least Privilege)", "right": false, "comment": "Přednáška 1, slide 73: dva nezávislí schvalovatelé znamenají více podmínek pro udělení oprávnění, tedy oddělení oprávnění (Separation of Privileges); nejmenší práva (slide 71) znamenají jen nezbytná práva." },
-      { "body": "Dvě aplikace s různě citlivými daty nemají sdílet stejný přístupový mechanismus – ekonomika mechanismu (Economy of Mechanism)", "right": false, "comment": "Přednáška 1, slide 75: nesdílení mechanismů přístupu je princip nejmenšího společného mechanismu (Least Common Mechanism)." }
+      { "body": "Nové cloudové úložiště je neveřejné a přístup se musí výslovně povolit – bezpečný výchozí stav (Fail-safe Defaults)", "right": true, "comment": "Přednáška 1, slide 71: pokud subjekt nemá přístup výslovně udělen, má být odepřen." }
     ]
   },
   {
     "id": "97cdb843",
     "name": "Útočník pronikl do vývojového prostředí výrobce síťového softwaru a vložil skrytý kód do pravidelné aktualizace. Kód se nainstaloval u tisíců zákazníků, aktivoval se však jen u několika vybraných cílů. Operace vyžadovala dlouhou přípravu, vlastní nové útočné nástroje a práci týmu specialistů; útočník pečlivě mazal stopy a skrýval své servery. Do které třídy klasifikace útočníků podle IBM nejspíš patří?",
     "answers": [
-      { "body": "Třída 0 – script kiddies zkoušející hotové nástroje", "right": false, "comment": "Přednáška 1, slide 55: třída 0 nezná systém a jen zkouší existující nástroje; tento útok vyžadoval nový nástroj a dlouhou přípravu." },
       { "body": "Třída 1 – chytří nezasvěcení útočníci se středním vybavením", "right": false, "comment": "Přednáška 1, slide 55: třída 1 využívá zranitelnosti existující v systému se středně sofistikovaným vybavením, nevytváří vlastní útoky na dodavatelský řetězec." },
       { "body": "Třída 1,5 – dobře vybavení lidé z venku, např. univerzitní laboratoř", "right": false, "comment": "Přednáška 1, slide 55: třída 1,5 má laboratorní vybavení a základní znalosti, ne týmy specialistů pro dlouhodobou skrytou operaci." },
       { "body": "Třída 2 – zasvěcení insideři se specializovaným vzděláním", "right": false, "comment": "Přednáška 1, slide 55: třída 2 jsou insideři; zde útočník přišel zvenčí přes aktualizace dodavatele." },
-      { "body": "Třída 3 – dobře financovaná organizace schopná tvořit nové útoky", "right": true, "comment": "Přednáška 1, slide 55: třída 3 má týmy specialistů, dobré financování a tvoří nové útoky; odpovídá rysům aktéra SolarWinds (Přednáška 5, slides 37-39). Zařazení je interpretace." }
+      { "body": "Třída 3 – dobře financovaná organizace schopná tvořit nové útoky", "right": true, "comment": "Přednáška 1, slide 55: třída 3 má týmy specialistů, dobré financování a tvoří nové útoky; odpovídá rysům aktéra SolarWinds (Přednáška 5, slides 37-39). Zařazení je interpretace." },
+      { "body": "Třída 0 – script kiddies zkoušející hotové nástroje", "right": false, "comment": "Přednáška 1, slide 55: třída 0 nezná systém a jen zkouší existující nástroje; tento útok vyžadoval nový nástroj a dlouhou přípravu." }
     ]
   },
   {
     "id": "9d1c00da",
     "name": "Organizace klasifikuje aktiva podle stupnic zákona o kybernetické bezpečnosti (nízká – střední – vysoká – kritická). Která zařazení jsou správná?",
     "answers": [
-      { "body": "Ceník služeb zveřejněný na webu organizace – důvěrnost nízká", "right": true, "comment": "Přednáška 1, slide 82: nízká důvěrnost platí pro aktiva veřejně přístupná nebo určená ke zveřejnění, ochrana se nevyžaduje." },
-      { "body": "Účetní záznamy, u nichž se sleduje historie změn a kdo je provedl – integrita vysoká", "right": true, "comment": "Přednáška 1, slide 83: u vysoké integrity se používají prostředky, které sledují historii změn a zaznamenají identitu osoby provádějící změnu." },
       { "body": "Řízení dopravní signalizace, kde už minutový výpadek vážně ohrozí zájmy – dostupnost kritická", "right": true, "comment": "Přednáška 1, slide 84: kritická dostupnost – i krátkodobá nedostupnost v řádu minut vede k vážnému ohrožení; obnova je krátkodobá a automatizovaná." },
+      { "body": "Intranet, jehož výpadek se toleruje zhruba do týdne a stačí zálohování – dostupnost střední", "right": false, "comment": "Přednáška 1, slide 84: výpadek tolerovaný cca do 1 týdne s pravidelným zálohováním je nízká dostupnost; střední má limit pracovního dne." },
       { "body": "Interní know-how, jehož ochranu nevyžaduje žádný předpis ani smlouva – důvěrnost vysoká", "right": false, "comment": "Přednáška 1, slide 82: know-how bez právní či smluvní povinnosti ochrany je střední důvěrnost; vysoká vyžaduje ochranu ze zákona nebo smlouvy." },
-      { "body": "Intranet, jehož výpadek se toleruje zhruba do týdne a stačí zálohování – dostupnost střední", "right": false, "comment": "Přednáška 1, slide 84: výpadek tolerovaný cca do 1 týdne s pravidelným zálohováním je nízká dostupnost; střední má limit pracovního dne." }
+      { "body": "Ceník služeb zveřejněný na webu organizace – důvěrnost nízká", "right": true, "comment": "Přednáška 1, slide 82: nízká důvěrnost platí pro aktiva veřejně přístupná nebo určená ke zveřejnění, ochrana se nevyžaduje." },
+      { "body": "Účetní záznamy, u nichž se sleduje historie změn a kdo je provedl – integrita vysoká", "right": true, "comment": "Přednáška 1, slide 83: u vysoké integrity se používají prostředky, které sledují historii změn a zaznamenají identitu osoby provádějící změnu." }
     ]
   },
   {
     "id": "fc573cf6",
     "name": "Nemocnice provozuje klinický informační systém jako cloudovou službu: aplikaci dodává integrátor, datacentrum provozuje externí firma. Co platí pro ISMS nemocnice?",
     "answers": [
-      { "body": "Cloud a datacentrum leží mimo organizaci, ale patří do řízených závislostí ISMS.", "right": true, "comment": "Přednáška 2, slide 26: cloud a DC jsou mimo organizaci, ale uvnitř řízených závislostí ISMS." },
       { "body": "Požadavky na poskytovatele musí být ve smlouvě – např. bezpečnostní příloha, právo auditu a exit plán.", "right": true, "comment": "Přednáška 4, slide 21 a Přednáška 2, slide 29: co není ve smlouvě, nelze vymáhat; provider risk se ošetřuje SLA, audit rights a exit plánem." },
-      { "body": "Vnitřní bezpečnostní směrnice nemocnice zavazuje i zaměstnance provozovatele datacentra.", "right": false, "comment": "Přednáška 4, slide 29: dodavatele vnitřní předpis nezavazuje, povinnosti mu lze uložit jen smlouvou." },
       { "body": "Fyzická bezpečnost datacentra se v prohlášení o aplikovatelnosti vůbec neuvádí – řeší ji provider.", "right": false, "comment": "Přednáška 2, slide 29: SoA opatření uvádí s odůvodněním, např. „Physical perimeter omezeně, protože je řízen u DC providera“." },
+      { "body": "Vnitřní bezpečnostní směrnice nemocnice zavazuje i zaměstnance provozovatele datacentra.", "right": false, "comment": "Přednáška 4, slide 29: dodavatele vnitřní předpis nezavazuje, povinnosti mu lze uložit jen smlouvou." },
+      { "body": "Cloud a datacentrum leží mimo organizaci, ale patří do řízených závislostí ISMS.", "right": true, "comment": "Přednáška 2, slide 26: cloud a DC jsou mimo organizaci, ale uvnitř řízených závislostí ISMS." },
       { "body": "Odpovědnost za ochranu dat pacientů přechází přesunem do cloudu na poskytovatele.", "right": false, "comment": "Přednáška 2, slide 26: vlastníkem péče a dat zůstává nemocnice; cloud je řízená závislost, ne nový vlastník." }
     ]
   },
@@ -69,33 +69,33 @@
     "id": "39e3ea5d",
     "name": "Nemocnice zavádí ISMS podle ISO/IEC 27001:2022, jejíž požadavky tvoří kapitoly 4–10. Která přiřazení činnosti ke kapitole a k fázi PDCA jsou správná?",
     "answers": [
-      { "body": "Vedení schválí politiku a určí role a odpovědnosti – Vůdčí role (kap. 5), fáze PLAN", "right": true, "comment": "Přednáška 2, slide 11: vůdčí role zahrnuje závazek vedení, politiku, role a odpovědnosti; Přednáška 4, slide 15: kap. 4–6 = PLAN." },
       { "body": "Lékaři a sestry se školí v nouzovém režimu a eskalační cestě – Podpora (kap. 7), fáze DO", "right": true, "comment": "Přednáška 2, slides 11 a 31: podpora zajišťuje zdroje, kompetence a povědomí; Přednáška 4, slide 15: kap. 7–8 = DO." },
-      { "body": "Po neshodě zjištěné auditem se určí příčina a provede nápravná akce – Zlepšování (kap. 10), fáze ACT", "right": true, "comment": "Přednáška 2, slides 11 a 32: zlepšování řeší neshody a nápravná opatření; Přednáška 4, slide 15: kap. 10 = ACT." },
+      { "body": "Interní audit shody politiky, procesu a konfigurace s realitou – Zlepšování (kap. 10), fáze ACT", "right": false, "comment": "Přednáška 2, slides 11 a 32: audit je Hodnocení výkonnosti (kap. 9), fáze CHECK; ACT teprve reaguje na jeho zjištění." },
       { "body": "Určení rozsahu ISMS a požadavků zainteresovaných stran – Podpora (kap. 7), fáze DO", "right": false, "comment": "Přednáška 2, slides 11 a 26: rozsah a potřeby stran patří do Kontextu organizace (kap. 4), tedy do fáze PLAN." },
-      { "body": "Interní audit shody politiky, procesu a konfigurace s realitou – Zlepšování (kap. 10), fáze ACT", "right": false, "comment": "Přednáška 2, slides 11 a 32: audit je Hodnocení výkonnosti (kap. 9), fáze CHECK; ACT teprve reaguje na jeho zjištění." }
+      { "body": "Po neshodě zjištěné auditem se určí příčina a provede nápravná akce – Zlepšování (kap. 10), fáze ACT", "right": true, "comment": "Přednáška 2, slides 11 a 32: zlepšování řeší neshody a nápravná opatření; Přednáška 4, slide 15: kap. 10 = ACT." },
+      { "body": "Vedení schválí politiku a určí role a odpovědnosti – Vůdčí role (kap. 5), fáze PLAN", "right": true, "comment": "Přednáška 2, slide 11: vůdčí role zahrnuje závazek vedení, politiku, role a odpovědnosti; Přednáška 4, slide 15: kap. 4–6 = PLAN." }
     ]
   },
   {
     "id": "b4412268",
     "name": "Konzultant sestavuje harmonogram tvorby povinné dokumentace ISMS. Která načasování jsou správná?",
     "answers": [
-      { "body": "Soupis legislativních, regulačních a smluvních požadavků zpracovat co nejdříve – ovlivňuje řadu dalších dokumentů.", "right": true, "comment": "Přednáška 2, slide 19: tyto požadavky se mají dělat co nejdříve, protože mají vliv na mnoho zbývajících dokumentů a prací." },
+      { "body": "Prohlášení o aplikovatelnosti sepsat před hodnocením rizik, aby hodnotitelé znali opatření.", "right": false, "comment": "Přednáška 2, slide 38 a Přednáška 6, slide 12: prohlášení o aplikovatelnosti je výstupem ohodnocení rizik, ne jeho vstupem." },
       { "body": "Bezpečné provozní procedury správy IT (zálohování, změnové řízení…) psát až po ohodnocení a zvládnutí rizik.", "right": true, "comment": "Přednáška 2, slide 18: provozní procedury i politiku řízení přístupu lze vypracovat až po ohodnocení a zvládnutí rizik." },
+      { "body": "Soupis legislativních, regulačních a smluvních požadavků zpracovat co nejdříve – ovlivňuje řadu dalších dokumentů.", "right": true, "comment": "Přednáška 2, slide 19: tyto požadavky se mají dělat co nejdříve, protože mají vliv na mnoho zbývajících dokumentů a prací." },
       { "body": "Oblast působnosti ISMS formulovat až na konci, kdy je jasné, co se podařilo zabezpečit.", "right": false, "comment": "Přednáška 2, slide 16: oblast působnosti je krátký dokument vypracovaný obvykle hned na počátku zavádění ISMS." },
-      { "body": "Plán zvládání rizik předložit vedení ke schválení až po implementaci všech opatření.", "right": false, "comment": "Přednáška 2, slide 17: plán zvládání rizik (kdo, co, za kolik, kdy) vedení schvaluje okamžitě – dává na opatření peníze." },
-      { "body": "Prohlášení o aplikovatelnosti sepsat před hodnocením rizik, aby hodnotitelé znali opatření.", "right": false, "comment": "Přednáška 2, slide 38 a Přednáška 6, slide 12: prohlášení o aplikovatelnosti je výstupem ohodnocení rizik, ne jeho vstupem." }
+      { "body": "Plán zvládání rizik předložit vedení ke schválení až po implementaci všech opatření.", "right": false, "comment": "Přednáška 2, slide 17: plán zvládání rizik (kdo, co, za kolik, kdy) vedení schvaluje okamžitě – dává na opatření peníze." }
     ]
   },
   {
     "id": "bda7475d",
     "name": "Vedení organizace hledá manažera informační bezpečnosti (CISO). Kdo ho obvykle ustanovuje?",
     "answers": [
+      { "body": "NÚKIB na návrh statutárního orgánu organizace", "right": false, "comment": "Přednáška 2, slide 55: CISO je role daná statutem organizace, ustanovuje ho výbor uvnitř organizace, ne státní úřad." },
       { "body": "Řídicí výbor informační bezpečnosti na žádost vedení", "right": true, "comment": "Přednáška 2, slide 55: CISO většinou ustanovuje řídicí výbor; vedení jmenuje výbor a požádá ho o výběr CISO." },
-      { "body": "Šéf projektu ISMS, který zavádění řídí", "right": false, "comment": "Přednáška 2, slide 55: šéf projektu ISMS je samostatná role pověřená řízením projektu, CISO nevybírá." },
       { "body": "Vedoucí interního auditu, který dohlíží na soulad", "right": false, "comment": "Přednáška 2, slide 55: interní audit má být od role CISO oddělen (konflikt zájmů), CISO tedy nevybírá ani nezastává." },
       { "body": "Ředitel IT (CIO), pod kterého CISO organizačně spadá", "right": false, "comment": "Přednáška 2, slide 55 a Přednáška 4, slide 36: výběr CISO je na výboru; podřízení pod ředitele IT navíc vede ke konfliktu zájmů." },
-      { "body": "NÚKIB na návrh statutárního orgánu organizace", "right": false, "comment": "Přednáška 2, slide 55: CISO je role daná statutem organizace, ustanovuje ho výbor uvnitř organizace, ne státní úřad." }
+      { "body": "Šéf projektu ISMS, který zavádění řídí", "right": false, "comment": "Přednáška 2, slide 55: šéf projektu ISMS je samostatná role pověřená řízením projektu, CISO nevybírá." }
     ]
   },
   {
@@ -103,9 +103,9 @@
     "name": "Vedení firmy chce zavést ISMS za šest měsíců, bez časové rezervy, a zaměstnancům nová pravidla jen oznámit. Co pro takový projekt implementace ISMS platí?",
     "answers": [
       { "body": "Plán má mít časovou rezervu pro případ, že se věci nebudou vyvíjet dobře.", "right": true, "comment": "Přednáška 2, slide 34: na realizaci ISMS musí být dost času i pro nepříznivý vývoj – musí existovat časová rezerva." },
-      { "body": "Každý zaměstnanec má znát rizika, kvůli nimž se ISMS zavádí, a přijmout opatření proti nim.", "right": true, "comment": "Přednáška 2, slide 34: každý zaměstnanec musí znát rizika vyžadující ISMS a akceptovat opatření k jejich minimalizaci." },
-      { "body": "Je třeba počítat s tím, že alespoň hrstka lidí bude projekt podkopávat.", "right": true, "comment": "Přednáška 2, slide 34: ISMS mění pracovní zvyklosti a většina lidí nemá ráda změny." },
       { "body": "Projekt lze vložit do stávajících procesů beze změnových řízení – jde hlavně o dokumenty.", "right": false, "comment": "Přednáška 2, slide 14: projekt ISMS je projektem změny řízení, nelze ho jednoduše transplantovat a vyvolá řadu změnových řízení." },
+      { "body": "Je třeba počítat s tím, že alespoň hrstka lidí bude projekt podkopávat.", "right": true, "comment": "Přednáška 2, slide 34: ISMS mění pracovní zvyklosti a většina lidí nemá ráda změny." },
+      { "body": "Každý zaměstnanec má znát rizika, kvůli nimž se ISMS zavádí, a přijmout opatření proti nim.", "right": true, "comment": "Přednáška 2, slide 34: každý zaměstnanec musí znát rizika vyžadující ISMS a akceptovat opatření k jejich minimalizaci." },
       { "body": "Personální zdroje projekt nepotřebuje, pokud vedení schválí rozpočet na nástroje.", "right": false, "comment": "Přednáška 2, slides 14 a 34: projekt musí mít přidělené ekonomické i personální zdroje." }
     ]
   },
@@ -113,43 +113,43 @@
     "id": "560d0465",
     "name": "Podle Lessiga lze chování regulovat právem, sociálními normami, trhem a architekturou (kódem). Která přiřazení příkladu k regulačnímu nástroji jsou správná?",
     "answers": [
-      { "body": "Pojišťovna zvýší pojistné firmám, které nezálohují – trh", "right": true, "comment": "Přednáška 3, slide 24: kybernetické pojištění a jeho cena jsou příkladem regulace trhem." },
+      { "body": "Vysoká cena certifikace odradí malé firmy od jejího získání – právo", "right": false, "comment": "Přednáška 3, slide 24: cena certifikace je uvedena jako příklad regulace trhem." },
       { "body": "Komunita odsoudí výzkumníka, který zveřejnil chybu bez upozornění výrobce – sociální normy", "right": true, "comment": "Přednáška 3, slide 24: responsible disclosure, profesní etika a reputace v oboru jsou sociální normy." },
+      { "body": "Pojišťovna zvýší pojistné firmám, které nezálohují – trh", "right": true, "comment": "Přednáška 3, slide 24: kybernetické pojištění a jeho cena jsou příkladem regulace trhem." },
       { "body": "Operační systém odmítne spustit aplikaci bez platného podpisu – architektura (kód)", "right": true, "comment": "Přednáška 3, slide 24: technické vynucení (vynucené MFA, šifrování ve výchozím stavu, sandbox) je regulace architekturou." },
-      { "body": "Zákon stanoví pokutu za nenahlášení incidentu do 24 hodin – trh", "right": false, "comment": "Přednáška 3, slide 24: hrozba sankce působící zpětně je regulace právem („Incident hlaste do 24 hodin, jinak pokuta“)." },
-      { "body": "Vysoká cena certifikace odradí malé firmy od jejího získání – právo", "right": false, "comment": "Přednáška 3, slide 24: cena certifikace je uvedena jako příklad regulace trhem." }
+      { "body": "Zákon stanoví pokutu za nenahlášení incidentu do 24 hodin – trh", "right": false, "comment": "Přednáška 3, slide 24: hrozba sankce působící zpětně je regulace právem („Incident hlaste do 24 hodin, jinak pokuta“)." }
     ]
   },
   {
     "id": "3e9d43d4",
     "name": "Firma loni bez výhrad prošla certifikačním auditem ISO/IEC 27001. Půl roku nato ji ochromil ransomware, který pronikl přes dlouho nezáplatovaný server. Které závěry jsou správné?",
     "answers": [
+      { "body": "Řízení zranitelností a záplat je čistě technická věc, do systému řízení KB nepatří.", "right": false, "comment": "Přednáška 4, slide 19: řízení zranitelností a záplat patří mezi klíčové procesy řízení KB (vlastník, předpis, záznamy, metrika)." },
+      { "body": "Compliance je cíl; po certifikaci stačí udržovat dokumenty do dalšího auditu.", "right": false, "comment": "Přednáška 4, slide 13: compliance je minimum, ne cíl, a má jít o kontinuální proces (PDCA), ne o jednorázový projekt před auditem." },
       { "body": "Doložený postup (např. záznamy z řízení zranitelností) rozhodne o tom, zda firma jednala s náležitou péčí.", "right": true, "comment": "Přednáška 3, slide 35: přínosem compliance je, že doložený postup rozhoduje o zavinění a náležité péči." },
       { "body": "Pokud dokumenty nepopisují skutečný stav a účinnost opatření se neměří, jde o papírovou bezpečnost.", "right": true, "comment": "Přednáška 4, slide 13: papírová bezpečnost – dokumenty pro kontrolu, nikdo neví, zda opatření fungují." },
-      { "body": "Certifikát prokázal odolnost systémů, chyba proto musí být na straně dodavatele.", "right": false, "comment": "Přednáška 3, slide 35: splněný audit není důkazem odolnosti – kontroluje dokumentaci, útok míří na systém." },
-      { "body": "Compliance je cíl; po certifikaci stačí udržovat dokumenty do dalšího auditu.", "right": false, "comment": "Přednáška 4, slide 13: compliance je minimum, ne cíl, a má jít o kontinuální proces (PDCA), ne o jednorázový projekt před auditem." },
-      { "body": "Řízení zranitelností a záplat je čistě technická věc, do systému řízení KB nepatří.", "right": false, "comment": "Přednáška 4, slide 19: řízení zranitelností a záplat patří mezi klíčové procesy řízení KB (vlastník, předpis, záznamy, metrika)." }
+      { "body": "Certifikát prokázal odolnost systémů, chyba proto musí být na straně dodavatele.", "right": false, "comment": "Přednáška 3, slide 35: splněný audit není důkazem odolnosti – kontroluje dokumentaci, útok míří na systém." }
     ]
   },
   {
     "id": "b0d5c5d4",
     "name": "Státy a Unie volí různé přístupy k zajištění kybernetické bezpečnosti. Která přiřazení postupu k přístupu jsou správná?",
     "answers": [
-      { "body": "Stát vyžaduje, aby kritické služby útok vydržely a rychle se obnovily, ať útočí kdokoli – odolnostní přístup", "right": true, "comment": "Přednáška 3, slide 29: odolnostní přístup (resilience-based) cílí na pravděpodobnost selhání; typický je pro EU." },
-      { "body": "Stát veřejně hrozí útočníkům tvrdou odvetou, aby je od útoků odradil – odstrašení (deterrence)", "right": true, "comment": "Přednáška 3, slide 29: Deterrence Theory staví na následcích, které útočníka odradí." },
       { "body": "Stát buduje plošné sledování sítí, aby o útocích věděl nebo je našel – odolnostní přístup", "right": false, "comment": "Přednáška 3, slide 29: „vědět nebo najít“ je informační přístup (information-based), typický pro USA a autokratické režimy." },
-      { "body": "Unie ukládá provozovatelům snižovat pravděpodobnost selhání služeb – informační přístup", "right": false, "comment": "Přednáška 3, slide 29: důraz na pravděpodobnost selhání odpovídá odolnostnímu přístupu, který je typický pro EU." }
+      { "body": "Stát vyžaduje, aby kritické služby útok vydržely a rychle se obnovily, ať útočí kdokoli – odolnostní přístup", "right": true, "comment": "Přednáška 3, slide 29: odolnostní přístup (resilience-based) cílí na pravděpodobnost selhání; typický je pro EU." },
+      { "body": "Unie ukládá provozovatelům snižovat pravděpodobnost selhání služeb – informační přístup", "right": false, "comment": "Přednáška 3, slide 29: důraz na pravděpodobnost selhání odpovídá odolnostnímu přístupu, který je typický pro EU." },
+      { "body": "Stát veřejně hrozí útočníkům tvrdou odvetou, aby je od útoků odradil – odstrašení (deterrence)", "right": true, "comment": "Přednáška 3, slide 29: Deterrence Theory staví na následcích, které útočníka odradí." }
     ]
   },
   {
     "id": "263d4006",
     "name": "Banka potřebuje, aby klient nemohl později popřít, že platební příkaz odeslal. Co platí?",
     "answers": [
-      { "body": "Jde o nepopiratelnost, kterou definice kyberbezpečnosti ITU řadí pod cíl integrity.", "right": true, "comment": "Přednáška 3, slide 8: obecné cíle podle ITU jsou dostupnost, důvěrnost a integrita, která může zahrnovat autenticitu a nepopiratelnost." },
-      { "body": "Typickým mechanismem opatření řešícího nepopiratelnost je digitální podpis.", "right": true, "comment": "Přednáška 1, slide 66: pro opatření řešící problém nepopiratelnosti je mechanismem digitální podpis." },
       { "body": "Podle ITU patří nepopiratelnost pod cíl důvěrnosti, spolu s autenticitou.", "right": false, "comment": "Přednáška 3, slide 8: ITU řadí nepopiratelnost a autenticitu pod integritu, ne pod důvěrnost; uvádí jen tři obecné cíle." },
+      { "body": "Nepopiratelnost znamená, že příkaz je dostupný oprávněným subjektům do stanovené doby.", "right": false, "comment": "Přednáška 1, slide 20: to je definice dostupnosti; nepopiratelnost je schopnost prokázat výskyt události či činnosti." },
       { "body": "Typickým mechanismem pro nepopiratelnost je šifrování spojení, např. TLS.", "right": false, "comment": "Přednáška 1, slide 66: šifrování je mechanismus pro důvěrnost; prokázat autorství příkazu umožní podpis." },
-      { "body": "Nepopiratelnost znamená, že příkaz je dostupný oprávněným subjektům do stanovené doby.", "right": false, "comment": "Přednáška 1, slide 20: to je definice dostupnosti; nepopiratelnost je schopnost prokázat výskyt události či činnosti." }
+      { "body": "Typickým mechanismem opatření řešícího nepopiratelnost je digitální podpis.", "right": true, "comment": "Přednáška 1, slide 66: pro opatření řešící problém nepopiratelnosti je mechanismem digitální podpis." },
+      { "body": "Jde o nepopiratelnost, kterou definice kyberbezpečnosti ITU řadí pod cíl integrity.", "right": true, "comment": "Přednáška 3, slide 8: obecné cíle podle ITU jsou dostupnost, důvěrnost a integrita, která může zahrnovat autenticitu a nepopiratelnost." }
     ]
   },
   {
@@ -157,119 +157,119 @@
     "name": "Chybný konfigurační soubor v aktualizaci bezpečnostního softwaru vyřadil po celém světě miliony počítačů s Windows a ochromil letiště, banky i nemocnice. Žádný útočník v tom nebyl. Které závěry jsou správné?",
     "answers": [
       { "body": "Událost patří do kategorie selhání a neúmyslných chyb, nejde o kybernetický útok.", "right": true, "comment": "Přednáška 3, slide 5: CrowdStrike 2024 nebyl kyberútok, ale softwarová chyba; Přednáška 1, slide 50 uvádí kategorii selhání a neúmyslných chyb." },
-      { "body": "Primárně byla narušena dostupnost informačních systémů a služeb.", "right": true, "comment": "Přednáška 1, slide 23: dostupnost může ohrozit i ryze technický problém; služby nebyly oprávněným uživatelům k dispozici." },
-      { "body": "Z hlediska rozlišení safety a security jde o nahodilou, neúmyslnou událost.", "right": true, "comment": "Přednáška 1, slides 4-5: safety chrání před nahodilými událostmi, security před úmyslnými škodami." },
       { "body": "Neúmyslná selhání do řízení rizik informační bezpečnosti nepatří, řeší je IT provoz.", "right": false, "comment": "Přednáška 6, slide 5 a Přednáška 1, slide 6: rizika existují i nezávisle na naší vůli a informace čelí i chybám a selháním." },
-      { "body": "Jde o útok na dodavatelský řetězec stejného typu jako SolarWinds.", "right": false, "comment": "Přednáška 3, slide 5: nešlo o útok; SolarWinds (Přednáška 5, slide 35) byla úmyslná kompromitace aktualizací útočníkem." }
+      { "body": "Primárně byla narušena dostupnost informačních systémů a služeb.", "right": true, "comment": "Přednáška 1, slide 23: dostupnost může ohrozit i ryze technický problém; služby nebyly oprávněným uživatelům k dispozici." },
+      { "body": "Jde o útok na dodavatelský řetězec stejného typu jako SolarWinds.", "right": false, "comment": "Přednáška 3, slide 5: nešlo o útok; SolarWinds (Přednáška 5, slide 35) byla úmyslná kompromitace aktualizací útočníkem." },
+      { "body": "Z hlediska rozlišení safety a security jde o nahodilou, neúmyslnou událost.", "right": true, "comment": "Přednáška 1, slides 4-5: safety chrání před nahodilými událostmi, security před úmyslnými škodami." }
     ]
   },
   {
     "id": "724490ef",
     "name": "Organizace sestavuje řádek matice RACI pro činnost „audit kybernetické bezpečnosti“ (role: vedení, manažer KB, IT provoz, garant aktiva, auditor KB). Která nastavení jsou správná?",
     "answers": [
-      { "body": "Auditor KB má R (provádí) a vedení má A (odpovídá a schvaluje).", "right": true, "comment": "Přednáška 4, slide 37: v ilustrativní matici u auditu KB provádí auditor (R) a odpovídá vedení (A)." },
       { "body": "Manažer KB je jen konzultován (C) – audit dělá nezávislá role.", "right": true, "comment": "Přednáška 4, slides 34 a 37: manažer KB má u auditu roli C; auditor nezávisle ověřuje soulad a nesmí auditovat sám sebe." },
       { "body": "Manažer KB má R i A – systém řízení zná nejlépe.", "right": false, "comment": "Přednáška 4, slide 34 a Přednáška 6, slide 38: audit provádí role nezávislá na exekutivě bezpečnosti, ne ten, kdo systém řídí." },
-      { "body": "Auditor KB i vedení mají roli A, aby audit schválili dva.", "right": false, "comment": "Přednáška 4, slide 37: role A je u každé činnosti vždy jen jedna." },
-      { "body": "IT provoz má R – auditované systémy sám spravuje.", "right": false, "comment": "Přednáška 4, slides 33 a 37: IT provoz je 1. linie a u auditu je jen konzultován; nezávislou kontrolu dělá 3. linie." }
+      { "body": "IT provoz má R – auditované systémy sám spravuje.", "right": false, "comment": "Přednáška 4, slides 33 a 37: IT provoz je 1. linie a u auditu je jen konzultován; nezávislou kontrolu dělá 3. linie." },
+      { "body": "Auditor KB má R (provádí) a vedení má A (odpovídá a schvaluje).", "right": true, "comment": "Přednáška 4, slide 37: v ilustrativní matici u auditu KB provádí auditor (R) a odpovídá vedení (A)." },
+      { "body": "Auditor KB i vedení mají roli A, aby audit schválili dva.", "right": false, "comment": "Přednáška 4, slide 37: role A je u každé činnosti vždy jen jedna." }
     ]
   },
   {
     "id": "1f2d71a9",
     "name": "Ve vnitřním předpisu podniku stojí jen věta „incidenty se hlásí podle zákona“. V sobotu v noci monitoring zachytí útok, který může být významný, a při kterém možná unikly osobní údaje zákazníků. Manažer KB je na dovolené a nikdo neví, kdo o hlášení rozhoduje ani na koho se obrátit. Co z toho plyne?",
     "answers": [
-      { "body": "Řízení mělo předem určit, kdo incident vyhodnocuje a kdo rozhoduje o hlášení, a to i se zástupcem.", "right": true, "comment": "Přednáška 4, slide 23: řízení musí předem určit, kdo vyhodnocuje a kdo rozhoduje o hlášení, a zajistit zastupitelnost kontaktů." },
-      { "body": "V ilustrativní matici RACI za rozhodnutí o hlášení incidentu odpovídá (A) manažer KB, vedení je jen informováno (I).", "right": true, "comment": "Přednáška 4, slide 37: u činnosti „Rozhodnutí o hlášení incidentu“ je manažer KB v roli A, vedení I a IT provoz C; odpovědnost je tedy zjistitelná předem." },
       { "body": "Kromě hlášení podle ZoKB je třeba posoudit i oznámení ÚOOÚ podle GDPR, pokud unikly osobní údaje.", "right": true, "comment": "Přednáška 4, slide 23: souběh povinností – vedle NIS2 také GDPR čl. 33 (72 h ÚOOÚ), případně DORA, sektorové předpisy a smluvní povinnosti." },
+      { "body": "Řízení mělo předem určit, kdo incident vyhodnocuje a kdo rozhoduje o hlášení, a to i se zástupcem.", "right": true, "comment": "Přednáška 4, slide 23: řízení musí předem určit, kdo vyhodnocuje a kdo rozhoduje o hlášení, a zajistit zastupitelnost kontaktů." },
+      { "body": "Kontakty na NÚKIB a CSIRT i zástupce pro rozhodnutí stačí zjistit až při podání hlášení, předem se určovat nemusí.", "right": false, "comment": "Přednáška 4, slide 23: kontakty na NÚKIB / CSIRT a jejich zastupitelnost se mají určit předem, protože lhůta 24 h na včasné varování běží." },
       { "body": "Rozhodnutí o hlášení musí vždy schválit IT provoz, tedy role, která incident technicky řeší.", "right": false, "comment": "Přednáška 4, slide 37: IT provoz je u rozhodnutí o hlášení jen konzultován (C); rozhoduje role určená řízením KB." },
-      { "body": "Kontakty na NÚKIB a CSIRT i zástupce pro rozhodnutí stačí zjistit až při podání hlášení, předem se určovat nemusí.", "right": false, "comment": "Přednáška 4, slide 23: kontakty na NÚKIB / CSIRT a jejich zastupitelnost se mají určit předem, protože lhůta 24 h na včasné varování běží." }
+      { "body": "V ilustrativní matici RACI za rozhodnutí o hlášení incidentu odpovídá (A) manažer KB, vedení je jen informováno (I).", "right": true, "comment": "Přednáška 4, slide 37: u činnosti „Rozhodnutí o hlášení incidentu“ je manažer KB v roli A, vedení I a IT provoz C; odpovědnost je tedy zjistitelná předem." }
     ]
   },
   {
     "id": "4b541473",
     "name": "Vodárenská společnost poskytuje regulovanou službu dodávky pitné vody a vedle toho provozuje e-shop s upomínkovými předměty. Určuje rozsah řízení KB. Která tvrzení jsou správná?",
     "answers": [
-      { "body": "Údaje o kvalitě vody a služba její dodávky jsou primární aktiva.", "right": true, "comment": "Přednáška 4, slide 16: primární aktiva jsou informace a služby související s regulovanou službou." },
       { "body": "Externí servisní firma řídicího systému je podpůrné aktivum.", "right": true, "comment": "Přednáška 4, slide 16: podpůrná aktiva jsou HW, SW, sítě, lidé a dodavatelé." },
+      { "body": "Operátoři velínu se řadí mezi primární aktiva služby.", "right": false, "comment": "Přednáška 4, slide 16: lidé jsou na slidu uvedeni mezi podpůrnými aktivy." },
       { "body": "Po určení rozsahu lze e-shop, který nesouvisí s regulovanou službou, z řízení KB vynechat.", "right": true, "comment": "Přednáška 4, slide 16: rozsah tvoří aktiva související s regulovanou službou; dokud není určen, platí řízení pro celou organizaci." },
-      { "body": "Servery řídicího systému úpravny jsou primární aktiva služby.", "right": false, "comment": "Přednáška 4, slide 16: HW a SW podporují službu, jsou to podpůrná aktiva." },
-      { "body": "Operátoři velínu se řadí mezi primární aktiva služby.", "right": false, "comment": "Přednáška 4, slide 16: lidé jsou na slidu uvedeni mezi podpůrnými aktivy." }
+      { "body": "Údaje o kvalitě vody a služba její dodávky jsou primární aktiva.", "right": true, "comment": "Přednáška 4, slide 16: primární aktiva jsou informace a služby související s regulovanou službou." },
+      { "body": "Servery řídicího systému úpravny jsou primární aktiva služby.", "right": false, "comment": "Přednáška 4, slide 16: HW a SW podporují službu, jsou to podpůrná aktiva." }
     ]
   },
   {
     "id": "590ba35d",
     "name": "Která přiřazení potřeby organizace k rámci nebo standardu jsou správná?",
     "answers": [
-      { "body": "Malá firma chce prakticky začít s prioritizovanými technickými opatřeními – CIS Controls v8", "right": true, "comment": "Přednáška 4, slide 17: CIS Controls v8 jsou prioritizovaná technická opatření pro praktický start a menší organizace; Přednáška 5, slide 20." },
+      { "body": "Firma chce certifikovat svůj systém řízení bezpečnosti informací – NIST CSF 2.0", "right": false, "comment": "Přednáška 4, slide 17: certifikace a základ ISMS je ISO/IEC 27001/27002." },
       { "body": "Strojírna zabezpečuje průmyslové řídicí systémy výrobní linky – IEC 62443", "right": true, "comment": "Přednáška 4, slide 17: IEC 62443 řeší bezpečnost průmyslových řídicích systémů (OT, výroba, energetika)." },
-      { "body": "Vedení chce rámec pro strategii a komunikaci o KB s funkcemi Govern až Recover – NIST CSF 2.0", "right": true, "comment": "Přednáška 4, slide 17: NIST CSF 2.0 (Govern, Identify, Protect, Detect, Respond, Recover) slouží pro strategii a komunikaci s vedením." },
       { "body": "Banka chce řídit kontinuitu činností a odolnost služeb – COBIT 2019", "right": false, "comment": "Přednáška 4, slide 17: kontinuitu činností (BCM) řeší ISO 22301; COBIT 2019 je governance podnikového IT a audit IT." },
-      { "body": "Firma chce certifikovat svůj systém řízení bezpečnosti informací – NIST CSF 2.0", "right": false, "comment": "Přednáška 4, slide 17: certifikace a základ ISMS je ISO/IEC 27001/27002." }
+      { "body": "Malá firma chce prakticky začít s prioritizovanými technickými opatřeními – CIS Controls v8", "right": true, "comment": "Přednáška 4, slide 17: CIS Controls v8 jsou prioritizovaná technická opatření pro praktický start a menší organizace; Přednáška 5, slide 20." },
+      { "body": "Vedení chce rámec pro strategii a komunikaci o KB s funkcemi Govern až Recover – NIST CSF 2.0", "right": true, "comment": "Přednáška 4, slide 17: NIST CSF 2.0 (Govern, Identify, Protect, Detect, Respond, Recover) slouží pro strategii a komunikaci s vedením." }
     ]
   },
   {
     "id": "abe1b1e6",
     "name": "Malá obec spadá podle zákona č. 264/2025 Sb. do režimu nižších povinností (vyhl. 410/2025 Sb.). Co od ní tento režim požaduje?",
     "answers": [
-      { "body": "Vedení určí osobu pověřenou kybernetickou bezpečností a svěří jí potřebné pravomoci.", "right": true, "comment": "Přednáška 4, slides 10 a 34: v nižším režimu vedení určí osobu pověřenou KB a svěří jí pravomoci." },
-      { "body": "Vedení musí projít prokazatelným školením a mít přehled o plnění opatření.", "right": true, "comment": "Přednáška 4, slide 10: vyhl. 410/2025 Sb. požaduje prokazatelné školení vedení, zajištění zdrojů a přehled o plnění opatření." },
-      { "body": "Musí zřídit výbor pro řízení KB a obsadit role manažera, architekta i auditora KB.", "right": false, "comment": "Přednáška 4, slides 10 a 34: výbor a tyto role stanoví vyhl. 409/2025 Sb. pro vyšší režim." },
       { "body": "Bezpečnostní politiku a dokumentaci mít nemusí – ty patří do vyššího režimu.", "right": false, "comment": "Přednáška 4, slide 10: i nižší režim vyžaduje bezpečnostní politiku a dokumentaci s pravidelným přezkumem." },
-      { "body": "Vedení může odpovědnost za KB plně přenést na pověřenou osobu.", "right": false, "comment": "Přednáška 4, slide 11: vedení nemůže kyberbezpečnost „delegovat a zapomenout“, odpovědnost nese ono." }
+      { "body": "Musí zřídit výbor pro řízení KB a obsadit role manažera, architekta i auditora KB.", "right": false, "comment": "Přednáška 4, slides 10 a 34: výbor a tyto role stanoví vyhl. 409/2025 Sb. pro vyšší režim." },
+      { "body": "Vedení musí projít prokazatelným školením a mít přehled o plnění opatření.", "right": true, "comment": "Přednáška 4, slide 10: vyhl. 410/2025 Sb. požaduje prokazatelné školení vedení, zajištění zdrojů a přehled o plnění opatření." },
+      { "body": "Vedení může odpovědnost za KB plně přenést na pověřenou osobu.", "right": false, "comment": "Přednáška 4, slide 11: vedení nemůže kyberbezpečnost „delegovat a zapomenout“, odpovědnost nese ono." },
+      { "body": "Vedení určí osobu pověřenou kybernetickou bezpečností a svěří jí potřebné pravomoci.", "right": true, "comment": "Přednáška 4, slides 10 a 34: v nižším režimu vedení určí osobu pověřenou KB a svěří jí pravomoci." }
     ]
   },
   {
     "id": "763dddb7",
     "name": "Která přiřazení činnosti k funkcím jádra NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover; funkci Govern z verze 2.0 zde nehodnotíme) jsou správná?",
     "answers": [
-      { "body": "Inventura aktiv a rozbor obchodních cílů, procesů a legislativy – Identify", "right": true, "comment": "Přednáška 5, slide 26 a Přednáška 1, slide 62: identifikace zahrnuje analýzu obchodních cílů, aktiv, procesů a legislativy." },
       { "body": "Obnova systémů ze záloh po útoku ransomwaru – Recover", "right": true, "comment": "Přednáška 5, slide 26 a Přednáška 1, slide 62: obnova směřuje k minimalizaci škod a návratu do provozu." },
       { "body": "SIEM koreluje logy a upozorní na neobvyklé přihlášení – Protect", "right": false, "comment": "Přednáška 5, slides 9 a 26: zjišťování událostí je funkce Detect; Protect zavádí ochranná opatření." },
-      { "body": "Koordinace reakce na incident a komunikace s dotčenými – Recover", "right": false, "comment": "Přednáška 1, slide 62: reakce na incident a komunikace patří do Odezvy (Respond); Recover je obnova." },
-      { "body": "Zavedení vícefaktorové autentizace pro vzdálený přístup – Detect", "right": false, "comment": "Přednáška 5, slide 26: MFA je ochranné opatření, tedy funkce Protect; nic nedetekuje." }
+      { "body": "Inventura aktiv a rozbor obchodních cílů, procesů a legislativy – Identify", "right": true, "comment": "Přednáška 5, slide 26 a Přednáška 1, slide 62: identifikace zahrnuje analýzu obchodních cílů, aktiv, procesů a legislativy." },
+      { "body": "Zavedení vícefaktorové autentizace pro vzdálený přístup – Detect", "right": false, "comment": "Přednáška 5, slide 26: MFA je ochranné opatření, tedy funkce Protect; nic nedetekuje." },
+      { "body": "Koordinace reakce na incident a komunikace s dotčenými – Recover", "right": false, "comment": "Přednáška 1, slide 62: reakce na incident a komunikace patří do Odezvy (Respond); Recover je obnova." }
     ]
   },
   {
     "id": "f9fe22fe",
     "name": "Tým spravuje cloudovou infrastrukturu pomocí Terraformu a chce do produkce nasadit změnu pravidel síťového přístupu. Co platí?",
     "answers": [
-      { "body": "Bezpečnostní kontroly jsou součástí celé smyčky DevSecOps, např. statické testování ještě před nasazením.", "right": true, "comment": "Přednáška 5, slides 17-18: bezpečnost je řízená kódem a smyčka obsahuje kontroly ve všech fázích, např. SAST ve fázi Test." },
-      { "body": "Změna má mít bezpečnostní posouzení, možnost návratu (rollback) a aktualizaci důkazů.", "right": true, "comment": "Přednáška 2, slide 31: každá změna má bezpečnostní posouzení, rollback a aktualizaci důkazů; Přednáška 5, slide 12: change control je součástí procesu SOC." },
+      { "body": "Změna se nejprve nasadí a analýza dopadu proběhne až při review a reportingu.", "right": false, "comment": "Přednáška 5, slide 15: žádost o změnu prochází analýzou dopadu a schválením před implementací; review je až na konci." },
       { "body": "Změna kódu není změnou infrastruktury, změnové řízení se jí tedy netýká.", "right": false, "comment": "Přednáška 5, slide 18: v softwarově definovaném datacentru je infrastruktura kódem, změna kódu je změnou infrastruktury." },
-      { "body": "Změna se nejprve nasadí a analýza dopadu proběhne až při review a reportingu.", "right": false, "comment": "Přednáška 5, slide 15: žádost o změnu prochází analýzou dopadu a schválením před implementací; review je až na konci." }
+      { "body": "Bezpečnostní kontroly jsou součástí celé smyčky DevSecOps, např. statické testování ještě před nasazením.", "right": true, "comment": "Přednáška 5, slides 17-18: bezpečnost je řízená kódem a smyčka obsahuje kontroly ve všech fázích, např. SAST ve fázi Test." },
+      { "body": "Změna má mít bezpečnostní posouzení, možnost návratu (rollback) a aktualizaci důkazů.", "right": true, "comment": "Přednáška 2, slide 31: každá změna má bezpečnostní posouzení, rollback a aktualizaci důkazů; Přednáška 5, slide 12: change control je součástí procesu SOC." }
     ]
   },
   {
     "id": "f91eb241",
     "name": "Vedení chce, aby SOC dodával podklady pro přezkoumání systému řízení vedením. Které z uvedených činností patří mezi klíčové cíle SOC a takové podklady přímo dávají?",
     "answers": [
-      { "body": "Pravidelný reporting vedení a reportovací dashboard sladěný s bezpečnostními metrikami", "right": true, "comment": "Přednáška 5, slides 11-12: SOC poskytuje pravidelný reporting vedení a buduje dashboard sladěný s bezpečnostními metrikami." },
-      { "body": "Proaktivní monitoring bezpečnosti podle předem stanovených metrik a KPI", "right": true, "comment": "Přednáška 5, slide 12: proaktivní monitoring podle předdefinovaných metrik/KPI; Přednáška 4, slide 22: co se neměří, to se neřídí." },
       { "body": "Stanovení rizikového apetitu a rozhodnutí o rozpočtu na bezpečnost", "right": false, "comment": "Přednáška 4, slide 5: směr, dohled a apetit k riziku patří vedení (governance), ne provozu." },
-      { "body": "Nezávislé ověření, že politika, procesy a konfigurace odpovídají realitě", "right": false, "comment": "Přednáška 4, slide 33: nezávislou kontrolu dělá 3. linie (interní audit); SOC je 1. linie a nemůže ověřovat sám sebe." },
-      { "body": "Schválení prohlášení o aplikovatelnosti a plánu zvládání rizik", "right": false, "comment": "Přednáška 2, slide 17 a Přednáška 6, slide 29: tyto dokumenty schvaluje vedení, nejsou výstupem provozu SOC." }
+      { "body": "Schválení prohlášení o aplikovatelnosti a plánu zvládání rizik", "right": false, "comment": "Přednáška 2, slide 17 a Přednáška 6, slide 29: tyto dokumenty schvaluje vedení, nejsou výstupem provozu SOC." },
+      { "body": "Proaktivní monitoring bezpečnosti podle předem stanovených metrik a KPI", "right": true, "comment": "Přednáška 5, slide 12: proaktivní monitoring podle předdefinovaných metrik/KPI; Přednáška 4, slide 22: co se neměří, to se neřídí." },
+      { "body": "Pravidelný reporting vedení a reportovací dashboard sladěný s bezpečnostními metrikami", "right": true, "comment": "Přednáška 5, slides 11-12: SOC poskytuje pravidelný reporting vedení a buduje dashboard sladěný s bezpečnostními metrikami." },
+      { "body": "Nezávislé ověření, že politika, procesy a konfigurace odpovídají realitě", "right": false, "comment": "Přednáška 4, slide 33: nezávislou kontrolu dělá 3. linie (interní audit); SOC je 1. linie a nemůže ověřovat sám sebe." }
     ]
   },
   {
     "id": "31b43c29",
     "name": "Bezpečnostní tým řeší několik úkolů. Která přiřazení úkolu k vhodnému rámci nebo zdroji jsou správná?",
     "answers": [
+      { "body": "Určit prioritu opravy podle rizika a dopadu uvedeného v záznamu – CVE", "right": false, "comment": "Přednáška 1, slide 41: záznamy CVE neobsahují informace o riziku, dopadu ani opravě." },
       { "body": "Zjistit, které techniky skutečných útočníků umíme detekovat – MITRE ATT&CK", "right": true, "comment": "Přednáška 5, slide 31: ATT&CK kategorizuje chování útočníků podle reálných pozorování a slouží i pro obranu a měření." },
       { "body": "Jednoznačně označit a stručně popsat známou zranitelnost knihovny – CVE", "right": true, "comment": "Přednáška 1, slide 41: záznam CVE nese identifikátor, stručný popis známé zranitelnosti a odkazy." },
-      { "body": "Při návrhu aplikace systematicky projít kategorie hrozeb – STRIDE", "right": true, "comment": "Přednáška 1, slide 47: STRIDE je framework pro modelování hrozeb." },
-      { "body": "Určit prioritu opravy podle rizika a dopadu uvedeného v záznamu – CVE", "right": false, "comment": "Přednáška 1, slide 41: záznamy CVE neobsahují informace o riziku, dopadu ani opravě." },
-      { "body": "Vybrat 18 prioritizovaných kontrol rozdělených do skupin IG1–IG3 – MITRE ATT&CK", "right": false, "comment": "Přednáška 5, slide 20: 18 kontrol a skupiny IG1/2/3 popisují CIS Controls v8, ne ATT&CK." }
+      { "body": "Vybrat 18 prioritizovaných kontrol rozdělených do skupin IG1–IG3 – MITRE ATT&CK", "right": false, "comment": "Přednáška 5, slide 20: 18 kontrol a skupiny IG1/2/3 popisují CIS Controls v8, ne ATT&CK." },
+      { "body": "Při návrhu aplikace systematicky projít kategorie hrozeb – STRIDE", "right": true, "comment": "Přednáška 1, slide 47: STRIDE je framework pro modelování hrozeb." }
     ]
   },
   {
     "id": "30137757",
     "name": "Firma plánuje nový zákaznický portál. Co platí o tom, kdy a kdo má bezpečnost portálu řešit?",
     "answers": [
-      { "body": "Security Architecture se zapojí už při návrhu – posoudí rizika a zabrání špatnému designu.", "right": true, "comment": "Přednáška 5, slide 8: Security Architecture provádí posouzení rizik a předchází špatným návrhům." },
-      { "body": "Bezpečnost se má zabudovat do všech úrovní – vývoje, testování, akceptace i provozu.", "right": true, "comment": "Přednáška 2, slide 19: principy bezpečného systémového inženýrství popisují zabudování bezpečnosti do všech úrovní." },
-      { "body": "Bezpečnost se doplní po dokončení vývoje, až bude jasné, jak portál vypadá.", "right": false, "comment": "Přednáška 6, slide 23: „systém máme dodělaný, teď tam musíme dodělat sekjuritu“ je typické chybné prohlášení." },
       { "body": "Návrh řeší vývojový tým sám; chyby návrhu pak v provozu odhalí SOC.", "right": false, "comment": "Přednáška 5, slides 8 a 11: předcházet špatnému návrhu je úkol Security Architecture; SOC monitoruje a reaguje v provozu." },
-      { "body": "Bezpečnost portálu zajistí jednorázový penetrační test těsně před spuštěním.", "right": false, "comment": "Přednáška 1, slide 11: zajištění bezpečnosti je proces, nikoli jednorázová záležitost." }
+      { "body": "Security Architecture se zapojí už při návrhu – posoudí rizika a zabrání špatnému designu.", "right": true, "comment": "Přednáška 5, slide 8: Security Architecture provádí posouzení rizik a předchází špatným návrhům." },
+      { "body": "Bezpečnost portálu zajistí jednorázový penetrační test těsně před spuštěním.", "right": false, "comment": "Přednáška 1, slide 11: zajištění bezpečnosti je proces, nikoli jednorázová záležitost." },
+      { "body": "Bezpečnost se doplní po dokončení vývoje, až bude jasné, jak portál vypadá.", "right": false, "comment": "Přednáška 6, slide 23: „systém máme dodělaný, teď tam musíme dodělat sekjuritu“ je typické chybné prohlášení." },
+      { "body": "Bezpečnost se má zabudovat do všech úrovní – vývoje, testování, akceptace i provozu.", "right": true, "comment": "Přednáška 2, slide 19: principy bezpečného systémového inženýrství popisují zabudování bezpečnosti do všech úrovní." }
     ]
   },
   {
@@ -277,42 +277,42 @@
     "name": "Která přiřazení postupu firmy ke strategii zvládání rizika jsou správná?",
     "answers": [
       { "body": "Firma zruší zastaralou službu FTP, jejíž zabezpečení by stálo víc než její přínos – vyhnutí se riziku", "right": true, "comment": "Přednáška 4, slide 20: vyhnout se riziku znamená ukončit činnost; Přednáška 6, slide 13: rizika, která se eliminují." },
-      { "body": "Firma zavede vícefaktorovou autentizaci pro vzdálený přístup – snížení rizika", "right": true, "comment": "Přednáška 4, slide 20: snížení rizika = zavedení opatření; Přednáška 6, slide 13: snížení na akceptovatelnou úroveň." },
+      { "body": "Firma riziko, které nelze zcela odstranit, do registru nezapíše – vyhnutí se riziku", "right": false, "comment": "Přednáška 4, slide 20: vyhnutí se znamená ukončit rizikovou činnost; nezapsat riziko do registru není žádná strategie zvládání." },
       { "body": "Vedení podepsaným záznamem ponechá riziko krátkého výpadku intranetu bez dalších opatření – akceptace", "right": true, "comment": "Přednáška 4, slide 20: akceptace je vědomé rozhodnutí vedení; Přednáška 2, slide 30: akceptace není nečinnost, je to formální rozhodnutí." },
       { "body": "Firma uzavře kybernetické pojištění na náklady incidentu – akceptace rizika", "right": false, "comment": "Přednáška 4, slide 20 a Přednáška 6, slide 13: pojištění riziko přenáší na jinou organizaci." },
-      { "body": "Firma riziko, které nelze zcela odstranit, do registru nezapíše – vyhnutí se riziku", "right": false, "comment": "Přednáška 4, slide 20: vyhnutí se znamená ukončit rizikovou činnost; nezapsat riziko do registru není žádná strategie zvládání." }
+      { "body": "Firma zavede vícefaktorovou autentizaci pro vzdálený přístup – snížení rizika", "right": true, "comment": "Přednáška 4, slide 20: snížení rizika = zavedení opatření; Přednáška 6, slide 13: snížení na akceptovatelnou úroveň." }
     ]
   },
   {
     "id": "66604ec8",
     "name": "Po zavedení záložního režimu zůstává u rizika „výpadek dodavatele cloudu“ zbytkové riziko, které organizace nechce dále snižovat. Analytik navrhuje, aby se riziko „akceptovalo tím, že se nechá být“. Jak se má zbytkové riziko správně akceptovat?",
     "answers": [
-      { "body": "O přijatelnosti zbytkového rizika rozhoduje vedení; analýzu k tomu připravuje manažer KB s garanty aktiv.", "right": true, "comment": "Přednáška 4, slide 20: akceptace je vědomé rozhodnutí vedení, analýzu připravuje manažer KB s garanty aktiv, o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení." },
       { "body": "Akceptační záznam má obsahovat vlastníka rizika, odůvodnění, zbytkové skóre, podmínky, platnost a datum přezkumu.", "right": true, "comment": "Přednáška 2, slide 30: akceptační záznam – vlastník, odůvodnění, zbytkové skóre, podmínky, platnost, datum přezkumu." },
-      { "body": "Akceptace je formální rozhodnutí oprávněné role, nikoli pouhá nečinnost; riziko, o kterém nikdo nerozhodl, akceptované není.", "right": true, "comment": "Přednáška 2, slide 30: akceptace není nečinnost, je to formální rozhodnutí oprávněné role." },
+      { "body": "Akceptace platí trvale, proto se v záznamu neuvádí platnost ani datum přezkumu.", "right": false, "comment": "Přednáška 2, slide 30: záznam obsahuje platnost a datum přezkumu, akceptace se tedy po čase znovu posuzuje." },
       { "body": "Stačí riziko zapsat do registru rizik; pokud do konce roku nikdo nic nenamítne, považuje se za akceptované.", "right": false, "comment": "Přednáška 2, slide 30: mlčení ani zápis do registru není akceptace – vyžaduje formální rozhodnutí oprávněné role se záznamem." },
-      { "body": "Akceptace platí trvale, proto se v záznamu neuvádí platnost ani datum přezkumu.", "right": false, "comment": "Přednáška 2, slide 30: záznam obsahuje platnost a datum přezkumu, akceptace se tedy po čase znovu posuzuje." }
+      { "body": "Akceptace je formální rozhodnutí oprávněné role, nikoli pouhá nečinnost; riziko, o kterém nikdo nerozhodl, akceptované není.", "right": true, "comment": "Přednáška 2, slide 30: akceptace není nečinnost, je to formální rozhodnutí oprávněné role." },
+      { "body": "O přijatelnosti zbytkového rizika rozhoduje vedení; analýzu k tomu připravuje manažer KB s garanty aktiv.", "right": true, "comment": "Přednáška 4, slide 20: akceptace je vědomé rozhodnutí vedení, analýzu připravuje manažer KB s garanty aktiv, o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení." }
     ]
   },
   {
     "id": "c6d88e14",
     "name": "Organizace přezkoumává vnitřní bezpečnostní předpisy i rizika jednou ročně. Které události by měly vyvolat mimořádný přezkum dříve?",
     "answers": [
-      { "body": "Varování NÚKIB před novou hrozbou pro typ systému, který organizace používá", "right": true, "comment": "Přednáška 4, slide 31: změna hrozeb (varování NÚKIB) je spouštěčem mimořádného přezkumu; Přednáška 6, slide 15: rizika nejsou statická." },
-      { "body": "Přechod k novému poskytovateli cloudových služeb", "right": true, "comment": "Přednáška 4, slide 31: nový systém nebo dodavatel spouští mimořádný přezkum." },
+      { "body": "Nástup nového zaměstnance na pozici bez bezpečnostní role", "right": false, "comment": "Přednáška 4, slides 31 a 35: běžný nástup řeší HR (školení, přístupy), spouštěčem přezkumu je reorganizace, ne jednotlivý nástup." },
       { "body": "Závažný incident nebo zjištění z interního auditu", "right": true, "comment": "Přednáška 4, slide 31: závažný incident a výsledek auditu či kontroly jsou spouštěče mimořádného přezkumu." },
-      { "body": "Uplynutí jednoho měsíce od posledního řádného přezkumu", "right": false, "comment": "Přednáška 4, slide 31: řádný přezkum probíhá min. 1× ročně; pouhé plynutí měsíce není mimořádnou událostí." },
-      { "body": "Nástup nového zaměstnance na pozici bez bezpečnostní role", "right": false, "comment": "Přednáška 4, slides 31 a 35: běžný nástup řeší HR (školení, přístupy), spouštěčem přezkumu je reorganizace, ne jednotlivý nástup." }
+      { "body": "Přechod k novému poskytovateli cloudových služeb", "right": true, "comment": "Přednáška 4, slide 31: nový systém nebo dodavatel spouští mimořádný přezkum." },
+      { "body": "Varování NÚKIB před novou hrozbou pro typ systému, který organizace používá", "right": true, "comment": "Přednáška 4, slide 31: změna hrozeb (varování NÚKIB) je spouštěčem mimořádného přezkumu; Přednáška 6, slide 15: rizika nejsou statická." },
+      { "body": "Uplynutí jednoho měsíce od posledního řádného přezkumu", "right": false, "comment": "Přednáška 4, slide 31: řádný přezkum probíhá min. 1× ročně; pouhé plynutí měsíce není mimořádnou událostí." }
     ]
   },
   {
     "id": "75bf7855",
     "name": "Která spojení nebo rozdělení rolí v řízení informační bezpečnosti jsou přípustná?",
     "answers": [
-      { "body": "V malé organizaci může být role CISO sdružená s rolí šéfa IT.", "right": true, "comment": "Přednáška 2, slide 55: v malých organizacích může být role CISO sdružena s šéfem IT. Přednáška 4, slide 36 ale upozorňuje na konflikt zájmů a preferuje nezávislost." },
       { "body": "Kontrolní útvar si ponechá odpovědnost za audit ISMS a pouze jeho výkon zadá externí firmě.", "right": true, "comment": "Přednáška 6, slide 37: kontrolní útvar si může ponechat odpovědnost a výkon auditu zajišťovat outsourcingem." },
-      { "body": "Pracovník oddělení interního auditu zastává zároveň roli CISO.", "right": false, "comment": "Přednáška 2, slide 55: CISO nikdy nemá být z oddělení interního auditu – je to konflikt zájmů." },
       { "body": "Manažer KB, který systém řízení vybudoval, ho zároveň audituje jako auditor KB.", "right": false, "comment": "Přednáška 4, slide 34 a Přednáška 6, slide 38: auditor nesmí auditovat sám sebe ani zároveň být bezpečnostním manažerem." },
+      { "body": "V malé organizaci může být role CISO sdružená s rolí šéfa IT.", "right": true, "comment": "Přednáška 2, slide 55: v malých organizacích může být role CISO sdružena s šéfem IT. Přednáška 4, slide 36 ale upozorňuje na konflikt zájmů a preferuje nezávislost." },
+      { "body": "Pracovník oddělení interního auditu zastává zároveň roli CISO.", "right": false, "comment": "Přednáška 2, slide 55: CISO nikdy nemá být z oddělení interního auditu – je to konflikt zájmů." },
       { "body": "Šéfem projektu ISMS musí být vždy CEO nebo CISO organizace.", "right": false, "comment": "Přednáška 2, slide 55: role šéfa projektu ISMS není standardem vázaná na roli CEO ani CISO." }
     ]
   },
@@ -320,10 +320,10 @@
     "id": "db66028a",
     "name": "Výrobce domácích routerů přidává funkci vzdálené správy přes vlastní cloud. Které úvahy jsou správné?",
     "answers": [
-      { "body": "Každá nová funkce zvětšuje prostor pro útok, a je proto třeba zvážit, zda je nutná.", "right": true, "comment": "Přednáška 1, slide 72: princip ekonomiky mechanismu – každá nadbytečná vlastnost zvyšuje rozsah rizik; Přednáška 6, slide 61." },
-      { "body": "Změna se musí promítnout do analýzy rizik, dokumentace i schvalování aktualizací.", "right": true, "comment": "Přednáška 6, slide 61: jedna funkce přináší nová rizika v technologii, procesech, životním cyklu i compliance." },
       { "body": "Jde o čistě technickou změnu, stačí, že prošly funkční testy.", "right": false, "comment": "Přednáška 6, slides 61-62: nová funkce mění procesy i odpovědnost a funkční testy bezpečnostní chybu (např. downgrade) neodhalí." },
       { "body": "Pokud cloud komunikuje se zařízením přes TLS, nová rizika nevznikají.", "right": false, "comment": "Přednáška 6, slides 60 a 62: i s TLS a podpisem hrozí kompromitovaný server, únik klíče nebo downgrade na zranitelnou verzi." },
+      { "body": "Změna se musí promítnout do analýzy rizik, dokumentace i schvalování aktualizací.", "right": true, "comment": "Přednáška 6, slide 61: jedna funkce přináší nová rizika v technologii, procesech, životním cyklu i compliance." },
+      { "body": "Každá nová funkce zvětšuje prostor pro útok, a je proto třeba zvážit, zda je nutná.", "right": true, "comment": "Přednáška 1, slide 72: princip ekonomiky mechanismu – každá nadbytečná vlastnost zvyšuje rozsah rizik; Přednáška 6, slide 61." },
       { "body": "Bezpečnost funkce se vyřeší až po uvedení na trh podle hlášení zákazníků.", "right": false, "comment": "Přednáška 6, slide 23: dodělávat bezpečnost až u hotového systému je typické chybné prohlášení." }
     ]
   }

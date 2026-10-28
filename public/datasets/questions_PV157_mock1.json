@@ -4,14 +4,9 @@
     "name": "Útočník zkouší \\(10^{12}\\) kandidátů za sekundu (tj. \\(10^{6}\\) za µs) a v průměru musí prohledat polovinu prostoru. Heslo má 12 znaků zvolených náhodně a rovnoměrně z 62 znaků (a–z, A–Z, 0–9). Která tvrzení platí?",
     "answers": [
       {
-        "body": "Prostor \\(62^{12} \\approx 3{,}2 \\cdot 10^{21}\\) leží mezi \\(2^{71}\\) a \\(2^{72}\\): víc než u 56bitového klíče, mnohem méně než u 128bitového.",
-        "right": true,
-        "comment": "L1, slide 30 a L2, slide 23: \\(\\log_2 62 \\approx 5{,}95\\), tedy \\(12 \\cdot 5{,}95 \\approx 71{,}5\\) bitu; \\(2^{71} \\approx 2{,}4 \\cdot 10^{21}\\), \\(2^{72} \\approx 4{,}7 \\cdot 10^{21}\\)."
-      },
-      {
-        "body": "Průměrná doba hledání je asi 51 let.",
-        "right": true,
-        "comment": "L1, slide 30: polovina prostoru \\(1{,}6 \\cdot 10^{21}\\) děleno \\(10^{12}\\) za sekundu dává \\(1{,}6 \\cdot 10^{9}\\) s, při \\(3{,}16 \\cdot 10^{7}\\) s za rok asi 51 let."
+        "body": "Stejný prostor \\(62^{12}\\) platí, i když si uživatelé heslo volí sami ze zapamatovatelných slov.",
+        "right": false,
+        "comment": "L2, slide 5 a 26: prostor se plně využije jen při rovnoměrné volbě; uživatelé volí slabá, útočníkem zjistitelná hesla, takže efektivní prostor je mnohem menší."
       },
       {
         "body": "Heslo je stejně silné jako náhodný klíč o \\(12 \\cdot 62 = 744\\) bitech.",
@@ -19,9 +14,14 @@
         "comment": "L2, slide 23: velikost abecedy se umocňuje na délku hesla (\\(62^{12}\\)), nenásobí se; heslu odpovídá asi 71,5 bitu."
       },
       {
-        "body": "Stejný prostor \\(62^{12}\\) platí, i když si uživatelé heslo volí sami ze zapamatovatelných slov.",
-        "right": false,
-        "comment": "L2, slide 5 a 26: prostor se plně využije jen při rovnoměrné volbě; uživatelé volí slabá, útočníkem zjistitelná hesla, takže efektivní prostor je mnohem menší."
+        "body": "Průměrná doba hledání je asi 51 let.",
+        "right": true,
+        "comment": "L1, slide 30: polovina prostoru \\(1{,}6 \\cdot 10^{21}\\) děleno \\(10^{12}\\) za sekundu dává \\(1{,}6 \\cdot 10^{9}\\) s, při \\(3{,}16 \\cdot 10^{7}\\) s za rok asi 51 let."
+      },
+      {
+        "body": "Prostor \\(62^{12} \\approx 3{,}2 \\cdot 10^{21}\\) leží mezi \\(2^{71}\\) a \\(2^{72}\\): víc než u 56bitového klíče, mnohem méně než u 128bitového.",
+        "right": true,
+        "comment": "L1, slide 30 a L2, slide 23: \\(\\log_2 62 \\approx 5{,}95\\), tedy \\(12 \\cdot 5{,}95 \\approx 71{,}5\\) bitu; \\(2^{71} \\approx 2{,}4 \\cdot 10^{21}\\), \\(2^{72} \\approx 4{,}7 \\cdot 10^{21}\\)."
       },
       {
         "body": "Třináctý znak prodlouží průměrnou dobu hledání o pouhých 62 sekund.",
@@ -35,11 +35,6 @@
     "name": "Agáta podepíše dokument tak, že jeho haš (SHA-256) podepíše svým soukromým klíčem, a pošle dokument i podpis Bořivojovi. Po cestě se v dokumentu změní jediný bit, podpis zůstane beze změny. Co se stane při ověření?",
     "answers": [
       {
-        "body": "Ověření selže: haš přijatého dokumentu je jiný než podepsaný haš, i když se změnil jen jeden bit.",
-        "right": true,
-        "comment": "L1, slide 36 a L5, slide 37: ověřovatel spočítá haš přijatých dat a porovná jej s podepsaným hašem; změna jednoho bitu vstupu velmi změní výstup."
-      },
-      {
         "body": "Ověření projde: podpis sám změněn nebyl a Agátin veřejný klíč v certifikátu je stále platný.",
         "right": false,
         "comment": "L1, slide 36: podpis se váže k haši dokumentu; změněný dokument má jiný haš, takže k němu podpis nesedí."
@@ -48,6 +43,11 @@
         "body": "Ověření selže a Bořivoj z porovnání obou hašů zjistí, který bit se změnil.",
         "right": false,
         "comment": "L5, slide 37 a 33: změna jednoho bitu změní haš nepředvídatelně (lavinový efekt) a haš je jednosměrný; místo změny z něj určit nelze."
+      },
+      {
+        "body": "Ověření selže: haš přijatého dokumentu je jiný než podepsaný haš, i když se změnil jen jeden bit.",
+        "right": true,
+        "comment": "L1, slide 36 a L5, slide 37: ověřovatel spočítá haš přijatých dat a porovná jej s podepsaným hašem; změna jednoho bitu vstupu velmi změní výstup."
       },
       {
         "body": "Ověření selže jen tehdy, když útočník změní i podpis – náhodnou chybu v datech podpis neodhalí.",
@@ -66,21 +66,6 @@
     "name": "Eva na firemní web podvrhne svůj veřejný klíč s popiskem „veřejný klíč Agáty“. Bořivoj si ho stáhne a začne jej používat. Co z toho plyne?",
     "answers": [
       {
-        "body": "Zprávy podepsané Evou ověří Bořivoj jako platně podepsané Agátou.",
-        "right": true,
-        "comment": "L5, slide 22: ověřování nesprávným klíčem vede k nesprávným závěrům; Eva má k podvrženému klíči odpovídající soukromý klíč."
-      },
-      {
-        "body": "Zprávy, které Bořivoj tímto klíčem zašifruje pro Agátu, přečte Eva, nikoli Agáta.",
-        "right": true,
-        "comment": "L1, slide 25 a 37: co je zašifrováno veřejným klíčem, dešifruje držitel odpovídajícího soukromého klíče – zde Eva."
-      },
-      {
-        "body": "Ochranou je certifikát podepsaný CA, jejíž veřejný klíč má Bořivoj z důvěryhodného zdroje.",
-        "right": true,
-        "comment": "L5, slide 23 a L1, slide 38: certifikát váže veřejný klíč k identifikátoru subjektu a vazbu podepisuje důvěryhodná třetí strana; integritu klíče CA je třeba zajistit zvlášť."
-      },
-      {
         "body": "Eva tím získala Agátin soukromý klíč a přečte i starší zprávy zašifrované pro Agátu.",
         "right": false,
         "comment": "L5, slide 22: podvržení veřejného klíče nedává přístup k cizímu soukromému klíči; zprávy zašifrované Agátiným pravým veřejným klíčem Eva nepřečte."
@@ -89,6 +74,21 @@
         "body": "Podvrh se neprojeví, má-li klíč stejnou délku a algoritmus jako Agátin.",
         "right": false,
         "comment": "L1, slide 38: kritické je spojení veřejného klíče s označením entity; délka ani algoritmus o vlastníkovi klíče nic neříkají."
+      },
+      {
+        "body": "Ochranou je certifikát podepsaný CA, jejíž veřejný klíč má Bořivoj z důvěryhodného zdroje.",
+        "right": true,
+        "comment": "L5, slide 23 a L1, slide 38: certifikát váže veřejný klíč k identifikátoru subjektu a vazbu podepisuje důvěryhodná třetí strana; integritu klíče CA je třeba zajistit zvlášť."
+      },
+      {
+        "body": "Zprávy, které Bořivoj tímto klíčem zašifruje pro Agátu, přečte Eva, nikoli Agáta.",
+        "right": true,
+        "comment": "L1, slide 25 a 37: co je zašifrováno veřejným klíčem, dešifruje držitel odpovídajícího soukromého klíče – zde Eva."
+      },
+      {
+        "body": "Zprávy podepsané Evou ověří Bořivoj jako platně podepsané Agátou.",
+        "right": true,
+        "comment": "L5, slide 22: ověřování nesprávným klíčem vede k nesprávným závěrům; Eva má k podvrženému klíči odpovídající soukromý klíč."
       }
     ]
   },
@@ -102,14 +102,14 @@
         "comment": "L1, slide 23: symetrický klíč sdílí Alice i Bob; aby jej nikdo další neznal, musí mít každá dvojice svůj (počet dvojic je odvozená kombinatorika)."
       },
       {
+        "body": "Se sdíleným symetrickým klíčem může příjemce soudu prokázat, kdo ze dvojice zprávu vytvořil.",
+        "right": false,
+        "comment": "L1, slide 26 a L5, slide 39: sdílený klíč znají obě strany, takže nelze prokázat, která z nich zprávu vytvořila; symetrické algoritmy jsou proto obtížněji využitelné pro autentizaci."
+      },
+      {
         "body": "S asymetrickou kryptografií stačí jen 50 párů klíčů, veřejné klíče lze zveřejnit (ověřené certifikáty).",
         "right": true,
         "comment": "L1, slide 23 a 38: každý šifruje veřejným klíčem adresáta a dešifrovat umí jen adresátův privátní klíč; vazbu klíče na osobu zajistí certifikát."
-      },
-      {
-        "body": "Požadavek splní jeden společný symetrický klíč pro celou skupinu.",
-        "right": false,
-        "comment": "L1, slide 23: společný klíč by znali všichni členové, takže by každý přečetl zprávy ostatních dvojic."
       },
       {
         "body": "Velké zprávy je výhodnější šifrovat přímo asymetricky, symetrická šifra se hodí jen na klíče.",
@@ -117,9 +117,9 @@
         "comment": "L1, slide 26: je to naopak – asymetrické algoritmy jsou pomalejší, data se šifrují symetricky a asymetricky jen náhodně vygenerovaný klíč."
       },
       {
-        "body": "Se sdíleným symetrickým klíčem může příjemce soudu prokázat, kdo ze dvojice zprávu vytvořil.",
+        "body": "Požadavek splní jeden společný symetrický klíč pro celou skupinu.",
         "right": false,
-        "comment": "L1, slide 26 a L5, slide 39: sdílený klíč znají obě strany, takže nelze prokázat, která z nich zprávu vytvořila; symetrické algoritmy jsou proto obtížněji využitelné pro autentizaci."
+        "comment": "L1, slide 23: společný klíč by znali všichni členové, takže by každý přečetl zprávy ostatních dvojic."
       }
     ]
   },
@@ -128,14 +128,9 @@
     "name": "Které přiřazení mechanismus → potřebný klíč je správné?",
     "answers": [
       {
-        "body": "SHA-256 při výpočtu otisku dat: žádný klíč, jen samotná data.",
-        "right": true,
-        "comment": "L1, slide 21: hašovací funkce patří do kryptografie bez klíčů."
-      },
-      {
-        "body": "HMAC: tajný klíč, který sdílí odesílatel a příjemce.",
-        "right": true,
-        "comment": "L5, slide 39–40: původce i příjemce sdílí tajný klíč \\(k\\); \\(\\mathrm{HMAC}(x) = h(k \\,\\|\\, p_1 \\,\\|\\, h(k \\,\\|\\, p_2 \\,\\|\\, x))\\)."
+        "body": "MAC: výpočet soukromým klíčem odesílatele, ověření jeho veřejným klíčem.",
+        "right": false,
+        "comment": "L5, slide 39: MAC je symetrický mechanismus – výpočet i ověření používají tentýž sdílený tajný klíč."
       },
       {
         "body": "CRC: tajný polynom, který zná jen odesílatel a příjemce.",
@@ -143,14 +138,19 @@
         "comment": "L5, slide 38: CRC je metoda bez kryptografie; polynom (např. \\(g(x) = 1 + x^{2} + x^{15} + x^{16}\\)) je veřejný a součet spočítá kdokoli."
       },
       {
+        "body": "HMAC: tajný klíč, který sdílí odesílatel a příjemce.",
+        "right": true,
+        "comment": "L5, slide 39–40: původce i příjemce sdílí tajný klíč \\(k\\); \\(\\mathrm{HMAC}(x) = h(k \\,\\|\\, p_1 \\,\\|\\, h(k \\,\\|\\, p_2 \\,\\|\\, x))\\)."
+      },
+      {
         "body": "Podpis RSA: vytvoření soukromým klíčem podepisujícího, ověření jeho veřejným klíčem.",
         "right": true,
         "comment": "L1, slide 37: soukromé klíče slouží k tvorbě podpisu, veřejné k jeho ověření."
       },
       {
-        "body": "MAC: výpočet soukromým klíčem odesílatele, ověření jeho veřejným klíčem.",
-        "right": false,
-        "comment": "L5, slide 39: MAC je symetrický mechanismus – výpočet i ověření používají tentýž sdílený tajný klíč."
+        "body": "SHA-256 při výpočtu otisku dat: žádný klíč, jen samotná data.",
+        "right": true,
+        "comment": "L1, slide 21: hašovací funkce patří do kryptografie bez klíčů."
       }
     ]
   },
@@ -158,6 +158,11 @@
     "id": "8ae67119",
     "name": "Server A se přihlašuje k serveru B: B pošle výzvu a A ji vrátí podepsanou svým soukromým klíčem. Programátor serveru B posílá z úspory pokaždé stejnou výzvu 12345. Co z toho plyne?",
     "answers": [
+      {
+        "body": "Každá podepsaná odpověď prozradí odposlouchávajícímu kus soukromého klíče A.",
+        "right": false,
+        "comment": "L1, slide 42 a L2, slide 9: podpis výzvy prokazuje schopnost aplikovat tajná data, aniž by je sdělil; potíž je v opakované výzvě, ne v úniku klíče."
+      },
       {
         "body": "Kdo jednou odposlechne podepsanou odpověď, může ji přehrát a přihlásit se jako A.",
         "right": true,
@@ -167,11 +172,6 @@
         "body": "Problém zmizí, když A místo podpisu výzvy pošle haš svého hesla.",
         "right": false,
         "comment": "L2, slide 8: odposlechnutý haš hesla lze použít pro podvodnou autentizaci stejně jako odpověď na pevnou výzvu."
-      },
-      {
-        "body": "Každá podepsaná odpověď prozradí odposlouchávajícímu kus soukromého klíče A.",
-        "right": false,
-        "comment": "L1, slide 42 a L2, slide 9: podpis výzvy prokazuje schopnost aplikovat tajná data, aniž by je sdělil; potíž je v opakované výzvě, ne v úniku klíče."
       },
       {
         "body": "Rovnocennou náhradou podpisu výzvy je kontrola IP adresy, ze které server A přichází.",
@@ -185,9 +185,19 @@
     "name": "Porovnávají se tři politiky náhodně generovaných hesel: (A) 8 malých písmen (26 znaků), (B) 10 znaků z malých písmen a číslic (36 znaků), (C) 8 znaků ze všech 95 znaků klávesnice. Která tvrzení platí?",
     "answers": [
       {
+        "body": "Rozšíření abecedy z 26 na 36 znaků při délce 8 zvětší prostor jen asi o 38 %.",
+        "right": false,
+        "comment": "L2, slide 23: poměr je \\((36/26)^{8} \\approx 13{,}5\\), prostor se tedy zhruba ztřináctinásobí."
+      },
+      {
         "body": "B má \\(36^{10} \\approx 3{,}7 \\cdot 10^{15}\\) možností, asi 17 500krát víc než A (\\(26^{8} \\approx 2{,}1 \\cdot 10^{11}\\)).",
         "right": true,
         "comment": "L2, slide 23: počet hesel je velikost abecedy umocněná na délku hesla; \\(3{,}656 \\cdot 10^{15} / 2{,}088 \\cdot 10^{11} \\approx 17\\,500\\)."
+      },
+      {
+        "body": "Kdyby si uživatelé v C volili hesla sami, síla politiky by zůstala \\(95^{8}\\).",
+        "right": false,
+        "comment": "L2, slide 5 a 39: prostor se plně využije jen při rovnoměrné volbě; bez vynucení politiky bude alespoň 10 % hesel slabých."
       },
       {
         "body": "C má \\(95^{8} \\approx 6{,}6 \\cdot 10^{15}\\) možností, tedy jen necelý dvojnásobek B.",
@@ -198,16 +208,6 @@
         "body": "Prodloužení hesla v A z 8 na 10 znaků přidá jen \\(2 \\cdot 26 = 52\\) nových možností.",
         "right": false,
         "comment": "L2, slide 23: délka je v exponentu – dva znaky navíc prostor znásobí \\(26^{2} = 676\\)krát."
-      },
-      {
-        "body": "Kdyby si uživatelé v C volili hesla sami, síla politiky by zůstala \\(95^{8}\\).",
-        "right": false,
-        "comment": "L2, slide 5 a 39: prostor se plně využije jen při rovnoměrné volbě; bez vynucení politiky bude alespoň 10 % hesel slabých."
-      },
-      {
-        "body": "Rozšíření abecedy z 26 na 36 znaků při délce 8 zvětší prostor jen asi o 38 %.",
-        "right": false,
-        "comment": "L2, slide 23: poměr je \\((36/26)^{8} \\approx 13{,}5\\), prostor se tedy zhruba ztřináctinásobí."
       }
     ]
   },
@@ -221,14 +221,14 @@
         "comment": "L2, slide 23: \\(8760 \\cdot 10 / 10^{6} = 0{,}0876\\)."
       },
       {
+        "body": "Útočník, který ukradne databázi s haši kódů, je vázán stejným limitem 10 pokusů za hodinu.",
+        "right": false,
+        "comment": "L2, slide 20: omezení počtu pokusů platí pro online útok přes verifikační zařízení; při offline útoku pracuje útočník se souborem sám a \\(10^{6}\\) hodnot vyzkouší rychle."
+      },
+      {
         "body": "Sedmimístný kód by při jinak stejných podmínkách snížil odhad asi na 0,9 %.",
         "right": true,
         "comment": "L2, slide 23: jmenovatel vzroste desetkrát na \\(10^{7}\\), \\(87\\,600 / 10^{7} \\approx 0{,}88\\,\\%\\)."
-      },
-      {
-        "body": "Omezení na 1 pokus za hodinu má na odhad stejný účinek jako sedmá číslice.",
-        "right": true,
-        "comment": "L2, slide 23: \\(G\\) v čitateli klesne desetkrát, což odpovídá desetkrát většímu jmenovateli; obojí dá asi 0,9 %."
       },
       {
         "body": "Zkrácení platnosti kódu na půl roku sníží odhad na čtvrtinu.",
@@ -236,9 +236,9 @@
         "comment": "L2, slide 23: \\(T\\) je v čitateli lineárně – poloviční platnost dá poloviční odhad, asi 4,4 %."
       },
       {
-        "body": "Útočník, který ukradne databázi s haši kódů, je vázán stejným limitem 10 pokusů za hodinu.",
-        "right": false,
-        "comment": "L2, slide 20: omezení počtu pokusů platí pro online útok přes verifikační zařízení; při offline útoku pracuje útočník se souborem sám a \\(10^{6}\\) hodnot vyzkouší rychle."
+        "body": "Omezení na 1 pokus za hodinu má na odhad stejný účinek jako sedmá číslice.",
+        "right": true,
+        "comment": "L2, slide 23: \\(G\\) v čitateli klesne desetkrát, což odpovídá desetkrát většímu jmenovateli; obojí dá asi 0,9 %."
       }
     ]
   },
@@ -247,14 +247,9 @@
     "name": "Útočník ukradl tabulku hašů hesel \\(10^{6}\\) uživatelů a chce ji projít slovníkem \\(10^{7}\\) častých hesel. Porovnejte uložení bez soli a s náhodnou, pro každého uživatele jinou solí (sůl je uložena v tabulce). Která tvrzení platí?",
     "answers": [
       {
-        "body": "Bez soli stačí každé slovo zahašovat jednou (\\(10^{7}\\) výpočtů) a porovnat se všemi záznamy najednou.",
-        "right": true,
-        "comment": "L2, slide 13 a 20: bez soli dají stejná hesla stejný haš, takže jeden výpočet poslouží pro všechny uživatele (plošný útok)."
-      },
-      {
-        "body": "S unikátní solí potřebuje plošný útok až \\(10^{7} \\cdot 10^{6} = 10^{13}\\) výpočtů haše.",
-        "right": true,
-        "comment": "L2, slide 13: haš je funkcí soli i hesla, každé slovo se proto musí hašovat zvlášť se solí každého uživatele."
+        "body": "Sůl zpomalí i cílený útok na jednoho vybraného uživatele, a to asi milionkrát.",
+        "right": false,
+        "comment": "L2, slide 13 a 20: pro jednoho uživatele stačí stále \\(10^{7}\\) výpočtů s jeho solí; zpomalit každý pokus má pomalá funkce nebo pepř."
       },
       {
         "body": "Bez soli útočník hned pozná uživatele, kteří mají stejné heslo.",
@@ -262,14 +257,19 @@
         "comment": "L2, slide 13: sůl řeší stejná hesla – stejná hesla s různou solí mají různé haše, bez soli stejné."
       },
       {
-        "body": "Sůl zpomalí i cílený útok na jednoho vybraného uživatele, a to asi milionkrát.",
-        "right": false,
-        "comment": "L2, slide 13 a 20: pro jednoho uživatele stačí stále \\(10^{7}\\) výpočtů s jeho solí; zpomalit každý pokus má pomalá funkce nebo pepř."
+        "body": "Bez soli stačí každé slovo zahašovat jednou (\\(10^{7}\\) výpočtů) a porovnat se všemi záznamy najednou.",
+        "right": true,
+        "comment": "L2, slide 13 a 20: bez soli dají stejná hesla stejný haš, takže jeden výpočet poslouží pro všechny uživatele (plošný útok)."
       },
       {
         "body": "Sůl ztrácí smysl, pokud ji útočník ukradne spolu s tabulkou, a proto se do tabulky neukládá.",
         "right": false,
         "comment": "L2, slide 13: sůl se do tabulky ukládá (userid, sůl, f(sůl, heslo)) a svůj účel plní, i když je známá; tajná sůl se nazývá pepř."
+      },
+      {
+        "body": "S unikátní solí potřebuje plošný útok až \\(10^{7} \\cdot 10^{6} = 10^{13}\\) výpočtů haše.",
+        "right": true,
+        "comment": "L2, slide 13: haš je funkcí soli i hesla, každé slovo se proto musí hašovat zvlášť se solí každého uživatele."
       }
     ]
   },
@@ -278,14 +278,14 @@
     "name": "Lamportův řetězec haší je inicializován pro \\(t = 50\\) přihlášení: uživatel zná tajné \\(w\\), server si při registraci uloží \\(v = H^{50}(w)\\). Při \\(i\\)-tém přihlášení uživatel pošle \\(x = H^{50-i}(w)\\); server ověří \\(H(x) = v\\) a pak uloží \\(v \\leftarrow x\\). Uživatel se právě přihlásil podvacáté. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Server má nyní uloženo \\(H^{30}(w)\\) a ve 21. přihlášení přijme \\(x = H^{29}(w)\\).",
-        "right": true,
-        "comment": "L2, slide 45–46: po 20. přihlášení je \\(v = H^{50-20}(w) = H^{30}(w)\\) a \\(H(H^{29}(w)) = H^{30}(w)\\)."
-      },
-      {
         "body": "Útočník, který odposlechl \\(H^{30}(w)\\), spočítá příští heslo \\(H^{29}(w)\\).",
         "right": false,
         "comment": "L2, slide 45: hesla se používají v opačném pořadí, než se počítají; z \\(H^{30}(w)\\) by musel najít vzor haše, čemuž brání jednosměrnost (L5, slide 33)."
+      },
+      {
+        "body": "Server má nyní uloženo \\(H^{30}(w)\\) a ve 21. přihlášení přijme \\(x = H^{29}(w)\\).",
+        "right": true,
+        "comment": "L2, slide 45–46: po 20. přihlášení je \\(v = H^{50-20}(w) = H^{30}(w)\\) a \\(H(H^{29}(w)) = H^{30}(w)\\)."
       },
       {
         "body": "Server musí znát \\(w\\), aby mohl heslo ověřit.",
@@ -309,6 +309,21 @@
     "name": "Organizace zavádí pro hesla zaměstnanců blacklist (seznam nevhodných hesel). Která tvrzení platí?",
     "answers": [
       {
+        "body": "Pravidlo „nové heslo se nesmí shodovat s posledními 5“ zajistí, že se staré heslo nikdy nevrátí.",
+        "right": false,
+        "comment": "L2, slide 35: uživatelé zjistí délku historie hesel a „vyčerpají“ ji (Heslo123 → qwre321 → … → Heslo123)."
+      },
+      {
+        "body": "Aby měl smysl, musí mít miliardy záznamů – rozsah \\(10^{4}\\)–\\(10^{6}\\) je k ničemu.",
+        "right": false,
+        "comment": "L2, slide 37: rozsah bývá často nevelký, \\(10^{4}\\)–\\(10^{6}\\) hesel, a přesto zachytí nejčastěji volená slabá hesla."
+      },
+      {
+        "body": "S blacklistem už není třeba politiku volby hesel prosazovat, slabá hesla zachytí sám.",
+        "right": false,
+        "comment": "L2, slide 39: politiku je třeba prosazovat mechanismem, jinak bude alespoň 10 % hesel slabých; blacklist je jen jedním z nástrojů."
+      },
+      {
         "body": "Kontroluje se vždy při volbě nového hesla, prostým srovnáním nebo algoritmem analýzy hesla.",
         "right": true,
         "comment": "L2, slide 37: blacklist se používá v okamžiku volby (nového) hesla uživatelem."
@@ -317,21 +332,6 @@
         "body": "Vedle slovníků obsahuje i dříve prozrazená hesla a slabá hesla vlastních uživatelů.",
         "right": true,
         "comment": "L2, slide 37: obsahuje slovníky, prozrazená hesla a hesla uživatelů organizace, která následná analýza odhalila jako slabá."
-      },
-      {
-        "body": "Aby měl smysl, musí mít miliardy záznamů – rozsah \\(10^{4}\\)–\\(10^{6}\\) je k ničemu.",
-        "right": false,
-        "comment": "L2, slide 37: rozsah bývá často nevelký, \\(10^{4}\\)–\\(10^{6}\\) hesel, a přesto zachytí nejčastěji volená slabá hesla."
-      },
-      {
-        "body": "Pravidlo „nové heslo se nesmí shodovat s posledními 5“ zajistí, že se staré heslo nikdy nevrátí.",
-        "right": false,
-        "comment": "L2, slide 35: uživatelé zjistí délku historie hesel a „vyčerpají“ ji (Heslo123 → qwre321 → … → Heslo123)."
-      },
-      {
-        "body": "S blacklistem už není třeba politiku volby hesel prosazovat, slabá hesla zachytí sám.",
-        "right": false,
-        "comment": "L2, slide 39: politiku je třeba prosazovat mechanismem, jinak bude alespoň 10 % hesel slabých; blacklist je jen jedním z nástrojů."
       }
     ]
   },
@@ -340,9 +340,19 @@
     "name": "Starší systém Windows ukládá u 14znakového hesla vedle NT haše i LM haš. Heslo je náhodné ze všech 95 znaků klávesnice. Která tvrzení platí?",
     "answers": [
       {
+        "body": "Současné uložení LM a NT haše bezpečnost zvyšuje, útočník musí prolomit oba.",
+        "right": false,
+        "comment": "L2, slide 17: ukládání obou hašů útoky usnadňuje – stačí prolomit slabší LM a výsledek ověřit vůči NT (odvozeno)."
+      },
+      {
         "body": "LM převádí písmena na velká, takže efektivní abeceda klesne z 95 na 69 znaků.",
         "right": true,
         "comment": "L2, slide 17: LM nerozlišuje velikost písmen (konverze do uppercase); 26 malých písmen splyne s velkými, \\(95 - 26 = 69\\) (odvozeno)."
+      },
+      {
+        "body": "U LM by pomohlo heslo prodloužit na 20 znaků, poloviny by pak měly po 10 znacích.",
+        "right": false,
+        "comment": "L2, slide 17: LM pracuje s nejvýše 14 znaky hesla, poloviny tedy mají nejvýše 7 znaků."
       },
       {
         "body": "Obě poloviny po 7 znacích lze lámat samostatně: stačí nejvýše \\(2 \\cdot 69^{7} \\approx 1{,}5 \\cdot 10^{13}\\) pokusů místo \\(95^{14} \\approx 4{,}9 \\cdot 10^{27}\\).",
@@ -350,19 +360,9 @@
         "comment": "L2, slide 17: hesla delší než 7 znaků se dělí na 2 poloviny, což usnadňuje útoky; \\(69^{7} \\approx 7{,}4 \\cdot 10^{12}\\)."
       },
       {
-        "body": "Současné uložení LM a NT haše bezpečnost zvyšuje, útočník musí prolomit oba.",
-        "right": false,
-        "comment": "L2, slide 17: ukládání obou hašů útoky usnadňuje – stačí prolomit slabší LM a výsledek ověřit vůči NT (odvozeno)."
-      },
-      {
         "body": "NT haš má stejné omezení na 14 znaků a také dělí heslo na poloviny.",
         "right": false,
         "comment": "L2, slide 17: NT haš (MD4 nad heslem v Unicode) zpracuje až 256 znaků (dialogové okno povolí 127) a heslo nedělí."
-      },
-      {
-        "body": "U LM by pomohlo heslo prodloužit na 20 znaků, poloviny by pak měly po 10 znacích.",
-        "right": false,
-        "comment": "L2, slide 17: LM pracuje s nejvýše 14 znaky hesla, poloviny tedy mají nejvýše 7 znaků."
       }
     ]
   },
@@ -371,14 +371,9 @@
     "name": "Karta zablokuje PIN po třech chybných pokusech. Podle analýzy 3,4 milionu uživatelsky volených PINů jsou nejčastější 1234 (10,713 %), 1111 (6,016 %) a 0000 (1,881 %). Útočník najde cizí kartu. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Zkusí-li 1234, 1111 a 0000, uspěje asi u 18,6 % karet s PINem zvoleným uživatelem.",
-        "right": true,
-        "comment": "L3, slide 18–19: \\(10{,}713 + 6{,}016 + 1{,}881 = 18{,}61\\,\\%\\)."
-      },
-      {
-        "body": "U PINu generovaného náhodně z 0000–9999 by měl šanci jen 3 z 10 000, tj. 0,03 %.",
-        "right": true,
-        "comment": "L2, slide 50 a L3, slide 18: tři pokusy z \\(10^{4}\\) stejně pravděpodobných hodnot."
+        "body": "Kdyby karta povolila 5 pokusů, vzrostla by šance u náhodného PINu na 5 %.",
+        "right": false,
+        "comment": "L3, slide 18: 5 pokusů z \\(10^{4}\\) hodnot je 0,05 %."
       },
       {
         "body": "Šance je u volených i náhodných PINů stejná – prostor má v obou případech 10 000 hodnot.",
@@ -386,14 +381,19 @@
         "comment": "L2, slide 5: hodnoty mají být stejně pravděpodobné; volené PINy jsou silně nerovnoměrné, takže první tři tipy pokryjí přes 18 % karet."
       },
       {
-        "body": "Kdyby karta povolila 5 pokusů, vzrostla by šance u náhodného PINu na 5 %.",
-        "right": false,
-        "comment": "L3, slide 18: 5 pokusů z \\(10^{4}\\) hodnot je 0,05 %."
-      },
-      {
         "body": "Po zablokování PINu může útočník bez omezení zkoušet odblokovací kód (PUK).",
         "right": false,
         "comment": "L3, slide 18: i počet neúspěšných odblokování je omezen."
+      },
+      {
+        "body": "U PINu generovaného náhodně z 0000–9999 by měl šanci jen 3 z 10 000, tj. 0,03 %.",
+        "right": true,
+        "comment": "L2, slide 50 a L3, slide 18: tři pokusy z \\(10^{4}\\) stejně pravděpodobných hodnot."
+      },
+      {
+        "body": "Zkusí-li 1234, 1111 a 0000, uspěje asi u 18,6 % karet s PINem zvoleným uživatelem.",
+        "right": true,
+        "comment": "L3, slide 18–19: \\(10{,}713 + 6{,}016 + 1{,}881 = 18{,}61\\,\\%\\)."
       }
     ]
   },
@@ -402,14 +402,14 @@
     "name": "Čipová karta podle výrobce vytvoří podpis RSA 2048 bitů za 6,9 s bez využití CRT a za 0,17 s s CRT; ověření RSA 2048 trvá 38 ms. Uživatel kartou podepisuje 10MB dokument. Která tvrzení platí?",
     "answers": [
       {
+        "body": "Bezpečnější je dokument rozdělit na bloky po 256 bajtech a každý podepsat zvlášť.",
+        "right": false,
+        "comment": "L5, slide 21: rozdělit dokument na několik částí a podepsat je separátně není bezpečné (části by šlo např. vynechat nebo přeskupit – odvozeno)."
+      },
+      {
         "body": "Karta podepisuje jen haš dokumentu (stovky bitů), celý dokument jí počítač neposílá.",
         "right": true,
         "comment": "L5, slide 21 a L1, slide 36: asymetrické algoritmy jsou relativně pomalé, proto se podepisuje haš fixní délky."
-      },
-      {
-        "body": "CRT podpis zrychlí asi 40krát, taková optimalizace ale může usnadnit časovou analýzu.",
-        "right": true,
-        "comment": "L3, slide 23 a 30: \\(6{,}9 / 0{,}17 \\approx 40\\); obrana proti časové analýze minimalizuje závislost doby výpočtu na datech a často tím bere možnost optimalizace (CRT u RSA)."
       },
       {
         "body": "Ověření podpisu trvá na kartě déle než podpis s využitím CRT.",
@@ -417,9 +417,9 @@
         "comment": "L3, slide 23: ověření RSA 2048 trvá 38 ms, podpis s CRT 170 ms; ověření s krátkým veřejným exponentem je rychlejší."
       },
       {
-        "body": "Bezpečnější je dokument rozdělit na bloky po 256 bajtech a každý podepsat zvlášť.",
-        "right": false,
-        "comment": "L5, slide 21: rozdělit dokument na několik částí a podepsat je separátně není bezpečné (části by šlo např. vynechat nebo přeskupit – odvozeno)."
+        "body": "CRT podpis zrychlí asi 40krát, taková optimalizace ale může usnadnit časovou analýzu.",
+        "right": true,
+        "comment": "L3, slide 23 a 30: \\(6{,}9 / 0{,}17 \\approx 40\\); obrana proti časové analýze minimalizuje závislost doby výpočtu na datech a často tím bere možnost optimalizace (CRT u RSA)."
       }
     ]
   },
@@ -427,11 +427,6 @@
     "id": "77374665",
     "name": "Univerzita chce jednu kartu pro vstup do budov (bezkontaktně) a pro elektronický podpis v počítači přes kontaktní čtečku. Podpisový klíč má být uložen jednou a dostupný z obou rozhraní. Která tvrzení platí?",
     "answers": [
-      {
-        "body": "Požadavku odpovídá duální (kombinovaná) karta: jeden čip, dvě rozhraní.",
-        "right": true,
-        "comment": "L3, slide 12: duální/kombinovaná karta má 1 čip a 2 rozhraní."
-      },
       {
         "body": "Hybridní karta požadavek splní stejně dobře, má také obě rozhraní.",
         "right": false,
@@ -451,6 +446,11 @@
         "body": "Přes bezkontaktní rozhraní bude podpis stejně rychlý jako přes kontaktní, napájení je u obou stejné.",
         "right": false,
         "comment": "L3, slide 12: bezkontaktní karty mají omezený zdroj energie, a tedy procesory s nízkou spotřebou a nižším výkonem."
+      },
+      {
+        "body": "Požadavku odpovídá duální (kombinovaná) karta: jeden čip, dvě rozhraní.",
+        "right": true,
+        "comment": "L3, slide 12: duální/kombinovaná karta má 1 čip a 2 rozhraní."
       }
     ]
   },
@@ -459,14 +459,14 @@
     "name": "Banka vybírá autentizační prostředky pro různé požadavky. Které dvojice požadavek → prostředek jsou vhodné?",
     "answers": [
       {
-        "body": "Přihlášení odolné proti podvržené stránce s jinou adresou → FIDO token, který váže klíče na URL.",
-        "right": true,
-        "comment": "L3, slide 42: FIDO umožňuje svázat klíče s URL (i s ID kanálu TLS), takže podvržená stránka s jinou adresou platnou odpověď nedostane."
-      },
-      {
         "body": "Kód, který potvrdí právě danou částku a účet příjemce → kalkulátor, do něhož se zadají údaje platby.",
         "right": true,
         "comment": "L3, slide 38–39: kalkulátor spočítá autentizační číslo z PINu a zadaných údajů platby; přívětivější varianta je načte z obrazovky (flicker kód)."
+      },
+      {
+        "body": "Server nemá uchovávat žádné tajemství sdílené s tokenem → token založený na hodinách.",
+        "right": false,
+        "comment": "L3, slide 40: hodnotu tokenu umí spočítat i autentizační server, sdílí s ním tedy tajemství; bez sdíleného tajemství pracuje FIDO s asymetrickou kryptografií (slide 42)."
       },
       {
         "body": "Token bez klávesnice, který každou minutu ukáže nový kód → kalkulátor s výzvou-odpovědí.",
@@ -474,9 +474,9 @@
         "comment": "L3, slide 36 a 40: kód měnící se s časem bez zadání výzvy dává token založený na hodinách; kalkulátor s výzvou-odpovědí potřebuje vstup výzvy."
       },
       {
-        "body": "Server nemá uchovávat žádné tajemství sdílené s tokenem → token založený na hodinách.",
-        "right": false,
-        "comment": "L3, slide 40: hodnotu tokenu umí spočítat i autentizační server, sdílí s ním tedy tajemství; bez sdíleného tajemství pracuje FIDO s asymetrickou kryptografií (slide 42)."
+        "body": "Přihlášení odolné proti podvržené stránce s jinou adresou → FIDO token, který váže klíče na URL.",
+        "right": true,
+        "comment": "L3, slide 42: FIDO umožňuje svázat klíče s URL (i s ID kanálu TLS), takže podvržená stránka s jinou adresou platnou odpověď nedostane."
       }
     ]
   },
@@ -490,6 +490,11 @@
         "comment": "L3, slide 40: server po každém úspěšném přihlášení aktualizuje offset, rozhoduje tedy jen posun od posledního přihlášení; 20 s je méně než jeden rámec (odvozeno)."
       },
       {
+        "body": "Token potřebuje pro výpočet kódu spojení se serverem, přes které si průběžně synchronizuje hodiny.",
+        "right": false,
+        "comment": "L3, slide 40: token dává hodnotu sám ze svých hodin a tajné informace; tutéž hodnotu umí nezávisle spočítat server."
+      },
+      {
         "body": "Po půl roce bez přihlášení se token předběhne o 2 minuty (2 rámce) a kód bude odmítnut.",
         "right": true,
         "comment": "L3, slide 40: \\(6 \\cdot 20 = 120\\) s \\(= 2\\) rámce, okno přijímá jen ±1 rámec; ztrátu synchronizace je pak třeba řešit (odvozeno)."
@@ -498,11 +503,6 @@
         "body": "Rozšíření okna na ±5 rámců problém odstraní, a to bez jakékoli nevýhody pro bezpečnost.",
         "right": false,
         "comment": "L3, slide 40: platnost rámců „před“ a „po“ je otázka, kterou je třeba řešit – při ±5 rámcích platí najednou 11 kódů místo 3 a kód zůstane použitelný déle (odvozeno)."
-      },
-      {
-        "body": "Token potřebuje pro výpočet kódu spojení se serverem, přes které si průběžně synchronizuje hodiny.",
-        "right": false,
-        "comment": "L3, slide 40: token dává hodnotu sám ze svých hodin a tajné informace; tutéž hodnotu umí nezávisle spočítat server."
       }
     ]
   },
@@ -511,19 +511,9 @@
     "name": "Které vlastnosti jsou správně přiřazeny k metodě autentizace?",
     "answers": [
       {
-        "body": "Token: ztrátu uživatel obvykle rychle zjistí.",
-        "right": true,
-        "comment": "L3, slide 43: u tokenů se rychle zjistí jejich ztráta."
-      },
-      {
         "body": "Heslo: může být zjištěno, aniž by si toho uživatel byl ihned vědom.",
         "right": true,
         "comment": "L2, slide 58: heslo lze zjistit, aniž by si toho byl uživatel ihned vědom, a dále se jednoduše kopíruje či sděluje."
-      },
-      {
-        "body": "Biometrika: nelze ji zapomenout ani snadno předat jiné osobě.",
-        "right": true,
-        "comment": "L4, slide 53 a 62: biometriku nemůžeme ztratit, zapomenout ani lehce předat jiné osobě."
       },
       {
         "body": "Biometrika: je tajná, takže únik snímku otisku nevadí.",
@@ -534,6 +524,16 @@
         "body": "Token: bez tokenu systém oprávněného uživatele automaticky rozpozná náhradním způsobem.",
         "right": false,
         "comment": "L3, slide 44: bez tokenu není autorizovaný uživatel rozeznán."
+      },
+      {
+        "body": "Biometrika: nelze ji zapomenout ani snadno předat jiné osobě.",
+        "right": true,
+        "comment": "L4, slide 53 a 62: biometriku nemůžeme ztratit, zapomenout ani lehce předat jiné osobě."
+      },
+      {
+        "body": "Token: ztrátu uživatel obvykle rychle zjistí.",
+        "right": true,
+        "comment": "L3, slide 43: u tokenů se rychle zjistí jejich ztráta."
       }
     ]
   },
@@ -542,9 +542,14 @@
     "name": "Vstup do budovy hlídá snímač otisků prstů. Denně proběhne 2000 pokusů zaměstnanců a 100 pokusů cizích osob. Lze zvolit nastavení A (FAR 1 %, FRR 0,5 %) nebo B (FAR 0,01 %, FRR 5 %). Která tvrzení platí?",
     "answers": [
       {
-        "body": "Při A bude denně asi 10 chybně odmítnutých zaměstnanců a asi 1 chybně přijatý cizí pokus.",
-        "right": true,
-        "comment": "L4, slide 9–10: \\(2000 \\cdot 0{,}005 = 10\\) a \\(100 \\cdot 0{,}01 = 1\\)."
+        "body": "Snížením prahu u nastavení B by klesl FRR a zároveň by klesl i FAR.",
+        "right": false,
+        "comment": "L4, slide 10: nižší práh FRR snižuje, ale FAR zvyšuje."
+      },
+      {
+        "body": "Pro trezor s cennostmi je vhodnější A – méně odmítnutí znamená vyšší bezpečnost.",
+        "right": false,
+        "comment": "L4, slide 54: vysoké FAR se hodí jen pro aplikace s nízkou úrovní bezpečnosti; vysoké FRR znamená nespokojené uživatele, ne nižší bezpečnost."
       },
       {
         "body": "B znamená vyšší práh: chybné přijetí asi jednou za 100 dní, ale asi 100 odmítnutí denně.",
@@ -557,14 +562,9 @@
         "comment": "L4, slide 10: rozdělení skóre útočníků a oprávněných uživatelů se překrývají; nižší FAR posunem prahu znamená vyšší FRR."
       },
       {
-        "body": "Pro trezor s cennostmi je vhodnější A – méně odmítnutí znamená vyšší bezpečnost.",
-        "right": false,
-        "comment": "L4, slide 54: vysoké FAR se hodí jen pro aplikace s nízkou úrovní bezpečnosti; vysoké FRR znamená nespokojené uživatele, ne nižší bezpečnost."
-      },
-      {
-        "body": "Snížením prahu u nastavení B by klesl FRR a zároveň by klesl i FAR.",
-        "right": false,
-        "comment": "L4, slide 10: nižší práh FRR snižuje, ale FAR zvyšuje."
+        "body": "Při A bude denně asi 10 chybně odmítnutých zaměstnanců a asi 1 chybně přijatý cizí pokus.",
+        "right": true,
+        "comment": "L4, slide 9–10: \\(2000 \\cdot 0{,}005 = 10\\) a \\(100 \\cdot 0{,}01 = 1\\)."
       }
     ]
   },
@@ -573,14 +573,9 @@
     "name": "Policejní systém hledá otisk neznámé osoby v databázi \\(10^{6}\\) otisků (identifikace 1:n). Při jednom srovnání je FAR 0,1 %; srovnání považujte za nezávislá. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Jedno prohledání celé databáze vrátí v průměru asi 1000 chybných shod.",
+        "body": "Rozdělení databáze (clustering) zmenší počet srovnání, a tím i počet chybných shod.",
         "right": true,
-        "comment": "L4, slide 3 a 33: \\(10^{6} \\cdot 0{,}001 = 1000\\); identifikace srovnává s celou databází, proto je náročnější (výpočet odvozen)."
-      },
-      {
-        "body": "Ve verifikaci 1:1 dá stejný snímač při jednom pokusu také asi 1000 chybných přijetí.",
-        "right": false,
-        "comment": "L4, slide 3: verifikace srovnává jen se vzorkem tvrzené identity; chybné přijetí nastane s pravděpodobností 0,1 %."
+        "comment": "L4, slide 3: identifikace využívá dělení databáze (clustering); méně srovnání znamená úměrně méně chybných shod (odvozeno)."
       },
       {
         "body": "Pro identifikaci ve velké databázi se hodí metoda s (téměř) nulovým FAR, např. duhovka.",
@@ -593,9 +588,14 @@
         "comment": "L4, slide 35: geometrie ruky je pro identifikaci nevhodná; i ve skupině 1000 osob dá 30–50 chybných shod (\\(1000 \\cdot 0{,}03\\) až \\(1000 \\cdot 0{,}05\\))."
       },
       {
-        "body": "Rozdělení databáze (clustering) zmenší počet srovnání, a tím i počet chybných shod.",
+        "body": "Jedno prohledání celé databáze vrátí v průměru asi 1000 chybných shod.",
         "right": true,
-        "comment": "L4, slide 3: identifikace využívá dělení databáze (clustering); méně srovnání znamená úměrně méně chybných shod (odvozeno)."
+        "comment": "L4, slide 3 a 33: \\(10^{6} \\cdot 0{,}001 = 1000\\); identifikace srovnává s celou databází, proto je náročnější (výpočet odvozen)."
+      },
+      {
+        "body": "Ve verifikaci 1:1 dá stejný snímač při jednom pokusu také asi 1000 chybných přijetí.",
+        "right": false,
+        "comment": "L4, slide 3: verifikace srovnává jen se vzorkem tvrzené identity; chybné přijetí nastane s pravděpodobností 0,1 %."
       }
     ]
   },
@@ -609,6 +609,16 @@
         "comment": "L4, slide 3 a 5: vzorek lze uložit na kartě, snímači, stanici či serveru; s kartou je identita známa (1:1). Menší riziko úniku je odvozeno (L4, slide 56)."
       },
       {
+        "body": "Uložení na kartě útok podvrženým prstem vylučuje – útočník by potřeboval i kartu.",
+        "right": false,
+        "comment": "L4, slide 55 a 61–62: žádná metoda neposkytuje 100% ochranu; s ukradenou kartou a podvrhem prstu z fotografie je útok možný (odvozeno)."
+      },
+      {
+        "body": "Při ověření se z několika nově pořízených snímků znovu vytvoří registrační vzorek.",
+        "right": false,
+        "comment": "L4, slide 5–6: registrační vzorek vzniká při registraci; při ověření je k dispozici jen jeden vzorek, z něhož se vytvoří charakteristiky a porovnají."
+      },
+      {
         "body": "Centrální databáze umožní identifikaci 1:n bez karty, únik ale ohrozí vzorky všech zaměstnanců najednou.",
         "right": true,
         "comment": "L4, slide 3 a 56: identifikace prochází celou databázi; charakteristika se používá ve více systémech a její zveřejnění nesmí ohrozit bezpečnost (důsledek úniku odvozen)."
@@ -617,16 +627,6 @@
         "body": "Komerční systém ukládá vedle zpracovaných charakteristik i původní snímky, aby šlo registraci opakovat.",
         "right": false,
         "comment": "L4, slide 50: komerční systémy ukládají jen zpracované charakteristiky a nekvalitní vzorek nasnímají znovu; původní vzorky uchovávají forenzní systémy."
-      },
-      {
-        "body": "Při ověření se z několika nově pořízených snímků znovu vytvoří registrační vzorek.",
-        "right": false,
-        "comment": "L4, slide 5–6: registrační vzorek vzniká při registraci; při ověření je k dispozici jen jeden vzorek, z něhož se vytvoří charakteristiky a porovnají."
-      },
-      {
-        "body": "Uložení na kartě útok podvrženým prstem vylučuje – útočník by potřeboval i kartu.",
-        "right": false,
-        "comment": "L4, slide 55 a 61–62: žádná metoda neposkytuje 100% ochranu; s ukradenou kartou a podvrhem prstu z fotografie je útok možný (odvozeno)."
       }
     ]
   },
@@ -640,16 +640,6 @@
         "comment": "L4, slide 48: \\(10^{7} \\cdot 10^{-10} = 10^{-3}\\) (výpočet odvozen)."
       },
       {
-        "body": "Pro vstup do budovy se DNA nehodí: výsledek trvá desítky minut, ne sekundy.",
-        "right": true,
-        "comment": "L4, slide 48 a 51: i Rapid DNA potřebuje 90–100 minut, komerční/IT biometriky dávají výsledek v sekundách."
-      },
-      {
-        "body": "Jednovaječná dvojčata podle DNA nerozlišíme.",
-        "right": true,
-        "comment": "L4, slide 21: DNA je genotypická (geneticky založená) charakteristika; shoda DNA jednovaječných dvojčat je obecná znalost."
-      },
-      {
         "body": "DNA je fenotypická charakteristika ovlivněná prostředím, podobně jako otisk prstu.",
         "right": false,
         "comment": "L4, slide 21: DNA je příklad genotypické charakteristiky, otisk prstu fenotypické."
@@ -658,6 +648,16 @@
         "body": "Analýza 16 znaků místo 8 sníží pravděpodobnost náhodné shody jen na polovinu.",
         "right": false,
         "comment": "L4, slide 48: pravděpodobnost klesne z \\(10^{-10}\\) na \\(10^{-18}\\), tedy \\(10^{8}\\)krát."
+      },
+      {
+        "body": "Jednovaječná dvojčata podle DNA nerozlišíme.",
+        "right": true,
+        "comment": "L4, slide 21: DNA je genotypická (geneticky založená) charakteristika; shoda DNA jednovaječných dvojčat je obecná znalost."
+      },
+      {
+        "body": "Pro vstup do budovy se DNA nehodí: výsledek trvá desítky minut, ne sekundy.",
+        "right": true,
+        "comment": "L4, slide 48 a 51: i Rapid DNA potřebuje 90–100 minut, komerční/IT biometriky dávají výsledek v sekundách."
       }
     ]
   },
@@ -666,9 +666,9 @@
     "name": "Čipová karta má vestavěný snímač otisků: otisk porovná přímo na kartě a teprve pak, po zadání PINu, odemkne podpisový klíč. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Jde o třífaktorovou autentizaci: karta (něco, co mám), PIN (něco, co znám) a otisk (něco, co jsem).",
-        "right": true,
-        "comment": "L3, slide 2: třífaktorová autentizace – token, PIN/heslo a biometrika, např. načtená a zpracovaná přímo tokenem."
+        "body": "Útočník, který kartu ukradne a zná PIN, je bez živého prstu držitele vždy bezmocný.",
+        "right": false,
+        "comment": "L4, slide 61–62: kopírování otisku není obtížné – i studenti vyrobí podvrh povrchu prstu z běžné fotografie."
       },
       {
         "body": "Biometrika tu jen chrání přístup k tajnému klíči, sama klíčem není.",
@@ -681,9 +681,9 @@
         "comment": "L4, slide 65–66: ve skutečnosti nepodepisuje člověk, ale počítač; co se podepíše, určuje zařízení, k němuž je karta připojena (např. trojský kůň)."
       },
       {
-        "body": "Útočník, který kartu ukradne a zná PIN, je bez živého prstu držitele vždy bezmocný.",
-        "right": false,
-        "comment": "L4, slide 61–62: kopírování otisku není obtížné – i studenti vyrobí podvrh povrchu prstu z běžné fotografie."
+        "body": "Jde o třífaktorovou autentizaci: karta (něco, co mám), PIN (něco, co znám) a otisk (něco, co jsem).",
+        "right": true,
+        "comment": "L3, slide 2: třífaktorová autentizace – token, PIN/heslo a biometrika, např. načtená a zpracovaná přímo tokenem."
       }
     ]
   },
@@ -691,11 +691,6 @@
     "id": "f5135dd2",
     "name": "Systém ověřuje dynamiku podpisu s FAR 20 % a FRR 20 % na jeden pokus a povoluje 3 pokusy; pokusy považujte za nezávislé. Která tvrzení platí?",
     "answers": [
-      {
-        "body": "Útočník, který třikrát zkusí napodobit podpis, projde s pravděpodobností asi 49 %.",
-        "right": true,
-        "comment": "L4, slide 37 (FAR i FRR až několik desítek procent): \\(1 - 0{,}8^{3} = 1 - 0{,}512 = 0{,}488\\) (výpočet odvozen)."
-      },
       {
         "body": "Oprávněný uživatel bude odmítnut ve všech třech pokusech jen asi v 0,8 % případů.",
         "right": true,
@@ -707,14 +702,19 @@
         "comment": "L4, slide 10 a 20: další pokusy snižují efektivní FRR, ale efektivní FAR zvyšují (z 20 % na 48,8 %)."
       },
       {
-        "body": "Pro autorizaci bankovních převodů je taková přesnost dostatečná, podpis má velký historický význam.",
-        "right": false,
-        "comment": "L4, slide 37: přesnost dynamiky podpisu je malá, nedostatečná pro většinu rozumných aplikací; popularita plyne z historického významu podpisu."
+        "body": "Útočník, který třikrát zkusí napodobit podpis, projde s pravděpodobností asi 49 %.",
+        "right": true,
+        "comment": "L4, slide 37 (FAR i FRR až několik desítek procent): \\(1 - 0{,}8^{3} = 1 - 0{,}512 = 0{,}488\\) (výpočet odvozen)."
       },
       {
         "body": "Útočník projde s pravděpodobností 60 % – tři pokusy po 20 % se sčítají.",
         "right": false,
         "comment": "L4, slide 37: pravděpodobnosti se nesčítají; správně \\(1 - 0{,}8^{3} \\approx 48{,}8\\,\\%\\) (odvozeno)."
+      },
+      {
+        "body": "Pro autorizaci bankovních převodů je taková přesnost dostatečná, podpis má velký historický význam.",
+        "right": false,
+        "comment": "L4, slide 37: přesnost dynamiky podpisu je malá, nedostatečná pro většinu rozumných aplikací; popularita plyne z historického významu podpisu."
       }
     ]
   },
@@ -722,6 +722,16 @@
     "id": "20c6f7c6",
     "name": "Uvažujte „hašovací“ funkci \\(h\\): součet kódů ASCII všech bajtů modulo 256. Kódy: x = 120, y = 121, z = 122, { = 123, k = 107. Která tvrzení platí?",
     "answers": [
+      {
+        "body": "Bez znalosti tajného klíče, se kterým se haš počítá, útočník kolizi nenajde.",
+        "right": false,
+        "comment": "L5, slide 32 a 35: hašovací funkce (ani tato) nepoužívá klíč; kolizi spočítá kdokoli."
+      },
+      {
+        "body": "Změna jednoho znaku vždy změní haš výrazně, funkce má lavinový efekt.",
+        "right": false,
+        "comment": "L5, slide 35 a 37: změna „z“ (122) na „{“ (123) zvýší haš jen o 1, ze 107 na 108; dobrá hašovací funkce by výstup změnila výrazně."
+      },
       {
         "body": "\\(h(\\text{xyz}) = 363 \\bmod 256 = 107\\), tedy stejně jako \\(h(\\text{k})\\) – kolizi lze sestrojit ručně.",
         "right": true,
@@ -733,19 +743,9 @@
         "comment": "L5, slide 33: jednosměrnost žádá, aby pro dané \\(y\\) nešlo v rozumném čase najít \\(x\\) s \\(h(x) = y\\); tady stačí jeden bajt, funkce tedy není jednosměrná (odvozeno ze slide 35)."
       },
       {
-        "body": "Změna jednoho znaku vždy změní haš výrazně, funkce má lavinový efekt.",
-        "right": false,
-        "comment": "L5, slide 35 a 37: změna „z“ (122) na „{“ (123) zvýší haš jen o 1, ze 107 na 108; dobrá hašovací funkce by výstup změnila výrazně."
-      },
-      {
         "body": "Kolizi lze najít jen narozeninovým útokem, zhruba po \\(2^{4}\\) náhodných pokusech.",
         "right": false,
         "comment": "L5, slide 34–35: kolizi tu lze přímo spočítat bez hledání; narozeninový paradox se týká hledání u obecných funkcí (pro 8bitový výstup řádově \\(2^{4}\\) pokusů – odvozeno)."
-      },
-      {
-        "body": "Bez znalosti tajného klíče, se kterým se haš počítá, útočník kolizi nenajde.",
-        "right": false,
-        "comment": "L5, slide 32 a 35: hašovací funkce (ani tato) nepoužívá klíč; kolizi spočítá kdokoli."
       }
     ]
   },
@@ -753,21 +753,6 @@
     "id": "d679f196",
     "name": "Systém používá hašovací funkci zkrácenou na 64 bitů a útočník spočítá \\(10^{9}\\) hašů za sekundu. Která tvrzení platí (odhady jsou řádové)?",
     "answers": [
-      {
-        "body": "Najít vstup k danému haši vyžaduje řádově \\(2^{64}\\) pokusů, libovolnou kolizi jen řádově \\(2^{32}\\).",
-        "right": true,
-        "comment": "L5, slide 34: hledá-li útočník libovolnou kolizi, má díky narozeninovému paradoxu mnohem větší šanci než u konkrétní hodnoty; odhad \\(2^{n/2}\\) je obecná znalost."
-      },
-      {
-        "body": "Libovolnou kolizi útočník najde zhruba za několik sekund.",
-        "right": true,
-        "comment": "L5, slide 34 (odvozeno): \\(2^{32} \\approx 4{,}3 \\cdot 10^{9}\\) pokusů, při \\(10^{9}\\) hašů za sekundu asi 4 s."
-      },
-      {
-        "body": "Prodloužení výstupu na 128 bitů zvýší náročnost hledání kolize jen dvojnásobně.",
-        "right": false,
-        "comment": "L5, slide 34 a 36: kolize pak vyžaduje řádově \\(2^{64}\\) pokusů, tedy \\(2^{32}\\)krát víc; ani 128 bitů se už nepovažuje za dostatečně bezpečnou délku."
-      },
       {
         "body": "Slabá bezkoliznost znamená, že útočník v rozumném čase nenajde žádnou dvojici různých vstupů se stejným hašem.",
         "right": false,
@@ -777,6 +762,21 @@
         "body": "U 256bitové funkce SHA-256 by stejný útočník kolizi našel také jen za několik sekund.",
         "right": false,
         "comment": "L5, slide 32 a 34 (odvozeno): kolize vyžaduje řádově \\(2^{128} \\approx 3{,}4 \\cdot 10^{38}\\) pokusů, při \\(10^{9}\\) za sekundu asi \\(10^{22}\\) let."
+      },
+      {
+        "body": "Prodloužení výstupu na 128 bitů zvýší náročnost hledání kolize jen dvojnásobně.",
+        "right": false,
+        "comment": "L5, slide 34 a 36: kolize pak vyžaduje řádově \\(2^{64}\\) pokusů, tedy \\(2^{32}\\)krát víc; ani 128 bitů se už nepovažuje za dostatečně bezpečnou délku."
+      },
+      {
+        "body": "Najít vstup k danému haši vyžaduje řádově \\(2^{64}\\) pokusů, libovolnou kolizi jen řádově \\(2^{32}\\).",
+        "right": true,
+        "comment": "L5, slide 34: hledá-li útočník libovolnou kolizi, má díky narozeninovému paradoxu mnohem větší šanci než u konkrétní hodnoty; odhad \\(2^{n/2}\\) je obecná znalost."
+      },
+      {
+        "body": "Libovolnou kolizi útočník najde zhruba za několik sekund.",
+        "right": true,
+        "comment": "L5, slide 34 (odvozeno): \\(2^{32} \\approx 4{,}3 \\cdot 10^{9}\\) pokusů, při \\(10^{9}\\) hašů za sekundu asi 4 s."
       }
     ]
   },
@@ -785,19 +785,14 @@
     "name": "MAC založený na AES v režimu CBC počítá ze zprávy rozdělené na bloky \\(x_1, \\dots, x_t\\) hodnoty \\(H_1 = \\mathrm{AES}_k(0 \\oplus x_1)\\) a \\(H_i = \\mathrm{AES}_k(H_{i-1} \\oplus x_i)\\); MAC je \\(H_t\\). Klíč \\(k\\) sdílí odesílatel a příjemce. Která tvrzení platí?",
     "answers": [
       {
-        "body": "Změna bloku \\(x_1\\) změní \\(H_1\\), přes řetězení i všechny další hodnoty, a tedy i MAC.",
-        "right": true,
-        "comment": "L5, slide 40–41: v režimu CBC závisí zašifrovaná data na všech předchozích datech, MAC je poslední hodnota řetězce."
-      },
-      {
         "body": "Příjemce MAC ověří tak, že \\(H_t\\) dešifruje a výsledek porovná s blokem \\(x_t\\).",
         "right": false,
         "comment": "L5, slide 39: příjemce MAC nedešifruje – sám spočítá \\(h_k(x')\\) z přijaté zprávy stejným klíčem a srovná s přijatým MAC."
       },
       {
-        "body": "Zpráva se při výpočtu MAC zašifruje, MAC proto zajišťuje i důvěrnost.",
-        "right": false,
-        "comment": "L5, slide 39: MAC slouží k zajištění integrity, ne důvěrnosti; zpráva se posílá spolu s MAC v otevřené podobě."
+        "body": "Změna bloku \\(x_1\\) změní \\(H_1\\), přes řetězení i všechny další hodnoty, a tedy i MAC.",
+        "right": true,
+        "comment": "L5, slide 40–41: v režimu CBC závisí zašifrovaná data na všech předchozích datech, MAC je poslední hodnota řetězce."
       },
       {
         "body": "K ověření MAC stačí veřejný klíč odesílatele.",
@@ -808,6 +803,11 @@
         "body": "Útočník, který zná zprávu a její MAC, ale ne \\(k\\), spočítá MAC pozměněné zprávy – AES je veřejně známý.",
         "right": false,
         "comment": "L5, slide 41 a L1, slide 31: algoritmus je veřejný, bezpečnost stojí na tajném klíči; bez \\(k\\) nelze \\(\\mathrm{AES}_k\\) spočítat."
+      },
+      {
+        "body": "Zpráva se při výpočtu MAC zašifruje, MAC proto zajišťuje i důvěrnost.",
+        "right": false,
+        "comment": "L5, slide 39: MAC slouží k zajištění integrity, ne důvěrnosti; zpráva se posílá spolu s MAC v otevřené podobě."
       }
     ]
   },
@@ -816,14 +816,14 @@
     "name": "Zaměstnankyně podepíše PDF zaručeným elektronickým podpisem. Certifikát jí vydala interní firemní CA (nejde o kvalifikovaný certifikát), soukromý klíč má jako soubor v počítači. Která tvrzení platí?",
     "answers": [
       {
+        "body": "Má podle eIDAS právní účinek rovnocenný vlastnoručnímu podpisu.",
+        "right": false,
+        "comment": "L5, slide 74: rovnocenný vlastnoručnímu podpisu je podle čl. 25 odst. 2 jen kvalifikovaný podpis."
+      },
+      {
         "body": "Nejde o kvalifikovaný podpis: chybí kvalifikovaný certifikát i kvalifikovaný prostředek.",
         "right": true,
         "comment": "L5, slide 71: kvalifikovaný podpis musí být založen na kvalifikovaném certifikátu a vytvořen kvalifikovaným prostředkem (např. čipová karta, token)."
-      },
-      {
-        "body": "Pro podání úřadu stačí, zaručený podpis je podle českého práva uznávaným podpisem.",
-        "right": false,
-        "comment": "L5, slide 73 a 87: uznávaný je kvalifikovaný podpis nebo zaručený podpis založený na kvalifikovaném certifikátu; firemní certifikát kvalifikovaný není."
       },
       {
         "body": "Soud jej musí odmítnout jako důkaz – nesplňuje požadavky na kvalifikovaný podpis.",
@@ -831,14 +831,14 @@
         "comment": "L5, slide 74: podle čl. 25 odst. 1 eIDAS nesmí být podpis odmítán jako důkaz jen proto, že nesplňuje požadavky na kvalifikovaný podpis."
       },
       {
-        "body": "Má podle eIDAS právní účinek rovnocenný vlastnoručnímu podpisu.",
-        "right": false,
-        "comment": "L5, slide 74: rovnocenný vlastnoručnímu podpisu je podle čl. 25 odst. 2 jen kvalifikovaný podpis."
-      },
-      {
         "body": "V ostatních členských státech EU se musí uznat jako kvalifikovaný elektronický podpis.",
         "right": false,
         "comment": "L5, slide 74: vzájemné uznávání podle čl. 25 odst. 3 se týká jen kvalifikovaného podpisu založeného na kvalifikovaném certifikátu."
+      },
+      {
+        "body": "Pro podání úřadu stačí, zaručený podpis je podle českého práva uznávaným podpisem.",
+        "right": false,
+        "comment": "L5, slide 73 a 87: uznávaný je kvalifikovaný podpis nebo zaručený podpis založený na kvalifikovaném certifikátu; firemní certifikát kvalifikovaný není."
       }
     ]
   },
@@ -846,6 +846,11 @@
     "id": "aa4e6e6c",
     "name": "Smlouva byla v březnu 2026 podepsána kvalifikovaným podpisem s certifikátem platným do března 2027. V roce 2032 je třeba prokázat, že podpis vznikl za platnosti certifikátu a dá se stále ověřit. Co k tomu poslouží?",
     "answers": [
+      {
+        "body": "Elektronická pečeť firmy připojená ke smlouvě, která prokáže i okamžik podpisu.",
+        "right": false,
+        "comment": "L5, slide 76–77: pečeť potvrzuje původ a neporušenost; existenci dokumentu v daném okamžiku podpis ani pečeť spolehlivě prokázat nedokážou."
+      },
       {
         "body": "Kvalifikované časové razítko připojené k podepsané smlouvě v době podpisu.",
         "right": true,
@@ -862,11 +867,6 @@
         "comment": "L5, slide 79–80: v archivu se zhruba po roce přerazítkovává (řetěz důvěry), aby podpis zůstal ověřitelný i po skončení technologické platnosti."
       },
       {
-        "body": "Elektronická pečeť firmy připojená ke smlouvě, která prokáže i okamžik podpisu.",
-        "right": false,
-        "comment": "L5, slide 76–77: pečeť potvrzuje původ a neporušenost; existenci dokumentu v daném okamžiku podpis ani pečeť spolehlivě prokázat nedokážou."
-      },
-      {
         "body": "Nic – po vypršení certifikátu podpis už nelze nijak ověřit.",
         "right": false,
         "comment": "L5, slide 79: dlouhodobé uchovávání má zaručit, že podpisy a pečeti lze ověřit bez ohledu na budoucí technologické změny – k tomu slouží časová razítka a přerazítkování."
@@ -878,9 +878,9 @@
     "name": "Alice používá (úmyslně příliš malé) RSA s \\(p = 5\\), \\(q = 11\\) a veřejným exponentem \\(e = 3\\). Která tvrzení jsou správná?",
     "answers": [
       {
-        "body": "\\(n = 55\\), \\(\\varphi(n) = 40\\) a soukromý exponent je \\(d = 27\\), neboť \\(3 \\cdot 27 = 81 \\equiv 1 \\pmod{40}\\).",
-        "right": true,
-        "comment": "L5, slide 28: \\(\\varphi(n) = (p-1)(q-1) = 4 \\cdot 10 = 40\\) a \\(d = e^{-1} \\bmod \\varphi(n)\\); \\(81 = 2 \\cdot 40 + 1\\)."
+        "body": "K ověření podpisu potřebuje Bob znát \\(d\\) nebo \\(\\varphi(n)\\).",
+        "right": false,
+        "comment": "L5, slide 28: veřejný klíč je \\((n, e)\\); ověření \\(s^{e} \\bmod n\\) používá jen ten, \\(d\\) a \\(\\varphi(n)\\) zůstávají neveřejné."
       },
       {
         "body": "Podpis zprávy \\(m = 2\\) je \\(s = 2^{27} \\bmod 55 = 18\\) a ověření dá \\(18^{3} \\bmod 55 = 2\\).",
@@ -888,19 +888,19 @@
         "comment": "L5, slide 28–29: \\(2^{10} = 1024 \\equiv 34\\), \\(34^{2} = 1156 \\equiv 1\\), takže \\(2^{27} = 2^{20} \\cdot 2^{7} \\equiv 128 \\equiv 18\\); \\(18^{3} = 5832 = 106 \\cdot 55 + 2\\)."
       },
       {
+        "body": "Útočník, který zná jen veřejný klíč \\((55, 3)\\), spočítá \\(d\\) okamžitě: \\(55 = 5 \\cdot 11\\) rozloží zkoušením dělitelů.",
+        "right": true,
+        "comment": "L5, slide 30: faktorizace zkoušením čísel do \\(\\sqrt{n}\\) uspěje vždy; náročná je jen pro čísla o tisících bitů."
+      },
+      {
         "body": "Alice mohla zvolit i \\(e = 4\\), stačí, aby \\(e\\) bylo menší než \\(\\varphi(n)\\).",
         "right": false,
         "comment": "L5, slide 28: musí platit \\(\\gcd(e, \\varphi(n)) = 1\\), ale \\(\\gcd(4, 40) = 4\\), takže inverze \\(d\\) neexistuje."
       },
       {
-        "body": "K ověření podpisu potřebuje Bob znát \\(d\\) nebo \\(\\varphi(n)\\).",
-        "right": false,
-        "comment": "L5, slide 28: veřejný klíč je \\((n, e)\\); ověření \\(s^{e} \\bmod n\\) používá jen ten, \\(d\\) a \\(\\varphi(n)\\) zůstávají neveřejné."
-      },
-      {
-        "body": "Útočník, který zná jen veřejný klíč \\((55, 3)\\), spočítá \\(d\\) okamžitě: \\(55 = 5 \\cdot 11\\) rozloží zkoušením dělitelů.",
+        "body": "\\(n = 55\\), \\(\\varphi(n) = 40\\) a soukromý exponent je \\(d = 27\\), neboť \\(3 \\cdot 27 = 81 \\equiv 1 \\pmod{40}\\).",
         "right": true,
-        "comment": "L5, slide 30: faktorizace zkoušením čísel do \\(\\sqrt{n}\\) uspěje vždy; náročná je jen pro čísla o tisících bitů."
+        "comment": "L5, slide 28: \\(\\varphi(n) = (p-1)(q-1) = 4 \\cdot 10 = 40\\) a \\(d = e^{-1} \\bmod \\varphi(n)\\); \\(81 = 2 \\cdot 40 + 1\\)."
       }
     ]
   }

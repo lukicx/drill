@@ -3,55 +3,55 @@
     "id": "31e2a507",
     "name": "How is security typically handled in a small company?",
     "answers": [
-      { "body": "Typically there is no security team at all – a one-man show, sometimes not even that.", "right": true, "comment": "Slide 2: typical setup of a small company." },
+      { "body": "Security is perceived as the most important domain of the company, ahead of product development.", "right": false, "comment": "Slide 2: security is perceived as not much important." },
+      { "body": "Disadvantage: many specialised teams slow down innovation.", "right": false, "comment": "Slide 6: slower innovation is a disadvantage of big companies; the small-company con is relying on one person's knowledge (slide 2)." },
       { "body": "Security is a function of the IT team or IT admin and is mostly about backup and authentication services.", "right": true, "comment": "Slide 2: security is seen as a minor IT duty." },
       { "body": "A dedicated Security Operations Centre with its own budget, staff and round-the-clock monitoring.", "right": false, "comment": "Slide 6: dedicated teams and budgets are typical of big companies." },
-      { "body": "Security is perceived as the most important domain of the company, ahead of product development.", "right": false, "comment": "Slide 2: security is perceived as not much important." },
-      { "body": "Disadvantage: many specialised teams slow down innovation.", "right": false, "comment": "Slide 6: slower innovation is a disadvantage of big companies; the small-company con is relying on one person's knowledge (slide 2)." }
+      { "body": "Typically there is no security team at all – a one-man show, sometimes not even that.", "right": true, "comment": "Slide 2: typical setup of a small company." }
     ]
   },
   {
     "id": "48a43cc2",
     "name": "Which statements about security in big companies or large enterprises match the lecture?",
     "answers": [
-      { "body": "Advantage: dedicated teams with detailed experience in various security domains.", "right": true, "comment": "Slide 6: listed advantage." },
-      { "body": "Advantage: they might have a dedicated security budget.", "right": true, "comment": "Slide 6: listed advantage." },
+      { "body": "Typical trait: privacy is kept outside the dedicated teams and handled by the legal department.", "right": false, "comment": "Slide 6: the big dedicated teams are not all focused on security – a privacy team is given as an example." },
       { "body": "Disadvantage: security costs a lot and slows the speed of innovation.", "right": true, "comment": "Slide 6: listed disadvantages." },
       { "body": "Disadvantage: the security know-how depends on the experience of a single person.", "right": false, "comment": "Slide 2: that is the disadvantage of a small company's one-man show." },
-      { "body": "Typical trait: privacy is kept outside the dedicated teams and handled by the legal department.", "right": false, "comment": "Slide 6: the big dedicated teams are not all focused on security – a privacy team is given as an example." }
+      { "body": "Advantage: they might have a dedicated security budget.", "right": true, "comment": "Slide 6: listed advantage." },
+      { "body": "Advantage: dedicated teams with detailed experience in various security domains.", "right": true, "comment": "Slide 6: listed advantage." }
     ]
   },
   {
     "id": "9735a018",
     "name": "Which statements describe security in a medium-sized company?",
     "answers": [
-      { "body": "A small all-purpose team deals with operational, infrastructure and application layers, but nobody knows everything.", "right": true, "comment": "Slide 5: typical medium-sized setup." },
-      { "body": "Security is perceived as an unnecessary evil – maybe until a data breach.", "right": true, "comment": "Slide 5: perception of security." },
-      { "body": "Security is fully outsourced to an external provider, so there is no internal security team at all.", "right": false, "comment": "Slide 5: there is a small dedicated (all-purpose) security team." },
       { "body": "Advantage: a dedicated budget for each security domain and team.", "right": false, "comment": "Slide 5: budget is listed as a disadvantage of medium-sized companies." },
-      { "body": "Security is seen as the main driver of innovation and growth and gets budget accordingly.", "right": false, "comment": "Slide 5: security is seen as an unnecessary evil, not an innovation driver." }
+      { "body": "Security is perceived as an unnecessary evil – maybe until a data breach.", "right": true, "comment": "Slide 5: perception of security." },
+      { "body": "A small all-purpose team deals with operational, infrastructure and application layers, but nobody knows everything.", "right": true, "comment": "Slide 5: typical medium-sized setup." },
+      { "body": "Security is seen as the main driver of innovation and growth and gets budget accordingly.", "right": false, "comment": "Slide 5: security is seen as an unnecessary evil, not an innovation driver." },
+      { "body": "Security is fully outsourced to an external provider, so there is no internal security team at all.", "right": false, "comment": "Slide 5: there is a small dedicated (all-purpose) security team." }
     ]
   },
   {
     "id": "70b81f85",
     "name": "Which assignments of activities to security (sub)teams are correct?",
     "answers": [
-      { "body": "Defining overall security policies, standards and procedures – Security Architecture", "right": true, "comment": "Slide 8: Security Architecture defines policies, standards and procedures." },
       { "body": "Building a SIEM (e.g. with ELK or Splunk) and file integrity monitoring – Security Engineering", "right": true, "comment": "Slide 9: Security Engineering builds tools such as SIEM and FIM." },
-      { "body": "Correlating system, network and security logs and coordinating the response to incidents – Security Operations Centre", "right": true, "comment": "Slide 11: key SOC objectives." },
       { "body": "Performing risk assessments and preventing bad designs – Security Operations Centre", "right": false, "comment": "Slide 8: risk assessments and preventing bad designs belong to Security Architecture." },
-      { "body": "Making sure new technologies fit within existing ones – Security Engineering", "right": false, "comment": "Slide 8: this is a Security Architecture task." }
+      { "body": "Making sure new technologies fit within existing ones – Security Engineering", "right": false, "comment": "Slide 8: this is a Security Architecture task." },
+      { "body": "Correlating system, network and security logs and coordinating the response to incidents – Security Operations Centre", "right": true, "comment": "Slide 11: key SOC objectives." },
+      { "body": "Defining overall security policies, standards and procedures – Security Architecture", "right": true, "comment": "Slide 8: Security Architecture defines policies, standards and procedures." }
     ]
   },
   {
     "id": "1804c3a",
     "name": "Which of the following are key objectives of a Security Operations Centre (SOC)?",
     "answers": [
-      { "body": "Maintain an internal database of cyber security incidents and specific threats", "right": true, "comment": "Slide 11: listed SOC objective." },
-      { "body": "Define disaster recovery plans for ICE (in case of emergency)", "right": true, "comment": "Slide 12: listed SOC objective." },
+      { "body": "Approve the company's security budget and risk appetite", "right": false, "comment": "Slide 11–12: the SOC monitors, analyses, responds and reports; budget and risk appetite are decided by management (lecture 4, slide 5)." },
       { "body": "Perform penetration tests of new products before release", "right": false, "comment": "Slide 7: pentesting is a separate team in big companies." },
       { "body": "Define the company's overall security policies, standards and procedures", "right": false, "comment": "Slide 8: that is Security Architecture." },
-      { "body": "Approve the company's security budget and risk appetite", "right": false, "comment": "Slide 11–12: the SOC monitors, analyses, responds and reports; budget and risk appetite are decided by management (lecture 4, slide 5)." }
+      { "body": "Maintain an internal database of cyber security incidents and specific threats", "right": true, "comment": "Slide 11: listed SOC objective." },
+      { "body": "Define disaster recovery plans for ICE (in case of emergency)", "right": true, "comment": "Slide 12: listed SOC objective." }
     ]
   },
   {
@@ -59,8 +59,8 @@
     "name": "Which statements about the Security Design Review and the security change management lifecycle are correct?",
     "answers": [
       { "body": "A Security Design Review covers e.g. the justification for the change, data sensitivity and encryption, and logging and monitoring.", "right": true, "comment": "Slide 14: areas of the operations-view design review." },
-      { "body": "In the change management lifecycle, impact analysis of a request for change comes before the approve/deny decision.", "right": true, "comment": "Slide 15: request for change → impact analysis → approve/deny → implement → review/reporting." },
       { "body": "The change is implemented first and impact analysis and review follow once it is live.", "right": false, "comment": "Slide 15: implementation follows impact analysis and approval; review/reporting comes last." },
+      { "body": "In the change management lifecycle, impact analysis of a request for change comes before the approve/deny decision.", "right": true, "comment": "Slide 15: request for change → impact analysis → approve/deny → implement → review/reporting." },
       { "body": "A design review covers network diagrams, while data handling and access control are left to the SOC after go-live.", "right": false, "comment": "Slide 14: user and network access control, data sensitivity, secrets and vulnerability management are part of the review." }
     ]
   },
@@ -68,51 +68,51 @@
     "id": "353f2052",
     "name": "What does DevSecOps bring to security operations (SecOps)?",
     "answers": [
-      { "body": "Infrastructure runs in software-defined data centres (AWS, Azure, Google Cloud, OCI).", "right": true, "comment": "Slide 18: software-defined data centres." },
+      { "body": "Security is checked once, by a dedicated team, after the release has been deployed to production.", "right": false, "comment": "Slide 17: security activities run through all stages, not only after release." },
       { "body": "Security is driven by code, e.g. infrastructure and configuration defined in Ansible or Terraform.", "right": true, "comment": "Slide 18: security driven by code." },
       { "body": "Security steps appear in every stage of the loop, from code analysis while coding to threat alerting in operations.", "right": true, "comment": "Slide 17: the DevSecOps loop has security steps from plan and code to operate and monitor." },
-      { "body": "Security is checked once, by a dedicated team, after the release has been deployed to production.", "right": false, "comment": "Slide 17: security activities run through all stages, not only after release." },
-      { "body": "Infrastructure is configured manually by the security team to keep code and security separate.", "right": false, "comment": "Slide 18: DevSecOps drives security by code instead of manual configuration." }
+      { "body": "Infrastructure is configured manually by the security team to keep code and security separate.", "right": false, "comment": "Slide 18: DevSecOps drives security by code instead of manual configuration." },
+      { "body": "Infrastructure runs in software-defined data centres (AWS, Azure, Google Cloud, OCI).", "right": true, "comment": "Slide 18: software-defined data centres." }
     ]
   },
   {
     "id": "75b7e031",
     "name": "Which statements about CIS Controls v8 are correct?",
     "answers": [
-      { "body": "Formerly known as SANS Top 20; it focuses on activities rather than on who manages the devices.", "right": true, "comment": "Slide 20: origin and focus of CIS Controls." },
-      { "body": "Its safeguards are grouped into implementation groups IG1–IG3 and mapped to frameworks like NIST CSF.", "right": true, "comment": "Slide 20: implementation groups and mappings." },
+      { "body": "Its four implementation tiers run from Partial to Adaptive, measuring risk management maturity.", "right": false, "comment": "Slide 28: Partial to Adaptive are the NIST CSF Implementation Tiers." },
       { "body": "Its controls are organised by who owns and manages each device rather than by activity.", "right": false, "comment": "Slide 20: it is the other way round – activities, not who manages the devices." },
       { "body": "It is a dictionary of known vulnerabilities, each identified by a CVE number and a short description.", "right": false, "comment": "Lecture 1, slide 41: that is CVE, operated by MITRE." },
-      { "body": "Its four implementation tiers run from Partial to Adaptive, measuring risk management maturity.", "right": false, "comment": "Slide 28: Partial to Adaptive are the NIST CSF Implementation Tiers." }
+      { "body": "Its safeguards are grouped into implementation groups IG1–IG3 and mapped to frameworks like NIST CSF.", "right": true, "comment": "Slide 20: implementation groups and mappings." },
+      { "body": "Formerly known as SANS Top 20; it focuses on activities rather than on who manages the devices.", "right": true, "comment": "Slide 20: origin and focus of CIS Controls." }
     ]
   },
   {
     "id": "96216d3c",
     "name": "What are the three primary components of the NIST Cybersecurity Framework?",
     "answers": [
-      { "body": "Core, Profiles, Implementation Tiers", "right": true, "comment": "Slide 24: desired outcomes (Core), alignment to the organisation (Profiles), maturity of risk management (Tiers)." },
-      { "body": "Identify, Protect, Detect", "right": false, "comment": "Slide 26: these are functions within the Framework Core, not its components." },
       { "body": "Tactics, Techniques, Procedures", "right": false, "comment": "Slide 31: tactics and techniques describe adversary behaviour, as in MITRE ATT&CK." },
-      { "body": "Policy, Standard, Guideline", "right": false, "comment": "Slide 24: the components are Core, Profiles and Implementation Tiers; policy, standard and guideline are kinds of security documents (general knowledge)." }
+      { "body": "Policy, Standard, Guideline", "right": false, "comment": "Slide 24: the components are Core, Profiles and Implementation Tiers; policy, standard and guideline are kinds of security documents (general knowledge)." },
+      { "body": "Core, Profiles, Implementation Tiers", "right": true, "comment": "Slide 24: desired outcomes (Core), alignment to the organisation (Profiles), maturity of risk management (Tiers)." },
+      { "body": "Identify, Protect, Detect", "right": false, "comment": "Slide 26: these are functions within the Framework Core, not its components." }
     ]
   },
   {
     "id": "e651f56d",
     "name": "Which five functions form the NIST CSF Framework Core (version 1.1) according to the lecture?",
     "answers": [
-      { "body": "Identify, Protect, Detect, Respond, Recover", "right": true, "comment": "Slide 26: the five functions span both prevention and reaction; NIST CSF 2.0 adds Govern (lecture 4, slide 5)." },
-      { "body": "Plan, Do, Check, Act, Improve", "right": false, "comment": "Lecture 2, slide 42: Plan-Do-Check-Act is the PDCA improvement cycle, not CSF functions." },
       { "body": "Spoofing, Tampering, Repudiation, Disclosure, Denial of Service", "right": false, "comment": "Lecture 1, slide 47: these are STRIDE threat categories." },
-      { "body": "Prevent, Detect, Correct, Deter, Compensate", "right": false, "comment": "Lecture 1, slide 61: preventive, detective and corrective are control types (ISO/IEC 27002 attribute), not CSF functions." }
+      { "body": "Plan, Do, Check, Act, Improve", "right": false, "comment": "Lecture 2, slide 42: Plan-Do-Check-Act is the PDCA improvement cycle, not CSF functions." },
+      { "body": "Prevent, Detect, Correct, Deter, Compensate", "right": false, "comment": "Lecture 1, slide 61: preventive, detective and corrective are control types (ISO/IEC 27002 attribute), not CSF functions." },
+      { "body": "Identify, Protect, Detect, Respond, Recover", "right": true, "comment": "Slide 26: the five functions span both prevention and reaction; NIST CSF 2.0 adds Govern (lecture 4, slide 5)." }
     ]
   },
   {
     "id": "7f2997bb",
     "name": "What do the NIST CSF Implementation Tiers express?",
     "answers": [
+      { "body": "They group CIS Controls safeguards into implementation groups IG1, IG2 and IG3.", "right": false, "comment": "Slide 20: implementation groups belong to CIS Controls." },
       { "body": "A qualitative measure of the organisation's cybersecurity risk management practices.", "right": true, "comment": "Slide 24, 28: definition and range of the tiers." },
       { "body": "They assess the risk management process, the integrated risk program and external participation.", "right": true, "comment": "Slide 28: the three aspects assessed by the tiers." },
-      { "body": "They group CIS Controls safeguards into implementation groups IG1, IG2 and IG3.", "right": false, "comment": "Slide 20: implementation groups belong to CIS Controls." },
       { "body": "They rank external adversaries by their sophistication, funding and technical skills.", "right": false, "comment": "Slide 28: tiers describe the organisation's own practices, not attackers." },
       { "body": "They are the desired cybersecurity outcomes, organised in a hierarchy of categories.", "right": false, "comment": "Slide 24: that is the Framework Core." }
     ]
@@ -121,20 +121,20 @@
     "id": "97b1c8cc",
     "name": "What is MITRE ATT&CK (Adversarial Tactics, Techniques & Common Knowledge)?",
     "answers": [
-      { "body": "A categorisation of adversarial behaviours (tactics, techniques) based on real-world observations.", "right": true, "comment": "Slide 31: aim of ATT&CK." },
-      { "body": "Used for offensive and defensive work, measurement and reporting; variants include Enterprise and Mobile.", "right": true, "comment": "Slide 31: uses and customisations." },
       { "body": "A public dictionary of known vulnerabilities, each identified by a CVE number and description.", "right": false, "comment": "Lecture 1, slide 41: that is CVE, also run by MITRE, but describing vulnerabilities, not adversary behaviour." },
-      { "body": "A certification scheme and exam for SOC analysts and incident responders, run by MITRE.", "right": false, "comment": "Slide 31: ATT&CK categorises adversary behaviour; it does not certify people." }
+      { "body": "Used for offensive and defensive work, measurement and reporting; variants include Enterprise and Mobile.", "right": true, "comment": "Slide 31: uses and customisations." },
+      { "body": "A certification scheme and exam for SOC analysts and incident responders, run by MITRE.", "right": false, "comment": "Slide 31: ATT&CK categorises adversary behaviour; it does not certify people." },
+      { "body": "A categorisation of adversarial behaviours (tactics, techniques) based on real-world observations.", "right": true, "comment": "Slide 31: aim of ATT&CK." }
     ]
   },
   {
     "id": "7415e4d4",
     "name": "Which are listed as best practices for using AI for security?",
     "answers": [
-      { "body": "Have a strategy and integrate AI with tools and data sources.", "right": true, "comment": "Slide 34: listed best practices." },
       { "body": "Be careful about AI-driven decision making and continuously test your framework.", "right": true, "comment": "Slide 34: listed best practices." },
-      { "body": "Feed the model as much data as possible, even at the cost of data privacy.", "right": false, "comment": "Slide 34: maintain data privacy and data quality." },
       { "body": "Once deployed and tuned, the AI framework is re-tested at the next yearly audit.", "right": false, "comment": "Slide 34: the framework should be tested continuously." },
+      { "body": "Feed the model as much data as possible, even at the cost of data privacy.", "right": false, "comment": "Slide 34: maintain data privacy and data quality." },
+      { "body": "Have a strategy and integrate AI with tools and data sources.", "right": true, "comment": "Slide 34: listed best practices." },
       { "body": "Let AI-driven decisions replace analyst review to speed up incident response.", "right": false, "comment": "Slide 34: be careful about AI-driven decision making; AI supports analysts (e.g. fewer false positives, slide 33) rather than replacing their judgement." }
     ]
   },
@@ -142,20 +142,20 @@
     "id": "fbea753b",
     "name": "Which statements about the SolarWinds attack are correct?",
     "answers": [
+      { "body": "The attackers aimed at financial gain, encrypting victims' data with ransomware.", "right": false, "comment": "Slide 39: no financial interest, no ransomware or data destruction; the motivation was murky." },
       { "body": "SUNBURST malware was inserted into SolarWinds Orion updates – a supply-chain attack.", "right": true, "comment": "Slide 36–37; lecture 3, slide 5: compromise via malicious software updates." },
-      { "body": "SUNBURST stayed dormant at most installations and went live only at a few valuable targets.", "right": true, "comment": "Slide 37: SUNBURST went live only where it was worth it." },
       { "body": "Mainly customers who neglected patching their Orion installations were hit.", "right": false, "comment": "Slide 36: Orion customers were careful and kept it patched and updated – that is how they installed the malware." },
-      { "body": "The attackers aimed at financial gain, encrypting victims' data with ransomware.", "right": false, "comment": "Slide 39: no financial interest, no ransomware or data destruction; the motivation was murky." }
+      { "body": "SUNBURST stayed dormant at most installations and went live only at a few valuable targets.", "right": true, "comment": "Slide 37: SUNBURST went live only where it was worth it." }
     ]
   },
   {
     "id": "57fff562",
     "name": "What does the compliance function do according to the lecture?",
     "answers": [
-      { "body": "Makes sure the company complies with regulations, legal requirements and internal policies.", "right": true, "comment": "Slide 40: core task of compliance." },
-      { "body": "Helps pass external audits, conducts internal audits and identifies new compliance issues.", "right": true, "comment": "Slide 40: further compliance tasks." },
       { "body": "Designs the security architecture of new products and prevents bad designs.", "right": false, "comment": "Slide 8: that is Security Architecture." },
-      { "body": "Monitors the security posture around the clock and coordinates the response to incidents.", "right": false, "comment": "Slide 11: monitoring and incident response are SOC objectives." }
+      { "body": "Monitors the security posture around the clock and coordinates the response to incidents.", "right": false, "comment": "Slide 11: monitoring and incident response are SOC objectives." },
+      { "body": "Makes sure the company complies with regulations, legal requirements and internal policies.", "right": true, "comment": "Slide 40: core task of compliance." },
+      { "body": "Helps pass external audits, conducts internal audits and identifies new compliance issues.", "right": true, "comment": "Slide 40: further compliance tasks." }
     ]
   },
   {

@@ -3,11 +3,11 @@
     "id": "7103cb10",
     "name": "Co platí o vztahu pojmů CySec, InfoSec a ICT-Security podle přednášky?",
     "answers": [
-      { "body": "ICT-Security (ISO 13335) chrání přímo technologie tvořící infrastrukturu; lze ji chápat jako podkategorii InfoSec.", "right": true, "comment": "Slide 10: vymezení ICT-Security." },
+      { "body": "ICT-Security je nadřazený pojem, pod který spadá InfoSec i CySec.", "right": false, "comment": "Slide 10: ICT-Security je naopak užší – podkategorie InfoSec." },
       { "body": "CySec může být podkategorií, synonymem i nadřazeným pojmem InfoSecu.", "right": true, "comment": "Slide 10: vztah CySec a InfoSec není pevně dán." },
       { "body": "CySec a InfoSec jsou přesně vymezené pojmy, které se navzájem nepřekrývají.", "right": false, "comment": "Slide 10: pojmy se překrývají, CySec může být i synonymem InfoSecu." },
       { "body": "InfoSec podle ISO 27002 chrání technologie, nikoli informace samotné.", "right": false, "comment": "Slide 9–10: InfoSec je zachování důvěrnosti, integrity a dostupnosti informací." },
-      { "body": "ICT-Security je nadřazený pojem, pod který spadá InfoSec i CySec.", "right": false, "comment": "Slide 10: ICT-Security je naopak užší – podkategorie InfoSec." }
+      { "body": "ICT-Security (ISO 13335) chrání přímo technologie tvořící infrastrukturu; lze ji chápat jako podkategorii InfoSec.", "right": true, "comment": "Slide 10: vymezení ICT-Security." }
     ]
   },
   {
@@ -15,9 +15,9 @@
     "name": "Které přiřazení předmětu ochrany a odpovědných orgánů ke kybernetické kriminalitě, bezpečnosti a obraně je správné?",
     "answers": [
       { "body": "Kybernetická kriminalita – ochrana před trestnou činností; gesce OČTŘ, státní zastupitelství a soudy", "right": true, "comment": "Slide 15, 17: kyberkriminalitu řeší orgány činné v trestním řízení." },
+      { "body": "Kybernetická obrana – ochrana před trestnou činností; gesce NÚKIB a CERT/CSIRT týmy", "right": false, "comment": "Slide 15, 17: ochrana před trestnou činností patří kyberkriminalitě a OČTŘ." },
       { "body": "Kybernetická bezpečnost – ochrana prostředí (infrastruktury); gesce NÚKIB a CERT/CSIRT týmy", "right": true, "comment": "Slide 15, 17: kyberbezpečnost spravují správní orgány s působností v kyber." },
       { "body": "Kybernetická obrana – ochrana suverenity státu; gesce armáda a Vojenské zpravodajství", "right": true, "comment": "Slide 15–17: obrana státu ve smyslu zákona o zajišťování obrany ČR." },
-      { "body": "Kybernetická obrana – ochrana před trestnou činností; gesce NÚKIB a CERT/CSIRT týmy", "right": false, "comment": "Slide 15, 17: ochrana před trestnou činností patří kyberkriminalitě a OČTŘ." },
       { "body": "Kybernetická bezpečnost – ochrana suverenity státu; gesce armáda a Vojenské zpravodajství", "right": false, "comment": "Slide 15: suverenitu chrání kybernetická obrana; bezpečnost chrání prostředí (infrastrukturu)." }
     ]
   },
@@ -25,62 +25,62 @@
     "id": "c8a32612",
     "name": "Které zařazení případů podle oblasti zájmu CSIRTů a orgánů činných v trestním řízení (OČTŘ) je správné?",
     "answers": [
-      { "body": "Technická porucha disku způsobí výpadek služby – primární oblast zájmu CSIRTů (neúmyslný incident)", "right": true, "comment": "Slide 18: neúmyslné incidenty (nehody, poruchy, lidské chyby) jsou primárně zájmem CSIRTů." },
-      { "body": "Ransomware zločinecké skupiny ochromí nemocnici – společná oblast CSIRTů i OČTŘ (Typ 1)", "right": true, "comment": "Slide 18: úmyslné útoky proti důvěrnosti, integritě a dostupnosti ICT tvoří společnou oblast." },
+      { "body": "Trestný čin, při němž se jako důkaz zajišťují data z mobilu pachatele – primární oblast CSIRTů", "right": false, "comment": "Slide 18: trestné činy, kde hrají roli elektronické důkazy (Typ 3), jsou primárně zájmem OČTŘ." },
       { "body": "Internetový podvod při prodeji zboží – společná oblast", "right": false, "comment": "Slide 18: trestné činy páchané prostřednictvím ICT (Typ 2) jsou primárně zájmem OČTŘ." },
-      { "body": "Trestný čin, při němž se jako důkaz zajišťují data z mobilu pachatele – primární oblast CSIRTů", "right": false, "comment": "Slide 18: trestné činy, kde hrají roli elektronické důkazy (Typ 3), jsou primárně zájmem OČTŘ." }
+      { "body": "Technická porucha disku způsobí výpadek služby – primární oblast zájmu CSIRTů (neúmyslný incident)", "right": true, "comment": "Slide 18: neúmyslné incidenty (nehody, poruchy, lidské chyby) jsou primárně zájmem CSIRTů." },
+      { "body": "Ransomware zločinecké skupiny ochromí nemocnici – společná oblast CSIRTů i OČTŘ (Typ 1)", "right": true, "comment": "Slide 18: úmyslné útoky proti důvěrnosti, integritě a dostupnosti ICT tvoří společnou oblast." }
     ]
   },
   {
     "id": "8f218d3b",
     "name": "Vynucené MFA nebo šifrování ve výchozím stavu jsou podle Lessigova modelu příkladem regulace pomocí:",
     "answers": [
-      { "body": "Architektury", "right": true, "comment": "Slide 24: architektura (kód) – technické nastavení chování přímo vynucuje, bez hrozby sankce." },
-      { "body": "Trhu", "right": false, "comment": "Slide 24: trh působí cenou a poptávkou, např. kybernetické pojištění či cena certifikace." },
       { "body": "Sociálních norem", "right": false, "comment": "Slide 24: sociální normy jsou očekávání komunity, např. responsible disclosure, profesní etika." },
-      { "body": "Práva", "right": false, "comment": "Slide 24: právo působí hrozbou sankce zpětně, např. „incident hlaste do 24 hodin, jinak pokuta“." }
+      { "body": "Architektury", "right": true, "comment": "Slide 24: architektura (kód) – technické nastavení chování přímo vynucuje, bez hrozby sankce." },
+      { "body": "Práva", "right": false, "comment": "Slide 24: právo působí hrozbou sankce zpětně, např. „incident hlaste do 24 hodin, jinak pokuta“." },
+      { "body": "Trhu", "right": false, "comment": "Slide 24: trh působí cenou a poptávkou, např. kybernetické pojištění či cena certifikace." }
     ]
   },
   {
     "id": "20a7c0b4",
     "name": "Proč na kyberbezpečnost nestačí trh? Vyberte správná přiřazení situace k druhu selhání trhu.",
     "answers": [
-      { "body": "Kupující nedokáže ověřit, zda je router bezpečný – informační asymetrie", "right": true, "comment": "Slide 25: kupující bezpečnost neumí ověřit." },
       { "body": "Nezabezpečená IoT kamera se stane součástí botnetu a útočí na třetí osoby – negativní externalita", "right": true, "comment": "Slide 25: náklady nese někdo jiný než ten, kdo na zabezpečení „ušetřil“." },
       { "body": "O zabezpečení rozhoduje dodavatel, který nenese následky selhání – bezpečnost jako kvaziveřejný statek", "right": false, "comment": "Slide 25: to je nesoulad motivací." },
-      { "body": "Firmy čekají, až do společné ochrany investují jiní, a samy neplatí – nesoulad motivací", "right": false, "comment": "Slide 25: černé pasažérství popisuje bezpečnost jako kvaziveřejný statek." }
+      { "body": "Firmy čekají, až do společné ochrany investují jiní, a samy neplatí – nesoulad motivací", "right": false, "comment": "Slide 25: černé pasažérství popisuje bezpečnost jako kvaziveřejný statek." },
+      { "body": "Kupující nedokáže ověřit, zda je router bezpečný – informační asymetrie", "right": true, "comment": "Slide 25: kupující bezpečnost neumí ověřit." }
     ]
   },
   {
     "id": "c7740c9c",
     "name": "Co platí o distributivních a nedistributivních právech podle přednášky?",
     "answers": [
-      { "body": "Kybernetická bezpečnost je nedistributivní právo – nelze ji rozdělit a přiřadit jednotlivcům, musí být sdílena.", "right": true, "comment": "Slide 28: proto ji zajišťuje stát." },
-      { "body": "Nedistributivní práva se konstruují omezováním distributivních, např. vlastnictví či soukromí.", "right": true, "comment": "Slide 28: nedistributivní práva sama o sobě neexistují." },
-      { "body": "Soukromí je nedistributivní právo a týká se všech občanů současně.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." },
+      { "body": "Distributivní a nedistributivní práva jsou na sobě nezávislá a navzájem se neomezují.", "right": false, "comment": "Slide 28: nedistributivní práva vznikají omezováním distributivních – hledá se rovnováha." },
       { "body": "Kybernetickou bezpečnost lze rozdělit mezi jednotlivce, a proto ji stačí zajistit každému zvlášť.", "right": false, "comment": "Slide 28: bezpečnost nelze individualizovat." },
-      { "body": "Distributivní a nedistributivní práva jsou na sobě nezávislá a navzájem se neomezují.", "right": false, "comment": "Slide 28: nedistributivní práva vznikají omezováním distributivních – hledá se rovnováha." }
+      { "body": "Nedistributivní práva se konstruují omezováním distributivních, např. vlastnictví či soukromí.", "right": true, "comment": "Slide 28: nedistributivní práva sama o sobě neexistují." },
+      { "body": "Kybernetická bezpečnost je nedistributivní právo – nelze ji rozdělit a přiřadit jednotlivcům, musí být sdílena.", "right": true, "comment": "Slide 28: proto ji zajišťuje stát." },
+      { "body": "Soukromí je nedistributivní právo a týká se všech občanů současně.", "right": false, "comment": "Slide 28: soukromí je distributivní právo, lze ho přiřadit jednotlivcům." }
     ]
   },
   {
     "id": "298c4337",
     "name": "Co platí o přístupech k zajištění kybernetické bezpečnosti podle přednášky?",
     "answers": [
-      { "body": "EU typicky volí odolnostní přístup (resilience-based), zaměřený na pravděpodobnost selhání.", "right": true, "comment": "Slide 29: odolnostní přístup je přiřazen EU." },
+      { "body": "Informační přístup je typický pro EU, kdežto USA volí odolnostní přístup.", "right": false, "comment": "Slide 29: přednáška řadí EU k odolnostnímu přístupu a USA k informačnímu." },
       { "body": "Informační přístup (vědět nebo najít) je typický pro USA a autokratické či diktátorské režimy.", "right": true, "comment": "Slide 29: informační přístup." },
       { "body": "Odolnostní přístup staví na odstrašení útočníka hrozbou následků, nikoli na pravděpodobnosti selhání.", "right": false, "comment": "Slide 29: na následcích staví deterrence theory (odstrašení)." },
-      { "body": "Informační přístup je typický pro EU, kdežto USA volí odolnostní přístup.", "right": false, "comment": "Slide 29: přednáška řadí EU k odolnostnímu přístupu a USA k informačnímu." }
+      { "body": "EU typicky volí odolnostní přístup (resilience-based), zaměřený na pravděpodobnost selhání.", "right": true, "comment": "Slide 29: odolnostní přístup je přiřazen EU." }
     ]
   },
   {
     "id": "12bf5ed9",
     "name": "Co platí o performativních pravidlech v kyberbezpečnostní regulaci?",
     "answers": [
-      { "body": "Zakládají kategorie subjektů, role odpovědných osob i pravomoci institucí.", "right": true, "comment": "Slide 30: podstatná část kyberbezpečnostní regulace je performativní." },
-      { "body": "Nelze je ověřit měřením, jen vyložit; výklad a metodiky úřadu jsou součástí bezpečnostní praxe.", "right": true, "comment": "Slide 30: performativní pravidlo se vykládá, neměří." },
       { "body": "Definice se volí podle maximální technické přesnosti.", "right": false, "comment": "Slide 30: definice se volí podle účelu regulace, ne podle technické přesnosti." },
+      { "body": "Zakládají kategorie subjektů, role odpovědných osob i pravomoci institucí.", "right": true, "comment": "Slide 30: podstatná část kyberbezpečnostní regulace je performativní." },
+      { "body": "Regulace předepisuje konkrétní technické prostředky místo cílového stavu.", "right": false, "comment": "Slide 30: reguluje se cílový stav, resp. požadovaný dopad." },
       { "body": "Performativní pravidlo popisuje skutečnost; jeho splnění lze objektivně změřit.", "right": false, "comment": "Slide 30: právní pojem je nástroj, nikoli popis skutečnosti." },
-      { "body": "Regulace předepisuje konkrétní technické prostředky místo cílového stavu.", "right": false, "comment": "Slide 30: reguluje se cílový stav, resp. požadovaný dopad." }
+      { "body": "Nelze je ověřit měřením, jen vyložit; výklad a metodiky úřadu jsou součástí bezpečnostní praxe.", "right": true, "comment": "Slide 30: performativní pravidlo se vykládá, neměří." }
     ]
   },
   {
@@ -88,52 +88,52 @@
     "name": "Proč regulace kyberbezpečnosti uplatňuje technologickou neutralitu a jakou to má cenu?",
     "answers": [
       { "body": "Legislativní cyklus trvá roky a technologický měsíce, takže ostré technické pravidlo by rychle zastaralo.", "right": true, "comment": "Slide 32: norma proto odkazuje na technické standardy, místo aby předepisovala." },
-      { "body": "Cenou je právní nejistota – obsah povinnosti určí až praxe regulátora, auditora a rozhodovací praxe.", "right": true, "comment": "Slide 32: cena technologické neutrality." },
-      { "body": "Norma předepisuje konkrétní technologie, aby byla povinnost předem jednoznačná.", "right": false, "comment": "Slide 32: neutrální norma odkazuje na technické normy místo konkrétní technologie." },
       { "body": "Odkazem na technické normy odpadá potřeba povinnosti vykládat.", "right": false, "comment": "Slide 32: naopak, obsah povinnosti dotváří až praxe regulátora a auditora." },
-      { "body": "Technologicky neutrální regulace se omezuje na organizační opatření a technická neřeší.", "right": false, "comment": "Slide 32: technická opatření řeší, jen odkazem na standardy, ne výčtem produktů." }
+      { "body": "Norma předepisuje konkrétní technologie, aby byla povinnost předem jednoznačná.", "right": false, "comment": "Slide 32: neutrální norma odkazuje na technické normy místo konkrétní technologie." },
+      { "body": "Technologicky neutrální regulace se omezuje na organizační opatření a technická neřeší.", "right": false, "comment": "Slide 32: technická opatření řeší, jen odkazem na standardy, ne výčtem produktů." },
+      { "body": "Cenou je právní nejistota – obsah povinnosti určí až praxe regulátora, auditora a rozhodovací praxe.", "right": true, "comment": "Slide 32: cena technologické neutrality." }
     ]
   },
   {
     "id": "3e9e171f",
     "name": "Co platí o regulatorním mixu a regulatorní pyramidě?",
     "answers": [
-      { "body": "Regulatorní pyramida znamená postupné stupňování zásahu: od poradenství přes nápravu k sankci.", "right": true, "comment": "Slide 33: chytrá regulace volí pořadí nástrojů." },
+      { "body": "Regulatorní pyramida je hierarchie předpisů zákon – vyhláška – vnitřní předpis.", "right": false, "comment": "Slide 33: pyramida popisuje stupňování zásahu regulátora, ne hierarchii předpisů." },
+      { "body": "Chytrá regulace vybere jediný nejúčinnější nástroj a ostatní nepoužívá.", "right": false, "comment": "Slide 33: chytrá regulace nevolí jeden nástroj, nýbrž jejich pořadí." },
       { "body": "Kybernetické pojištění a veřejné zakázky jsou ekonomické nástroje regulace.", "right": true, "comment": "Slide 33: ekonomické nástroje." },
       { "body": "Hlášení, varování a činnost CSIRT patří mezi nástroje command and control.", "right": false, "comment": "Slide 33: to jsou podpůrné nástroje; command and control = povinnost, kontrola, sankce." },
-      { "body": "Chytrá regulace vybere jediný nejúčinnější nástroj a ostatní nepoužívá.", "right": false, "comment": "Slide 33: chytrá regulace nevolí jeden nástroj, nýbrž jejich pořadí." },
-      { "body": "Regulatorní pyramida je hierarchie předpisů zákon – vyhláška – vnitřní předpis.", "right": false, "comment": "Slide 33: pyramida popisuje stupňování zásahu regulátora, ne hierarchii předpisů." }
+      { "body": "Regulatorní pyramida znamená postupné stupňování zásahu: od poradenství přes nápravu k sankci.", "right": true, "comment": "Slide 33: chytrá regulace volí pořadí nástrojů." }
     ]
   },
   {
     "id": "c7eeecb1",
     "name": "Co platí o rizikově orientovaném přístupu k regulaci?",
     "answers": [
-      { "body": "Rozsah povinností se řídí dopadem selhání, místo stejné povinnosti pro všechny.", "right": true, "comment": "Slide 34: protiklad plošné regulace." },
-      { "body": "Proporcionalita znamená, že zásah má být vhodný, potřebný a přiměřený.", "right": true, "comment": "Slide 34: definice proporcionality." },
-      { "body": "Předpokládá, že subjekt umí riziko identifikovat, hodnotit a doložit.", "right": true, "comment": "Slide 34: rizikově orientovaný přístup stojí na schopnosti riziko identifikovat, hodnotit a doložit." },
       { "body": "Proporcionalita znamená, že všechny subjekty nesou stejné náklady na compliance.", "right": false, "comment": "Slide 34: stejná povinnost pro všechny je znak plošné regulace." },
-      { "body": "Rizikově orientovaná regulace nemá náklady na compliance a nevytváří bariéry vstupu na trh.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéru vstupu i odliv kapacit." }
+      { "body": "Předpokládá, že subjekt umí riziko identifikovat, hodnotit a doložit.", "right": true, "comment": "Slide 34: rizikově orientovaný přístup stojí na schopnosti riziko identifikovat, hodnotit a doložit." },
+      { "body": "Rozsah povinností se řídí dopadem selhání, místo stejné povinnosti pro všechny.", "right": true, "comment": "Slide 34: protiklad plošné regulace." },
+      { "body": "Rizikově orientovaná regulace nemá náklady na compliance a nevytváří bariéry vstupu na trh.", "right": false, "comment": "Slide 34: regulace má náklady – compliance, bariéru vstupu i odliv kapacit." },
+      { "body": "Proporcionalita znamená, že zásah má být vhodný, potřebný a přiměřený.", "right": true, "comment": "Slide 34: definice proporcionality." }
     ]
   },
   {
     "id": "b3c63377",
     "name": "Jaké jsou podle přednášky meze compliance (na rozdíl od jejích přínosů)?",
     "answers": [
-      { "body": "Splněný audit není důkazem odolnosti.", "right": true, "comment": "Slide 35: mez compliance." },
+      { "body": "Doložený postup rozhoduje o zavinění a náležité péči.", "right": false, "comment": "Slide 35: to je přínos compliance." },
       { "body": "Předmětem kontroly je dokumentace, kdežto útok míří na systém.", "right": true, "comment": "Slide 35: mez compliance." },
-      { "body": "V přístupu panuje nejistota a povinnosti musí být škálovatelné.", "right": true, "comment": "Slide 35: třetí uvedená mez compliance – nejistota v přístupu, nutná škálovatelnost." },
+      { "body": "Splněný audit není důkazem odolnosti.", "right": true, "comment": "Slide 35: mez compliance." },
       { "body": "Compliance stanoví minimální úroveň zabezpečení.", "right": false, "comment": "Slide 35: to je přínos compliance, ne její mez." },
-      { "body": "Doložený postup rozhoduje o zavinění a náležité péči.", "right": false, "comment": "Slide 35: to je přínos compliance." }
+      { "body": "V přístupu panuje nejistota a povinnosti musí být škálovatelné.", "right": true, "comment": "Slide 35: třetí uvedená mez compliance – nejistota v přístupu, nutná škálovatelnost." }
     ]
   },
   {
     "id": "eafb2354",
     "name": "Proč kyberbezpečnostní regulace míří na provozovatele, a ne na útočníka?",
     "answers": [
-      { "body": "Jurisdikce končí na hranici, útok nikoli; vymahatelnost vůči pachateli v cizím státě je omezená.", "right": true, "comment": "Slide 36: limit teritoriality." },
       { "body": "Incident trvá minuty, kdežto správní či trestní řízení roky.", "right": true, "comment": "Slide 36: časový nepoměr." },
       { "body": "Atribuce útoku je snadná, ale trestání útočníků do kyberbezpečnostního práva nepatří.", "right": false, "comment": "Slide 36: atribuce je obtížná (technická, zpravodajská i politická) a je podmínkou odpovědnosti." },
+      { "body": "Jurisdikce končí na hranici, útok nikoli; vymahatelnost vůči pachateli v cizím státě je omezená.", "right": true, "comment": "Slide 36: limit teritoriality." },
       { "body": "Regulace provozovatelů nahrazuje trestní stíhání útočníků, které se proto nevede.", "right": false, "comment": "Slide 17, 36: kyberkriminalitu dál řeší OČTŘ; regulace provozovatelů reaguje na limity práva." }
     ]
   },
@@ -141,11 +141,11 @@
     "id": "9c1b90a3",
     "name": "Které výroky o vývoji unijní právní úpravy kyberbezpečnosti jsou správné?",
     "answers": [
-      { "body": "Agentura ENISA má posilovat spolupráci relevantních orgánů, pomáhat při zvládání kyberincidentů a vzdělávat v kyberbezpečnosti.", "right": true, "comment": "Slide 37: úkoly ENISA." },
+      { "body": "ENISA vznikla až na základě směrnice NIS 2 jako unijní dozorový orgán nad povinnými subjekty v členských státech.", "right": false, "comment": "Slide 37: ENISA existovala dlouho před NIS i NIS 2." },
       { "body": "Směrnice NIS byla prvním unijním předpisem takového rozsahu v kyberbezpečnosti, Cybersecurity Act i NIS 2 přišly až po ní.", "right": true, "comment": "Slide 38, 41: NIS (2016) předchází Cybersecurity Act (2019) a NIS 2 (2022)." },
       { "body": "Směrnice NIS 2 předcházela směrnici NIS, která na ni později navázala a rozšířila okruh povinných subjektů.", "right": false, "comment": "Slide 38, 41: pořadí je opačné – NIS 2 navázala na NIS." },
-      { "body": "ENISA vznikla až na základě směrnice NIS 2 jako unijní dozorový orgán nad povinnými subjekty v členských státech.", "right": false, "comment": "Slide 37: ENISA existovala dlouho před NIS i NIS 2." },
-      { "body": "Směrnice o evropských kritických infrastrukturách zavedla povinné hlášení incidentů digitálních služeb.", "right": false, "comment": "Slide 37: směrnice řešila určování a označování evropských KI a sektorů esenciálních pro fungování států." }
+      { "body": "Směrnice o evropských kritických infrastrukturách zavedla povinné hlášení incidentů digitálních služeb.", "right": false, "comment": "Slide 37: směrnice řešila určování a označování evropských KI a sektorů esenciálních pro fungování států." },
+      { "body": "Agentura ENISA má posilovat spolupráci relevantních orgánů, pomáhat při zvládání kyberincidentů a vzdělávat v kyberbezpečnosti.", "right": true, "comment": "Slide 37: úkoly ENISA." }
     ]
   },
   {
@@ -153,9 +153,9 @@
     "name": "Členský stát zavádí směrnici NIS. Která přiřazení opatření k pilířům směrnice jsou správná?",
     "answers": [
       { "body": "Zřízení národního CERT týmu a národní autority – budování kapacit", "right": true, "comment": "Slide 39: pilíř I." },
-      { "body": "Zapojení do Skupiny pro spolupráci a unijní sítě CSIRT týmů – posílení mezinárodní spolupráce při řešení incidentů", "right": true, "comment": "Slide 39: pilíř II." },
+      { "body": "Instituce, právo, spolupráce, budování kapacit a podpora – pět pilířů směrnice NIS", "right": false, "comment": "Slide 21, 39: to je obecná systematizace kybernetické bezpečnosti; NIS má tři pilíře." },
       { "body": "Povinnosti pro banky, vodárny a zdravotnictví (základní a digitální služby) – budování kapacit", "right": false, "comment": "Slide 39: to je pilíř III – posílení kyberbezpečnosti napříč sektory nezbytnými pro společnost." },
-      { "body": "Instituce, právo, spolupráce, budování kapacit a podpora – pět pilířů směrnice NIS", "right": false, "comment": "Slide 21, 39: to je obecná systematizace kybernetické bezpečnosti; NIS má tři pilíře." }
+      { "body": "Zapojení do Skupiny pro spolupráci a unijní sítě CSIRT týmů – posílení mezinárodní spolupráce při řešení incidentů", "right": true, "comment": "Slide 39: pilíř II." }
     ]
   },
   {
@@ -163,19 +163,19 @@
     "name": "Které výroky o vývoji institucí kyberbezpečnosti v ČR jsou správné?",
     "answers": [
       { "body": "Vláda ustanovila NBÚ národní autoritou pro kybernetickou bezpečnost s úkolem vybudovat NCKB a zákonné ukotvení.", "right": true, "comment": "Slide 42: role NBÚ jako národní autority." },
+      { "body": "Národním koordinátorem byla od počátku armáda, která později zřídila NÚKIB.", "right": false, "comment": "Slide 42: dřívějšími koordinátory byla Ministerstvo informatiky a vnitra, poté NBÚ." },
       { "body": "NÚKIB vznikl z NBÚ a NCKB, tedy až po období, kdy roli národní autority plnil NBÚ.", "right": true, "comment": "Slide 43: NBÚ a NCKB se transformovaly v NÚKIB." },
-      { "body": "NÚKIB existoval dříve než NBÚ, který jeho agendu po reorganizaci převzal.", "right": false, "comment": "Slide 42–43: vývoj šel opačně – z NBÚ a NCKB vznikl NÚKIB." },
-      { "body": "Národním koordinátorem byla od počátku armáda, která později zřídila NÚKIB.", "right": false, "comment": "Slide 42: dřívějšími koordinátory byla Ministerstvo informatiky a vnitra, poté NBÚ." }
+      { "body": "NÚKIB existoval dříve než NBÚ, který jeho agendu po reorganizaci převzal.", "right": false, "comment": "Slide 42–43: vývoj šel opačně – z NBÚ a NCKB vznikl NÚKIB." }
     ]
   },
   {
     "id": "59b0215e",
     "name": "Jaký druh právní odpovědnosti v kyberbezpečnosti se v dané situaci uplatní? Vyberte správná přiřazení.",
     "answers": [
-      { "body": "Zaměstnanec poruší dohodu o mlčenlivosti (NDA) a vynese interní data – pracovněprávní odpovědnost", "right": true, "comment": "Slide 27: NDA, sledování uživatelů a vpuštění útočníka spadají pod pracovněprávní odpovědnost." },
+      { "body": "Kyberútok za účelem získání vnitřní informace pro obchodování na kapitálovém trhu – pracovněprávní odpovědnost", "right": false, "comment": "Slide 27: tento případ přednáška uvádí u správněprávní odpovědnosti (regulace kapitálového trhu)." },
       { "body": "Nemocnice nezabezpečí zdravotní údaje v rozporu s GDPR – správněprávní odpovědnost", "right": true, "comment": "Slide 27: GDPR a odvětvová regulace jsou správněprávní odpovědnost." },
       { "body": "Zaměstnanec pustí útočníka do firemní sítě – mezinárodněprávní odpovědnost", "right": false, "comment": "Slide 27: vpuštění útočníka přednáška řadí k pracovněprávní odpovědnosti." },
-      { "body": "Kyberútok za účelem získání vnitřní informace pro obchodování na kapitálovém trhu – pracovněprávní odpovědnost", "right": false, "comment": "Slide 27: tento případ přednáška uvádí u správněprávní odpovědnosti (regulace kapitálového trhu)." }
+      { "body": "Zaměstnanec poruší dohodu o mlčenlivosti (NDA) a vynese interní data – pracovněprávní odpovědnost", "right": true, "comment": "Slide 27: NDA, sledování uživatelů a vpuštění útočníka spadají pod pracovněprávní odpovědnost." }
     ]
   },
   {

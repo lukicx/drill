@@ -3,32 +3,32 @@
     "id": "818209eb",
     "name": "Která tvrzení správně vystihují pojmy safety (bezpečí), security (bezpečnost) a informační bezpečnost?",
     "answers": [
-      { "body": "Safety je ochrana proti nahodilým událostem, security ochrana proti úmyslným škodám na aktivech.", "right": true, "comment": "Slide 4–5: bezpečí chrání před nahodilými událostmi, bezpečnost před úmyslnými (trestnými) činy." },
-      { "body": "Informační bezpečnost je ochrana proti úmyslným škodám a nežádoucím akcím na informačních aktivech.", "right": true, "comment": "Slide 5: informační bezpečnost je security zaměřená na informační aktiva." },
       { "body": "Safety se týká ochrany osob, kdežto ochranu hmotných a nehmotných hodnot (aktiv) zajišťuje security.", "right": false, "comment": "Slide 4: bezpečí může chránit osoby i hmotné či nehmotné hodnoty (aktiva)." },
+      { "body": "Informační bezpečnost je ochrana proti úmyslným škodám a nežádoucím akcím na informačních aktivech.", "right": true, "comment": "Slide 5: informační bezpečnost je security zaměřená na informační aktiva." },
       { "body": "Security se chápe jako ochrana proti nahodilým událostem, safety jako ochrana proti úmyslným činům.", "right": false, "comment": "Slide 4–5: je to obráceně – nahodilé události řeší safety, úmyslné škody security." },
-      { "body": "Oba pojmy znamenají totéž – ochranu aktiv před škodou – a liší se jazykem, ze kterého pocházejí.", "right": false, "comment": "Slide 4–5: pojmy se liší povahou události, před kterou chrání (nahodilá vs. úmyslná)." }
+      { "body": "Oba pojmy znamenají totéž – ochranu aktiv před škodou – a liší se jazykem, ze kterého pocházejí.", "right": false, "comment": "Slide 4–5: pojmy se liší povahou události, před kterou chrání (nahodilá vs. úmyslná)." },
+      { "body": "Safety je ochrana proti nahodilým událostem, security ochrana proti úmyslným škodám na aktivech.", "right": true, "comment": "Slide 4–5: bezpečí chrání před nahodilými událostmi, bezpečnost před úmyslnými (trestnými) činy." }
     ]
   },
   {
     "id": "8133ffb0",
     "name": "Které výroky o triádě CIA a doplňkových vlastnostech informační bezpečnosti jsou správné?",
     "answers": [
-      { "body": "Důvěrnost – informace je přístupná pouze oprávněným subjektům.", "right": true, "comment": "Slide 20: definice důvěrnosti (Confidentiality)." },
-      { "body": "Integrita – informace je modifikovatelná pouze oprávněnými subjekty.", "right": true, "comment": "Slide 20: definice integrity (Integrity)." },
-      { "body": "Nepopiratelnost (prokázání výskytu události) je doplňková vlastnost, ne součást triády.", "right": true, "comment": "Slide 20: nepopiratelnost je jedna z dalších vlastností vedle CIA." },
       { "body": "Dostupnost – informace je dostupná všem subjektům bez omezení.", "right": false, "comment": "Slide 20: dostupnost znamená dostupnost oprávněným subjektům (do stanovené doby)." },
-      { "body": "Autenticita (pravost, původnost) je třetí složkou triády CIA místo dostupnosti.", "right": false, "comment": "Slide 20: autenticita je doplňková vlastnost; triádu tvoří důvěrnost, integrita a dostupnost." }
+      { "body": "Důvěrnost – informace je přístupná pouze oprávněným subjektům.", "right": true, "comment": "Slide 20: definice důvěrnosti (Confidentiality)." },
+      { "body": "Autenticita (pravost, původnost) je třetí složkou triády CIA místo dostupnosti.", "right": false, "comment": "Slide 20: autenticita je doplňková vlastnost; triádu tvoří důvěrnost, integrita a dostupnost." },
+      { "body": "Integrita – informace je modifikovatelná pouze oprávněnými subjekty.", "right": true, "comment": "Slide 20: definice integrity (Integrity)." },
+      { "body": "Nepopiratelnost (prokázání výskytu události) je doplňková vlastnost, ne součást triády.", "right": true, "comment": "Slide 20: nepopiratelnost je jedna z dalších vlastností vedle CIA." }
     ]
   },
   {
     "id": "acedb7cb",
     "name": "Která vlastnost znamená, že akce lze sledovat až k entitě, která je provedla?",
     "answers": [
-      { "body": "Zodpovědnost, prokazatelnost (Accountability)", "right": true, "comment": "Slide 20: accountability = akce lze sledovat až k entitě, která je provedla." },
       { "body": "Nepopiratelnost (Non-repudiation)", "right": false, "comment": "Slide 20: nepopiratelnost je schopnost prokázat výskyt události či činnosti, ne dohledat jejího původce." },
-      { "body": "Autenticita (Authenticity)", "right": false, "comment": "Slide 20: autenticita znamená pravost a původnost." },
-      { "body": "Spolehlivost (Reliability)", "right": false, "comment": "Slide 20: spolehlivost je bezporuchovost a činnost ve shodě se specifikací." }
+      { "body": "Spolehlivost (Reliability)", "right": false, "comment": "Slide 20: spolehlivost je bezporuchovost a činnost ve shodě se specifikací." },
+      { "body": "Zodpovědnost, prokazatelnost (Accountability)", "right": true, "comment": "Slide 20: accountability = akce lze sledovat až k entitě, která je provedla." },
+      { "body": "Autenticita (Authenticity)", "right": false, "comment": "Slide 20: autenticita znamená pravost a původnost." }
     ]
   },
   {
@@ -36,9 +36,9 @@
     "name": "Nespokojený zaměstnanec se přihlásí k firemnímu serveru a ve sdílených složkách, ke kterým má přístup, smaže důležitá data, která dosud nebyla zálohována. Která přiřazení pojmů jsou správná?",
     "answers": [
       { "body": "Nespokojený zaměstnanec s přístupem ke sdíleným složkám – vnitřní hrozba", "right": true, "comment": "Slide 46: u vnitřní hrozby se zdroj hrozby (útočník) nachází uvnitř organizace; jde přímo o příklad ze slidu." },
-      { "body": "Chybějící záloha důležitých dat – zranitelnost", "right": true, "comment": "Slide 25: zranitelnost je slabina využitelná ke způsobení škod útokem; nezálohovaná data škodu umožnila." },
       { "body": "Smazání dat zaměstnancem – útok, tedy realizovaná hrozba", "right": true, "comment": "Slide 25, 50: útok je pokus o způsobení škody na aktivech, realizovaná hrozba." },
       { "body": "Data ve sdílených složkách – opatření", "right": false, "comment": "Slide 25: data jsou aktivum (cokoli hodnotného); opatření je prostředek, který modifikuje riziko." },
+      { "body": "Chybějící záloha důležitých dat – zranitelnost", "right": true, "comment": "Slide 25: zranitelnost je slabina využitelná ke způsobení škod útokem; nezálohovaná data škodu umožnila." },
       { "body": "Nespokojený zaměstnanec s přístupem ke sdíleným složkám – vnější hrozba", "right": false, "comment": "Slide 46: vnější hrozba má zdroj mimo vnitřní síť organizace; zaměstnanec je uvnitř." }
     ]
   },
@@ -46,40 +46,40 @@
     "id": "a10a01b2",
     "name": "V serverovně se nechává hořlavý papír. Co je v tomto příkladu zranitelností?",
     "answers": [
-      { "body": "Ponechávání hořlavého papíru v serverovně", "right": true, "comment": "Slide 39: zranitelnost využitelná externí hrozbou – požárem." },
-      { "body": "Požár, který může serverovnu zasáhnout", "right": false, "comment": "Slide 39: požár je hrozba, která zranitelnost využije." },
       { "body": "Zničení serverů a dat při požáru", "right": false, "comment": "Slide 50: zničení aktiva je škoda způsobená útokem či událostí, ne zranitelnost." },
-      { "body": "Hasicí přístroj umístěný u vchodu do serverovny", "right": false, "comment": "Slide 25: hasicí přístroj by byl opatřením, které riziko modifikuje." }
+      { "body": "Požár, který může serverovnu zasáhnout", "right": false, "comment": "Slide 39: požár je hrozba, která zranitelnost využije." },
+      { "body": "Hasicí přístroj umístěný u vchodu do serverovny", "right": false, "comment": "Slide 25: hasicí přístroj by byl opatřením, které riziko modifikuje." },
+      { "body": "Ponechávání hořlavého papíru v serverovně", "right": true, "comment": "Slide 39: zranitelnost využitelná externí hrozbou – požárem." }
     ]
   },
   {
     "id": "16b58a73",
     "name": "Jaké jsou podle přednášky tři hlavní kategorie aktiv v oblasti IT?",
     "answers": [
-      { "body": "Data; systémy s daty a komunikační infrastruktura; lidské zdroje", "right": true, "comment": "Slide 37: tři hlavní kategorie aktiv v oblasti IT." },
       { "body": "Hardware; software; licence a servisní smlouvy", "right": false, "comment": "Slide 37: hardware a software spadají do systémů, licence jsou příklad nehmotného aktiva; chybí data a lidé." },
       { "body": "Důvěrnost; integrita; dostupnost uložených informací", "right": false, "comment": "Slide 20: to jsou vlastnosti informační bezpečnosti, ne kategorie aktiv." },
-      { "body": "Hmotná aktiva; nehmotná aktiva; finanční prostředky", "right": false, "comment": "Slide 37: na hmotná a nehmotná se dělí aktiva obecně; to nejsou tři kategorie IT aktiv." }
+      { "body": "Hmotná aktiva; nehmotná aktiva; finanční prostředky", "right": false, "comment": "Slide 37: na hmotná a nehmotná se dělí aktiva obecně; to nejsou tři kategorie IT aktiv." },
+      { "body": "Data; systémy s daty a komunikační infrastruktura; lidské zdroje", "right": true, "comment": "Slide 37: tři hlavní kategorie aktiv v oblasti IT." }
     ]
   },
   {
     "id": "81268cfe",
     "name": "Útočník vystupuje vůči systému jako legitimní uživatel (maškaráda). Do které kategorie typů hrozeb to patří?",
     "answers": [
-      { "body": "Podvod, klamání (Deception)", "right": true, "comment": "Slide 45: maškaráda je výslovně uvedena mezi hrozbami typu podvod, klamání." },
-      { "body": "Odhalení (Disclosure)", "right": false, "comment": "Slide 45: sem patří prozrazení citlivých dat, např. analýza komunikačního provozu." },
+      { "body": "Vnější hrozba", "right": false, "comment": "Slide 46: vnitřní/vnější je jiné dělení – podle umístění zdroje hrozby, ne podle typu." },
       { "body": "Narušení, ničení (Disruption)", "right": false, "comment": "Slide 45: sem patří neoprávněná modifikace dat, programů či přenášených dat." },
-      { "body": "Vnější hrozba", "right": false, "comment": "Slide 46: vnitřní/vnější je jiné dělení – podle umístění zdroje hrozby, ne podle typu." }
+      { "body": "Odhalení (Disclosure)", "right": false, "comment": "Slide 45: sem patří prozrazení citlivých dat, např. analýza komunikačního provozu." },
+      { "body": "Podvod, klamání (Deception)", "right": true, "comment": "Slide 45: maškaráda je výslovně uvedena mezi hrozbami typu podvod, klamání." }
     ]
   },
   {
     "id": "39dfed09",
     "name": "Která přiřazení příkladů ke kategoriím modelu STRIDE jsou správná?",
     "answers": [
-      { "body": "Nelze zjistit, kdo poslal příkaz k mazání záloh – Repudiation", "right": true, "comment": "Slide 48: chybějící prokazatelnost původce akce je repudiation." },
       { "body": "Falešná webová stránka zjišťující jména a hesla – Spoofing", "right": true, "comment": "Slide 48: vydávání se za jinou identitu je spoofing." },
-      { "body": "Rušení rádiových frekvencí vybrané IoT sítě – Denial of Service", "right": true, "comment": "Slide 48: znemožnění komunikace je odepření služby." },
+      { "body": "Nelze zjistit, kdo poslal příkaz k mazání záloh – Repudiation", "right": true, "comment": "Slide 48: chybějící prokazatelnost původce akce je repudiation." },
       { "body": "Pacient si v aplikaci pojišťovny změní vlastní zdravotní údaje – Information Disclosure", "right": false, "comment": "Slide 48: neoprávněná změna dat je tampering, nikoli únik informací." },
+      { "body": "Rušení rádiových frekvencí vybrané IoT sítě – Denial of Service", "right": true, "comment": "Slide 48: znemožnění komunikace je odepření služby." },
       { "body": "Neoprávněné čtení paměti, kde mohou být uložena hesla – Spoofing", "right": false, "comment": "Slide 48: přednáška tento příklad uvádí u elevation of privilege." }
     ]
   },
@@ -87,11 +87,11 @@
     "id": "620cb0d4",
     "name": "Co podle přednášky určuje velikost rizika a co pravděpodobnost uplatnění hrozby?",
     "answers": [
-      { "body": "Velikost rizika je dána pravděpodobností provedení útoku a výší škody, kterou útok způsobí.", "right": true, "comment": "Slide 53: obě složky velikosti rizika." },
-      { "body": "Pravděpodobnost uplatnění hrozby určuje snadnost využití zranitelností aktiva a množství a schopnosti potenciálních útočníků.", "right": true, "comment": "Slide 53: oba determinanty pravděpodobnosti jsou výslovně uvedeny." },
-      { "body": "Velikost rizika je dána počtem zranitelností v systému, bez ohledu na škodu, kterou by útok způsobil.", "right": false, "comment": "Slide 53: do velikosti rizika vstupuje vždy i výše škody (dopad útoku)." },
       { "body": "Pravděpodobnost uplatnění hrozby určuje hlavně cena opatření, která organizace nasadila.", "right": false, "comment": "Slide 53: cena opatření není determinantem pravděpodobnosti; ta závisí na zranitelnostech a útočnících." },
-      { "body": "Velikost rizika určuje hodnota aktiva; pravděpodobnost útoku se zohledňuje až při výběru opatření.", "right": false, "comment": "Slide 53: pravděpodobnost je přímo součástí velikosti rizika." }
+      { "body": "Velikost rizika je dána počtem zranitelností v systému, bez ohledu na škodu, kterou by útok způsobil.", "right": false, "comment": "Slide 53: do velikosti rizika vstupuje vždy i výše škody (dopad útoku)." },
+      { "body": "Velikost rizika určuje hodnota aktiva; pravděpodobnost útoku se zohledňuje až při výběru opatření.", "right": false, "comment": "Slide 53: pravděpodobnost je přímo součástí velikosti rizika." },
+      { "body": "Pravděpodobnost uplatnění hrozby určuje snadnost využití zranitelností aktiva a množství a schopnosti potenciálních útočníků.", "right": true, "comment": "Slide 53: oba determinanty pravděpodobnosti jsou výslovně uvedeny." },
+      { "body": "Velikost rizika je dána pravděpodobností provedení útoku a výší škody, kterou útok způsobí.", "right": true, "comment": "Slide 53: obě složky velikosti rizika." }
     ]
   },
   {
@@ -99,42 +99,42 @@
     "name": "Které výroky o modelu útočníka (atributech protivníka, které je třeba zvážit) jsou správné?",
     "answers": [
       { "body": "Cíle útočníka často naznačují cílová aktiva, která vyžadují zvláštní ochranu.", "right": true, "comment": "Slide 54: atribut 1 – cíle." },
-      { "body": "Úroveň financování ovlivňuje odhodlání útočníka, jeho metody i schopnosti.", "right": true, "comment": "Slide 54: atribut 4 – úroveň financování." },
-      { "body": "Insider má obvykle určitou počáteční výhodu, např. znalosti nebo oprávnění na nižší úrovni.", "right": true, "comment": "Slide 54: atribut 5 – outsider vs. insider." },
       { "body": "Insider je útočník, který útočí bez předchozího přístupu k cílovému systému.", "right": false, "comment": "Slide 54: útok bez předchozího přístupu je útok zvenčí (outsider)." },
-      { "body": "Mezi schopnosti útočníka se nepočítají výpočetní zdroje ani příležitosti, jako je fyzický přístup k zařízení.", "right": false, "comment": "Slide 54: schopnosti zahrnují výpočetní zdroje, dovednosti, znalosti, personál i příležitosti." }
+      { "body": "Mezi schopnosti útočníka se nepočítají výpočetní zdroje ani příležitosti, jako je fyzický přístup k zařízení.", "right": false, "comment": "Slide 54: schopnosti zahrnují výpočetní zdroje, dovednosti, znalosti, personál i příležitosti." },
+      { "body": "Úroveň financování ovlivňuje odhodlání útočníka, jeho metody i schopnosti.", "right": true, "comment": "Slide 54: atribut 4 – úroveň financování." },
+      { "body": "Insider má obvykle určitou počáteční výhodu, např. znalosti nebo oprávnění na nižší úrovni.", "right": true, "comment": "Slide 54: atribut 5 – outsider vs. insider." }
     ]
   },
   {
     "id": "81c26c86",
     "name": "Do které třídy klasifikace útočníků podle IBM patří daný útočník? Vyberte správná přiřazení.",
     "answers": [
-      { "body": "Útočník bez znalosti systému zkouší hotové nástroje metodou pokus/omyl – třída 0 (script kiddies)", "right": true, "comment": "Slide 55: třída 0 – bez znalosti systému, využívá existující nástroje." },
+      { "body": "Organizace s týmy specialistů a velkými financemi, která vytváří nové útoky – třída 1", "right": false, "comment": "Slide 55: to je třída 3; třída 1 jsou chytří nezasvěcení útočníci se středně sofistikovaným vybavením." },
       { "body": "Univerzitní laboratoř s dobrým vybavením a základní znalostí systému – třída 1,5", "right": true, "comment": "Slide 55: třída 1,5 – dobře vybavení lidé zvenku, např. univerzitní laby." },
-      { "body": "Zasvěcený insider se specializovaným technickým vzděláním a sofistikovanými nástroji – třída 3", "right": false, "comment": "Slide 55: zasvěcení insideři jsou třída 2; třída 3 jsou dobře finančně podporované organizace." },
-      { "body": "Organizace s týmy specialistů a velkými financemi, která vytváří nové útoky – třída 1", "right": false, "comment": "Slide 55: to je třída 3; třída 1 jsou chytří nezasvěcení útočníci se středně sofistikovaným vybavením." }
+      { "body": "Útočník bez znalosti systému zkouší hotové nástroje metodou pokus/omyl – třída 0 (script kiddies)", "right": true, "comment": "Slide 55: třída 0 – bez znalosti systému, využívá existující nástroje." },
+      { "body": "Zasvěcený insider se specializovaným technickým vzděláním a sofistikovanými nástroji – třída 3", "right": false, "comment": "Slide 55: zasvěcení insideři jsou třída 2; třída 3 jsou dobře finančně podporované organizace." }
     ]
   },
   {
     "id": "5d816036",
     "name": "Co platí o databázi CVE (Common Vulnerabilities and Exposures)?",
     "answers": [
-      { "body": "Záznam CVE popisuje známou zranitelnost: identifikátor, stručný popis a odkazy na související zprávy.", "right": true, "comment": "Slide 41: obsah záznamu CVE." },
-      { "body": "Na rozdíl od databází zranitelností neobsahuje záznam CVE informace o riziku, dopadu ani opravě.", "right": true, "comment": "Slide 41: CVE je slovník identifikátorů, ne hodnocení rizika." },
       { "body": "CVE zahrnuje i dosud neznámé zranitelnosti nultého dne, aby se na ně dalo připravit.", "right": false, "comment": "Slide 39, 41: CVE popisuje známé zranitelnosti; zero-day zranitelnost známá není." },
       { "body": "CVE je placená služba, kterou provozuje NÚKIB pro povinné subjekty.", "right": false, "comment": "Slide 41: CVE je bezplatný slovník provozovaný neziskovou organizací MITRE." },
-      { "body": "Každý záznam CVE obsahuje skóre rizika, podle kterého se určuje pořadí oprav.", "right": false, "comment": "Slide 41: informace o riziku a dopadu záznamy CVE neobsahují." }
+      { "body": "Záznam CVE popisuje známou zranitelnost: identifikátor, stručný popis a odkazy na související zprávy.", "right": true, "comment": "Slide 41: obsah záznamu CVE." },
+      { "body": "Každý záznam CVE obsahuje skóre rizika, podle kterého se určuje pořadí oprav.", "right": false, "comment": "Slide 41: informace o riziku a dopadu záznamy CVE neobsahují." },
+      { "body": "Na rozdíl od databází zranitelností neobsahuje záznam CVE informace o riziku, dopadu ani opravě.", "right": true, "comment": "Slide 41: CVE je slovník identifikátorů, ne hodnocení rizika." }
     ]
   },
   {
     "id": "8b7a9993",
     "name": "Které zásady výběru a uplatňování bezpečnostních opatření přednáška uvádí?",
     "answers": [
-      { "body": "Opatření je efektivní, když jeho cena nepřevýší výši škody: \\(\\text{cena opatření} \\le \\text{výše škody}\\).", "right": true, "comment": "Slide 59: podmínka efektivnosti opatření." },
-      { "body": "Na identifikované riziko se má vázat efektivní opatření; některá opatření řeší více rizik zároveň.", "right": true, "comment": "Slide 59: zásady výběru opatření." },
       { "body": "Opatření má smysl zavádět, až když dokáže riziko úplně odstranit.", "right": false, "comment": "Slide 57: plné odstranění rizika bývá neefektivní; opatření rizika typicky snižují." },
       { "body": "Opatření se zavádějí plošně, i bez vazby na konkrétní identifikované riziko, aby pokryla i neznámé hrozby.", "right": false, "comment": "Slide 57: opatření se mají implementovat jen pro řešení specifických, identifikovaných rizik." },
-      { "body": "Cena opatření má být vyšší než možná škoda, aby ochrana byla s rezervou.", "right": false, "comment": "Slide 59: je to obráceně – cena opatření má být nejvýše rovna výši škody." }
+      { "body": "Na identifikované riziko se má vázat efektivní opatření; některá opatření řeší více rizik zároveň.", "right": true, "comment": "Slide 59: zásady výběru opatření." },
+      { "body": "Cena opatření má být vyšší než možná škoda, aby ochrana byla s rezervou.", "right": false, "comment": "Slide 59: je to obráceně – cena opatření má být nejvýše rovna výši škody." },
+      { "body": "Opatření je efektivní, když jeho cena nepřevýší výši škody: \\(\\text{cena opatření} \\le \\text{výše škody}\\).", "right": true, "comment": "Slide 59: podmínka efektivnosti opatření." }
     ]
   },
   {
@@ -142,39 +142,39 @@
     "name": "Atribut „typ opatření“ v ISO/IEC 27002 rozlišuje opatření preventivní (zabrání incidentu), detekční (působí při výskytu incidentu) a nápravná (působí po výskytu). Která přiřazení jsou správná?",
     "answers": [
       { "body": "Firewall s výchozím pravidlem „vše zakázáno“ – preventivní", "right": true, "comment": "Slide 61, 71: pravidlo má incidentu zabránit dřív, než nastane." },
+      { "body": "Školení uživatelů, aby neotevírali neočekávané přílohy – nápravné", "right": false, "comment": "Slide 57, 61: výchova uživatelů má incidentu předejít, je tedy preventivní." },
       { "body": "Obnova dat ze zálohy po ransomwarovém útoku – nápravné", "right": true, "comment": "Slide 61: působí až po výskytu incidentu; konkrétní příklad je odvozený." },
-      { "body": "Monitoring logů, který upozorní na probíhající útok – preventivní", "right": false, "comment": "Slide 61: upozornění během incidentu je detekční opatření." },
-      { "body": "Školení uživatelů, aby neotevírali neočekávané přílohy – nápravné", "right": false, "comment": "Slide 57, 61: výchova uživatelů má incidentu předejít, je tedy preventivní." }
+      { "body": "Monitoring logů, který upozorní na probíhající útok – preventivní", "right": false, "comment": "Slide 61: upozornění během incidentu je detekční opatření." }
     ]
   },
   {
     "id": "26aad158",
     "name": "Která přiřazení příkladů k principům návrhu bezpečnostních opatření jsou správná?",
     "answers": [
-      { "body": "Pro změnu na roota nestačí znát heslo, uživatel musí být i ve správné skupině – oddělení oprávnění (Separation of Privileges)", "right": true, "comment": "Slide 73: systém nemá udělovat oprávnění na základě jediné podmínky." },
-      { "body": "Pravidla pro sílu a platnost hesla jsou implicitně zapnutá a uživatel je může jen vědomě vypnout – bezpečný výchozí stav (Fail-safe Defaults)", "right": true, "comment": "Slide 71: co není výslovně povoleno, je odepřeno; ochrana je zapnutá ve výchozím stavu." },
+      { "body": "Každý přístup k objektu se znovu kontroluje, i když byl dříve povolen – nejmenší společný mechanismus (Least Common Mechanism)", "right": false, "comment": "Slide 75: kontrola každého přístupu je úplné zprostředkování; nejmenší společný mechanismus zakazuje sdílet mechanismy." },
       { "body": "Middleware server smí číst databázi a zapisovat logy, ale nemá administrátorská práva – úplné zprostředkování (Complete Mediation)", "right": false, "comment": "Slide 71: přidělení jen nezbytných práv je princip nejmenších práv (Least Privilege)." },
+      { "body": "Pro změnu na roota nestačí znát heslo, uživatel musí být i ve správné skupině – oddělení oprávnění (Separation of Privileges)", "right": true, "comment": "Slide 73: systém nemá udělovat oprávnění na základě jediné podmínky." },
       { "body": "Z nápovědy webové aplikace se odstraní zranitelná vyhledávací funkce, čímž riziko zmizí – psychologická přijatelnost", "right": false, "comment": "Slide 72: odstranění nadbytečné funkce a zmenšení útočné plochy je ekonomika mechanismu (Economy of Mechanism)." },
-      { "body": "Každý přístup k objektu se znovu kontroluje, i když byl dříve povolen – nejmenší společný mechanismus (Least Common Mechanism)", "right": false, "comment": "Slide 75: kontrola každého přístupu je úplné zprostředkování; nejmenší společný mechanismus zakazuje sdílet mechanismy." }
+      { "body": "Pravidla pro sílu a platnost hesla jsou implicitně zapnutá a uživatel je může jen vědomě vypnout – bezpečný výchozí stav (Fail-safe Defaults)", "right": true, "comment": "Slide 71: co není výslovně povoleno, je odepřeno; ochrana je zapnutá ve výchozím stavu." }
     ]
   },
   {
     "id": "4ee4621b",
     "name": "Proč je koncept „Security through Obscurity“ chybný a který princip porušuje?",
     "answers": [
-      { "body": "Spoléhá na utajení vnitřních mechanismů před útočníkem; porušuje princip otevřeného designu.", "right": true, "comment": "Slide 74: útočníci jsou chytří a mají čas; bezpečnost nemá záviset na utajení designu." },
       { "body": "Je příliš složitý na testování; porušuje princip ekonomiky mechanismu.", "right": false, "comment": "Slide 72, 74: problémem není složitost, ale spoléhání na utajení (open design)." },
-      { "body": "Dává uživatelům příliš mnoho práv; porušuje princip nejmenších práv.", "right": false, "comment": "Slide 71, 74: utajení s rozsahem práv nesouvisí." },
-      { "body": "Ztěžuje uživatelům práci; porušuje princip psychologické přijatelnosti.", "right": false, "comment": "Slide 73–74: utajení uživatele neomezuje; chybou je spoléhání na neznalost útočníka." }
+      { "body": "Spoléhá na utajení vnitřních mechanismů před útočníkem; porušuje princip otevřeného designu.", "right": true, "comment": "Slide 74: útočníci jsou chytří a mají čas; bezpečnost nemá záviset na utajení designu." },
+      { "body": "Ztěžuje uživatelům práci; porušuje princip psychologické přijatelnosti.", "right": false, "comment": "Slide 73–74: utajení uživatele neomezuje; chybou je spoléhání na neznalost útočníka." },
+      { "body": "Dává uživatelům příliš mnoho práv; porušuje princip nejmenších práv.", "right": false, "comment": "Slide 71, 74: utajení s rozsahem práv nesouvisí." }
     ]
   },
   {
     "id": "d1370d05",
     "name": "Podle stupnice dostupnosti aktiv dle zákona o kybernetické bezpečnosti: výpadek e-mailové služby organizace by neměl překročit dobu pracovního dne a k ochraně stačí běžné metody zálohování a obnovy. Jaký je stupeň dostupnosti?",
     "answers": [
-      { "body": "Střední", "right": true, "comment": "Slide 84: střední – narušení dostupnosti by nemělo překročit dobu pracovního dne, běžné zálohování a obnova." },
       { "body": "Nízká", "right": false, "comment": "Slide 84: nízká – výpadek je běžně tolerován delší dobu (cca do 1 týdne), stačí pravidelné zálohování." },
       { "body": "Vysoká", "right": false, "comment": "Slide 84: vysoká – výpadek by neměl překročit několik málo hodin, využívají se záložní systémy." },
+      { "body": "Střední", "right": true, "comment": "Slide 84: střední – narušení dostupnosti by nemělo překročit dobu pracovního dne, běžné zálohování a obnova." },
       { "body": "Kritická", "right": false, "comment": "Slide 84: kritická – nepřípustný je i výpadek v řádu minut, obnova je krátkodobá a automatizovaná." }
     ]
   },
@@ -182,22 +182,22 @@
     "id": "d001fcd9",
     "name": "Které komponenty jsou specifické pro ISMS (nikoli společné pro jakýkoli typ řízení)?",
     "answers": [
-      { "body": "Posuzování rizik bezpečnosti informací", "right": true, "comment": "Slide 17: specifická komponenta ISMS." },
-      { "body": "Ošetření rizik včetně určení a implementace opatření", "right": true, "comment": "Slide 17: specifická komponenta ISMS." },
-      { "body": "Politika stanovená vedením organizace", "right": false, "comment": "Slide 17: politika je společná pro jakýkoli typ řízení." },
       { "body": "Osoby s definovanými odpovědnostmi za řízení", "right": false, "comment": "Slide 17: společné pro jakýkoli typ řízení." },
-      { "body": "Dokumentované informace o procesech řízení", "right": false, "comment": "Slide 17: společné pro jakýkoli typ řízení." }
+      { "body": "Ošetření rizik včetně určení a implementace opatření", "right": true, "comment": "Slide 17: specifická komponenta ISMS." },
+      { "body": "Dokumentované informace o procesech řízení", "right": false, "comment": "Slide 17: společné pro jakýkoli typ řízení." },
+      { "body": "Politika stanovená vedením organizace", "right": false, "comment": "Slide 17: politika je společná pro jakýkoli typ řízení." },
+      { "body": "Posuzování rizik bezpečnosti informací", "right": true, "comment": "Slide 17: specifická komponenta ISMS." }
     ]
   },
   {
     "id": "82faa55",
     "name": "Co platí podle přednášky o dosažitelnosti perfektní bezpečnosti?",
     "answers": [
-      { "body": "Rozlomení všech způsobů zabezpečení je otázkou pouze času (a energie).", "right": true, "comment": "Slide 10: na každý algoritmus lze útočit hrubou silou." },
-      { "body": "Systém je tak bezpečný, jak je bezpečný jeho nejslabší článek.", "right": true, "comment": "Slide 10: nástroje je proto nutné používat vyrovnaně." },
+      { "body": "Nejsilnější ochranu stačí nasadit u nejcennějšího aktiva; slabší místa útočník obvykle nevyužije.", "right": false, "comment": "Slide 10, 31: útočníkovi stačí jediná nedokonalost, rozhoduje nejslabší článek." },
       { "body": "Perfektní bezpečnosti lze dosáhnout použitím dostatečně silné kryptografie.", "right": false, "comment": "Slide 10: i silný algoritmus lze napadnout hrubou silou, jde jen o čas." },
+      { "body": "Systém je tak bezpečný, jak je bezpečný jeho nejslabší článek.", "right": true, "comment": "Slide 10: nástroje je proto nutné používat vyrovnaně." },
       { "body": "Bezpečnost stačí zajistit jednorázově při nasazení systému.", "right": false, "comment": "Slide 11: zajištění bezpečnosti je proces – mění se technologie, útoky i legislativa." },
-      { "body": "Nejsilnější ochranu stačí nasadit u nejcennějšího aktiva; slabší místa útočník obvykle nevyužije.", "right": false, "comment": "Slide 10, 31: útočníkovi stačí jediná nedokonalost, rozhoduje nejslabší článek." }
+      { "body": "Rozlomení všech způsobů zabezpečení je otázkou pouze času (a energie).", "right": true, "comment": "Slide 10: na každý algoritmus lze útočit hrubou silou." }
     ]
   },
   {
