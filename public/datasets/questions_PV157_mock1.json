@@ -903,5 +903,129 @@
         "comment": "L5, slide 28: \\(\\varphi(n) = (p-1)(q-1) = 4 \\cdot 10 = 40\\) a \\(d = e^{-1} \\bmod \\varphi(n)\\); \\(81 = 2 \\cdot 40 + 1\\)."
       }
     ]
+  },
+  {
+    "id": "797c4871",
+    "name": "Chytrý telefon uživatele nabízí níže uvedené chování. Která z nich odpovídají vlastnostem pravděpodobnostní (progresivní) autentizace z přednášky?",
+    "answers": [
+      {
+        "body": "Čtení notifikací povolí i bez odemknutí, ale odeslání platby vyžaduje silnější ověření než ostatní akce.",
+        "right": true,
+        "comment": "L6, slide 6: pravděpodobnostní autentizace má víceúrovňovou bezpečnost, ne jen rozhodnutí ano/ne."
+      },
+      {
+        "body": "Telefon odemkne PIN zadaný ráno a po zbytek dne už identitu uživatele nijak znovu nevyhodnocuje.",
+        "right": false,
+        "comment": "L6, slide 6: progresivní autentizace je kontinuální; jednorázové ověření při přihlášení je opak."
+      },
+      {
+        "body": "Telefon využije informaci chytrých hodinek, že je uživatel poblíž, a podle ní upraví požadavky na ověření.",
+        "right": true,
+        "comment": "L6, slide 6: autentizace funguje napříč více zařízeními."
+      },
+      {
+        "body": "Telefon posuzuje jen otisk prstu a ostatní údaje (chování, přítomnost objektů) záměrně ignoruje.",
+        "right": false,
+        "comment": "L6, slide 6: multimodální autentizace kombinuje tajné informace, přítomnost objektů, biometriky i chování; pouhý otisk je jedna modalita."
+      },
+      {
+        "body": "Důvěra se během používání průběžně přepočítává z chování uživatele; když klesne, telefon požádá o PIN.",
+        "right": true,
+        "comment": "L6, slide 6: kontinuální a multimodální (chování uživatele dlouhodobé i okamžité) – rozhodnutí se nevyhodnocuje jednorázově."
+      }
+    ]
+  },
+  {
+    "id": "cc067f33",
+    "name": "Správce se přihlašuje na server klíčem ssh chráněným passphrase a používá ssh-agent. Jeho pracovní stanici ovládl útočník s oprávněním správce systému (root). Co z přednášky plyne?",
+    "answers": [
+      {
+        "body": "Klíč načtený do ssh-agenta je po dobu používání v paměti stanice, takže je pro útočníka s dostatečnými právy v dosahu.",
+        "right": true,
+        "comment": "L6, slides 18 a 24: u chráněných tajných informací jsou po celou dobu použití v paměti; agent uloží klíč do paměti a dál odpovídá sám (závěr o útočníkovi je odvozen)."
+      },
+      {
+        "body": "Útočníkovi stačí veřejný klíč ze souboru authorized_keys, aby se na server přihlásil jako správce.",
+        "right": false,
+        "comment": "L6, slide 24: authorized_keys obsahuje jen veřejné klíče; k přihlášení je třeba odpovídající soukromý klíč."
+      },
+      {
+        "body": "Kdyby byl soukromý klíč uložen na disku v čisté podobě, mohl by si ho přečíst každý uživatel s dostatečnými právy.",
+        "right": true,
+        "comment": "L6, slide 18: nešifrované uložení je počítači snadno dostupné, ale přístupné i všem uživatelům s dostatečnými právy (hackerům)."
+      },
+      {
+        "body": "Klíč chráněný passphrase na disku útočník bez znalosti passphrase přímo nezíská.",
+        "right": true,
+        "comment": "L6, slide 18: tajná informace uložená šifrovaně (chráněná heslem) není bez hesla čitelná; síla ochrany závisí na síle hesla."
+      },
+      {
+        "body": "Passphrase zadaná jednou chrání klíč i v paměti, takže agent útočníkovi nic nevydá.",
+        "right": false,
+        "comment": "L6, slides 18 a 24: agent uchovává klíč v paměti, aby passphrase nebylo třeba zadávat znovu; ochrana heslem se vztahuje na uložený soubor."
+      }
+    ]
+  },
+  {
+    "id": "ee0d3c5a",
+    "name": "Které z metod autentizace klienta u protokolu ssh uvedených v přednášce se opírají o důvěru v klientský počítač, a ne o tajemství konkrétního uživatele?",
+    "answers": [
+      {
+        "body": "Heslo uživatele, které klient předloží serveru při přihlášení.",
+        "right": false,
+        "comment": "L6, slide 19: heslo je tajemství uživatele, ne důvěra v počítač."
+      },
+      {
+        "body": ".rhosts nebo /etc/hosts.equiv.",
+        "right": true,
+        "comment": "L6, slides 17 a 19: uvedeným strojům se důvěřuje, že správně uvedou uživatelské jméno; heslo se nepoužívá."
+      },
+      {
+        "body": "RSA/DSA/ECDSA autentizace uživatele jeho soukromým klíčem.",
+        "right": false,
+        "comment": "L6, slide 19: tato metoda autentizuje uživatele, nikoli počítač."
+      },
+      {
+        "body": ".rhosts nebo /etc/hosts.equiv spolu s RSA/DSA/ECDSA autentizací počítače.",
+        "right": true,
+        "comment": "L6, slide 19: stále jde o důvěru v počítač, jen jeho identita se ověřuje asymetrickým klíčem."
+      },
+      {
+        "body": "Ověření klienta pomocí protokolu Kerberos.",
+        "right": false,
+        "comment": "L6, slide 19: Kerberos je samostatná metoda založená na tajných klíčích, ne na důvěře v adresu počítače."
+      }
+    ]
+  },
+  {
+    "id": "bc423eaa",
+    "name": "Uživatel má v domovském adresáři soubor .rhosts, který důvěřuje stroji queen.math.muni.cz, a díky tomu se na něj z tohoto stroje přihlašuje bez hesla. Útočník se chce přihlášení bez hesla zmocnit. Které útoky přednáška uvádí jako možné?",
+    "answers": [
+      {
+        "body": "Hrubou silou hádá heslo uživatele, protože soubor .rhosts heslo jen doplňuje.",
+        "right": false,
+        "comment": "L6, slide 17: .rhosts heslo nahrazuje, takže hádání hesla útok neřeší."
+      },
+      {
+        "body": "Použije IP spoofing: odesílá datagramy s adresou důvěryhodného stroje.",
+        "right": true,
+        "comment": "L6, slide 17: mezi možnými útoky je IP spoofing."
+      },
+      {
+        "body": "Odposlechne šifrovaný klíč relace a rozšifruje jej veřejným klíčem serveru.",
+        "right": false,
+        "comment": "L6, slide 17: tento postup nesouvisí s důvěrou podle adresy; veřejným klíčem se šifrovaný klíč relace rozšifrovat nedá."
+      },
+      {
+        "body": "Podvrhne odpovědi DNS tak, aby jeho stroj vypadal jako queen.math.muni.cz.",
+        "right": true,
+        "comment": "L6, slide 17: mezi možnými útoky je DNS."
+      },
+      {
+        "body": "Ovlivní směrování (routing) tak, aby se jeho stroj tvářil jako důvěryhodný.",
+        "right": true,
+        "comment": "L6, slide 17: mezi možnými útoky je routing."
+      }
+    ]
   }
 ]

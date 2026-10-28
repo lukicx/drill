@@ -326,5 +326,38 @@
       { "body": "Každá nová funkce zvětšuje prostor pro útok, a je proto třeba zvážit, zda je nutná.", "right": true, "comment": "Přednáška 1, slide 72: princip ekonomiky mechanismu – každá nadbytečná vlastnost zvyšuje rozsah rizik; Přednáška 6, slide 61." },
       { "body": "Bezpečnost funkce se vyřeší až po uvedení na trh podle hlášení zákazníků.", "right": false, "comment": "Přednáška 6, slide 23: dodělávat bezpečnost až u hotového systému je typické chybné prohlášení." }
     ]
+  },
+  {
+    "id": "9a387de3",
+    "name": "Společná kritéria (Common Criteria) mají dva katalogy komponent: funkčnost (functionality) a záruku (assurance). Která přiřazení požadavku k třídě a katalogu jsou správná?",
+    "answers": [
+      { "body": "Záznam bezpečnostně významných událostí – třída FAU, katalog funkčnosti.", "right": true, "comment": "Přednáška 7, část 2, slide 22: FAU je funkční třída; funkčnost určuje pravidla přístupu k prostředkům předmětu hodnocení a jejich použití." },
+      { "body": "Identifikace a autentizace uživatelů produktu – třída FIA, katalog záruky.", "right": false, "comment": "Přednáška 7, část 2, slide 22: FIA (Identification and Authentication) je funkční třída, nikoli záruční." },
+      { "body": "Testování produktu – třída ATE, katalog funkčnosti.", "right": false, "comment": "Přednáška 7, část 2, slide 23: ATE (Tests) patří mezi záruční třídy; ověřuje důvěru, že produkt splňuje deklarované požadavky." },
+      { "body": "Podpora životního cyklu, např. odstraňování chyb – třída ALC, katalog záruky.", "right": true, "comment": "Přednáška 7, část 2, slides 23 a 28: ALC (Life-Cycle Support) je záruční třída; ALC_FLR.3 je systematické odstraňování chyb." },
+      { "body": "Hodnocení zranitelností produktu – třída AVA, katalog záruky.", "right": true, "comment": "Přednáška 7, část 2, slide 23: AVA (Vulnerability Assessment) je záruční třída." }
+    ]
+  },
+  {
+    "id": "fc8e8e65",
+    "name": "Výrobce chce nechat hodnotit svůj produkt podle Common Criteria. Které úvahy o postupu hodnocení jsou správné?",
+    "answers": [
+      { "body": "Úroveň záruky nechá stanovit až laboratoř po dokončení hodnocení podle výsledků testů.", "right": false, "comment": "Přednáška 7, část 2, slide 21: deklarovanou úroveň záruky určuje výrobce předem, jako třetí krok před jednáním s certifikačním orgánem." },
+      { "body": "Nejprve vymezí, který produkt nebo systém (případně jen jeho část) bude předmětem hodnocení.", "right": true, "comment": "Přednáška 7, část 2, slides 21 a 11: prvním krokem je definice produktu či systému; ten je předmětem hodnocení (TOE)." },
+      { "body": "Hodnocením se ověřuje, zda vlastnosti produktu odpovídají jeho specifikaci bezpečnosti (Security Target).", "right": true, "comment": "Přednáška 7, část 2, slide 12: Security Target je teoretický cíl; hodnocení TOE zkoumá, zda realita odpovídá teorii." },
+      { "body": "Funkčnost produktu výrobce nespecifikuje, protože ji odvodí hodnotitel zkoumáním hotového produktu v laboratoři.", "right": false, "comment": "Přednáška 7, část 2, slide 21: specifikace funkčnosti je druhý krok na straně výrobce; hodnotitel ověřuje deklarované, nedomýšlí je." },
+      { "body": "Je třeba připravit důkazy a podrobnosti domluvit s certifikačním orgánem.", "right": true, "comment": "Přednáška 7, část 2, slide 21: čtvrtým krokem jsou podrobnosti hodnocení s certifikačním orgánem, pátým příprava důkazů." }
+    ]
+  },
+  {
+    "id": "8b4ebde3",
+    "name": "Organizace vybírá produkty pro svou infrastrukturu a řeší, jak je posoudit. Která přiřazení produktu k hodnocení nebo úrovni jsou správná?",
+    "answers": [
+      { "body": "Celý router jako produkt – posoudí FIPS 140, protože Common Criteria hodnotí jen kryptografické moduly.", "right": false, "comment": "Přednáška 7, část 2, slide 36: je to opačně – FIPS 140 hodnotí „motor“ (kryptografický modul), Common Criteria celý produkt." },
+      { "body": "Pouze softwarová kryptografická knihovna bez fyzické ochrany – FIPS 140-3 úroveň 1.", "right": true, "comment": "Přednáška 7, část 2, slide 37: úroveň 1 jsou čistě softwarové moduly (např. OpenSSL) s validovanými algoritmy a bez fyzické ochrany." },
+      { "body": "Modul s plombou proti neoprávněné manipulaci a autentizací podle rolí, který při otevření krytu klíče nenuluje – úroveň 4.", "right": false, "comment": "Přednáška 7, část 2, slide 37: plomba a autentizace podle rolí odpovídají úrovni 2; úroveň 4 vyžaduje i nulování klíčů při výkyvech prostředí." },
+      { "body": "HSM, který při narušení krytu nuluje klíče a vyžaduje autentizaci podle identity – úroveň 3.", "right": true, "comment": "Přednáška 7, část 2, slide 37: úroveň 3 = autentizace podle identity a odolnost proti fyzickému zásahu; typicky HSM." },
+      { "body": "Celý firewall – hodnocení Common Criteria; profil může vyžadovat modul validovaný podle FIPS 140.", "right": true, "comment": "Přednáška 7, část 2, slide 36: Common Criteria hodnotí celý IT produkt a profil bezpečnosti může předepsat použití FIPS 140 validovaného modulu." }
+    ]
   }
 ]
