@@ -183,8 +183,8 @@
     "name": "PV157 - Midterm",
     "id": "PV157_midterm",
     "dataset": "datasets/questions_PV157_midterm.json",
-    "questionCount": 81,
-    "multipleChoiceCount": 81,
+    "questionCount": 163,
+    "multipleChoiceCount": 163,
     "essayCount": 0,
     "group": "archive"
   },
