@@ -5,23 +5,28 @@
     "answers": [
       {
         "body": "Privátního klíče podepisující osoby",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: privátním (soukromým) klíčem se podpis vytváří, ne ověřuje."
       },
       {
         "body": "Soukromého klíče podepisující osoby",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: soukromý klíč slouží k vytvoření podpisu; ověřuje se veřejným klíčem."
       },
       {
         "body": "Klíče sdíleného s podepisující osobou",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 18: sdílený klíč patří k symetrické kryptografii (MAC), digitální podpis je asymetrický."
       },
       {
         "body": "Veřejného klíče podepisující osoby",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 20: pro ověření podpisu je nutné mít veřejný klíč podepisujícího."
       },
       {
         "body": "Certifikátu veřejného klíče podepisující osoby",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 23: certifikát obsahuje veřejný klíč a zaručuje jeho integritu, proto se podpis ověřuje i pomocí certifikátu."
       }
     ]
   },
@@ -31,19 +36,23 @@
     "answers": [
       {
         "body": "Pouze osoba vlastnící sdílený klíč",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: sdílený klíč je symetrický; s ním vzniká MAC, ne digitální podpis."
       },
       {
         "body": "Pouze osoba vlastnící soukromý klíč",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 20: správný digitální podpis může vytvořit jen ten, kdo má soukromý klíč."
       },
       {
         "body": "Pouze osoba vlastnící certifikovaný klíč",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 23: certifikuje se veřejný klíč; certifikát podpis nevytváří, jen váže klíč k osobě."
       },
       {
         "body": "Pouze osoba vlastnící veřejný klíč",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: veřejný klíč má každý a slouží jen k ověření podpisu."
       }
     ]
   },
@@ -53,19 +62,23 @@
     "answers": [
       {
         "body": "Jednoznačně ověřitelný podpis",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31: zaručený podpis je s podepisující osobou jednoznačně spojen a lze jej jednoznačně ověřit."
       },
       {
         "body": "Podpis, který má záruky srovnatelné jako elektronický podpis",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 70: zaručený podpis je vyšší úroveň než prostý elektronický podpis, ne jen „srovnatelný“."
       },
       {
         "body": "Elektronický podpis, za který se dokážeme nějak důvěryhodně zaručit",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 31: slovo „zaručený“ neznamená, že za podpis někdo ručí; jde o technické požadavky a)–d)."
       },
       {
         "body": "Podpis vytvořený pomocí kryptografických prostředků",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31 a 71: je vytvořen pomocí dat pro vytváření podpisu (klíče, certifikát), tedy kryptograficky."
       }
     ]
   },
@@ -75,15 +88,18 @@
     "answers": [
       {
         "body": "Heslo posílá v otevřené podobě",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 8: heslo v čisté podobě je možné odposlechnout."
       },
       {
         "body": "Heslo neposílá vůbec",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 3 a 9: v protokolech výzva-odpověď se tajemství použije k výpočtu odpovědi, ale nikdy se neposílá."
       },
       {
         "body": "Heslo posílá v hašované podobě",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 8: odposlechnutý haš lze použít pro podvodnou autentizaci (přehrání), haš se tak stává heslem."
       }
     ]
   },
@@ -93,19 +109,23 @@
     "answers": [
       {
         "body": "Je nutné udržet veřejný klíč v tajnosti",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: veřejný klíč je veřejný; slouží k ověření a mít ho může každý."
       },
       {
         "body": "Je nutné zajistit integritu privátního klíče",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 22: u privátního klíče je nutná tajnost; integritu je nutné hlídat u veřejného klíče."
       },
       {
         "body": "Je nutné zajistit integritu veřejného klíče",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 22: s nesprávným veřejným klíčem bychom při ověření došli k nesprávným závěrům."
       },
       {
         "body": "Je nutné udržet privátní klíč v tajnosti",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 22: kdo má přístup k privátnímu klíči, může vytvářet platné podpisy."
       }
     ]
   },
@@ -115,23 +135,28 @@
     "answers": [
       {
         "body": "Podpis, šifrování",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 21: dokument je nutné nejprve podepsat a pak zašifrovat (analogie: podpis, pak obálka)."
       },
       {
         "body": "Podpis, šifrování, podpis",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: druhý podpis navíc nic nepřidává; doporučené pořadí je podpis, šifrování."
       },
       {
         "body": "Šifrování, podpis",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: podpis zašifrovaných dat jde snadno odstranit a nahradit jiným, proto ne."
       },
       {
         "body": "Šifrování, podpis, šifrování",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: doporučené pořadí je jen podpis, pak šifrování."
       },
       {
         "body": "Na pořadí operací nezáleží",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: na pořadí záleží, nejprve podpis, pak šifrování."
       }
     ]
   },
@@ -141,19 +166,23 @@
     "answers": [
       {
         "body": "Data nebyla autorizovaně předána",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 17: integrita se týká neautorizované změny dat, ne autorizovaného předání."
       },
       {
         "body": "Data v původní podobě lze obnovit i přesto, že byla modifikována",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 17: integrita jen říká, že data nebyla změněna; obnovu změněných dat nezajišťuje."
       },
       {
         "body": "Data nebyla neautorizovaně změněna",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 17: integrita dat znamená, že data nebyla neautorizovaně změněna."
       },
       {
         "body": "Data nebyla neautorizovaně změněna pouze v průběhu přenosu nezabezpečeným kanálem",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 17: integrita platí od vytvoření dat, při přenosu i uložení, ne jen při přenosu."
       }
     ]
   },
@@ -163,15 +192,18 @@
     "answers": [
       {
         "body": "Vždy přímo celý dokument",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: celý dokument se nepodepisuje, asymetrické algoritmy jsou pomalé."
       },
       {
         "body": "V případě malých dokumentů celou zprávu, v případě velkých dokumentů jejich haš",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: podepisuje se haš bez ohledu na velikost dokumentu."
       },
       {
         "body": "Pouze haš podepisovaného dokumentu",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 21 a L1, slide 36: v praxi podepisujeme pouze haš (fixní délky)."
       }
     ]
   },
@@ -181,19 +213,23 @@
     "answers": [
       {
         "body": "Sdílené symetrické klíče mezi všemi komunikujícími partnery",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: digitální podpis je asymetrický; sdílené symetrické klíče slouží pro MAC."
       },
       {
         "body": "Privátní a veřejný klíč",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 20: každý subjekt má privátní klíč pro podpis a veřejný klíč pro ověření."
       },
       {
         "body": "Digitální klíč",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: pojem „digitální klíč“ v kryptografii neexistuje; používá se pár privátní a veřejný klíč."
       },
       {
         "body": "Digitální pečetě",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 39: digitální pečeť je starší název pro MAC se sdíleným klíčem, ne podpis."
       }
     ]
   },
@@ -203,23 +239,28 @@
     "answers": [
       {
         "body": "oddělení veřejné a soukromé komponenty páru klíčů",
-        "right": true
+        "right": true,
+        "comment": "L1, slide 37: podpis staví na tom, že soukromý klíč (podpis) a veřejný klíč (ověření) jsou oddělené."
       },
       {
         "body": "obvykle na využití asymetrické kryptografie",
-        "right": true
+        "right": true,
+        "comment": "L1, slide 36: digitální podpis obvykle využívá asymetrickou kryptografii (RSA, DSA)."
       },
       {
         "body": "asymetrické bázi CRC",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 38: CRC je kontrolní součet bez kryptografie, nechrání proti úmyslné změně."
       },
       {
         "body": "na neprokazatelnosti Heisenbergrova principu neurčitelnosti",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: Heisenbergův princip neurčitosti s digitálním podpisem nesouvisí."
       },
       {
         "body": "autorizaci standardu X.509",
-        "right": false
+        "right": false,
+        "comment": "L1, slide 40: X.509 je formát certifikátu, ne základ podpisu."
       }
     ]
   },
@@ -229,23 +270,28 @@
     "answers": [
       {
         "body": "Pomocí certifikátu veřejného klíče",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 23: integritu veřejného klíče zajistíme pomocí certifikátu veřejného klíče."
       },
       {
         "body": "Pomocí klíčované hašovací funkce",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 39: klíčovaná hašovací funkce (MAC) vyžaduje sdílený tajný klíč, což vazbu klíče k osobě neřeší."
       },
       {
         "body": "Pomocí párového privátního klíče",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 23: integritu musí potvrdit důvěryhodná třetí strana (CA); vlastní privátní klíč nic neprokazuje."
       },
       {
         "body": "Utajením soukromé části veřejného klíče",
-        "right": false
+        "right": false,
+        "comment": "L1, slide 37: veřejný klíč nemá žádnou soukromou část; soukromý klíč je samostatný klíč."
       },
       {
         "body": "Částečným utajením veřejného klíče",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: veřejný klíč je veřejný, jeho utajení integritu nezajistí."
       }
     ]
   },
@@ -255,27 +301,33 @@
     "answers": [
       {
         "body": "Umožňuje identifikaci podepisující osoby ve vztahu k datové zprávě",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31 b): zaručený podpis umožňuje identifikaci podepisující osoby."
       },
       {
         "body": "Je jednoznačně ověřitelný",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31: díky kryptografii a certifikátu je zaručený podpis jednoznačně ověřitelný."
       },
       {
         "body": "Je jednoznačně spojen s podepisující osobou",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31 a): zaručený podpis je jednoznačně spojen s podepisující osobou."
       },
       {
         "body": "Je spojen s dostatečnou finanční zárukou",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 31: „zaručený“ neznamená finanční záruku."
       },
       {
         "body": "Umožňuje detekci změn ve zprávě, ke které je připojen",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31 d): podpis je připojen tak, že lze zjistit jakoukoliv následnou změnu dat."
       },
       {
         "body": "Autorizuje podepisující osobu ve vztahu k datové zprávě",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 31 b): podpis osobu identifikuje, neautorizuje (autorizace = udělení oprávnění)."
       }
     ]
   },
@@ -285,27 +337,33 @@
     "answers": [
       {
         "body": "MD4",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 36: MD4 je hašovací funkce (128 bitů, dnes nebezpečná)."
       },
       {
         "body": "SHA-1",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 36: SHA-1 je hašovací funkce (160 bitů)."
       },
       {
         "body": "RC4",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): RC4 je proudová šifra, ne hašovací funkce."
       },
       {
         "body": "RSA",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 28: RSA je asymetrický algoritmus pro šifrování a podpis."
       },
       {
         "body": "MD5",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 36: MD5 je hašovací funkce (128 bitů)."
       },
       {
         "body": "AES",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): AES je bloková symetrická šifra, ne hašovací funkce."
       }
     ]
   },
@@ -315,19 +373,23 @@
     "answers": [
       {
         "body": "Výrazné urychlení kryptoanalýzy",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): podepsání šifrového textu kryptoanalýzu nijak neurychlí."
       },
       {
         "body": "Možnost snadného odstranění digitálního podpisu",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 21: podpis nad šifrovým textem může kdokoli odstranit a nahradit svým; proto nejprve podpis, pak šifrování."
       },
       {
         "body": "Žádná, naopak, výhodou je možnost několikanásobného podepsání zašifrovaných dat",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: možnost více podpisů nevyváží to, že podpis nad šifrovým textem nedokazuje autorství obsahu."
       },
       {
         "body": "Žádná, naopak výhodou je možnost snadné verifikace podpisu ještě před dešifrováním",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 21: ověření před dešifrováním není výhoda, která by vyvážila snadné odstranění podpisu."
       }
     ]
   },
@@ -337,19 +399,23 @@
     "answers": [
       {
         "body": "V rozumném čase nejsme schopni nalézt x, y (x!=y) tak, že h(x)=h(y)",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 33: silná bezkoliznost = nelze najít libovolnou dvojici x ≠ y se stejným hašem."
       },
       {
         "body": "V rozumném čase nejsme schopni nalézt x, y (x=y) tak, že h(x)!=h(y)",
-        "right": false
+        "right": false,
+        "comment": "Pro x = y je h(x) = h(y) vždy, taková dvojice neexistuje; nejde o bezkoliznost."
       },
       {
         "body": "V rozumném čase nejsme schopni nalézt x, y (x=y) tak, že h(x)=h(y)",
-        "right": false
+        "right": false,
+        "comment": "Pro x = y najdeme h(x) = h(y) triviálně, kolize je definována pro x ≠ y."
       },
       {
         "body": "V rozumném čase nejsme schopni nalézt x, y (x!=y) tak, že h(x)!=h(y)",
-        "right": false
+        "right": false,
+        "comment": "Najít x ≠ y s různými haši je snadné; bezkoliznost se týká stejných hašů."
       }
     ]
   },
@@ -359,19 +425,23 @@
     "answers": [
       {
         "body": "Pro dané y lze v rozumném čase najít x tak, aby h(x)=y",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 33: je to opak jednosměrnosti, ta říká, že takové x nenajdeme."
       },
       {
         "body": "V rozumném čase nejsme schopni najít x, y tak, aby h(x)=h(y)",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 33: toto je silná bezkoliznost (libovolná dvojice x, y), ne jednosměrnost."
       },
       {
         "body": "Pro dané y nelze v rozumném čase najít x tak, aby h(x)=y",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 33: jednosměrnost = pro pevně dané y nenajdeme v rozumném čase x tak, že h(x) = y."
       },
       {
         "body": "Pro dané h(y) nelze v rozumném čase najít x tak, aby h(x)=h(y)",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 33: míněna je slabá bezkoliznost (daný vstup y, hledáme jiné x se stejným hašem); formulace je nepřesná."
       }
     ]
   },
@@ -381,23 +451,28 @@
     "answers": [
       {
         "body": "Funkce, která mapuje vstup fixní délky na výstup variabilní délky (podle entropie vstupu)",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 32: vstup je libovolné délky, výstup pevné délky."
       },
       {
         "body": "Funkce, která mapuje libovolně velký vstup na výstup fixní délky a je prostá",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 32: funkce není prostá; nekonečně mnoho vstupů se mapuje na konečně mnoho výstupů, vznikají kolize."
       },
       {
         "body": "Šifrovací funkce se schopností deprese vstupních dat",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 32: hašovací funkce nic nešifruje a „deprese dat“ je nesmysl."
       },
       {
         "body": "Funkce, která mapuje libovolně velký vstup na výstup fixní délky a není prostá",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 32: libovolně velký vstup, výstup pevné délky, funkce není prostá."
       },
       {
         "body": "Funkce, která mapuje libovolně velký vstup na výstup s délkou 128, 192, 256 nebo 512 bitů",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 32 a 36: délka výstupu závisí na funkci (např. 160 bitů u SHA-1), není omezena na tento výčet."
       }
     ]
   },
@@ -407,19 +482,23 @@
     "answers": [
       {
         "body": "MAC kódu, resp. funkci",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 9: odpovědí může být MAC výzvy spočítaný se sdíleným klíčem."
       },
       {
         "body": "digitálním podpisu",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 9: odpovědí může být digitálně podepsaná výzva (příklad ze slajdu)."
       },
       {
         "body": "symetrickém šifrování",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 3: odpovědí může být výzva zašifrovaná sdíleným symetrickým klíčem."
       },
       {
         "body": "klíčované hašovací funkci",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 40: klíčovaná hašovací funkce (HMAC) je jeden ze způsobů, jak spočítat MAC odpovědi."
       }
     ]
   },
@@ -429,19 +508,23 @@
     "answers": [
       {
         "body": "Takový pojem zákon neobsahuje",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 31 a 69: pojem elektronický podpis právní předpisy obsahují."
       },
       {
         "body": "To stejné, co digitální podpis",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 69–70: elektronický podpis je širší pojem; digitální (kryptografický) podpis je jen jedna z jeho forem."
       },
       {
         "body": "Ručně psaný podpis",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 69: elektronický podpis jsou data v elektronické podobě, ne ručně psaný podpis."
       },
       {
         "body": "Libovolná identifikující informace připojená ke zprávě",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 31 a 69: elektronickým podpisem může být i pouhé jméno napsané na klávesnici."
       }
     ]
   },
@@ -451,19 +534,23 @@
     "answers": [
       {
         "body": "Uživatel musí správně vybarvit předložený obrázek",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 47: uživatel obrázek vybírá, nevybarvuje."
       },
       {
         "body": "Uživatel musí vybrat správný obrázek nebo jeho část",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 47: uživatel vybírá správný obrázek z několika (případně skupinu obrázků)."
       },
       {
         "body": "Uživatel musí systému slovně popsat obrázek sloužící k autentizaci",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 47: systém nechce slovní popis, uživatel obrázek vybere."
       },
       {
         "body": "Uživatel musí do systému nahrát správný obrázek",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 47: obrázky nabízí systém, uživatel nic nenahrává."
       }
     ]
   },
@@ -473,19 +560,23 @@
     "answers": [
       {
         "body": "Je dnes již jen velmi zřídka používaná technika",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 13: solení se běžně používá (např. UNIX $6$sůl$haš, slide 15)."
       },
       {
         "body": "Je dodatečná technika při ukládání hesel pro určitou formu identifikace",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 13: sůl je náhodná informace pro ukládání hesel; s identifikací nesouvisí (formulace je sporná)."
       },
       {
         "body": "Zajistí delší efektivní heslo",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 13: sůl prodlouží efektivní heslo, útočník musí hádat sůl i heslo dohromady."
       },
       {
         "body": "Pomůže vyřešit situaci, kdy mají uživatelé stejná hesla",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 13: stejná hesla s různou solí mají různé haše."
       }
     ]
   },
@@ -495,19 +586,23 @@
     "answers": [
       {
         "body": "Šifrovací klíč musí být přístupný autentizační službě",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 12: šifrovací klíč musí být přístupný autentizačnímu systému (disk, paměť)."
       },
       {
         "body": "Musíme znát (jako uživatelé) šifrovací klíč",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 12: klíč zná autentizační systém, uživatel ho znát nemusí."
       },
       {
         "body": "Musíme věřit administrátorovi",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 12: při šifrovaném ukládání zůstává problém důvěry v administrátora."
       },
       {
         "body": "Nesmí být použit šifrovací algoritmus DSA",
-        "right": false
+        "right": false,
+        "comment": "L1, slide 36: DSA je podpisový algoritmus, šifrovat jím nelze; nejde o podmínku šifrovaného ukládání."
       }
     ]
   },
@@ -517,15 +612,18 @@
     "answers": [
       {
         "body": "školením uživatelů",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 33: školení uživatelů nemá výrazný vliv na bezpečnost hesel ani PINů."
       },
       {
         "body": "Pravidelnou změnou hodnoty PINu",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 50: pravidelná změna neomezí počet pokusů útočníka; proti hrubé síle slouží omezení pokusů."
       },
       {
         "body": "Omezením počtu pokusů o zadání PINu",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 50: procedurální omezení – zabavení karty po několika (3) nesprávných PINech."
       }
     ]
   },
@@ -535,15 +633,18 @@
     "answers": [
       {
         "body": "Musíme řešit aspekt bezpečnosti bez ohledu na zapamatovatelnost",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 7: bezpečnost nelze řešit bez ohledu na lidskou paměť; je to dilema."
       },
       {
         "body": "Musíme řešit aspekt zapamatovatelnosti vs. bezpečnosti",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 7: hesla jsou dilema mezi zapamatovatelností a bezpečností."
       },
       {
         "body": "Musí uživatel prokázat, že si dokáže zapamatovat alespoň 10 náhodně zvolených symbolů",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 38: požadavek na 10 náhodných symbolů neexistuje; doporučují se fráze."
       }
     ]
   },
@@ -553,19 +654,23 @@
     "answers": [
       {
         "body": "Příliš snadná transformace na zero-knowledge protokoly (protokoly s nulovým rozšířením znalostí)",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: snadný převod na lepší protokol by byl výhodou, ne nevýhodou."
       },
       {
         "body": "Náchylnost ke slovníkovému útoku",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 8 a 21: z odposlechnutého haše lze offline hledat heslo slovníkovým útokem."
       },
       {
         "body": "Možnost impersonace",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 8: s odposlechnutým hašem se útočník může vydávat za uživatele."
       },
       {
         "body": "Útok přehráním",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 8: haš lze použít pro podvodnou autentizaci – stačí jej poslat znovu."
       }
     ]
   },
@@ -575,19 +680,23 @@
     "answers": [
       {
         "body": "Veřejně známá informace",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: autentizační informace musí být tajná."
       },
       {
         "body": "Kombinace čísel a písmen (A-F) pro potřeby autentizace",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 50 a 56: PIN tvoří číslice; A–F se objevily jen uvnitř výpočtu ec-PINu a nahrazují se 0–5."
       },
       {
         "body": "Kombinace čísel pro potřeby autentizace",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 50: PIN je číselný kód (obvykle 4–8 znaků) pro autentizaci."
       },
       {
         "body": "Osobně sdílená informace",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: PIN zná jen oprávněný uživatel, s nikým se nesdílí."
       }
     ]
   },
@@ -597,19 +706,23 @@
     "answers": [
       {
         "body": "nastaven bankou jako hesla internetového bankovnictví",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 52: PIN patří ke kartě a bankomatu; heslo internetového bankovnictví je jiný údaj."
       },
       {
         "body": "s obvodním bankéřem sdílená informace",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 52: PIN zná jen držitel, banka jej ověřuje zašifrovaně online."
       },
       {
         "body": "nejčastěji volen v hodnotách 1234, 0000, 0007 nebo 1111",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 19: nejčastější PINy jsou 1234, 1111 a 0000 (analýza 3,4 milionu PINů); 0007 na slajdu není, ale patří k typicky voleným PINům."
       },
       {
         "body": "doplňkovým bezpečnostním mechanismem pro operace s bankomatem",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 50: PIN se obvykle používá s fyzickým předmětem (kartou), je to doplňkový mechanismus."
       }
     ]
   },
@@ -619,19 +732,23 @@
     "answers": [
       {
         "body": "(velikost abecedy * délka hesla)/(počet odhadů za jednotku času)^(čas platnosti)",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 23: velikost abecedy a délka hesla patří do jmenovatele jako abeceda^délka."
       },
       {
         "body": "(délka hesla * počet odhadů za jednotku času)/(velikost abecedy)^(čas platnosti)",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 23: čitatel je čas platnosti × počet odhadů, jmenovatel abeceda^délka hesla."
       },
       {
         "body": "(počet odhadů za jednotku času * délka hesla)/(čas platnosti)^(velikost abecedy)",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 23: v exponentu je délka hesla, ne velikost abecedy."
       },
       {
         "body": "(čas platnosti * počet odhadů za jednotku času)/(velikost abecedy)^(délka hesla)",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 23: úspěšnost = (čas platnosti × počet odhadů za jednotku času) / velikost abecedy^délka hesla."
       }
     ]
   },
@@ -641,11 +758,13 @@
     "answers": [
       {
         "body": "Průklepový tisk",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): průklepový tisk na vnitřní list obálky nejde z vnějšku přečíst ani prosvícením."
       },
       {
         "body": "Laserový tisk",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): laserový toner na papíře lze proti světlu prosvítit a PIN přečíst."
       }
     ]
   },
@@ -655,15 +774,18 @@
     "answers": [
       {
         "body": "Ukládáme pouze haš hesla s možností rekonstrukce hesla v otevřené podobě",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 13: díky jednosměrnosti nelze z haše rekonstruovat heslo."
       },
       {
         "body": "Ukládáme pouze haš hesla a rekonstrukce otevřené podoby není možná",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 13: ukládá se jen haš; otevřenou podobu hesla nelze získat."
       },
       {
         "body": "Při ukládání můžeme využít techniky \"solení\"",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 13: při ukládání se používá solení, ukládá se userid, sůl, f(sůl, heslo)."
       }
     ]
   },
@@ -673,23 +795,28 @@
     "answers": [
       {
         "body": "Matrixovou metodou",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: „matrixová metoda“ útoku na hesla neexistuje."
       },
       {
         "body": "Hrubou silou",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 21: hrubou silou (všechny možné kombinace)."
       },
       {
         "body": "Na základě určitých znalostí o uživateli",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 21: slova, data a čísla související s uživatelem."
       },
       {
         "body": "Pomocí sociálního inženýrství",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 20: krádež hesla, např. sociálním inženýrstvím."
       },
       {
         "body": "Slovníkový",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 21: slovníkový útok s databází často používaných řetězců."
       }
     ]
   },
@@ -699,23 +826,28 @@
     "answers": [
       {
         "body": "Fráze (passphrase)",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 6 a 38: fráze (passphrase) je vhodná tajná informace."
       },
       {
         "body": "Tel. číslo, pokud není uvedeno ve Zlatých stránkách",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: telefonní číslo není tajné, lze je zjistit i mimo Zlaté stránky."
       },
       {
         "body": "PIN",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 6: PIN je klasická tajná informace."
       },
       {
         "body": "Heslo",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 6: heslo je klasická tajná informace."
       },
       {
         "body": "Rodné příjmení matky",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: údaje o rodině (jako jméno psa, data narození) nejsou tajné."
       }
     ]
   },
@@ -725,27 +857,33 @@
     "answers": [
       {
         "body": "Unikátní pro danou osobu",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 10: hesla unikátní pro danou osobu (heslo = userid)."
       },
       {
         "body": "Veřejná",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 10: veřejné heslo nedává smysl, heslo musí být tajné."
       },
       {
         "body": "Jednocestná",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 10: „jednocestná“ hesla nejsou druh hesla; jednosměrná je hašovací funkce."
       },
       {
         "body": "Skupinová",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 10: skupinová hesla (uživatelská role), málo používaná."
       },
       {
         "body": "Jednorázová",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 10: jednorázová hesla."
       },
       {
         "body": "Původně neveřejná",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 10: „původně neveřejná“ hesla nejsou kategorie ze slajdu."
       }
     ]
   },
@@ -755,19 +893,23 @@
     "answers": [
       {
         "body": "Heslo, které lze jednoduše přečíst",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 38: snadná čitelnost hesla není smyslem fráze."
       },
       {
         "body": "Heslo, které obsahuje pouze malá písmena",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 38: heslo z frází obsahuje velká písmena i nealfabetické znaky."
       },
       {
         "body": "Heslo založené na veřejně známé frázi, aby si jej všichni snadno zapamatovali",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: veřejně známá fráze by byla snadno uhodnutelná."
       },
       {
         "body": "Pomůcka pro zapamatování složitého hesla",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 38: fráze je pomůcka pro zapamatování složitého hesla (PlSeMk,VTCO;o24zI)."
       }
     ]
   },
@@ -777,23 +919,28 @@
     "answers": [
       {
         "body": "Hlasovaně",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: hesla se neukládají „hlasovaně“."
       },
       {
         "body": "Impulzně",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: „impulzní“ ukládání neexistuje."
       },
       {
         "body": "Hašovaně",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 11: hašovaně (nečitelná podoba)."
       },
       {
         "body": "V otevřené podobě",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 11: v otevřeném tvaru je to možné, i když se nedoporučuje."
       },
       {
         "body": "Šifrovaně",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 11: šifrovaně (nečitelná podoba)."
       }
     ]
   },
@@ -803,19 +950,23 @@
     "answers": [
       {
         "body": "Tajnou informaci musí vědět jen oprávněný uživatel",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 5: tajnou informaci by neměl znát nikdo jiný než oprávněný uživatel."
       },
       {
         "body": "Prostor, ze kterého vybíráme hodnotu tajné informace musí být rozsáhlý",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 5: autentizační informace má být vybrána z velkého prostoru možných hodnot."
       },
       {
         "body": "Z tajné informace se musí nejprve vytvořit inicializační vektor",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: inicializační vektor s autentizací tajnou informací nesouvisí."
       },
       {
         "body": "Tajnou informaci musíme sdělit administrátorovi pro případně admin. zásahy v našem systému",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 5: informaci nesmí znát nikdo jiný, ani administrátor."
       }
     ]
   },
@@ -825,19 +976,23 @@
     "answers": [
       {
         "body": "Hesla založená na frázích",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 33 a 38: fráze jsou dobře zapamatovatelné a obtížněji uhodnutelné."
       },
       {
         "body": "Obtížně zapamatovatelná hesla a každý měsíc nutit uživatele ke změně",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 36: vynucená expirace vede k zapomínání a slabším heslům."
       },
       {
         "body": "Jednoduchá a jednoduše zapamatovatelná hesla",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 7: z hlediska paměti je jednoduché heslo nejlepší (otázka se ptá jen na paměť, ne bezpečnost)."
       },
       {
         "body": "Složitá, ale snadno zapamatovatelná hesla",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 38: vhodné je heslo obtížně uhodnutelné, ale snadno zapamatovatelné."
       }
     ]
   },
@@ -847,19 +1002,23 @@
     "answers": [
       {
         "body": "Nový RSA pár klíčů pro šifrování PINů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): při offline šifrovaném PINu terminál šifruje PIN veřejným klíčem karty (RSA pár pro šifrování PINů)."
       },
       {
         "body": "Fyzicky i prostředím dobře zabezpečený PINpad",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): PIN se zadává do PINpadu, ten musí být fyzicky i prostředím zabezpečený."
       },
       {
         "body": "Úspěšné proběhnutí automatické správy rizik",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): řízení rizik terminálem je samostatný krok transakce, pro ověření PINu potřeba není."
       },
       {
         "body": "Originální PIN nutný pro verifikaci, který musí být bezpečně uložen v čipu",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): offline ověření porovnává zadaný PIN s referenčním PINem bezpečně uloženým v čipu."
       }
     ]
   },
@@ -869,23 +1028,28 @@
     "answers": [
       {
         "body": "Datum a čas posledního úspěšného přihlášení do systému",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: údaje o přihlášení soubory passwd ani shadow neobsahují."
       },
       {
         "body": "Haše hesel uživatelů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): v historických UNIXech byly haše hesel přímo v /etc/passwd; L2, slide 16 popisuje už jen /etc/shadow."
       },
       {
         "body": "Počet zbývajících neúspěšných pokusů o zadání hesla",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: počet neúspěšných pokusů se v těchto souborech neukládá."
       },
       {
         "body": "Informaci o tom, že haše hesel jsou v souboru /etc/shadow",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): dnešní /etc/passwd má u hesla jen značku (x), haše jsou v /etc/shadow (L2, slide 16)."
       },
       {
         "body": "Informaci o délce hesla",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 13 a 16: délka hesla se neukládá, prozradila by heslo."
       }
     ]
   },
@@ -895,23 +1059,28 @@
     "answers": [
       {
         "body": "Počet neúspěšných pokusů o zadání hesla",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: počet neúspěšných pokusů mezi poli shadow není."
       },
       {
         "body": "Haše hesel uživatelů",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 16: shadow obsahuje login a haš hesla (Hashed password)."
       },
       {
         "body": "Informaci o tom, že haše hesel jsou v souboru /etc/passwd",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: je to naopak, značka v /etc/passwd odkazuje na /etc/shadow."
       },
       {
         "body": "Informaci o délce hesla",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: délka hesla se neukládá."
       },
       {
         "body": "Datum a čas posledního úspěšného přihlášení do systému",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 16: shadow obsahuje datum poslední změny hesla, ne posledního přihlášení."
       }
     ]
   },
@@ -921,19 +1090,23 @@
     "answers": [
       {
         "body": "Test čítače pokusů větší než 0, snížení čítače, ověření korektnosti PINu, zvýšení čítače při dobrém PINu.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 33: nejprve snížit čítač, pak ověřit PIN a při správném PINu jej zvýšit; přerušení napájení nepomůže."
       },
       {
         "body": "Test čítače pokusů větší než 0, ověření korektnosti PINu, snížení čítače při špatném PINu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 33: zranitelné – útočník pozná špatný PIN a odpojí napájení před snížením čítače."
       },
       {
         "body": "Zvýšení čítače, test čítače pokusů větší než 0, ověření korektnosti PINu, zvýšení čítače při dobrém PINu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 33: zvýšení čítače před ověřením dává útočníkovi pokusy navíc."
       },
       {
         "body": "Test čítače pokusů větší než 0, zvýšení čítače, ověření korektnosti PINu, zvýšení čítače při dobrém PINu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 33: čítač se musí před ověřením snížit, ne zvýšit."
       }
     ]
   },
@@ -943,23 +1116,28 @@
     "answers": [
       {
         "body": "se často používá podchlazování ochranných komponent čipových karet",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: podchlazování se k urychlení podpisu nepoužívá."
       },
       {
         "body": "lze využít prokazatelnou odpovědnost metodou Monte Carlo",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: „prokazatelná odpovědnost metodou Monte Carlo“ nic neurychluje."
       },
       {
         "body": "u čipových karet bývají použity kryptografické koprocesory",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 21: asymetrické algoritmy jsou náročné, karty proto mají kryptografické koprocesory."
       },
       {
         "body": "používají obě strany identický privátní klíč",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 20: identický klíč u obou stran by byl symetrický a podpis by nedokazoval původce."
       },
       {
         "body": "obvykle využíváme hašovací funkce pro reprezentaci podepisovaných dat",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 21: podepisuje se haš, který je mnohem kratší než dokument."
       }
     ]
   },
@@ -969,19 +1147,23 @@
     "answers": [
       {
         "body": "GRAM",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): GRAM je grafická paměť, v čipových kartách se nepoužívá."
       },
       {
         "body": "DRAM",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): DRAM potřebuje neustálé obnovování, v kartách se jako RAM používá SRAM."
       },
       {
         "body": "SRAM",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): RAM čipové karty (L3, slide 14) je realizována jako SRAM, která nepotřebuje obnovování."
       },
       {
         "body": "EEPROM",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 14: data a klíče jsou v EEPROM."
       }
     ]
   },
@@ -991,19 +1173,23 @@
     "answers": [
       {
         "body": "Závislost průběhu odběru proudu na prováděné instrukci.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 32: závislost odběru proudu využívá výkonová (odběrová) analýza."
       },
       {
         "body": "Závislost průběhu odběru proudu na zpracovávaných datech.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 32: závislost odběru proudu na datech využívá výkonová analýza."
       },
       {
         "body": "Délka operace v závislosti na vykonané větvi kódu.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 30: čas výpočtu závisí na vykonané větvi kódu (implementaci, optimalizacích)."
       },
       {
         "body": "Délka operace v závislosti na zpracovávaných datech.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 30: čas závisí na vstupu a datech uložených na kartě, z toho lze odvodit klíč."
       }
     ]
   },
@@ -1013,19 +1199,23 @@
     "answers": [
       {
         "body": "Použití hesla zadaného částečně na klávesnici a částečně na virtuální klávesnici",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): heslo zadané částečně na virtuální klávesnici zůstává jednofaktorové a lze je odpozorovat nebo odchytit malwarem."
       },
       {
         "body": "Použití autentizačního kalkulátoru s PINem",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: kalkulátor s PINem počítá odpověď na výzvu z tajného klíče; je to dvoufaktorové řešení."
       },
       {
         "body": "Použití šifrované autentizační SMS (tj. s využitím SIM Toolkitu)",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 26: SMS je prominentní případ kanálu, který de facto není oddělený (lze ji přesměrovat či odchytit v telefonu)."
       },
       {
         "body": "Použití klientského certifikátu, který je uložen na čipové kartě s přístupem chráněným PINem",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): certifikát na kartě s PINem je také silné řešení, ale kalkulátor navíc potvrzuje údaje transakce (částku, účet; L3, slide 38); hodnocení je sporné."
       }
     ]
   },
@@ -1035,19 +1225,23 @@
     "answers": [
       {
         "body": "Při změně zablokovaného PINu je třeba zadat starý i nový uživatelský PIN.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 18: zablokovaný PIN nelze odblokovat starým PINem."
       },
       {
         "body": "Při změně zablokovaného PINu je třeba zadat odblokovací PIN a nový uživatelský PIN.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 18: pro odblokování je třeba zadat odblokovací PIN (u SIM PUK) a nový PIN."
       },
       {
         "body": "Při změně nezablokovaného PINu je třeba zadat starý i nový uživatelský PIN.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 18: při změně PINu je požadavek provázen starým a novým PINem."
       },
       {
         "body": "Při změně nezablokovaného PINu stačí zadat nový uživatelský PIN.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 18: změna PINu vyžaduje i starý PIN, jinak by ji mohl provést kdokoli s kartou."
       }
     ]
   },
@@ -1057,19 +1251,23 @@
     "answers": [
       {
         "body": "Odolnost proti pokusům o zjištění robustnosti vůči fyzickým útokům.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: robustnost vůči útokům je odolnost vůči narušení (tamper resistance)."
       },
       {
         "body": "Po narušení jsou stopy narušení obtížně odstranitelné.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: stopy po narušení popisuje zjistitelnost narušení (tamper evidence)."
       },
       {
         "body": "Vlastnost části systému umožňující detekovat fyzický útok.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: detekce narušení je automatické zjištění pokusu o narušení fyzické bezpečnosti."
       },
       {
         "body": "Při zjištění narušení je automaticky provedena chráněnou části obranná akce.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: automatická obranná akce je odpověď na narušení (tamper response)."
       }
     ]
   },
@@ -1079,19 +1277,23 @@
     "answers": [
       {
         "body": "Po úspěšném provedení narušení jsou stopy narušení odstraněny.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: zjistitelnost narušení požaduje, aby stopy zůstaly, ne aby zmizely."
       },
       {
         "body": "Automatická akce provedená chráněnou částí při detekci pokusu o narušení.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: odpověď na narušení je automatická akce chráněné části při zjištění pokusu o narušení."
       },
       {
         "body": "Akce provedená bezpečnostním administrátorem po zjištění pokusu o narušení.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: reaguje chráněná část sama a automaticky, ne administrátor."
       },
       {
         "body": "Vlastnost části systému umožňující detekovat fyzický útok.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: detekce fyzického útoku je detekce narušení, ne odpověď."
       }
     ]
   },
@@ -1101,19 +1303,23 @@
     "answers": [
       {
         "body": "Bezkontaktní karty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: bezkontaktní karty komunikují rádiem."
       },
       {
         "body": "Hybridní karty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: hybridní karty mají 2 vzájemně nepropojené čipy (kontaktní a bezkontaktní)."
       },
       {
         "body": "Polymorfní karty.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 12: polymorfní karty neexistují, polymorfismus je pojem z programování."
       },
       {
         "body": "Kontaktní karty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: kontaktní karty vyžadují kontakt se čtečkou (zdroj energie)."
       }
     ]
   },
@@ -1123,19 +1329,23 @@
     "answers": [
       {
         "body": "je založena na využití kombinace asymetrické a symetrické kryptografie",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 12: „hybridní“ označuje dva čipy, ne kombinaci kryptografie."
       },
       {
         "body": "poskytuje možnost komunikace přes kontaktní i bezkontaktní rozhraní",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: hybridní karta komunikuje kontaktně i bezkontaktně, každým čipem zvlášť."
       },
       {
         "body": "je nyní výhradní technologií pro bankovní karetní operace",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 12: vedle hybridních karet (2 čipy) existují i duální karty (1 čip, 2 rozhraní), takže „výhradní“ technologií hybridní karta není."
       },
       {
         "body": "pracuje se dvěma různými čipy",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: hybridní karta = 2 vzájemně nepropojené čipy."
       }
     ]
   },
@@ -1145,19 +1355,23 @@
     "answers": [
       {
         "body": "Komunikaci mezi čtečkou a bezkontaktní čipovou kartou lze odposlechnout.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: bezkontaktní komunikace jde rádiem, operace mohou probíhat bez vědomí uživatele."
       },
       {
         "body": "Kontaktní čipová karta má vlastní zdroj energie a komunikuje se čtečkou přímo.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 12: kontaktní karta nemá vlastní zdroj energie, dostává ji ze čtečky."
       },
       {
         "body": "U bezkontaktní čipové karty je zajištěno autorizované smazání dat při výpadku napájecího napětí.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 33: výpadek napájení naopak útočníci zneužívají; karta bez energie nic nezajistí."
       },
       {
         "body": "Bezkontaktní čipová karta potřebuje anténu pro komunikaci i získávání energie.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: bezkontaktní karta má omezený zdroj energie, napájí se i komunikuje přes anténu."
       }
     ]
   },
@@ -1167,19 +1381,23 @@
     "answers": [
       {
         "body": "Procesorové karty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: procesorové karty (smartcard)."
       },
       {
         "body": "Paměťové karty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: paměťové karty (chipcard)."
       },
       {
         "body": "Karty s magnetickým proužkem.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 10–11: karta s magnetickým proužkem není čipová karta."
       },
       {
         "body": "Paměťové karty se speciální logikou.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 12: paměťové karty se speciální logikou (ochrana PINem, čítače)."
       }
     ]
   },
@@ -1189,27 +1407,33 @@
     "answers": [
       {
         "body": "Modifikace dostupného vybavení (modifikace vybraných barev u kopírky, vkládání identifikátoru).",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 9: modifikace běžně dostupného vybavení, např. kopírky nekopírují určité barvy a vkládají identifikátor."
       },
       {
         "body": "Čestné prohlášení všech uživatelů systému.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 9: čestné prohlášení útočníka nezastaví, mezi opatřeními není."
       },
       {
         "body": "Omezení dostupnosti potřebného vybavení.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 9: omezení dostupnosti vybavení."
       },
       {
         "body": "Utajení některých informací nutných ke konstrukci tokenu.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 9: utajení určitých informací potřebných k používání nebo konstrukci tokenu."
       },
       {
         "body": "Kontrola a licence souvisejících živností.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 9: kontrola a licence živností."
       },
       {
         "body": "Utajení všech informací nutných ke konstrukci tokenu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 9: utajují se jen určité informace; utajit vše nejde (a odporuje to Kerckhoffsovu principu, L1/31)."
       }
     ]
   },
@@ -1219,19 +1443,23 @@
     "answers": [
       {
         "body": "Časová analýza",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 26 a 29: časová analýza je logický útok (monitorování činnosti karty)."
       },
       {
         "body": "Preparace čipu",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 27: preparace čipu je invazivní fyzický útok."
       },
       {
         "body": "Odběrová analýza",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 26 a 32: odběrová (výkonová) analýza je logický útok."
       },
       {
         "body": "Ozařování čipu",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 27: ozařování čipu je semi-invazivní fyzický útok."
       }
     ]
   },
@@ -1241,19 +1469,23 @@
     "answers": [
       {
         "body": "K testu uživatelů, zda chtějí luštit text v obrázku a opisovat jej",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): CAPTCHA netestuje ochotu uživatelů, ale to, zda je na druhé straně člověk."
       },
       {
         "body": "K odlišení chytrých robotů od robotů první generace",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): CAPTCHA rozlišuje člověka a robota, ne generace robotů."
       },
       {
         "body": "Je to dynamicky se měnící designový prvek www stránek",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): CAPTCHA je bezpečnostní test, ne designový prvek."
       },
       {
         "body": "K odlišení uživatelů od robotů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) odlišuje lidi od robotů."
       }
     ]
   },
@@ -1263,19 +1495,23 @@
     "answers": [
       {
         "body": "Nestrukturovaná data.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 14: transparentní (nestrukturovaná) data."
       },
       {
         "body": "Exponenciální záznam s pevnou délkou.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 14: exponenciální záznamy neexistují, je to distraktor k „lineárním“."
       },
       {
         "body": "Lineární záznamy s pevnou nebo variabilní délkou.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 14: lineární záznamy s pevnou nebo variabilní délkou."
       },
       {
         "body": "Cyklické záznamy.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 14: cyklické záznamy (nový záznam přepíše nejstarší)."
       }
     ]
   },
@@ -1285,19 +1521,23 @@
     "answers": [
       {
         "body": "Ztráta tokenu vede většinou ke kompromitaci celého systému.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 43: ztráta se rychle zjistí a token lze zablokovat; celý systém se nekompromituje."
       },
       {
         "body": "Cena tokenů je příliš vysoká pro komerční využití.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 7: výroba v sérii je levná, cena tokenů komerčnímu využití nebrání."
       },
       {
         "body": "Ke kontrole je obvykle třeba speciální čtečka nebo vycvičená osoba.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 44: ke kontrole je často potřeba speciální čtečka, zařízení nebo vycvičená osoba."
       },
       {
         "body": "Bez tokenu není autorizovaný uživatel rozpoznán.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 44: bez tokenu není autorizovaný uživatel rozeznán."
       }
     ]
   },
@@ -1307,19 +1547,23 @@
     "answers": [
       {
         "body": "Rychlé zjištění ztráty.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 43: ztráta tokenu se rychle zjistí."
       },
       {
         "body": "Většinou nejsou jednoduše kopírovatelné.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 43: tokeny nejsou jednoduše kopírovatelné."
       },
       {
         "body": "Mohou zpracovávat a přenášet další informace.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 43: tokeny mohou samy zpracovávat nebo přenášet další informace."
       },
       {
         "body": "Nikdy je nelze zneužít po náhodném nálezu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 44: nálezce token zneužít může, systém pozná token, ne osobu."
       }
     ]
   },
@@ -1329,19 +1573,23 @@
     "answers": [
       {
         "body": "Žádná z výše uvedených odpovědí.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 26: časová analýza je logický útok, semi-invazivní útoky jsou fyzické; spojení neexistuje."
       },
       {
         "body": "Speciální semi-invazivní útok na autentizační kalkulátor s hodinami.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 28: u RSA SecurID jde o fyzické odstranění krytu, ne o časovou analýzu."
       },
       {
         "body": "Metrika sloužící k určení a vyhodnocení efektivnosti semi-invazivních útoků.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: žádná taková metrika ve slajdech není."
       },
       {
         "body": "Druh semi-invazivního útoku zneužívající u mnohých čipových karet možnost ovlivnění vstupního hodinového cyklu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 34: ovlivnění hodinového cyklu je indukce chyb (logický útok), ne časová analýza."
       }
     ]
   },
@@ -1351,19 +1599,23 @@
     "answers": [
       {
         "body": "Využití opravných kódů pro automatické odstranění chyby po prudkém ovlivnění vnějších podmínek.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 34: útok chybu nechce opravit, naopak ji chce vyvolat a využít."
       },
       {
         "body": "Využití indukce chyb po prudkém ovlivnění vnějších podmínek k testování změny chování algoritmu.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 34: náhlá změna operačních podmínek vyvolá změnu hodnoty a útočník sleduje změnu chování."
       },
       {
         "body": "Využití chybného běhu algoritmu po prudkém ovlivnění vnějších podmínek k získání tajných dat.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 34: chybným během lze obejít autentizaci či zkrátit algoritmus a získat tajná data."
       },
       {
         "body": "Jako první krok útoku je provedeno fyzického poškození.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 26 a 34: indukce chyb je logický útok, karta se fyzicky nepoškozuje."
       }
     ]
   },
@@ -1373,19 +1625,23 @@
     "answers": [
       {
         "body": "Špatná průkaznost nelegitimní autorizace platby pomocí PINu.",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 53: při platbě s PINem banka předpokládá držitele, nelegitimní platbu se těžko prokazuje."
       },
       {
         "body": "Možnost odpozorování PINu na frekventovaných místech.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 20: PIN lze odpozorovat při zadávání (pokus na FI MU: 35–80 % PINů)."
       },
       {
         "body": "Výpočetní výkon nepostačuje pro kryptografické zabezpečení transakcí.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 21: čipové karty mají nezanedbatelný výkon a kryptografické koprocesory."
       },
       {
         "body": "Velká obtížnost kopírování karty.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 43: obtížné kopírování je výhoda tokenu, ne problém."
       }
     ]
   },
@@ -1395,19 +1651,23 @@
     "answers": [
       {
         "body": "~128KB RAM, ~512KB ROM, ~512KB EEPROM",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 14: RAM karty má jen jednotky kB, ne 128 kB."
       },
       {
         "body": "> 256KB RAM, ~100KB ROM, < 100KB EEPROM",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 14: RAM nad 256 kB karty nemají, RAM je nejmenší paměť."
       },
       {
         "body": "< 100KB RAM, < 100KB ROM, > 1MB EEPROM",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 14: EEPROM má řádově x·100 kB, ne přes 1 MB."
       },
       {
         "body": "< 10KB RAM, ~100KB ROM, < 100KB EEPROM",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 14 a 22: RAM jednotky kB (6 kB), ROM ~100–200 kB, EEPROM do ~100 kB (72 kB)."
       }
     ]
   },
@@ -1417,19 +1677,23 @@
     "answers": [
       {
         "body": "Výzva je zadávána manuálně nebo automaticky načtena z vhodného média.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: přenos výzvy je manuální (klávesnice) nebo automatický (optika, čárový kód)."
       },
       {
         "body": "Přístup k využití kalkulátoru může být chráněn PINem.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: kalkulátory mají standardně PIN."
       },
       {
         "body": "Kalkulátor nelze zneužít i při znalosti PINu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 36: kdo má kalkulátor a zná PIN, může jej použít."
       },
       {
         "body": "Pracují na principu protokolu výzva/odpověď s využitím tajné informace.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: odpověď je funkcí tajného klíče a výzvy."
       }
     ]
   },
@@ -1439,19 +1703,23 @@
     "answers": [
       {
         "body": "Ochrana proti útoku rušením radiového signálu (RFID).",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: odolnost vůči narušení se týká neautorizované modifikace, ne rušení rádia."
       },
       {
         "body": "Vlastnost části systému chráněné proti neautorizované modifikaci podstatně lépe než zbylá část systému.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: tamper resistance = část systému chráněná proti modifikaci podstatně lépe než zbytek."
       },
       {
         "body": "Vlastnost části systému umožňující detekovat fyzický útok.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: detekovat útok je detekce narušení."
       },
       {
         "body": "Automatická akce provedená chráněnou částí při zjištění pokusu o narušení.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: automatická akce je odpověď na narušení."
       }
     ]
   },
@@ -1461,15 +1729,18 @@
     "answers": [
       {
         "body": "Pravým důvodem je přechod na letní/zimní čas a přestupné roky.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 40: problémem je ztráta synchronizace hodin a platnost časových rámců „před“ a „po“, ne letní čas nebo přestupné roky."
       },
       {
         "body": "Žádná z výše uvedených odpovědí.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 40: správná odpověď mezi možnostmi je – synchronizace hodin."
       },
       {
         "body": "Nutnost synchronizace drobných odchylek mezi serverem a tokenem.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 40: hodiny tokenu a serveru se rozcházejí, je třeba řešit ztrátu synchronizace (offset v čítači)."
       }
     ]
   },
@@ -1479,19 +1750,23 @@
     "answers": [
       {
         "body": "Útok přes aplikační rozhraní",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 29: útoky přes API jsou logické útoky."
       },
       {
         "body": "Časová analýza",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 29: časová analýza je logický útok."
       },
       {
         "body": "Ozařování čipu",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 27: ozařování (záření, laser) je semi-invazivní fyzický útok."
       },
       {
         "body": "Preparace čipu",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 27: preparace čipu je invazivní fyzický útok."
       }
     ]
   },
@@ -1501,19 +1776,23 @@
     "answers": [
       {
         "body": "Závislost průběhu odběru proudu na prováděné instrukci.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 32: různé operace mikrokódu používají různé množství tranzistorů."
       },
       {
         "body": "Závislost průběhu odběru proudu na ukládaných datech do paměti EEPROM.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 32–33: zápis 0 či 1 do paměti má výrazně odlišnou spotřebu."
       },
       {
         "body": "Data získaná odběrem vzorku paměti EEPROM.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 32: „odběr“ znamená odběr proudu, ne vzorku paměti; čtení paměti je invazivní útok (slide 27)."
       },
       {
         "body": "Závislost průběhu odběru proudu na zpracovávaných datech.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 32: spotřeba se mění podle zpracovávaných dat."
       }
     ]
   },
@@ -1523,19 +1802,23 @@
     "answers": [
       {
         "body": "Přístup k využití tokenu s hodinami musí být vždy chráněn PINem.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 40: tokeny s hodinami nejsou vždy součástí autentizačního kalkulátoru (např. RSA SecurID), PIN tedy není vždy nutný."
       },
       {
         "body": "Autentizační hodnota je vygenerována na základě aktuálního času a tajné informace.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 40: hodnota je jedinečná pro přístroj a daný okamžik, server ji umí spočítat také."
       },
       {
         "body": "Je potřeba řešit otázku synchronizace hodin mezi serverem a tokenem.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 40: je potřeba řešit ztrátu synchronizace hodin."
       },
       {
         "body": "Token s hodinami nelze použít bez přítomnosti klávesnice.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 40: tokeny s hodinami (RSA SecurID) mají jen displej, klávesnici nepotřebují."
       }
     ]
   },
@@ -1545,19 +1828,23 @@
     "answers": [
       {
         "body": "Snadné zjištění ztráty.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 43: snadné zjištění ztráty je výhoda tokenu."
       },
       {
         "body": "Snadná detekce a odpověď na narušení.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24 a 43: detekce a odpověď na narušení jsou pojmy bezpečnosti čipových karet, ne obecná výhoda tokenů."
       },
       {
         "body": "Obtížná kopírovatelnost.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 43: tokeny nejsou jednoduše kopírovatelné, to je výhoda."
       },
       {
         "body": "Možnost zpracovávání informací.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 43: zpracování informací je výhoda tokenu."
       }
     ]
   },
@@ -1567,19 +1854,23 @@
     "answers": [
       {
         "body": "Kontaktní karty s čipem.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 10 a 12: kontaktní čipové karty."
       },
       {
         "body": "SIM karty v mobilních telefonech.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 13: SIM karta je podoba čipové karty."
       },
       {
         "body": "Bezkontaktní karty s čipem.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 10 a 12: bezkontaktní čipové karty."
       },
       {
         "body": "Karty s bezkontaktním magnetickým proužkem.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 11: magnetický proužek se čte kontaktně hlavou čtečky; „bezkontaktní proužek“ neexistuje."
       }
     ]
   },
@@ -1589,19 +1880,23 @@
     "answers": [
       {
         "body": "Po narušení jsou stopy narušení obtížně odstranitelné.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: zjistitelnost narušení = neautorizovaná modifikace zanechává zjistitelné stopy."
       },
       {
         "body": "Při zjištění narušení je automaticky provedena chráněnou částí obranná akce.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: automatická obranná akce je odpověď na narušení."
       },
       {
         "body": "Odolnost proti pokusům o zjištění robustnosti vůči fyzickým útokům.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: robustnost vůči útokům je odolnost vůči narušení."
       },
       {
         "body": "Vlastnost části systému umožňující reagovat na fyzický útok.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: reakce na útok je odpověď na narušení."
       }
     ]
   },
@@ -1611,19 +1906,23 @@
     "answers": [
       {
         "body": "API mnohdy obsahuje četné chyby hodné důkladné analýzy.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 35: API sice chyby obsahuje, ale „chyba v rozhraní“ není chybová analýza (indukce chyb)."
       },
       {
         "body": "Chybová analýza je nezbytná součást každého útoku na a přes API.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 34–35: útok přes API chybovou analýzu nepotřebuje, posílá jen příkazy."
       },
       {
         "body": "Chybová analýza s útoky na a přes API nijak nesouvisí.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 26: obě techniky jsou samostatné logické útoky, jedna není součástí druhé."
       },
       {
         "body": "Každý útok na a přes API je nezbytnou součástí chybové analýzy.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 34–35: indukce chyb mění fyzické podmínky, útok přes API zneužívá chybu návrhu rozhraní; nesouvisí."
       }
     ]
   },
@@ -1633,19 +1932,23 @@
     "answers": [
       {
         "body": "Malá odolnost proti chybové analýze.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 11: magnetický proužek nemá procesor, chybová analýza se jej netýká."
       },
       {
         "body": "Relativně jednoduše se kopírují.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 11: magnetické karty se poměrně jednoduše kopírují."
       },
       {
         "body": "Autentizační podpis je součástí karty.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 11: autentizační podpis součástí karty s magnetickým proužkem není."
       },
       {
         "body": "Přítomný hologram se obtížně automatizovaně kontroluje.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 11: hologramy se obtížně kontrolují automaticky."
       }
     ]
   },
@@ -1655,19 +1958,23 @@
     "answers": [
       {
         "body": "Cena výroby jednoho kusu tokenu klesá při výrobě mnohakusové série.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 7: cena výroby v přepočtu na kus klesá při větších sériích."
       },
       {
         "body": "Cena padělání jednoho kusu klesá při uplatnitelnosti mnohakusové série padělku.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 6 a 8: pro padělání platí totéž co pro výrobu, cena kusu klesá, když se vyplatí série padělků."
       },
       {
         "body": "Cena padělání typicky nezávisí na počtu padělaných kusů.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 8: počet padělků je důležitý (motivace útočníka), cena na něm závisí."
       },
       {
         "body": "Relativní cena padělání se zvyšuje s každým dalším padělkem.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 7–8: relativní cena se s dalšími kusy snižuje, nezvyšuje."
       }
     ]
   },
@@ -1677,19 +1984,23 @@
     "answers": [
       {
         "body": "Umožňují provádění kryptografických operací symetrické a asymetrické kryptografie s využitím koprocesoru.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 21: karty zvládají symetrické algoritmy, asymetrické s koprocesorem."
       },
       {
         "body": "Umožňují pouze provádění kryptografických operací symetrické kryptografie.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 21: karty zvládají i asymetrické algoritmy (koprocesory)."
       },
       {
         "body": "Umožňují pouze provádění kryptografických operací asymetrické kryptografie.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 21: symetrické algoritmy běží na kartách bez problémů."
       },
       {
         "body": "Neumožňují provádění kryptografických operací.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 21: na kartě lze implementovat kryptografické algoritmy i protokoly."
       }
     ]
   },
@@ -1699,19 +2010,23 @@
     "answers": [
       {
         "body": "Ochrana proti fyzickému zkoušení PINu hrubou silou.",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 50: zkoušení PINu brání procedurální omezení počtu pokusů, ne fyzická bezpečnost."
       },
       {
         "body": "Odolnost proti útokům vyžadujícím fyzický přístup ke kartě.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: fyzická bezpečnost ztěžuje neautorizovaný fyzický přístup a tím útoky, které jej vyžadují."
       },
       {
         "body": "Fyzická překážka kolem čipu karty ztěžující neautorizovaný přístup.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: fyzická bezpečnost = překážka kolem systému ztěžující neautorizovaný fyzický přístup."
       },
       {
         "body": "Ochrana proti hloubkové odběrové analýze na úrovni procesoru.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 26 a 32: odběrová analýza je logický útok, proti ní fyzická překážka nepomůže."
       }
     ]
   },
@@ -1721,19 +2036,23 @@
     "answers": [
       {
         "body": "Využití indukce chyb do zpracování dat zaslaných přes aplikační rozhraní.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 34–35: indukce chyb je jiný útok (fyzické podmínky), API útok posílá jen data."
       },
       {
         "body": "Využití chyby v návrhu rozhraní.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 35: chyby návrhu API mohou útočníkovi umožnit neautorizovaný přístup k datům."
       },
       {
         "body": "Nezamýšleném dopadu zpracování útočníkem zaslaných specifických vstupních dat.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 35: útočník pošle specifická vstupní data, karta je zpracuje jinak, než autoři zamýšleli."
       },
       {
         "body": "Nedostupnosti aplikačního rozhraní vnitřnímu prostředí karty.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 35: API právě umožňuje volat rutiny karty, je dostupné."
       }
     ]
   },
@@ -1743,19 +2062,23 @@
     "answers": [
       {
         "body": "Data na kartě nemohou být po zápisu nikdy čtena ani měněna.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 17: přístup řídí hlavička souboru (ALW, CHV1, CHV2, NEV), „nikdy“ platí jen pro NEV."
       },
       {
         "body": "Založeno především na řízení přístupu k souborům.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 17: řízení přístupu je tvořeno především řízením přístupu k souborům."
       },
       {
         "body": "Každý soubor má přiřazenu hlavičku s přístupovými právy.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 17: s každým souborem je svázána hlavička s přístupovými právy."
       },
       {
         "body": "Data jsou uchována na magnetickém proužku a před použitím v čipu kontrolována.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 14: data čipové karty jsou v paměti čipu (EEPROM), ne na magnetickém proužku."
       }
     ]
   },
@@ -1765,19 +2088,23 @@
     "answers": [
       {
         "body": "Žádná z výše uvedených odpovědí.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: správná definice mezi možnostmi je – reakce chráněné části."
       },
       {
         "body": "Reakce nechráněné části systému na potencionální útok.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: reaguje chráněná část systému, ne nechráněná."
       },
       {
         "body": "Služba internetového bankovnictví umožňující automaticky detekovat a upozornit na aktivní nebezpečný software v počítači.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 24: odpověď na narušení je pojem z fyzické bezpečnosti karet, ne služba bankovnictví."
       },
       {
         "body": "Reakce chráněné části systému na probíhající pokus o útok.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 24: odpověď na narušení = automatická akce chráněné části při zjištění pokusu o narušení."
       }
     ]
   },
@@ -1787,19 +2114,23 @@
     "answers": [
       {
         "body": "Žádná z výše uvedených odpovědí.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 10–12: magneto-optické čipové karty v dělení karet neexistují, žádná možnost neplatí."
       },
       {
         "body": "Poskytují magneto-optické rozhraní pro vysokorychlostní a prokazatelně bezpečný přenos dat.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem; navíc „prokazatelně bezpečný“ přenos je typický znak nesprávné možnosti."
       },
       {
         "body": "Neumožňují provádění kryptografických operací i přesto, že obsahují sofistikovanější magneto-optický proužek. Každá z dvou komunikujících stran má svůj symetrický klíč.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem; navíc u symetrické kryptografie mají obě strany stejný klíč."
       },
       {
         "body": "Umožňují snímání čárových kódů zobrazovaných na monitoru při vstupu do internetového bankovnictví a jejich okamžité zpracování v čipu.",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 39: snímání kódu z obrazovky umí některé autentizační kalkulátory, ne karty."
       }
     ]
   },
@@ -1809,19 +2140,23 @@
     "answers": [
       {
         "body": "Kalkulátor s hodinami.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 10: autentizační kalkulátory s hodinami."
       },
       {
         "body": "Kalkulátor bez vstupní klávesnice.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: vstup může být automatický (optika, čárový kód), klávesnice není nutná."
       },
       {
         "body": "Kalkulátor s tajnou informací.",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 10: autentizační kalkulátory s tajnou informací."
       },
       {
         "body": "Kalkulátor s vestavěným budíkem (z angl. embedded alarm).",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: kalkulátory s budíkem se v IT bezpečnosti nepoužívají."
       }
     ]
   },
@@ -1831,19 +2166,23 @@
     "answers": [
       {
         "body": "uchování zpracovaných charakteristik včetně biometrických vzorků.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 50: komerční systémy ukládají jen zpracované charakteristiky; vzorky uchovává forenzní řešení."
       },
       {
         "body": "možnost opakovaného vytvoření nedostatečně kvalitních registračních vzorků.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 50: nedostatečně kvalitní registrační vzorky lze v komerčních systémech získat znovu."
       },
       {
         "body": "vyšší přesnost.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 50: vyšší přesnost mají forenzní řešení."
       },
       {
         "body": "plně automatizované systémy.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 50: komerční řešení jsou plně automatizovaná, forenzní vyžadují manuální zásahy."
       }
     ]
   },
@@ -1853,19 +2192,23 @@
     "answers": [
       {
         "body": "založeny na neopakovatelně měřitelných fyziologických nebo behaviorálních vlastnostech člověka.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 2 a 7: vlastnosti musí jít měřit opakovaně, jinak by nešlo porovnávat se vzorkem."
       },
       {
         "body": "založeny na opakovatelně měřitelných fyziologických nebo behaviorálních vlastnostech člověka.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 2: biometriky stojí na měřitelných fyziologických nebo behaviorálních vlastnostech."
       },
       {
         "body": "automatizované metody identifikace nebo ověření identity.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 2: biometriky jsou automatizované metody identifikace nebo ověření identity."
       },
       {
         "body": "i metody identifikace pomocí čipové karty obsahující vzorky člověka.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 2: čipová karta je token (něco, co máme), ne biometrika."
       }
     ]
   },
@@ -1875,19 +2218,23 @@
     "answers": [
       {
         "body": "polyadické",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „polyadický“ je z matematiky, typ snímače to není."
       },
       {
         "body": "optické",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 22: optické snímače."
       },
       {
         "body": "inkoustové (tryskové)",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 22: inkoust je způsob získání otisku bez snímače, ne typ snímače."
       },
       {
         "body": "kapacitní",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 22: křemíkové (kapacitní) snímače."
       }
     ]
   },
@@ -1897,19 +2244,23 @@
     "answers": [
       {
         "body": "legislativa a správa charakteristik.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 56: praktické problémy – správa charakteristik a legislativa."
       },
       {
         "body": "nízké FRR (nespokojení uživatelé z důvodu častého odmítnutí).",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 54: problémem je vysoké FRR (časté odmítání), ne nízké."
       },
       {
         "body": "uživatelé s poškozenými či chybějícími orgány.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 54: uživatelé s poškozenými nebo chybějícími orgány (FTE, FTA)."
       },
       {
         "body": "nízké FAR (aplikace s nízkou úrovní bezpečnosti).",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 54: problémem je vysoké FAR (přijetí útočníka), ne nízké."
       }
     ]
   },
@@ -1919,15 +2270,18 @@
     "answers": [
       {
         "body": "typicky dobře šifruje přenášená data pomocí kvalitních algoritmů.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 49: běžné komerční zařízení „opravdu není příliš bezpečné“, kvalitní šifrování nemívá."
       },
       {
         "body": "je vybaveno detekcí průniku nebo má zvýšenou odolnost proti průniku.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 49: ochranu proti průniku běžná zařízení nemívají."
       },
       {
         "body": "se neautentizuje vůči dalším komunikujícím.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 49: běžné komerční zařízení se neautentizuje (výrobce sám uvádí, že nejde o bezpečnostní prvek)."
       }
     ]
   },
@@ -1937,19 +2291,23 @@
     "answers": [
       {
         "body": "Algoritmy pracují na principu srovnávání vzorů (pattern matching) nebo neuronových sítí (neural networks).",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 40: algoritmy pracují na principu pattern matching nebo neuronových sítí."
       },
       {
         "body": "K autentizaci stačí běžná klávesnice.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 40: nevyžaduje speciální HW, stačí běžná klávesnice."
       },
       {
         "body": "Uživatele je možno autentizovat kontinuálně.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 40: možnost kontinuální autentizace uživatele."
       },
       {
         "body": "Měří se čas stlačení klávesy a čas mezi stisky kláves.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 40: měří se čas stlačení klávesy a čas mezi stisky kláves."
       }
     ]
   },
@@ -1959,19 +2317,23 @@
     "answers": [
       {
         "body": "genotypické",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: genotypické charakteristiky (geneticky založené, např. DNA)."
       },
       {
         "body": "fenotypické",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: fenotypické charakteristiky (ovlivněné prostředím, např. otisk prstu)."
       },
       {
         "body": "biomatické",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „biomatické“ charakteristiky neexistují."
       },
       {
         "body": "geotypické",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „geotypické“ je distraktor ke genotypickým."
       }
     ]
   },
@@ -1981,19 +2343,23 @@
     "answers": [
       {
         "body": "černobílé kamery.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 41: duhovka se snímá černobílou kamerou ze vzdálenosti x·10 cm."
       },
       {
         "body": "ultrafialového paprsku.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 41: ultrafialový paprsek se nepoužívá (infračervené světlo se používá u sítnice, slide 42)."
       },
       {
         "body": "laserového paprsku s třídou bezpečnosti 1.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 41: laser se ke snímání duhovky nepoužívá."
       },
       {
         "body": "kvalitní barevné kamery.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 41: barva není potřeba, používá se černobílá kamera."
       }
     ]
   },
@@ -2003,19 +2369,23 @@
     "answers": [
       {
         "body": "EDR (Error Disqualification Rate)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlená zkratka: EDR mezi chybami biometrik není."
       },
       {
         "body": "FRR (False Rejection Rate)",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 9 a 11: nesprávné odmítnutí (FRR = FNMR)."
       },
       {
         "body": "FAR (False Acceptance Rate)",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 9 a 11: nesprávné přijetí (FAR = FMR)."
       },
       {
         "body": "ARR (Acceptance Rejection Rate)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlená zkratka: ARR mezi chybami biometrik není."
       }
     ]
   },
@@ -2025,19 +2395,23 @@
     "answers": [
       {
         "body": "fenotypické",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: fenotypické/genotypické je jiné dělení (podle původu), ne statické/dynamické."
       },
       {
         "body": "genotypické",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: genotypické je dělení podle původu charakteristiky."
       },
       {
         "body": "fyziologické",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: fyziologické charakteristiky jsou statické."
       },
       {
         "body": "behaviorální",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: behaviorální charakteristiky vyžadují akci uživatele, nazývají se dynamické."
       }
     ]
   },
@@ -2047,23 +2421,28 @@
     "answers": [
       {
         "body": "morální",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: morální charakteristiky biometriky neměří."
       },
       {
         "body": "chemoterapický",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: „chemoterapický“ typ neexistuje."
       },
       {
         "body": "behaviorální",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: behaviorální charakteristiky (podpis, hlas)."
       },
       {
         "body": "environmentální",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 20: prostředí ovlivňuje chybovost, ale není typ charakteristiky."
       },
       {
         "body": "fyziologický",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: fyziologické charakteristiky (otisk prstu, geometrie ruky)."
       }
     ]
   },
@@ -2073,19 +2452,23 @@
     "answers": [
       {
         "body": "demonstraci",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: demonstrace není fáze použití biometrik."
       },
       {
         "body": "degustaci",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: degustace není fáze použití biometrik."
       },
       {
         "body": "verifikaci",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 4: 2. fáze – verifikace/identifikace (srovnání s registračním vzorkem)."
       },
       {
         "body": "registraci",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 4: 1. fáze – registrace (prvotní nasnímání)."
       }
     ]
   },
@@ -2095,19 +2478,23 @@
     "answers": [
       {
         "body": "jednoduchá správa vzorků.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 56: správa charakteristik je praktický problém, ne výhoda."
       },
       {
         "body": "rychlé a (relativně) přesné výsledky.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 53: rychlé a (relativně) přesné výsledky."
       },
       {
         "body": "nemůžeme je ztratit, zapomenout nebo předat jiné osobě.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 53: biometriku nemůžeme ztratit, zapomenout nebo lehce předat jiné osobě."
       },
       {
         "body": "jsou tajné.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 62 a 67: biometriky nejsou tajné."
       }
     ]
   },
@@ -2117,15 +2504,18 @@
     "answers": [
       {
         "body": "na ochranu přístupu k tajnému klíči.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 68: biometriky mohou výhodně chránit přístup k tajnému klíči."
       },
       {
         "body": "na autentizaci dat.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 68: biometriky autentizují uživatele, ne počítače, data nebo zprávy."
       },
       {
         "body": "na doplňkovou formu autentizace.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 70: výhodné je použití biometrik jako doplňkové metody."
       }
     ]
   },
@@ -2135,19 +2525,23 @@
     "answers": [
       {
         "body": "výsledek identifikace je získán obvykle za 1s či rychleji.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 51: forenzní výsledky mohou trvat i dny; za sekundy je to komerční řešení."
       },
       {
         "body": "miniaturizace zařízení je jedním z hlavním cílů.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 51: u forenzních řešení je velikost zařízení nedůležitá."
       },
       {
         "body": "pro používání je nutná odborná znalost systému.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 51: pro používání forenzních řešení je nutná odborná znalost systému."
       },
       {
         "body": "cena je vysoká, ale s tím se počítá.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 51: forenzní řešení mají vysokou cenu, ta však není nejdůležitější faktor."
       }
     ]
   },
@@ -2157,19 +2551,23 @@
     "answers": [
       {
         "body": "nejsou nikdy shodná na 100 %.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 7: biometrická data nejsou nikdy 100% shodná."
       },
       {
         "body": "jsou vždy shodná na 99 % a víc.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 7: žádná záruka 99% shody neexistuje, proto se povoluje variabilita."
       },
       {
         "body": "jsou typicky shodná na 100 %.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 8: 100% shoda je podezřelá – chyba nebo útok (útočník získal registrační data)."
       },
       {
         "body": "nejsou nikdy shodná na 100 % až na otisky prstů.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 7: platí pro všechny biometriky včetně otisků prstů."
       }
     ]
   },
@@ -2179,15 +2577,18 @@
     "answers": [
       {
         "body": "v samostatné odhlučněné komoře, pro odstranění okolního šumu.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 38–39: odhlučněná komora se nepoužívá, šum z okolí naopak výsledky zhoršuje."
       },
       {
         "body": "využitím telefonu.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 38: snímá se i telefonem (jeho mikrofonem), typicky na dálku."
       },
       {
         "body": "pomocí soustavy mikrofonů rozmístěných ve vzdálenosti cca 0,5 m ve 4 směrech.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 38: stačí jeden mikrofon (kvalitní, běžný nebo telefon), ne soustava mikrofonů."
       }
     ]
   },
@@ -2197,19 +2598,23 @@
     "answers": [
       {
         "body": "Kombinace IP adresy a tajného klíče symetrické kryptografie",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 13 a 17: adresa kombinovaná s tajnou informací (např. .rhosts s RSA autentizací, slide 19)."
       },
       {
         "body": "Privátním klíčem asymetrické kryptografie",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 13: autentizace na základě tajné informace – asymetrická kryptografie."
       },
       {
         "body": "Tajným klíčem symetrické kryptografie",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 13: autentizace na základě tajné informace – symetrická kryptografie."
       },
       {
         "body": "Kombinace IP, MAC, GUID (global unique identifier)",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 13–14: autentizace podle adresy (MAC, IP) je možná, i když slabá; GUID je další identifikátor stejného druhu (obecná znalost)."
       }
     ]
   },
@@ -2219,19 +2624,23 @@
     "answers": [
       {
         "body": "Jedná se o velice výpočetně náročnou metodu autentizace.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 43: „velice výpočetně náročné“, verifikace až několik vteřin – pravda, nezaškrtávat."
       },
       {
         "body": "Autentizaci komplikuje změna účesu, náušnice a brýle.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 43: účes, brýle, náušnice autentizaci komplikují – pravda, nezaškrtávat."
       },
       {
         "body": "Autentizaci komplikuje osvětlení a pozadí.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 43: problém osvětlení a pozadí – pravda, nezaškrtávat."
       },
       {
         "body": "Přesnost se v posledních 5 letech příliš nezlepšila.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 43: přesnost se v posledních 5 letech výrazně zlepšila, tvrzení je nepravdivé."
       }
     ]
   },
@@ -2241,19 +2650,23 @@
     "answers": [
       {
         "body": "aretačně-dynamický tablet.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „aretačně-dynamický“ tablet neexistuje, stačí tablet nebo speciální snímač."
       },
       {
         "body": "pořadí jednotlivých tahů pera.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 36: důležitý je způsob (dynamika) psaní, např. pořadí tahů."
       },
       {
         "body": "čas potřebný pro provedení podpisu.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 36: dynamika psaní zahrnuje i čas potřebný pro podpis."
       },
       {
         "body": "výsledný podpis.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 36–37: rozhoduje způsob psaní (pořadí tahů, čas); často se klade důraz jen na dynamiku bez ohledu na výsledný podpis (slide 36 ale říká „nejen výsledný podpis“)."
       }
     ]
   },
@@ -2263,15 +2676,18 @@
     "answers": [
       {
         "body": "biometrická data jsou tajná.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 62: biometriky nejsou tajné."
       },
       {
         "body": "biometrická data mohou být velmi citlivé informace.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 62: biometriky mohou být velmi citlivé informace."
       },
       {
         "body": "kopírování biometrik nemusí být triviální, ale není obtížné.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 62: kopírování nemusí být triviální, ale není obtížné."
       }
     ]
   },
@@ -2281,19 +2697,23 @@
     "answers": [
       {
         "body": "fenotypické",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: fenotypické je dělení podle původu, ne statické/dynamické."
       },
       {
         "body": "genotypické",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: genotypické je dělení podle původu."
       },
       {
         "body": "fyziologické",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 21: fyziologické charakteristiky se nazývají též statické."
       },
       {
         "body": "behaviorální",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 21: behaviorální charakteristiky jsou dynamické."
       }
     ]
   },
@@ -2303,23 +2723,28 @@
     "answers": [
       {
         "body": "ověření mluvčího.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 47: ověření mluvčího bylo dříve mezi nejslibnějšími technologiemi; slajd 2026 dodává, že kvůli deepfakes už to neplatí, otázka vychází ze staršího znění."
       },
       {
         "body": "snímání oční duhovky.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 47: duhovka patří mezi nejslibnější (vynikající přesnost)."
       },
       {
         "body": "DNA.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 47–48: DNA mezi nejslibnějšími není (cena, doba analýzy)."
       },
       {
         "body": "tvar ruky.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 35 a 47: tvar ruky není jedinečný a mezi nejslibnějšími není."
       },
       {
         "body": "otisk prstu.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 47: otisk prstu patří mezi nejslibnější."
       }
     ]
   },
@@ -2329,19 +2754,23 @@
     "answers": [
       {
         "body": "Významný bod v otisku prstu.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 29–30: markanty jsou významné body otisku prstu."
       },
       {
         "body": "Biometrická technologie s významně vysokou hodnotou EER.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený význam: markanta není technologie ani hodnota EER."
       },
       {
         "body": "Výrazné poškození dané biometriky u konkrétního uživatele.",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený význam: markanta není poškození biometriky."
       },
       {
         "body": "Zpracovaný obraz oční duhovky se zvýrazněnými přechody.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 41: duhovka se popisuje iriscodem, markanty patří k otiskům prstů."
       }
     ]
   },
@@ -2351,23 +2780,28 @@
     "answers": [
       {
         "body": "Snímače snímají 2D snímky ruky mikrokamerami ve fixačních kolících.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 34: fixační kolíky ruku jen polohují, nejsou v nich mikrokamery."
       },
       {
         "body": "Snímače snímají 2D snímky ruky shora, zespodu a ze stran (dohromady 4 snímky, u špičkových zařízení i 5-6).",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 34: snímače snímají 2D nebo 3D, ne čtyři až šest snímků ze všech stran."
       },
       {
         "body": "Snímače snímají zjednodušený 3D náhled ruky.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 34: snímače snímají 2D nebo (zjednodušené) 3D."
       },
       {
         "body": "Tvar ruky není jedinečný (ve skupinách o tisících uživatelů).",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 34–35: tvar ruky není jedinečný, nevhodné pro identifikaci."
       },
       {
         "body": "Tvar ruky je jedinečný (ve skupinách o tisících uživatelů).",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 35: tvar ruky jedinečný není."
       }
     ]
   },
@@ -2377,19 +2811,23 @@
     "answers": [
       {
         "body": "Protože biometrická data nejsou nikdy 100 % shodná.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 7: biometrická data nejsou nikdy 100% shodná."
       },
       {
         "body": "Protože buňky mají přirozenou tendenci obnovovat se a tudíž mohou vznikat malé odlišnosti.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 7: důvodem není obnova buněk, ale principiální nepřesnost každého měření."
       },
       {
         "body": "Z důvodu možné transplantace orgánu, aby i po ní bylo snímání možné.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 7: variabilita se nepovoluje kvůli transplantacím, ale kvůli rozdílům mezi měřeními."
       },
       {
         "body": "Pokud je registrační vzorek nasnímám opravdu kvalitně, tak variabilita nemusí být povolena.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 7: variabilitu je nutné povolit vždy, i při kvalitním registračním vzorku."
       }
     ]
   },
@@ -2399,19 +2837,23 @@
     "answers": [
       {
         "body": "Schopnosti a motivaci uživatelů.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 20: uživatelé – trénovaní/nováčci a jejich motivace."
       },
       {
         "body": "Nastavení systému.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 20: nastavení (počet pokusů, omezení kvality vzorků)."
       },
       {
         "body": "Typu snímače.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 20: typ snímače, používání různých typů snímačů."
       },
       {
         "body": "Okolním prostředí.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 20: prostředí (vnitřní, venkovní, zdroje světla)."
       }
     ]
   },
@@ -2421,23 +2863,28 @@
     "answers": [
       {
         "body": "geometrie (tvaru) nohy",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 45: geometrie nohy mezi biometrikami není, je tam geometrie ruky."
       },
       {
         "body": "vzor oční panenky",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 41–42: používá se duhovka a sítnice, panenka (zornice) ne."
       },
       {
         "body": "dynamika pohybu hlavy",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 45: přehled uvádí pohyby tváře, ne dynamiku pohybu hlavy."
       },
       {
         "body": "otisk prstu",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 22 a 45: otisk prstu se běžně používá."
       },
       {
         "body": "srovnání obličeje",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 43: rozpoznání (srovnání) obličeje se používá."
       }
     ]
   },
@@ -2447,19 +2894,23 @@
     "answers": [
       {
         "body": "nasazená čepice.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 43–44: čepice zakrývá část obličeje, kvalitu snímku zhoršuje."
       },
       {
         "body": "pestré a barevné pozadí.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 43: problémem je osvětlení a pozadí."
       },
       {
         "body": "nasazené kontaktní čočky.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 43–44: kontaktní čočky vzhled obličeje nemění (vadit mohou spíše u duhovky)."
       },
       {
         "body": "zavřené oči.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 44: zavřené oči kvalitu snímku podle ISO 19794-5 zhoršují."
       }
     ]
   },
@@ -2469,19 +2920,23 @@
     "answers": [
       {
         "body": "zvýšení ceny zařízení.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 55: testování živosti zvětšuje zařízení a zvyšuje náklady i cenu – dopad má."
       },
       {
         "body": "nepříjemné pocity brnění v oblasti testovaného vzorku.",
-        "right": true
+        "right": true,
+        "comment": "L4, slide 55: brnění mezi dopady není, testování živosti uživatele nijak nedráždí."
       },
       {
         "body": "zvýšený počet nesprávných odmítnutí.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 55: zvýšený počet nesprávných odmítnutí je dopad testování živosti."
       },
       {
         "body": "vyšší náklady na vývoj a výrobu.",
-        "right": false
+        "right": false,
+        "comment": "L4, slide 55: vyšší náklady na vývoj a výrobu jsou dopad testování živosti."
       }
     ]
   },
@@ -2491,19 +2946,23 @@
     "answers": [
       {
         "body": "Časové razítko",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): tiket obsahuje časové razítko a dobu platnosti (ochrana proti přehrání)."
       },
       {
         "body": "Náhodná výzva",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos staví na časových razítkách, ne na náhodné výzvě v tiketu."
       },
       {
         "body": "Soukromý klíč",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos je symetrický, soukromé klíče nepoužívá."
       },
       {
         "body": "Identifikátor alespoň jedné ze stran",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): tiket obsahuje identitu klienta a serveru a klíč relace, zašifrováno klíčem serveru."
       }
     ]
   },
@@ -2513,19 +2972,23 @@
     "answers": [
       {
         "body": "Autokracii",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: autokracie je forma vlády."
       },
       {
         "body": "Aprobaci",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: aprobace (schválení) Kerberos neprovádí."
       },
       {
         "body": "Autentizaci",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos je autentizační protokol (s distribucí klíčů relace)."
       },
       {
         "body": "Akumulaci",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: akumulace s Kerberem nesouvisí."
       }
     ]
   },
@@ -2535,19 +2998,23 @@
     "answers": [
       {
         "body": "Ničeho - ke spolehlivé autentizaci stačí 1 kolo protokolu",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): jedno kolo podvodník projde s pravděpodobností až 1/2, proto se kola opakují."
       },
       {
         "body": "Zvýšení bezpečnosti - sníží se pravděpodobnost, že nepoctivý útočník se může úspěšně vydávat za jinou stranu",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): po k kolech projde podvodník s pravděpodobností (1/2)^k; opakování zvyšuje korektnost."
       },
       {
         "body": "Ničeho - nezvýší se záruka, že nedojde k rozšíření žádných znalostí",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): nulové rozšíření znalostí platí pro každé kolo; opakování zvyšuje korektnost."
       },
       {
         "body": "Zvýšení bezpečnosti - zvýší se záruka, že nedojde k rozšíření žádných znalostí",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): opakování nemění nulovou znalost, zvyšuje jistotu, že podvodník neuspěje."
       }
     ]
   },
@@ -2557,27 +3024,33 @@
     "answers": [
       {
         "body": "Náhodná komplexní čísla",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): komplexní čísla se v protokolech jako časově proměnné parametry nepoužívají."
       },
       {
         "body": "Monoliticky rostoucí sekvence",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): sekvenční (monotónně rostoucí) čísla jsou časově proměnný parametr, ale možnost je zadána zkomoleně („monoliticky“), proto je vedena jako nesprávná."
       },
       {
         "body": "Náhodná časová razítka",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): časové razítko musí obsahovat skutečný čas, ne náhodný."
       },
       {
         "body": "Náhodná čísla",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): náhodná čísla (nonce) zajišťují čerstvost a jedinečnost."
       },
       {
         "body": "Náhodné sekvence",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): pojem „náhodné sekvence“ mezi časově proměnnými parametry není."
       },
       {
         "body": "Časová razítka",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): časová razítka – příjemce přijme jen čerstvou zprávu (např. Kerberos)."
       }
     ]
   },
@@ -2587,19 +3060,23 @@
     "answers": [
       {
         "body": "Implicitně je autentizace serveru povinná, autentizace klienta je volitelná.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): TLS standardně autentizuje server certifikátem, autentizace klienta je volitelná."
       },
       {
         "body": "Implicitně je autentizace serveru i klienta vypnuta.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizace serveru je ve výchozím stavu zapnuta."
       },
       {
         "body": "Implicitně je autentizace serveru a klienta povinná.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizace klienta je volitelná, povinná je jen serveru."
       },
       {
         "body": "SSL/TLS protokol neprovádí elektronické podepisování dat.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): záznamy TLS chrání MAC (AEAD), data se nepodepisují; podpis se objevuje jen v handshake."
       }
     ]
   },
@@ -2609,19 +3086,23 @@
     "answers": [
       {
         "body": "Překladový režim.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): IPsec má jen transportní a tunelovací režim; překladový režim neexistuje."
       },
       {
         "body": "Dynamický virtuální režim.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): dynamický virtuální režim v IPsec neexistuje."
       },
       {
         "body": "Tunelovací režim.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): tunelovací režim IPsec podporuje (šifruje celý původní paket, např. VPN)."
       },
       {
         "body": "Transportní režim.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): transportní režim IPsec podporuje (chrání data paketu)."
       }
     ]
   },
@@ -2631,15 +3112,18 @@
     "answers": [
       {
         "body": "Symetrická",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): základní Kerberos používá symetrickou kryptografii a důvěryhodný server (KDC)."
       },
       {
         "body": "Hybridní",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): hybridní kryptografii základní Kerberos nepoužívá (asymetrická rozšíření jako PKINIT jsou pozdější)."
       },
       {
         "body": "Asymetrická",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): základní verze asymetrickou kryptografii nepoužívá."
       }
     ]
   },
@@ -2649,19 +3133,23 @@
     "answers": [
       {
         "body": "Generátorech passcode",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): generátory passcode slouží k výpočtu jednorázových kódů, AKEP2 je nepoužívá."
       },
       {
         "body": "Algoritmu MAC (Message Authentication Code)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): AKEP2 zajišťuje autentizaci i nový klíč pomocí MAC se sdíleným dlouhodobým klíčem."
       },
       {
         "body": "Digitálních podpisech",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): AKEP2 je symetrický protokol, podpisy nepoužívá."
       },
       {
         "body": "Bezklíčových kryptografických hašovacích funkcích",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): hašovací funkce bez klíče nic neautentizuje, AKEP2 potřebuje klíčovanou funkci (MAC)."
       }
     ]
   },
@@ -2671,19 +3159,23 @@
     "answers": [
       {
         "body": "Protokoly implementované v Kerberu",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos rozdává klíč relace, který obě strany sdílejí."
       },
       {
         "body": "Zero-knowledge protokoly (protokoly s nulovým rozšířením znalostí)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): zero-knowledge protokoly jen prokazují znalost, žádný sdílený klíč nevytvoří."
       },
       {
         "body": "Protokoly pro ustavení klíče",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): protokoly pro ustavení klíče mají vytvoření sdíleného tajemství za cíl."
       },
       {
         "body": "Silné autentizační protokoly",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): silná autentizace ověřuje identitu, sama sdílené tajemství nevytváří."
       }
     ]
   },
@@ -2693,19 +3185,23 @@
     "answers": [
       {
         "body": "Message Authentication Code se sekvenčním číslem.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): AH chrání pakety MAC (HMAC) a sekvenčním číslem proti přehrání."
       },
       {
         "body": "Diffie-Hellman autentizace bez klíčů.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): Diffie-Hellman „bez klíčů“ není mechanismus AH."
       },
       {
         "body": "Digitální podpis využívající RSA nebo DSA.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): AH používá symetrický MAC, ne digitální podpis."
       },
       {
         "body": "Message Authentication Code s náhodným číslem.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): proti přehrání slouží sekvenční číslo, ne náhodné číslo."
       }
     ]
   },
@@ -2715,19 +3211,23 @@
     "answers": [
       {
         "body": "na datové vrstvě",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): TLS nefunguje na „datové“ (linkové) vrstvě."
       },
       {
         "body": "na síťové vrstvě",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): na síťové vrstvě funguje IPsec, ne TLS."
       },
       {
         "body": "mezi aplikační a transportní vrstvou",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): TLS leží nad TCP (transportní vrstva) a pod aplikací (HTTPS)."
       },
       {
         "body": "na linkové vrstvě",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): linková vrstva je nejnižší, TLS funguje výše."
       }
     ]
   },
@@ -2737,19 +3237,23 @@
     "answers": [
       {
         "body": "SSL/TLS protokol zajišťuje integritu a autenticitu dat.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): záznamy TLS chrání MAC, tedy integritu a autenticitu dat."
       },
       {
         "body": "Po průběhu Handshake protokolu je komunikace šifrována symetrickým klíčem.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): handshake dohodne klíč relace a data se pak šifrují symetricky."
       },
       {
         "body": "Autentizace komunikujících stran je založena na symetrické kryptografii.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizace stran v TLS používá certifikáty, tedy asymetrickou kryptografii."
       },
       {
         "body": "Po úvodní Handshake protokolu je komunikace šifrována veřejným klíčem příjemce.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): asymetrické šifrování je pomalé, data se šifrují symetrickým klíčem relace (viz L1, slide 26)."
       }
     ]
   },
@@ -2759,11 +3263,13 @@
     "answers": [
       {
         "body": "Challenge-response protokoly (protokoly výzva-odpověď)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): výzva-odpověď se běžně používá (kalkulátory, FIDO, HMAC), L3, slide 36."
       },
       {
         "body": "Zero-knowledge protokoly (protokoly s nulovým rozšířením znalostí)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): zero-knowledge protokoly jsou v běžných aplikacích vzácné (více kol, složitější)."
       }
     ]
   },
@@ -2773,19 +3279,23 @@
     "answers": [
       {
         "body": "Úplné uspokojení (complete satisfaction)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „úplné uspokojení“ mezi vlastnostmi ZK protokolů není."
       },
       {
         "body": "Korektnost (soundness)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): korektnost se týká nepoctivého útočníka, ne poctivých stran."
       },
       {
         "body": "Částečné uspokojení (partial satisfaction)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „částečné uspokojení“ mezi vlastnostmi ZK protokolů není."
       },
       {
         "body": "Úplnost (completeness)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): úplnost = poctivý dokazovatel, který tajemství zná, ověřovatele vždy přesvědčí."
       }
     ]
   },
@@ -2795,19 +3305,23 @@
     "answers": [
       {
         "body": "Nepopiratelnost přijetí dat.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): IPsec používá symetrický MAC, chybí podpis a potvrzení přijetí; nepopiratelnost nezajistí."
       },
       {
         "body": "Důvěrnost dat, ochrana proti přehrání.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): ESP šifruje (důvěrnost) a sekvenční čísla chrání proti přehrání – IPsec to zajišťuje."
       },
       {
         "body": "Integrita a autentizace původu dat.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): AH i ESP zajišťují integritu a autentizaci původu dat."
       },
       {
         "body": "Ochranu proti analýze šifrovaného provozu na síťové vrstvě.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): IPsec skryje obsah paketů, ale útočník stále vidí, kdo s kým komunikuje a kolik dat se přenáší."
       }
     ]
   },
@@ -2817,19 +3331,23 @@
     "answers": [
       {
         "body": "Úplné uspokojení (complete satisfaction)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „úplné uspokojení“ mezi vlastnostmi ZK protokolů není."
       },
       {
         "body": "Korektnost (soundness)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): korektnost (soundness) = podvodník bez tajemství uspěje jen se zanedbatelnou pravděpodobností."
       },
       {
         "body": "Úplnost (completeness)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): úplnost se týká poctivého dokazovatele, ne útočníka."
       },
       {
         "body": "Částečné uspokojení (partial satisfaction)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „částečné uspokojení“ mezi vlastnostmi ZK protokolů není."
       }
     ]
   },
@@ -2839,23 +3357,28 @@
     "answers": [
       {
         "body": "Protokoly pro ustavení klíče",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): protokoly pro ustavení klíče jsou obecný typ."
       },
       {
         "body": "Autentizační protokoly bez ustavení klíče",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizační protokoly bez ustavení klíče (např. výzva-odpověď) existují."
       },
       {
         "body": "Autentizované protokoly pro ustavení klíče",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizované ustavení klíče – např. Diffie-Hellman s podpisy, TLS handshake."
       },
       {
         "body": "Neautentizované protokoly pro ustavení klíče",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): neautentizované ustavení klíče – např. základní Diffie-Hellman."
       },
       {
         "body": "Zero-knowledge protokoly (protokoly s nulovým rozšířením znalostí) pro ustavení klíče.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): zero-knowledge protokoly slouží jen k autentizaci, klíč nevytvoří."
       }
     ]
   },
@@ -2865,19 +3388,23 @@
     "answers": [
       {
         "body": "Autentizace komunikujících stran je založena na asymetrické kryptografii.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): strany se v TLS autentizují certifikáty, tedy asymetricky."
       },
       {
         "body": "SSL/TLS protokol umožňuje vzájemnou autentizaci serveru a klienta.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): TLS umožňuje autentizovat server i klienta (klientský certifikát)."
       },
       {
         "body": "Implicitně je autentizace serveru a klienta povinná.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): povinná je jen autentizace serveru, klienta volitelná."
       },
       {
         "body": "SSL/TLS protokol nezajišťuje důvěrnost dat.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): TLS zajišťuje důvěrnost – data šifruje symetrickým klíčem relace."
       }
     ]
   },
@@ -2887,19 +3414,23 @@
     "answers": [
       {
         "body": "Dynamický virtuální režim.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): dynamický virtuální režim v IPsec neexistuje."
       },
       {
         "body": "Tunelovací režim.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): tunelovací režim IPsec podporuje."
       },
       {
         "body": "Transportní režim.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): transportní režim IPsec podporuje."
       },
       {
         "body": "Překladový režim.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): překladový režim v IPsec neexistuje."
       }
     ]
   },
@@ -2909,19 +3440,23 @@
     "answers": [
       {
         "body": "Handshake protokol.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): Handshake protokol dohodne algoritmy, autentizuje strany a ustaví klíč relace."
       },
       {
         "body": "IPSec protokol.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): IPsec je samostatný protokol síťové vrstvy, ne součást TLS."
       },
       {
         "body": "Record Layer protokol.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): Record Layer šifruje přenášená data a připojuje MAC."
       },
       {
         "body": "Kerberos protokol.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos je samostatný autentizační protokol, ne součást TLS."
       }
     ]
   },
@@ -2931,19 +3466,23 @@
     "answers": [
       {
         "body": "Zero-knowledge protokoly (protokoly s nulovým rozšířením znalostí)",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 3: zero-knowledge protokoly jsou metoda autentizace, dávají jistotu o identitě."
       },
       {
         "body": "Protokoly pro ustavení klíče",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): neautentizované ustavení klíče (základní Diffie-Hellman) o identitě nic nezaručuje."
       },
       {
         "body": "Protokoly implementované v Kerberu",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): Kerberos je autentizační protokol."
       },
       {
         "body": "Autentizační protokoly",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): autentizační protokoly ověřují identitu druhé strany."
       }
     ]
   },
@@ -2953,27 +3492,33 @@
     "answers": [
       {
         "body": "Náhodná časová razítka (platná po určitou dobu - typicky několik desítek hodin)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): časové razítko je časově proměnné; razítko navíc nemá být náhodné."
       },
       {
         "body": "XOR hodnotou \"-1\" pro modifikaci náhodné výzvy (tzv. keksík)",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: „keksík“ je zkomolené anglické cookie."
       },
       {
         "body": "Komplexní čísla s fixní imaginární i reálnou složkou",
-        "right": false
+        "right": false,
+        "comment": "Vymyšlený pojem: komplexní čísla se v protokolech nepoužívají."
       },
       {
         "body": "Žádné z uvedených",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): v protokolech se používají jen časově proměnné parametry (nonce); konstantní by šly přehrát."
       },
       {
         "body": "Sekvenční číslo (jeho hodnota závisí na implementaci)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): sekvenční číslo se s každou zprávou mění, je časově proměnné."
       },
       {
         "body": "V omezeném čase monoliticky rostoucí sekvence (zabraňují tzv. borcení časové osy)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): rostoucí sekvence se mění, není konstantní; „borcení časové osy“ je vymyšlený pojem."
       }
     ]
   },
@@ -2983,19 +3528,23 @@
     "answers": [
       {
         "body": "ESP nemá zajištěnu integritu a autenticitu dat, zajišťuje pouze důvěrnost dat.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nepravdivé tvrzení: ESP může zajistit i integritu a autenticitu (MAC)."
       },
       {
         "body": "ESP zajišťuje obranu proti analýze šifrovaného provozu na úrovni síťové vrstvy.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nepravdivé tvrzení: obsah se šifruje, ale kdo s kým a kolik komunikuje zůstává vidět."
       },
       {
         "body": "ESP zajišťuje integritu, autenticitu a důvěrnost dat.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): pravdivé tvrzení: ESP zajišťuje integritu, autenticitu i důvěrnost."
       },
       {
         "body": "ESP zajišťuje integritu, autenticitu a důvěrnost dat, nezajišťuje však obranu proti útoku přehráním.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nepravdivé tvrzení: ESP má sekvenční čísla a ochranu proti přehrání."
       }
     ]
   },
@@ -3005,23 +3554,28 @@
     "answers": [
       {
         "body": "Funguje obzvláště dobře (a prokazatelně bezpečně) jen při použití One-Time Pad",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): s XOR (one-time pad) je protokol nebezpečný: XOR tří zpráv odhalí klíč."
       },
       {
         "body": "Nevyžaduje žádné ustavení sdílených klíčů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): každá strana má jen svůj tajný exponent, nic se předem nesdílí."
       },
       {
         "body": "Umožňuje vzájemnou autentizaci",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): protokol nikoho neautentizuje, je zranitelný útokem man-in-the-middle."
       },
       {
         "body": "Prokazuje, že P!=NP",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: problém P vs NP je nevyřešený a s protokolem nesouvisí."
       },
       {
         "body": "Vyžaduje komutativní šifrovací algoritmus",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): strana musí sundat svůj „zámek“ pod cizím, proto je nutné komutativní šifrování (umocňování mod p)."
       }
     ]
   },
@@ -3031,19 +3585,23 @@
     "answers": [
       {
         "body": "4",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): protokol používá tři zprávy, čtyři nejsou potřeba."
       },
       {
         "body": "3",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): A pošle K^a, B vrátí K^{ab}, A pošle K^b; B pak odstraní svůj exponent."
       },
       {
         "body": "žádná z těchto odpovědi není správná",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): správná odpověď (3) mezi možnostmi je."
       },
       {
         "body": "2",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): po dvou zprávách je klíč stále zamčen oběma exponenty."
       }
     ]
   },
@@ -3053,19 +3611,23 @@
     "answers": [
       {
         "body": "Důvěrnost dat, ochrana proti útoku přehráním.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): ESP šifruje data a sekvenční čísla chrání proti přehrání."
       },
       {
         "body": "Autentizace a integrita původu dat.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): AH i ESP zajišťují integritu a autentizaci původu dat."
       },
       {
         "body": "Podporu správy klíčů.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): správu klíčů IPsec podporuje (protokol IKE)."
       },
       {
         "body": "Nepopiratelnost přijetí dat.",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): IPsec používá symetrický MAC, nepopiratelnost nezajišťuje."
       }
     ]
   },
@@ -3075,27 +3637,33 @@
     "answers": [
       {
         "body": "Stálost a stabilitu",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: náhodná čísla se mají naopak měnit."
       },
       {
         "body": "Aktuálnost",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nonce dokazuje, že zpráva patří k aktuálnímu běhu protokolu."
       },
       {
         "body": "Čerstvost",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): odpověď s novým náhodným číslem musela vzniknout teď, ne dřív."
       },
       {
         "body": "Nezvratnost",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): nevratnost je vlastnost hašovací funkce, ne náhodného čísla."
       },
       {
         "body": "Odolnost proti uváznutí a stárnutí",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: uváznutí a stárnutí jsou pojmy z operačních systémů."
       },
       {
         "body": "Jedinečnost",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): každé náhodné číslo je jiné, stará odpověď k nové výzvě nesedí."
       }
     ]
   },
@@ -3105,19 +3673,23 @@
     "answers": [
       {
         "body": "Autentizační agent se u ssh nepoužívá, neboť je použita asymetrická kryptografie.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 24: ssh-agent se používá právě kvůli asymetrickým klíčům uživatele."
       },
       {
         "body": "Automaticky autentizuje server vůči uživateli bez nutnosti zadávat opakovaně heslo.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 24: agent autentizuje uživatele vůči serveru; server se prokazuje host key (slide 22)."
       },
       {
         "body": "K autentizaci dat přenášených mezi serverem a uživatelem.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 24: agent řeší jen autentizaci uživatele při přihlášení, ne ochranu přenášených dat."
       },
       {
         "body": "Opakované požadavky vyžadující heslo řeší agent po prvním zadání automaticky.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 24: passphrase zadám jen jednou, agent uloží klíč do paměti a řeší další požadavky."
       }
     ]
   },
@@ -3127,19 +3699,23 @@
     "answers": [
       {
         "body": "Autentizace pomocí IP adresy je výrazně bezpečnější než autentizace pomocí MAC adresy.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 15: IP i MAC adresu lze změnit, žádná není výrazně bezpečnější."
       },
       {
         "body": "Autentizace pomocí IP adresy může být použita pouze v kombinaci s MAC adresou.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 14: autentizace podle IP se používá i samostatně (paketové filtry, řízení přístupu)."
       },
       {
         "body": "Autentizace pomocí IP adresy je výrazně méně bezpečná než autentizace pomocí MAC adresy.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 15: i MAC adresa není tajná a lze ji jednoduše změnit."
       },
       {
         "body": "Autentizace pomocí IP adresy není spolehlivá, protože IP může být změněna.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 15: IP adresu lze změnit nebo podvrhnout (IP spoofing)."
       }
     ]
   },
@@ -3149,19 +3725,23 @@
     "answers": [
       {
         "body": "Podvržení IP adresy odesílatele.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 15: IP spoofing = nesprávně uvedená zdrojová adresa (odesílatele)."
       },
       {
         "body": "Zachycení IP adresy odesílatele i příjemce.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 15: spoofing adresu podvrhuje, ne zachycuje."
       },
       {
         "body": "Zachycení IP odesílatele.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 15: zachycení není podvržení."
       },
       {
         "body": "Podvržení IP adresy příjemce.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 15: podvrhuje se zdrojová adresa odesílatele, ne příjemce."
       }
     ]
   },
@@ -3171,19 +3751,23 @@
     "answers": [
       {
         "body": "Ochranu proti distribuovanému odmítnutí služby.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): ssh je kryptografický protokol, proti zahlcení serveru nechrání."
       },
       {
         "body": "Autentizaci uživatele.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19: ssh autentizuje uživatele (klienta)."
       },
       {
         "body": "Ochranu proti analýze provozu.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): obsah je šifrovaný, ale kdo s kým a kolik komunikuje zůstává vidět."
       },
       {
         "body": "Autentizaci serveru.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19 a 22: ssh autentizuje server (host key, known_hosts)."
       }
     ]
   },
@@ -3193,19 +3777,23 @@
     "answers": [
       {
         "body": "RSA autentizaci klienta.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 19: RSA/DSA/ECDSA autentizace klienta."
       },
       {
         "body": "Stroje uvedené v souborech .rhosts nebo hosts.equiv.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 19: .rhosts nebo /etc/hosts.equiv (i s RSA autentizací počítače)."
       },
       {
         "body": "Heslem uživatele bez autentizace serveru.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19: heslo se posílá až po autentizaci serveru; ssh server autentizuje vždy."
       },
       {
         "body": "Využitím protokolu pro nulové rozšíření znalosti.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19: zero-knowledge protokol mezi metodami autentizace klienta není."
       }
     ]
   },
@@ -3215,19 +3803,23 @@
     "answers": [
       {
         "body": "Odposlech hesla a pozdější přehrání (na síťové vrstvě)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): ssh šifruje heslo, odposlech v síti a přehrání nepomůže."
       },
       {
         "body": "Odposlech hesla a pozdější přehrání (na uživatelově PC)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): keylogger na PC zachytí heslo před zašifrováním, proti tomu ssh nechrání."
       },
       {
         "body": "Analýza šifrovaného provozu na síťové vrstvě",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): ssh nechrání proti analýze provozu (kdo, kdy, kolik)."
       },
       {
         "body": "DNS/IP/Routing spoofing",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 22–23: podvržený server se prozradí jiným host key (DNS/IP/routing spoofing)."
       }
     ]
   },
@@ -3237,19 +3829,23 @@
     "answers": [
       {
         "body": "Chybějícím záznamem veřejného klíče v souboru známých serverů",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 23: chybějící záznam vede k dotazu při prvním připojení, ne k chybě o změně."
       },
       {
         "body": "Změnou souboru s veřejným klíčem serveru na uživatelově PC",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 22–23: změněný záznam v known_hosts na PC nesouhlasí s klíčem serveru."
       },
       {
         "body": "Podvržením serveru útočníkovým strojem",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 23: může jít o útok man-in-the-middle (podvržený server)."
       },
       {
         "body": "Změnou dlouhodobého klíče serveru jeho administrátorem",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 23: „RSA host key has just been changed“ – změna klíče administrátorem."
       }
     ]
   },
@@ -3259,19 +3855,23 @@
     "answers": [
       {
         "body": "K uchování RSA klíče(ů) serveru.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 22: klíče serverů jsou v known_hosts, ne v .rhosts."
       },
       {
         "body": "K nastavení adres počítačů s povoleným přihlášením bez další autentizace .",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 17: .rhosts určuje stroje (a loginy), ze kterých se lze přihlásit bez hesla."
       },
       {
         "body": "Uchování informací o adresách autentizovaných počítačů připojených k serveru.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 17: .rhosts nastavuje uživatel předem, není to záznam připojených počítačů."
       },
       {
         "body": "K uchování uživatelů s právem číst (read).",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 17: .rhosts neurčuje práva ke čtení, jen kdo smí používat účet."
       }
     ]
   },
@@ -3281,19 +3881,23 @@
     "answers": [
       {
         "body": "Uvedení nepředpokládaného loginu uživatele.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 17: počítač nemusí správně uvést login uživatele."
       },
       {
         "body": "Vrácení podvržené IP adresy po dotazu na DNS server.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 17: útok přes DNS (podvržená adresa jména z .rhosts)."
       },
       {
         "body": "IP spoofing.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 17: IP spoofing."
       },
       {
         "body": "Útok hrubou silou.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 17: .rhosts nahrazuje heslo, hrubou silou není co hádat."
       }
     ]
   },
@@ -3303,19 +3907,23 @@
     "answers": [
       {
         "body": "Host key je dlouhodobý klíč.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 19: veřejný RSA host key je dlouhodobý klíč serveru, jeho kopie mají klienti (known_hosts, slide 22)."
       },
       {
         "body": "Host key je krátkodobý klíč použitý pro vlastní autentizaci serveru.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19: host key je dlouhodobý, ne krátkodobý."
       },
       {
         "body": "Server key je krátkodobý klíč použitý pro odvození Host key.",
-        "right": false
+        "right": false,
+        "comment": "L6, slide 19–20: server key se z host key neodvozuje, jsou to dva nezávislé klíče."
       },
       {
         "body": "Server key je krátkodobý klíč použitý pro vlastní autentizaci serveru.",
-        "right": true
+        "right": true,
+        "comment": "L6, slide 19–20: server key se spolu s host key podílí na autentizaci serveru a šifrování klíče relace; „krátkodobý“ je doplněno z obecné znalosti (v ssh-1 se obměňuje), formulace je sporná."
       }
     ]
   },
@@ -3325,19 +3933,23 @@
     "answers": [
       {
         "body": "Potvrzení, že data pochází od určitého subjektu",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 17: autentizace původu dat potvrzuje, že data pocházejí od určitého subjektu."
       },
       {
         "body": "Data nemohl odeslat nikdo jiný než jejich původce",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 39: to by byla nepopiratelnost; MAC autentizuje data, ale původce mohl být kterýkoli držitel klíče."
       },
       {
         "body": "Potvrzení, že data nebyla neautorizovaně změněna od doby vytvoření",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 17: integrita (data nebyla neautorizovaně změněna) je součástí autentizace dat."
       },
       {
         "body": "Totéž co integrita",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 17: autentizace dat je integrita a navíc původ dat, není to totéž."
       }
     ]
   },
@@ -3347,27 +3959,33 @@
     "answers": [
       {
         "body": "Zasílání embosované karty poštou a nedostatečně zabezpečené doručování PINu a hesla",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): karta a PIN se mají doručovat zvlášť (L2, slide 52); zasílání poštou je riziko."
       },
       {
         "body": "Dodatečné autorizační SMS zprávy jen u některých operací e-bankovnictví",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): když SMS potvrzuje jen některé operace, ostatní zůstávají méně chráněné."
       },
       {
         "body": "Použití pouze asymetrické kryptografie v kombinaci s hašovacími funkcemi (pouze pro podpisy)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): kombinace asymetrické kryptografie a haše je standardní řešení podpisu, ne problém."
       },
       {
         "body": "Použití autentizačních kalkulátorů",
-        "right": false
+        "right": false,
+        "comment": "L3, slide 36: autentizační kalkulátory jsou bezpečnostní opatření, ne problém."
       },
       {
         "body": "Nedostatečné zabezpečení platebních terminálů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nezabezpečené terminály umožní odposlech dat karty i PINu."
       },
       {
         "body": "Social engineering např. při telefonním hovoru",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): sociální inženýrství (falešný hovor z banky) je častý útok."
       }
     ]
   },
@@ -3377,19 +3995,23 @@
     "answers": [
       {
         "body": "Žádná z dalších odpovědí není správně",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): banky používají jedno-, dvou- i vícefaktorovou autentizaci; „výhradně“ neplatí."
       },
       {
         "body": "Dvoufaktorová",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): dvoufaktorová je dnes běžná (PSD2), ale s výjimkami, ne výhradně."
       },
       {
         "body": "Třífaktorová",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): třífaktorová se používá jen zřídka."
       },
       {
         "body": "Jednofaktorová",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): jednofaktorová není jediná používaná varianta."
       }
     ]
   },
@@ -3399,27 +4021,33 @@
     "answers": [
       {
         "body": "Anonymizovaný login",
-        "right": true
+        "right": true,
+        "comment": "Nesmyslný distraktor: „anonymizovaný login“ proti útokům nechrání."
       },
       {
         "body": "Virtuální klávesnice pro zadávání hesla",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): virtuální klávesnice ztěžuje odchyt hesla keyloggerem."
       },
       {
         "body": "Personalizovaný login",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): personalizovaný login (vlastní volba) ztěžuje hádání přihlašovacího jména."
       },
       {
         "body": "SSL certifikáty",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): SSL/TLS certifikát autentizuje web banky proti podvržení."
       },
       {
         "body": "SSH certifikáty",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): SSH se v internetovém bankovnictví nepoužívá."
       },
       {
         "body": "testy délky a kvality hesla",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): testy délky a kvality brání slabým heslům (L2, slide 37 blacklist)."
       }
     ]
   },
@@ -3429,27 +4057,33 @@
     "answers": [
       {
         "body": "K modifikaci podepsaného seznamu podporovaných verifikačních metod (CVM)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): podepsaný seznam CVM nelze změnit, podpis by nesouhlasil."
       },
       {
         "body": "K získání přesné kopie dat na magnetickém proužku",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): čip posílá data odpovídající magnetickému proužku, odposlech umožní kopii proužku."
       },
       {
         "body": "K získání PINu",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): při offline ověření v otevřené podobě jde PIN po sběrnici z PINpadu do karty."
       },
       {
         "body": "K přečtení citlivých informací banky (sdílené tajné klíče uložené v terminálu)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): tajné klíče banky ze sběrnice nevyčteme, po sběrnici nechodí."
       },
       {
         "body": "K narušení anonymity jednotlivých komunikujících stran",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): anonymita stran v platební transakci nehraje roli."
       },
       {
         "body": "K modifikaci nepodepsaného seznamu podporovaných verifikačních metod (CVM)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): nepodepsaný seznam CVM lze změnit (např. vynutit ověření bez PINu)."
       }
     ]
   },
@@ -3459,19 +4093,23 @@
     "answers": [
       {
         "body": "Bezpečné uložení dlouhodobých klíčů",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): generátor (kalkulátor) drží dlouhodobý klíč uvnitř zařízení."
       },
       {
         "body": "Urychlení generování sekvenčních čísel",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): sekvenční čísla generátory passcode neurychlují."
       },
       {
         "body": "Personalizaci elektronických pasů",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): personalizace pasů se provádí jinak, s passcode nesouvisí."
       },
       {
         "body": "Realizaci challenge-response (výzva-odpověď) protokolu",
-        "right": true
+        "right": true,
+        "comment": "L3, slide 36: kalkulátory obvykle využívají protokol výzva-odpověď."
       }
     ]
   },
@@ -3481,27 +4119,33 @@
     "answers": [
       {
         "body": "Je prováděna pouze platebním terminálem (čip pouze zasílá data)",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): SDA ověřuje terminál podpis vydavatele nad statickými daty, karta data jen posílá."
       },
       {
         "body": "Potvrzuje pravost pouze statických dat uložených v čipové kartě.",
-        "right": true
+        "right": true,
+        "comment": "Obecná znalost (mimo slajdy 2026): SDA potvrzuje jen statická data uložená v kartě."
       },
       {
         "body": "Potvrzuje pravost statických dat uložených v čipové kartě, ale i dynamických dat zaslaných terminálem",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): dynamická data ověřuje DDA/CDA, ne SDA."
       },
       {
         "body": "Potvrzuje pravost statických uložených v čipové kartě, ale i dynamických dat zaslaných čipem",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): dynamická data čipem podepisuje až DDA/CDA."
       },
       {
         "body": "Je prováděna pouze čipovou kartou (terminál pouze zasílá data)",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): SDA provádí terminál, ne karta."
       },
       {
         "body": "Řeší problém padělání/duplikace karet",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): statický podpis lze zkopírovat, SDA proti klonování karet nepomůže."
       }
     ]
   },
@@ -3511,19 +4155,23 @@
     "answers": [
       {
         "body": "Každý bit zprávy zkopírujeme několikrát za sebe, aby se předešlo chybám v důsledku chybovosti MAC komunikačního kanálu",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 48: nejde o opravu chyb kanálu, metoda řeší důvěrnost."
       },
       {
         "body": "Zprávu rozdělíme na jednotlivé bity a ty šifrujeme z využitím MAC každý zvlášť",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 48: MAC nešifruje, bity jdou otevřeně, skryté mezi falešnými."
       },
       {
         "body": "\"Oddělení zrna od plev\"",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 48: chaffing and winnowing = oddělení zrn od plev."
       },
       {
         "body": "Pro každý bit zprávy vytvoříme dvě zprávy (správný, chybný MAC), příjemce si ponechá zprávu se správným MAC",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 48: pro každý bit 2 zprávy (správný a nesprávný MAC), příjemce si nechá tu se správným MAC."
       }
     ]
   },
@@ -3533,19 +4181,23 @@
     "answers": [
       {
         "body": "Pro dané x nejsme schopni v rozumném čase najít y!=x tak, že h(x)=y",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 33: h(x) = y porovnává haš se vstupem, slabá bezkoliznost porovnává dva haše."
       },
       {
         "body": "Pro dané x nejsme schopni v rozumném čase najít y!=x tak, že x=h(y)",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 33: x = h(y) je hledání vzoru, ne kolize."
       },
       {
         "body": "Pro dané x nejsme schopni v rozumném čase najít y!=x tak, že h(x)=h(y)",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 33: slabá bezkoliznost = pro dané x nenajdeme x′ ≠ x s h(x) = h(x′)."
       },
       {
         "body": "V rozumném čase nejsme schopni nalézt x, y (x=y) tak, že h(x)!=h(y)",
-        "right": false
+        "right": false,
+        "comment": "Pro x = y je h(x) = h(y) vždy; podmínka nedává smysl."
       }
     ]
   },
@@ -3555,19 +4207,23 @@
     "answers": [
       {
         "body": "Hašovací funkci nelze vytvořit z žádného šifrovacího algoritmu",
-        "right": false
+        "right": false,
+        "comment": "L2, slide 14: hašovací funkce lze z šifry vytvořit, např. crypt z DES."
       },
       {
         "body": "Proudová symetrická šifra",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): z proudové šifry se hašovací funkce obvykle netvoří."
       },
       {
         "body": "Asymetrická šifra",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): asymetrické šifry jsou pomalé, k hašování se nepoužívají."
       },
       {
         "body": "Bloková symetrická šifra",
-        "right": true
+        "right": true,
+        "comment": "L2, slide 14: funkce crypt v UNIXu vznikla z upraveného blokového DES."
       }
     ]
   },
@@ -3577,23 +4233,28 @@
     "answers": [
       {
         "body": "K zajištění integrity",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 39: MAC slouží k zajištění integrity dat."
       },
       {
         "body": "K ověření zprávy síťové karty",
-        "right": false
+        "right": false,
+        "comment": "Slovní hříčka: MAC adresa síťové karty s autentizačním kódem nesouvisí."
       },
       {
         "body": "K detekci chyb při přenosu dat",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 39: MAC odhalí jakoukoliv změnu zprávy, i chybou při přenosu."
       },
       {
         "body": "K transformaci hašovací funkce",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 40: MAC lze z hašovací funkce vytvořit (HMAC), nepoužívá se k její transformaci."
       },
       {
         "body": "K zajištění důvěrnosti",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 39: MAC zajišťuje integritu, ne důvěrnost."
       }
     ]
   },
@@ -3603,23 +4264,28 @@
     "answers": [
       {
         "body": "Pomocí klasického (ručního) podpisu",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 18: ruční podpis digitální data neautentizuje."
       },
       {
         "body": "Pomocí zaručeného elektronického podpisu",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 18 a 31: digitální (zaručený elektronický) podpis."
       },
       {
         "body": "Pomocí klíčované hašovací funkce",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 18 a 40: haš s tajným klíčem (HMAC)."
       },
       {
         "body": "Pomocí MAC",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 18: MAC (dříve digitální pečeť)."
       },
       {
         "body": "Pomocí parciálně zaručeného elektronického podpisu",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 70: úrovně podpisu jsou prostý, zaručený a kvalifikovaný; „parciálně zaručený“ neexistuje."
       }
     ]
   },
@@ -3629,19 +4295,23 @@
     "answers": [
       {
         "body": "Algoritmus jako takový nemusí být považován za neprolomitelný, dosud pouze nebyl nalezen efektivní způsob řešení/výpočtu",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 30: pokrok (nový algoritmus faktorizace) může algoritmus prolomit, zatím jen nebyl nalezen."
       },
       {
         "body": "Výsledek náročného výstupu je podepsaný, z důvodu zaručení integrity",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: podpis výsledků s výpočetní bezpečností nesouvisí."
       },
       {
         "body": "Ani jedno z uvedených tvrzení neplatí",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 30: obě tvrzení o výpočetní bezpečnosti platí."
       },
       {
         "body": "Časová náročnost prolomení určitého algoritmu mnohonásobně převyšuje dostupný výpočetní výkon",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 30: faktorizace tisícibitových čísel v rozumném čase nejde."
       }
     ]
   },
@@ -3651,23 +4321,28 @@
     "answers": [
       {
         "body": "RSA",
-        "right": true
+        "right": true,
+        "comment": "L1, slide 36: RSA je nejznámější podpisový algoritmus."
       },
       {
         "body": "El-Gamal",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 5: ElGamal je podpisové schéma s přílohou."
       },
       {
         "body": "DSA",
-        "right": true
+        "right": true,
+        "comment": "L1, slide 36: DSA je podpisový algoritmus."
       },
       {
         "body": "AES",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): AES je symetrická bloková šifra, podpis nevytváří."
       },
       {
         "body": "CBC",
-        "right": false
+        "right": false,
+        "comment": "L5, slide 40: CBC je režim blokové šifry (lze z něj vytvořit MAC), ne podpisový algoritmus."
       }
     ]
   },
@@ -3677,19 +4352,23 @@
     "answers": [
       {
         "body": "Diskrétní logaritmus",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): diskrétní logaritmus je základ DSA a Diffie-Hellmana, ne RSA."
       },
       {
         "body": "Obchodní cestující",
-        "right": false
+        "right": false,
+        "comment": "Nesmyslný distraktor: problém obchodního cestujícího je optimalizační úloha."
       },
       {
         "body": "Eliptické křivky",
-        "right": false
+        "right": false,
+        "comment": "Obecná znalost (mimo slajdy 2026): eliptické křivky jsou základ ECDSA, ne RSA."
       },
       {
         "body": "Faktorizace čísel",
-        "right": true
+        "right": true,
+        "comment": "L5, slide 28 a 30: bezpečnost RSA stojí na nesnadnosti faktorizace velkých čísel."
       }
     ]
   }
