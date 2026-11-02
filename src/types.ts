@@ -11,7 +11,7 @@ export interface Question {
   id?: string // stable key for progress history, kept when the text is edited (scripts/add-question-ids.mjs)
   name: string // question text, may contain HTML
   answers?: Answer[] // multiple-choice question
-  answer?: string // essay question: model answer, may contain HTML
+  answer?: string // essay: model answer; multiple choice: optional short explanation shown after checking. May contain HTML
   keyPoints?: string[] // essay question: what a full answer should cover
   source?: string // essay question: where it is in the slides, e.g. "Lecture 2, slides 5–9"
 }

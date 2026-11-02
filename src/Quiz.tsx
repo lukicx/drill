@@ -118,7 +118,10 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
               <span className={answer.right ? 'ok-text' : attempt.selected.includes(i) ? 'bad-text' : 'muted'}>{answer.right ? attempt.selected.includes(i) ? '✓ Your correct selection' : '✓ Correct answer you missed' : attempt.selected.includes(i) ? '✗ Your incorrect selection' : 'Not selected'}: </span>
               <span dangerouslySetInnerHTML={asHtml(answer.body)} />
               {answer.comment && <p className="hint" dangerouslySetInnerHTML={asHtml(answer.comment)} />}
-            </li>)}</ul> : <>
+            </li>)}</ul> : null}
+            {attempt.item.question.answers ? attempt.item.question.answer && <>
+              <h3>Model answer</h3><div dangerouslySetInnerHTML={asHtml(attempt.item.question.answer)} />
+            </> : <>
               {attempt.item.question.keyPoints?.length ? <><h3>Key points</h3><ul>{attempt.item.question.keyPoints.map((point, i) => <li key={i}>
                 <span className={attempt.selected.includes(i) ? 'ok-text' : 'bad-text'}>{attempt.selected.includes(i) ? '✓ Covered' : '✗ Not covered'}: </span>
                 <span dangerouslySetInnerHTML={asHtml(point)} /></li>)}</ul></> : null}
@@ -182,6 +185,9 @@ export default function Quiz({ initial, sources, onExit, onSessionChange, source
         </li>
       })}
     </ul>}
+    {checked && !isEssay && question.answer && <section className="model-answer">
+      <h3>Model answer</h3><div className="model-answer-body" dangerouslySetInnerHTML={asHtml(question.answer)} />
+    </section>}
     <div className="actions action-bar">
       {isEssay ? checked
         ? ESSAY_MARKS.map(([mark, label]) => <button key={mark} type="button" className={mark === (suggestion ?? 'correct') ? 'primary' : undefined}

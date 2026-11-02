@@ -47,7 +47,8 @@ for (const f of process.argv.slice(2)) {
     const bodies = q.answers.map(a => a.body.trim().toLowerCase())
     if (new Set(bodies).size !== bodies.length) errors.push(`${L}: duplicate answers`)
     if (!q.answers.some(a => typeof a.comment === 'string' && a.comment.trim())) warnings.push(`${L}: no comment/slide reference`)
-    for (const s of [q.name, ...q.answers.flatMap(a => [a.body, a.comment ?? ''])]) {
+    if (q.answer !== undefined && (typeof q.answer !== 'string' || !q.answer.trim())) errors.push(`${L}: explanation (answer) must be non-empty text`)
+    for (const s of [q.name, q.answer ?? '', ...q.answers.flatMap(a => [a.body, a.comment ?? ''])]) {
       for (const m of s.replace(MATH, '').matchAll(/<\/?([a-zA-Z][\w-]*)/g)) if (!ALLOWED.has(m[1].toLowerCase())) errors.push(`${L}: unescaped "<${m[1]}" (write &lt;)`)
       for (const e of mathErrors(s)) errors.push(`${L}: ${e}`)
     }

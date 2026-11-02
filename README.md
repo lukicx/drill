@@ -116,6 +116,8 @@ The main page groups sets by course, taken from the part of `name` before ` - ` 
 
 - One or more answers can be right. The answer counts only if exactly the right ones are ticked.
 - `comment` is optional and shown after checking. Use it for the slide reference or a short explanation.
+- An optional question-level `answer` (text) is shown as "Model answer" under the options after checking
+  and in the results review: a short summary of what the question asks and why the right options are right.
 - `right` must be the boolean `true`/`false`, not the string `"true"`.
 - Text may contain HTML (`<TT>`, `<B>`, `<PRE>`, `<BR>`). A literal `<` followed by a letter
   (e.g. `List<T>`) must be written as `&lt;`, or it disappears.
