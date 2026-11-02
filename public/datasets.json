@@ -121,8 +121,8 @@
     "id": "PV017_midterm2",
     "dataset": "datasets/questions_PV017_midterm2.json",
     "group": "current",
-    "questionCount": 78,
-    "multipleChoiceCount": 78,
+    "questionCount": 54,
+    "multipleChoiceCount": 54,
     "essayCount": 0
   },
   {

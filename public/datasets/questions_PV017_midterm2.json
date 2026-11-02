@@ -202,43 +202,6 @@
     ]
   },
   {
-    "id": "fdd2d731",
-    "name": "Jaký je vztah mezi bezpečnostním opatřením a bezpečnostním mechanismem?",
-    "answer": "Opatření říká, co se má zajistit; mechanismus je konkrétní prostředek různé síly, kterým se to provede – technický, administrativní i fyzický (šifrování, NDA, trezor, klíče, karty, biometrika, digitální podpis pro nepopiratelnost). Opatření riziko snižuje, ne odstraňuje. (Přednáška 1, slides 57 a 66)",
-    "answers": [
-      {
-        "body": "Pro nepopiratelnost je typickým mechanismem digitální podpis",
-        "right": true,
-        "comment": "Přednáška 1, slide 66: nepopiratelnost → digitální podpis."
-      },
-      {
-        "body": "Důvěrnost lze zajistit šifrováním, trezorem i smlouvou (NDA)",
-        "right": true,
-        "comment": "Přednáška 1, slide 66: důvěrnost → šifrování, trezory, NDA."
-      },
-      {
-        "body": "Opatření se musí implementovat mechanismy různé síly",
-        "right": true,
-        "comment": "Přednáška 1, slide 66: opatření musíme účinně implementovat vhodnými mechanismy různé síly."
-      },
-      {
-        "body": "Opatření typicky riziko zcela odstraní, pokud je dobře zvolené",
-        "right": false,
-        "comment": "Přednáška 1, slide 57: opatření rizika typicky snižují, neodstraňují je."
-      },
-      {
-        "body": "Mechanismy jsou technické prostředky, administrativní patří k opatřením",
-        "right": false,
-        "comment": "Přednáška 1, slide 66: mechanismy mohou být administrativní, technické, logické."
-      },
-      {
-        "body": "Řízení přístupu lze zajistit klíči, kartami i biometrikou",
-        "right": true,
-        "comment": "Přednáška 1, slide 66."
-      }
-    ]
-  },
-  {
     "id": "d31b0bd5",
     "name": "Které zásady výběru bezpečnostních opatření uvádí přednáška?",
     "answer": "Opatření se volí pro identifikovaná rizika na základě jejich analýzy, k aktivu se obvykle váže více rizik a jedno opatření může řešit více rizik. Opatření je efektivní, jen když jeho cena nepřesahuje možnou škodu. (Přednáška 1, slides 57–59)",
@@ -303,60 +266,6 @@
     ]
   },
   {
-    "id": "d1e48aea",
-    "name": "Kterými prostředky se podle ZoKB chrání integrita aktiv na jednotlivých úrovních?",
-    "answer": "Integrita podle ZoKB: nízká úroveň ochranu nevyžaduje, střední stačí standardní nástroje (omezení práv k zápisu), vysoká sleduje historii změn a kdo je provedl, kritická vyžaduje jednoznačnou identifikaci měnící osoby, např. digitálním podpisem. (Přednáška 1, slide 83)",
-    "answers": [
-      {
-        "body": "Střední: standardní nástroje, např. omezení práv pro zápis",
-        "right": true,
-        "comment": "Přednáška 1, slide 83: střední – standardní nástroje (omezení práv pro zápis)."
-      },
-      {
-        "body": "Vysoká: sledování historie změn a identity toho, kdo je provedl",
-        "right": true,
-        "comment": "Přednáška 1, slide 83: vysoká – historie změn a identita měnící osoby."
-      },
-      {
-        "body": "Nízká: digitální podpis změn a záznam, kdo je provedl",
-        "right": false,
-        "comment": "Přednáška 1, slide 83: nízká úroveň nevyžaduje žádnou ochranu integrity."
-      },
-      {
-        "body": "Kritická: jednoznačná identifikace měnící osoby, např. podpisem",
-        "right": true,
-        "comment": "Přednáška 1, slide 83: kritická – jednoznačná identifikace, např. digitální podpis."
-      }
-    ]
-  },
-  {
-    "id": "11e9b9b8",
-    "name": "Která tvrzení o klasifikaci důvěrnosti aktiv podle ZoKB jsou pravdivá?",
-    "answer": "Důvěrnost podle ZoKB: nízká – veřejná aktiva bez ochrany; střední – know-how, ochranu nevyžaduje předpis; vysoká – ochrana z předpisu či smlouvy, řízení a záznam přístupu, šifrovaný přenos; kritická – navíc evidence osob s přístupem a ochrana i proti administrátorům. (Přednáška 1, slide 82)",
-    "answers": [
-      {
-        "body": "Nízká: veřejná aktiva, ochrana se nevyžaduje",
-        "right": true,
-        "comment": "Přednáška 1, slide 82: nízká – veřejně přístupná aktiva, žádná ochrana."
-      },
-      {
-        "body": "Vysoká: řízení a záznam přístupu, šifrovaný přenos",
-        "right": true,
-        "comment": "Přednáška 1, slide 82: vysoká – řízení a zaznamenávání přístupu, přenosy chráněny kryptograficky."
-      },
-      {
-        "body": "Kritická: evidence přistupujících a ochrana i proti administrátorům",
-        "right": true,
-        "comment": "Přednáška 1, slide 82: kritická – evidence přistupujících osob, ochrana i vůči administrátorům."
-      },
-      {
-        "body": "Střední: ochranu vyžaduje zákon, přístup se zaznamenává",
-        "right": false,
-        "comment": "Přednáška 1, slide 82: střední = know-how, ochrana není vyžadována předpisem; to je až vysoká."
-      }
-    ]
-  },
-  {
     "id": "74988d43",
     "name": "Která tvrzení o generickém problému budování bezpečných systémů jsou pravdivá?",
     "answer": "Bezpečnost je trvalý proces a dokonalé bezpečnosti nelze dosáhnout za žádnou cenu. Systém je tak silný jako jeho nejslabší článek, protože útočníkovi stačí jediná mezera v ochraně. (Přednáška 1, slides 9–11 a 31)",
@@ -385,38 +294,6 @@
         "body": "Stačí dobře ochránit nejcennější aktivum, slabší místa nevadí",
         "right": false,
         "comment": "Přednáška 1, slide 10: systém je tak bezpečný, jak je bezpečný jeho nejslabší článek."
-      }
-    ]
-  },
-  {
-    "id": "f6c1ee56",
-    "name": "Které aspekty integrity rozlišuje přednáška?",
-    "answer": "Integrita znamená, že aktiva jsou kompletní a korektní a nejsou nepatřičně změněna – úmyslně ani neúmyslně. Rozlišuje se integrita dat, původu (data jsou od deklarovaného subjektu) a zdroje (měnit smí jen autorizované subjekty a mechanismy). (Přednáška 1, slide 22)",
-    "answers": [
-      {
-        "body": "Integrita dat – data nesmí být nevhodně, náhodně či záměrně změněna",
-        "right": true,
-        "comment": "Přednáška 1, slide 22: integrita dat."
-      },
-      {
-        "body": "Integrita původu – data skutečně pocházejí od deklarovaného subjektu",
-        "right": true,
-        "comment": "Přednáška 1, slide 22: integrita původu – ne od podvodníka."
-      },
-      {
-        "body": "Integrita se týká jen úmyslné modifikace, náhodné změny řeší dostupnost",
-        "right": false,
-        "comment": "Přednáška 1, slide 22: nepatřičná modifikace může být úmyslná i neúmyslná."
-      },
-      {
-        "body": "Aktiva musí být kompletní a korektní",
-        "right": true,
-        "comment": "Přednáška 1, slide 22."
-      },
-      {
-        "body": "Integrita zdroje – změny smí provádět jen autorizované subjekty a mechanismy",
-        "right": true,
-        "comment": "Přednáška 1, slide 22: integrita zdroje."
       }
     ]
   },
@@ -800,92 +677,6 @@
     ]
   },
   {
-    "id": "54d237f7",
-    "name": "Co platí pro rizikově orientovaný přístup k regulaci?",
-    "answer": "Rizikově orientovaná regulace odstupňuje povinnosti podle dopadu selhání a vyžaduje proporcionalitu (zásah vhodný, potřebný, přiměřený). Předpokládá, že regulovaný umí riziko identifikovat, hodnotit a doložit, a počítá s náklady regulace. (Přednáška 3, slide 34)",
-    "answers": [
-      {
-        "body": "Regulace má náklady: compliance, bariéra vstupu, odliv kapacit",
-        "right": true,
-        "comment": "Přednáška 3, slide 34."
-      },
-      {
-        "body": "Nevyžaduje schopnost riziko identifikovat, hodnotit a doložit",
-        "right": false,
-        "comment": "Přednáška 3, slide 34: tuto schopnost předpokládá."
-      },
-      {
-        "body": "Proporcionalita znamená, že zásah je vhodný, potřebný a přiměřený",
-        "right": true,
-        "comment": "Přednáška 3, slide 34."
-      },
-      {
-        "body": "Rozsah povinností se řídí dopadem selhání",
-        "right": true,
-        "comment": "Přednáška 3, slide 34."
-      }
-    ]
-  },
-  {
-    "id": "46020702",
-    "name": "Kdo byl v ČR národním koordinátorem kybernetické bezpečnosti?",
-    "answer": "Koordinátorem kybernetické bezpečnosti v ČR bylo nejdřív (do 2007) částečně Ministerstvo informatiky, pak Ministerstvo vnitra (2007–2011) a od 19. 10. 2011 NBÚ; z něj později vznikl NÚKIB. ÚOOÚ dohlíží na ochranu osobních údajů. (Přednáška 3, slide 42)",
-    "answers": [
-      {
-        "body": "Ministerstvo informatiky (částečně, do roku 2007)",
-        "right": true,
-        "comment": "Přednáška 3, slide 42."
-      },
-      {
-        "body": "NÚKIB, zřízený jako samostatný úřad už v roce 2004",
-        "right": false,
-        "comment": "Přednáška 3, slide 42: v roce 2011 byl autoritou NBÚ; 2004 je rok založení ENISA (slide 37)."
-      },
-      {
-        "body": "ÚOOÚ, pověřený vládou koordinací od roku 2011",
-        "right": false,
-        "comment": "Přednáška 3, slide 42: ÚOOÚ dohlíží na GDPR, koordinátorem KB nebyl."
-      },
-      {
-        "body": "NBÚ, od 19. 10. 2011 národní autorita",
-        "right": true,
-        "comment": "Přednáška 3, slide 42."
-      },
-      {
-        "body": "Ministerstvo vnitra (2007–2011)",
-        "right": true,
-        "comment": "Přednáška 3, slide 42."
-      }
-    ]
-  },
-  {
-    "id": "0bfd3e75",
-    "name": "Která tvrzení o vývoji kyberbezpečnostní regulace v EU jsou pravdivá?",
-    "answer": "Strategie a návrh směrnice NIS jsou z roku 2013, účinná je od 2016 s 21 měsíci na transpozici. ENISA vznikla 2004, Cybersecurity Act je z 2019 a v roce 2022 přišly NIS 2, DORA a Cyber Resilience Act. (Přednáška 3, slides 37–41)",
-    "answers": [
-      {
-        "body": "Směrnice NIS je účinná od roku 2016, na transpozici bylo 21 měsíců",
-        "right": true,
-        "comment": "Přednáška 3, slide 38."
-      },
-      {
-        "body": "V roce 2022 vznikly NIS 2, DORA a Cyber Resilience Act",
-        "right": true,
-        "comment": "Přednáška 3, slide 41."
-      },
-      {
-        "body": "Směrnice NIS byla přijata už v roce 2013 spolu se strategií EU",
-        "right": false,
-        "comment": "Přednáška 3, slide 38: 2013 byla strategie a návrh, směrnice NIS je z roku 2016."
-      },
-      {
-        "body": "ENISA byla založena až v roce 2019 spolu s Cybersecurity Act",
-        "right": false,
-        "comment": "Přednáška 3, slides 37 a 41: ENISA 2004, Cybersecurity Act 2019."
-      }
-    ]
-  },
-  {
     "id": "a93baa0e",
     "name": "Co platí pro vnitřní předpis podle § 305 zákoníku práce?",
     "answer": "Vnitřní předpis podle § 305 ZP se vydává písemně, bez zpětné účinnosti, zaměstnanci s ním musí být seznámeni do 15 dnů a uchovává se 10 let. Zavazuje zaměstnavatele i všechny zaměstnance. (Přednáška 4, slide 28)",
@@ -914,60 +705,6 @@
         "body": "Je závazný pro zaměstnavatele, ne pro zaměstnance",
         "right": false,
         "comment": "Přednáška 4, slide 28: závazný pro zaměstnavatele i všechny zaměstnance."
-      }
-    ]
-  },
-  {
-    "id": "c13ba033",
-    "name": "Jak se vnitřní pravidla vynucují vůči různým skupinám?",
-    "answer": "Vnitřní pravidla se vynucují podle vztahu k organizaci: u zaměstnanců pracovním právem (výtka, výpověď, náhrada škody), u externistů a uživatelů smlouvou, NDA a odebráním přístupu, u vedení péčí řádného hospodáře a sankcemi regulátora. Dodavatele zaváže jen smlouva. (Přednáška 4, slides 21 a 29)",
-    "answers": [
-      {
-        "body": "Externisté a uživatelé: smlouva, NDA, podmínky užívání, odebrání přístupu",
-        "right": true,
-        "comment": "Přednáška 4, slide 29."
-      },
-      {
-        "body": "Vedení: péče řádného hospodáře, NIS2 čl. 20, sankce regulátora",
-        "right": true,
-        "comment": "Přednáška 4, slide 29."
-      },
-      {
-        "body": "Zaměstnanci: výtka, výpověď, okamžité zrušení, náhrada škody",
-        "right": true,
-        "comment": "Přednáška 4, slide 29: § 52 písm. g), § 55 ZP."
-      },
-      {
-        "body": "Dodavatele zaváže vnitřní předpis, když jim ho organizace zašle",
-        "right": false,
-        "comment": "Přednáška 4, slides 21 a 29: dodavatele předpis nezavazuje, jen smlouva."
-      }
-    ]
-  },
-  {
-    "id": "05d8b6fd",
-    "name": "Která ustanovení přednáška uvádí k odpovědnosti vedení?",
-    "answer": "Vedení odpovídá za kyberbezpečnost osobně: péče řádného hospodáře (OZ § 159, ZOK § 51), konečná odpovědnost za ICT rizika podle DORA čl. 5 a možný zákaz výkonu funkce podle NIS2 čl. 32. Jmenováním CISO se odpovědnosti nezbaví. (Přednáška 4, slide 11)",
-    "answers": [
-      {
-        "body": "OZ § 159 a ZOK § 51: péče řádného hospodáře",
-        "right": true,
-        "comment": "Přednáška 4, slide 11."
-      },
-      {
-        "body": "DORA čl. 5: konečná odpovědnost řídicího orgánu za ICT rizika",
-        "right": true,
-        "comment": "Přednáška 4, slide 11."
-      },
-      {
-        "body": "NIS2 čl. 32: možný dočasný zákaz výkonu řídicí funkce",
-        "right": true,
-        "comment": "Přednáška 4, slide 11."
-      },
-      {
-        "body": "Jmenováním CISO se vedení odpovědnosti za kyberbezpečnost zbaví",
-        "right": false,
-        "comment": "Přednáška 4, slide 11: vedení nemůže kyberbezpečnost „delegovat a zapomenout“."
       }
     ]
   },
@@ -1139,38 +876,6 @@
     ]
   },
   {
-    "id": "f109b7e6",
-    "name": "K čemu slouží rámce uvedené v přednášce o řízení KB?",
-    "answer": "Rámce mají různé účely: ISO/IEC 27014 governance IB, ISO 22301 kontinuita činností, IEC 62443 bezpečnost OT, COBIT 2019 governance podnikového IT, CIS Controls v8 prioritizovaná technická opatření. Certifikovat ISMS lze podle ISO 27001. (Přednáška 4, slides 5 a 17)",
-    "answers": [
-      {
-        "body": "CIS Controls v8 – certifikovatelná specifikace ISMS",
-        "right": false,
-        "comment": "Přednáška 4, slide 17: CIS v8 jsou prioritizovaná technická opatření; certifikace ISMS je ISO 27001."
-      },
-      {
-        "body": "IEC 62443 – bezpečnost průmyslových řídicích systémů (OT)",
-        "right": true,
-        "comment": "Přednáška 4, slide 17."
-      },
-      {
-        "body": "COBIT 2019 – ochrana osobních údajů (privacy)",
-        "right": false,
-        "comment": "Přednáška 4, slide 17: COBIT je governance a řízení podnikového IT."
-      },
-      {
-        "body": "ISO 22301 – řízení kontinuity činností (BCM)",
-        "right": true,
-        "comment": "Přednáška 4, slide 17."
-      },
-      {
-        "body": "ISO/IEC 27014 – governance informační bezpečnosti",
-        "right": true,
-        "comment": "Přednáška 4, slide 5."
-      }
-    ]
-  },
-  {
     "id": "8c11cee1",
     "name": "Která přiřazení v ilustrativní matici RACI odpovídají přednášce?",
     "answer": "V matici RACI akceptuje zbytkové riziko vedení (A/R), technické opatření zavádí IT provoz (R) pod odpovědností manažera KB (A). Analýzu rizik i rozhodnutí o hlášení incidentu vlastní manažer KB a audit provádí auditor KB, ne manažer. (Přednáška 4, slide 37)",
@@ -1226,33 +931,6 @@
         "body": "Míra prokliku při phishingové simulaci a % účtů s MFA",
         "right": true,
         "comment": "Přednáška 4, slide 22."
-      }
-    ]
-  },
-  {
-    "id": "ee641cf8",
-    "name": "Které kroky patří do cyklu od regulace ke compliance?",
-    "answer": "Cesta od regulace ke compliance: identifikace a výklad povinností, rozsah, GAP analýza, plán, implementace, evidence a doložitelnost, kontrola a přezkum. Cyklus se opakuje, protože se mění regulace, organizace i hrozby. (Přednáška 4, slide 9)",
-    "answers": [
-      {
-        "body": "Identifikace povinností a jejich výklad se stanovením rozsahu",
-        "right": true,
-        "comment": "Přednáška 4, slide 9."
-      },
-      {
-        "body": "GAP analýza, plán a implementace",
-        "right": true,
-        "comment": "Přednáška 4, slide 9."
-      },
-      {
-        "body": "Cyklus proběhne jednou, po dosažení compliance se už neopakuje",
-        "right": false,
-        "comment": "Přednáška 4, slide 9: cyklus se opakuje – mění se regulace, organizace i hrozby."
-      },
-      {
-        "body": "Pořizování evidence a doložitelnost, kontrola a přezkum",
-        "right": true,
-        "comment": "Přednáška 4, slide 9."
       }
     ]
   },
@@ -1348,38 +1026,6 @@
     ]
   },
   {
-    "id": "a2579fca",
-    "name": "Které další cíle má SOC?",
-    "answer": "SOC kromě monitoringu poskytuje upozornění na hrozby, vede databázi incidentů, připravuje plány obnovy (ICE), má navázané řízení změn a sleduje metriky a KPI. O akceptaci zbytkových rizik rozhoduje vedení, ne SOC. (Přednáška 5, slides 11–12)",
-    "answers": [
-      {
-        "body": "Rozhoduje o akceptaci zbytkových rizik nalezených při monitoringu",
-        "right": false,
-        "comment": "Přednáška 5, slides 11–12; P4 slide 20: o zbytkových rizicích rozhoduje vedení."
-      },
-      {
-        "body": "Definuje plány obnovy po havárii pro případ nouze (ICE)",
-        "right": true,
-        "comment": "Přednáška 5, slide 12."
-      },
-      {
-        "body": "Vede interní databázi kybernetických incidentů",
-        "right": true,
-        "comment": "Přednáška 5, slide 11."
-      },
-      {
-        "body": "Má integrované řízení změn a monitoruje podle metrik a KPI",
-        "right": true,
-        "comment": "Přednáška 5, slide 12."
-      },
-      {
-        "body": "Upozorňuje na obecné i specifické hrozby",
-        "right": true,
-        "comment": "Přednáška 5, slide 11."
-      }
-    ]
-  },
-  {
     "id": "b7f00b23",
     "name": "Jaké je pořadí kroků v secure change management lifecycle?",
     "answer": "Bezpečné řízení změn: žádost o změnu → analýza dopadu → schválení či zamítnutí → implementace → přezkum a reporting. Dopad se analyzuje před schválením a implementace jde až po něm. (Přednáška 5, slide 15)",
@@ -1403,60 +1049,6 @@
         "body": "Žádost o změnu → analýza dopadu → schválení → implementace → reporting",
         "right": true,
         "comment": "Přednáška 5, slide 15."
-      }
-    ]
-  },
-  {
-    "id": "f526e8bc",
-    "name": "Co se posuzuje v security design review (pohled provozu)?",
-    "answer": "Security design review z pohledu provozu posuzuje citlivost dat a šifrování, správu tajemství, řízení síťového i uživatelského přístupu, logování, monitoring, audit, řízení zranitelností a kontinuitu a obnovu. Obchodní otázky do něj nepatří. (Přednáška 5, slide 14)",
-    "answers": [
-      {
-        "body": "Citlivost dat a šifrování, správa tajemství",
-        "right": true,
-        "comment": "Přednáška 5, slide 14."
-      },
-      {
-        "body": "Kontinuita činnosti a obnova po havárii",
-        "right": true,
-        "comment": "Přednáška 5, slide 14."
-      },
-      {
-        "body": "Síťové a uživatelské řízení přístupu",
-        "right": true,
-        "comment": "Přednáška 5, slide 14."
-      },
-      {
-        "body": "Logování, monitoring, auditing a řízení zranitelností",
-        "right": true,
-        "comment": "Přednáška 5, slide 14."
-      },
-      {
-        "body": "Marketingová strategie a cenotvorba produktu",
-        "right": false,
-        "comment": "Přednáška 5, slide 14: není součástí security design review."
-      }
-    ]
-  },
-  {
-    "id": "cee904fa",
-    "name": "Která tvrzení o DevSecOps jsou pravdivá?",
-    "answer": "DevSecOps zabudovává bezpečnost do celého cyklu vývoje a provozu a řídí ji kódem (Ansible, Terraform) nad softwarově definovanými datovými centry v cloudu. Neřeší se tedy až po nasazení. (Přednáška 5, slides 16–18)",
-    "answers": [
-      {
-        "body": "Bezpečnost se řeší až v provozu, po nasazení aplikace",
-        "right": false,
-        "comment": "Přednáška 5, slides 16–18: bezpečnost je součástí celého cyklu a řízena kódem."
-      },
-      {
-        "body": "Bezpečnost je řízena kódem (Ansible, Terraform)",
-        "right": true,
-        "comment": "Přednáška 5, slide 18."
-      },
-      {
-        "body": "Pracuje se softwarově definovanými datovými centry v cloudu",
-        "right": true,
-        "comment": "Přednáška 5, slide 18."
       }
     ]
   },
@@ -1543,92 +1135,6 @@
         "body": "Partial",
         "right": false,
         "comment": "Přednáška 5, slide 28: Partial je nejnižší úroveň 1."
-      }
-    ]
-  },
-  {
-    "id": "199fffba",
-    "name": "Která tvrzení o jádru (Core) NIST CSF 1.1 jsou pravdivá?",
-    "answer": "Core NIST CSF 1.1 má 5 funkcí, 23 kategorií a 108 subkategorií a pokrývá prevenci i reakci. Je použitelný pro jakýkoli sektor a zemi; 93 opatření má ISO/IEC 27002:2022. (Přednáška 5, slides 25–27)",
-    "answers": [
-      {
-        "body": "Má 5 funkcí, 23 kategorií a 108 subkategorií",
-        "right": true,
-        "comment": "Přednáška 5, slide 27."
-      },
-      {
-        "body": "Pokrývá prevenci i reakci",
-        "right": true,
-        "comment": "Přednáška 5, slide 26."
-      },
-      {
-        "body": "Obsahuje 4 témata a 93 opatření",
-        "right": false,
-        "comment": "Přednáška 5, slide 27; 93 opatření má ISO/IEC 27002:2022 (P1 slide 60)."
-      },
-      {
-        "body": "Core je určen pro firmy a úřady v USA, jinde se nepoužívá",
-        "right": false,
-        "comment": "Přednáška 5, slides 25–26: použitelné pro jakýkoli typ řízení rizik, sektory i technologie."
-      }
-    ]
-  },
-  {
-    "id": "91b8f9f5",
-    "name": "Co uvádí přednáška o AI v kyberbezpečnosti?",
-    "answer": "AI v kyberbezpečnosti zrychluje detekci a reporting a snižuje falešně pozitivní i negativní nálezy, ale rozhodování řízené AI vyžaduje opatrnost – lidi v SOC nenahrazuje. (Přednáška 5, slides 33–34)",
-    "answers": [
-      {
-        "body": "AI zrychluje detekci hrozeb a zjednodušuje reporting",
-        "right": true,
-        "comment": "Přednáška 5, slide 33."
-      },
-      {
-        "body": "AI snižuje falešně pozitivní i falešně negativní nálezy",
-        "right": true,
-        "comment": "Přednáška 5, slide 33."
-      },
-      {
-        "body": "AI má plně nahradit lidské rozhodování v SOC",
-        "right": false,
-        "comment": "Přednáška 5, slide 34: be careful about AI-driven decision making."
-      },
-      {
-        "body": "U rozhodování řízeného AI je potřeba opatrnost",
-        "right": true,
-        "comment": "Přednáška 5, slide 34."
-      }
-    ]
-  },
-  {
-    "id": "a31c4d91",
-    "name": "Která další tvrzení o útoku SolarWinds / SUNBURST jsou pravdivá?",
-    "answer": "SUNBURST přišel v legitimní aktualizaci SolarWinds Orion, takže zasáhl právě pečlivě aktualizující zákazníky; aktivoval se jen u vybraných cílů a útočníci uklízeli stopy. Šlo o špionáž bez finančního motivu; útok popsala FireEye (UNC2452). (Přednáška 5, slides 35–39)",
-    "answers": [
-      {
-        "body": "Zasaženi byli hlavně zákazníci, kteří Orion neaktualizovali",
-        "right": false,
-        "comment": "Přednáška 5, slide 36: zákazníci Orion pečlivě aktualizovali, malware přišel v aktualizaci."
-      },
-      {
-        "body": "Útok veřejně popsala bezpečnostní firma FireEye (skupina UNC2452)",
-        "right": true,
-        "comment": "Přednáška 5, slide 35."
-      },
-      {
-        "body": "SUNBURST se aktivoval u všech zhruba 18 000 organizací",
-        "right": false,
-        "comment": "Přednáška 5, slide 37: jinde SUNBURST usnul na neurčito, aktivoval se jen u vybraných cílů."
-      },
-      {
-        "body": "Útočníci uklízeli stopy a dobře skrývali své servery",
-        "right": true,
-        "comment": "Přednáška 5, slide 39."
-      },
-      {
-        "body": "Hlavním cílem byla krádež osobních údajů a finanční zisk",
-        "right": false,
-        "comment": "Přednáška 5, slide 39: bez finančního zájmu, bez krádeže osobních údajů."
       }
     ]
   },
@@ -1747,33 +1253,6 @@
         "body": "Rizika zvažovat napříč celou chráněnou oblastí",
         "right": true,
         "comment": "Přednáška 6, slide 5."
-      }
-    ]
-  },
-  {
-    "id": "b9f91448",
-    "name": "Které metody analýzy rizik uvádí přednáška jako nejpoužívanější?",
-    "answer": "Nejpoužívanější metody analýzy rizik jsou praktické: kontrolní seznamy, analýza incidentů, diagramy příčin a následků, brainstorming a rozhovory. Formální verifikace kódu mezi ně nepatří. (Přednáška 6, slide 16)",
-    "answers": [
-      {
-        "body": "Kontrolní seznamy a analýza incidentů",
-        "right": true,
-        "comment": "Přednáška 6, slide 16."
-      },
-      {
-        "body": "Formální matematická verifikace zdrojového kódu",
-        "right": false,
-        "comment": "Přednáška 6, slide 16: mezi uvedenými metodami není."
-      },
-      {
-        "body": "Diagramy příčin a následků",
-        "right": true,
-        "comment": "Přednáška 6, slide 16."
-      },
-      {
-        "body": "Brainstorming a rozhovory",
-        "right": true,
-        "comment": "Přednáška 6, slide 16."
       }
     ]
   },
@@ -1901,33 +1380,6 @@
     ]
   },
   {
-    "id": "cc8a4565",
-    "name": "Která rizika přináší přidání vzdálené (OTA) aktualizace firmwaru do průmyslového senzoru?",
-    "answer": "OTA aktualizace přidává nová rizika: kompromitovaný update server či podvržený firmware, únik podpisového klíče, výpadek napájení během zápisu a downgrade na starší, stále platně podepsanou zranitelnou verzi – proti tomu podpis ani TLS samy nepomohou. (Přednáška 6, slides 60–62)",
-    "answers": [
-      {
-        "body": "Kompromitovaný update server nebo podvržený firmware",
-        "right": true,
-        "comment": "Přednáška 6, slide 60."
-      },
-      {
-        "body": "Žádná, pokud je firmware podepsaný a komunikace jde přes TLS",
-        "right": false,
-        "comment": "Přednáška 6, slide 62: i s podpisem a TLS zůstal problém s downgradem."
-      },
-      {
-        "body": "Downgrade na starší, stále platně podepsanou zranitelnou verzi",
-        "right": true,
-        "comment": "Přednáška 6, slides 60 a 62."
-      },
-      {
-        "body": "Únik podpisového klíče nebo výpadek napájení během aktualizace",
-        "right": true,
-        "comment": "Přednáška 6, slide 60."
-      }
-    ]
-  },
-  {
     "id": "d4959f4d",
     "name": "Co platí o závaznosti standardů?",
     "answer": "Standard sám o sobě není právní předpis; závazným se stane, až když to předepíše zákon nebo smlouva, a pak se obvykle odkazuje na de iure standardy. De facto standardy nejsou automaticky závazné. (Přednáška 7, část 1, slides 5–6)",
@@ -2010,70 +1462,6 @@
         "body": "Seznam opatření v dodatku ISO 27001 je úplný a nelze ho rozšiřovat",
         "right": false,
         "comment": "Přednáška 7, část 1, slides 14 a 27: seznam není vyčerpávající, lze doplňovat."
-      }
-    ]
-  },
-  {
-    "id": "5e9283cc",
-    "name": "Která přiřazení norem rodiny ISO/IEC 27000 jsou správná?",
-    "answer": "V rodině ISO/IEC 27000: 27004 měření, 27006 požadavky na certifikační orgány, 27014 governance IB, 27017 opatření pro cloud, 27035 řízení incidentů, 27799 zdravotnictví. (Přednáška 7, část 1, slides 16–22)",
-    "answers": [
-      {
-        "body": "27017 – opatření pro cloudové služby",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 18."
-      },
-      {
-        "body": "27014 – governance informační bezpečnosti",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 17."
-      },
-      {
-        "body": "27006 – požadavky na orgány provádějící audit a certifikaci ISMS",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 17."
-      },
-      {
-        "body": "27004 – řízení bezpečnostních incidentů",
-        "right": false,
-        "comment": "Přednáška 7, část 1, slide 16: 27004 je měření; incidenty řeší 27035."
-      },
-      {
-        "body": "27799 – řízení informační bezpečnosti ve zdravotnictví",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 22."
-      }
-    ]
-  },
-  {
-    "id": "34b034d5",
-    "name": "Která přiřazení publikací NIST SP jsou správná?",
-    "answer": "NIST SP 800-30 je průvodce hodnocením rizik, 800-37 Risk Management Framework, 800-53 katalog bezpečnostních a privacy opatření, 800-94 IDPS; řada SP 1800 jsou praktické příručky. (Přednáška 7, část 1, slides 24–25)",
-    "answers": [
-      {
-        "body": "SP 800-30 – průvodce hodnocením rizik",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 25."
-      },
-      {
-        "body": "SP 1800 – praktické příručky (Cybersecurity Practice Guides)",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 24."
-      },
-      {
-        "body": "SP 800-53 – bezpečnostní a privacy opatření",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 25."
-      },
-      {
-        "body": "SP 800-37 – Risk Management Framework",
-        "right": true,
-        "comment": "Přednáška 7, část 1, slide 25."
-      },
-      {
-        "body": "SP 800-53 – průvodce systémy detekce a prevence průniku",
-        "right": false,
-        "comment": "Přednáška 7, část 1, slide 25: IDPS je SP 800-94."
       }
     ]
   },
@@ -2179,33 +1567,6 @@
     ]
   },
   {
-    "id": "b714ac27",
-    "name": "Jak Common Criteria vymezují funkčnost a záruku?",
-    "answer": "V Common Criteria funkčnost určuje pravidla přístupu ke zdrojům TOE a jejich použití; záruka je důvod důvěry, že TOE splňuje své funkční požadavky (v3.1) či bezpečnostní cíle (v2.3). Záruka vzniká hodnocením nezávislými experty, ne prohlášením výrobce. (Přednáška 7, část 2, slides 20 a 24)",
-    "answers": [
-      {
-        "body": "Funkčnost: pravidla pro přístup k zdrojům TOE a jejich použití",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 20."
-      },
-      {
-        "body": "Záruka v CC vzniká prohlášením výrobce, nezávislé hodnocení není nutné",
-        "right": false,
-        "comment": "Přednáška 7, část 2, slide 24: záruka je založena na hodnocení (aktivním zkoumání) experty."
-      },
-      {
-        "body": "Záruka podle CC v3.1: důvod důvěry, že TOE splňuje funkční požadavky (SFR)",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 20."
-      },
-      {
-        "body": "Záruka podle CC v2.3: důvod důvěry, že entita splňuje své bezpečnostní cíle",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 20."
-      }
-    ]
-  },
-  {
     "id": "98844019",
     "name": "Jak přednáška zjednodušeně mapuje úrovně EAL na úrovně FIPS 140?",
     "answer": "Zjednodušené mapování: základní komerční EAL 1–2 ≈ FIPS Level 1, střední robustnost EAL 3–4 ≈ Level 1–2, vysoká záruka EAL 4+ až 5 ≈ Level 3, vojenská úroveň EAL 6–7 ≈ Level 4. (Přednáška 7, část 2, slide 36)",
@@ -2233,33 +1594,6 @@
     ]
   },
   {
-    "id": "84451746",
-    "name": "Co ukázaly analýzy certifikátů nástrojem sec-certs?",
-    "answer": "Analýzy sec-certs ukázaly koncentraci: top-10 produktů je v 16 % aktivních čipových karet, vyšší dosah souvisí s vyšším EAL a chyba v kryptografii rozšířeného zařízení by zasáhla asi 70 % závislých produktů. RoCA zasáhla přes 50 certifikovaných produktů, nebyla výjimkou. (Přednáška 7, část 2, slide 45)",
-    "answers": [
-      {
-        "body": "Vyšší dosah produktu souvisí s vyšší úrovní EAL",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 45."
-      },
-      {
-        "body": "Top-10 produktů je v 16 % aktivních čipových karet",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 45."
-      },
-      {
-        "body": "RoCA byla ojedinělá výjimka, zasáhla jediný certifikovaný produkt",
-        "right": false,
-        "comment": "Přednáška 7, část 2, slide 45: RoCA zasáhla 50+ certifikovaných produktů a nebyla výjimkou."
-      },
-      {
-        "body": "Chyba kryptografie v rozšířeném zařízení zasáhne ~70 % závislých produktů",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 45."
-      }
-    ]
-  },
-  {
     "id": "62199c25",
     "name": "Které výhody a nevýhody certifikace IT produktů uvádí přednáška?",
     "answer": "Certifikace přináší interoperabilitu, důvěru trhu a splnění regulace, ale stojí recertifikaci při každé změně produktu či standardu a brzdí inovace a experimentální funkce. (Přednáška 7, část 2, slides 3–4)",
@@ -2283,38 +1617,6 @@
         "body": "Výhoda: interoperabilita, důvěra trhu, splnění regulace",
         "right": true,
         "comment": "Přednáška 7, část 2, slide 3."
-      }
-    ]
-  },
-  {
-    "id": "d3f11768",
-    "name": "Jaké otázky si o záruce (assurance) kladou jednotlivé strany?",
-    "answer": "Každá strana se ptá na záruku jinak: zákazník, jakou má jistotu, že bezpečnost byla implementována; vývojář, co musí dodat k hodnocení; hodnotitel, zda má všechny vstupy a prošly testy; provozovatel, na jaké předpoklady může stavět. (Přednáška 7, část 2, slide 25)",
-    "answers": [
-      {
-        "body": "Vývojář: jaké vstupy a spolupráci musí můj tým pro hodnocení dodat?",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 25."
-      },
-      {
-        "body": "Zákazník: jakou záruku dostanu, že bezpečnost byla implementována?",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 25."
-      },
-      {
-        "body": "Provozovatel: na jakých předpokladech mohu stavět?",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 25."
-      },
-      {
-        "body": "Zákazník: jak rychle laboratoř hodnocení dokončí?",
-        "right": false,
-        "comment": "Přednáška 7, část 2, slide 25: tuto otázku přednáška zákazníkovi nepřisuzuje."
-      },
-      {
-        "body": "Hodnotitel: mám všechny vstupy a prošly všechny testy?",
-        "right": true,
-        "comment": "Přednáška 7, část 2, slide 25."
       }
     ]
   },
