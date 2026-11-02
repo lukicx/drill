@@ -2,6 +2,7 @@
   {
     "id": "bb75ca6b",
     "name": "Jaký je mezi pojmy 'Safety' a 'Security' rozdíl?",
+    "answer": "Safety (bezpečí) chrání před nahodilými událostmi, security (bezpečnost) před úmyslnými škodami; oba pojmy se týkají aktiv obecně, nejen IT. Ani security rizika úplně neodstraní. (Přednáška 1, slides 4–5)",
     "answers": [
       { "body": "Security se zaměřuje na ochranu proti úmyslným škodám", "right": true, "comment": "Přednáška 1, slide 5: bezpečnost (security) je ochrana proti úmyslným škodám na aktivech." },
       { "body": "Safety se zaměřuje na ochranu proti náhodným událostem", "right": true, "comment": "Přednáška 1, slide 4: bezpečí (safety) se chápe jako ochrana proti nahodilým událostem." },
@@ -13,6 +14,7 @@
   {
     "id": "4ff469b6",
     "name": "Které vlastnosti tvoří základní pilíře informační bezpečnosti (tzv. CIA triádu)?",
+    "answer": "Triádu CIA tvoří důvěrnost (přístup jen oprávněným), integrita (měnit smí jen oprávnění) a dostupnost (informace je k dispozici, když je potřeba). Autenticita, zodpovědnost či spolehlivost ji jen doplňují. (Přednáška 1, slide 20)",
     "answers": [
       { "body": "Integrita (Integrity)", "right": true, "comment": "Přednáška 1, slide 20: integrita – informaci smí měnit jen oprávněné subjekty; je součástí CIA." },
       { "body": "Zodpovědnost (Accountability)", "right": false, "comment": "Přednáška 1, slide 20: zodpovědnost (accountability) je doplňující vlastnost, ne součást triády CIA." },
@@ -25,6 +27,7 @@
   {
     "id": "b832a6bb",
     "name": "Které vlastnosti doplňují CIA triádu v širším pojetí informační bezpečnosti?",
+    "answer": "CIA doplňují autenticita, nepopiratelnost, zodpovědnost (prokazatelnost akcí) a spolehlivost. Efektivita a ekonomičnost jsou manažerské, ne bezpečnostní vlastnosti. (Přednáška 1, slide 20)",
     "answers": [
       { "body": "Nepopiratelnost (Non-repudiation)", "right": true, "comment": "Přednáška 1, slide 20: nepopiratelnost – schopnost prokázat, že událost či činnost nastala." },
       { "body": "Autenticita (Authenticity)", "right": true, "comment": "Přednáška 1, slide 20: autenticita (pravost, původnost) se řadí k doplňujícím vlastnostem." },
@@ -37,6 +40,7 @@
   {
     "id": "994c1134",
     "name": "Co je informační aktivum?",
+    "answer": "Aktivum je cokoli, co má pro organizaci hodnotu – hmotné (budovy, zařízení, lidé) i nehmotné (software, data, pověst), tedy nejen peníze nebo data na serverech. (Přednáška 1, slide 37)",
     "answers": [
       { "body": "Jakýkoliv zdroj nebo hodnota důležitá pro organizaci", "right": true, "comment": "Přednáška 1, slide 37: aktivum je cokoli, co má pro organizaci hodnotu (předmět, myšlenka, informace…)." },
       { "body": "Pouze finanční majetek firmy", "right": false, "comment": "Přednáška 1, slide 37: aktivem jsou i data, software, lidé nebo pověst, nejen finanční majetek." },
@@ -47,6 +51,7 @@
   {
     "id": "6c437852",
     "name": "Co označuje pojem zranitelnost (vulnerability)?",
+    "answer": "Zranitelnost je slabé místo systému, které snižuje bezpečnost a které může útočník (hrozba) využít ke škodě. Potenciální příčina incidentu je hrozba, ne zranitelnost. (Přednáška 1, slides 25, 39 a 53)",
     "answers": [
       { "body": "Výsledek auditu informační bezpečnosti", "right": false, "comment": "Přednáška 6, slide 38: audit může zranitelnosti odhalit, ale zranitelnost sama není jeho výsledkem." },
       { "body": "Místo v systému, které snižuje úroveň bezpečnosti", "right": true, "comment": "Přednáška 1, slide 53 mluví o „zranitelném místě“, kde se uplatní hrozba; formulace odpovědi je parafráze, ne citace slajdu." },
@@ -58,6 +63,7 @@
   {
     "id": "fcc35fce",
     "name": "Jaká je definice hrozby (threat)?",
+    "answer": "Hrozba je potenciální příčina bezpečnostního incidentu – možnost, že někdo nebo něco využije zranitelnost a poškodí aktivum. (Přednáška 1, slides 25 a 44)",
     "answers": [
       { "body": "Možnost zneužití zranitelnosti ke způsobení škody", "right": true, "comment": "Přednáška 1, slide 44: hrozba je potenciální možnost využití zranitelného místa k útoku a poškození aktiva." },
       { "body": "Součást fyzické bezpečnosti", "right": false, "comment": "Přednáška 1, slides 45–46 a 80–81: hrozby jsou technické, lidské, organizační i fyzické, ne jen součást fyzické bezpečnosti." },
@@ -68,6 +74,7 @@
   {
     "id": "77b24a7b",
     "name": "Co je riziko (risk) v kontextu informační bezpečnosti?",
+    "answer": "Riziko je v užším smyslu pravděpodobnost, že hrozba využije zranitelnost, v širším kombinace této pravděpodobnosti a dopadu (škody). Není to počet zranitelností ani výsledek opatření. (Přednáška 1, slide 53; Přednáška 6, slide 6)",
     "answers": [
       { "body": "Pravděpodobnost, že hrozba využije zranitelnost", "right": true, "comment": "Přednáška 1, slides 25 a 53: v užším smyslu je riziko pravděpodobnost, že se v daném zranitelném místě uplatní hrozba." },
       { "body": "Výsledek implementace bezpečnostního opatření", "right": false, "comment": "Přednáška 1, slide 25: opatření riziko modifikuje; riziko není výsledkem implementace opatření." },
@@ -78,6 +85,7 @@
   {
     "id": "62e68206",
     "name": "Které fáze tvoří PDCA cyklus systému řízení informační bezpečnosti (ISMS)?",
+    "answer": "PDCA cyklus ISMS: Plan (ustanovení), Do (zavedení a provoz), Check (monitorování a přezkoumání), Act (udržování a zlepšování). „Run“, „Control“ ani „Test“ fázemi nejsou. (Přednáška 1, slide 12; Přednáška 2, slides 44–46)",
     "answers": [
       { "body": "Do (Implementace a provoz)", "right": true, "comment": "Přednáška 1, slide 12 a Přednáška 2, slide 45: Do – zavádění a provoz ISMS." },
       { "body": "Run (Provozní fáze)", "right": false, "comment": "Přednáška 2, slide 42: fáze Run v PDCA není; provoz spadá do fáze Do." },
@@ -91,6 +99,7 @@
   {
     "id": "dbfc207b",
     "name": "Jaký je účel systému řízení informační bezpečnosti (ISMS)?",
+    "answer": "ISMS je systematický přístup k vybudování, provozu, monitorování a zlepšování informační bezpečnosti; jde o proces s neustálým zlepšováním. Nesnižuje odpovědnost vedení ani nenahrazuje technická opatření. (Přednáška 1, slides 11–12)",
     "answers": [
       { "body": "Omezit odpovědnost vedení organizace", "right": false, "comment": "Přednáška 2, slides 7 a 14: ISO 27001 naopak vyžaduje odpovědnost a průkazný závazek vedení." },
       { "body": "Zajistit procesy pro neustálé zlepšování bezpečnosti", "right": true, "comment": "Přednáška 1, slides 11–12: zajištění bezpečnosti je proces, ISMS proto obsahuje udržování a vylepšování (Act)." },
@@ -101,6 +110,7 @@
   {
     "id": "cdf789e",
     "name": "Které normy patří do rodiny ISO/IEC 27k?",
+    "answer": "Rodina ISO/IEC 27k zahrnuje mj. 27001 (požadavky na ISMS), 27002 (katalog opatření) a 27005 (řízení rizik). ISO 9001 (kvalita) a 14001 (životní prostředí) jsou jiné systémy řízení. (Přednáška 7, část 1, slides 15–16)",
     "answers": [
       { "body": "ISO/IEC 27001 – Požadavky na ISMS", "right": true, "comment": "Přednáška 7, část 1, slide 16: ISO/IEC 27001 formálně specifikuje požadavky na ISMS." },
       { "body": "ISO/IEC 27002 – Soubor postupů pro opatření bezpečnosti", "right": true, "comment": "Přednáška 7, část 1, slides 15–16: ISO/IEC 27002 je soubor postupů (kodex) pro bezpečnostní opatření." },
@@ -112,6 +122,7 @@
   {
     "id": "e659e3df",
     "name": "Co je primárním cílem procesu řízení rizik v informační bezpečnosti podle ISO/IEC 27005?",
+    "answer": "Řízení rizik podle ISO 27005 rizika identifikuje, analyzuje a vyhodnocuje, aby je opatřeními dostalo na akceptovatelnou úroveň. Všechna rizika eliminovat nejde. (Přednáška 6, slides 9 a 12)",
     "answers": [
       { "body": "Eliminovat všechna rizika z informačního systému", "right": false, "comment": "Přednáška 6, slide 23: „Musíme odstranit všechna rizika“ je typické chybné prohlášení; plné odstranění bývá neefektivní (Přednáška 1, slide 57)." },
       { "body": "Identifikovat, analyzovat a hodnotit rizika s cílem jejich zvládnutí na akceptovatelnou úroveň", "right": true, "comment": "Přednáška 6, slides 9 a 12: rizika se identifikují, analyzují a vyhodnocují, aby se zvolenými opatřeními změnila na přijatelnou úroveň." },
@@ -122,6 +133,7 @@
   {
     "id": "fcd3fcc6",
     "name": "Jak je podle ISO/IEC 27001 definován pojem 'opatření' (control)?",
+    "answer": "Opatření (control) je podle ISO 27001 prostředek, který modifikuje riziko – obvykle ho snižuje. (Přednáška 1, slide 25; Přednáška 6, slide 4)",
     "answers": [
       { "body": "Prostředek, který modifikuje riziko", "right": true, "comment": "Přednáška 1, slide 25 a Přednáška 6, slide 4: opatření (control) je prostředek, který modifikuje riziko." },
       { "body": "Proces měření rizika", "right": false, "comment": "Přednáška 6, slide 9: určení velikosti rizika je analýza rizik, ne opatření." },
@@ -132,6 +144,7 @@
   {
     "id": "1786d5ad",
     "name": "Jak lze vyjádřit úroveň rizika v rámci hodnocení rizik?",
+    "answer": "Úroveň rizika se vyjadřuje jako funkce pravděpodobnosti útoku krát funkce jeho dopadu: \\(R = F(\\text{pravděpodobnost}) \\times F'(\\text{dopad})\\). (Přednáška 6, slide 6)",
     "answers": [
       { "body": "Jako počet opatření implementovaných v systému", "right": false, "comment": "Přednáška 6, slide 6: počet opatření úroveň rizika nevyjadřuje; vyjadřuje ji pravděpodobnost × dopad." },
       { "body": "Jako součin pravděpodobnosti výskytu útoku a velikosti jeho dopadu", "right": true, "comment": "Přednáška 6, slide 6: úroveň rizika = F(pravděpodobnost útoku) × F´(dopad útoku)." },
@@ -142,6 +155,7 @@
   {
     "id": "6b619774",
     "name": "Které činnosti tvoří podprocesy hodnocení rizik podle ISO/IEC 27005?",
+    "answer": "Hodnocení (ohodnocení) rizik podle ISO 27005 má tři podprocesy: identifikaci, analýzu (určení velikosti) a vyhodnocení (porovnání s kritérii). Přenos a monitorování patří k jiným částem řízení rizik. (Přednáška 6, slide 9)",
     "answers": [
       { "body": "Audit souladu s legislativou", "right": false, "comment": "Přednáška 6, slide 9: audit souladu s legislativou mezi podprocesy ohodnocení rizik není." },
       { "body": "Vyhodnocení rizik", "right": true, "comment": "Přednáška 6, slide 9: vyhodnocení rizik (porovnání se stanovenými kritérii) je podproces ohodnocení rizik." },
@@ -154,6 +168,7 @@
   {
     "id": "755be17c",
     "name": "Který krok následuje po procesu hodnocení rizik v rámci řízení rizik?",
+    "answer": "Po hodnocení rizik následuje jejich zvládání (risk treatment) – výběr a zavedení opatření. Stanovení kontextu předchází hodnocení. (Přednáška 6, slides 7 a 9)",
     "answers": [
       { "body": "Stanovení kontextu", "right": false, "comment": "Přednáška 6, slide 9: stanovení kontextu je první krok, ohodnocení rizik mu předchází nikoli následuje." },
       { "body": "Akceptace rizik", "right": false, "comment": "Přednáška 6, slides 9 a 14: akceptace přichází až po zvládání – vedení schvaluje plán zvládání rizik a zbytková rizika." },
@@ -164,6 +179,7 @@
   {
     "id": "7136f80f",
     "name": "Které strategie lze využít ke zvládání rizik informační bezpečnosti?",
+    "answer": "Riziko lze eliminovat (vyhnout se mu), snížit opatřeními, přenést (smlouva, pojištění) nebo vědomě akceptovat. Ignorování není strategie. (Přednáška 6, slide 13)",
     "answers": [
       { "body": "Akceptace rizika", "right": true, "comment": "Přednáška 6, slide 13 a Přednáška 4, slide 20: riziko lze vědomě akceptovat (tolerovat)." },
       { "body": "Ignorování rizika", "right": false, "comment": "Přednáška 2, slide 30: akceptace je formální rozhodnutí oprávněné role, nikoli nečinnost či ignorování." },
@@ -176,6 +192,7 @@
   {
     "id": "e8f94d46",
     "name": "Jaký je účel stanovení kontextu v rámci řízení rizik?",
+    "answer": "Stanovení kontextu vymezuje účel, rozsah a hranice řízení rizik, zdroje a odpovědnosti a stanoví kritéria pro dopady a akceptovatelnost rizik. (Přednáška 6, slide 11)",
     "answers": [
       { "body": "Vymezení účelu řízení rizik, hranic, zdrojů a odpovědností", "right": true, "comment": "Přednáška 6, slide 11: stanovení kontextu vymezuje účel, oblast a hranice, zdroje a odpovědnostní role řízení rizik." },
       { "body": "Definování právních odpovědností manažerů", "right": false, "comment": "Přednáška 6, slide 11: kontext určuje role odpovědné za řízení rizik, ne právní odpovědnost manažerů." },
@@ -186,6 +203,7 @@
   {
     "id": "cebcfc6a",
     "name": "Které faktory určují úroveň rizika v organizaci?",
+    "answer": "Riziko určují aktiva a jejich hodnota (možná škoda), hrozby, zranitelnosti a pravděpodobnost útoku. Počet zaměstnanců nebo systémů riziko přímo neurčuje. (Přednáška 6, slide 7)",
     "answers": [
       { "body": "Počet IT systémů", "right": false, "comment": "Přednáška 6, slide 7: počet IT systémů sám o sobě riziko neurčuje; rozhodují hrozby, zranitelnosti, pravděpodobnost a škoda." },
       { "body": "Počet zaměstnanců", "right": false, "comment": "Přednáška 6, slide 7: počet zaměstnanců mezi faktory určujícími riziko není." },
@@ -199,6 +217,7 @@
   {
     "id": "ebcb5746",
     "name": "Jaký je hlavní rozdíl mezi politikou informační bezpečnosti a politikou ISMS?",
+    "answer": "Politika informační bezpečnosti říká, co a proti čemu se chrání; politika ISMS říká, jak se procesy plnící tuto politiku navrhují, provozují a hodnotí. (Přednáška 6, slide 43)",
     "answers": [
       { "body": "Politika ISMS řeší výhradně fyzickou bezpečnost", "right": false, "comment": "Přednáška 6, slide 43: politika ISMS řeší procesy ISMS obecně, ne pouze fyzickou bezpečnost." },
       { "body": "Politika ISMS je podřízená právní politice organizace", "right": false, "comment": "Přednáška 6, slide 43: politika ISMS může být podřízena politice InfoSec nebo naopak; o „právní politice“ slide nemluví." },
@@ -210,6 +229,7 @@
   {
     "id": "b82c9ad2",
     "name": "Jaký je hlavní účel politiky informační bezpečnosti v organizaci?",
+    "answer": "Politika informační bezpečnosti stanoví zásady, cíle a odpovědnosti pro požadovanou úroveň bezpečnosti (citlivá aktiva, jejich klasifikace, kdo za co odpovídá). Není to technická specifikace ani náhrada auditu. (Přednáška 6, slides 41 a 44)",
     "answers": [
       { "body": "Stanovit zásady, odpovědnosti a cíle pro dosažení požadované úrovně bezpečnosti informací", "right": true, "comment": "Přednáška 6, slides 41 a 44: politika stanoví pravidla, cíle a odpovědnosti (citlivá aktiva, jejich klasifikaci, odpovědnosti) pro dosažení bezpečnosti." },
       { "body": "Zastoupit funkci vnitřního auditu", "right": false, "comment": "Přednáška 6, slides 37–38: audit provádí role nezávislá na bezpečnostní exekutivě; politika ho nenahrazuje." },
@@ -220,6 +240,7 @@
   {
     "id": "48e469d8",
     "name": "Kdo obvykle nese odpovědnost za tvorbu a udržování politik informační bezpečnosti?",
+    "answer": "Za politiky informační bezpečnosti odpovídá vrcholový management, který je schvaluje a odpovídá i za jejich revize. (Přednáška 6, slides 29 a 50)",
     "answers": [
       { "body": "Vrcholový management organizace", "right": true, "comment": "Přednáška 6, slides 29 a 50: politiky autorizuje nejvyšší management, který má odpovědnost za politiku i každou její revizi." },
       { "body": "Koncoví uživatelé", "right": false, "comment": "Přednáška 2, slide 60: uživatelé musí politiku znát a dodržovat, odpovědnost za její tvorbu nemají." },
@@ -230,6 +251,7 @@
   {
     "id": "c9a25b3f",
     "name": "Jaký je vztah mezi systémovou bezpečnostní politikou a politikou informační bezpečnosti?",
+    "answer": "Systémová bezpečnostní politika je podřízená politice informační bezpečnosti: musí ji splňovat a konkretizuje její opatření a mechanismy pro daný systém. (Přednáška 6, slide 45)",
     "answers": [
       { "body": "Systémová politika konkretizuje opatření definovaná politikou informační bezpečnosti", "right": true, "comment": "Přednáška 6, slide 45: systémová politika musí splňovat politiku informační bezpečnosti a konkretizuje opatření a mechanismy pro daný systém." },
       { "body": "Systémová politika se vztahuje pouze na fyzické zabezpečení budovy", "right": false, "comment": "Přednáška 6, slide 45: systémová politika řeší ochranu informací a IT zdrojů v daném systému, ne jen fyzické zabezpečení budovy." },
@@ -240,6 +262,7 @@
   {
     "id": "1e37fa5f",
     "name": "Kdo obvykle vykonává roli Chief Information Security Officer (CISO)?",
+    "answer": "CISO je manažer odpovědný za řízení a koordinaci informační bezpečnosti v celé organizaci, ne běžný správce sítě ani externista bez pravomoci. (Přednáška 2, slide 55; Přednáška 6, slide 46)",
     "answers": [
       { "body": "Externí konzultant bez rozhodovací pravomoci", "right": false, "comment": "Přednáška 2, slide 55: role CISO je daná statutem organizace a nese odpovědnost, nejde o konzultanta bez pravomoci." },
       { "body": "Osoba odpovědná za řízení a koordinaci informační bezpečnosti v organizaci", "right": true, "comment": "Přednáška 2, slide 55 a Přednáška 6, slide 46: CISO je manažer odpovědný za zajišťování informační bezpečnosti v organizaci." },
@@ -250,6 +273,7 @@
   {
     "id": "7fbc74de",
     "name": "Jaký dokument musí podle ISO/IEC 27001 organizace vypracovat jako první krok při budování ISMS?",
+    "answer": "Prvním krokem budování ISMS je definovat politiku informační bezpečnosti a politiku ISMS. Pozor: Přednáška 2 jako první dokument uvádí oblast působnosti ISMS. (Přednáška 6, slide 49; Přednáška 2, slide 16)",
     "answers": [
       { "body": "Plán kontinuity činnosti (BCP)", "right": false, "comment": "Přednáška 6, slide 42: plán kontinuity je jedna z podpůrných politik, ne první krok budování ISMS." },
       { "body": "Zprávu o interním auditu", "right": false, "comment": "Přednáška 6, slide 32 a Přednáška 2, slide 46: zprávy z auditů vznikají až ve fázi Check." },
@@ -260,6 +284,7 @@
   {
     "id": "d8c7ec2c",
     "name": "Co je cílem bezpečnostních procedur v rámci řízení bezpečnosti?",
+    "answer": "Bezpečnostní procedury popisují krok za krokem, jak se systém bezpečně provozuje a kdo odpovídá za jednotlivé úkoly. (Přednáška 6, slides 30 a 46)",
     "answers": [
       { "body": "Vypracovat dokumenty pro legislativní audit", "right": false, "comment": "Přednáška 6, slide 30: procedury implementují politiky v praxi; nevznikají kvůli legislativnímu auditu." },
       { "body": "Zajistit marketingovou prezentaci organizace", "right": false, "comment": "Přednáška 6, slide 46: procedury slouží bezpečnému provozu, ne marketingu." },
@@ -270,6 +295,7 @@
   {
     "id": "29eabfc0",
     "name": "Jaký je hlavní důvod potřeby regulace v oblasti kybernetické bezpečnosti?",
+    "answer": "Regulace kyberbezpečnosti reaguje na rychlou digitalizaci, s níž neudrží krok schopnost společnosti se přizpůsobit. (Přednáška 3, slide 2)",
     "answers": [
       { "body": "Přebytek finančních prostředků určených na bezpečnost", "right": false, "comment": "Přednáška 3, slide 2: kyberbezpečnost je naopak „enormně podvyživený trh“." },
       { "body": "Rychlý rozvoj digitálních technologií", "right": true, "comment": "Přednáška 3, slide 2: rostoucí digitalizace a rychlost rozvoje, které neodpovídá naše schopnost se přizpůsobit. Slide 25 doplňuje ekonomické důvody (selhání trhu)." },
@@ -280,6 +306,7 @@
   {
     "id": "8af3a712",
     "name": "Které příklady představují významné kybernetické incidenty v historii?",
+    "answer": "Velké kybernetické incidenty: Stuxnet (2010, první útok s fyzickými škodami), únik dat Yahoo (2013–2014, přes 3 mld. účtů), WannaCry (2017) a útok na dodavatelský řetězec SolarWinds (2020). GDPR je regulace, ne incident. (Přednáška 3, slide 5)",
     "answers": [
       { "body": "Ransomware WannaCry (2017)", "right": true, "comment": "Přednáška 3, slide 5: ransomware WannaCry (2017) – přes 300 000 počítačů ve 150 zemích." },
       { "body": "Kolaps burzy NASDAQ (2008)", "right": false, "comment": "Obecná znalost (mimo slajdy): pád trhů v roce 2008 byl finanční krize, ne kybernetický incident." },
@@ -292,6 +319,7 @@
   {
     "id": "f757aa40",
     "name": "Jaký je rozdíl mezi pojmy 'Cybersecurity', 'Information Security' a 'ICT Security'?",
+    "answer": "Information Security chrání informace a jejich důvěrnost, integritu a dostupnost; ICT Security chrání technologie infrastruktury; vztah Cybersecurity k InfoSec není pevný – může jít o podkategorii, synonymum i nadřazený pojem. (Přednáška 3, slide 10)",
     "answers": [
       { "body": "Cybersecurity se vztahuje pouze na vojenské systémy", "right": false, "comment": "Přednáška 3, slide 15: cybersecurity chrání prostředí a infrastrukturu; obrana státu je samostatná oblast (kyberobrana)." },
       { "body": "ICT Security chrání technologie tvořící infrastrukturu", "right": true, "comment": "Přednáška 3, slide 10: ICT-Security (ISO 13335) chrání přímo technologie tvořící infrastrukturu." },
@@ -303,6 +331,7 @@
   {
     "id": "c9a70f1c",
     "name": "Které tři základní cíle definuje ITU pro oblast kybernetické bezpečnosti?",
+    "answer": "ITU definuje tři cíle kybernetické bezpečnosti: dostupnost, integritu (může zahrnovat autenticitu a nepopiratelnost) a důvěrnost. (Přednáška 3, slide 8)",
     "answers": [
       { "body": "Důvěrnost", "right": true, "comment": "Přednáška 3, slide 8: třetí cíl je důvěrnost (confidentiality)." },
       { "body": "Efektivitu", "right": false, "comment": "Přednáška 3, slide 8: efektivita mezi bezpečnostními cíli ITU není." },
@@ -315,6 +344,7 @@
   {
     "id": "e1e4bf81",
     "name": "Jaký je hlavní rozdíl mezi kybernetickou bezpečností, kybernetickou kriminalitou a kybernetickou obranou?",
+    "answer": "Kybernetická bezpečnost chrání prostředí a infrastrukturu (správní orgány), kyberkriminalitu řeší orgány činné v trestním řízení a kybernetická obrana chrání suverenitu státu a zajišťuje ji armáda. (Přednáška 3, slides 15–17)",
     "answers": [
       { "body": "Kybernetická bezpečnost se zabývá ochranou prostředí a infrastruktury", "right": true, "comment": "Přednáška 3, slides 15–16: kybernetická bezpečnost chrání prostředí (infrastrukturu), řeší ji správní orgány." },
       { "body": "Kybernetická obrana je součástí občanského práva", "right": false, "comment": "Přednáška 3, slide 16: kybernetická obrana je obrana státu, ne oblast občanského práva." },
@@ -326,6 +356,7 @@
   {
     "id": "ee3ec706",
     "name": "Kdo představuje nejslabší článek v zabezpečení informačních systémů?",
+    "answer": "Nejslabším článkem bývá člověk – chyby, neznalost a sociální inženýrství obejdou i silnou techniku a šifrování. (Přednáška 3, slide 13; Přednáška 1, slide 73)",
     "answers": [
       { "body": "Hardware systému", "right": false, "comment": "Přednáška 1, slide 10: systém je tak bezpečný jako nejslabší článek; za ten se obvykle považuje člověk, ne hardware." },
       { "body": "Šifrovací algoritmus", "right": false, "comment": "Přednáška 1, slide 74: dobré algoritmy jsou veřejně známé a otevřené; nejslabším článkem bývá jejich použití lidmi." },
@@ -336,6 +367,7 @@
   {
     "id": "25738bd0",
     "name": "Které instituce mají v České republice hlavní odpovědnost v oblasti kybernetické bezpečnosti?",
+    "answer": "V ČR za kybernetickou bezpečnost odpovídá NÚKIB a vedle něj CERT/CSIRT týmy. ČTÚ reguluje elektronické komunikace, ne kyberbezpečnost. (Přednáška 3, slide 17)",
     "answers": [
       { "body": "Ministerstvo kultury", "right": false, "comment": "Přednáška 3, slide 17: ministerstvo kultury mezi odpovědnými orgány není." },
       { "body": "CERT/CSIRT týmy", "right": true, "comment": "Přednáška 3, slide 17: vedle NÚKIB působí v kybernetické bezpečnosti CERT/CSIRT týmy." },
@@ -346,6 +378,7 @@
   {
     "id": "99cd5a38",
     "name": "Které úrovně zabezpečení jsou rozlišovány v systému kybernetické bezpečnosti?",
+    "answer": "Zabezpečení kyberprostoru se řeší na čtyřech úrovních: individuální, organizační, státní a mezinárodní. (Přednáška 3, slide 19)",
     "answers": [
       { "body": "Ekonomická úroveň", "right": false, "comment": "Přednáška 3, slide 19: ekonomická úroveň mezi úrovněmi zabezpečení není." },
       { "body": "Státní úroveň", "right": true, "comment": "Přednáška 3, slide 19: úroveň státu." },
@@ -358,6 +391,7 @@
   {
     "id": "575ed3f4",
     "name": "Jaký je hlavní cíl kybernetické bezpečnosti?",
+    "answer": "Smyslem kybernetické bezpečnosti je chránit prostředí, ve kterém člověk uplatňuje svá informační práva – ne šetřit náklady ani sbírat data pro stát. (Přednáška 3, slide 16)",
     "answers": [
       { "body": "Centralizovaná správa a sběr dat pro potřeby státní bezpečnosti", "right": false, "comment": "Přednáška 3, slide 16: kyberbezpečnost posiluje důvěrnost, integritu a dostupnost, nejde o centrální sběr dat pro stát." },
       { "body": "Minimalizace nákladů organizací na IT provoz prostřednictvím regulace", "right": false, "comment": "Přednáška 3, slide 34: regulace má naopak náklady; cílem kyberbezpečnosti není snižovat výdaje na IT." },
@@ -368,6 +402,7 @@
   {
     "id": "40df0340",
     "name": "Jaké orgány jsou odpovědné za kybernetickou kriminalitu, bezpečnost a obranu?",
+    "answer": "Každou oblast řeší jiné orgány: kyberkriminalitu orgány činné v trestním řízení, státní zastupitelství a soudy; kybernetickou bezpečnost NÚKIB a CERT/CSIRT týmy; kybernetickou obranu armáda a vojenské zpravodajství. Všechna uvedená přiřazení platí. (Přednáška 3, slides 15–17)",
     "answers": [
       { "body": "Kyberkriminalita – orgány činné v trestním řízení (OČTŘ)", "right": true, "comment": "Přednáška 3, slide 17: kyberkriminalita – orgány činné v trestním řízení (OČTŘ)." },
       { "body": "Kybernetická bezpečnost – NÚKIB", "right": true, "comment": "Přednáška 3, slide 17: kybernetická bezpečnost – NÚKIB." },
@@ -381,6 +416,7 @@
   {
     "id": "f6c5dd70",
     "name": "Které faktory představují výzvy pro právní úpravu v oblasti kybernetické bezpečnosti?",
+    "answer": "Právo kyberbezpečnosti naráží na dynamiku technologií (zákon vzniká roky, technologie měsíce), na mezinárodní povahu kyberprostoru a na rigiditu regulatorního aparátu. (Přednáška 3, slides 20 a 32)",
     "answers": [
       { "body": "Rigidita regulatorního aparátu", "right": true, "comment": "Přednáška 3, slide 20: rigidita regulatorního aparátu je východiskem (výzvou) právní úpravy." },
       { "body": "Mezinárodní charakter kyberprostoru", "right": true, "comment": "Přednáška 3, slides 20 a 36: mezinárodní aspekty – jurisdikce končí na hranici, útok nikoli." },
@@ -392,6 +428,7 @@
   {
     "id": "bfc379d3",
     "name": "Jaký je vztah mezi právem EU a českou právní úpravou v oblasti kybernetické bezpečnosti?",
+    "answer": "Právo EU je pro členské státy závazné a harmonizuje jejich úpravu; česká regulace kyberbezpečnosti z něj stále víc vychází. (Přednáška 3, slide 22)",
     "answers": [
       { "body": "Česká legislativa má v oblasti kybernetické bezpečnosti nadřazené postavení nad právem EU", "right": false, "comment": "Přednáška 3, slide 22: vliv jde z EU do ČR (harmonizace), česká úprava nad právem EU nestojí." },
       { "body": "Právo EU se nevztahuje na kybernetickou bezpečnost členských států", "right": false, "comment": "Přednáška 3, slides 22 a 39–41: EU kyberbezpečnost reguluje (NIS, NIS 2, Cybersecurity Act)." },
@@ -401,6 +438,7 @@
   {
     "id": "52ea908d",
     "name": "Jaké typy odpovědnosti se uplatňují v rámci práva kybernetické bezpečnosti?",
+    "answer": "V právu kyberbezpečnosti se uplatňuje odpovědnost správněprávní (GDPR, odvětvová regulace), trestněprávní, pracovněprávní (NDA, vpuštění útočníka) a mezinárodněprávní. (Přednáška 3, slide 27)",
     "answers": [
       { "body": "Správněprávní odpovědnost", "right": true, "comment": "Přednáška 3, slide 27: správněprávní odpovědnost (GDPR, odvětvová regulace)." },
       { "body": "Environmentální odpovědnost", "right": false, "comment": "Přednáška 3, slide 27: environmentální odpovědnost mezi uvedenými typy není." },
@@ -413,6 +451,7 @@
   {
     "id": "3a7b9932",
     "name": "Jaký je hlavní cíl právní regulace kybernetické bezpečnosti?",
+    "answer": "Regulace stanoví závazný cílový stav ochrany informační infrastruktury a prostředí pro informační (digitální) práva; nepředepisuje jednotnou technickou implementaci. (Přednáška 3, slides 16 a 30)",
     "answers": [
       { "body": "Stanovit pravidla pro poskytování kybernetických služeb na komerční bázi", "right": false, "comment": "Přednáška 3, slide 16: cílem je ochrana prostředí a práv, ne pravidla komerčního poskytování služeb." },
       { "body": "Stanovit závazný rámec pro ochranu informační infrastruktury a digitálních práv subjektů", "right": true, "comment": "Přednáška 3, slides 16 a 30: regulace stanoví závazný cílový stav ochrany prostředí pro informační práva; formulace odpovědi je shrnutí, ne citace." },
@@ -423,6 +462,7 @@
   {
     "id": "63d30723",
     "name": "Jaký je hlavní účel zákona o kybernetické bezpečnosti (ZoKB) v České republice?",
+    "answer": "ZoKB ukládá povinnosti k zajištění bezpečnosti sítí a informačních systémů důležitých pro fungování státu a společnosti. Osobní údaje řeší GDPR, komunikační služby jiný zákon. (Přednáška 3, slides 46–47; Přednáška 4, slide 10)",
     "answers": [
       { "body": "Stanovení povinností pro ochranu osobních údajů fyzických osob", "right": false, "comment": "Přednáška 4, slide 23: ochranu osobních údajů upravuje GDPR, dozor má ÚOOÚ." },
       { "body": "Zajištění bezpečnosti sítí a informačních systémů významných pro fungování státu", "right": true, "comment": "Přednáška 3, slides 46–47 a Přednáška 4, slide 10: ZoKB stanoví povinnosti k zajištění bezpečnosti sítí a informačních systémů důležitých pro stát a společnost (formulace odpovídá spíše starému zákonu 181/2014 Sb.)." },
@@ -433,6 +473,7 @@
   {
     "id": "7b43e69",
     "name": "Jaký orgán je podle ZoKB odpovědný za výkon působnosti v oblasti kybernetické bezpečnosti v ČR?",
+    "answer": "Působnost v kybernetické bezpečnosti podle ZoKB vykonává NÚKIB, který vydává i protiopatření. NBÚ tuto roli měl jen do vzniku NÚKIB. (Přednáška 3, slide 17; Přednáška 4, slide 10)",
     "answers": [
       { "body": "Ministerstvo obrany", "right": false, "comment": "Přednáška 3, slide 17: ministerstvo obrany a armáda patří ke kybernetické obraně, ne ke kybernetické bezpečnosti." },
       { "body": "NBÚ", "right": false, "comment": "Přednáška 3, slide 42: NBÚ byl národní autoritou od roku 2011; dnes působnost vykonává NÚKIB (vyčleněn z NBÚ v roce 2017, obecná znalost)." },
@@ -443,6 +484,7 @@
   {
     "id": "d5f90d4d",
     "name": "Jaké povinnosti ukládá regulovaným subjektům nový ZoKB (zákon č. 264/2025 Sb.)?",
+    "answer": "ZoKB 264/2025 Sb. ukládá stanovit rozsah řízení KB, zavádět bezpečnostní opatření a protiopatření NÚKIB, hlásit incidenty a promítnout požadavky do smluv s dodavateli. Konkrétní produkty nepředepisuje. (Přednáška 4, slides 10, 16, 21 a 23)",
     "answers": [
       { "body": "Archivovat všechny provozní záznamy bez časového omezení", "right": false, "comment": "Přednáška 4, slide 10: neomezená archivace všech záznamů mezi povinnostmi zákona není." },
       { "body": "Zavádět bezpečnostní opatření", "right": true, "comment": "Přednáška 4, slide 10: povinnost zavádět bezpečnostní opatření." },
@@ -457,6 +499,7 @@
   {
     "id": "ff55e030",
     "name": "Jaký je hlavní cíl směrnice NIS 2?",
+    "answer": "NIS 2 zvyšuje společnou úroveň kybernetické odolnosti v EU a rozšiřuje regulaci na více odvětví a typů subjektů (rozšíření je obecná znalost mimo slajdy). (Přednáška 3, slides 39 a 41)",
     "answers": [
       { "body": "Zvýšení úrovně kybernetické odolnosti členských států EU", "right": true, "comment": "Přednáška 3, slide 39 a 41: NIS 2 (2022) navazuje na NIS a jejím cílem je vysoká společná úroveň kybernetické bezpečnosti v EU (cíl formulován z obecné znalosti)." },
       { "body": "Zajištění volného pohybu osob v EU", "right": false, "comment": "Přednáška 3, slides 39–41: volný pohyb osob nesouvisí se směrnicí o bezpečnosti sítí a informačních systémů." },
@@ -467,6 +510,7 @@
   {
     "id": "c02b3d1d",
     "name": "Jaké jsou hlavní rozdíly mezi směrnicí NIS a NIS 2?",
+    "answer": "NIS 2 oproti NIS zpřísňuje sankce (i dočasný zákaz výkonu funkce), ukládá povinnosti vedení (schvalovat a dohlížet na opatření, školit se) a rozšiřuje působnost na další odvětví a podniky (obecná znalost). Hlášení incidentů zůstává. (Přednáška 4, slide 11)",
     "answers": [
       { "body": "Zpřísňuje sankce za porušení povinností", "right": true, "comment": "Přednáška 4, slide 11: NIS 2 zpřísňuje sankce – u základních subjektů i dočasný zákaz výkonu řídicí funkce (čl. 32)." },
       { "body": "NIS 2 ruší povinnost hlášení incidentů", "right": false, "comment": "Přednáška 4, slide 23: NIS 2 hlášení nezrušila, stanoví lhůty 24 h, 72 h a 1 měsíc (čl. 23)." },
@@ -478,6 +522,7 @@
   {
     "id": "e2519b75",
     "name": "Jaký je vztah mezi ZoKB a směrnicí NIS 2?",
+    "answer": "Směrnice NIS 2 se do českého práva transponuje zákonem – ZoKB 264/2025 Sb. ji implementuje; směrnice ZoKB nenahrazuje a zákon není nad právem EU. (Přednáška 4, slide 23)",
     "answers": [
       { "body": "Směrnice NIS 2 nahrazuje ZoKB v plném rozsahu", "right": false, "comment": "Obecná znalost (mimo slajdy): směrnice se musí transponovat národním zákonem, sama ho nenahrazuje." },
       { "body": "ZoKB implementuje směrnici NIS 2 do českého právního řádu", "right": true, "comment": "Přednáška 4, slide 23: požadavky NIS 2 jsou transponovány do ZoKB; směrnici do práva ČR zavádí zákon 264/2025 Sb." },
@@ -487,6 +532,7 @@
   {
     "id": "8059b6dd",
     "name": "Jaký je vztah GDPR a ZoKB?",
+    "answer": "GDPR chrání osobní údaje, ZoKB bezpečnost sítí a systémů; jde o samostatné předpisy, které se částečně překrývají (např. souběh hlášení), proto „implement once, comply many“. (Přednáška 4, slides 8, 10, 12 a 23)",
     "answers": [
       { "body": "ZoKB ruší povinnosti podle GDPR", "right": false, "comment": "Přednáška 4, slide 23: povinnosti platí souběžně – ZoKB povinnosti podle GDPR neruší." },
       { "body": "GDPR chrání osobní údaje", "right": true, "comment": "Přednáška 4, slides 8 a 23: GDPR chrání osobní údaje (čl. 32 zabezpečení, čl. 33 hlášení ÚOOÚ)." },
@@ -499,6 +545,7 @@
   {
     "id": "3b4e3e28",
     "name": "Který orgán vykonává dohled nad dodržováním GDPR v ČR?",
+    "answer": "Dozor nad GDPR v ČR vykonává Úřad pro ochranu osobních údajů (ÚOOÚ); jemu se do 72 hodin hlásí porušení zabezpečení osobních údajů. (Přednáška 4, slide 23)",
     "answers": [
       { "body": "Úřad pro ochranu osobních údajů", "right": true, "comment": "Přednáška 4, slide 23: porušení zabezpečení osobních údajů se hlásí do 72 h Úřadu pro ochranu osobních údajů (ÚOOÚ)." },
       { "body": "NÚKIB", "right": false, "comment": "Přednáška 4, slide 23: NÚKIB je gestor kybernetické bezpečnosti, dozor nad GDPR má ÚOOÚ." },
@@ -509,6 +556,7 @@
   {
     "id": "12789178",
     "name": "Jaký je hlavní cíl právního rámce kybernetické bezpečnosti EU jako celku?",
+    "answer": "EU usiluje harmonizací o vysokou společnou úroveň bezpečnosti sítí a informačních systémů ve všech členských státech, ne o centrální správu dat nebo jednotnou architekturu. (Přednáška 3, slides 22 a 39)",
     "answers": [
       { "body": "Vytvořit jednotný systém ochrany informačních systémů v členských státech", "right": true, "comment": "Přednáška 3, slides 22 a 39: EU usiluje o vysokou společnou úroveň bezpečnosti sítí a informačních systémů harmonizací." },
       { "body": "Zajistit centrální řízení všech dat z Evropské unie", "right": false, "comment": "Přednáška 3, slide 22: regulace je harmonizační, centrální řízení dat EU nezavádí." },
@@ -519,6 +567,7 @@
   {
     "id": "d684446a",
     "name": "Jaký je hlavní účel systému řízení informační bezpečnosti (ISMS) podle ISO/IEC 27001?",
+    "answer": "ISMS podle ISO 27001 je systematický přístup k řízení informační bezpečnosti založený na řízení rizik – politika nestačí, musí se zavést a udržovat. (Přednáška 1, slide 12; Přednáška 2, slide 4)",
     "answers": [
       { "body": "Vytvořit bezpečnostní politiku bez následné implementace", "right": false, "comment": "Přednáška 2, slide 5 a Přednáška 6, slide 49: politika se musí implementovat a provozovat (Do), bez toho není ISMS." },
       { "body": "Definovat specifikace hardwaru a softwaru", "right": false, "comment": "Přednáška 2, slide 8: ISO 27001 specifikuje ISMS netechnickou formou, nevázanou na konkrétní technologie." },
@@ -529,6 +578,7 @@
   {
     "id": "5281788c",
     "name": "Jaký model tvoří základní rámec fungování ISMS?",
+    "answer": "Rámcem fungování ISMS je Demingův cyklus PDCA (Plan – Do – Check – Act). (Přednáška 2, slides 42–43)",
     "answers": [
       { "body": "PDCA cyklus (Plan – Do – Check – Act)", "right": true, "comment": "Přednáška 2, slides 42–43 a Přednáška 1, slide 13: rámcem ISMS je PDCA (Demingův cyklus)." },
       { "body": "OODA cyklus (Observe – Orient – Decide – Act)", "right": false, "comment": "Obecná znalost (mimo slajdy): OODA je rozhodovací smyčka z vojenství; ISMS je postaveno na PDCA." },
@@ -539,6 +589,7 @@
   {
     "id": "7aeb7af2",
     "name": "Co zahrnuje fáze 'Plan' v PDCA cyklu ISMS?",
+    "answer": "Ve fázi Plan se stanoví oblast, politika, cíle a postupy, provede se analýza a ohodnocení rizik a vyberou se opatření (Prohlášení o aplikovatelnosti). Audit patří do Check. (Přednáška 2, slide 44)",
     "answers": [
       { "body": "Provádění interního auditu", "right": false, "comment": "Přednáška 2, slide 46: audit činností řízených ISMS patří do fáze Check." },
       { "body": "Volbu vhodných opatření", "right": true, "comment": "Přednáška 2, slide 44: Plan zahrnuje výběr cílů ochran a implementovatelných opatření a Prohlášení o aplikovatelnosti." },
@@ -550,6 +601,7 @@
   {
     "id": "43870938",
     "name": "Jaký je účel fáze 'Check' v rámci PDCA cyklu?",
+    "answer": "Fáze Check monitoruje, testuje a měří účinnost ISMS a opatření a porovnává výkon procesů s bezpečnostní politikou a cíli. (Přednáška 2, slide 46)",
     "answers": [
       { "body": "Zavádění technických opatření", "right": false, "comment": "Přednáška 2, slide 45: implementace opatření patří do fáze Do." },
       { "body": "Ověřování shody procesů s politikou informační bezpečnosti", "right": true, "comment": "Přednáška 2, slide 46: Check posuzuje výkon procesů proti bezpečnostní politice a cílům." },
@@ -560,6 +612,7 @@
   {
     "id": "e0412b7c",
     "name": "Jaký je účel fáze 'Act' v rámci PDCA cyklu?",
+    "answer": "Fáze Act provádí nápravná opatření a zavádí vylepšení ISMS na základě výsledků Check a přezkoumání vedením. (Přednáška 2, slide 46)",
     "answers": [
       { "body": "Vyhodnocování nových rizik bez implementace", "right": false, "comment": "Přednáška 2, slide 46: Act opravy a vylepšení naopak implementuje; hodnocení rizik patří do Plan a Check." },
       { "body": "Provádění nápravných opatření", "right": true, "comment": "Přednáška 2, slide 46: Act – provedení oprav a změn na základě výsledků posouzení managementem." },
@@ -570,6 +623,7 @@
   {
     "id": "79dd17cb",
     "name": "Jaké tři oblasti řídí implementace ISMS v organizaci?",
+    "answer": "Implementace ISMS řídí politiku a cíle bezpečnosti, procesy posuzování a ošetření rizik a odpovědnosti spolu se zdroji. Personalistika či finanční audit mezi ně nepatří. (Přednáška 1, slide 17; Přednáška 2, slide 11)",
     "answers": [
       { "body": "Politiku a cíle bezpečnosti informací", "right": true, "comment": "Přednáška 1, slide 17 a Přednáška 2, slide 11: ISMS zahrnuje politiku a cíle bezpečnosti (vůdčí role, plánování). Trojice oblastí je shrnutí, ne citace slajdu." },
       { "body": "Personalistiku a mzdy", "right": false, "comment": "Přednáška 2, slide 11: mzdová agenda do ISMS nepatří; z personalistiky jen bezpečnostní aspekty (kompetence, povědomí)." },
@@ -581,6 +635,7 @@
   {
     "id": "5812c738",
     "name": "Jaký dokument stanoví, která opatření byla vybrána a implementována v rámci ISMS?",
+    "answer": "Prohlášení o aplikovatelnosti (SoA) uvádí, která opatření byla vybrána a zavedena a proč (i proč jiná ne). (Přednáška 2, slide 17)",
     "answers": [
       { "body": "Bezpečnostní incident report", "right": false, "comment": "Přednáška 6, slide 32: záznamy o incidentech jsou zprávy 4. vrstvy o tom, co se stalo." },
       { "body": "Interní auditní zpráva", "right": false, "comment": "Přednáška 2, slide 20: auditní zprávy dokládají výsledky auditů, výběr opatření nestanoví." },
@@ -591,6 +646,7 @@
   {
     "id": "14693414",
     "name": "Jaký je účel interního auditu ISMS?",
+    "answer": "Interní audit ověřuje shodu ISMS s požadavky normy a vlastní politikou (politika – proces – záznam – realita) a účinnost zavedených opatření. (Přednáška 2, slide 32; Přednáška 6, slide 38)",
     "answers": [
       { "body": "Posoudit shodu ISMS s požadavky normy ISO/IEC 27001", "right": true, "comment": "Přednáška 2, slide 32: interní audit ověřuje shodu mezi politikou, procesem, konfigurací, záznamem a realitou." },
       { "body": "Vypracovat finanční rozvahu organizace", "right": false, "comment": "Přednáška 6, slide 38: bezpečnostní audit nemá s finanční rozvahou nic společného." },
@@ -601,6 +657,7 @@
   {
     "id": "f4263ec5",
     "name": "Jaký je rozdíl mezi interním a externím auditem ISMS?",
+    "answer": "Interní audit si plánuje a provádí organizace sama, externí (certifikační) audit provádí nezávislý certifikační orgán. (Přednáška 2, slides 9 a 20)",
     "answers": [
       { "body": "Interní audit je právně závazný, externí pouze dobrovolný", "right": false, "comment": "Přednáška 2, slides 9 a 20: certifikace je dobrovolná (ne vždy nezbytná), interní audity vyžaduje norma; žádný z nich není „zákonem“ závazný sám o sobě." },
       { "body": "Externí audit se zaměřuje na technické zranitelnosti systému", "right": false, "comment": "Přednáška 2, slide 9: certifikační audit posuzuje úplnost a kvalitu ISMS, ne primárně technické zranitelnosti." },
@@ -611,6 +668,7 @@
   {
     "id": "c34663a7",
     "name": "Jaké jsou základní požadavky normy ISO/IEC 27001?",
+    "answer": "ISO 27001 vyžaduje mj. politiku ISMS, určení rolí, odpovědností a pravomocí, posouzení a ošetření rizik a neustálé zlepšování. Konkrétní software nepředepisuje. (Přednáška 2, slide 11)",
     "answers": [
       { "body": "Stanovení odpovědností a pravomocí", "right": true, "comment": "Přednáška 2, slide 11: vůdčí role – určení rolí a odpovědností." },
       { "body": "Zajištění neustálého zlepšování systému", "right": true, "comment": "Přednáška 2, slide 11: zlepšování – neshody, nápravná opatření a neustálé zlepšování." },
@@ -623,6 +681,7 @@
   {
     "id": "282e6a9c",
     "name": "Jaký je účel řízení zdrojů v rámci ISMS?",
+    "answer": "Řízení zdrojů v ISMS zajišťuje lidi, peníze a technické prostředky potřebné pro zavedení a provoz opatření. (Přednáška 2, slides 14, 31 a 34)",
     "answers": [
       { "body": "Zajištění adekvátních technických prostředků", "right": true, "comment": "Přednáška 2, slide 31: opatření potřebují zdroje, monitoring a nástroje (tooling)." },
       { "body": "Zajištění dostatku lidské síly pro realizaci opatření", "right": true, "comment": "Přednáška 2, slides 14 a 34: projekt musí mít dostatečné personální zdroje." },
@@ -634,6 +693,7 @@
   {
     "id": "7df90f14",
     "name": "Které klíčové role jsou obvykle definovány v rámci ISMS?",
+    "answer": "Typické role ISMS: vrcholové vedení (schvaluje politiku, zdroje, rozhoduje o rizicích), manažer informační bezpečnosti (CISO), vlastníci (garanti) aktiv a auditoři. (Přednáška 2, slides 49 a 55; Přednáška 4, slide 34)",
     "answers": [
       { "body": "Manažer informační bezpečnosti", "right": true, "comment": "Přednáška 2, slide 55: manažer informační bezpečnosti (CISO) odpovídá za zajišťování informační bezpečnosti." },
       { "body": "Vlastníci aktiv", "right": true, "comment": "Přednáška 4, slide 34: garant (vlastník) aktiva odpovídá za konkrétní aktivum a jeho bezpečnost." },
@@ -646,6 +706,7 @@
   {
     "id": "fbf6d71c",
     "name": "Jaký je účel přezkoumání vedením (Management Review) v ISMS?",
+    "answer": "Přezkoumání vedením (aspoň 1× ročně) posuzuje, zda ISMS zůstává vhodný, přiměřený a účinný, a rozhoduje o zlepšeních, cílech a zdrojích. (Přednáška 2, slides 32 a 54)",
     "answers": [
       { "body": "Zhodnocení efektivity ISMS a rozhodnutí o zlepšení", "right": true, "comment": "Přednáška 2, slide 32 a Přednáška 4, slide 22: přezkoumání vedením řeší trendy, cíle, zdroje a rozhodnutí o zlepšení." },
       { "body": "Ověření souladu s pracovněprávní legislativou", "right": false, "comment": "Přednáška 4, slide 22: přezkoumání vedením rozhoduje o zdrojích a rizicích ISMS, ne o pracovněprávní legislativě." },
@@ -656,6 +717,7 @@
   {
     "id": "9b404d42",
     "name": "Jaký je význam certifikace ISO/IEC 27001 pro organizaci?",
+    "answer": "Certifikace ISO 27001 dokládá, že ISMS splňuje mezinárodní standard, a zvyšuje důvěru zákazníků a partnerů. Nulové riziko nezaručuje a interní audit nenahrazuje. (Přednáška 2, slides 8–9; Přednáška 7, část 2, slide 3)",
     "answers": [
       { "body": "Potvrzuje splnění mezinárodních standardů řízení informační bezpečnosti", "right": true, "comment": "Přednáška 2, slides 8–9: certifikace je důkazem úplnosti, kvality a důvěryhodnosti ISMS podle mezinárodního standardu." },
       { "body": "Zaručuje nulové riziko kybernetického útoku", "right": false, "comment": "Přednáška 1, slide 10: perfektní bezpečnost není dosažitelná ani s certifikátem." },
@@ -666,6 +728,7 @@
   {
     "id": "dfed0d6b",
     "name": "Jaké fáze zahrnuje proces certifikace ISO/IEC 27001?",
+    "answer": "Certifikace ISO 27001: příprava a gap analýza → interní audit a odstranění neshod → certifikační audit nezávislou autoritou → pravidelné dozorové audity (certifikát platí 3 roky; obecná znalost). (Přednáška 7, část 1, slide 28)",
     "answers": [
       { "body": "Pravidelné dozorové audity", "right": true, "comment": "Obecná znalost (mimo slajdy): certifikát platí 3 roky a udržuje se pravidelnými dozorovými audity." },
       { "body": "Příprava a analýza shody", "right": true, "comment": "Přednáška 7, část 1, slide 28: certifikace začíná přípravou a gap analýzou." },
@@ -678,6 +741,7 @@
   {
     "id": "9e20dc74",
     "name": "Jaký je účel dokumentace v rámci ISMS?",
+    "answer": "Dokumentace ISMS dělá procesy opakovatelné a sledovatelné a záznamy slouží jako důkaz shody s normou i fungování ISMS. (Přednáška 6, slides 25 a 32)",
     "answers": [
       { "body": "Zajistit sledovatelnost procesů", "right": true, "comment": "Přednáška 6, slides 25 a 32: záznamy a zprávy umožňují sledovat, jak ISMS běžel." },
       { "body": "Zajistit opakovatelnost procesů", "right": true, "comment": "Přednáška 6, slide 25: dokumentované procesy jsou opakovatelné a odolné vůči ztrátě znalostí." },
@@ -689,6 +753,7 @@
   {
     "id": "83932635",
     "name": "Který dokument stanovuje rámec a hranice ISMS v organizaci?",
+    "answer": "Hranice ISMS vymezuje dokument o rozsahu (oblasti působnosti, scope) ISMS. (Přednáška 2, slides 12 a 16)",
     "answers": [
       { "body": "Prohlášení o rozsahu ISMS", "right": true, "comment": "Přednáška 2, slides 12 a 16: oblast působnosti (scope) ISMS je samostatný dokument vymezující hranice ISMS." },
       { "body": "Politika kybernetické obrany", "right": false, "comment": "Přednáška 3, slides 15–16: kybernetická obrana je obrana státu, s rozsahem ISMS organizace nesouvisí." },
@@ -699,6 +764,7 @@
   {
     "id": "fa127ad6",
     "name": "Který z následujících přístupů je klíčový pro efektivní ISMS?",
+    "answer": "Efektivní ISMS stojí na přístupu založeném na rizicích: opatření se volí podle výsledků řízení rizik, ne až reaktivně po incidentech nebo jen technicky. (Přednáška 2, slide 50; Přednáška 6, slide 5)",
     "answers": [
       { "body": "Přístup založený na rizicích", "right": true, "comment": "Přednáška 2, slide 50 a Přednáška 6, slide 5: zavedení bezpečnosti vychází z výstupů řízení rizik; opatření se volí na základě znalosti rizik." },
       { "body": "Reaktivní přístup po incidentech", "right": false, "comment": "Přednáška 1, slide 11: zajištění bezpečnosti je plánovaný průběžný proces, ne reakce až po incidentech." },
@@ -708,6 +774,7 @@
   {
     "id": "6abe9f82",
     "name": "Jaký je účel opatření podle přílohy A normy ISO/IEC 27001?",
+    "answer": "Příloha A ISO 27001 je „menu“ opatření, ze kterého se vybírá podle analýzy rizik; seznam lze přizpůsobit a doplnit. (Přednáška 7, část 1, slides 14 a 27)",
     "answers": [
       { "body": "Definovat povinné šifrovací algoritmy", "right": false, "comment": "Přednáška 7, část 1, slide 13: norma je nezávislá na technologii, konkrétní algoritmy nepředepisuje." },
       { "body": "Poskytnout přehled kontrol a opatření, která mohou být uplatněna k řízení identifikovaných rizik", "right": true, "comment": "Přednáška 7, část 1, slides 14 a 27: příloha 27001 je „menu“ opatření, z něhož se vybírá podle analýzy rizik." },
@@ -717,6 +784,7 @@
   {
     "id": "49c38e13",
     "name": "Jaký je hlavní cíl standardů v oblasti informační a kybernetické bezpečnosti?",
+    "answer": "Standard je dokumentovaná úmluva, která slouží jako měřítko – zajišťuje jednotný a opakovatelný (porovnatelný) přístup k řízení bezpečnosti. (Přednáška 7, část 1, slide 4)",
     "answers": [
       { "body": "Určit právní odpovědnost konkrétních osob", "right": false, "comment": "Přednáška 7, část 1, slide 6: žádný standard sám o sobě nemá charakter právního předpisu." },
       { "body": "Zajistit jednotný a opakovatelný přístup k řízení bezpečnosti", "right": true, "comment": "Přednáška 7, část 1, slide 4: standard je dokumentovaná úmluva, kterou lze použít jako měřítko pro porovnání a hodnocení." },
@@ -726,6 +794,7 @@
   {
     "id": "df4dfc5f",
     "name": "Jaký je hlavní účel normy ISO/IEC 27000?",
+    "answer": "ISO/IEC 27000 je úvod a přehled rodiny ISO27k se slovníkem pojmů; certifikuje se podle 27001. (Přednáška 7, část 1, slide 16)",
     "answers": [
       { "body": "Stanovuje požadavky na fyzickou bezpečnost zařízení", "right": false, "comment": "Přednáška 7, část 1, slide 16: ISO 27000 obsahuje přehled a slovník, požadavky na fyzickou bezpečnost nestanoví." },
       { "body": "Poskytuje přehled pro rodinu standardů ISO/IEC 27k", "right": true, "comment": "Přednáška 7, část 1, slide 16: ISO/IEC 27000 je přehled a úvod do rodiny ISO27k plus slovník pojmů." },
@@ -735,6 +804,7 @@
   {
     "id": "23f2c10d",
     "name": "Jaký je hlavní rozdíl mezi ISO/IEC 27001 a ISO/IEC 27002?",
+    "answer": "ISO/IEC 27001 stanoví požadavky na ISMS (must/shall) a je certifikovatelná; ISO/IEC 27002 dává návod, jak opatření implementovat (may/should). Žádná z nich není sama o sobě právně závazná. (Přednáška 7, část 1, slides 13–15)",
     "answers": [
       { "body": "ISO/IEC 27001 poskytuje návod pro implementaci opatření", "right": false, "comment": "Přednáška 7, část 1, slides 14–15: návody k implementaci opatření dává 27002, ne 27001." },
       { "body": "ISO/IEC 27001 stanovuje požadavky na ISMS", "right": true, "comment": "Přednáška 7, část 1, slide 13: ISO 27001 je detailní popis požadavků, které musí ISMS splnit (must/shall)." },
@@ -747,6 +817,7 @@
   {
     "id": "5e62e607",
     "name": "Která norma specifikuje požadavky na řízení rizik informační bezpečnosti?",
+    "answer": "Řízení rizik bezpečnosti informací řeší ISO/IEC 27005; 27003 je návod k implementaci ISMS, 27017 cloud a 27035 incidenty. (Přednáška 7, část 1, slide 16)",
     "answers": [
       { "body": "ISO/IEC 27003", "right": false, "comment": "Přednáška 7, část 1, slide 16: ISO/IEC 27003 dává pokyny k implementaci ISMS." },
       { "body": "ISO/IEC 27017", "right": false, "comment": "Přednáška 7, část 1, slide 18: ISO/IEC 27017 obsahuje opatření pro cloud computing." },
@@ -757,6 +828,7 @@
   {
     "id": "5785992b",
     "name": "Která norma stanovuje pokyny pro řízení incidentů informační bezpečnosti?",
+    "answer": "Řízení incidentů informační bezpečnosti popisuje ISO/IEC 27035; 27004 je měření, 27003 implementace ISMS a 27018 ochrana osobních údajů v cloudu. (Přednáška 7, část 1, slides 16–20)",
     "answers": [
       { "body": "ISO/IEC 27004", "right": false, "comment": "Přednáška 1, slide 14: ISO/IEC 27004 řeší monitorování, měření, analýzu a hodnocení." },
       { "body": "ISO/IEC 27003", "right": false, "comment": "Přednáška 7, část 1, slide 16: ISO/IEC 27003 dává pokyny k implementaci ISMS." },
@@ -767,6 +839,7 @@
   {
     "id": "5f443883",
     "name": "Jaký je hlavní účel normy ISO/IEC 27004?",
+    "answer": "ISO/IEC 27004 se zabývá monitorováním, měřením, analýzou a hodnocením – tedy měřením účinnosti ISMS a opatření. (Přednáška 7, část 1, slide 16)",
     "answers": [
       { "body": "Definuje právní odpovědnosti bezpečnostního manažera", "right": false, "comment": "Přednáška 1, slide 14: ISO 27004 se týká měření, ne právních odpovědností." },
       { "body": "Stanovuje postupy auditu účetnictví", "right": false, "comment": "Přednáška 1, slide 14: ISO 27004 měří účinnost ISMS, audit účetnictví neřeší." },
@@ -776,6 +849,7 @@
   {
     "id": "48e3d9fc",
     "name": "Jaký je hlavní účel rámce NIST Cybersecurity Framework (CSF)?",
+    "answer": "NIST CSF dává strukturovaný přístup k řízení kybernetické bezpečnosti pomocí tří složek: Core (funkce), Profiles a Implementation Tiers. Není to certifikační schéma ani náhrada norem ISO. (Přednáška 5, slide 24)",
     "answers": [
       { "body": "Poskytnout certifikační schéma pro IT produkty", "right": false, "comment": "Přednáška 7, část 2, slides 9–11: certifikační schéma pro IT produkty jsou Common Criteria (ISO/IEC 15408)." },
       { "body": "Zajistit vojenskou kyberobranu členských států NATO", "right": false, "comment": "Přednáška 5, slides 24–25: CSF je rámec řízení kybernetických rizik pro organizace, ne vojenská kyberobrana NATO." },
@@ -786,6 +860,7 @@
   {
     "id": "4c604a61",
     "name": "Jaké jsou základní funkce rámce NIST Cybersecurity Framework 2.0?",
+    "answer": "NIST CSF 2.0 má šest funkcí: Govern (nová ve 2.0), Identify, Protect, Detect, Respond a Recover. (Přednáška 4, slides 5 a 17; Přednáška 5, slide 26)",
     "answers": [
       { "body": "Check", "right": false, "comment": "Přednáška 4, slide 17: Check je fáze PDCA, ne funkce CSF." },
       { "body": "Recover", "right": true, "comment": "Přednáška 4, slide 17 a Přednáška 5, slide 26: Recover je funkce CSF." },
@@ -801,6 +876,7 @@
   {
     "id": "c535eb01",
     "name": "Který rámec poskytuje metodiku pro řízení rizik v oblasti kybernetické bezpečnosti?",
+    "answer": "Metodiku řízení rizik kybernetické bezpečnosti dává NIST Risk Management Framework (SP 800-37). COBIT je governance IT, ITIL řízení služeb, TOGAF podniková architektura. (Přednáška 7, část 1, slide 25)",
     "answers": [
       { "body": "NIST Risk Management Framework (RMF)", "right": true, "comment": "Přednáška 7, část 1, slide 25: NIST SP 800-37 Rev. 2 – Risk Management Framework." },
       { "body": "COBIT 5", "right": false, "comment": "Přednáška 4, slide 17: COBIT je rámec governance a řízení podnikového IT, ne metodika řízení kyberrizik." },
@@ -811,6 +887,7 @@
   {
     "id": "d30be54b",
     "name": "Jaký je účel rámce COBIT 2019?",
+    "answer": "COBIT 2019 je rámec pro governance a řízení podnikového IT (vazba IT na řízení podniku, audit IT). OT řeší IEC 62443. (Přednáška 4, slide 17)",
     "answers": [
       { "body": "Řeší bezpečnost průmyslových řídicích systémů (OT)", "right": false, "comment": "Přednáška 4, slide 17: bezpečnost průmyslových řídicích systémů (OT) řeší IEC 62443." },
       { "body": "Poskytuje rámec pro governance a řízení podnikového IT", "right": true, "comment": "Přednáška 4, slide 17: COBIT 2019 – governance a řízení podnikového IT (audit IT, vazba na řízení podniku)." },
@@ -821,6 +898,7 @@
   {
     "id": "6dc795c8",
     "name": "Jaký je účel rámce ITIL v kontextu bezpečnosti?",
+    "answer": "ITIL je sbírka osvědčených postupů pro řízení IT služeb. (Přednáška 2, slide 42)",
     "answers": [
       { "body": "Stanovuje právní normy kybernetické obrany", "right": false, "comment": "Přednáška 2, slide 42: ITIL je metoda řízení IT služeb, ne právní norma." },
       { "body": "Poskytuje osvědčené postupy pro řízení IT služeb", "right": true, "comment": "Přednáška 2, slide 42: ITIL (Information Technology Infrastructure Library) – osvědčené postupy řízení IT služeb." },
@@ -830,6 +908,7 @@
   {
     "id": "af889fd7",
     "name": "Jaký je hlavní přínos compliance rámců v oblasti informační bezpečnosti?",
+    "answer": "Compliance znamená plnit povinnosti právní (ZoKB, NIS2, GDPR), regulační (sektorové) a smluvní (zákazníci, SLA, pojištění). Interní politiky nenahrazuje. (Přednáška 4, slide 8)",
     "answers": [
       { "body": "Zajišťují přímý dohled nad činností zaměstnanců", "right": false, "comment": "Přednáška 4, slide 8: compliance je schopnost prokazatelně dodržovat povinnosti, ne dohled nad zaměstnanci." },
       { "body": "Zajišťují dodržování právních požadavků", "right": true, "comment": "Přednáška 4, slide 8: compliance zahrnuje právní povinnosti (ZoKB, NIS2, GDPR…)." },
@@ -841,6 +920,7 @@
   {
     "id": "2f17649b",
     "name": "Mezi de facto standardy nepatří?",
+    "answer": "De iure standardy schvaluje uznávaná instituce – ISO normy (27xxx i 9001) proto de facto nejsou. OWASP, RFC a COBIT jsou de facto standardy. (Přednáška 7, část 1, slides 5, 9 a 11)",
     "answers": [
       { "body": "OWASP", "right": false, "comment": "Přednáška 7, část 1, slide 9: OWASP je příklad de facto standardu." },
       { "body": "RFC", "right": false, "comment": "Přednáška 7, část 1, slide 9: RFC je příklad de facto standardu (internetové standardy)." },
@@ -852,6 +932,7 @@
   {
     "id": "22ac8f82",
     "name": "Které činnosti nepatří do DO fáze PDCA cyklu implementace ISMS?",
+    "answer": "Do fáze Do patří zavádění a provoz: implementace procedur (např. detekce incidentů) a školení. Definice politiky a volba způsobu zvládání rizik patří do Plan, zprávy pro vedení do Check a opravy podle posouzení vedením do Act. (Přednáška 2, slides 44–46)",
     "answers": [
       { "body": "Implementace procedur (opatření) umožňujících promptní detekci bezpečnostních incidentů a reakce na ně", "right": false, "comment": "Přednáška 2, slide 45: implementace procedur pro promptní detekci incidentů a reakci na ně patří do Do." },
       { "body": "Definice politiky informační bezpečnosti", "right": true, "comment": "Přednáška 2, slide 44: definice politiky informační bezpečnosti patří do Plan." },
@@ -864,6 +945,7 @@
   {
     "id": "940d38ff",
     "name": "Která opatření spadají mezi technologická opatření podle ISO/IEC 27002:2022?",
+    "answer": "Technologická opatření ISO 27002:2022 jsou např. koncová zařízení uživatele, bezpečná autentizace, kryptografie a bezpečné programování. Likvidace zařízení a ostraha jsou fyzická, NDA lidská opatření. (Přednáška 1, slide 60)",
     "answers": [
       { "body": "Bezpečné programování", "right": true, "comment": "Přednáška 1, slide 60: bezpečné programování patří mezi technologická opatření." },
       { "body": "Bezpečná likvidace zařízení", "right": false, "comment": "Přednáška 1, slide 60: bezpečná likvidace zařízení patří mezi fyzická opatření." },
@@ -877,6 +959,7 @@
   {
     "id": "1b4862f5",
     "name": "Která opatření jsou součástí fyzické bezpečnosti podle ISO/IEC 27002:2022?",
+    "answer": "Fyzická opatření ISO 27002:2022 zahrnují např. fyzický vstup, prázdný stůl a obrazovku, paměťová média a bezpečnou likvidaci zařízení. Přístupová práva v systémech jsou organizační, kryptografie technologická, prověrky lidská opatření. (Přednáška 1, slide 60)",
     "answers": [
       { "body": "Řízení přístupových práv v informačních systémech", "right": false, "comment": "Přednáška 1, slide 60: management identit a přístupů patří mezi organizační opatření." },
       { "body": "Používání kryptografie při přenosu dat", "right": false, "comment": "Přednáška 1, slide 60: používání kryptografie je technologické opatření." },
@@ -890,6 +973,7 @@
   {
     "id": "6178d458",
     "name": "Které oblasti zahrnuje organizační a personální část opatření dle ISO/IEC 27002:2022?",
+    "answer": "Organizační opatření zahrnují politiky IB, řízení identit a přístupů, odezvu na incidenty a kontinuitu činností; personální (lidská) část prověřování a dohody o mlčenlivosti. Síťové protokoly a šifrování jsou technologická opatření. (Přednáška 1, slide 60)",
     "answers": [
       { "body": "Odezva na incidenty", "right": true, "comment": "Přednáška 1, slide 60: odezva na incidenty je organizační opatření." },
       { "body": "Implementace síťových protokolů", "right": false, "comment": "Přednáška 1, slide 60: implementace síťových protokolů není organizační ani personální opatření." },
@@ -903,6 +987,7 @@
   {
     "id": "1c450bcc",
     "name": "Jaké oblasti zahrnují organizační opatření podle ISO/IEC 27002:2022?",
+    "answer": "Mezi organizační opatření ISO 27002:2022 patří politiky IB, řízení identit a přístupových práv, odezva na incidenty a kontinuita činností. Prověřování zaměstnanců je lidské, fyzický vstup fyzické a šifrování technologické opatření. (Přednáška 1, slide 60)",
     "answers": [
       { "body": "Prověřování zaměstnanců před nástupem do zaměstnání", "right": false, "comment": "Přednáška 1, slide 60: prověřování zaměstnanců patří do opatření v oblasti lidských zdrojů, ne do organizačních." },
       { "body": "Zajištění kontinuity činností a provozu", "right": true, "comment": "Přednáška 1, slide 60: zajištění kontinuity je organizační opatření." },
@@ -916,6 +1001,7 @@
   {
     "id": "58bbfa74",
     "name": "Jaké oblasti zahrnují opatření v oblasti lidských zdrojů podle ISO/IEC 27002:2022?",
+    "answer": "Lidská opatření ISO 27002:2022 zahrnují prověřování před nástupem, školení a povědomí (obecná znalost, opatření 6.3), dohody o mlčenlivosti a disciplinární řízení. Politiky a identity jsou organizační opatření. (Přednáška 1, slide 60)",
     "answers": [
       { "body": "Školení a zvyšování povědomí o bezpečnosti", "right": true, "comment": "Obecná znalost (ISO/IEC 27002:2022, opatření 6.3): školení a povědomí patří do opatření v oblasti lidských zdrojů." },
       { "body": "Řízení identit a přístupových práv", "right": false, "comment": "Přednáška 1, slide 60: management identit je organizační opatření." },
@@ -929,6 +1015,7 @@
   {
     "id": "109a9ab5",
     "name": "Která z následujících organizací není národní standardizační organizací?",
+    "answer": "Národní standardizační organizace jsou např. ČSNI (ČR) a ANSI (USA). ISO a IEC jsou mezinárodní, ETSI a CENELEC evropské (obecná znalost; dělení na mezinárodní, evropské a národní z Přednášky 7, část 1, slide 8).",
     "answers": [
       { "body": "ČSNI", "right": false, "comment": "Obecná znalost: ČSNI (Český normalizační institut) byl národní standardizační orgán ČR; dnes tuto roli plní ÚNMZ a agentura ČAS." },
       { "body": "IEC", "right": true, "comment": "Obecná znalost: IEC je mezinárodní organizace (normy pro elektrotechniku)." },
@@ -941,6 +1028,7 @@
   {
     "id": "e09f618f",
     "name": "Rys informační bezpečnosti zvaný důvěrnost:",
+    "answer": "Důvěrnost chrání aktiva před neautorizovaným zpřístupněním (přístup mají jen oprávnění); ochrana před neautorizovanou změnou je integrita. (Přednáška 1, slides 20–21)",
     "answers": [
       { "body": "Reprezentuje ochranu aktiv před neautorizovanou změnou", "right": false, "comment": "Přednáška 1, slides 20 a 22: ochrana před neautorizovanou změnou je integrita." },
       { "body": "Reprezentuje ochranu aktiv před neautorizovaným zpřístupněním", "right": true, "comment": "Přednáška 1, slides 20–21: důvěrnost znamená, že informace je přístupná pouze oprávněným subjektům." },
@@ -951,6 +1039,7 @@
   {
     "id": "d8762fdb",
     "name": "Které z následujících představují de facto standardy?",
+    "answer": "De facto standardy vznikají v praxi bez schválení státní či mezinárodní autoritou – RFC, OWASP, PKCS, standardy ISF a ISACA. ISO vydává de iure standardy. (Přednáška 7, část 1, slides 9–10; ISF a ISACA obecná znalost)",
     "answers": [
       { "body": "ISF", "right": true, "comment": "Obecná znalost (mimo slajdy): ISF (Information Security Forum) vydává Standard of Good Practice, jde o de facto standard." },
       { "body": "PKCS", "right": true, "comment": "Přednáška 7, část 1, slide 10: PKCS od RSA Labs je firemní standard, což je kategorie de facto standardů." },
@@ -963,6 +1052,7 @@
   {
     "id": "36c1ef19",
     "name": "Jaké požadavky musí splňovat aktivum klasifikované jako 'střední' z hlediska dostupnosti?",
+    "answer": "Střední dostupnost podle ZoKB: výpadek by neměl překročit pracovní den a stačí běžné zálohování a obnova. Několik hodin a záložní systémy jsou vysoká úroveň, žádný výpadek kritická. (Přednáška 1, slide 84)",
     "answers": [
       { "body": "Postačují pouze běžné metody zálohování bez nutnosti obnovy", "right": false, "comment": "Přednáška 1, slide 84: samotné pravidelné zálohování stačí u nízké dostupnosti; střední vyžaduje i obnovu." },
       { "body": "Musí být zajištěny záložní systémy a obnova poskytovaných služeb podmíněná zásahem obsluhy", "right": false, "comment": "Přednáška 1, slide 84: záložní systémy a obnovu podmíněnou zásahem obsluhy vyžaduje vysoká dostupnost." },
@@ -975,6 +1065,7 @@
   {
     "id": "f5706a0e",
     "name": "Zajištění integrity je možné pomocí:",
+    "answer": "Integritu chrání mechanismy, které odhalí změnu dat: kryptografický hash (obecná znalost) a digitální podpis. Pozor: MAC tu znamená Media Access Control (síťová adresa), ne Message Authentication Code; 2FA chrání přístup. (Přednáška 1, slides 22 a 66)",
     "answers": [
       { "body": "Dvoufaktorová autentizace", "right": false, "comment": "Obecná znalost: dvoufaktorová autentizace ověřuje identitu uživatele (řízení přístupu), integritu dat sama nezajišťuje." },
       { "body": "Digitální podpis", "right": true, "comment": "Přednáška 1, slides 22 a 66: digitální podpis chrání integritu (i původu dat) a slouží k nepopiratelnosti." },
@@ -985,6 +1076,7 @@
   {
     "id": "d9f68d6b",
     "name": "Jakým způsobem může organizace formálně prokázat shodu s mezinárodním standardem informační bezpečnosti?",
+    "answer": "Formálně se shoda prokazuje certifikátem od akreditovaného certifikačního orgánu, tedy nezávislé třetí strany; vlastní prohlášení nebo interní hodnocení formální důkaz nejsou. (Přednáška 7, část 1, slide 7; část 2, slide 10)",
     "answers": [
       { "body": "Získáním certifikátu vydaného akreditovaným certifikačním orgánem", "right": true, "comment": "Přednáška 7, část 1, slide 7 a Přednáška 7, část 2, slide 10: certifikát vydává důvěryhodná třetí strana s akreditací." },
       { "body": "Provedením interního hodnocení bez nezávislého ověření", "right": false, "comment": "Přednáška 7, část 1, slide 7: interní hodnocení je jen prohlášení o vyhovění, ne formální certifikace." },
@@ -995,6 +1087,7 @@
   {
     "id": "1c04d0e8",
     "name": "Jak je podle standardů rodiny ISO/IEC 27000 definován systém řízení informační bezpečnosti (ISMS)?",
+    "answer": "Podle ISO/IEC 27000 je ISMS dokumentovaný a systematicky implementovaný, trvale přezkoumávaný a auditovaný, trvale zlepšovaný a důvěryhodný systém řízení informační bezpečnosti – platí všechny čtyři charakteristiky. (Přednáška 2, slide 9)",
     "answers": [
       { "body": "Dokumentovaný, systematicky implementovaný a řízený systém pro řízení informační bezpečnosti", "right": true, "comment": "Přednáška 2, slide 9: ISMS je dokumentovaný, systematicky implementovaný a řízený systém." },
       { "body": "Trvale přezkoumávaný, auditovaný a kontrolovaný systém pro řízení informační bezpečnosti", "right": true, "comment": "Přednáška 2, slide 9: ISMS je trvale přezkoumávaný, auditovaný a kontrolovaný." },
@@ -1005,6 +1098,7 @@
   {
     "id": "a92bff53",
     "name": "Která z následujících opatření spadají mezi organizační opatření podle ISO/IEC 27002:2022?",
+    "answer": "Organizační (řídicí) opatření jsou např. plán kontinuity, adresná odpovědnost za kritické procesy, zmocnění k určení a akceptaci zbytkového rizika a periodické zkoumání efektivnosti opatření. NDA je personální, strukturované vedení kabeláže fyzické opatření. (Přednáška 1, slides 58 a 60)",
     "answers": [
       { "body": "Plán zachování kontinuity činnosti po havárii", "right": true, "comment": "Přednáška 1, slides 58 a 60: plán kontinuity je organizační opatření (zajištění kontinuity)." },
       { "body": "Přidělení adresné odpovědnosti za bezpečnost kritických podnikatelských procesů", "right": true, "comment": "Přednáška 1, slide 58: přidělení adresné odpovědnosti za kritické procesy je organizační opatření." },
@@ -1017,6 +1111,7 @@
   {
     "id": "8c0e653c",
     "name": "Které faktory determinují velikost rizika pro aktivum v rámci řízení informační bezpečnosti?",
+    "answer": "Velikost rizika pro aktivum určuje hodnota a klasifikace aktiva (výše škody), jeho zranitelnost a existence a schopnosti útočníků (pravděpodobnost útoku). Počet opatření je reakce na riziko, ne jeho determinant. (Přednáška 1, slides 53 a 82–84)",
     "answers": [
       { "body": "Existence potenciálních útočníků", "right": true, "comment": "Přednáška 1, slide 53: množství a schopnosti potenciálních útočníků určují pravděpodobnost útoku." },
       { "body": "Hodnota aktiva", "right": true, "comment": "Přednáška 1, slide 53 a Přednáška 6, slide 7: hodnota aktiva určuje výši možné škody." },
@@ -1028,6 +1123,7 @@
   {
     "id": "c9fc201c",
     "name": "Které tvrzení nejlépe vystihuje charakter korporátní bezpečnostní politiky zpracování informací v organizaci?",
+    "answer": "Korporátní politika informační bezpečnosti je koncepční a nezávislá na použitých IT; konkrétní technologie respektuje až systémová bezpečnostní politika. (Přednáška 6, slides 44–45)",
     "answers": [
       { "body": "Je revidována každý rok při vypracovávání výroční zprávy", "right": false, "comment": "Přednáška 6, slides 49 a 53: politika se přezkoumává pravidelně (např. ročně), ale ne kvůli výroční zprávě; to ji nevystihuje." },
       { "body": "Je revidována při každé změně použitých informačních technologií", "right": false, "comment": "Přednáška 6, slides 44–45: na změny použitých IT reaguje systémová politika; korporátní politika je na konkrétních IT nezávislá." },
@@ -1038,6 +1134,7 @@
   {
     "id": "c63a44ce",
     "name": "Které z následujících organizací nepatří mezi evropské standardizační organizace?",
+    "answer": "Evropské standardizační organizace jsou CEN, CENELEC a ETSI. ISO a IEC jsou mezinárodní, ČSNI a ANSI národní a RFC není organizace, ale řada internetových standardů (obecná znalost; Přednáška 7, část 1, slides 8–9).",
     "answers": [
       { "body": "ČSNI", "right": true, "comment": "Obecná znalost: ČSNI byl národní (český) standardizační orgán." },
       { "body": "IEC", "right": true, "comment": "Obecná znalost: IEC je mezinárodní, ne evropská organizace." },
@@ -1050,6 +1147,7 @@
   {
     "id": "dce88655",
     "name": "Na které z následujících standardů se může organizace certifikovat?",
+    "answer": "Certifikovat se lze jen na normy s požadavky: ISO/IEC 27001 (ISMS) a ISO 9001 (kvalita). ISO 9000 a 27000 jsou slovníky, 27002 katalog doporučení a RFC nejsou certifikační normy. (Přednáška 2, slide 8; Přednáška 7, část 1, slides 14 a 27)",
     "answers": [
       { "body": "ISO 9000", "right": false, "comment": "Obecná znalost (mimo slajdy): ISO 9000 obsahuje základy a slovník; certifikuje se na ISO 9001." },
       { "body": "ISO/IEC 27002", "right": false, "comment": "Přednáška 7, část 1, slide 15: certifikace vyhovění ISO/IEC 27002 se nedělá; deklaruje se jen soulad." },
@@ -1062,6 +1160,7 @@
   {
     "id": "30f67c5d",
     "name": "Kdo autorizuje dokumenty 2. vrstvy (procedury) v dokumentové základně ISMS?",
+    "answer": "Procedury (2. vrstva dokumentace ISMS) autorizuje výkonný management a CSO, vždy po projednání s řídicím výborem informační bezpečnosti. (Přednáška 6, slide 30)",
     "answers": [
       { "body": "Externí auditor", "right": false, "comment": "Přednáška 6, slide 38: auditor je nezávislý na bezpečnostní exekutivě a dokumenty neautorizuje." },
       { "body": "Výkonný management a CSO, vždy po projednání s řídicím výborem informační bezpečnosti", "right": true, "comment": "Přednáška 6, slide 30: procedury autorizuje výkonný management a CSO, vždy po projednání s řídicím výborem." },
@@ -1073,6 +1172,7 @@
   {
     "id": "d351c8db",
     "name": "Která z následujících činností představují preventivní opatření v oblasti informační bezpečnosti?",
+    "answer": "Preventivní opatření má incidentu zabránit: strukturovaná kabeláž, řízení přístupových práv, školení zaměstnanců. Obnova po útoku a revize po incidentu jsou nápravná, analýza příčin následná. (Přednáška 1, slides 58, 61 a 71)",
     "answers": [
       { "body": "Bezpečné a strukturované vedení kabeláže a fyzických připojení", "right": true, "comment": "Přednáška 1, slides 58 a 61: bezpečné strukturované vedení kabeláže má incidentu zabránit, je preventivní." },
       { "body": "Obnova systémů po kybernetickém útoku", "right": false, "comment": "Přednáška 1, slide 61: obnova po útoku je nápravné opatření." },
@@ -1085,6 +1185,7 @@
   {
     "id": "d575e70c",
     "name": "Která z následujících bezpečnostních zásad NEpopisuje standardní osvědčený postup v oblasti kybernetické bezpečnosti?",
+    "answer": "Bezpečnost založená na utajení návrhu (security through obscurity) je chybný koncept. Obrana do hloubky, oddělení povinností a nejmenší oprávnění jsou osvědčené zásady. (Přednáška 1, slide 74)",
     "answers": [
       { "body": "Obrana do hloubky", "right": false, "comment": "Přednáška 1, slide 33: bezpečnost se nezajistí jedním opatřením, uplatňuje se jich více současně – to je obrana do hloubky." },
       { "body": "Oddělení povinností", "right": false, "comment": "Přednáška 1, slide 73 a Přednáška 6, slide 38: oddělení oprávnění a odpovědností je osvědčený princip." },
@@ -1095,6 +1196,7 @@
   {
     "id": "d34e2cfb",
     "name": "Co představuje dokument Statement of Applicability (Prohlášení o aplikovatelnosti) podle standardů rodiny ISO/IEC 27000?",
+    "answer": "Prohlášení o aplikovatelnosti je výstupem ohodnocení rizik: seznam opatření, která mohou snížit nebo odstranit rizika v chráněné oblasti, s jejich zdůvodněním. (Přednáška 6, slide 12)",
     "answers": [
       { "body": "Je výstupem ohodnocení rizik a obsahuje seznam a zdůvodnění opatření, která mohou snížit nebo odstranit rizika v chráněné oblasti", "right": true, "comment": "Přednáška 6, slide 12: výstupem ohodnocení rizik je Prohlášení o aplikovatelnosti vhodných opatření snižujících nebo eliminujících rizika." },
       { "body": "Je výstupem akceptování rizik a obsahuje seznam a zdůvodnění opatření, která jsou určená pro snížení nebo odstranění rizik v chráněné oblasti", "right": false, "comment": "Přednáška 6, slide 14: akceptace rizik je odsouhlasení plánu zvládání a akceptovatelných rizik vedením; SoA vzniká už z ohodnocení rizik." },
@@ -1104,6 +1206,7 @@
   {
     "id": "8c7448a7",
     "name": "Které kategorie hrozeb tvoří model STRIDE?",
+    "answer": "STRIDE je zkratka šesti kategorií hrozeb: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege. Sniffing a ransomware jsou konkrétní útoky, ne kategorie. (Přednáška 1, slide 47)",
     "answers": [
       { "body": "Denial of Service", "right": true, "comment": "Přednáška 1, slide 47: D – Denial of Service (odepření služby)." },
       { "body": "Sniffing", "right": false, "comment": "Přednáška 1, slide 47: odposlech (sniffing) spadá pod Information Disclosure, samostatná kategorie to není." },
@@ -1119,6 +1222,7 @@
   {
     "id": "57494c15",
     "name": "Ke které kategorii STRIDE patří situace, kdy nelze zjistit, kdo poslal příkaz ke smazání záloh?",
+    "answer": "Když nelze prokázat, kdo akci provedl, jde o Repudiation – chybí nepopiratelnost a dohledatelnost akcí. (Přednáška 1, slide 48)",
     "answers": [
       { "body": "Denial of Service", "right": false, "comment": "Přednáška 1, slide 48: Denial of Service narušuje dostupnost (např. rušení rádiových frekvencí IoT sítě)." },
       { "body": "Repudiation", "right": true, "comment": "Přednáška 1, slide 48: „nelze zjistit, kdo poslal příkaz k mazání záloh“ je přesně příklad Repudiation." },
@@ -1129,6 +1233,7 @@
   {
     "id": "fa55ae0",
     "name": "Ke které kategorii STRIDE patří odeslání e-mailu pod cizí identitou nebo falešná přihlašovací stránka?",
+    "answer": "Vydávání se za někoho jiného (cizí identita v e-mailu, falešná přihlašovací stránka) je Spoofing – útok na autenticitu. (Přednáška 1, slide 48)",
     "answers": [
       { "body": "Information Disclosure", "right": false, "comment": "Přednáška 1, slide 48: Information Disclosure je únik dat (např. z chybně zpřístupněného cloudu)." },
       { "body": "Spoofing", "right": true, "comment": "Přednáška 1, slide 48: e-mail pod jinou identitou a falešná přihlašovací stránka jsou příklady Spoofingu." },
@@ -1139,6 +1244,7 @@
   {
     "id": "649e2ece",
     "name": "Které atributy protivníka se zvažují při tvorbě modelu útočníka?",
+    "answer": "Model útočníka popisuje, zda jde o outsidera či insidera, jeho cíle, metody, schopnosti a úroveň financování. Věk či státní příslušnost mezi atributy nepatří. (Přednáška 1, slide 54)",
     "answers": [
       { "body": "Zda jde o outsidera, nebo insidera", "right": true, "comment": "Přednáška 1, slide 54: outsider vs. insider – insider má obvykle počáteční výhodu." },
       { "body": "Úroveň financování", "right": true, "comment": "Přednáška 1, slide 54: úroveň financování ovlivňuje odhodlání, metody i schopnosti útočníka." },
@@ -1152,6 +1258,7 @@
   {
     "id": "1cfd7f36",
     "name": "Který princip návrhu bezpečnostních opatření říká, že pokud subjekt nemá výslovně udělen přístup, má mu být odepřen (např. firewall: vše zakázáno, explicitně povolujeme)?",
+    "answer": "Fail-safe Defaults: co není výslovně povoleno, je zakázáno (firewall default deny). Least Privilege naopak omezuje rozsah udělených práv. (Přednáška 1, slide 71)",
     "answers": [
       { "body": "Princip nejmenších práv (Least Privilege)", "right": false, "comment": "Přednáška 1, slide 71: Least Privilege říká, že každý má mít jen nejmenší potřebná práva." },
       { "body": "Princip bezpečného výchozího stavu (Fail-safe Defaults)", "right": true, "comment": "Přednáška 1, slide 71: Fail-safe Defaults – bez výslovně uděleného přístupu se přístup odepře (FW: vše zakázáno, explicitně povolujeme)." },
@@ -1162,6 +1269,7 @@
   {
     "id": "afee00b8",
     "name": "Který princip vyžaduje, aby byly kontrolovány všechny přístupy k objektům, a omezuje proto ukládání do mezipaměti?",
+    "answer": "Complete Mediation vyžaduje kontrolu každého přístupu k objektu, a proto omezuje cachování výsledků dřívějších kontrol. (Přednáška 1, slide 75)",
     "answers": [
       { "body": "Princip úplného zprostředkování (Complete Mediation)", "right": true, "comment": "Přednáška 1, slide 75: Complete Mediation kontroluje všechny přístupy a omezuje ukládání do mezipaměti." },
       { "body": "Princip oddělení oprávnění (Separation of Privileges)", "right": false, "comment": "Přednáška 1, slide 73: Separation of Privileges – oprávnění se nemá udělovat na základě jediné podmínky." },
@@ -1172,6 +1280,7 @@
   {
     "id": "cb0750fa",
     "name": "Které z následujících patří mezi principy návrhu a implementace bezpečnostních opatření?",
+    "answer": "Mezi principy návrhu bezpečnostních opatření patří mj. ekonomika mechanismu, oddělení oprávnění, nejmenší společný mechanismus a psychologická přijatelnost. Security through obscurity je chybný přístup. (Přednáška 1, slides 72–75)",
     "answers": [
       { "body": "Princip nejmenšího společného mechanismu (Least Common Mechanism)", "right": true, "comment": "Přednáška 1, slide 75: princip nejmenšího společného mechanismu." },
       { "body": "Princip psychologické přijatelnosti (Psychological Acceptability)", "right": true, "comment": "Přednáška 1, slide 73: princip psychologické přijatelnosti (uznává lidský faktor)." },
@@ -1184,6 +1293,7 @@
   {
     "id": "73ccfa31",
     "name": "Co říká princip oddělení oprávnění (Separation of Privileges)?",
+    "answer": "Oddělení oprávnění: oprávnění se nemá udělit na základě jediné podmínky (např. heslo + členství ve skupině) a role se mají oddělit – administrátor nemá být běžným uživatelem aplikace. Nejmenší práva a nesdílení mechanismů jsou jiné principy. (Přednáška 1, slide 73)",
     "answers": [
       { "body": "Systém by neměl udělovat oprávnění na základě jediné podmínky", "right": true, "comment": "Přednáška 1, slide 73: systém by neměl udělovat oprávnění na základě jediné podmínky (např. heslo + správná skupina pro root)." },
       { "body": "Každý uživatel má mít přidělena co nejmenší práva", "right": false, "comment": "Přednáška 1, slide 71: nejmenší možná práva jsou princip nejmenších práv (Least Privilege)." },
@@ -1194,6 +1304,7 @@
   {
     "id": "49d398c4",
     "name": "Které čtyři modality regulace chování rozlišuje Lessig?",
+    "answer": "Lessig rozlišuje čtyři modality regulace chování: právo (sankce), sociální normy (očekávání komunity), trh (cena a poptávka) a architekturu neboli kód (technické nastavení). (Přednáška 3, slide 24)",
     "answers": [
       { "body": "Architektura (kód)", "right": true, "comment": "Přednáška 3, slide 24: architektura (kód) – technické nastavení (vynucené MFA, sandbox)." },
       { "body": "Právo", "right": true, "comment": "Přednáška 3, slide 24: právo – hrozba sankce, působí zpětně." },
@@ -1206,6 +1317,7 @@
   {
     "id": "65eead56",
     "name": "Do které Lessigovy modality patří vynucené MFA nebo šifrování ve výchozím stavu?",
+    "answer": "Vynucené MFA nebo šifrování ve výchozím stavu reguluje chování technickým nastavením – je to architektura (kód). (Přednáška 3, slide 24)",
     "answers": [
       { "body": "Právo", "right": false, "comment": "Přednáška 3, slide 24: právo působí hrozbou sankce (např. „incident hlaste do 24 hodin, jinak pokuta“)." },
       { "body": "Architektura (kód)", "right": true, "comment": "Přednáška 3, slide 24: vynucené MFA a šifrování ve výchozím stavu jsou příklady architektury (kódu)." },
@@ -1216,6 +1328,7 @@
   {
     "id": "5a1b688d",
     "name": "Proč k zajištění kybernetické bezpečnosti nestačí trh (selhání trhu)?",
+    "answer": "Trh selhává kvůli informační asymetrii (bezpečnost nelze ověřit), negativním externalitám (botnet škodí jiným), nesouladu motivací (rozhoduje ten, kdo nenese následky) a kvaziveřejné povaze bezpečnosti (černí pasažéři). (Přednáška 3, slide 25)",
     "answers": [
       { "body": "Informační asymetrie: kupující neumí bezpečnost ověřit", "right": true, "comment": "Přednáška 3, slide 25: informační asymetrie – kupující bezpečnost neumí ověřit." },
       { "body": "Bezpečnost je kvaziveřejný statek a motivuje k černému pasažérství", "right": true, "comment": "Přednáška 3, slide 25: bezpečnost je kvaziveřejný statek a motivuje k černému pasažérství." },
@@ -1228,6 +1341,7 @@
   {
     "id": "ea39a6c1",
     "name": "Co znamená princip technologické neutrality v regulaci?",
+    "answer": "Technologicky neutrální norma odkazuje na technické standardy místo konkrétní technologie; cenou je právní nejistota, protože obsah povinnosti dotváří praxe regulátora a auditorů. (Přednáška 3, slide 32)",
     "answers": [
       { "body": "Norma odkazuje na technické standardy místo předepisování konkrétní technologie", "right": true, "comment": "Přednáška 3, slide 32: norma odkazuje na technické standardy místo konkrétní technologie." },
       { "body": "Zákon vyjmenovává konkrétní povolené produkty", "right": false, "comment": "Přednáška 3, slide 32: technologicky neutrální zákon naopak konkrétní produkty nevyjmenovává." },
@@ -1238,6 +1352,7 @@
   {
     "id": "d3e12118",
     "name": "Co charakterizuje rizikově orientovaný přístup k regulaci?",
+    "answer": "Rizikově orientovaná regulace odstupňuje povinnosti podle dopadu selhání, uplatňuje proporcionalitu a předpokládá, že subjekt umí riziko identifikovat, hodnotit a doložit; náklady regulace přitom existují. (Přednáška 3, slide 34)",
     "answers": [
       { "body": "Stejná povinnost pro všechny subjekty", "right": false, "comment": "Přednáška 3, slide 34: stejná povinnost pro všechny je plošná regulace, opak rizikového přístupu." },
       { "body": "Uplatňuje proporcionalitu: zásah má být vhodný, potřebný a přiměřený", "right": true, "comment": "Přednáška 3, slide 34: proporcionalita – zásah vhodný, potřebný a přiměřený." },
@@ -1249,6 +1364,7 @@
   {
     "id": "564f96d9",
     "name": "Které nástroje patří do regulatorního mixu?",
+    "answer": "Regulatorní mix: command and control (povinnost, kontrola, sankce), ko- a samoregulace (normy, certifikace), ekonomické nástroje (pojištění, zakázky) a podpůrné nástroje (hlášení, varování, CSIRT). (Přednáška 3, slide 33)",
     "answers": [
       { "body": "Podpůrné nástroje: hlášení, varování, CSIRT", "right": true, "comment": "Přednáška 3, slide 33: podpůrné nástroje – hlášení, varování, CSIRT." },
       { "body": "Znárodnění poskytovatelů ICT služeb", "right": false, "comment": "Přednáška 3, slide 33: znárodnění v regulatorním mixu není." },
@@ -1260,6 +1376,7 @@
   {
     "id": "5f41f00c",
     "name": "Které prováděcí vyhlášky k novému ZoKB odpovídají kterému režimu?",
+    "answer": "K ZoKB 264/2025 Sb. patří vyhláška 409/2025 Sb. pro režim vyšších povinností a 410/2025 Sb. pro režim nižších povinností; 82/2018 Sb. patřila ke starému zákonu. (Přednáška 4, slide 10)",
     "answers": [
       { "body": "Vyhláška 410/2025 Sb. upravuje režim nižších povinností", "right": true, "comment": "Přednáška 4, slide 10: vyhláška 410/2025 Sb. upravuje režim nižších povinností." },
       { "body": "Vyhláška 409/2025 Sb. upravuje režim vyšších povinností", "right": true, "comment": "Přednáška 4, slide 10: vyhláška 409/2025 Sb. upravuje režim vyšších povinností." },
@@ -1270,6 +1387,7 @@
   {
     "id": "1ceffdac",
     "name": "Jak se podle nového ZoKB určuje rozsah řízení kybernetické bezpečnosti?",
+    "answer": "Rozsah řízení KB: identifikují se primární aktiva celé organizace, vyberou se ta související s regulovanou službou a k nim organizační části a podpůrná aktiva; dokud rozsah není určen, platí pro celou organizaci. Určuje ho organizace, ne NÚKIB. (Přednáška 4, slide 16)",
     "answers": [
       { "body": "Dokud rozsah není určen, platí pro celou organizaci", "right": true, "comment": "Přednáška 4, slide 16, krok 4: dokud rozsah není určen, platí pro celou organizaci." },
       { "body": "Identifikují se primární aktiva celé organizace", "right": true, "comment": "Přednáška 4, slide 16, krok 1: identifikují se primární aktiva celé organizace." },
@@ -1281,6 +1399,7 @@
   {
     "id": "53bd4b77",
     "name": "Kdo podle NIS2 (čl. 20) a nového ZoKB nese odpovědnost za řízení kybernetické bezpečnosti?",
+    "answer": "Podle NIS2 čl. 20 a ZoKB odpovídá vedení (řídicí orgány): schvaluje opatření k řízení rizik, dohlíží na ně a musí se prokazatelně školit. Odpovědnost nelze přesunout na IT ani dodavatele. (Přednáška 4, slides 11 a 38)",
     "answers": [
       { "body": "Vedení se musí v oblasti kybernetické bezpečnosti prokazatelně školit", "right": true, "comment": "Přednáška 4, slides 11 a 38: vedení se musí prokazatelně školit (i vyhl. 410/2025, slide 10)." },
       { "body": "Výhradně IT oddělení", "right": false, "comment": "Přednáška 4, slide 11: odpovědnost nese vedení; nemůže kyberbezpečnost „delegovat a zapomenout“." },
@@ -1291,6 +1410,7 @@
   {
     "id": "5fb5cdb5",
     "name": "Jaké jsou lhůty pro hlášení významného incidentu podle NIS2 čl. 23?",
+    "answer": "Významný incident se podle NIS2 čl. 23 hlásí ve třech krocích: včasné varování do 24 hodin, oznámení do 72 hodin a závěrečná zpráva do 1 měsíce. (Přednáška 4, slide 23)",
     "answers": [
       { "body": "Závěrečná zpráva do 1 roku", "right": false, "comment": "Přednáška 4, slide 23: závěrečná zpráva je do 1 měsíce, ne do 1 roku." },
       { "body": "Závěrečná zpráva do 1 měsíce", "right": true, "comment": "Přednáška 4, slide 23: závěrečná zpráva do 1 měsíce." },
@@ -1302,6 +1422,7 @@
   {
     "id": "a8860530",
     "name": "Které role patří do jednotlivých linií modelu tří linií (IIA, 2020)?",
+    "answer": "Model tří linií: 1. linie vykonává (vlastníci procesů, IT provoz, SOC, garanti aktiv), 2. linie dohlíží odborně (CISO, řízení rizik, compliance, DPO), 3. linie nezávisle kontroluje (interní audit, auditor KB). (Přednáška 4, slide 33)",
     "answers": [
       { "body": "1. linie: interní audit", "right": false, "comment": "Přednáška 4, slide 33: interní audit je 3. linie (nezávislá kontrola), ne 1. linie." },
       { "body": "2. linie: manažer KB / CISO, řízení rizik, compliance, DPO", "right": true, "comment": "Přednáška 4, slide 33: 2. linie (expertíza a dohled) – manažer KB/CISO, řízení rizik, compliance, DPO." },
@@ -1313,6 +1434,7 @@
   {
     "id": "fabd4e3f",
     "name": "Co platí pro matici RACI?",
+    "answer": "RACI: R = provádí, A = odpovídá a schvaluje (u každé činnosti právě jeden), C = konzultován, I = informován. (Přednáška 4, slide 37)",
     "answers": [
       { "body": "R = provádí (Responsible)", "right": true, "comment": "Přednáška 4, slide 37: R = provádí (Responsible)." },
       { "body": "U jedné činnosti může být více rolí s A", "right": false, "comment": "Přednáška 4, slide 37: A má u činnosti vždy jen jedna role." },
@@ -1324,6 +1446,7 @@
   {
     "id": "a6c9f858",
     "name": "Kdo podle přednášky prokazatelně rozhoduje o akceptaci zbytkových rizik?",
+    "answer": "O akceptaci zbytkových rizik prokazatelně rozhoduje vedení organizace, protože nese odpovědnost za jejich následky. (Přednáška 4, slide 20)",
     "answers": [
       { "body": "Vedení organizace", "right": true, "comment": "Přednáška 4, slide 20: o přijatelnosti zbytkových rizik prokazatelně rozhoduje vedení." },
       { "body": "IT oddělení", "right": false, "comment": "Přednáška 4, slides 20 a 42: IT o akceptaci nerozhoduje; to je otázka apetitu k riziku a odpovědnosti vedení." },
@@ -1334,6 +1457,7 @@
   {
     "id": "bf0c9225",
     "name": "Proč je problematické, když je CISO organizačně podřízen řediteli IT?",
+    "answer": "CISO podřízený řediteli IT by dohlížel na vlastního nadřízeného – vzniká konflikt zájmů. Zákon to výslovně nezakazuje, jde o organizační problém. (Přednáška 4, slide 36)",
     "answers": [
       { "body": "CISO pak nemůže komunikovat s NÚKIB", "right": false, "comment": "Přednáška 4, slide 36: problém je nezávislost, ne komunikace s NÚKIB; zařazení pod IT komunikaci nebrání." },
       { "body": "Zákon to výslovně zakazuje pod sankcí", "right": false, "comment": "Přednáška 2, slide 55: v malých organizacích může být CISO sdružen s šéfem IT, zákaz tedy není; jde o konflikt zájmů." },
@@ -1343,6 +1467,7 @@
   {
     "id": "1e040e56",
     "name": "Jakým způsobem lze vynutit bezpečnostní pravidla vůči dodavateli?",
+    "answer": "Dodavatele vnitřní předpis ani zákoník práce nezavazují; pravidla lze vymáhat jen smlouvou (bezpečnostní příloha, smluvní pokuty, právo auditu). (Přednáška 4, slides 21 a 29)",
     "answers": [
       { "body": "Vnitřním předpisem objednatele", "right": false, "comment": "Přednáška 4, slide 29: vnitřní předpis zavazuje zaměstnance, dodavatele ne." },
       { "body": "Pouze prostřednictvím smlouvy (bezpečnostní příloha, smluvní pokuty, právo auditu)", "right": true, "comment": "Přednáška 4, slides 21 a 29: vnitřní předpis dodavatele nezavazuje – co není ve smlouvě, nelze vymáhat." },
@@ -1352,6 +1477,7 @@
   {
     "id": "4eb9b909",
     "name": "Které cíle má Security Operations Centre (SOC)?",
+    "answer": "SOC koreluje logy, analyzuje hrozby a zranitelnosti, řídí a koordinuje reakci na incidenty a reportuje vedení. Politiku schvaluje vedení a nezávislý audit provádí audit, ne SOC. (Přednáška 5, slide 11)",
     "answers": [
       { "body": "Provádí analýzu hrozeb a zranitelností", "right": true, "comment": "Přednáška 5, slide 11: SOC provádí analýzu hrozeb a zranitelností." },
       { "body": "Pravidelně reportuje vedení a týmům pro reakci na incidenty", "right": true, "comment": "Přednáška 5, slide 11: SOC pravidelně reportuje vedení a týmům reakce na incidenty." },
@@ -1364,6 +1490,7 @@
   {
     "id": "7d1cff21",
     "name": "Co je MITRE ATT&CK?",
+    "answer": "MITRE ATT&CK je znalostní báze taktik a technik útočníků podle reálných pozorování; používá se pro útok i obranu, měření a reporting. (Přednáška 5, slide 31)",
     "answers": [
       { "body": "Certifikační schéma pro kryptografické moduly", "right": false, "comment": "Přednáška 7, část 2, slides 36–37: kryptografické moduly hodnotí FIPS 140." },
       { "body": "Rámec pro řízení IT služeb", "right": false, "comment": "Přednáška 2, slide 42: řízení IT služeb řeší ITIL." },
@@ -1374,6 +1501,7 @@
   {
     "id": "e0b7ae80",
     "name": "Co charakterizovalo útok SolarWinds / SUNBURST?",
+    "answer": "SolarWinds/SUNBURST byl útok na dodavatelský řetězec přes aktualizaci produktu Orion: malware dostalo asi 18 000 organizací, aktivoval se jen u vybraných cílů a šlo o špionáž bez finanční motivace a bez šifrování dat. (Přednáška 5, slides 35–39)",
     "answers": [
       { "body": "Šlo o ransomware požadující výkupné", "right": false, "comment": "Přednáška 5, slide 39: šlo o špionáž bez ransomwaru a výkupného." },
       { "body": "Útočníci neměli finanční motivaci a nešifrovali ani neničili data", "right": true, "comment": "Přednáška 5, slide 39: útočníci neměli finanční zájem, nešlo o ransomware ani ničení dat." },
@@ -1385,6 +1513,7 @@
   {
     "id": "17b357fc",
     "name": "Která kritéria hodnocení bezpečnosti vznikla v USA v roce 1985 a jsou známá jako „Orange Book“?",
+    "answer": "Orange Book je americká TCSEC (Trusted Computer System Evaluation Criteria) z roku 1985. ITSEC je evropská, CTCPEC kanadská a Common Criteria jejich pozdější sjednocení. (Přednáška 7, část 2, slides 8–9)",
     "answers": [
       { "body": "Common Criteria", "right": false, "comment": "Přednáška 7, část 2, slide 9: Common Criteria jsou pozdější celosvětový standard ISO/IEC 15408." },
       { "body": "ITSEC", "right": false, "comment": "Přednáška 7, část 2, slide 9: ITSEC jsou evropská kritéria (oddělení funkčnosti a záruk)." },
@@ -1395,6 +1524,7 @@
   {
     "id": "bc88d57",
     "name": "Která tvrzení o vývoji kritérií hodnocení bezpečnosti jsou pravdivá?",
+    "answer": "TCSEC měla třídy od D (žádná bezpečnost) po A1 (nejvyšší); evropská ITSEC oddělila funkčnost a záruky; Common Criteria jsou celosvětový standard ISO/IEC 15408 (ne 27001). (Přednáška 7, část 2, slides 8–9)",
     "answers": [
       { "body": "V TCSEC znamená třída D žádnou bezpečnost a A1 nejvyšší bezpečnost", "right": true, "comment": "Přednáška 7, část 2, slide 8: v TCSEC třída D = žádná bezpečnost, A1 = nejvyšší (matematický formalismus)." },
       { "body": "V TCSEC je nejvyšší třída D", "right": false, "comment": "Přednáška 7, část 2, slide 8: D je nejnižší třída (žádná bezpečnost), nejvyšší je A1." },
@@ -1406,6 +1536,7 @@
   {
     "id": "45f67c20",
     "name": "Co v Common Criteria označují pojmy TOE, ST a PP?",
+    "answer": "V Common Criteria je TOE hodnocený produkt nebo systém, ST (Security Target) bezpečnostní specifikace konkrétního produktu a PP (Protection Profile) implementačně nezávislá sada požadavků pro skupinu TOE. (Přednáška 7, část 2, slide 11)",
     "answers": [
       { "body": "PP je specifikace konkrétního produktu jednoho výrobce", "right": false, "comment": "Přednáška 7, část 2, slide 11: konkrétnímu produktu odpovídá ST; PP je implementačně nezávislý." },
       { "body": "TOE (Target of Evaluation) je produkt nebo systém, který je předmětem hodnocení", "right": true, "comment": "Přednáška 7, část 2, slide 11: TOE je produkt nebo systém (nebo jeho část), který je předmětem hodnocení." },
@@ -1417,6 +1548,7 @@
   {
     "id": "7756fca9",
     "name": "Jaký je rozdíl mezi akreditací a certifikací?",
+    "answer": "Akreditace je oficiální pověření provádět určitou činnost (např. hodnotit), certifikace je vydání osvědčení na základě provedeného hodnocení. (Přednáška 7, část 2, slide 10)",
     "answers": [
       { "body": "Akreditace je oficiální pověření k provádění určité činnosti", "right": true, "comment": "Přednáška 7, část 2, slide 10: akreditace je oficiální souhlas (pověření) s prováděním určité činnosti." },
       { "body": "Oba pojmy znamenají totéž", "right": false, "comment": "Přednáška 7, část 2, slide 10: pojmy se liší – pověření k činnosti vs. vydání osvědčení." },
@@ -1427,6 +1559,7 @@
   {
     "id": "2b6fa56a",
     "name": "Které dva katalogy požadavků obsahují Common Criteria?",
+    "answer": "Common Criteria obsahují dva katalogy: funkční požadavky (co produkt dělá) a požadavky na záruky (jak moc tomu lze věřit). (Přednáška 7, část 2, slides 12 a 20)",
     "answers": [
       { "body": "Funkční požadavky (functionality)", "right": true, "comment": "Přednáška 7, část 2, slides 12 a 20: katalog funkčních požadavků (functionality)." },
       { "body": "Požadavky na cenu", "right": false, "comment": "Přednáška 7, část 2, slide 20: CC mají katalogy funkčnosti a záruk; cenu neřeší." },
@@ -1437,6 +1570,7 @@
   {
     "id": "d45c569e",
     "name": "Kolik úrovní záruk (EAL) definují Common Criteria?",
+    "answer": "Common Criteria definují 7 hierarchicky uspořádaných úrovní záruk, EAL1 až EAL7. (Přednáška 7, část 2, slide 26)",
     "answers": [
       { "body": "10", "right": false, "comment": "Přednáška 7, část 2, slide 26: úrovní EAL je sedm, ne deset." },
       { "body": "7 (EAL1–EAL7), hierarchicky uspořádaných", "right": true, "comment": "Přednáška 7, část 2, slide 26: CC definují 7 hierarchicky uspořádaných úrovní záruk EAL1–EAL7." },
@@ -1447,6 +1581,7 @@
   {
     "id": "bc681b73",
     "name": "Co ukázal případ certifikace Windows 2000 na EAL4?",
+    "answer": "Windows 2000 získaly EAL4 podle profilu CAPP pro nehostilné, dobře spravované prostředí a s předpokladem A.PEER (všechny komunikující systémy pod stejnou správou). EAL4 vypovídá hlavně o dokumentaci vývoje, ne o odolnosti vůči silným útočníkům. (Přednáška 7, část 2, slides 28–31)",
     "answers": [
       { "body": "Certifikace platí pro jakoukoli konfiguraci připojenou k internetu", "right": false, "comment": "Přednáška 7, část 2, slides 31 a 47: certifikovaná konfigurace byla odpojená od sítí; certifikace platí jen pro danou konfiguraci." },
       { "body": "Předpoklad A.PEER vyžaduje, aby všechny komunikující systémy byly pod stejnou správou a politikou", "right": true, "comment": "Přednáška 7, část 2, slide 29: A.PEER předpokládá, že všechny komunikující systémy jsou pod stejnou správou a politikou." },
@@ -1458,6 +1593,7 @@
   {
     "id": "da0401f3",
     "name": "Co byla zranitelnost RoCA (CVE-2017-15361)?",
+    "answer": "RoCA (CVE-2017-15361) umožnila prakticky faktorizovat některé RSA klíče generované čipy Infineon a zasáhla přes miliardu zařízení včetně certifikovaných produktů. Heartbleed a Dual_EC_DRBG jsou jiné případy. (Přednáška 7, část 2, slides 7, 34 a 45)",
     "answers": [
       { "body": "Chyba v OpenSSL známá jako Heartbleed", "right": false, "comment": "Přednáška 7, část 2, slide 7: Heartbleed (OpenSSL, 2014) je jiná chyba." },
       { "body": "Praktická faktorizace některých RSA klíčů generovaných čipy Infineon", "right": true, "comment": "Přednáška 7, část 2, slides 7 a 34: RoCA (CVE-2017-15361) – praktická faktorizace některých RSA klíčů z čipů Infineon." },
@@ -1468,6 +1604,7 @@
   {
     "id": "70127756",
     "name": "Která tvrzení o úrovních FIPS 140-3 jsou pravdivá?",
+    "answer": "FIPS 140-3 má 4 úrovně: 1 – softwarové moduly bez fyzické ochrany, 2 – známky manipulace a autentizace podle rolí, 3 – odolnost proti manipulaci a autentizace podle identity (HSM), 4 – mazání klíčů při napětí či teplotě mimo rozsah. (Přednáška 7, část 2, slide 37)",
     "answers": [
       { "body": "Level 3: autentizace založená na identitě a odolnost proti manipulaci, typicky HSM", "right": true, "comment": "Přednáška 7, část 2, slide 37: Level 3 – autentizace podle identity a odolnost proti manipulaci, typicky HSM." },
       { "body": "Level 1 vyžaduje HSM", "right": false, "comment": "Přednáška 7, část 2, slide 37: Level 1 jsou softwarové moduly; HSM je typické pro Level 3." },
@@ -1480,6 +1617,7 @@
   {
     "id": "c8ef8ed7",
     "name": "Jaký je vztah FIPS 140 a Common Criteria?",
+    "answer": "FIPS 140 hodnotí kryptografický modul („motor“), Common Criteria celý IT produkt („auto“); jsou komplementární, ne konkurenční. (Přednáška 7, část 2, slide 36)",
     "answers": [
       { "body": "FIPS 140 hodnotí kryptografický modul („motor“), CC celý IT produkt („auto“)", "right": true, "comment": "Přednáška 7, část 2, slide 36: FIPS 140 hodnotí „motor“ (kryptografický modul), CC celé „auto“ (IT produkt)." },
       { "body": "Jsou komplementární, ne konkurenční", "right": true, "comment": "Přednáška 7, část 2, slide 36: FIPS 140 a Common Criteria jsou komplementární, ne konkurenční." },
@@ -1490,6 +1628,7 @@
   {
     "id": "b2c48ed0",
     "name": "Jaké problémy mají Common Criteria?",
+    "answer": "Problémy Common Criteria: hodnocení je drahé a pomalé (přes 100 000 USD, přes 3 měsíce), certifikát platí jen pro přesnou konfiguraci HW a SW, detaily hodnocení nejsou veřejné a „CC ready“ neznamená „CC certified“. (Přednáška 7, část 2, slide 47)",
     "answers": [
       { "body": "Řada detailů hodnocení není veřejně dostupná", "right": true, "comment": "Přednáška 7, část 2, slide 47: řada detailů hodnocení není veřejně dostupná." },
       { "body": "„Common Criteria ready“ není totéž co „Common Criteria certified“", "right": true, "comment": "Přednáška 7, část 2, slide 47: „Common Criteria certified“ není totéž co „Common Criteria ready“." },
@@ -1502,6 +1641,7 @@
   {
     "id": "dc47c6c0",
     "name": "Kdo vytváří a autorizuje dokumenty 3. vrstvy (pracovní instrukce) v dokumentové základně ISMS?",
+    "answer": "Pracovní instrukce (3. vrstva) vytvářejí vlastníci aktiv či procesů a autorizují je jejich přímí nadřízení a CISO; procedury 2. vrstvy autorizuje výkonný management a CSO. (Přednáška 6, slides 30–31)",
     "answers": [
       { "body": "Externí auditor", "right": false, "comment": "Přednáška 6, slide 38: auditor je nezávislý na exekutivě, dokumenty netvoří ani neautorizuje." },
       { "body": "Výkonný management a CSO po projednání s řídicím výborem", "right": false, "comment": "Přednáška 6, slide 30: výkonný management a CSO po projednání s výborem autorizují 2. vrstvu (procedury)." },
@@ -1512,6 +1652,7 @@
   {
     "id": "aa32978a",
     "name": "Co platí pro řídicí výbor informační bezpečnosti?",
+    "answer": "Řídicí výbor informační bezpečnosti je v organizaci jediný, zasedá 2× až 4× ročně, vydává zápisy a jeho závěry projednává výkonný management. Interní audit nenahrazuje. (Přednáška 2, slide 52)",
     "answers": [
       { "body": "Zasedá 2× až 4× ročně a vydává řádné zápisy", "right": true, "comment": "Přednáška 2, slide 52: zasedá 2× až 4× ročně a vydává řádné zápisy." },
       { "body": "Nahrazuje interní audit", "right": false, "comment": "Přednáška 6, slides 37–38: audit provádí role nezávislá na exekutivě; výbor ho nenahrazuje." },
@@ -1523,6 +1664,7 @@
   {
     "id": "6c6dac4a",
     "name": "Čím začíná rámcový průběh certifikace podle ISO/IEC 27001?",
+    "answer": "Certifikace podle ISO 27001 začíná přípravou: volbou šampiona, podporou managementu a gap analýzou; certifikační audit, vydání certifikátu a dozorové audity následují. (Přednáška 7, část 1, slide 28)",
     "answers": [
       { "body": "Dozorovým auditem", "right": false, "comment": "Obecná znalost (mimo slajdy): dozorové audity probíhají až po vydání certifikátu." },
       { "body": "Vydáním certifikátu", "right": false, "comment": "Přednáška 7, část 1, slide 28: certifikát se vydává až po certifikačním auditu na konci procesu." },
