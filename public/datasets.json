@@ -324,6 +324,24 @@
     "group": "current"
   },
   {
+    "name": "PV179 - L7 Identity (guest lecture)",
+    "id": "PV179_L07",
+    "dataset": "datasets/questions_PV179_L07.json",
+    "questionCount": 21,
+    "multipleChoiceCount": 19,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
+    "name": "PV179 - L8 Základy ASP.NET Core MVC",
+    "id": "PV179_L08",
+    "dataset": "datasets/questions_PV179_L08.json",
+    "questionCount": 11,
+    "multipleChoiceCount": 9,
+    "essayCount": 2,
+    "group": "current"
+  },
+  {
     "name": "PA191 - L1 Networking foundations",
     "id": "PA191_L01",
     "dataset": "datasets/questions_PA191_L01.json",

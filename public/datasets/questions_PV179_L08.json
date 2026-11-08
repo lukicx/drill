@@ -1,0 +1,297 @@
+[
+  {
+    "id": "4d7acee1",
+    "name": "Používateľ v ASP.NET Core MVC aplikácii klikne na odkaz „Detail objednávky“. Ktoré tvrdenia o spracovaní tejto požiadavky sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Controller naplní model a vyberie view, ktorému model odovzdá; view z neho vytvorí HTML pre používateľa.",
+        "right": true,
+        "comment": "L8, slide 3: Controller napĺňa model a vyberá view, model predáva dáta view, používateľ dostane HTML."
+      },
+      {
+        "body": "View si potrebné dáta načíta priamo z databázy a controller vráti používateľovi jeho názov.",
+        "right": false,
+        "comment": "L8, slide 3: Dáta pripraví controller do modelu a ten sa predá view."
+      },
+      {
+        "body": "Routing vyberie view priamo podľa URL a akcia controllera sa zavolá až po jeho vykreslení.",
+        "right": false,
+        "comment": "L8, slide 3: Routing vedie k akcii; view vyberie akcia až na záver."
+      },
+      {
+        "body": "Požiadavka najprv prejde cez middleware pipeline a routing ju nasmeruje na príslušnú akciu controllera.",
+        "right": true,
+        "comment": "L8, slide 3: Routing k príslušnej akcii vedie cez middleware pipeline, potom sa akcia vykoná."
+      },
+      {
+        "body": "Model vyberá view a controller dostane hotové HTML, ktoré pošle používateľovi.",
+        "right": false,
+        "comment": "L8, slide 3: View vyberá controller; model len nesie dáta pre view."
+      }
+    ],
+    "source": "L8, slide 3"
+  },
+  {
+    "id": "5906c7a5",
+    "name": "Akcia <TT>Detail(int id)</TT> sa volá cez URL <TT>/Orders/Detail/5</TT> a akcia <TT>Create(OrderDto order)</TT> prijíma odoslaný formulár objednávky. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Komplexný argument order sa naplní z modelu daného view, teda z polí odoslaného formulára.",
+        "right": true,
+        "comment": "L8, slide 5: Komplexné dátové typy sa berú z modelu daného view."
+      },
+      {
+        "body": "Akcia prijíma primitívne typy a komplexný objekt si poskladá z požiadavky ručne.",
+        "right": false,
+        "comment": "L8, slide 5: Akcie môžu brať aj komplexné typy z modelu view."
+      },
+      {
+        "body": "Primitívny argument id sa naplní z URI, tu hodnotou 5.",
+        "right": true,
+        "comment": "L8, slide 5: Primitívne dátové typy sa berú z URI."
+      },
+      {
+        "body": "Komplexné typy sa berú z URI, a preto polia OrderDto patria do adresy.",
+        "right": false,
+        "comment": "L8, slide 5: Z URI sa berú primitívne typy; komplexné z modelu view."
+      }
+    ],
+    "source": "L8, slide 5"
+  },
+  {
+    "id": "670ef0dd",
+    "name": "Akcie MVC controllera vracajú IActionResult. Ktoré dvojice situácie a výsledku akcie sú vhodné? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Stiahnuť faktúru vo formáte PDF – File.",
+        "right": true,
+        "comment": "L8, slide 5: File vracia súbor."
+      },
+      {
+        "body": "Zobraziť stránku z Razor šablóny naplnenú modelom – Content.",
+        "right": false,
+        "comment": "L8, slides 3, 5: Šablónu s modelom vykreslí View; Content vracia iba reťazec."
+      },
+      {
+        "body": "Poslať dáta skriptu na stránke vo formáte JSON – Json.",
+        "right": true,
+        "comment": "L8, slide 5: Json vracia dáta serializované do JSON."
+      },
+      {
+        "body": "Vrátiť krátky textový reťazec bez šablóny – RedirectToAction.",
+        "right": false,
+        "comment": "L8, slide 5: Reťazec vracia Content (string); RedirectToAction presmerúva."
+      },
+      {
+        "body": "Po úspešnom uložení formulára presmerovať používateľa na zoznam objednávok – RedirectToAction.",
+        "right": true,
+        "comment": "L8, slide 5: RedirectToAction presmeruje na inú akciu."
+      }
+    ],
+    "source": "L8, slides 3, 5"
+  },
+  {
+    "id": "3e80b875",
+    "name": "View obsahuje riadok <TT>&lt;p&gt;The time is @DateTime.Now&lt;/p&gt;</TT>. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Hodnota sa vypočíta raz pri preklade aplikácie a pri ďalších požiadavkách sa už nemení.",
+        "right": false,
+        "comment": "L8, slide 6: Výraz sa vyhodnotí pri každom renderovaní view (všeobecná znalosť)."
+      },
+      {
+        "body": "Razor súbor obsahuje C# kód a celé HTML stránky sa generuje cez HTML helpery.",
+        "right": false,
+        "comment": "L8, slides 6, 8: Razor je HTML + C#, HTML sa dá písať aj priamo bez helperov."
+      },
+      {
+        "body": "Prehliadač dostane text @DateTime.Now a čas doň doplní JavaScript na strane klienta.",
+        "right": false,
+        "comment": "L8, slides 3, 6: Používateľ dostane hotové HTML, výraz sa vyhodnotí už pri renderovaní view (vyhodnotenie na serveri je všeobecná znalosť)."
+      },
+      {
+        "body": "Razor spája HTML a C#: výraz za @ sa vyhodnotí pri renderovaní a do HTML sa vloží jeho hodnota.",
+        "right": true,
+        "comment": "L8, slide 6: Views používajú Razor (HTML + C#), napr. @DateTime.Now v odseku."
+      }
+    ],
+    "source": "L8, slides 3, 6, 8"
+  },
+  {
+    "id": "3582a2f5",
+    "name": "View obsahuje:<PRE>@using (Html.BeginForm())\n{\n    @Html.ValidationSummary(true)\n    @Html.LabelFor(model =&gt; model.FirstName)\n    @Html.EditorFor(model =&gt; model.FirstName)\n    @Html.ValidationMessageFor(model =&gt; model.FirstName)\n    &lt;input type=\"submit\" value=\"Send\"/&gt;\n}</PRE>Ktoré tvrdenia o HTML helperoch sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Vlastný HTML helper sa píše ako extension metóda triedy HtmlHelper.",
+        "right": true,
+        "comment": "L8, slide 7: Vlastné helpery = extension metóda triedy HtmlHelper."
+      },
+      {
+        "body": "Html.BeginForm v bloku using vygeneruje element &lt;form&gt; aj jeho ukončenie.",
+        "right": true,
+        "comment": "L8, slides 7-8: Rovnaký formulár bez helperov treba písať ako &lt;form action=\"/\" method=\"post\"&gt;…&lt;/form&gt;."
+      },
+      {
+        "body": "Helpery bežia v prehliadači a HTML elementy pridajú až po načítaní stránky.",
+        "right": false,
+        "comment": "L8, slides 6-8: Helpery sú súčasť Razor view a ich výstupom je HTML, ktoré dostane prehliadač."
+      },
+      {
+        "body": "Vlastný helper vznikne zdedením triedy Controller a prepísaním jej metódy View.",
+        "right": false,
+        "comment": "L8, slide 7: Vlastný helper je extension metóda triedy HtmlHelper."
+      },
+      {
+        "body": "LabelFor, EditorFor a ValidationMessageFor odvodia názvy, id a atribúty polí z výrazu model =&gt; model.FirstName.",
+        "right": true,
+        "comment": "L8, slides 7-8: Bez helperov treba ručne písať for, id, name aj data-valmsg-for=\"FirstName\"."
+      }
+    ],
+    "source": "L8, slides 6-8"
+  },
+  {
+    "id": "23bb14db",
+    "name": "Všetky stránky aplikácie majú rovnakú hlavičku, menu a pätu. Stránka Kontakt potrebuje vlastný skript na konci stránky a karta produktu sa opakuje na viacerých stránkach. Ktoré riešenia sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Hlavičku, menu a pätu dáš do layoutu, ktorý sa nastaví v súbore _ViewStart.cshtml.",
+        "right": true,
+        "comment": "L8, slide 9: Layout je rovnaká časť pre všetky views a nastavuje sa vo _ViewStart.cshtml."
+      },
+      {
+        "body": "Kartu produktu dáš do layoutu ako sekciu, aby ju mohli použiť viaceré stránky.",
+        "right": false,
+        "comment": "L8, slide 9: Layout je okolie všetkých stránok; opakovanú časť obsahu rieši parciálne view."
+      },
+      {
+        "body": "Kartu produktu dáš do parciálneho view a vložíš ju do stránok cez @Html.Partial.",
+        "right": true,
+        "comment": "L8, slide 9: Partial views umožňujú znovupoužitie časti view cez @Html.Partial."
+      },
+      {
+        "body": "Skript stránky Kontakt definuješ ako sekciu v jej view a layout ju vykreslí cez @RenderSection.",
+        "right": true,
+        "comment": "L8, slide 9: @RenderSection renderuje sekciu z hlavného view, typicky skripty."
+      },
+      {
+        "body": "V layoute vykreslí @RenderBody sekciu so skriptmi a @RenderSection celé hlavné view.",
+        "right": false,
+        "comment": "L8, slide 9: Je to naopak: @RenderBody renderuje hlavné view, @RenderSection jeho sekciu."
+      }
+    ],
+    "source": "L8, slide 9"
+  },
+  {
+    "id": "acabca9d",
+    "name": "Registračný formulár má tlačidlo <TT>&lt;input type=\"submit\"&gt;</TT> a jeho DTO má na vlastnosti Email anotácie <TT>[Required(ErrorMessage = \"Zadaj e-mail\")]</TT> a <TT>[EmailAddress]</TT>. Používateľ odošle neplatný e-mail. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Tlačidlo submit odošle GET request a hodnoty formulára pôjdu v URL.",
+        "right": false,
+        "comment": "L8, slide 10: input type=\"submit\" produkuje POST request."
+      },
+      {
+        "body": "Anotácie na DTO sa uplatnia, až keď akcia ručne zavolá validáciu každej vlastnosti.",
+        "right": false,
+        "comment": "L8, slide 10: DTO sa anotujú na validáciu vstupu a výsledok je v ModelState.IsValid."
+      },
+      {
+        "body": "Akcia má overiť ModelState.IsValid a pri chybe vrátiť to isté view s chybovými hláseniami.",
+        "right": true,
+        "comment": "L8, slides 7, 10: Využívajte ModelState.IsValid; hlásenia zobrazí ValidationMessageFor/ValidationSummary (vrátenie view je bežný postup, všeobecná znalosť)."
+      },
+      {
+        "body": "Odoslanie cez tlačidlo submit vytvorí POST request na akciu controllera.",
+        "right": true,
+        "comment": "L8, slide 10: input type=\"submit\" produkuje POST request."
+      }
+    ],
+    "source": "L8, slides 7, 10"
+  },
+  {
+    "id": "c946210f",
+    "name": "V MVC aplikácii chceš pred každou akciou AdminControllera overiť prihláseného používateľa a pri jednej akcii nastaviť cachovanie odpovede. Ktoré tvrdenia o filtroch sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Filtre slúžia na autorizáciu, kým logovanie a ošetrenie výnimiek patria do tela akcie.",
+        "right": false,
+        "comment": "L8, slide 11: Filtre sa používajú aj na exception handling, validáciu vstupu, logovanie a autentizáciu."
+      },
+      {
+        "body": "Filtre sú realizáciou návrhového vzoru Interceptor: pridávajú logiku pred alebo po vyvolaní akcie.",
+        "right": true,
+        "comment": "L8, slide 11: Filtre = návrhový vzor Interceptor, logika pred alebo po vyvolaní akcie."
+      },
+      {
+        "body": "Filter sa aplikuje ako atribút na celý controller alebo na jednu akciu, napr. [Authorize] na AdminController a [ResponseCache] na akciu.",
+        "right": true,
+        "comment": "L8, slide 11: Filtre sú atribúty aplikovateľné na controller alebo akciu, napr. [Authorize], [ResponseCache]."
+      },
+      {
+        "body": "Filtre pracujú na úrovni HTTP requestu ešte pred routingom, takže zachytia aj statické súbory.",
+        "right": false,
+        "comment": "L8, slide 11: Filtre sú na úrovni MVC; na úrovni HTTP requestu pracuje middleware."
+      }
+    ],
+    "source": "L8, slides 11-12"
+  },
+  {
+    "id": "a8538885",
+    "name": "Používateľka je prihlásená v internetovom obchode. Na inej stránke klikne na obrázok, ktorý potajomky odošle formulár na zmenu doručovacej adresy v obchode. Ktoré tvrdenia sú správne? Vyber všetky správne tvrdenia.",
+    "answers": [
+      {
+        "body": "Skrytý token sa vytvorí raz pre celú aplikáciu a je rovnaký pre všetkých používateľov.",
+        "right": false,
+        "comment": "L8, slide 13: Token sa vytvára pre danú session pri vytvorení formulára."
+      },
+      {
+        "body": "Na ochranu stačí atribút [Authorize] na akcii zmeny adresy.",
+        "right": false,
+        "comment": "L8, slides 12-13: [Authorize] overí prihlásenie, no obeť prihlásená je; proti CSRF chráni anti-forgery token."
+      },
+      {
+        "body": "Útočník musí najprv ukradnúť heslo používateľky, inak jeho request neprejde autentizáciou.",
+        "right": false,
+        "comment": "L8, slide 13: Útok zneužíva, že obeť je už autentizovaná; heslo útočník nepotrebuje."
+      },
+      {
+        "body": "[ValidateAntiForgeryToken] odmietne request, ktorého skrytý token nesedí s tokenom session.",
+        "right": true,
+        "comment": "L8, slide 13: Pri vytvorení formulára vznikne hidden token pre session a pri submite sa kontroluje, či sedí."
+      },
+      {
+        "body": "Ide o Cross-Site Request Forgery: obeť nevedomky pošle request na stránku, kde je prihlásená.",
+        "right": true,
+        "comment": "L8, slide 13: CSRF – obeť bez vedomia vytvorí request na stránku, kde je už autentizovaná."
+      }
+    ],
+    "source": "L8, slides 12-13"
+  },
+  {
+    "id": "fef24336",
+    "name": "Navrhni v ASP.NET Core MVC stránku „Registrácia zákazníka“: zákazník zadá meno a e-mail, e-mail je povinný a musí mať platný formát. Popíš (1) akcie controllera na zobrazenie a odoslanie formulára a ich návratové hodnoty, (2) DTO a jeho validáciu, (3) view s HTML helpermi a layoutom, (4) ochranu proti CSRF.",
+    "answer": "<B>(1) Controller:</B> akcia <TT>Register()</TT> pre GET vráti <TT>View()</TT> s prázdnym DTO. Akcia <TT>Register(RegisterDto dto)</TT> pre POST dostane komplexný argument z modelu view (polia formulára); ak <TT>ModelState.IsValid</TT> je false, vráti <TT>View(dto)</TT> s hláseniami, inak zákazníka uloží (cez fasádu business vrstvy) a vráti <TT>RedirectToAction</TT> napr. na zoznam alebo potvrdenie.<BR><B>(2) DTO:</B> <TT>RegisterDto</TT> s vlastnosťami Name a Email; Email má <TT>[Required(ErrorMessage = \"…\")]</TT> a <TT>[EmailAddress(ErrorMessage = \"…\")]</TT> – ErrorMessage nevynechať, aby používateľ videl zrozumiteľné hlásenie.<BR><B>(3) View:</B> Razor view s modelom RegisterDto; <TT>Html.BeginForm</TT> v bloku using, pre každé pole <TT>LabelFor</TT>, <TT>EditorFor</TT>, <TT>ValidationMessageFor</TT>, navrchu <TT>ValidationSummary</TT>; tlačidlo <TT>input type=\"submit\"</TT> pošle POST. Hlavička, menu a päta sú v layoute nastavenom vo _ViewStart.cshtml; obsah stránky sa vykreslí cez @RenderBody, prípadné validačné skripty cez sekciu a @RenderSection.<BR><B>(4) CSRF:</B> POST akcia má atribút <TT>[ValidateAntiForgeryToken]</TT>; formulár nesie skrytý token pre session a filter pri odoslaní kontroluje, či sedí, takže cudzia stránka nemôže formulár podvrhnúť.",
+    "keyPoints": [
+      "GET akcia vracia View, POST akcia prijíma DTO z formulára",
+      "ModelState.IsValid: pri chybe View(dto), pri úspechu RedirectToAction",
+      "DTO s anotáciami Required a EmailAddress vrátane ErrorMessage",
+      "View s BeginForm, LabelFor, EditorFor, ValidationMessageFor a submit (POST)",
+      "Layout cez _ViewStart.cshtml a @RenderBody, skripty cez @RenderSection",
+      "[ValidateAntiForgeryToken] so skrytým tokenom pre session"
+    ],
+    "source": "L8, slides 3, 5, 7, 9-11, 13; uloženie cez fasádu nadväzuje na L5; presmerovanie po úspešnom POST je bežný postup (všeobecná znalosť)"
+  },
+  {
+    "id": "17a72bfb",
+    "name": "Aplikácia potrebuje: (a) merať čas spracovania každej HTTP požiadavky vrátane statických súborov, (b) sprístupniť AdminController iba prihláseným administrátorom, (c) cachovať odpoveď jednej akcie so zoznamom produktov, (d) zachytávať a logovať výnimky z akcií jedného controllera. Pre každú požiadavku rozhodni, či použiješ middleware alebo filter, kam ho umiestniš (globálne, na controller, na akciu) a prečo. Vysvetli aj rozdiel medzi filtrom a middlewarom.",
+    "answer": "<B>Rozdiel:</B> middleware pracuje na úrovni HTTP requestu – každá požiadavka prechádza middleware pipeline ešte pred routingom k akcii. Filter pracuje na úrovni MVC: je to Interceptor okolo konkrétnej akcie, pridáva logiku pred alebo po jej vyvolaní a aplikuje sa ako atribút na controller alebo akciu.<BR><B>(a)</B> <I>Middleware</I> v pipeline: týka sa všetkých HTTP požiadaviek, aj statických súborov, ktoré k žiadnej MVC akcii nedôjdu, takže filter by ich nezachytil.<BR><B>(b)</B> <I>Filter</I> <TT>[Authorize]</TT> (s rolou administrátora) na celý AdminController; role a účty spravuje Identity framework (RBAC, claims).<BR><B>(c)</B> <I>Filter</I> <TT>[ResponseCache]</TT> iba na jednu akciu, ostatné akcie sa necachujú.<BR><B>(d)</B> <I>Filter</I> na exception handling a logovanie ako atribút na daný controller – zachytí výnimky jeho akcií a ostatné controllery neovplyvní.",
+    "keyPoints": [
+      "Middleware = úroveň HTTP requestu, filter = úroveň MVC okolo akcie (Interceptor)",
+      "(a) middleware, lebo zahŕňa aj statické súbory",
+      "(b) [Authorize] na AdminController, role cez Identity framework",
+      "(c) [ResponseCache] na jednu akciu",
+      "(d) filter na výnimky a logovanie ako atribút na controller"
+    ],
+    "source": "L8, slides 3, 11-12; meranie času v middleware a rola v [Authorize] sú odvodené (všeobecná znalosť)"
+  }
+]

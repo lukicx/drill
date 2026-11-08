@@ -1,0 +1,602 @@
+[
+  {
+    "id": "ce9163a",
+    "name": "A user signs in to an internal invoicing app with a username and password. The app then checks whether this user may delete invoices. Select all correct statements.",
+    "answers": [
+      {
+        "body": "Authorization comes first; the identity is verified later, when the user starts a protected action.",
+        "right": false,
+        "comment": "L7, slide 3: Access rights can only be determined for a user whose identity is already verified (order derived from the definitions)."
+      },
+      {
+        "body": "Deciding whether the user may delete invoices is a second step of authentication.",
+        "right": false,
+        "comment": "L7, slide 3: Deciding what a known user may do is authorization, not identity verification."
+      },
+      {
+        "body": "Checking the username and password is authentication: it verifies who the user is.",
+        "right": true,
+        "comment": "L7, slide 3: Authentication = verify the identity of the user."
+      },
+      {
+        "body": "Deciding whether the user may delete invoices is authorization: it determines the user's access rights.",
+        "right": true,
+        "comment": "L7, slide 3: Authorization = determine access rights."
+      }
+    ],
+    "source": "L7, slide 3"
+  },
+  {
+    "id": "97c7d983",
+    "name": "A photo-printing website wants to read the photos a user keeps at another online service. Which statements about using OAuth 2.0 for this are correct? Select all correct statements.",
+    "answers": [
+      {
+        "body": "A grant type is the list of API permissions that is written into the access token.",
+        "right": false,
+        "comment": "L7, slides 5, 10: A grant type is a way to get a token; the permissions are expressed by the scope claim."
+      },
+      {
+        "body": "OAuth 2.0 itself is the protocol that verifies who the user is and standardises the user's profile data.",
+        "right": false,
+        "comment": "L7, slides 4, 12: OAuth 2.0 is for authorization; user authentication and profile data come from OpenID Connect built on top of it."
+      },
+      {
+        "body": "OAuth 2.0 can be used by web, desktop, mobile and server applications alike.",
+        "right": true,
+        "comment": "L7, slide 4: The protocol is useful for all application types."
+      },
+      {
+        "body": "The printing site obtains an access token for the photo service, so the user never gives it the photo-service password.",
+        "right": true,
+        "comment": "L7, slide 4: OAuth 2.0 gives secure delegated access; the user does not share credentials with the application."
+      },
+      {
+        "body": "Grant types (authorization flows) are the different methods by which a client obtains an access token.",
+        "right": true,
+        "comment": "L7, slide 5: Authorization flows = methods to gain access tokens = grant types."
+      }
+    ],
+    "source": "L7, slides 4-5, 10, 12"
+  },
+  {
+    "id": "9191c192",
+    "name": "A nightly background service with no user interface must call a protected API of another system on its own behalf. It uses the OAuth 2.0 Client Credentials flow. Select all correct statements.",
+    "answers": [
+      {
+        "body": "The flow fits a JavaScript single-page app as well, as long as the client secret is stored in its source code.",
+        "right": false,
+        "comment": "L7, slides 6, 27: A browser app is a public client and cannot keep a secret confidential."
+      },
+      {
+        "body": "The service sends its client ID and client secret to the token endpoint, which validates them and returns an access token for the API.",
+        "right": true,
+        "comment": "L7, slide 6: Authenticate with client ID + client secret to /token, validation, access token, then API call with the token."
+      },
+      {
+        "body": "The service first redirects a user to a login page and then exchanges the returned code for an access token.",
+        "right": false,
+        "comment": "L7, slides 6, 28: Redirect, login and code exchange belong to the Authorization Code flow; Client Credentials has no user."
+      },
+      {
+        "body": "The API checks the client secret on each request, so the service sends the secret instead of an access token.",
+        "right": false,
+        "comment": "L7, slide 6: The service presents the access token to the API; the secret goes only to the token endpoint."
+      }
+    ],
+    "source": "L7, slides 6, 27-28"
+  },
+  {
+    "id": "7623d178",
+    "name": "An API receives a JSON Web Token of the form <TT>xxxxx.yyyyy.zzzzz</TT> in a request. Select all correct statements about it.",
+    "answers": [
+      {
+        "body": "The token is digitally signed, so the API can verify who issued it and that nobody changed its content.",
+        "right": true,
+        "comment": "L7, slide 7: A JWT is digitally signed and can be verified."
+      },
+      {
+        "body": "The three dot-separated parts are the header, the encrypted user password and the signature.",
+        "right": false,
+        "comment": "L7, slide 7: The middle part is the payload with claims; a JWT never needs to carry the user's password."
+      },
+      {
+        "body": "The three dot-separated parts are the header, the payload and the signature.",
+        "right": true,
+        "comment": "L7, slide 7: A JWT has 3 parts separated by dots: header, payload, signature."
+      },
+      {
+        "body": "The API has to ask the identity provider on each request what the token contains.",
+        "right": false,
+        "comment": "L7, slide 7: Because the token is self-contained and signed, the API can read and verify it itself."
+      },
+      {
+        "body": "The token is self-contained: the claims about the user and the client travel inside the token itself.",
+        "right": true,
+        "comment": "L7, slides 7, 10: A JWT is self-contained and carries claims such as sub, client_id and scope."
+      }
+    ],
+    "source": "L7, slides 7, 10"
+  },
+  {
+    "id": "5e3b754c",
+    "name": "Which pairs of a JWT claim and its meaning are correct? Select all correct statements.",
+    "answers": [
+      {
+        "body": "<TT>aud</TT> – audience: the recipient the token is intended for.",
+        "right": true,
+        "comment": "L7, slide 10: aud = audience."
+      },
+      {
+        "body": "<TT>iss</TT> – issued at: the time at which the token was created.",
+        "right": false,
+        "comment": "L7, slide 10: iss is the issuer; the issue time is iat (issued at)."
+      },
+      {
+        "body": "<TT>sub</TT> – scope: the list of permissions that the token grants.",
+        "right": false,
+        "comment": "L7, slide 10: sub is the subject ID; scopes are in the scope claim."
+      },
+      {
+        "body": "<TT>nbf</TT> – not valid before: the earliest time the token may be accepted.",
+        "right": true,
+        "comment": "L7, slide 10: nbf = not valid before."
+      },
+      {
+        "body": "<TT>amr</TT> – authentication method reference: how the user signed in.",
+        "right": true,
+        "comment": "L7, slide 10: amr = authentication method reference."
+      }
+    ],
+    "source": "L7, slide 10"
+  },
+  {
+    "id": "9dfe4ae6",
+    "name": "You test a protected API in Postman and need to attach an access token to the requests. Select all correct statements.",
+    "answers": [
+      {
+        "body": "You can add the header manually with the key <TT>Authorization</TT> and the value <TT>Bearer &lt;token&gt;</TT>.",
+        "right": true,
+        "comment": "L7, slide 8: Manually using headers – Key: Authorization, Value: Bearer [token]."
+      },
+      {
+        "body": "The token goes into a query parameter such as <TT>?bearer=&lt;token&gt;</TT>, as Postman offers no header option for it.",
+        "right": false,
+        "comment": "L7, slide 8: The token is sent in the Authorization header as Bearer [token]."
+      },
+      {
+        "body": "With the OAuth 2.0 type Postman can paste an existing token but cannot request a new token for a grant type.",
+        "right": false,
+        "comment": "L7, slide 9: “Configure New Token” lets you fill in the options of a specific grant type."
+      },
+      {
+        "body": "An OAuth 2.0 authorization set up on a folder can be reused in its subfolders with “Inherit auth from parent”.",
+        "right": true,
+        "comment": "L7, slide 9: Set up on folder level; in subfolders set type Inherit auth from parent."
+      }
+    ],
+    "source": "L7, slides 8-9"
+  },
+  {
+    "id": "d97e1c9c",
+    "name": "A regular web app shows its own login form and sends the entered username and password to the identity provider's <TT>/oauth/token</TT> endpoint, which returns an access token. Select all correct statements.",
+    "answers": [
+      {
+        "body": "The user is redirected to the identity provider's login page and the app does not see the password at any point.",
+        "right": false,
+        "comment": "L7, slide 11: In this flow the app itself sends username + password to /oauth/token; there is no redirect."
+      },
+      {
+        "body": "The app handles the user's password itself, which goes against the OAuth idea of not sharing credentials with applications.",
+        "right": true,
+        "comment": "L7, slides 4, 11: In the Resource Owner Password flow the app collects username + password, while OAuth 2.0 aims at access without sharing credentials (comparison derived)."
+      },
+      {
+        "body": "This flow is the recommended choice for third-party apps, as the user goes through fewer steps than with a redirect.",
+        "right": false,
+        "comment": "L7, slides 11, 35: The summary recommends standards such as Authorization Code with PKCE; giving the password to a third-party app defeats delegated access (derived)."
+      },
+      {
+        "body": "This is the Client Credentials flow: the app authenticates at the token endpoint with credentials it holds.",
+        "right": false,
+        "comment": "L7, slides 6, 11: Client Credentials uses the client ID + secret of the app; this flow uses the user's username + password (Resource Owner Password)."
+      }
+    ],
+    "source": "L7, slides 4, 6, 11, 35"
+  },
+  {
+    "id": "4b5f6c8e",
+    "name": "A university wants students to sign in once and then use the library, e-learning and timetable websites without signing in again, and each website should learn the student's name. Select all correct statements about OpenID Connect (OIDC).",
+    "answers": [
+      {
+        "body": "Each website must keep the students' passwords to check them again after the first sign-in.",
+        "right": false,
+        "comment": "L7, slides 12, 35: Sign-in happens once at the identity provider; the sites do not store passwords."
+      },
+      {
+        "body": "OIDC provides single sign-on: one authentication is reused by all the connected sites.",
+        "right": true,
+        "comment": "L7, slide 12: Single authentication for multiple sites = single sign-on (SSO)."
+      },
+      {
+        "body": "OIDC replaces OAuth 2.0, so the websites can no longer obtain access tokens for APIs.",
+        "right": false,
+        "comment": "L7, slide 12: OIDC is built on top of OAuth 2.0, so access tokens still exist."
+      },
+      {
+        "body": "In the Authorization Code flow the website receives an ID token together with the access token.",
+        "right": true,
+        "comment": "L7, slide 28: The token endpoint returns “ID Token and Access Token”."
+      },
+      {
+        "body": "OIDC is an identity layer built on top of OAuth 2.0 and is used for user authentication.",
+        "right": true,
+        "comment": "L7, slide 12: OIDC is an open standard for user authentication, an identity layer on top of OAuth 2.0."
+      }
+    ],
+    "source": "L7, slides 12, 28, 35"
+  },
+  {
+    "id": "bee45a33",
+    "name": "A new API must validate tokens issued by your OpenID Connect identity provider. Select all correct statements about the provider's discovery endpoint.",
+    "answers": [
+      {
+        "body": "It hands out the private signing key, so the API can sign its own tokens.",
+        "right": false,
+        "comment": "L7, slide 13: Only public keys are published; they are used to verify signatures."
+      },
+      {
+        "body": "It is meant for the identity provider itself and other services do not read it.",
+        "right": false,
+        "comment": "L7, slide 13: It publishes metadata for other services; even Swagger UI can consume it."
+      },
+      {
+        "body": "It is published at <TT>/.well-known/openid-configuration</TT>.",
+        "right": true,
+        "comment": "L7, slide 13: The discovery document is at /.well-known/openid-configuration."
+      },
+      {
+        "body": "It returns the profile of the user who is currently signed in.",
+        "right": false,
+        "comment": "L7, slides 13-14: User profile claims come from the user info endpoint /connect/userinfo."
+      },
+      {
+        "body": "It lists the supported endpoints, scopes and claims and the public keys used to sign tokens.",
+        "right": true,
+        "comment": "L7, slide 13: It specifies endpoints, scopes, claims and public keys for signing tokens."
+      }
+    ],
+    "source": "L7, slides 13-14"
+  },
+  {
+    "id": "5072a191",
+    "name": "A client holds an access token and calls the user info endpoint <TT>/connect/userinfo</TT>. Select all correct statements.",
+    "answers": [
+      {
+        "body": "The endpoint returns the user's password hash, so the client can verify the user later.",
+        "right": false,
+        "comment": "L7, slide 14: It returns profile claims (sub, name, given_name, …), never credentials."
+      },
+      {
+        "body": "The endpoint accepts any access token, even one issued without any scopes.",
+        "right": false,
+        "comment": "L7, slide 14: The openid and profile scopes are required."
+      },
+      {
+        "body": "The endpoint returns only the <TT>sub</TT> claim; names and other profile data must be read elsewhere.",
+        "right": false,
+        "comment": "L7, slide 14: It returns many profile claims, such as name, family_name, given_name, picture and locale."
+      },
+      {
+        "body": "The access token must contain the <TT>openid</TT> and <TT>profile</TT> scopes.",
+        "right": true,
+        "comment": "L7, slide 14: profile and openid scopes are required in the access token."
+      }
+    ],
+    "source": "L7, slide 14"
+  },
+  {
+    "id": "af8e889f",
+    "name": "An app has three rules: (a) members of the Accountants group may approve invoices; (b) a user may see the sales report if the user's own Department property is “Sales”; (c) before deleting a customer, a function combines several conditions and grants or denies access. Select all correct statements.",
+    "answers": [
+      {
+        "body": "Rule (b) fits a claim: a property linked to the individual user, which is more flexible than a role.",
+        "right": true,
+        "comment": "L7, slide 15: Claims are more flexible than roles and are essentially properties of a user."
+      },
+      {
+        "body": "Rule (a) fits a role: a set of permissions shared by a group of users.",
+        "right": true,
+        "comment": "L7, slide 15: A role is a set of permissions to do certain activities; users are grouped by roles."
+      },
+      {
+        "body": "Roles, claims and policies are set once for the whole application, not per controller or request.",
+        "right": false,
+        "comment": "L7, slide 15: They can be set per request, group, controller and so on."
+      },
+      {
+        "body": "Claims are less flexible than roles, since each claim has to belong to a group of users.",
+        "right": false,
+        "comment": "L7, slide 15: Claims are linked to individual users and are more flexible than roles."
+      },
+      {
+        "body": "Rule (c) fits a policy: a function or rule that decides whether permission is granted or denied.",
+        "right": true,
+        "comment": "L7, slide 15: Policies are functions or rules that check whether permission is granted or denied."
+      }
+    ],
+    "source": "L7, slide 15"
+  },
+  {
+    "id": "51269ef6",
+    "name": "Which pairs of a task and a technique are correct? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Hiding passwords in the database with Base64 – it makes them unreadable for an attacker.",
+        "right": false,
+        "comment": "L7, slide 17: Encoding provides no security; anyone can decode Base64."
+      },
+      {
+        "body": "Keeping a backup that authorised staff must read later – encryption with a secret key, since the ciphertext can be decrypted back.",
+        "right": true,
+        "comment": "L7, slide 18: Encryption uses an algorithm and a secret key; the ciphertext can be decrypted with the key."
+      },
+      {
+        "body": "Putting binary data into a JSON text field – encoding such as Base64, which converts the format but gives no security.",
+        "right": true,
+        "comment": "L7, slide 17: Encoding converts data between formats for transmission and storage and does not provide security; Base64 is a common format."
+      },
+      {
+        "body": "Storing passwords encrypted, so an administrator can decrypt them and mail forgotten passwords back to users.",
+        "right": false,
+        "comment": "L7, slide 19: Passwords are stored as one-way hashes, so even the system never learns them back."
+      },
+      {
+        "body": "Storing user passwords – hashing: at login the entered password is hashed and compared with the stored hash.",
+        "right": true,
+        "comment": "L7, slide 19: Hashing is one-way and is used for secure password storage this way."
+      }
+    ],
+    "source": "L7, slides 17-19"
+  },
+  {
+    "id": "8d83b92a",
+    "name": "Your team designs registration and login with passwords for a new web app. Which decisions follow the advice on storing users and passwords? Select all correct statements.",
+    "answers": [
+      {
+        "body": "Limit passwords to 16 characters, so that the stored hashes fit a fixed-size column.",
+        "right": false,
+        "comment": "L7, slides 19, 21: No maximum length is advised; a hash has a fixed length for any input anyway."
+      },
+      {
+        "body": "Force 2FA on all users, regardless of the project's audience.",
+        "right": false,
+        "comment": "L7, slide 21: Support 2FA but don't force users – it depends on the project audience."
+      },
+      {
+        "body": "Never set a maximum length limit for passwords.",
+        "right": true,
+        "comment": "L7, slide 21: Don't require a maximum length limit."
+      },
+      {
+        "body": "Use a proven library or identity provider instead of designing your own crypto, even for a small app.",
+        "right": true,
+        "comment": "L7, slide 20: If you are not a security person, do not reinvent the wheel – do not do your own crypto."
+      },
+      {
+        "body": "Write a custom hashing scheme, so that attackers cannot know which algorithm you use.",
+        "right": false,
+        "comment": "L7, slide 20: Don't do your own crypto."
+      }
+    ],
+    "source": "L7, slides 19-21"
+  },
+  {
+    "id": "a8160ce4",
+    "name": "A single-page app uses refresh token rotation with automatic reuse detection. Its refresh token RT1 leaks to an attacker. The legitimate client then exchanges RT1 and gets a new access token AT2 and refresh token RT2. Later the attacker presents RT1. Select all correct statements.",
+    "answers": [
+      {
+        "body": "The attacker gets a new access token and refresh token, as RT1 was valid when it leaked.",
+        "right": false,
+        "comment": "L7, slide 23: RT1 was already invalidated by the legitimate exchange; the attacker gets Access Denied."
+      },
+      {
+        "body": "The attacker is blocked while the legitimate client keeps using RT2 without any problem.",
+        "right": false,
+        "comment": "L7, slide 23: RT2 is invalidated as well, so the legitimate client is also denied and must sign in again."
+      },
+      {
+        "body": "On detecting reuse the provider also invalidates RT2, so the legitimate client is denied too.",
+        "right": true,
+        "comment": "L7, slide 23: “Reuse Detected, RT2 Invalidated”; both the attacker and then the legitimate client get Access Denied."
+      },
+      {
+        "body": "RT1 was invalidated by the legitimate exchange, so the attacker's request counts as reuse of an old token.",
+        "right": true,
+        "comment": "L7, slides 22-23: After each exchange the old refresh token is invalidated; presenting RT1 again is detected as reuse."
+      }
+    ],
+    "source": "L7, slides 22-23"
+  },
+  {
+    "id": "57600404",
+    "name": "A user signs out of a mobile app whose refresh token may have leaked earlier. The app uses Duende IdentityServer. Select all correct statements about token revocation.",
+    "answers": [
+      {
+        "body": "Logout revokes the access token, while the refresh token stays valid until it expires.",
+        "right": false,
+        "comment": "L7, slide 24: In Duende refresh tokens are revoked at logout by default."
+      },
+      {
+        "body": "A leaked refresh token is especially problematic, since it can be used to obtain new access tokens.",
+        "right": true,
+        "comment": "L7, slide 24: Tokens can leak; leaks of refresh tokens are especially problematic."
+      },
+      {
+        "body": "Issued tokens stay valid until they expire, as no endpoint can revoke them.",
+        "right": false,
+        "comment": "L7, slide 24: Tokens can be revoked programmatically."
+      },
+      {
+        "body": "A token can also be revoked on demand through the <TT>/connect/revocation</TT> endpoint.",
+        "right": true,
+        "comment": "L7, slide 24: The endpoint /connect/revocation forces revocation."
+      },
+      {
+        "body": "In Duende IdentityServer refresh tokens are revoked at logout by default.",
+        "right": true,
+        "comment": "L7, slide 24: Refresh tokens are revoked at logout time by default."
+      }
+    ],
+    "source": "L7, slides 22, 24"
+  },
+  {
+    "id": "2106dc39",
+    "name": "Which of these applications are confidential clients that can keep a client secret? Select all correct statements.",
+    "answers": [
+      {
+        "body": "A Blazor WebAssembly application.",
+        "right": false,
+        "comment": "L7, slide 27: Blazor WebAssembly runs in the browser and is a public client."
+      },
+      {
+        "body": "A Blazor Server application.",
+        "right": true,
+        "comment": "L7, slide 27: Blazor Server runs on the server and is a confidential client."
+      },
+      {
+        "body": "A JavaScript single-page app downloaded into the browser.",
+        "right": false,
+        "comment": "L7, slide 27: JavaScript client web apps are public clients."
+      },
+      {
+        "body": "An ASP.NET MVC application that renders its pages on the server.",
+        "right": true,
+        "comment": "L7, slide 27: Confidential clients live on the server, e.g. ASP.NET MVC, Razor Pages, Blazor Server."
+      },
+      {
+        "body": "A mobile app installed on the users' phones.",
+        "right": false,
+        "comment": "L7, slide 27: Mobile apps live on the client and are public clients."
+      }
+    ],
+    "source": "L7, slide 27"
+  },
+  {
+    "id": "e7897a0",
+    "name": "A server-side web app signs users in with the Authorization Code grant. Select all correct statements about the steps.",
+    "answers": [
+      {
+        "body": "The app sends the user to the authorize endpoint (in Duende <TT>/connect/authorize</TT>), where the user authenticates and may be asked for consent.",
+        "right": true,
+        "comment": "L7, slides 28-29: The authorize endpoint obtains the grant via the browser, authenticates the end user and optionally asks for consent."
+      },
+      {
+        "body": "The app exchanges the code together with its client ID and client secret at the token endpoint and gets an ID token and an access token.",
+        "right": true,
+        "comment": "L7, slide 28: Authorization Code + Client ID + Client Secret to /oauth/token; validation; ID Token and Access Token."
+      },
+      {
+        "body": "The identity provider puts the access token directly into the redirect, and the app skips the token endpoint.",
+        "right": false,
+        "comment": "L7, slide 28: The redirect carries only the authorization code; tokens come from /oauth/token."
+      },
+      {
+        "body": "After successful authentication the authorization code is sent to the app's <TT>redirect_uri</TT>.",
+        "right": true,
+        "comment": "L7, slide 29: redirect_uri is the URL where the authorization grant is sent after successful authentication."
+      },
+      {
+        "body": "The user types the password into the app's own form and the app forwards it to the authorize endpoint.",
+        "right": false,
+        "comment": "L7, slides 28-29: The user authenticates at the identity provider; collecting the password in the app is the Resource Owner Password flow."
+      }
+    ],
+    "source": "L7, slides 11, 28-29"
+  },
+  {
+    "id": "a1478595",
+    "name": "A Blazor WebAssembly app signs users in with the Authorization Code flow with PKCE. Select all correct statements.",
+    "answers": [
+      {
+        "body": "The verifier goes with the request to /authorize; the challenge goes with the code to /oauth/token.",
+        "right": false,
+        "comment": "L7, slide 31: The order is the other way round: challenge to /authorize, verifier to /oauth/token."
+      },
+      {
+        "body": "An attacker who intercepts the code cannot redeem it without the matching code verifier.",
+        "right": true,
+        "comment": "L7, slides 30-31: PKCE prevents unauthorized access if the code is intercepted; the server validates the verifier against the challenge."
+      },
+      {
+        "body": "The app sends its client secret together with the code, in the same way as a server-side app.",
+        "right": false,
+        "comment": "L7, slides 27, 31: A WebAssembly app is a public client and cannot keep a secret; PKCE sends the code verifier instead."
+      },
+      {
+        "body": "PKCE encrypts the authorization code, so nobody can intercept it on its way to the app.",
+        "right": false,
+        "comment": "L7, slide 30: PKCE does not stop interception; it stops an intercepted code from being used."
+      },
+      {
+        "body": "The challenge goes with the request to /authorize; the verifier goes with the code to /oauth/token.",
+        "right": true,
+        "comment": "L7, slide 31: Steps 2-3 send the code challenge to /authorize, step 7 sends the code + code verifier to /oauth/token."
+      }
+    ],
+    "source": "L7, slides 27, 30-31"
+  },
+  {
+    "id": "1650f1bd",
+    "name": "A team must add sign-in to a new customer-facing app. Which recommendations are correct? Select all correct statements.",
+    "answers": [
+      {
+        "body": "If you cannot, use industry standards (OAuth 2.0, PKCE, OpenID Connect) and existing libraries such as ASP.NET Identity or Duende IdentityServer.",
+        "right": true,
+        "comment": "L7, slide 35: If you can't, use industry standards and libraries and frameworks."
+      },
+      {
+        "body": "Microsoft Entra B2B is meant for customer-facing apps, while Entra External ID connects partner organisations.",
+        "right": false,
+        "comment": "L7, slide 34: The roles are swapped: External ID is business-to-customers, Entra B2B connects with other organisations."
+      },
+      {
+        "body": "Active Directory is Microsoft's cloud identity solution and Microsoft Entra the self-hosted one.",
+        "right": false,
+        "comment": "L7, slide 34: Active Directory is self-hosted; Microsoft Entra is the cloud solution."
+      },
+      {
+        "body": "If you can, use external identity providers such as Google or Microsoft instead of managing your own user accounts.",
+        "right": true,
+        "comment": "L7, slide 35: If you can, use external providers (public or in-house)."
+      }
+    ],
+    "source": "L7, slides 32-35"
+  },
+  {
+    "id": "1119fc5b",
+    "name": "A company builds three clients that call the same protected API through one identity provider: (1) an ASP.NET Core MVC portal rendered on the server, (2) a Blazor WebAssembly app for customers, (3) a nightly service that synchronises orders without any user. For each client choose the OAuth 2.0 grant type, say whether it is a confidential or a public client, and justify the choice. Then explain why you would not use the Resource Owner Password flow for the customer app.",
+    "answer": "<B>(1) MVC portal:</B> Authorization Code grant. It is a <I>confidential</I> client: it runs on the server and can keep a client secret. The user signs in at the identity provider (/connect/authorize), the code comes to the redirect_uri, and the server exchanges code + client ID + client secret at the token endpoint for an ID token and an access token.<BR><B>(2) Blazor WebAssembly:</B> Authorization Code with PKCE. It is a <I>public</I> client: its code runs in the browser, so a secret would not stay secret. The app creates a code verifier and a code challenge, sends the challenge to /authorize and the verifier with the code to the token endpoint; an intercepted code is useless without the verifier.<BR><B>(3) Nightly service:</B> Client Credentials. No user takes part; the service runs on a server (confidential) and authenticates with its client ID and client secret at the token endpoint, then calls the API with the access token.<BR><B>Why not Resource Owner Password for (2):</B> the app would collect the user's password itself and send it to the token endpoint – against the OAuth goal that users do not share credentials with applications; it also loses the identity provider's own login page (single sign-on, other login methods). The lecture recommends standards such as Authorization Code + PKCE instead.",
+    "keyPoints": [
+      "MVC portal: Authorization Code, confidential client (secret kept on the server)",
+      "Blazor WebAssembly: Authorization Code with PKCE, public client (cannot keep a secret)",
+      "PKCE: challenge to /authorize, verifier to the token endpoint; intercepted code is useless",
+      "Nightly service: Client Credentials with client ID + secret, no user",
+      "Resource Owner Password exposes the user's password to the app, against delegated access"
+    ],
+    "source": "L7, slides 4, 6, 11-12, 27-31, 35; the loss of single sign-on and other login methods with the password flow is derived"
+  },
+  {
+    "id": "ed139692",
+    "name": "A web shop keeps its own customer accounts. Requirements: customers register and sign in with e-mail and password; staff in the Admin group manage products; only customers whose stored birth date shows they are 18 or older may buy alcohol, and the check also needs the shop to be open for alcohol sales at that time; a customer who signs out on a shared computer must not stay usable through a stolen refresh token. Describe how you store passwords and what you avoid, how you express the authorization rules with roles, claims and policies, and how you handle refresh tokens.",
+    "answer": "<B>Passwords:</B> store only a one-way <I>hash</I>; at login hash the entered password and compare it with the stored hash. Do not use encoding (Base64 gives no security) and do not store passwords encrypted (they could be decrypted). Use an existing library such as ASP.NET Identity (or an external provider) – do not write your own crypto. No maximum password length; verify the e-mail address; support 2FA, but whether to force it depends on the audience.<BR><B>Authorization:</B> staff get the <I>role</I> Admin, and the product-management controller requires it. The birth date is a <I>claim</I> of the individual customer. The alcohol rule is a <I>policy</I>: a function that reads the birth-date claim, computes the age and checks the sales time, then grants or denies access; it is applied only to the checkout action that sells alcohol.<BR><B>Refresh tokens:</B> revoke the refresh token at logout (Duende does it by default; otherwise call /connect/revocation). Use refresh token rotation: every exchange returns a new refresh token and invalidates the old one; with reuse detection an old token presented again invalidates the whole chain, so a stolen token stops working.",
+    "keyPoints": [
+      "Passwords stored as one-way hashes and compared at login; no encoding or encryption",
+      "Use a library such as ASP.NET Identity, not own crypto; no maximum length, verify e-mail, optional 2FA",
+      "Admin group as a role on the product-management controller",
+      "Birth date as a user claim; the alcohol rule as a policy combining age and sales time",
+      "Refresh tokens revoked at logout or via /connect/revocation",
+      "Rotation with reuse detection invalidates a stolen refresh token chain"
+    ],
+    "source": "L7, slides 15, 17-24, 35; applying the policy only to the alcohol checkout action is derived"
+  }
+]
