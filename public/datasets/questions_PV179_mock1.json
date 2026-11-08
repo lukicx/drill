@@ -1,0 +1,253 @@
+[
+  {
+    "id": "765d7926",
+    "name": "<B>DTO a hranice vrstev</B><BR>Volba reprezentace dat na hranicích aplikačních vrstev. Diskutujte o tom, jak by měla být data reprezentována při přenosu z databáze ke klientovi.<BR>• Používali byste stejné objekty v celé aplikaci? Vysvětlete své rozhodnutí.<BR>• Jak byste rozhodovali o tom, jaká data zpřístupnit konzumentovi a která vrstva by měla tato data připravovat?<BR>• Jakou roli mohou hrát DTO a jaké náklady nebo omezení jejich použití přináší?",
+    "answer": "Stejné objekty (entity) bych v celé aplikaci nepoužíval. Entity jsou svázané se schématem DB. Kdyby šly až ke klientovi, každá změna schématu by rozbila API, unikla by citlivá pole (např. hash hesla) a navigation properties by způsobovaly cyklické reference při serializaci. Hrozí i overposting: klient pošle pole, které neměl měnit (např. cenu).<BR><BR>O tom, co zveřejnit, rozhoduje use case: typicky 1 DTO = 1 use case (ProductListDto má název a cenu, ProductDetailDto i popis a dostupnost, ProductCreateDto jen vstupní pole). Data připravuje business vrstva (služby a fasády), která mapuje entity na DTO. Prezentační vrstva entity vůbec nezná, v MVC si DTO ještě mapuje na ViewModel.<BR><BR>DTO oddělí vrstvy a z API udělají stabilní kontrakt. Cena: více tříd, mapovací kód (Mapster) a chyby v mapování, například zapomenutá property. U jednoduchého CRUD může jít o zbytečnou ceremonii. Výhodou je i výkon: projekce do DTO přes Select načte jen potřebné sloupce.",
+    "keyPoints": [
+      "entity ne až ke klientovi: změna schématu rozbije API, citlivá pole, cyklické reference, overposting",
+      "1 DTO = 1 use case, jedna entita má více DTO",
+      "DTO připravuje BL (služby/fasády), prezentační vrstva entity nezná",
+      "náklady: více tříd, mapování, chyby v mapování, ceremonie u CRUD",
+      "projekce do DTO zlepší výkon"
+    ],
+    "source": "Zdroj: vzorový test"
+  },
+  {
+    "id": "bdb142c5",
+    "name": "<B>Konzistence a Unit of Work</B><BR>Koordinace souvisejících změn. Vytvoření objednávky vyžaduje vytvoření záznamů o nákupu a změnu dostupnosti produktů. Vysvětlete, jak byste zajistili konzistenci této operace.<BR>• Jak byste rozhodovali o tom, které změny musí být provedeny společně?<BR>• Jak by se měla aplikace zachovat, pokud se některou ze změn nepodaří uložit?<BR>• Jaké mechanismy mohou pomoci zajistit konzistenci dat a jaké problémy mohou nastat, pokud konzistence není zachována?",
+    "answer": "Společně musí projít změny, které tvoří jedno obchodní pravidlo. Objednávka, její položky a snížení skladu jsou jeden celek: objednávka bez snížení skladu nebo snížený sklad bez objednávky je neplatný stav. Odeslání potvrzovacího e-mailu k tomu nepatří, to se může stát až po úspěšném uložení.<BR><BR>Pokud některá změna selže, nesmí se uložit nic (atomicita, všechno, nebo nic). Klient dostane chybovou odpověď (např. 409 při nedostatku zboží, 500 při chybě serveru), ne 201 Created.<BR><BR>Mechanismy: Unit of Work. Změny se sbírají a jeden Commit (v EF Core SaveChanges) je uloží v jedné transakci. Fasáda (OrderFacade) koordinuje více služeb (OrderService, ProductService) nad jedním UoW a commitne jednou na konci. UoW je zaregistrovaný jako Scoped, takže každý request má vlastní transakci. Akce jako e-mail se zaregistrují, aby se spustily až po commitu. Při souběhu pomůže optimistic concurrency (concurrency token, DbUpdateConcurrencyException).<BR><BR>Bez konzistence hrozí prodej zboží, které není skladem, objednávka bez položek nebo záporný sklad. Při dvou souběžných nákupech si poslední kus mohou koupit oba.",
+    "keyPoints": [
+      "společně jde to, co tvoří jedno pravidlo: objednávka + položky + sklad; e-mail ne",
+      "všechno, nebo nic, při chybě nic neukládat a vrátit chybový kód",
+      "Unit of Work, jeden Commit/SaveChanges = transakce",
+      "fasáda koordinuje služby nad jedním UoW, UoW je Scoped",
+      "akce po commitu (e-mail), optimistic concurrency",
+      "důsledky: prodej neexistujícího zboží, nekonzistentní sklad, souběžný nákup posledního kusu"
+    ],
+    "source": "Zdroj: vzorový test"
+  },
+  {
+    "id": "b6a05730",
+    "name": "<B>Testování</B><BR>Testování chování aplikace. Popište, jak byste testovali zpracování objednávek v internetovém obchodě.<BR>• Jaké typy testů a testovací techniky byste použili k pokrytí různých scénářů a ověření interakcí mezi komponentami aplikace?<BR>• Jak byste otestovali jednu část procesu, aniž by bylo nutné spouštět celou aplikaci?<BR>• Jak se liší možnosti ověření pomocí unit testů a integračních testů?",
+    "answer": "Unit testy bych psal pro služby a fasády (OrderService, OrderFacade). Integrační testy pro spolupráci s databází a pro celé API. Případně systémové (E2E) testy celého procesu objednávky přes API nebo UI.<BR><BR>Techniky: parametrizované testy ([Theory] + [InlineData]) pro různé scénáře. Třídy ekvivalence a hraniční hodnoty: prázdný košík, množství 0 nebo záporné, poslední kus na skladě, více kusů, než je skladem, neexistující produkt. Každý test má strukturu Arrange – Act – Assert. Interakce ověřím přes mock: Received() potvrdí, že se při úspěchu zavolal Commit a při chybě ne.<BR><BR>Jednu část bez celé aplikace otestuji díky DI přes rozhraní. OrderService dostane místo skutečného repozitáře mock (NSubstitute: Substitute.For&lt;IProductRepository&gt;()) s nastavenými návratovými hodnotami (.Returns). Není potřeba databáze ani webový server.<BR><BR>Unit test je rychlý, izolovaný a přesně ukáže, kde je chyba, ale neověří, že dotaz opravdu funguje v DB, a mock se může chovat jinak než realita. Integrační test (EF Core InMemory / SQLite in-memory, případně celé API přes WebApplicationFactory) ověří skutečné dotazy, mapování, konfiguraci DI a stavové kódy. Je ale pomalejší, potřebuje přípravu dat a hůř se v něm hledá příčina chyby. InMemory DB navíc není skutečná relační DB. Příliš mnoho mocků a ověřování pořadí volání dělá testy křehkými.",
+    "keyPoints": [
+      "unit testy služeb/fasád, integrační testy s DB/API, případně systémové/E2E testy",
+      "[Theory]/[InlineData], hraniční hodnoty, AAA",
+      "mock závislostí přes NSubstitute díky DI a rozhraním",
+      "Received() pro ověření interakcí (Commit)",
+      "unit: rychlý, izolovaný, neověří DB; integrační: realističtější, pomalejší",
+      "InMemory DB není skutečná relační DB"
+    ],
+    "source": "Zdroj: vzorový test"
+  },
+  {
+    "id": "877efb91",
+    "name": "<B>Návrh Web API a validace</B><BR>Návrh Web API. Vysvětlete, jak byste navrhli Web API pro správu produktů a vytváření objednávek.<BR>• Jak by konzumenti API zjistili, jaká data mají do API posílat?<BR>• Jak byste komunikovali úspěšné výsledky a různé typy chyb?<BR>• Kde by měla aplikace validovat příchozí požadavky a kde by měla být vynucována obchodní pravidla?",
+    "answer": "API podle REST úrovně 2: zdroje /api/products a /api/orders a správné HTTP metody (GET čtení, POST vytvoření, PUT nahrazení, PATCH částečná změna, DELETE smazání).<BR><BR>Kontrakt konzument zjistí z OpenAPI dokumentu (Swagger UI) generovaného z kontrolerů a request/response DTO: vidí pole, typy a povinnost. Při změnách pomůže verzování API.<BR><BR>Úspěch: 200 OK (GET), 201 Created + hlavička Location (vytvořená objednávka), 204 No Content (DELETE). Chyby: 400 neplatný vstup (ProblemDetails se seznamem chyb), 401 nepřihlášený, 403 bez oprávnění, 404 neexistující produkt, 409 konflikt (nedostatek zboží, souběžná změna), 500 neočekávaná chyba. 500 vrací jednotně globální middleware pro výjimky a neprozrazuje detaily.<BR><BR>Formální validaci (povinná pole, rozsah, formát) dělám hned na vstupu: datové anotace na DTO a [ApiController] / ModelState automaticky vrátí 400. Obchodní pravidla (dostatek zboží, aktivní produkt, objednávka jen z jednoho obchodu) patří do business vrstvy, protože ji může volat více klientů (Web API i MVC) a pravidlo má být na jednom místě. DB constrainty jsou poslední pojistka.",
+    "keyPoints": [
+      "REST level 2: zdroje + HTTP metody",
+      "OpenAPI/Swagger z DTO jako kontrakt, verzování",
+      "200/201+Location/204; 400/401/403/404/409/500",
+      "globální middleware pro výjimky",
+      "formální validace na vstupu (anotace, ModelState → 400)",
+      "obchodní pravidla v BL, DB constrainty jako pojistka"
+    ],
+    "source": "Zdroj: vzorový test"
+  },
+  {
+    "id": "f616621e",
+    "name": "<B>Repository a Unit of Work nad EF Core</B><BR>Kolega tvrdí, že vlastní třídy Repository a Unit of Work nad Entity Framework Core jsou zbytečné, protože DbContext a DbSet tyto vzory už implementují.<BR>• Které návrhové vzory implementuje DbContext?<BR>• Jaké argumenty mluví pro vlastní vrstvu repozitářů a UoW?<BR>• Jaké nevýhody tento přístup přináší a kdy byste ho vynechali?",
+    "answer": "Kolega má částečně pravdu. DbContext implementuje Identity Map (stejný řádek = stejná instance), Unit of Work (sleduje změny a SaveChanges je uloží najednou) a DbSet implementuje Repository (CRUD nad množinou entit).<BR><BR>Pro vlastní vrstvu mluví abstrakce nad konkrétním ORM: business vrstva nezávisí na EF Core a ORM se dá vyměnit, nejčastěji kvůli výkonu (např. Dapper). Přístup k datům a jejich modifikace jsou na jednom místě, transakce jsou přehlednější (explicitní Commit) a rozhraní IRepository a IUnitOfWork se snadno mockují v unit testech.<BR><BR>Nevýhody: další vrstva kódu a generické repozitáře často jen obalují DbSet. Snadno se ztratí schopnosti EF Core (IQueryable, Include, projekce), pokud je repozitář nezpřístupní. U malé CRUD aplikace nebo prototypu bych vlastní vrstvu vynechal (pragmatická architektura: start simple, upgrade on pain).",
+    "keyPoints": [
+      "DbContext = Identity Map + Unit of Work, DbSet = Repository",
+      "pro: abstrakce nad ORM, výměna ORM kvůli výkonu, jedno místo, testovatelnost",
+      "proti: další vrstva, obalování DbSet, ztráta schopností EF",
+      "u jednoduchého CRUD vynechat"
+    ],
+    "source": "Zdroj: L2, L3, S3"
+  },
+  {
+    "id": "29123ca3",
+    "name": "<B>Načítání souvisejících dat</B><BR>Stránka „Moje objednávky“ zobrazuje seznam objednávek zákazníka a u každé názvy objednaných produktů. Při větším počtu objednávek je stránka velmi pomalá.<BR>• Jaké strategie načítání souvisejících dat EF Core nabízí a jak se liší?<BR>• Co je pravděpodobnou příčinou problému a jak ho odhalíte?<BR>• Jak byste problém vyřešili?",
+    "answer": "Eager loading načte související data hned v jednom dotazu (Include, ThenInclude). Explicit loading je načte dodatečně pro konkrétní entitu (Entry(...).Collection(...).Load()). Lazy loading je načte automaticky při prvním přístupu k navigation property (virtual property + Proxies + UseLazyLoadingProxies).<BR><BR>Pravděpodobnou příčinou je problém N+1 při lazy loadingu: 1 dotaz na N objednávek a pak pro každou objednávku další dotaz na položky a produkty. Odhalím ho zapnutím logování SQL příkazů (LogTo / Microsoft.Extensions.Logging.Console), kde uvidím velké množství podobných dotazů.<BR><BR>Řešení: když vím dopředu, co stránka potřebuje, načtu to najednou přes Include(o =&gt; o.Items).ThenInclude(i =&gt; i.Product). Ještě lepší je projekce přímo do DTO přes Select, která vytáhne jen potřebné sloupce. Při velkém počtu objednávek přidám stránkování. Pozor i na to, aby se filtrovalo na straně DB (IQueryable), ne až po ToList().",
+    "keyPoints": [
+      "eager (Include), explicit (Load), lazy (virtual + proxies)",
+      "příčina: N+1 dotazů při lazy loadingu",
+      "odhalení: logování SQL",
+      "řešení: Include/ThenInclude nebo projekce Select do DTO, stránkování"
+    ],
+    "source": "Zdroj: L3, S2, S5"
+  },
+  {
+    "id": "9d109cb1",
+    "name": "<B>Dotazování a Query Object</B><BR>Katalog produktů má podporovat filtrování (kategorie, cenové rozpětí, text v názvu), řazení a stránkování.<BR>• Kam byste logiku dotazu umístili a proč?<BR>• Jaký je rozdíl mezi vyhodnocením dotazu na straně databáze a na straně klienta a proč je důležitý?<BR>• Jak by vypadal vstup a výstup takového dotazu?",
+    "answer": "Logiku umístím do Query Objectu v business/datové vrstvě, ne do kontroleru. Query Object reprezentuje dotaz nezávisle na ORM a podporuje filtrování (WHERE, i složené podmínky AND/OR), řazení a stránkování. Dotazy jsou na jednom místě, jsou přehledné, bez duplicit a snadno se upravují. Když se ORM změní kvůli výkonu, mění se jen implementace dotazu.<BR><BR>Při vyhodnocení na straně serveru (IQueryable) se celý dotaz přeloží do SQL a filtruje, řadí a stránkuje databáze. Vrátí se jen jedna stránka výsledků. Při vyhodnocení na klientovi (IEnumerable, např. po ToList()) se nejdřív stáhne celá tabulka do paměti a filtruje se až v aplikaci. Při tisících produktů je to pomalé a paměťově náročné. Proto ToList() až na konci, po Where, OrderBy, Skip a Take.<BR><BR>Vstup: FilterDto (kategorie, minCena, maxCena, hledaný text, podle čeho řadit, směr, číslo a velikost stránky). Výstup: QueryResultDto obsahující kolekci ProductListDto, celkový počet položek, číslo stránky a velikost stránky, aby klient mohl vykreslit stránkování.",
+    "keyPoints": [
+      "Query Object: filtrování, řazení, stránkování, nezávislý na ORM",
+      "výhody: jedno místo, bez duplicit, snadné úpravy",
+      "IQueryable = v DB, IEnumerable = v paměti; ToList až na konci",
+      "FilterDto na vstupu, QueryResultDto (položky + celkový počet + stránka) na výstupu"
+    ],
+    "source": "Zdroj: L3, L5"
+  },
+  {
+    "id": "214ab034",
+    "name": "<B>Stavy entit a nesouvislé spojení</B><BR>Administrátor upraví cenu produktu ve webovém rozhraní a odešle formulář. Server přijme upravená data v novém requestu.<BR>• Proč je práce s entitami ve webové aplikaci složitější než v desktopové aplikaci s jedním DbContextem?<BR>• Jaké stavy entit EF Core rozlišuje a jak se projeví při uložení?<BR>• Jak byste změnu správně uložili a na co si dát pozor?",
+    "answer": "Ve webové aplikaci má každý request vlastní (Scoped) DbContext. Kontext, který produkt načetl pro zobrazení formuláře, po odeslání odpovědi zanikl. Nový kontext v dalším requestu o entitě nic neví, je pro něj Detached. Jde o nesouvislé spojení a odpovědnost oznámit kontextu stav entity je na nás.<BR><BR>Stavy: Added (není v DB, uloží se INSERT), Unchanged (je v DB, nezměněná, nic se nestane), Modified (změněná, UPDATE), Deleted (DELETE), Detached (kontext ji nesleduje, nic se nestane).<BR><BR>Způsoby uložení: entitu načtu v novém kontextu, přenesu na ni hodnoty z DTO a zavolám SaveChanges (změna se sleduje automaticky, aktualizují se jen změněné sloupce). Nebo připojím entitu přes Update / nastavím stav Modified, což ale přepíše všechny sloupce. Pozor na overposting: z DTO přebírám jen pole, která smí admin měnit. Při souběžných úpravách pomůže concurrency token, aby jedna změna nepřepsala druhou. U navigation properties pozor, že přidání entity s nastavenou vazbou může označit jako Added i související entitu.",
+    "keyPoints": [
+      "každý request = nový DbContext, entita je Detached",
+      "Added/Unchanged/Modified/Deleted/Detached a jejich SQL",
+      "načíst a změnit vs Update/Modified (přepíše vše)",
+      "overposting, concurrency token, pozor na navigation properties"
+    ],
+    "source": "Zdroj: L3"
+  },
+  {
+    "id": "e1c5c0fd",
+    "name": "<B>Dependency Injection a životnost</B><BR>OrderService potřebuje přistupovat k repozitáři objednávek a k Unit of Work.<BR>• Jak by služba měla získat své závislosti a proč ne přes operátor new?<BR>• Jakou úlohu má DI kontejner a jaké životnosti služeb znáte?<BR>• Jakou životnost byste zvolili pro DbContext / Unit of Work a co by se stalo při nesprávné volbě?",
+    "answer": "Podle Dependency Inversion Principle nemá high-level třída (služba) záviset na konkrétních low-level třídách, obě závisí na abstrakcích. Služba dostane závislosti zvenku přes konstruktor (constructor injection) jako rozhraní IOrderRepository a IUnitOfWork. Kdyby si je vytvářela přes new, byla by pevně svázaná s implementací, starala by se o jejich životnost a nedala by se otestovat s mockem.<BR><BR>DI kontejner (v ASP.NET Core builder.Services) má zaregistrováno, které rozhraní má kterou implementaci. Při vytváření kontroleru rekurzivně vyřeší všechny jeho závislosti. Životnosti: Transient (nová instance při každém vyžádání), Scoped (jedna instance na HTTP request), Singleton (jedna instance pro celou aplikaci).<BR><BR>DbContext a UoW registruji jako Scoped: jeden request = jedna transakce a všechny služby v requestu sdílejí stejný kontext, takže jeden Commit uloží všechno. Singleton by sdílel jeden kontext mezi všemi uživateli, míchal by jejich změny a DbContext není thread-safe. Transient by dal každé službě jiný kontext, commit ve fasádě by neuložil změny ze služeb a transakce by se rozpadla.",
+    "keyPoints": [
+      "DIP, constructor injection přes rozhraní",
+      "new = pevná vazba, netestovatelné",
+      "DI kontejner řeší závislosti rekurzivně",
+      "Transient/Scoped/Singleton",
+      "DbContext/UoW Scoped; Singleton míchá uživatele, Transient rozbije transakci"
+    ],
+    "source": "Zdroj: L1, S2, S3"
+  },
+  {
+    "id": "b7ac7a60",
+    "name": "<B>Služby a fasády</B><BR>Business vrstva e-shopu obsahuje logiku pro produkty, sklad, objednávky a zákazníky.<BR>• Jak byste logiku rozdělili do služeb a podle jakých principů?<BR>• Jakou úlohu má fasáda a jak se liší od služby?<BR>• Ukažte na vytvoření objednávky, jak by spolupracovaly kontroler, fasáda a služby.",
+    "answer": "Logiku rozdělím do služeb podle Single Responsibility Principle tak, aby měly vysokou kohezi (související logika pohromadě) a nízké vazby (málo závislostí mezi sebou). Například ProductService (katalog), StockService (dostupnost a snížení skladu), OrderService (vytvoření a stav objednávky), CustomerService. Služba často pracuje s jednou entitou, ale nemusí: dělím podle odpovědnosti, ne mechanicky podle tabulek.<BR><BR>Fasáda poskytuje prezentační vrstvě jednoduché rozhraní pro celý use case a kombinuje více služeb. Fasád je výrazně méně než služeb. Kontroler tak nemusí znát pořadí volání ani transakce.<BR><BR>Vytvoření objednávky: kontroler přijme OrderCreateDto, po formální validaci zavolá OrderFacade.CreateOrderAsync(dto). Fasáda přes CustomerService ověří zákazníka, přes StockService ověří a sníží sklad, přes OrderService vytvoří objednávku s položkami a nakonec zavolá jeden Commit na Unit of Work. Vrátí OrderDetailDto a kontroler odpoví 201 Created. Při nedostatku zboží fasáda vrátí chybu a kontroler odpoví 409.",
+    "keyPoints": [
+      "SRP, high cohesion, low coupling",
+      "dělení podle odpovědnosti, ne jen podle tabulek",
+      "fasáda = jednoduché rozhraní pro use case, kombinuje služby, je jich méně",
+      "tok: kontroler → fasáda → služby → jeden Commit → DTO → 201/409"
+    ],
+    "source": "Zdroj: L5, S5"
+  },
+  {
+    "id": "52e2a2",
+    "name": "<B>Middleware</B><BR>Do e-shopu chcete přidat logování všech requestů, měření jejich trvání, kontrolu přístupového tokenu a jednotné zpracování neočekávaných výjimek.<BR>• Co je middleware a jak funguje pipeline v ASP.NET Core?<BR>• V jakém pořadí byste middleware zaregistrovali a proč na pořadí záleží?<BR>• Proč řešit tyto věci v middleware a ne v každém kontroleru?",
+    "answer": "Middleware je komponenta v pipeline, kterou prochází každý request před kontrolerem a odpověď na cestě zpět. Dostane HttpContext a odkaz na další middleware (next). Kód před await next(context) běží na cestě tam, kód za ním na cestě zpět. Pokud next nezavolá, request skončí a ke kontroleru se nedostane.<BR><BR>Pořadí registrace je pořadí vykonání. Navrhované pořadí: 1. zpracování výjimek (aby zachytilo chyby všech dalších kroků a vrátilo jednotnou 500 bez detailů), 2. měření času (co nejdříve, aby měřilo celý request), 3. logování, 4. kontrola tokenu (při neplatném vrátí 401 a request dál nepustí), 5. kontrolery. Kdyby byla autentizace až za něčím, co pracuje s daty uživatele, nebo časovač na konci, výsledky by byly nesprávné.<BR><BR>V middleware jsou to průřezové záležitosti: týkají se všech endpointů. V kontrolerech by se kód opakoval, snadno by se někde zapomněl (např. kontrola tokenu) a kontrolery by se zahltily věcmi mimo svou odpovědnost.",
+    "keyPoints": [
+      "pipeline, HttpContext, next; kód před/po next",
+      "bez next request končí (autentizace → 401)",
+      "pořadí: výjimky, časovač, logování, autentizace, kontrolery",
+      "průřezové záležitosti, žádná duplicita, nic se nezapomene"
+    ],
+    "source": "Zdroj: S4"
+  },
+  {
+    "id": "a9ebdd2",
+    "name": "<B>Autentizace a autorizace v aplikaci</B><BR>E-shop má zákazníky a administrátory. Zákazník smí vidět jen své objednávky, administrátor může upravovat produkty.<BR>• Jaký je rozdíl mezi autentizací a autorizací a jak se projeví v odpovědích API?<BR>• Jak byste přístup modelovali (role, claims, policies)?<BR>• Kde a jak byste zajistili, že zákazník neuvidí cizí objednávku?",
+    "answer": "Autentizace ověřuje, kdo uživatel je (přihlášení, token). Pokud chybí nebo je neplatná, API vrátí 401 Unauthorized. Autorizace určuje, co smí ověřený uživatel dělat. Pokud přihlášený uživatel nemá oprávnění, API vrátí 403 Forbidden.<BR><BR>Role seskupují oprávnění (Customer, Admin), například [Authorize(Roles = \"Admin\")] pro úpravu produktů. Claims jsou vlastnosti konkrétního uživatele (id, e-mail, země) a jsou flexibilnější než role. Policies jsou pojmenovaná pravidla, která kombinují role a claims a dají se přiřadit kontroleru nebo akci (např. policy „CanManageProducts“).<BR><BR>Samotný atribut [Authorize] na endpointu nestačí: kontroluje jen přihlášení (s Roles nebo Policy navíc roli či pravidlo), ale ne to, čí data uživatel žádá. Id uživatele beru z tokenu nebo cookie (claim sub / NameIdentifier), nikdy z parametru od klienta. V business vrstvě filtruji objednávky podle tohoto id (endpoint typu orders/my) a při přístupu ke konkrétní objednávce ověřím vlastníka. Cizí objednávku nevrátím (403, nebo 404, abych neprozradil, že existuje). Pravidlo je v BL, aby platilo pro všechny klienty.",
+    "keyPoints": [
+      "authN = kdo jsi (401), authZ = co smíš (403)",
+      "role, claims, policies",
+      "samotný [Authorize] (ani s rolí) nekontroluje vlastnictví dat",
+      "id z tokenu, ne od klienta; filtrování/kontrola vlastníka v BL"
+    ],
+    "source": "Zdroj: L6, S7"
+  },
+  {
+    "id": "984f5fe1",
+    "name": "<B>OAuth 2.0, OIDC, JWT</B><BR>E-shop má mít React frontend (SPA) a mobilní aplikaci. Zákazníci se mají přihlašovat i účtem Google.<BR>• Jaký je rozdíl mezi OAuth 2.0 a OpenID Connect?<BR>• Jaký flow byste zvolili pro SPA a mobilní aplikaci a proč? Jaký je rozdíl mezi confidential a public klientem?<BR>• Co obsahuje JWT access token a jak ho API použije?",
+    "answer": "OAuth 2.0 je standard pro autorizaci a delegovaný přístup: aplikace dostane token pro přístup k API, aniž by znala heslo uživatele. OpenID Connect je vrstva identity nad OAuth 2.0: přidává autentizaci (kdo uživatel je), ID token, userinfo endpoint a SSO. Přihlášení přes Google je typicky OIDC. Konfiguraci poskytovatele API zjistí z discovery endpointu /.well-known/openid-configuration.<BR><BR>SPA a mobilní aplikace jsou public klienti, protože běží u uživatele a neumí udržet tajemství (client secret). Confidential klient běží na serveru a tajemství udrží. Pro public klienty zvolím Authorization Code flow s PKCE: uživatel se přihlásí v prohlížeči u poskytovatele a PKCE zabrání zneužití zachyceného autorizačního kódu. Resource Owner Password flow (aplikace dostane heslo) nevolím, Client Credentials je jen pro komunikaci stroj – stroj.<BR><BR>JWT má tři části oddělené tečkou: header, payload a signature. Payload obsahuje claims: iss (vydavatel), aud (pro koho je určen), sub (uživatel), exp (expirace), scope a další. Klient ho posílá v hlavičce Authorization: Bearer &lt;token&gt;. API ověří podpis, vydavatele, audience a expiraci a z claims zjistí uživatele a jeho oprávnění. Krátce žijící access token se obnovuje refresh tokenem (s rotací a možností revokace).",
+    "keyPoints": [
+      "OAuth 2.0 = autorizace/delegovaný přístup, OIDC = identita nad OAuth, SSO",
+      "public vs confidential klient",
+      "Authorization Code + PKCE pro SPA a mobil",
+      "JWT: header.payload.signature, claims iss/aud/sub/exp",
+      "Bearer token, ověření podpisu, refresh token s rotací"
+    ],
+    "source": "Zdroj: L6"
+  },
+  {
+    "id": "2350fda4",
+    "name": "<B>Ukládání hesel a vlastní identita</B><BR>Tým zvažuje, že si správu uživatelů a přihlašování e-shopu naprogramuje sám.<BR>• Jaký je rozdíl mezi encoding, encryption a hashing a co je vhodné pro hesla?<BR>• Proč se nedoporučuje psát vlastní řešení identity a co byste použili místo toho?<BR>• Jaké další bezpečnostní zásady při práci s uživateli dodržet?",
+    "answer": "Encoding (Base64, UTF-8) jen převádí formát, dá se zvrátit bez klíče a neposkytuje žádnou bezpečnost. Encryption převede data na šifrový text pomocí klíče a s klíčem se dá dešifrovat. Hashing je jednosměrný: z hesla vznikne hash pevné délky, který se nedá zvrátit. Pro hesla se používá hashing: při registraci uložím hash, při přihlášení zahashuji zadané heslo a porovnám ho s uloženým.<BR><BR>Vlastní kryptografie a identita jsou náchylné k chybám, které běžný vývojář neodhalí (slabé hashování, chybějící sůl, špatné zacházení s tokeny). Pokud to jde, použiji externího poskytovatele (Google, Microsoft Entra ID). Pokud ne, standardy (OAuth 2.0, OIDC, PKCE) a hotové knihovny: ASP.NET Identity (uživatelé v DB přes EF Core, hashování hesel, přihlášení) a Duende IdentityServer jako identity provider.<BR><BR>Další zásady: neomezovat maximální délku hesla, ověřovat e-mail nebo telefon, nabídnout 2FA (ne násilím, podle publika), nemít testovací uživatele natvrdo v kódu, tokeny při odhlášení revokovat a nedávat hesla ani tajemství do gitu.",
+    "keyPoints": [
+      "encoding bez bezpečnosti, encryption vratné s klíčem, hashing jednosměrný",
+      "hesla → hash, porovnání hashů",
+      "nepsat vlastní kryptografii",
+      "externí poskytovatel, standardy, ASP.NET Identity, Duende IdentityServer",
+      "2FA, ověření e-mailu, bez max. délky hesla, revokace tokenů"
+    ],
+    "source": "Zdroj: L6, S7"
+  },
+  {
+    "id": "66652431",
+    "name": "<B>Datový model a migrace</B><BR>Do běžícího e-shopu je třeba k produktu přidat kategorii (produkt patří do jedné kategorie) a vazbu M:N mezi produkty a značkami.<BR>• Jak byste změnu modelu promítli do databáze bez ztráty dat?<BR>• K čemu slouží konvence, datové anotace a Fluent API v EF Core a kdy použijete které?<BR>• Jak byste do databáze dostali počáteční data a na co si dát pozor?",
+    "answer": "Použiji Code First migrace. Upravím entity (Product dostane CategoryId a navigation property Category, Category má kolekci Products, pro značky kolekce na obou stranách). Pak Add-Migration AddCategories vytvoří migraci: popis změny schématu z předchozího stavu (Up) a způsob, jak ji vrátit (Down). Update-Database ji aplikuje. Existující data zůstanou. Při přidání povinného sloupce je třeba vyřešit hodnotu pro existující řádky (výchozí kategorie nebo nejdřív nullable sloupec).<BR><BR>Konvence řeší běžné případy automaticky: Id nebo {Třída}Id je primární klíč, property typu jiné entity je navigation property, {Entita}Id je cizí klíč. Datové anotace ([Required], [MaxLength], [ForeignKey], [Key]) pomohou, když konvence nestačí. Fluent API v OnModelCreating je nejsilnější: složitější vazby, DeleteBehavior (Cascade nebo Restrict), indexy. Vazba M:N s vlastní spojovací tabulkou se nastavuje právě tady.<BR><BR>Počáteční data přes seed v OnModelCreating (HasData, např. ve třídě DataInitializer) a novou migraci. Seed musí obsahovat i záznamy, na které cizí klíče odkazují (kategorie a značky pro produkty). Přehledné je seedovat v pořadí podle FK: kategorie a značky, produkty, spojovací tabulka. Connection string nepatří do kódu, ale do konfigurace prezentační vrstvy.",
+    "keyPoints": [
+      "Code First migrace: Add-Migration, Update-Database, Up/Down",
+      "existující řádky při novém povinném sloupci",
+      "konvence → anotace → Fluent API (M:N, DeleteBehavior)",
+      "seed přes HasData včetně odkazovaných záznamů (pořadí podle FK)"
+    ],
+    "source": "Zdroj: L2, S1, S2"
+  },
+  {
+    "id": "f9e81e3b",
+    "name": "<B>Konfigurace a více databází</B><BR>Vývojáři pracují lokálně se SQLite, testovací a produkční prostředí používá MSSQL.<BR>• Kde a jak byste uložili connection string a proč ne přímo v kódu?<BR>• Jak byste podpořili dvě různé databáze, včetně migrací?<BR>• Jak DbContext získá svou konfiguraci?",
+    "answer": "Connection string patří do konfigurace spouštěného projektu (prezentační vrstvy), do appsettings.json pod ConnectionStrings. DAL je knihovna, která se sama nespouští, a vlastní konfigurační soubor nemá. Do kódu nepatří, protože se liší podle prostředí a obsahuje citlivé údaje (heslo). Změna by vyžadovala nové sestavení a heslo by skončilo v gitu. Pro prostředí použiji appsettings.Development.json (překryje hodnoty), lokální hesla přes user secrets, v produkci proměnné prostředí.<BR><BR>Migrace jsou závislé na databázi (SQL pro SQLite a MSSQL se liší), proto pro každou DB vytvořím samostatný projekt s migracemi a v konfiguraci nastavím MigrationsAssembly. V Program.cs podle nastavení (např. hodnota v appsettings) vyberu UseSqlite nebo UseSqlServer a příslušný migrační projekt.<BR><BR>DbContext má konstruktor s parametrem DbContextOptions&lt;T&gt; a konfiguraci dostane přes DI: builder.Services.AddDbContext nebo AddDbContextFactory s options.UseSqlite(builder.Configuration.GetConnectionString(...)).",
+    "keyPoints": [
+      "appsettings.json prezentační vrstvy, ne v DAL ani v kódu",
+      "prostředí: appsettings.Development.json, user secrets, proměnné prostředí",
+      "samostatný migrační projekt pro každou DB, MigrationsAssembly",
+      "DbContextOptions přes konstruktor a DI"
+    ],
+    "source": "Zdroj: L2, S3"
+  },
+  {
+    "id": "29e984b7",
+    "name": "<B>Volba architektury</B><BR>Startup začíná vyvíjet e-shop. Tým má 3 vývojáře a neví, zda projekt přežije rok, nebo deset let. Jeden člen navrhuje hned mikroslužby.<BR>• Jaké architektonické možnosti zvážit pro strukturu kódu a pro nasazení?<BR>• Co byste doporučili a proč?<BR>• Podle jakých signálů poznáte, že architekturu je třeba změnit?",
+    "answer": "Architektura je mozaika rozhodnutí. Pro strukturu kódu: třívrstvá architektura (prezentace, business, data), jednoduchá a vhodná pro CRUD; nebo Clean architecture, kde jsou uprostřed use cases a závislosti se řeší přes rozhraní (ports) s implementacemi venku (adapters). Pro nasazení: monolit, modulární monolit nebo mikroslužby. Pro modelování problému případně DDD.<BR><BR>Mikroslužby bych teď nedoporučil: pro 3 vývojáře přinášejí zbytečnou složitost (komunikace, nasazení, data, autentizace mezi službami) a většina projektů je nepotřebuje. Doporučil bych „start simple, upgrade on pain“: začít o kousek robustněji, než je třeba, například Clean architecture a modulární monolit. Moduly (katalog, objednávky, platby) jsou oddělené a komunikují přes jasně definované zprávy, ale nasazují se jako jedna aplikace. Když modul vyroste, dá se vyčlenit jako samostatná služba.<BR><BR>Více struktury je třeba, když jsou časté merge konflikty v „božských“ třídách, ORM prosakuje všude nebo se opakovaně lámou obchodní pravidla. Méně, když jednoduchá změna vyžaduje úpravu 6+ vrstev nebo 10+ souborů, je hodně DTO a mapperů na triviální CRUD a testy jsou převážně mocky. Samostatné služby mají smysl při více týmech, pomalých rizikových nasazeních nebo rozdílných potřebách škálování.",
+    "keyPoints": [
+      "struktura kódu (třívrstvá, Clean), nasazení (monolit, modulární monolit, mikroslužby), modelování (DDD)",
+      "mikroslužby ne pro malý tým a nejistý projekt",
+      "start simple, upgrade on pain: Clean + modulární monolit",
+      "signály pro více i méně struktury, kdy oddělit službu"
+    ],
+    "source": "Zdroj: L7"
+  },
+  {
+    "id": "43104337",
+    "name": "<B>ORM vs micro ORM vs SQL</B><BR>Většina e-shopu používá Entity Framework Core. Měsíční report tržeb nad miliony řádků je však příliš pomalý.<BR>• Jaké jsou výhody a nevýhody ORM oproti vlastní datové vrstvě s SQL?<BR>• Co jsou micro ORM a kdy byste je použili?<BR>• Jak byste problém s reportem řešili, abyste nenarušili zbytek architektury?",
+    "answer": "ORM převádí data mezi relační DB a objekty. Výrazně sníží množství kódu datové vrstvy a s LINQ to Entities dá IntelliSense i kontrolu kompilátorem. Nevýhody: je třeba hlídat cenu generovaných dotazů, ruční optimalizace je těžší a funkcionalita je omezená. Vlastní datová vrstva se SqlConnection a SqlCommand dává plnou kontrolu a nižší režii, ale znamená hodně práce. SQL je závislé na konkrétní DB a kompilátor ho nekontroluje.<BR><BR>Micro ORM (Dapper, PetaPoco) jsou rychlé a jednoduché: napíšu SQL a výsledek se namapuje na objekty. Chybí sledování změn, migrace a složitější mapování. Hodí se pro výkonově kritické čtecí dotazy a reporty.<BR><BR>Nejdřív bych v logu SQL zkontroloval, co EF generuje: zda se netahají všechna data do paměti, zda nechybí projekce nebo index. Pokud to nestačí, report přepíšu přes Dapper nebo surové SQL (FromSqlRaw) s agregací přímo v DB. Díky abstrakci (Query Object / repozitář) se změní jen implementace tohoto jednoho dotazu a business vrstvy se to nedotkne. To je hlavní argument pro dotazy nezávislé na ORM: ORM se nejčastěji mění právě kvůli výkonu.",
+    "keyPoints": [
+      "ORM: méně kódu, LINQ, kontrola kompilátorem; cena dotazů, těžší optimalizace",
+      "vlastní DAL: kontrola, výkon, hodně práce",
+      "micro ORM (Dapper): rychlé, bez change trackingu a migrací",
+      "nejdřív analyzovat SQL, pak Dapper/raw SQL za abstrakcí"
+    ],
+    "source": "Zdroj: L2, L3"
+  },
+  {
+    "id": "635014b0",
+    "name": "<B>DDD a invarianty</B><BR>V e-shopu se opakovaně objevují chyby: objednávka má záporné množství položky, celková suma nesedí s položkami a objednávku se podaří upravit i po odeslání.<BR>• Jak by tomu pomohl přístup Domain Driven Design?<BR>• Co je aggregate root a jaká pravidla pro něj platí?<BR>• Kdy se DDD vyplatí a kdy ne?",
+    "answer": "Chyby ukazují, že obchodní pravidla (invarianty) jsou roztroušená a kdokoli může objekt změnit přímo. DDD dává doménu na první místo a nutí model, aby pravidla vynucoval sám.<BR><BR>Objednávka by byla aggregate root a položky vnitřní entity. Aggregate root je vždy validní: nemá veřejné settery ani měnitelné seznamy a všechny změny, i změny položek, jdou přes jeho metody (AddItem, RemoveItem, Submit). Metoda AddItem odmítne záporné množství a přepočítá sumu. Po Submit metody změnu zakážou. Pravidla jsou na jednom místě a nedají se obejít. Mezi doménami (např. objednávky a sklad) se komunikuje událostmi (domain events), ne přímým voláním. Model sdílí jazyk s byznysem (ubiquitous language, bounded context).<BR><BR>DDD se vyplatí u složité domény, když se invarianty opakovaně lámou nebo týmy používají pro stejný pojem různé výrazy. Nevyplatí se u jednoduchého CRUD, kde agregáty jen obalují pár polí a přidávají ceremonii. Relační DB může konzistenci agregátů komplikovat.",
+    "keyPoints": [
+      "invarianty roztroušené, objekt měnitelný zvenku",
+      "aggregate root vždy validní: žádné veřejné settery, změny přes metody",
+      "vnitřní entity jen přes root, domain events mezi doménami",
+      "vyplatí se u složité domény, ne u CRUD"
+    ],
+    "source": "Zdroj: L7"
+  },
+  {
+    "id": "a82a217e",
+    "name": "<B>MVC, ViewModel a mapování</B><BR>Kromě Web API má e-shop i administrační rozhraní v ASP.NET MVC nad stejnou business vrstvou.<BR>• Jak se liší MVC kontroler od Web API kontroleru?<BR>• Jaký je rozdíl mezi entitou, DTO a ViewModelem a kde který vzniká?<BR>• Jak byste řešili mapování mezi nimi a jaká rizika mapování přináší?",
+    "answer": "Web API kontroler vrací data (JSON nebo XML) a stavový kód pro jiný program. MVC kontroler vybere View (Razor .cshtml), naplní ho modelem a vrátí HTML stránku pro člověka. Oba volají stejné fasády a služby, takže obchodní logika se nekopíruje.<BR><BR>Entita reprezentuje tabulku a žije v datové vrstvě. DTO přenáší data mezi business a prezentační vrstvou, jedno DTO pro jeden use case. ViewModel je model pro konkrétní stránku v MVC, přesně s tím, co stránka zobrazuje (např. UserWithPostsSummaryViewModel), případně s údaji pro formulář. Tok: entita → DTO (BL) → ViewModel (prezentační vrstva).<BR><BR>Mapování dělám knihovnou Mapster: konvence mapují stejně pojmenované vlastnosti, v TypeAdapterConfig nastavím jen speciální případy a pak volám dto.Adapt&lt;ViewModel&gt;(). Alternativou jsou ruční extension metody. Rizika: zapomenutá nebo potichu nenamapovaná vlastnost, mapování, které spustí lazy loading (N+1), a příliš mnoho vrstev a tříd pro jednoduché obrazovky.",
+    "keyPoints": [
+      "Web API = data + stavový kód, MVC = View/HTML",
+      "obě nad stejnou BL",
+      "entita (DAL) → DTO (BL) → ViewModel (prezentace)",
+      "Mapster: konvence + TypeAdapterConfig + Adapt",
+      "rizika: nenamapovaná pole, N+1 přes lazy loading, ceremonie"
+    ],
+    "source": "Zdroj: S5, S7"
+  }
+]
