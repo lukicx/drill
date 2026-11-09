@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { checkSelection, createSession, nextQuestion, recordAttempt, questionsToReview,
   saveSession, readSession, saveResult, readResults, revisionOf, getPersistenceFailed, firstAttempts,
   nextHistory, isDue, isWeak, recordHistory, readHistory, historyKey, pruneHistory, suggestedAssessment,
-  readAnswerFirst, saveAnswerFirst, exportProgress, importProgress, formatDuration } from '../src/study.ts'
+  readAnswerFirst, saveAnswerFirst, exportProgress, importProgress, tryNumber } from '../src/study.ts'
 
 const mc = { name: 'Pick both', answers: [{ body: 'A', right: true }, { body: 'B', right: true }, { body: 'C', right: false }] }
 const essay = { name: 'Explain', answer: 'Model', keyPoints: ['Key'] }
@@ -43,22 +43,28 @@ test('attempts cannot be scored twice and unmarked questions cannot advance', ()
   assert.equal(questionsToReview(complete).length, 2)
 })
 
-test('a missed question returns later in the round once and does not change the score', () => {
-  const bank = [{ datasetId: 'large', questions: Array.from({ length: 8 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
+test('a missed question returns until it is right, at most three tries, and does not change the score', () => {
+  const bank = [{ datasetId: 'large', questions: Array.from({ length: 20 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
   let session = recordAttempt(createSession(bank, 'Retry', { shuffled: false }), 'wrong')
-  assert.equal(session.round.length, 9)
-  assert.equal(session.round[5].question.name, 'Q0')
-  assert.equal(session.round[5].retry, true)
-  while (session.index < 4) session = recordAttempt(nextQuestion(session), 'correct')
+  assert.equal(session.round.length, 21)
+  assert.equal(session.round[11].question.name, 'Q0') // 10 other questions later
+  assert.equal(session.round[11].retry, true)
+  while (session.index < 10) session = recordAttempt(nextQuestion(session), 'correct')
   session = nextQuestion(session)
   assert.equal(session.round[session.index].retry, true)
+  assert.equal(tryNumber(session), 2)
   session = recordAttempt(session, 'wrong')
-  assert.equal(session.round.length, 9) // a second try is not repeated again
+  assert.equal(session.round.length, 22) // missed again: fewer than 10 left, so the third try goes to the end
+  assert.equal(session.round[21].question.name, 'Q0')
   saveSession(session)
-  assert.equal(readSession().round[5].retry, true)
+  assert.equal(readSession().round[11].retry, true)
+  while (session.index < 21) session = nextQuestion(session.attempts.length > session.index ? session : recordAttempt(session, 'correct'))
+  assert.equal(tryNumber(session), 3)
+  session = recordAttempt(session, 'wrong')
+  assert.equal(session.round.length, 22) // no fourth try
   while (!session.finished) session = nextQuestion(session.attempts.length > session.index ? session : recordAttempt(session, 'correct'))
   saveResult(session)
-  assert.deepEqual([readResults()[0].total, readResults()[0].answered, readResults()[0].correct], [8, 8, 7])
+  assert.deepEqual([readResults()[0].total, readResults()[0].answered, readResults()[0].correct], [20, 20, 19])
   assert.deepEqual(firstAttempts(session).map((a) => a.item.question.name), bank[0].questions.map((q) => q.name))
 })
 
@@ -71,7 +77,10 @@ test('history moves questions through boxes only when they are due', () => {
   assert.deepEqual(nextHistory(h, 'correct', now), h) // answering early does not promote
   h = nextHistory(h, 'correct', midnight + day + 1)
   assert.deepEqual([h.box, h.due], [2, midnight + 4 * day])
-  assert.deepEqual(nextHistory(h, 'partial', now), { box: 1, due: midnight + day, last: 'partial' })
+  assert.deepEqual(nextHistory(h, 'partial', now), { box: 1, due: midnight + day, last: 'partial', lapses: 1 })
+  const missedTwice = nextHistory(nextHistory(h, 'wrong', now), 'wrong', now)
+  assert.equal(missedTwice.lapses, 2)
+  assert.equal(nextHistory(missedTwice, 'correct', midnight + day + 1).lapses, 2) // the count stays after a right answer
   assert.equal(isDue(h, midnight + 4 * day), true)
   assert.equal(isWeak(nextHistory(h, 'wrong', now)), true)
 })
@@ -194,22 +203,6 @@ test('exported progress restores history and settings in an empty browser and re
   assert.equal(importProgress({ app: 'drill', version: 1, data: [] }), false)
 })
 
-test('midterm practice has no second tries, keeps its clock across a reload and stores the time', () => {
-  const bank = [{ datasetId: 'L1', questions: Array.from({ length: 8 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
-  let exam = createSession(bank, 'Test', { exam: true, limit: 5 })
-  assert.deepEqual([exam.mode, exam.round.length, exam.elapsed], ['exam', 5, 0])
-  exam = { ...nextQuestion(recordAttempt(exam, 'wrong')), elapsed: 65000 }
-  assert.equal(exam.round.length, 5) // a wrong answer does not come back
-  saveSession(exam)
-  assert.equal(readSession().elapsed, 65000)
-  saveSession({ ...exam, elapsed: -1 })
-  assert.equal(readSession(), null)
-  saveResult({ ...exam, finished: true })
-  assert.deepEqual([readResults()[0].mode, readResults()[0].elapsed], ['exam', 65000])
-  assert.equal(createSession(bank, 'Full').elapsed, undefined)
-  assert.deepEqual([formatDuration(65000), formatDuration(3725000)], ['1:05', '1:02:05'])
-})
-
 test('history follows a question id across text edits and matches history recorded before ids', () => {
   const before = { name: 'Old wording', answer: 'Model' }
   const keyByText = historyKey({ datasetId: 'L1', question: before })
@@ -219,4 +212,24 @@ test('history follows a question id across text edits and matches history record
   const edited = { ...withId, name: 'New wording' }
   pruneHistory([{ datasetId: 'L1', questions: [edited] }])
   assert.deepEqual(Object.keys(readHistory()), [keyByText])
+})
+
+test('a second try answered right is not repeated', () => {
+  const bank = [{ datasetId: 'large', questions: Array.from({ length: 8 }, (_, i) => ({ ...mc, name: `Q${i}` })) }]
+  let session = recordAttempt(createSession(bank, 'Retry', { shuffled: false }), 'wrong')
+  assert.equal(session.round[8].retry, true) // a short round: the retry is at the end
+  while (session.index < 8) session = nextQuestion(session.attempts.length > session.index ? session : recordAttempt(session, 'correct'))
+  session = recordAttempt(session, 'correct')
+  assert.equal(session.round.length, 9)
+  assert.equal(nextQuestion(session).finished, true)
+})
+
+test('review rounds ask the most often missed questions first', () => {
+  const qs = ['Once', 'Thrice', 'Twice'].map((name) => ({ ...mc, name }))
+  const item = (q) => ({ key: 'x', datasetId: 'L1', question: q })
+  const misses = { Once: 1, Twice: 2, Thrice: 3 }
+  for (const q of qs) for (let i = 0; i < misses[q.name]; i++) recordHistory(item(q), 'wrong')
+  const bank = [{ datasetId: 'L1', questions: qs }]
+  const review = createSession(bank, 'Missed', { review: qs.map((q, i) => ({ key: `L1:${i}`, datasetId: 'L1', question: q })), history: readHistory() })
+  assert.deepEqual(review.round.map((entry) => entry.question.name), ['Thrice', 'Twice', 'Once'])
 })

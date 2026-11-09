@@ -13,12 +13,8 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
   order or the original lecture order (including answer choices).
 - On a course page, **All lectures** mixes every current lecture in one round and **Quick mix**
   takes 10 questions across them (due, missed and new first). Tick **Mix** on two or more
-  lectures to practice just those together.
-- **Midterm practice** (courses with multiple choice): choose a lecture range (L1–Ln) and
-  20, 30 or all questions. It is a test round: random multiple-choice questions, no feedback
-  or second tries until the end, **Skip** leaves a question blank (counts as wrong), and a
-  clock shows the time used (pauses excluded). Results show the time; the course page shows
-  the last test. The answers still count for spaced repetition.
+  lectures to practice just those together. Mock tests and question banks are listed
+  separately and are not part of **All lectures**.
 - Progress is saved automatically in this browser: question and answer order,
   selections, essay draft, model-answer visibility and recorded attempts.
   **Pause** returns to lecture selection; **Continue session** restores the round.
@@ -27,12 +23,14 @@ Built with Vite + React + TypeScript. No backend: everything is static files.
 - Multiple-choice scoring requires exactly the correct selections. The **Answer first**
   switch in the quiz header (remembered per device, off by default) hides the options
   until you have recalled an answer and press **Show options**.
-- Essays are self-assessed as **Knew it**, **Partly**, or **Need practice**. After the model
-  answer is shown, tick the key points your answer covered; the app suggests a mark (all
-  points = Knew it, at least half = Partly, else Need practice) and you can still pick another.
-  Results list each key point as covered or not.
-- A missed or partly recalled question comes back once, four questions later in the
-  same round ("Second try"). The score counts first tries only.
+- Essays are self-assessed as **Knew it**, **Partly**, or **Need practice**. Write an answer
+  (optional; Ctrl+Enter shows the model answer), then compare it with the key points shown
+  right below it. Tick the points your answer covered; once you tick one, the app suggests a
+  mark (all points = Knew it, at least half = Partly, else Need practice) and you can still
+  pick another. Results list each key point as covered or not.
+- A missed or partly recalled question comes back 10 questions later in the same round (or
+  at its end if sooner), until it is answered right, at most 3 tries. The score counts first
+  tries only.
 - Results show answered/total coverage, including early exits, and expandable
   explanations for missed or partly recalled questions. Review these questions
   or practice the remaining ones.

@@ -4,9 +4,8 @@ export interface StudySource { datasetId: string; questions: Question[] }
 // `retry` marks a missed question asked again later in the same round; it does not count for the score.
 export interface StudyQuestion { key: string; datasetId: string; question: Question; retry?: boolean }
 export type Assessment = 'correct' | 'partial' | 'wrong'
-// 'exam' = midterm practice: no feedback until the end, no second tries, clock running.
-export type StudyMode = 'full' | 'quick' | 'mixed' | 'review' | 'exam'
-const MODES: StudyMode[] = ['full', 'quick', 'mixed', 'review', 'exam']
+export type StudyMode = 'full' | 'quick' | 'mixed' | 'review'
+const MODES: StudyMode[] = ['full', 'quick', 'mixed', 'review']
 export interface Attempt { item: StudyQuestion; assessment: Assessment; selected: number[]; draft: string }
 export interface StudySession {
   version: 1
@@ -24,11 +23,10 @@ export interface StudySession {
   attempts: Attempt[]
   finished: boolean
   savedAt: number
-  elapsed?: number // exam mode: milliseconds spent answering, pauses excluded
 }
 export interface StudyResult {
   sessionId: string; datasetIds: string[]; mode: StudyMode; total: number
-  correct: number; partial: number; answered: number; completedAt: number; elapsed?: number
+  correct: number; partial: number; answered: number; completedAt: number
 }
 
 const SESSION_KEY = 'drill.session.v1'
@@ -37,7 +35,10 @@ const HISTORY_KEY = 'drill.history.v1'
 const ANSWER_FIRST_KEY = 'drill.answerFirst'
 const DAY = 24 * 60 * 60 * 1000
 const BOX_DAYS = [1, 3, 7, 14, 30] // days until a question is due again, for boxes 1-5
-const RETRY_GAP = 4 // a missed question comes back after this many other questions
+// A missed question comes back after this many other questions, or at the end of the round if that is sooner.
+// A longer gap makes the retry harder and the memory more lasting; the cap keeps retries reachable in long rounds.
+const RETRY_GAP = 10
+const MAX_TRIES = 3 // tries per question in one round: the first plus up to two second tries
 
 export function shuffle<T>(items: T[]): T[] {
   const result = [...items]
@@ -65,7 +66,8 @@ export function bankOf(sources: StudySource[]): StudyQuestion[] {
 // Per-question history (Leitner boxes). Keyed by the question's stable id, so it survives reordering
 // and edits of the text. Questions without an id fall back to a hash of their text; ids were created
 // from that same hash, so history recorded before ids existed still matches.
-export interface QuestionHistory { box: number; due: number; last: Assessment }
+// lapses: how often the question was missed or only partly recalled (absent = never).
+export interface QuestionHistory { box: number; due: number; last: Assessment; lapses?: number }
 export type History = Record<string, QuestionHistory>
 
 export function historyKey(item: { datasetId: string; question: Question }) {
@@ -78,7 +80,8 @@ export function readHistory(): History {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
     return Object.fromEntries(Object.entries(value as Record<string, QuestionHistory>).filter(([, h]) => h
       && Number.isInteger(h.box) && h.box >= 1 && h.box <= BOX_DAYS.length && Number.isFinite(h.due)
-      && ['correct', 'partial', 'wrong'].includes(h.last)))
+      && ['correct', 'partial', 'wrong'].includes(h.last)
+      && (h.lapses === undefined || (Number.isInteger(h.lapses) && h.lapses >= 0))))
   } catch { return {} }
 }
 
@@ -86,10 +89,10 @@ export function readHistory(): History {
 // count as spaced recall). Anything else sends it back to box 1, due tomorrow.
 export function nextHistory(prev: QuestionHistory | undefined, assessment: Assessment, now = Date.now()): QuestionHistory {
   const today = new Date(now).setHours(0, 0, 0, 0)
-  if (assessment !== 'correct') return { box: 1, due: today + DAY, last: assessment }
+  if (assessment !== 'correct') return { box: 1, due: today + DAY, last: assessment, lapses: (prev?.lapses ?? 0) + 1 }
   if (prev && prev.due > now) return { ...prev, last: 'correct' }
   const box = Math.min((prev?.box ?? 0) + 1, BOX_DAYS.length)
-  return { box, due: today + BOX_DAYS[box - 1] * DAY, last: 'correct' }
+  return { box, due: today + BOX_DAYS[box - 1] * DAY, last: 'correct', ...(prev?.lapses ? { lapses: prev.lapses } : {}) }
 }
 
 export function recordHistory(item: StudyQuestion, assessment: Assessment) {
@@ -112,18 +115,19 @@ export function pruneHistory(sources: StudySource[]) {
 export const isDue = (h: QuestionHistory | undefined, now = Date.now()) => !!h && h.due <= now
 export const isWeak = (h: QuestionHistory | undefined) => !!h && h.last !== 'correct'
 
-// Quick practice order: due first, then missed, then never seen, then the rest.
+// Quick practice and review order: due first, then missed, then never seen, then the rest;
+// within each group the questions missed most often come first.
 function priorityOf(h: QuestionHistory | undefined, now: number) {
-  return isDue(h, now) ? 0 : isWeak(h) ? 1 : !h ? 2 : 3
+  return (isDue(h, now) ? 0 : isWeak(h) ? 1 : !h ? 2 : 3) * 1000 - Math.min(h?.lapses ?? 0, 999)
 }
 
 export function createSession(sources: StudySource[], title: string, options: {
-  shuffled?: boolean; limit?: number; review?: StudyQuestion[]; history?: History; exam?: boolean
+  shuffled?: boolean; limit?: number; review?: StudyQuestion[]; history?: History
 } = {}): StudySession {
   const shuffled = options.shuffled ?? true
   const bank = options.review ?? bankOf(sources)
   let ordered = shuffled ? shuffle(bank) : [...bank]
-  if (options.limit && options.history) {
+  if (options.history && (options.limit || options.review)) {
     const history = options.history, now = Date.now()
     ordered = ordered.map((item) => ({ item, p: priorityOf(history[historyKey(item)], now) }))
       .sort((a, b) => a.p - b.p).map(({ item }) => item)
@@ -136,9 +140,9 @@ export function createSession(sources: StudySource[], title: string, options: {
   return {
     version: 1, id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
     title, datasetIds: sources.map((source) => source.datasetId), revision: revisionOf(sources),
-    mode: options.exam ? 'exam' : options.review ? 'review' : options.limit ? 'quick' : sources.length > 1 ? 'mixed' : 'full',
+    mode: options.review ? 'review' : options.limit ? 'quick' : sources.length > 1 ? 'mixed' : 'full',
     shuffled, round, index: 0, selected: [], revealed: false, draft: '',
-    attempts: [], finished: false, savedAt: Date.now(), ...(options.exam ? { elapsed: 0 } : {}),
+    attempts: [], finished: false, savedAt: Date.now(),
   }
 }
 
@@ -150,12 +154,13 @@ export function checkSelection(question: Question, selected: number[]) {
   return { ok: missed === 0 && incorrect === 0, missed, incorrect, correct }
 }
 
-// A missed question (first try only) is put back into the round a few questions later.
+// A missed question is put back into the round a few questions later, until it is answered
+// correctly or has had MAX_TRIES tries.
 export function recordAttempt(session: StudySession, assessment: Assessment): StudySession {
   if (session.finished || session.attempts.length > session.index) return session
   const item = session.round[session.index]
   let round = session.round
-  if (assessment !== 'correct' && !item.retry && session.mode !== 'exam') {
+  if (assessment !== 'correct' && tryNumber(session) < MAX_TRIES) {
     const question = session.shuffled && item.question.answers
       ? { ...item.question, answers: shuffle(item.question.answers) } : item.question
     const at = Math.min(session.index + 1 + RETRY_GAP, round.length)
@@ -166,16 +171,16 @@ export function recordAttempt(session: StudySession, assessment: Assessment): St
   }] }
 }
 
-// "4:05" for the exam clock; "1:02:05" past an hour.
-export function formatDuration(ms: number) {
-  const s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, sec = String(s % 60).padStart(2, '0')
-  return h ? `${h}:${String(m).padStart(2, '0')}:${sec}` : `${m}:${sec}`
-}
-
 // Essay mark suggested from ticked key points: all = correct, at least half = partial, else wrong.
 export function suggestedAssessment(ticked: number, total: number): Assessment | null {
   if (total <= 0) return null
   return ticked >= total ? 'correct' : ticked * 2 >= total ? 'partial' : 'wrong'
+}
+
+// 1 for the first try of the current question, 2 for its first second try, and so on.
+export function tryNumber(session: StudySession) {
+  const key = session.round[session.index].key
+  return session.attempts.slice(0, session.index).filter((attempt) => attempt.item.key === key).length + 1
 }
 
 // Score and review lists count only the first try of each question.
@@ -229,7 +234,6 @@ export function readSession(): StudySession | null {
       || typeof s.title !== 'string' || typeof s.revision !== 'string'
       || !Array.isArray(s.datasetIds) || !s.datasetIds.length || !s.datasetIds.every((id) => typeof id === 'string')
       || !MODES.includes(s.mode) || typeof s.shuffled !== 'boolean'
-      || (s.elapsed !== undefined && !(Number.isFinite(s.elapsed) && s.elapsed >= 0))
       || !Array.isArray(s.round) || !s.round.length || !s.round.every(isItem)
       || !Number.isInteger(s.index) || s.index < 0 || s.index >= s.round.length
       || typeof s.draft !== 'string' || typeof s.revealed !== 'boolean' || !Number.isFinite(s.savedAt)
@@ -317,7 +321,6 @@ export function saveResult(session: StudySession) {
     sessionId: session.id, datasetIds: session.datasetIds, mode: session.mode, total: questionCount(session),
     answered: attempts.length, correct: attempts.filter((a) => a.assessment === 'correct').length,
     partial: attempts.filter((a) => a.assessment === 'partial').length, completedAt: Date.now(),
-    ...(session.elapsed !== undefined ? { elapsed: session.elapsed } : {}),
   }
   return write(RESULTS_KEY, [result, ...results].slice(0, 100))
 }
